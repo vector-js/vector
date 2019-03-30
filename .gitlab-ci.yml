@@ -1,0 +1,15 @@
+image: node:latest
+
+stages:
+  - test
+
+test:
+  tags:
+    - library
+  stage: test
+  script:
+    # install dependencies
+  - npm install
+    # run tests
+  - npm test
+  - echo "Testing Done!"
