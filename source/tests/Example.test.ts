@@ -8,5 +8,9 @@ describe('Example', function () {
         it('should return the string hello', function () {
             expect(hello()).to.equal('hello');
         });
+
+        it('another simple test', function () {
+            expect(true).to.equal(true);
+        });
     });
 });
