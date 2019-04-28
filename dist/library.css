@@ -1,0 +1,53 @@
+
+.interactive {
+  margin:16px;
+}
+
+.window {
+  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.1), 0 3px 10px 0 rgba(0,0,0,0.19);
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+svg {
+  font-family:  monospace,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.default {
+  stroke:black;
+  stroke-width:1px;
+  fill:none;
+}
+
+
+text {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
+}
+
+.control-point {
+  fill:#0366EE;
+}
+
+.control-handle {
+  fill:transparent;
+  stroke: #0366EE;
+  stroke-width:2px;
+  opacity:0;
+}
+
+.control-handle.highlight {
+  opacity:1;
+}

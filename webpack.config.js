@@ -12,7 +12,7 @@ module.exports = {
   mode: 'development',
   target: 'web',
   devtool:"source-map",
-  entry: './source/libary.ts',
+  entry: './source/Library.ts',
   output: {
     path: path.resolve(__dirname, "./"),
     filename: 'dist/library.js'
