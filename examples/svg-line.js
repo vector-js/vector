@@ -3,9 +3,9 @@ let svg = SVG.SVG(id);
 svg.classList.add('window');
 
 let line = new Line( 0, 0, 0, 0);
+let text = new Text( 110, 280, "");
 let c1 = new Control( 150, 200);
 let c2 = new Control( 450, 100);
-let text = new Text( 110, 280, "");
 
 line.update = function() {
   this.x1 = c1.x;

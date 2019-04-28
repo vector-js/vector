@@ -7,10 +7,10 @@ let l1 = new Line( 0, 0, 0, 0);
 let l2 = new Line( 0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
 l2.stroke = 'cornflowerblue';
+let text = new Text( 110, 280, "");
 let c0 = new Control( 300, 150);
 let c1 = new Control( 450, 150);
 let c2 = new Control( 300, 100);
-let text = new Text( 110, 280, "");
 
 ellipse.update = function() {
   this.cx = c0.x;

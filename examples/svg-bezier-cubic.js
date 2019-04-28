@@ -55,7 +55,8 @@ l3.addDependency(c3);
 l3.addDependency(c4);
 
 // TODO: this is rather hacky, and probably best replaced by implementing the
-// tspan element in our SVG wrapper class.
+// tspan element in our SVG wrapper class. Added toFixed function call for
+// tablet and mobile using non-integer numbers, maybe there is a better way?
 text.update = function() {
   let tag = `<tspan style="fill:purple">path</tspan>`;
   let d = `<tspan style="fill:#ab6f00">d</tspan>`;

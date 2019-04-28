@@ -251,6 +251,7 @@ class Control extends _Element__WEBPACK_IMPORTED_MODULE_1__["default"] {
         window.onmouseup = function (event) {
             Control.handleInputEnd(event);
         };
+        // add mobile and tablet event listeners, set passive to false so chrome doesn't complain
         this.handle.addEventListener('touchstart', control.handleTouchStart.bind(this), { passive: false });
         window.addEventListener('touchend', Control.handleInputEnd, { passive: false });
         window.addEventListener('touchmove', Control.handleTouchMove, { passive: false });
