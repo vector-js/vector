@@ -31,7 +31,10 @@ text.update = function() {
   let y = `<tspan style="fill:#ab6f00">y</tspan>`;
   let width = `<tspan style="fill:#ab6f00">width</tspan>`;
   let height = `<tspan style="fill:#ab6f00">height</tspan>`;
-  this.contents = `&lt;${tag} ${x}="${rect.x} ${y}="${rect.y} ${width}="${rect.width} ${height}="${rect.height}"&gt`;
+  this.contents = `&lt;${tag} ${x}="${rect.x.toFixed(0)}
+                              ${y}="${rect.y.toFixed(0)} 
+                              ${width}="${rect.width.toFixed(0)}
+                              ${height}="${rect.height.toFixed(0)}"&gt`;
 }
 text.update();
 text.addDependency(rect);

@@ -65,7 +65,10 @@ text.update = function() {
   let cy = `<tspan style="fill:#ab6f00">cy</tspan>`;
   let rx = `<tspan style="fill:#ab6f00">rx</tspan>`;
   let ry = `<tspan style="fill:#ab6f00">ry</tspan>`;
-  this.contents = `&lt;${tag} ${cx}="${ellipse.cx} ${cy}="${ellipse.cy} ${rx}="${ellipse.rx} ${ry}="${ellipse.ry}"&gt`;
+  this.contents = `&lt;${tag} ${cx}="${ellipse.cx.toFixed(0)}
+                              ${cy}="${ellipse.cy.toFixed(0)}
+                              ${rx}="${ellipse.rx.toFixed(0)}
+                              ${ry}="${ellipse.ry.toFixed(0)}"&gt`;
 }
 text.update();
 text.addDependency(ellipse);

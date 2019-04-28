@@ -45,7 +45,12 @@ l2.addDependency(c3);
 text.update = function() {
   let tag = `<tspan style="fill:purple">path</tspan>`;
   let d = `<tspan style="fill:#ab6f00">d</tspan>`;
-  this.contents = `&lt;${tag} ${d}="${path.d}"&gt`;
+  this.contents = `&lt;${tag} ${d}="M ${c1.x.toFixed(0)}
+                                      ${c1.y.toFixed(0)}
+                                    Q ${c2.x.toFixed(0)}
+                                      ${c2.y.toFixed(0)}
+                                      ${c3.x.toFixed(0)}
+                                      ${c3.y.toFixed(0)}"&gt`;
 }
 text.update();
 text.addDependency(path);

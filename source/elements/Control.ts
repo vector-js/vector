@@ -84,26 +84,49 @@ export default class Control extends Element{
     }
 
     window.onmouseup = function( event:MouseEvent ) {
-      Control.handleMouseUp( event);
+      Control.handleInputEnd( event);
     }
+
+    this.handle.addEventListener('touchstart', control.handleTouchStart.bind(this), {passive:false});
+    window.addEventListener('touchend', Control.handleInputEnd, {passive:false});
+    window.addEventListener('touchmove', Control.handleTouchMove, {passive:false});
+
   }
 
   /**
   * Handles when the user moves their mouse over the window. If there is an
   * active control, the control's position is updated.
   */
-  static handleMouseMove( event:MouseEvent ) {
+  static handleMouseMove( event:MouseEvent|TouchEvent|any) {
     if( Control.active != null ) {
-      let x = event.clientX + Control.slopX;
-      let y = event.clientY + Control.slopY;
+      let x;
+      let y;
+      if( event.type === "touchmove") {
+          x = event.touches[0].clientX + Control.slopX;
+          y = event.touches[0].clientY + Control.slopY;
+          event.preventDefault();
+      }
+      else {
+          x = event.clientX + Control.slopX;
+          y = event.clientY + Control.slopY;
+      }
       Control.active.translate( x, y);
+    }
+  }
+
+  static handleTouchMove( event:TouchEvent) {
+    if( Control.active != null ) {
+      let x = event.touches[0].clientX + Control.slopX;
+      let y = event.touches[0].clientY + Control.slopY;
+      Control.active.translate( x, y);
+      event.preventDefault();
     }
   }
 
   /**
   * Handles when a use mouses up over the window.
   */
-  static handleMouseUp( event:MouseEvent ) {
+  static handleInputEnd( event:TouchEvent|MouseEvent) {
     if( Control.active != null ) {
 
       // remove highlighting from the active control and set to null
@@ -114,13 +137,16 @@ export default class Control extends Element{
       // active control, or a different element entirely. Currently, whichever
       // element is highest in the DOM order will be the target. In the future
       // the most recently active Control could be "promoted" for consistency.
-      event.target.dispatchEvent(new MouseEvent('mouseover', {
-        view: window,
-        bubbles: true,
-        cancelable: true
-      }));
+      if( event.type != "touchend" ) {
+        event.target.dispatchEvent(new MouseEvent('mouseover', {
+          view: window,
+          bubbles: true,
+          cancelable: true
+        }));
+      }
     }
   }
+
 
   /**
   * When a user mouses over a control, add the class "highlight" to the control
@@ -151,6 +177,19 @@ export default class Control extends Element{
       Control.active = this;
       Control.slopX = Control.active.x - event.clientX;
       Control.slopY = Control.active.y - event.clientY;
+    }
+  }
+
+  /**
+  * Handle when a user touches over a Control's handle. Stores the error in
+  * the user's input as well as stores which Control the user is clicking.
+  */
+  handleTouchStart( event:TouchEvent ) {
+    if( !Element.disable ) {
+      Control.active = this;
+      Control.slopX = Control.active.x - event.touches[0].clientX;
+      Control.slopY = Control.active.y - event.touches[0].clientY;
+      event.preventDefault();
     }
   }
 
