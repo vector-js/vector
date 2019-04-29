@@ -13,7 +13,6 @@ export default class Rectangle extends Element{
   */
   constructor( x:number, y:number, width:number, height:number ) {
     super();
-    this.creationNum = SVG.count;
     this.root = SVG.Rectangle( x, y, width, height);
     this.root.id = this.id;
   }
