@@ -4,8 +4,8 @@ import Element from './elements/Element';
 import Line from './elements/Line';
 import Path from './elements/Path';
 import Rectangle from './elements/Rectangle';
-import SVG from './elements/SVG';
 import Text from './elements/Text';
+import SVG from './SVG';
 
 // Add to the global (window) namespace
 (window as any).Control = Control;

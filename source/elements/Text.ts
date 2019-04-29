@@ -1,5 +1,4 @@
-
-import SVG from './SVG';
+import SVG from '../SVG';
 import Element from './Element';
 
 /**
