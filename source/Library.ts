@@ -17,11 +17,14 @@ import SVG from './SVG';
 (window as any).SVG = SVG;
 (window as any).Text = Text;
 
+// Export object for module use
 export {
   Control,
   Element,
   Ellipse,
   Line,
   Path,
-  Rectangle
+  Rectangle,
+  SVG,
+  Text
 };
