@@ -1,3 +1,9 @@
+/**
+* This file exposes the objects and functionality of our library in one place
+* allowing for backward (non-module) compatability using a tool such as rollup
+* or webpack.
+*/
+
 import Control from './elements/Control.js';
 import Ellipse from './elements/Ellipse.js';
 import Element from './elements/Element.js';
