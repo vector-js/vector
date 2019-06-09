@@ -1,6 +1,6 @@
-import SVG from '../SVG';
-import Element from './Element';
-import Point from './Point';
+import SVG from '../SVG.js';
+import Element from './Element.js';
+import Point from './Point.js';
 
 /**
 * A control is a draggable two dimensional point.
@@ -24,7 +24,6 @@ export default class Control extends Element{
   private _onchange : () => void;
 
   // Svg elements that make up the control
-  group: SVGGElement;
   point: SVGCircleElement;
   handle: SVGCircleElement;
 
@@ -43,12 +42,12 @@ export default class Control extends Element{
     super();
 
     // create the svg components
-    this.group = SVG.Group(['control']);
+    this.root = SVG.Group(['control']);
     this.point = SVG.Circle(0,0, Control.pointRadius, ['control-point']);
     this.handle = SVG.Circle(0,0, Control.handleRadius, ['control-handle']);
-    this.group.appendChild(this.point);
-    this.group.appendChild(this.handle);
-    this.group.id = this.id;
+    this.root.appendChild(this.point);
+    this.root.appendChild(this.handle);
+    this.root.id = this.id;
 
     // initialize instance variables
     this._x = x;
@@ -67,7 +66,7 @@ export default class Control extends Element{
     // register event handlers
     let control = this;
 
-    this.group.onmousedown = function( event:MouseEvent) {
+    this.root.onmousedown = function( event:MouseEvent) {
       control.handleMouseDown( event);
     };
 
@@ -209,7 +208,7 @@ export default class Control extends Element{
     this._y = point.y;
 
     // transform the position of the contorl
-    this.group.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
+    this.root.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
 
     // call the onchange function
     this._onchange();
@@ -221,7 +220,7 @@ export default class Control extends Element{
   set x( x : number ) {
     this._dx = x - this.x;
     this._x = x;
-    this.group.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
+    this.root.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
   }
 
   /**
@@ -230,7 +229,7 @@ export default class Control extends Element{
   set y( y : number ) {
     this._dy = y - this.y;
     this._y = y;
-    this.group.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
+    this.root.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
   }
 
   /**

@@ -1,4 +1,4 @@
-import Controller from "../Controller";
+import Controller from '../Controller.js';
 
 /**
 * Represents an element that lives within the ecosystem of our interactives.
@@ -26,11 +26,9 @@ export default class Element {
   private _id : string;
 
   /**
-  * The root element of the interactive
+  * The root element of this element
   */
   root : SVGElement;
-
-  creationNum : number;
 
   /**
   * The update function describes how this element should update itself
@@ -43,18 +41,23 @@ export default class Element {
   constructor() {
 
     // give this element an unique id
-    this._id = this.constructor.name + '-' + Element.count++;
+    this._id = `${this.constructor.name}-${Element.count++}`;
 
     // add this element to the controller
     Element.controller.add(this);
 
   }
 
+  /**
+  * Returns the unique generated identifier associated with this element.
+  */
   get id() : string {
     return this._id;
   }
 
-
+  /**
+  * Adds a dependency on the other element.
+  */
   addDependency( element: Element ) {
     Element.controller.dependencyGraph.addDependency( element, this);
   }
@@ -65,5 +68,4 @@ export default class Element {
   updateDependents() {
     Element.controller.update(this);
   }
-
 }

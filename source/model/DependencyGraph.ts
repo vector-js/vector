@@ -1,4 +1,4 @@
-import LinkedList from './LinkedList';
+import LinkedList from './LinkedList.js';
 
 /**
 A dependency graph models relationships between nodes. The graph is directed and asyclic, throwing a circular dependency exception if circular dependencies are added.

@@ -12,10 +12,15 @@ module.exports = {
   mode: 'development',
   target: 'web',
   devtool:"source-map",
-  entry: './source/Library.ts',
+  entry: {
+    'library' : './source/Library.ts',
+    'interactive' : './source/Interactive.ts',
+    'unit-circle-angle' : './source/examples/unit-circle-angle.ts',
+    'unit-circle-right-triangle' : './source/examples/unit-circle-right-triangle.ts'
+  },
   output: {
     path: path.resolve(__dirname, "./"),
-    filename: 'dist/library.js'
+    filename: 'dist/[name].js'
   },
   module: {
     rules: [

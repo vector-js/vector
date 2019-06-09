@@ -1,12 +1,9 @@
-import SVG from '../SVG';
-import Element from './Element';
+import SVG from '../SVG.js';
+import Element from './Element.js';
 
 
 export default class Ellipse extends Element {
 
-  /**
-  * The svg element
-  */
  root: SVGEllipseElement;
 
  /**
@@ -14,7 +11,6 @@ export default class Ellipse extends Element {
  */
  constructor( cx:number, cy:number, rx:number, ry:number ) {
    super();
-   this.creationNum = 0;
    this.root = SVG.Ellipse(cx, cy, rx, ry);
    this.root.id = this.id;
  }

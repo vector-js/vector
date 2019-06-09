@@ -8,17 +8,15 @@
   margin: auto;
   box-shadow: 0 5px 9px 0 rgba(0,0,0,0.1), 0 3px 10px 0 rgba(0,0,0,0.19);
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 svg {
-  font-family:  monospace,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Helvetica Neue",
-                Helvetica,
-                Arial,
-                sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  font-color: #404040;
+  font-family: monospace, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -28,19 +26,24 @@ svg {
   fill:none;
 }
 
-
 text {
+
+  font-style: monospace;
+  font-weight: normal;
+  font-family: monospace, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
      -moz-user-select: none; /* Firefox */
       -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently
-                                supported by Chrome and Opera */
+          user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
+
 
 .control-point {
   fill:#0366EE;
+  stroke:none;
 }
 
 .control-handle {

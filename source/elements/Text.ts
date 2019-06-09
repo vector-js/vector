@@ -1,5 +1,5 @@
-import SVG from '../SVG';
-import Element from './Element';
+import SVG from '../SVG.js';
+import Element from './Element.js';
 
 /**
 *
@@ -9,18 +9,26 @@ export default class Text extends Element {
   /**
   *
   */
-  text: SVGTextElement;
+  root: SVGTextElement;
 
   /**
   *
   */
   constructor( x:number, y:number, text:string ) {
     super();
-    this.text = SVG.Text( x, y, text );
-    this.text.id = this.id;
+    this.root = SVG.Text( x, y, text );
+    this.root.id = this.id;
   }
 
   set contents( str:string) {
-    this.text.innerHTML = str;
+    this.root.innerHTML = str;
+  }
+
+  set x( value:number ) {
+    this.root.setAttribute('x', value.toString());
+  }
+
+  set y( value:number ) {
+    this.root.setAttribute('y', value.toString());
   }
 }

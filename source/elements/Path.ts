@@ -1,5 +1,5 @@
-import SVG from '../SVG';
-import Element from './Element';
+import SVG from '../SVG.js';
+import Element from './Element.js';
 
 class Segment extends Element {
 
@@ -16,22 +16,19 @@ class Segment extends Element {
 */
 export default class Path extends Element {
 
-  /**
-  *
-  */
-  path: SVGPathElement;
+
+  root:SVGPathElement;
 
   /**
   *
   */
   constructor( d:string ) {
     super();
-    this.path = SVG.Path(d);
-    this.path.id = this.id;
+    this.root = SVG.Path(d);
+    this.root.id = this.id;
   }
 
   extend( command:string ) {
-
   }
 
   getPath( d:string ) : Segment[] {
@@ -39,11 +36,11 @@ export default class Path extends Element {
   }
 
   set d( d:string ) {
-    this.path.setAttribute('d', d);
+    this.root.setAttribute('d', d);
   }
 
   get d():string {
-    return this.path.getAttribute('d');
+    return this.root.getAttribute('d');
   }
 
 }

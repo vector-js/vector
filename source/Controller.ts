@@ -1,5 +1,5 @@
-import DependencyGraph from './model/DependencyGraph';
-import Element from './elements/Element';
+import DependencyGraph from './model/DependencyGraph.js';
+import Element from './elements/Element.js';
 
 /**
 * Controls the interactions between user input and visual changes to the

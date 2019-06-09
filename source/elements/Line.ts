@@ -1,5 +1,5 @@
-import SVG from '../SVG';
-import Element from './Element';
+import SVG from '../SVG.js';
+import Element from './Element.js';
 
 export default class Line extends Element {
 
