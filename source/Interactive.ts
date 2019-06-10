@@ -1,6 +1,5 @@
 import SVG from './SVG.js';
 import Control from './elements/Control.js';
-import Element from './elements/Element.js';
 import Ellipse from './elements/Ellipse.js';
 import Path from './elements/Path.js';
 import Circle from './elements/Circle.js';

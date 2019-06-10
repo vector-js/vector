@@ -1,0 +1,60 @@
+/**
+* An interactive to demonstrate how the radius of a circle can be used to
+* measure the angle between two rays.
+*
+* June 9, 2019
+* Kurt Bruns
+*/
+import Interactive from '../Interactive.js';
+// Initialize the interactive
+let id = 'unit-circle-right-triangle';
+let interactive = new Interactive(id);
+interactive.window = false;
+interactive.width = 320;
+interactive.height = 320;
+interactive.originX = interactive.width / 2;
+interactive.originY = interactive.height / 2;
+// Create a circle
+let circle = interactive.circle(0, 0, 100);
+// Create a control
+let control = interactive.control(circle.r * Math.cos(-1), circle.r * Math.sin(-1));
+control.constrainToCircle(circle.cx, circle.cy, circle.r);
+// Create a path
+let path = interactive.path('');
+path.root.style.fill = 'gray';
+path.root.style.fillOpacity = '.3';
+path.update = function () {
+    let flag = (control.y > 0) ? 1 : 0;
+    path.d = `M 0 0
+            L ${control.x} 0
+            L ${control.x} ${control.y}
+            z`;
+};
+path.update();
+path.addDependency(control);
+// Create a point at the origin
+let point = interactive.circle(0, 0, 3);
+point.fill = 'black';
+// Gets the normalized angle between zero and tau. TODO: Maybe transform the
+// coordinate system so that the positive y-direction is up instead of down.
+// UPDATE: transform = 'scale(1,-1)' applied to the main svg  didn't quite work
+// as expected: the text element was upside down, but maybe that could be
+// reversed? bleh.
+function getAngle() {
+    if (control.y <= 0) {
+        return Math.abs(Math.atan2(control.y, control.x));
+    }
+    else {
+        return Math.PI * 2 - Math.atan2(control.y, control.x);
+    }
+}
+// Create text to display the current angle. TODO: add a check-box to change
+// between radians and degrees
+let text = interactive.text(0, 130, "test");
+text.addDependency(control);
+text.update = function () {
+    text.contents = `angle = ${getAngle().toFixed(3)}`;
+};
+text.update();
+text.x = -text.root.textLength.baseVal.value / 2;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidW5pdC1jaXJjbGUtcmlnaHQtdHJpYW5nbGUuanMiLCJzb3VyY2VSb290IjoiLi9zb3VyY2UvIiwic291cmNlcyI6WyJleGFtcGxlcy91bml0LWNpcmNsZS1yaWdodC10cmlhbmdsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0VBTUU7QUFFRixPQUFPLFdBQVcsTUFBTSxtQkFBbUIsQ0FBQztBQUU1Qyw2QkFBNkI7QUFDN0IsSUFBSSxFQUFFLEdBQUcsNEJBQTRCLENBQUM7QUFDdEMsSUFBSSxXQUFXLEdBQUcsSUFBSSxXQUFXLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDdEMsV0FBVyxDQUFDLE1BQU0sR0FBRyxLQUFLLENBQUM7QUFDM0IsV0FBVyxDQUFDLEtBQUssR0FBRyxHQUFHLENBQUM7QUFDeEIsV0FBVyxDQUFDLE1BQU0sR0FBRyxHQUFHLENBQUM7QUFDekIsV0FBVyxDQUFDLE9BQU8sR0FBRyxXQUFXLENBQUMsS0FBSyxHQUFDLENBQUMsQ0FBQztBQUMxQyxXQUFXLENBQUMsT0FBTyxHQUFHLFdBQVcsQ0FBQyxNQUFNLEdBQUMsQ0FBQyxDQUFDO0FBRTNDLGtCQUFrQjtBQUNsQixJQUFJLE1BQU0sR0FBRyxXQUFXLENBQUMsTUFBTSxDQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsR0FBRyxDQUFDLENBQUM7QUFFNUMsbUJBQW1CO0FBQ25CLElBQUksT0FBTyxHQUFHLFdBQVcsQ0FBQyxPQUFPLENBQUUsTUFBTSxDQUFDLENBQUMsR0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQUUsTUFBTSxDQUFDLENBQUMsR0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUNqRixPQUFPLENBQUMsaUJBQWlCLENBQUUsTUFBTSxDQUFDLEVBQUUsRUFBRSxNQUFNLENBQUMsRUFBRSxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUUzRCxnQkFBZ0I7QUFDaEIsSUFBSSxJQUFJLEdBQUcsV0FBVyxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsQ0FBQztBQUNoQyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLEdBQUcsTUFBTSxDQUFDO0FBQzlCLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUM7QUFDbkMsSUFBSSxDQUFDLE1BQU0sR0FBRztJQUNaLElBQUksSUFBSSxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDbkMsSUFBSSxDQUFDLENBQUMsR0FBRztnQkFDSyxPQUFPLENBQUMsQ0FBQztnQkFDVCxPQUFPLENBQUMsQ0FBQyxJQUFJLE9BQU8sQ0FBQyxDQUFDO2NBQ3hCLENBQUM7QUFDZixDQUFDLENBQUM7QUFDRixJQUFJLENBQUMsTUFBTSxFQUFFLENBQUM7QUFDZCxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBRTVCLCtCQUErQjtBQUMvQixJQUFJLEtBQUssR0FBRyxXQUFXLENBQUMsTUFBTSxDQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7QUFDekMsS0FBSyxDQUFDLElBQUksR0FBRyxPQUFPLENBQUM7QUFFckIsNEVBQTRFO0FBQzVFLDRFQUE0RTtBQUM1RSwrRUFBK0U7QUFDL0UseUVBQXlFO0FBQ3pFLGtCQUFrQjtBQUNsQixTQUFTLFFBQVE7SUFDZixJQUFJLE9BQU8sQ0FBQyxDQUFDLElBQUksQ0FBQyxFQUFHO1FBQ25CLE9BQU8sSUFBSSxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFFLE9BQU8sQ0FBQyxDQUFDLEVBQUUsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7S0FDcEQ7U0FBTTtRQUNMLE9BQU8sSUFBSSxDQUFDLEVBQUUsR0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBRSxPQUFPLENBQUMsQ0FBQyxFQUFFLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQztLQUN0RDtBQUNILENBQUM7QUFFRCw0RUFBNEU7QUFDNUUsOEJBQThCO0FBQzlCLElBQUksSUFBSSxHQUFHLFdBQVcsQ0FBQyxJQUFJLENBQUUsQ0FBQyxFQUFFLEdBQUcsRUFBRSxNQUFNLENBQUMsQ0FBQztBQUM3QyxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBQzVCLElBQUksQ0FBQyxNQUFNLEdBQUc7SUFDWixJQUFJLENBQUMsUUFBUSxHQUFHLFdBQVcsUUFBUSxFQUFFLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUM7QUFDckQsQ0FBQyxDQUFDO0FBQ0YsSUFBSSxDQUFDLE1BQU0sRUFBRSxDQUFDO0FBQ2QsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxLQUFLLEdBQUMsQ0FBQyxDQUFDIn0=

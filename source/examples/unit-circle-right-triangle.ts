@@ -29,7 +29,6 @@ let path = interactive.path('');
 path.root.style.fill = 'gray';
 path.root.style.fillOpacity = '.3';
 path.update = function() {
-  let flag = (control.y > 0) ? 1 : 0;
   path.d = `M 0 0
             L ${control.x} 0
             L ${control.x} ${control.y}
