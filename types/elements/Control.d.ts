@@ -90,6 +90,7 @@ export default class Control extends Element {
     * arguments. TODO: change to constrain to path.
     */
     constrainToCircle(cx: number, cy: number, r: number): void;
+    constrainToBox(x1: number, y1: number, x2: number, y2: number): void;
     constrainToX(): void;
     constrainToY(): void;
 }

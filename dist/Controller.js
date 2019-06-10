@@ -5,7 +5,7 @@ import DependencyGraph from './model/DependencyGraph.js';
 */
 export default class Controller {
     /**
-    * Constructs a new Controller
+    * Constructs a interactive.controller
     */
     constructor() {
         this.dependencyGraph = new DependencyGraph();

@@ -2,6 +2,7 @@
 * An interactive to demonstrate how the radius of a circle can be used to
 * measure the angle between two rays.
 *
+* @title Unit Circle Angle
 * @date June 9, 2019
 * @author Kurt Bruns
 */
@@ -11,7 +12,7 @@ import Interactive from '../Interactive.js';
 // Initialize the interactive
 let id = 'unit-circle-angle';
 let interactive = new Interactive(id);
-interactive.window = false;
+interactive.window = true;
 interactive.width = 320;
 interactive.height = 320;
 interactive.originX = interactive.width/2;

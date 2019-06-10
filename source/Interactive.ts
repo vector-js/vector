@@ -1,15 +1,20 @@
 import SVG from './SVG.js';
+import Circle from './elements/Circle.js';
 import Control from './elements/Control.js';
 import Ellipse from './elements/Ellipse.js';
+import Line from './elements/Line.js';
 import Path from './elements/Path.js';
-import Circle from './elements/Circle.js';
 import Text from './elements/Text.js';
+import Rectangle from './elements/Rectangle.js';
+import Slider from './elements/Slider.js';
+import CheckBox from './elements/CheckBox.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together.
 */
 export default class Interactive  {
+
 
   /**
   * The container element for this interactive.
@@ -160,30 +165,81 @@ export default class Interactive  {
     this.svg.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
   }
 
-  path( d: string ): Path {
-    let path = new Path(d);
-    this.background.appendChild(path.root);
-    return path;
+  /**
+  * Creates a control within this interactive.
+  */
+  checkBox( x:number, y:number, label:string, value:boolean, ) : CheckBox {
+    let checkBox = new CheckBox(x, y, label, value);
+    this.controls.appendChild(checkBox.root);
+    return checkBox;
   }
 
-  ellipse( cx:number, cy:number, rx:number, ry:number) : Ellipse {
-    let ellipse = new Ellipse( cx, cy, rx, ry);
-    this.background.appendChild(ellipse.root);
-    return ellipse;
-  }
-
+  /**
+  * Creates a circle within this interactive.
+  */
   circle( cx:number, cy:number, r:number) : Circle {
     let circle = new Circle( cx, cy, r);
     this.background.appendChild(circle.root);
     return circle;
   }
 
+  /**
+  * Creates a control within this interactive.
+  */
   control( x:number, y:number ) : Control {
     let control = new Control( x, y);
     this.controls.appendChild(control.root);
     return control;
   }
 
+  /**
+  * Creates an ellipse within this interactive.
+  */
+  ellipse( cx:number, cy:number, rx:number, ry:number) : Ellipse {
+    let ellipse = new Ellipse( cx, cy, rx, ry);
+    this.background.appendChild(ellipse.root);
+    return ellipse;
+  }
+
+  /**
+  * Creates a line within this interactive.
+  */
+  line( x1:number, y1:number, x2:number, y2:number ) : Line {
+    let line = new Line( x1, y1, x2, y2);
+    this.background.appendChild(line.root);
+    return line;
+  }
+
+  /**
+  * Creates a path within this interactive.
+  */
+  path( d: string ): Path {
+    let path = new Path(d);
+    this.background.appendChild(path.root);
+    return path;
+  }
+
+  /**
+  * Creates a rectangle object within this interactive.
+  */
+  rectangle( x:number, y:number, width:number, height:number) : Rectangle {
+    let rectangle = new Rectangle( x, y, width, height);
+    this.background.appendChild(rectangle.root);
+    return rectangle;
+  }
+
+  /**
+  * Places a slider at the provided location
+  */
+  slider(x: number, y: number, width?: number, value?:number) : Slider {
+    let slider = new Slider(x, y, width, value);
+    this.controls.appendChild(slider.root);
+    return slider;
+  }
+
+  /**
+  * Creates a text within this interactive.
+  */
   text( x:number, y:number, contents:string ) : Text {
     let text = new Text( x, y, contents);
     this.background.appendChild(text.root);

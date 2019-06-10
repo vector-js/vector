@@ -1,8 +1,12 @@
+import Circle from './elements/Circle.js';
 import Control from './elements/Control.js';
 import Ellipse from './elements/Ellipse.js';
+import Line from './elements/Line.js';
 import Path from './elements/Path.js';
-import Circle from './elements/Circle.js';
 import Text from './elements/Text.js';
+import Rectangle from './elements/Rectangle.js';
+import Slider from './elements/Slider.js';
+import CheckBox from './elements/CheckBox.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together.
@@ -77,9 +81,40 @@ export default class Interactive {
     */
     readonly minY: number;
     setViewBox(minX: number, minY: number, width: number, height: number): void;
-    path(d: string): Path;
-    ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse;
+    /**
+    * Creates a control within this interactive.
+    */
+    checkBox(x: number, y: number, label: string, value: boolean): CheckBox;
+    /**
+    * Creates a circle within this interactive.
+    */
     circle(cx: number, cy: number, r: number): Circle;
+    /**
+    * Creates a control within this interactive.
+    */
     control(x: number, y: number): Control;
+    /**
+    * Creates an ellipse within this interactive.
+    */
+    ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse;
+    /**
+    * Creates a line within this interactive.
+    */
+    line(x1: number, y1: number, x2: number, y2: number): Line;
+    /**
+    * Creates a path within this interactive.
+    */
+    path(d: string): Path;
+    /**
+    * Creates a rectangle object within this interactive.
+    */
+    rectangle(x: number, y: number, width: number, height: number): Rectangle;
+    /**
+    * Places a slider at the provided location
+    */
+    slider(x: number, y: number, width?: number, value?: number): Slider;
+    /**
+    * Creates a text within this interactive.
+    */
     text(x: number, y: number, contents: string): Text;
 }

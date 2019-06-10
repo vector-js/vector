@@ -133,7 +133,7 @@ export default class Control extends Element{
       Control.active.handle.classList.remove('highlight');
       Control.active = null;
 
-      // fire a mouseover event to highlight either: a new control, the recently
+      // fire a mouseover event to highlight either: a interactive.control, the recently
       // active control, or a different element entirely. Currently, whichever
       // element is highest in the DOM order will be the target. In the future
       // the most recently active Control could be "promoted" for consistency.
@@ -286,6 +286,21 @@ export default class Control extends Element{
       // Return the new position
       return {x:x, y:y};
 
+    };
+  }
+
+  constrainToBox( x1:number, y1:number, x2:number, y2:number) {
+    this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
+
+      let x  = newPosition.x;
+      let y = newPosition.y;
+
+      if( x < x1) {x = x1;}
+      if( y < y1) {y = y1;}
+      if( x > x2) {x = x2;}
+      if( y > y2) {y = y2;}
+
+      return {x:x, y:y};
     };
   }
 

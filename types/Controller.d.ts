@@ -14,7 +14,7 @@ export default class Controller {
     */
     dependencyGraph: DependencyGraph<Element>;
     /**
-    * Constructs a new Controller
+    * Constructs a interactive.controller
     */
     constructor();
     /**
