@@ -150,14 +150,14 @@ export default class Interactive  {
   * Returns the minimum x-coordinate of this interactive.
   */
   get minX() : number {
-    return this.originX - this.width;
+    return -this.originX;
   }
 
   /**
   * Returns the minimum y-coordinate of this interactive.
   */
   get minY() : number {
-    return this.originY - this.height;
+    return -this.originY;
   }
 
   // TODO: look into css transform-origin

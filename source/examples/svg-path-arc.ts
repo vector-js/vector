@@ -23,6 +23,8 @@ let ry = interactive.slider( 400, 60, 150, 75);
 
 // TODO: possibly remove the x-axis-rotation because why would you ever use it?
 let xAxisRotation = interactive.slider( 400, 90, 150, 0);
+xAxisRotation.min = 0;
+xAxisRotation.max = 180;
 let largeArcFlag = interactive.checkBox( 400, 120, "large-arc-flag", false);
 let sweepFlag = interactive.checkBox( 400, 150, "sweep-flag", false);
 

@@ -14,9 +14,9 @@ let id = 'unit-circle-angle';
 let interactive = new Interactive(id);
 interactive.window = true;
 interactive.width = 320;
-interactive.height = 320;
+interactive.height = 340;
 interactive.originX = interactive.width/2;
-interactive.originY = interactive.height/2;
+interactive.originY = 125;
 
 // Create a circle
 let circle = interactive.circle( 0, 0, 100);
@@ -45,25 +45,36 @@ path.addDependency(control);
 let point = interactive.circle( 0, 0, 3);
 point.fill = 'black';
 
+// Create a checkbox to toggle between displaying radians and degrees
+let degrees = interactive.checkBox( -80, 180, "degrees", false);
+
 // Gets the normalized angle between zero and tau. TODO: Maybe transform the
 // coordinate system so that the positive y-direction is up instead of down.
 // UPDATE: transform = 'scale(1,-1)' applied to the main svg  didn't quite work
 // as expected: the text element was upside down, but maybe that could be
 // reversed? bleh.
-function getAngle() {
+function getAngle() : string {
+  let angle: number;
   if( control.y <= 0 ) {
-    return Math.abs(Math.atan2( control.y, control.x));
+    angle = Math.abs(Math.atan2( control.y, control.x));
   } else {
-    return Math.PI*2 - Math.atan2( control.y, control.x);
+    angle = Math.PI*2 - Math.atan2( control.y, control.x);
+  }
+
+  if( degrees.value ) {
+    return (angle*180/Math.PI).toFixed(1) + '°';
+  } else {
+    return angle.toFixed(3) + ' rad';
   }
 }
 
 // Create text to display the current angle. TODO: add a check-box to change
 // between radians and degrees
-let text = interactive.text( 0, 130, "test");
+let text = interactive.text( 0, 150, "test");
 text.addDependency(control);
 text.update = function() {
-  text.contents = `angle = ${getAngle().toFixed(3)}`;
+  text.contents = `angle = ${getAngle()}`;
 };
+text.addDependency(degrees);
 text.update();
 text.x = -text.root.textLength.baseVal.value/2;

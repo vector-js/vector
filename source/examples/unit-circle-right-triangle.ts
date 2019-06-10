@@ -16,7 +16,7 @@ interactive.window = true;
 interactive.width = 320;
 interactive.height = 320;
 interactive.originX = interactive.width/2;
-interactive.originY = interactive.height/2;
+interactive.originY = 125;
 
 // Create a circle
 let circle = interactive.circle( 0, 0, 100);
@@ -42,25 +42,21 @@ path.addDependency(control);
 let point = interactive.circle( 0, 0, 3);
 point.fill = 'black';
 
-// Gets the normalized angle between zero and tau. TODO: Maybe transform the
-// coordinate system so that the positive y-direction is up instead of down.
-// UPDATE: transform = 'scale(1,-1)' applied to the main svg  didn't quite work
-// as expected: the text element was upside down, but maybe that could be
-// reversed? bleh.
-function getAngle() {
-  if( control.y <= 0 ) {
-    return Math.abs(Math.atan2( control.y, control.x));
-  } else {
-    return Math.PI*2 - Math.atan2( control.y, control.x);
-  }
-}
-
-// Create text to display the current angle. TODO: add a check-box to change
-// between radians and degrees
-let text = interactive.text( 0, 130, "test");
-text.addDependency(control);
-text.update = function() {
-  text.contents = `angle = ${getAngle().toFixed(3)}`;
+// Display the x cordinate
+let x = interactive.text( 0, 135, "test");
+x.root.style.whiteSpace = 'pre';
+x.addDependency(control);
+x.update = function() {
+  x.contents = `<tspan>x = ${control.x > 0 ? ' ' : ''}${(control.x/circle.r).toFixed(2)}</tspan>`;
 };
-text.update();
-text.x = -text.root.textLength.baseVal.value/2;
+x.update();
+x.x = -x.root.textLength.baseVal.value/2;
+
+let y = interactive.text( 0, 165, "test");
+y.root.style.whiteSpace = 'pre';
+y.addDependency(control);
+y.update = function() {
+  y.contents = `y = ${control.y <= 0 ? ' ' : ''}${(-control.y/circle.r).toFixed(2)}`;
+};
+y.update();
+y.x = -y.root.textLength.baseVal.value/2;
