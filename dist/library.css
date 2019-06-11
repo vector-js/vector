@@ -6,7 +6,7 @@
 .window {
   display: block;
   margin: auto;
-  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.15), 0 3px 10px 0 rgba(0,0,0,0.19);
   overflow: hidden;
   border-radius: 6px;
 }
