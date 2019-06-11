@@ -10,5 +10,6 @@ import Line from './elements/Line.js';
 import Path from './elements/Path.js';
 import Rectangle from './elements/Rectangle.js';
 import Text from './elements/Text.js';
+import Interactive from './Interactive.js';
 import SVG from './SVG.js';
-export { Control, Element, Ellipse, Line, Path, Rectangle, SVG, Text };
+export { Control, Element, Ellipse, Interactive, Line, Path, Rectangle, SVG, Text };

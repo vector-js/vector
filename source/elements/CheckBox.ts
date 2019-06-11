@@ -11,11 +11,6 @@ export default class CheckBox extends Element{
 
   /**
   * Constructs a control at the position (x,y)
-  *
-  * @param {number} x
-  * @param {number} y
-  * @param {string} label
-  * @param {booelan} value
   */
   constructor( x:number, y:number, label:string, value:boolean ) {
     super();

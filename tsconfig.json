@@ -7,7 +7,6 @@
       "es5",
       "es6",
       "dom",
-      "DOM.Iterable ",
       "es2015.core",
       "es2015.collection",
       "es2015.generator",

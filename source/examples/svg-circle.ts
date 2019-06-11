@@ -1,9 +1,11 @@
 /**
-* This interactive demonstrates the SVG ellipse element and its attributes.
-*
-* @title SVG Ellipse
-* @date May 3, 2019
-* @author Kurt Bruns
+---
+title: SVG Ellipse
+author: Kurt Bruns
+description: This interactive demonstrates the SVG ellipse element and its attributes.
+input:
+  - center control :
+---
 */
 
 import Interactive from '../Interactive.js';

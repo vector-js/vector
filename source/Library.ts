@@ -15,22 +15,15 @@ import Text from './elements/Text.js';
 import Interactive from './Interactive.js';
 import SVG from './SVG.js';
 
-// Add to the global (window) namespace
-(window as any).Control = Control;
-(window as any).Element = Element;
-(window as any).Ellipse = Ellipse;
+// Add interactive object to global variables
 (window as any).Interactive = Interactive;
-(window as any).Line = Line;
-(window as any).Path = Path;
-(window as any).Rectangle = Rectangle;
-(window as any).SVG = SVG;
-(window as any).Text = Text;
 
 // Export object for module use
 export {
   Control,
   Element,
   Ellipse,
+  Interactive,
   Line,
   Path,
   Rectangle,

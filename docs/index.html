@@ -915,7 +915,11 @@ img { max-width: 100%; }
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
 			<h1 id="interactive-svg">Interactive SVG</h1>
-			<p>Interactive SVG is a Javascript Library written in Typescript for creating Interactive Visuals in the browser. Visit <a href=".">the website</a> for a sandbox editor, examples, and more.</p>
+			<p>Interactive SVG is a Javascript Library written in Typescript for creating Interactive Visuals in the browser. Visit the website for a sandbox editor, examples, and more. Consult the API for programmatic usage.</p>
+			<ul>
+				<li><a href=".">Website</a></li>
+				<li><a href=".">API</a></li>
+			</ul>
 			<h2 id="usage">Usage</h2>
 			<p>Import the module in a Javascript file.</p>
 			<pre><code class="language-js"><span class="hljs-keyword">import</span> Interactive <span class="hljs-keyword">from</span> <span class="hljs-string">"https://unpkg.com/@interactive-svg/library/dist/Interactive.js"</span>;
@@ -923,6 +927,7 @@ img { max-width: 100%; }
 <span class="hljs-keyword">let</span> control = interactive.control(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);</code></pre>
 			<p>Then include the script in a html page.</p>
 			<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/@interactive-svg/library/dist/library.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"my-id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"my-script.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 			<p>If you prefer, <a href="https://unpkg.com/@interactive-svg/library/library.tar.gz" download> download </a> and host the library yourself.</p>
 		</div>

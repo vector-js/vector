@@ -1,8 +1,9 @@
 # Interactive SVG
 
-Interactive SVG is a Javascript Library written in Typescript for creating Interactive Visuals in the browser. Visit [the website](.) for a sandbox editor, examples, and more.
+Interactive SVG is a Javascript Library written in Typescript for creating Interactive Visuals in the browser. Visit the website for a sandbox editor, examples, and more. Consult the API for programmatic usage.
 
-<!-- TODO: link actual website -->
+- [Website](.)
+- [API](.)
 
 ## Usage
 
