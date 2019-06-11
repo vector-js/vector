@@ -22,11 +22,11 @@ l1.stroke = 'cornflowerblue';
 l2.stroke = 'cornflowerblue';
 l3.stroke = 'cornflowerblue';
 let path = interactive.path('');
-let text = interactive.text( 90, 280, "");
 let c1 = interactive.control( 150, 100);
 let c2 = interactive.control( 150, 200);
 let c3 = interactive.control( 450, 200);
 let c4 = interactive.control( 450, 100);
+let text = interactive.text( 25, 275, "");
 
 path.update = function() {
   path.d = `M ${c1.x} ${c1.y} C ${c2.x} ${c2.y} ${c3.x} ${c3.y} ${c4.x} ${c4.y}`;

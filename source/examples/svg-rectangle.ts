@@ -15,7 +15,7 @@ interactive.window = true;
 let rect = interactive.rectangle(0,0,0,0);
 let c1 = interactive.control( 150, 100);
 let c2 = interactive.control( 450, 200);
-let text = interactive.text( 90, 280, "");
+let text = interactive.text( 25, 275, "");
 
 c2.update = function() {
   this.x += c1.dx;

@@ -16,8 +16,11 @@ export default class CheckBox extends Element{
     super();
     this.root = SVG.Group();
 
-    this.box = new Rectangle( x, y - 5, 10, 10);
-    this.label = new Text( x + 20, y + 5, label);
+    this.root.setAttribute('transform', `translate(${x},${y})`);
+
+    this.box = new Rectangle( -5, -5, 10, 10);
+    this.label = new Text( 18, 1, label);
+    this.label.root.setAttribute('alignment-baseline','middle');
     this.root.appendChild(this.box.root);
     this.root.appendChild(this.label.root);
     this.root.id = this.id;
@@ -27,7 +30,11 @@ export default class CheckBox extends Element{
     };
 
     let temp = this;
-    this.box.root.style.fill = 'white';
+    if( value ) {
+      this.box.root.style.fill = '#0366EE';
+    } else {
+      this.box.root.style.fill = 'white';
+    }
     this.box.root.onmousedown = function() {
       temp.toggle();
     };

@@ -18,8 +18,8 @@ interactive.window = true;
 let path = interactive.path('');
 let start = interactive.control( 150, 150);
 let end = interactive.control( 450, 50);
-let text = interactive.text( 160, 280, "");
-let toggle = interactive.checkBox( 160, 240, "absolute / relative", false);
+let toggle = interactive.checkBox( 360, 270, "absolute / relative", false);
+let text = interactive.text( 25, 275, "");
 
 path.update = function() {
   if( toggle.value ) {

@@ -13,9 +13,9 @@ let interactive = new Interactive(id);
 interactive.window = true;
 
 let line = interactive.line( 0, 0, 0, 0);
-let text = interactive.text( 110, 280, "");
 let c1 = interactive.control( 150, 200);
 let c2 = interactive.control( 450, 100);
+let text = interactive.text( 25, 275, "");
 
 line.update = function() {
   this.x1 = c1.x;

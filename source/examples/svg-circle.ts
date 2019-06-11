@@ -15,9 +15,9 @@ interactive.window = true;
 let circle = interactive.circle(0,0,0);
 let l1 = interactive.line( 0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
-let text = interactive.text( 110, 280, "");
+let text = interactive.text( 25, 275, "");
 let c0 = interactive.control( 300, 150);
-let c1 = interactive.control( 400, 150);
+let c1 = interactive.control( 375, 150);
 
 circle.update = function() {
   this.cx = c0.x;

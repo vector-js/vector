@@ -15,7 +15,6 @@ import CheckBox from './elements/CheckBox.js';
 */
 export default class Interactive  {
 
-
   /**
   * The container element for this interactive.
   */
