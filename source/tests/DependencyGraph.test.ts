@@ -1,3 +1,7 @@
+/**
+* @ignore
+*/
+
 import DependencyGraph  from '../model/DependencyGraph.js';
 
 describe('DependencyGraph', function () {

@@ -1,3 +1,7 @@
+/**
+* @ignore
+*/
+
 import LinkedList from '../model/LinkedList.js';
 
 describe('LinkedList', function () {

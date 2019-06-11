@@ -1,6 +1,6 @@
 {
   "name": "@interactive-svg/library",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "A library for creating interactive images.",
   "dependencies": {},
   "devDependencies": {
@@ -9,16 +9,20 @@
     "chai": "^4.2.0",
     "http-server": "^0.11.1",
     "mocha": "^6.1.4",
+    "typedoc": "^0.14.2",
     "typescript": "^3.5.1"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "start": "http-server ."
+    "start": "http-server .",
+    "docs": "typedoc --theme markdown",
+    "package": "tar -czvf library.tar.gz dist"
   },
   "files": [
-    "dist",
-    "source"
+    "library.tar.gz",
+    "source",
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -28,7 +32,7 @@
     "svg",
     "interactive",
     "visualization",
-    "data visualization"
+    "dom"
   ],
   "contributors": [
     "Kurt Bruns",
@@ -40,6 +44,5 @@
   "main": "dist/library.js",
   "directories": {
     "example": "examples"
-  },
-  "author": ""
+  }
 }
