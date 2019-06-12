@@ -1,13 +1,16 @@
 import SVG from './SVG.js';
+
 import Circle from './elements/Circle.js';
-import Control from './elements/Control.js';
 import Ellipse from './elements/Ellipse.js';
 import Line from './elements/Line.js';
 import Path from './elements/Path.js';
 import Text from './elements/Text.js';
 import Rectangle from './elements/Rectangle.js';
-import Slider from './elements/Slider.js';
-import CheckBox from './elements/CheckBox.js';
+
+import Control from './input/Control.js';
+import Slider from './input/Slider.js';
+import CheckBox from './input/CheckBox.js';
+import Input from './input/Input.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -157,6 +160,13 @@ export default class Interactive  {
   */
   get minY() : number {
     return -this.originY;
+  }
+
+  /**
+  * A user provided description of this interactive.
+  */
+  set description( description:string ) {
+    this.svg.setAttribute('data-description', description);
   }
 
   // TODO: look into css transform-origin

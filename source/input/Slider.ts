@@ -1,9 +1,9 @@
 import SVG from '../SVG.js';
-import Element from './Element.js';
+import Input from './Input.js';
 import Control from './Control.js';
-import Line from './Line.js';
+import Line from '../elements/Line.js';
 
-export default class Slider extends Element{
+export default class Slider extends Input{
 
   private _min : number;
   private _max : number;

@@ -1,13 +1,3 @@
-/**
----
-title: SVG Ellipse
-author: Kurt Bruns
-description: This interactive demonstrates the SVG ellipse element and its attributes.
-input:
-  - center control :
----
-*/
-
 import Interactive from '../Interactive.js';
 
 let id = 'svg-circle';
@@ -18,34 +8,34 @@ let circle = interactive.circle(0,0,0);
 let l1 = interactive.line( 0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
 let text = interactive.text( 25, 275, "");
-let c0 = interactive.control( 300, 150);
-let c1 = interactive.control( 375, 150);
+let centerControl = interactive.control( 300, 150);
+let radiusControl = interactive.control( 375, 150);
 
 circle.update = function() {
-  this.cx = c0.x;
-  this.cy = c0.y;
-  this.r = Math.abs(c1.x - c0.x);
+  this.cx = centerControl.x;
+  this.cy = centerControl.y;
+  this.r = Math.abs(radiusControl.x - centerControl.x);
 }
 circle.update();
-circle.addDependency(c0);
-circle.addDependency(c1);
+circle.addDependency(centerControl);
+circle.addDependency(radiusControl);
 
-c1.update = function() {
-  this.x += c0.dx;
-  this.y += c0.dy;
+radiusControl.update = function() {
+  this.x += centerControl.dx;
+  this.y += centerControl.dy;
 }
-c1.addDependency(c0);
-c1.constrainToX();
+radiusControl.addDependency(centerControl);
+radiusControl.constrainToX();
 
 l1.update = function() {
-  this.x1 = c0.x;
-  this.y1 = c0.y;
-  this.x2 = c1.x;
-  this.y2 = c1.y;
+  this.x1 = centerControl.x;
+  this.y1 = centerControl.y;
+  this.x2 = radiusControl.x;
+  this.y2 = radiusControl.y;
 }
 l1.update();
-l1.addDependency(c0);
-l1.addDependency(c1);
+l1.addDependency(centerControl);
+l1.addDependency(radiusControl);
 
 // TODO: this is rather hacky, and probably best replaced by implementing the
 // tspan element in our SVG wrapper class.
@@ -60,3 +50,11 @@ text.update = function() {
 }
 text.update();
 text.addDependency(circle);
+
+// TODO: change to metaDescription?
+interactive.description = 'Demonstrates the properties of the SVG circle element. There are two controls: one that changes the center position of the circle and another that changes the length of the its radius.';
+centerControl.label = 'Center Control Point';
+centerControl.description = 'Controls the center position of the circle.';
+radiusControl.label = 'Radius Control Point';
+radiusControl.description = 'Controls the length of the radius of the circle.';
+export {interactive};

@@ -1,28 +1,29 @@
 import SVG from '../SVG.js';
-import Element from './Element.js';
-import Rectangle from './Rectangle.js';
-import Text from './Text.js';
+import Element from '../elements/Element.js';
+import Rectangle from '../elements/Rectangle.js';
+import Text from '../elements/Text.js';
+import Input from './Input.js';
 
-export default class CheckBox extends Element{
+export default class CheckBox extends Input{
 
   value : boolean = false;
   box : Rectangle;
-  label: Text;
+  text: Text;
 
   /**
   * Constructs a control at the position (x,y)
   */
-  constructor( x:number, y:number, label:string, value:boolean ) {
+  constructor( x:number, y:number, text:string, value:boolean ) {
     super();
     this.root = SVG.Group();
 
     this.root.setAttribute('transform', `translate(${x},${y})`);
 
     this.box = new Rectangle( -5, -5, 10, 10);
-    this.label = new Text( 18, 1, label);
-    this.label.root.setAttribute('alignment-baseline','middle');
+    this.text = new Text( 18, 1, text);
+    this.text.root.setAttribute('alignment-baseline','middle');
     this.root.appendChild(this.box.root);
-    this.root.appendChild(this.label.root);
+    this.root.appendChild(this.text.root);
     this.root.id = this.id;
 
     this.onchange = function() {
