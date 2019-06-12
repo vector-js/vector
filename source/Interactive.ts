@@ -8,9 +8,9 @@ import Text from './elements/Text.js';
 import Rectangle from './elements/Rectangle.js';
 
 import Control from './input/Control.js';
+import ControlCircle from './input/ControlCircle.js';
 import Slider from './input/Slider.js';
 import CheckBox from './input/CheckBox.js';
-import Input from './input/Input.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -55,8 +55,8 @@ export default class Interactive  {
     this.root = document.getElementById(id);
     this.root.classList.add('interactive');
 
-    // create and append the svg elements
-    this.svg = this.root.appendChild(SVG.SVG(id));
+    // create and append the root svg element and group elements
+    this.svg = this.root.appendChild(SVG.SVG());
     this.background = this.svg.appendChild(SVG.Group());
     this.controls = this.svg.appendChild(SVG.Group());
 
@@ -169,18 +169,48 @@ export default class Interactive  {
     this.svg.setAttribute('data-description', description);
   }
 
-  // TODO: look into css transform-origin
+  /**
+  * Sets the viewbox of the root svg element to the provided values.
+  * TODO: look into css transform-origin
+  */
   setViewBox( minX:number, minY:number, width:number, height:number ) {
     this.svg.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
   }
 
   /**
-  * Creates a control within this interactive.
+  * Creates a checkbox input at the position (x,y) within this interactive.
   */
   checkBox( x:number, y:number, label:string, value:boolean, ) : CheckBox {
     let checkBox = new CheckBox(x, y, label, value);
     this.controls.appendChild(checkBox.root);
     return checkBox;
+  }
+
+  /**
+  * Creates a control point within this interactive at the position (x,y).
+  */
+  control( x:number, y:number ) : Control {
+    let control = new Control( x, y);
+    this.controls.appendChild(control.root);
+    return control;
+  }
+
+  /**
+  * Creates a control point within this interactive at the position (x,y).
+  */
+  controlCircle( x:number, y:number ) : Control {
+    let control = new ControlCircle( x, y);
+    this.controls.appendChild(control.root);
+    return control;
+  }
+
+  /**
+  * Creates a slider input within this interactive
+  */
+  slider(x: number, y: number, width?: number, value?:number) : Slider {
+    let slider = new Slider(x, y, width, value);
+    this.controls.appendChild(slider.root);
+    return slider;
   }
 
   /**
@@ -190,15 +220,6 @@ export default class Interactive  {
     let circle = new Circle( cx, cy, r);
     this.background.appendChild(circle.root);
     return circle;
-  }
-
-  /**
-  * Creates a control within this interactive.
-  */
-  control( x:number, y:number ) : Control {
-    let control = new Control( x, y);
-    this.controls.appendChild(control.root);
-    return control;
   }
 
   /**
@@ -229,7 +250,7 @@ export default class Interactive  {
   }
 
   /**
-  * Creates a rectangle object within this interactive.
+  * Creates a rectangle within this interactive.
   */
   rectangle( x:number, y:number, width:number, height:number) : Rectangle {
     let rectangle = new Rectangle( x, y, width, height);
@@ -238,16 +259,7 @@ export default class Interactive  {
   }
 
   /**
-  * Places a slider at the provided location
-  */
-  slider(x: number, y: number, width?: number, value?:number) : Slider {
-    let slider = new Slider(x, y, width, value);
-    this.controls.appendChild(slider.root);
-    return slider;
-  }
-
-  /**
-  * Creates a text within this interactive.
+  * Creates text within this interactive.
   */
   text( x:number, y:number, contents:string ) : Text {
     let text = new Text( x, y, contents);

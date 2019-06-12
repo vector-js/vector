@@ -1,18 +1,32 @@
 import SVG from '../SVG.js';
-import Input from './Input.js';
 import Control from './Control.js';
 import Line from '../elements/Line.js';
+import Element from '../elements/Element.js';
 
-export default class Slider extends Input{
+/**
+* A horizontal slider is an object that allows for a control to be moved along
+* a user- defined range. The slider has a minimum value and a maximum value
+* which default to the range [0, 100].
+*/
+export default class Slider extends Element {
 
+  // instance variables
   private _min : number;
   private _max : number;
 
+  /**
+  * Visually displays the possible positions along the range
+  */
   line : Line;
+
+  /**
+  * The control can be moved along the line to change the value of this input
+  */
   control : Control;
 
   /**
-  * Constructs a control at the position (x,y)
+  * Constructs the slider at the position (x,y). The leftmost edge of the line
+  * is placed at this location.
   */
   constructor( x:number, y:number, width:number=100, value:number=0) {
     super();
@@ -20,7 +34,7 @@ export default class Slider extends Input{
     this.root = SVG.Group();
     this.line = new Line(x, y, x + width, y);
     this.control = new Control(x + value, y);
-    this.control.constrainToBox(x, y, x + width, y);
+    this.control.constrainWithinBox(x, y, x + width, y);
     this.root.appendChild(this.line.root);
     this.root.appendChild(this.control.root);
     this.root.id = this.id;
@@ -34,40 +48,66 @@ export default class Slider extends Input{
     this.value = value;
   }
 
-  set width( value:number ) {
-    this.line.x2 = this.line.x1 + value;
-  }
-
+  /**
+  * Returns the width of the display line
+  */
   get width() : number {
     return this.line.x2 - this.line.x1;
   }
 
-  set value( n:number ) {
-    this.control.x = this.line.x1 + n/this.range * (this.width);
+  /**
+  * Sets the width of the display line
+  */
+  set width( value:number ) {
+    this.line.x2 = this.line.x1 + value;
   }
 
+  /**
+  * Returns the value currently represented by this slider.
+  */
   get value():number {
     return (this.control.x - this.line.x1)/this.width * (this.range);
   }
 
-  set min( value:number ) {
-    this._min = value;
+  /**
+  * Sets the value currently represented by this slider.
+  */
+  set value( n:number ) {
+    this.control.x = this.line.x1 + n/this.range * (this.width);
   }
 
+  /**
+  * Returns the minimum possible value of the range.
+  */
   get min() : number {
     return this._min;
   }
 
-  set max( value:number ) {
-    this._max = value;
+  /**
+  * Sets the minimum possible value of the range.
+  */
+  set min( value:number ) {
+    this._min = value;
   }
 
+  /**
+  * Returns the maximum possible value of the range.
+  */
   get max() : number {
     return this._max;
   }
 
+  /**
+  * Returns the maximum possible value of the range.
+  */
+  set max( value:number ) {
+    this._max = value;
+  }
+
+  /**
+  * Returns the length of the range represented by this slider.
+  */
   get range() : number {
     return this.max - this.min;
   }
-
 }

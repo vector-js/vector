@@ -50,11 +50,3 @@ text.update = function() {
 }
 text.update();
 text.addDependency(circle);
-
-// TODO: change to metaDescription?
-interactive.description = 'Demonstrates the properties of the SVG circle element. There are two controls: one that changes the center position of the circle and another that changes the length of the its radius.';
-centerControl.label = 'Center Control Point';
-centerControl.description = 'Controls the center position of the circle.';
-radiusControl.label = 'Radius Control Point';
-radiusControl.description = 'Controls the length of the radius of the circle.';
-export {interactive};

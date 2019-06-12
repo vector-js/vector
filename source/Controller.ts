@@ -2,8 +2,7 @@ import DependencyGraph from './model/DependencyGraph.js';
 import Element from './elements/Element.js';
 
 /**
-* Controls the interactions between user input and visual changes to the
-* interactive
+* This controller manages the dependencies between elements.
 */
 export default class Controller {
 
@@ -13,12 +12,12 @@ export default class Controller {
   elements : Map<string, Element>;
 
   /**
-  * Contains the dependecies between elements
+  * Contains the dependencies between elements
   */
   dependencyGraph : DependencyGraph<Element>;
 
   /**
-  * Constructs a interactive.controller
+  * Constructs a controller
   */
   constructor() {
     this.dependencyGraph = new DependencyGraph<Element>();
@@ -47,5 +46,4 @@ export default class Controller {
       d.update();
     }
   }
-
 }

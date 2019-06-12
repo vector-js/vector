@@ -1,12 +1,11 @@
 import SVG from '../SVG.js';
-import Input from './Input.js';
 import Element from '../elements/Element.js';
 import Point from '../elements/Point.js';
 
 /**
-* A control is a draggable two dimensional point.
+* A control point is a draggable two dimensional point.
 */
-export default class Control extends Input{
+export default class Control extends Element {
 
   // Describes the size of the control handle and point
   private static pointRadius : number = 4;
@@ -24,6 +23,9 @@ export default class Control extends Input{
   private _dy: number;
   private _onchange : () => void;
 
+  // Keep track of whether global event listeners have been initialized
+  private static initalized = false;
+
   // Svg elements that make up the control
   point: SVGCircleElement;
   handle: SVGCircleElement;
@@ -32,7 +34,7 @@ export default class Control extends Input{
   * Modifying the transform function allows for the control to be constrained
   * to a path or constrained to the region enclosed in a path.
   */
-  constrain = function ( oldPosition:Point, newPosition:Point) : Point {
+  constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
       return newPosition;
   };
 
@@ -43,9 +45,12 @@ export default class Control extends Input{
     super();
 
     // create the svg components
-    this.root = SVG.Group(['control']);
-    this.point = SVG.Circle(0,0, Control.pointRadius, ['control-point']);
-    this.handle = SVG.Circle(0,0, Control.handleRadius, ['control-handle']);
+    this.root = SVG.Group();
+    this.point = SVG.Circle(0,0, Control.pointRadius);
+    this.handle = SVG.Circle(0,0, Control.handleRadius);
+    this.root.classList.add('control');
+    this.point.classList.add('control-point');
+    this.handle.classList.add('control-handle');
     this.root.appendChild(this.point);
     this.root.appendChild(this.handle);
     this.root.id = this.id;
@@ -75,46 +80,36 @@ export default class Control extends Input{
       control.handleMouseOut( event);
     }
 
-    this.handle.onmouseover = function( event:MouseEvent ) {
-      Control.handleMouseOver( event);
-    }
-
-    window.onmousemove = function( event:MouseEvent ) {
-      Control.handleMouseMove( event);
-    }
-
-    window.onmouseup = function( event:MouseEvent ) {
-      Control.handleInputEnd( event);
-    }
-
-    // add mobile and tablet event listeners, set passive to false so chrome doesn't complain
+    // set passive to false so chrome doesn't complain
     this.handle.addEventListener('touchstart', control.handleTouchStart.bind(this), {passive:false});
-    window.addEventListener('touchend', Control.handleInputEnd, {passive:false});
-    window.addEventListener('touchmove', Control.handleTouchMove, {passive:false});
 
+    // initialize window event listeners only once
+    if( !Control.initalized ) {
+      window.onmouseover = Control.handleMouseOver;
+      window.onmousemove = Control.handleMouseMove;
+      window.onmouseup = Control.handleInputEnd;
+      window.addEventListener('touchend', Control.handleInputEnd, {passive:false});
+      window.addEventListener('touchmove', Control.handleTouchMove, {passive:false});
+      Control.initalized = true;
+    }
   }
 
   /**
   * Handles when the user moves their mouse over the window. If there is an
   * active control, the control's position is updated.
   */
-  static handleMouseMove( event:MouseEvent|TouchEvent|any) {
+  static handleMouseMove( event:MouseEvent ) {
     if( Control.active != null ) {
-      let x;
-      let y;
-      if( event.type === "touchmove") {
-          x = event.touches[0].clientX + Control.slopX;
-          y = event.touches[0].clientY + Control.slopY;
-          event.preventDefault();
-      }
-      else {
-          x = event.clientX + Control.slopX;
-          y = event.clientY + Control.slopY;
-      }
+      let x = event.clientX + Control.slopX;
+      let y = event.clientY + Control.slopY;
       Control.active.translate( x, y);
     }
   }
 
+  /**
+  * Handles a touch move event. If there is an active control, the control's
+  * position is updated.
+  */
   static handleTouchMove( event:TouchEvent) {
     if( Control.active != null ) {
       let x = event.touches[0].clientX + Control.slopX;
@@ -125,19 +120,20 @@ export default class Control extends Input{
   }
 
   /**
-  * Handles when a use mouses up over the window.
+  * Handles when a use mouses up over the window or ends their touch event.
   */
-  static handleInputEnd( event:TouchEvent|MouseEvent) {
+  static handleInputEnd( event:TouchEvent|MouseEvent)  {
     if( Control.active != null ) {
 
       // remove highlighting from the active control and set to null
       Control.active.handle.classList.remove('highlight');
       Control.active = null;
 
-      // fire a mouseover event to highlight either: a interactive.control, the recently
-      // active control, or a different element entirely. Currently, whichever
-      // element is highest in the DOM order will be the target. In the future
-      // the most recently active Control could be "promoted" for consistency.
+      // fire a mouseover event to highlight either: an interactive control,
+      // the recently active control, or a different element entirely.
+      // Currently, whichever element is highest in the DOM order will be the
+      // target. In the future the most recently active Control could be
+      // prioritized for user experience.
       if( event.type != "touchend" ) {
         event.target.dispatchEvent(new MouseEvent('mouseover', {
           view: window,
@@ -147,7 +143,6 @@ export default class Control extends Input{
       }
     }
   }
-
 
   /**
   * When a user mouses over a control, add the class "highlight" to the control
@@ -209,7 +204,7 @@ export default class Control extends Input{
     this._y = point.y;
 
     // transform the position of the contorl
-    this.root.setAttribute('transform', 'translate( ' + this.x + ', ' + this.y + ')');
+    this.root.setAttribute('transform', `translate( ${this.x}, ${this.y})`);
 
     // call the onchange function
     this._onchange();
@@ -270,11 +265,12 @@ export default class Control extends Input{
 
   /**
   * Constrains the control to follow the path of the circle specified by the
-  * arguments. TODO: change to constrain to path.
+  * arguments. TODO: add a method to constrain the control to a path
   */
   constrainToCircle( cx:number, cy:number, r:number) {
 
-    this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
+    // set the constrain function
+    this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
 
       // Calculate the angle between the current coordinate and the origin
       let angle = Math.atan2( newPosition.y - cy, newPosition.x - cx );
@@ -290,8 +286,13 @@ export default class Control extends Input{
     };
   }
 
-  constrainToBox( x1:number, y1:number, x2:number, y2:number) {
-    this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
+  /**
+  * Constrains the control to the box defined by the points (x1, y1) and
+  * (x2, y2). The first point defines the top-left corner of the box, the
+  * second the bottom-right corner of the box.
+  */
+  constrainWithinBox( x1:number, y1:number, x2:number, y2:number) {
+    this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
 
       let x  = newPosition.x;
       let y = newPosition.y;
@@ -305,19 +306,23 @@ export default class Control extends Input{
     };
   }
 
+  /**
+  * Constrain this control to only move left and right along its current x
+  * position.
+  */
   constrainToX() {
     this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
       return {x:newPosition.x, y:oldPosition.y};
-
     };
   }
 
+  /**
+  * Constrain this control to only move up and down along its current y
+  * position.
+  */
   constrainToY() {
     this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
       return {x:oldPosition.x, y:newPosition.y};
-
     };
   }
-
-
 }

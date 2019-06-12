@@ -1,7 +1,9 @@
 import Controller from '../Controller.js';
 
 /**
-* Represents an element that lives within the ecosystem of our interactives.
+* A basic element of the interactive ecosystem. Each element has an unique
+* identifier, an update function to be defined by the user, and the ability to
+* add dependencies on other elements.
 */
 export default class Element {
 
@@ -11,7 +13,8 @@ export default class Element {
   static disable : boolean = false;
 
   /**
-  * This controller handles the relationships between different visual elements.
+  * The controller manages the dependencies between elements. Every element
+  * is added to this controller upon creation.
   */
   static controller : Controller = new Controller();
 
@@ -45,7 +48,6 @@ export default class Element {
 
     // add this element to the controller
     Element.controller.add(this);
-
   }
 
   /**
@@ -56,14 +58,14 @@ export default class Element {
   }
 
   /**
-  * Adds a dependency on the other element.
+  * Declares this element dependent on the provided element.
   */
   addDependency( element: Element ) {
     Element.controller.dependencyGraph.addDependency( element, this);
   }
 
   /**
-  * Updates the elements that depend on this element.
+  * Updates all of the elements that depend on this element.
   */
   updateDependents() {
     Element.controller.update(this);
