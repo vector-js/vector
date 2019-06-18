@@ -9,8 +9,76 @@
 
 import Interactive from '../Interactive.js';
 
+
 // Initialize the interactive
-let id = 'unit-circle';
+let id = 'unit-circle-test';
+let angleInteractive = new Interactive(id);
+angleInteractive.width = 250;
+angleInteractive.height = 250;
+angleInteractive.originX = angleInteractive.width/2;
+angleInteractive.originY = angleInteractive.height/2;
+
+// Create a circle
+let angleCircle = angleInteractive.circle( 0, 0, 100);
+
+// Create a control
+let angleControl = angleInteractive.control( angleCircle.r*Math.cos(-1), angleCircle.r*Math.sin(-1));
+angleControl.constrainToCircle( angleCircle.cx, angleCircle.cy, angleCircle.r);
+
+// Create a path
+let anglePath = angleInteractive.path('');
+anglePath.root.style.fill = 'gray';
+anglePath.root.style.fillOpacity = '.3';
+anglePath.update = function() {
+  let flag = (angleControl.y > 0) ? 1 : 0;
+  anglePath.d = `M 0 0
+            L ${angleCircle.r} 0
+            L ${angleCircle.r/3} 0
+            A ${angleCircle.r/3} ${angleCircle.r/3} 0 ${flag} 0 ${angleControl.x/3} ${angleControl.y/3}
+            L ${angleControl.x} ${angleControl.y}
+            z`;
+};
+anglePath.update();
+anglePath.addDependency(angleControl);
+
+// Create a point at the origin
+let anglePoint = angleInteractive.circle( 0, 0, 3);
+anglePoint.fill = 'black';
+
+// Initialize the interactive
+let triangleInteractive = new Interactive(id);
+triangleInteractive.window = true;
+triangleInteractive.width = 250;
+triangleInteractive.height = 250;
+triangleInteractive.originX = triangleInteractive.width/2;
+triangleInteractive.originY = triangleInteractive.height/2;
+
+// Create a circle
+let triangleCircle = triangleInteractive.circle( 0, 0, 100);
+
+// Create a control
+let triangleControl = triangleInteractive.control( triangleCircle.r*Math.cos(-1), triangleCircle.r*Math.sin(-1));
+triangleControl.constrainToCircle( triangleCircle.cx, triangleCircle.cy, triangleCircle.r);
+
+// Create a path
+let trianglePath = triangleInteractive.path('');
+trianglePath.root.style.fill = 'gray';
+trianglePath.root.style.fillOpacity = '.3';
+trianglePath.update = function() {
+  trianglePath.d = `M 0 0
+            L ${triangleControl.x} 0
+            L ${triangleControl.x} ${triangleControl.y}
+            z`;
+};
+trianglePath.update();
+trianglePath.addDependency(triangleControl);
+
+// Create a point at the origin
+let trianglePoint = triangleInteractive.circle( 0, 0, 3);
+trianglePoint.fill = 'black';
+
+
+// Initialize the interactive
 let interactive = new Interactive(id);
 interactive.window = true;
 interactive.width = 600;
@@ -19,7 +87,7 @@ interactive.originX = interactive.width/2;
 interactive.originY = 225;
 
 // Create a circle
-let circle = interactive.circle( 0, 0, 125);
+let circle = interactive.circle( 0, 0, 100);
 let line = interactive.line( 0, 0, circle.r, 0);
 let margin = 0;
 let yAxis = interactive.line( 0, -(circle.r + margin), 0, circle.r + margin);
@@ -192,3 +260,33 @@ cosecant.update();
 // Create a point at the origin
 let point = interactive.circle( 0, 0, 3);
 point.fill = 'black';
+
+triangleControl.onchange = function() {
+  angleControl.x = triangleControl.x;
+  angleControl.y = triangleControl.y;
+  control.x = triangleControl.x;
+  control.y = triangleControl.y;
+  triangleControl.updateDependents();
+  angleControl.updateDependents();
+  control.updateDependents();
+}
+
+angleControl.onchange = function() {
+  triangleControl.x = angleControl.x;
+  triangleControl.y = angleControl.y;
+  control.x = triangleControl.x;
+  control.y = triangleControl.y;
+  triangleControl.updateDependents();
+  angleControl.updateDependents();
+  control.updateDependents();
+}
+
+control.onchange = function() {
+  triangleControl.x = control.x;
+  triangleControl.y = control.y;
+  angleControl.x = control.x;
+  angleControl.y = control.y;
+  triangleControl.updateDependents();
+  angleControl.updateDependents();
+  control.updateDependents();
+}

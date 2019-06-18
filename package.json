@@ -18,7 +18,7 @@
     "watch": "tsc -w",
     "start": "http-server .",
     "docs": "typedoc",
-    "package": "tar -czvf library.tar.gz dist",
+    "package": "cp css/library.css dist/library.css && tar -czvf library.tar.gz dist",
     "rollup": "rollup --config",
     "prep": "tsc && npm run docs && npm run package && npm run rollup"
   },

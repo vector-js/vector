@@ -1,5 +1,6 @@
 import SVG from './SVG.js';
 
+// basic elements
 import Circle from './elements/Circle.js';
 import Ellipse from './elements/Ellipse.js';
 import Line from './elements/Line.js';
@@ -7,10 +8,14 @@ import Path from './elements/Path.js';
 import Text from './elements/Text.js';
 import Rectangle from './elements/Rectangle.js';
 
+// input elements
 import Control from './input/Control.js';
 import ControlCircle from './input/ControlCircle.js';
 import Slider from './input/Slider.js';
 import CheckBox from './input/CheckBox.js';
+
+// complex elements
+import Graph from './charts/Graph.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -63,7 +68,7 @@ export default class Interactive  {
     // default configuration
     this.width = 600;
     this.height = 300;
-    this.window = true;
+    this.window = false;
   }
 
   /**
@@ -202,6 +207,15 @@ export default class Interactive  {
     let control = new ControlCircle( x, y);
     this.controls.appendChild(control.root);
     return control;
+  }
+
+  /**
+  * Creates a control point within this interactive at the position (x,y).
+  */
+  graph( userEvents = true ) : Graph {
+    let graph = new Graph(userEvents);
+    this.background.appendChild(graph.root);
+    return graph;
   }
 
   /**

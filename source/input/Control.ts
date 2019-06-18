@@ -76,6 +76,11 @@ export default class Control extends Element {
       control.handleMouseDown( event);
     };
 
+    this.root.ondblclick = function( event:MouseEvent) {
+      // do nothing on double click
+      event.preventDefault();
+    };
+
     this.handle.onmouseout = function( event:MouseEvent ) {
       control.handleMouseOut( event);
     }
@@ -149,7 +154,7 @@ export default class Control extends Element {
   * handle.
   */
   static handleMouseOver( event:MouseEvent ) {
-    if( Control.active == null && !Element.disable ){
+    if( Control.active == null && !Element.disable && (event.target as HTMLElement).tagName == 'circle' ){
       (event.target as HTMLElement).classList.add('highlight');
     }
   }

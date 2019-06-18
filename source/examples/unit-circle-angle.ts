@@ -78,3 +78,5 @@ text.update = function() {
 text.addDependency(degrees);
 text.update();
 text.x = -text.root.textLength.baseVal.value/2;
+
+export { interactive, control };

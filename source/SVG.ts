@@ -4,7 +4,8 @@
 export default class SVG {
 
   /**
-  * Constructs and returns a SVG element.
+  * Constructs and returns a SVG element. The default dimensions is 600 by 300
+  * units.
   */
   static SVG( width:number = 600, height:number = 300 ) : SVGElement {
 
