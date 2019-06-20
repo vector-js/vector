@@ -1,5 +1,7 @@
 import Element from '../elements/Element.js';
 import SVG from '../SVG.js';
+import Rectangle from '../elements/Rectangle.js';
+import Text from '../elements/Text.js';
 
 /**
 *
@@ -22,6 +24,11 @@ export default class Graph extends Element {
   path : SVGPathElement;
 
   /**
+  * A display circle to display input and output
+  */
+  circle: SVGCircleElement;
+
+  /**
   * A line to represent the x-axis of this graph
   */
   xAxis : SVGLineElement;
@@ -30,6 +37,13 @@ export default class Graph extends Element {
   * A line to represent the y-axis of this graph
   */
   yAxis : SVGLineElement;
+
+  // TODO: change all member variables to either SVGElements or our libraries
+  // elements
+  xRect : Rectangle;
+  yRect : Rectangle;
+  x : Text;
+  y : Text;
 
   /**
   * Keeps track of whether a translate is active or not.
@@ -97,6 +111,29 @@ export default class Graph extends Element {
 
     // Registers event listeners
     if( userEvents ) {
+
+      // create a display circle for showing input and output
+      this.circle = SVG.Circle(0,0,4);
+      this.circle.style.fill = 'cornflowerblue';
+      this.group.appendChild(this.circle);
+
+      this.xRect = new Rectangle(0, 0, 125, 40);
+      this.yRect = new Rectangle(120, 0, 125, 40);
+      this.xRect.root.style.fill = 'white';
+      this.yRect.root.style.fill = 'white';
+      this.root.appendChild(this.xRect.root);
+      this.root.appendChild(this.yRect.root);
+
+      this.x = new Text( 15, 20, 'x:0');
+      this.x.root.style.dominantBaseline = 'middle';
+      this.x.root.style.whiteSpace = 'pre';
+      this.root.appendChild(this.x.root);
+
+      this.y = new Text( 125 + 15, 20, 'y:0');
+      this.y.root.style.dominantBaseline = 'middle';
+      this.y.root.style.whiteSpace = 'pre';
+      this.root.appendChild(this.y.root);
+
       let graph = this;
       this.root.addEventListener('mousemove', function( event:MouseEvent) {
         graph.handleMouseMove(event);
@@ -112,7 +149,7 @@ export default class Graph extends Element {
       });
       this.root.addEventListener('mousewheel', function( event:WheelEvent) {
         graph.handleMouseWheelEvent(event);
-      });  
+      });
     }
   }
 
@@ -185,9 +222,9 @@ export default class Graph extends Element {
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
-  call( input:number ) : number {
+  call( input:number, scaleY = true ) : number {
     let x =  this._scaleX*(input);
-    let y = -this._scaleY*(this._function(x));
+    let y = (scaleY ? -this._scaleY : 1)*(this._function(x));
     return y;
   }
 
@@ -208,15 +245,36 @@ export default class Graph extends Element {
   }
 
   /**
+  * Formats the input number to be displayed within the graph.
+  */
+  format( n:number ) : string {
+    if ( n > 10000 || n < -10000 || (n < .01 && n > -.01)) {
+      return n.toExponential(2);
+    } else {
+      return n.toPrecision(4);
+    }
+  }
+
+  /**
   * Handle when a mouse moves over this graph. If a drag event is active then
   * translates the position of the graph to the new location.
   */
   handleMouseMove( event:MouseEvent ) {
+    let x = event.clientX - this.rect.getBoundingClientRect().left - this.originX;
     if( this.active ) {
       this._originX += event.movementX;
       this._originY += event.movementY;
       this.translate( this._originX, this._originY);
+    } else {
+      this.circle.cx.baseVal.value = x;
+      this.circle.cy.baseVal.value = this.call(x);
     }
+
+    let i = this._scaleX*(x);
+    let o = this.call(x, false);
+
+    this.x.contents = `x:${i < 0 ? '' : ' '}${this.format(i)}`;
+    this.y.contents = `y:${o < 0 ? '' : ' '}${this.format(o)}`;
   }
 
   /**
@@ -242,7 +300,10 @@ export default class Graph extends Element {
   }
 
   /**
-  * Zooms in and out on this graph.
+  * Zooms in and out on this graph. TODO: There is some jarring wheel action
+  * where an active wheel event on the page will stop dead when the mouse
+  * goes over the graph. Also it seems as if the scroll has pre-existing
+  * "momentum" that it can also affect the graph.
   */
   handleMouseWheelEvent( event:WheelEvent ) {
     let ratio = .95;
@@ -252,6 +313,8 @@ export default class Graph extends Element {
       this.scale(1/ratio, ratio);
     }
     this.draw();
+    this.circle.cy.baseVal.value = this.call(this.circle.cx.baseVal.value);
+
     event.preventDefault();
   }
 

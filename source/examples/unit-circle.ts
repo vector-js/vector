@@ -81,12 +81,15 @@ y.update = function() {
 };
 y.update();
 
-let cosineCheckBox = interactive.checkBox( 75, 195, 'cosine', false);
-let sineCheckBox = interactive.checkBox( 75, 195+ 25, 'sine', false);
-let tangentCheckBox = interactive.checkBox( 75, 195+ 50, 'tangent', false);
-let secantCheckBox = interactive.checkBox( 75, 195+ 75, 'secant', false);
-let cosecantCheckBox = interactive.checkBox( 75, 195+ 100, 'cosecant', false);
-let cotangentCheckBox = interactive.checkBox( 75, 195+ 125, 'cotangent', false);
+let r = interactive.text( xCoord, yCoord + 75, "r =  1");
+
+
+let cosineCheckBox = interactive.checkBox( 75, 195, 'cosine(θ)', false);
+let sineCheckBox = interactive.checkBox( 75, 195+ 25, 'sine(θ)', false);
+let tangentCheckBox = interactive.checkBox( 75, 195+ 50, 'tangent(θ)', false);
+let secantCheckBox = interactive.checkBox( 75, 195+ 75, 'secant(θ)', false);
+let cosecantCheckBox = interactive.checkBox( 75, 195+ 100, 'cosecant(θ)', false);
+let cotangentCheckBox = interactive.checkBox( 75, 195+ 125, 'cotangent(θ)', false);
 
 let secant = interactive.line(0, 0, 0, 0);
 secant.addDependency(control);

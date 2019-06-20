@@ -12,7 +12,7 @@ import Interactive from '../Interactive.js';
 // Initialize the interactive
 let id = 'unit-circle-angle';
 let interactive = new Interactive(id);
-interactive.window = true;
+interactive.window = false;
 interactive.width = 320;
 interactive.height = 340;
 interactive.originX = interactive.width/2;

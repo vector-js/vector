@@ -1,14 +1,20 @@
 
+.window {
+  display: block;
+  margin: 0 auto 1.5em auto;
+  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.15), 0 3px 10px 0 rgba(0,0,0,0.19);
+  overflow: hidden;
+  border-radius: 6px;
+}
+
 .interactive {
   margin: 0 0 1.5rem 0;
 }
 
-.window {
+.interactive > * {
   display: block;
-  margin: 0 auto inherit auto;
-  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.15), 0 3px 10px 0 rgba(0,0,0,0.19);
-  overflow: hidden;
-  border-radius: 6px;
+  margin: auto;
+  max-width: 100%;
 }
 
 svg {

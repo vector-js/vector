@@ -69,6 +69,11 @@ export default class Interactive  {
     this.width = 600;
     this.height = 300;
     this.window = false;
+
+    // prevent the default behavior of selecting text
+    this.root.addEventListener('mousedown', function( event:MouseEvent ) {
+      event.preventDefault();
+    });
   }
 
   /**
