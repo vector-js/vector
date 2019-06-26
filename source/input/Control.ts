@@ -1,6 +1,9 @@
 import SVG from '../SVG.js';
 import Element from '../elements/Element.js';
 import Point from '../elements/Point.js';
+import Path from '../elements/Path.js';
+import Circle from '../elements/Circle.js';
+import Rectangle from '../elements/Rectangle.js';
 
 /**
 * A control point is a draggable two dimensional point.
@@ -65,6 +68,8 @@ export default class Control extends Element {
     this.onchange = function() {
       this.updateDependents();
     };
+
+    this.update = () => {};
 
     // translate the control to its initial position
     this.translate(x,y);
@@ -266,6 +271,34 @@ export default class Control extends Element {
   */
   set onchange( func: () => void ) {
     this._onchange = func;
+  }
+
+  constrainTo( element:Path|Circle|Rectangle) {
+
+    this.addDependency(element);
+    if( element instanceof Path ) {
+      throw Error('not implemented');
+    } else if( element instanceof Circle ) {
+
+      this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
+
+        // Calculate the angle between the current coordinate and the origin
+        let angle = Math.atan2( newPosition.y - element.cy, newPosition.x - element.cx );
+
+        // Set the controls position to the vector in the direction of the angle
+        // above and with the magnitude of the radius of the circle.
+        let x = element.r*Math.cos(angle) + element.cx;
+        let y = element.r*Math.sin(angle) + element.cy;
+
+        // Return the new position
+        return {x:x, y:y};
+
+      };
+
+
+    } else if( element instanceof Rectangle) {
+
+    }
   }
 
   /**

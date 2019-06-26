@@ -18,6 +18,15 @@ export default class Graph extends Element {
   */
   group : SVGGElement;
 
+  pathGroup : SVGGElement;
+  xAxisGroup : SVGGElement;
+  yAxisGroup : SVGGElement;
+
+  /**
+  *
+  */
+  clipPath : SVGClipPathElement;
+
   /**
   * Represents the path taken by the function.
   */
@@ -80,6 +89,11 @@ export default class Graph extends Element {
     this._scaleY = 1;
     this.active = false;
 
+    // create a clip path element
+    this.clipPath = SVG.ClipPath();
+    this.clipPath.id = this.id + '-clip-path';
+    this.clipPath.appendChild(SVG.Path(`M 0 0 L ${this.width} 0 L ${this.width} ${this.height} L 0 ${this.height} Z`));
+
     // creates a transparent rectangle to capture all user events
     this.rect = SVG.Rectangle(0, 0, this.width, this.height);
     this.rect.style.fill = 'transparent';
@@ -89,21 +103,30 @@ export default class Graph extends Element {
     // draw two lines to represent the x-axis and y-axis
     this.xAxis = SVG.Line( -10000, 0, 10000, 0);
     this.yAxis = SVG.Line( 0, -10000, 0, 10000 );
+    this.xAxisGroup = SVG.Group();
+    this.yAxisGroup = SVG.Group();
+    this.xAxisGroup.appendChild(this.xAxis);
+    this.yAxisGroup.appendChild(this.yAxis);
 
     // create a path to draw the internal function
     this.path = SVG.Path('');
     this.path.classList.add('default');
 
     // a group to hold the path and axis, allows easy transforming of the origin
-    this.group = SVG.Group();
-    this.group.appendChild(this.path);
-    this.group.appendChild(this.xAxis);
-    this.group.appendChild(this.yAxis);
+    this.pathGroup = SVG.Group();
+    this.pathGroup.appendChild(this.path);
+
+    let container = SVG.Group();
+    container.appendChild(this.pathGroup);
+    container.setAttribute('clip-path', `url(#${this.clipPath.id})`);
+    container.appendChild(this.xAxisGroup);
+    container.appendChild(this.yAxisGroup);
 
     // create a root element to hold everything
     this.root = SVG.Group();
+    this.root.appendChild(this.clipPath);
     this.root.appendChild(this.rect);
-    this.root.appendChild(this.group);
+    this.root.appendChild(container);
     this.root.id = this.id;
 
     // translate the origin to its initial position
@@ -115,7 +138,7 @@ export default class Graph extends Element {
       // create a display circle for showing input and output
       this.circle = SVG.Circle(0,0,4);
       this.circle.style.fill = 'cornflowerblue';
-      this.group.appendChild(this.circle);
+      this.pathGroup.appendChild(this.circle);
 
       this.xRect = new Rectangle(0, 0, 125, 40);
       this.yRect = new Rectangle(120, 0, 125, 40);
@@ -237,18 +260,12 @@ export default class Graph extends Element {
   draw( startX = this.minX - this.width, endX = this.minX + 2*this.width) {
 
     // Draw the function
-    let x = startX;
-    let y = this.call(x);
-    if( y >  2*this.height ) { y =  2*this.height; }
-    if( y < -2*this.height ) { y = -2*this.height; }
-    let d = `M ${x} ${y} `;
-
-    // TODO: remove vertical asymptote's by starting jumping to a new spot...
-    // L ... L ... M ... L ... L ...
-    for( x++; x < endX; x++ ){
-      y = this.call(x);
-      if( y >  2*this.height ) { y =  2*this.height; }
-      if( y < -2*this.height ) { y = -2*this.height; }
+    let d = `M ${startX} ${this.call(startX)} `;
+    for( let i = startX + 1; i < endX; i++ ){
+      let x = i;
+      let y = this.call(i);
+      if( y > 10000 ) { y = 10000; }
+      if( y < -10000 ) { y = -10000; }
       d += `L ${x} ${y.toFixed(1)} `;
     }
     this.path.setAttribute('d', d);
@@ -359,6 +376,8 @@ export default class Graph extends Element {
   translate( x:number, y:number ) {
     this._originX = x;
     this._originY = y;
-    this.group.setAttribute('transform', `translate(${x}, ${y})`);
+    this.pathGroup.setAttribute('transform', `translate(${x}, ${y})`);
+    this.xAxisGroup.setAttribute('transform', `translate(${x}, ${y})`);
+    this.yAxisGroup.setAttribute('transform', `translate(${x}, ${y})`);
   }
 }

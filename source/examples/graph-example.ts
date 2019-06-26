@@ -19,10 +19,10 @@ interactive.window = true;
 
 // Create a new graph object
 let graph = interactive.graph();
-graph.function = (x:number) => { return Math.sin(x); };
+graph.function = (x:number) => { return Math.tan(x); };
 graph.originX = 0;
 graph.originY = interactive.height/2;
-graph.scale( 2*Math.PI/interactive.width, 100);
+graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
 //
 // let r1 = interactive.rectangle(0, 0, 125, 40);
 // let r2 = interactive.rectangle(120, 0, 125, 40);
@@ -59,4 +59,4 @@ graph.scale( 2*Math.PI/interactive.width, 100);
 // // expose the graph object for messing around for example:
 // // graph.function = Math.cos
 // // graph.function = (x) => { return x*x; };
-// (window as any).graph = graph;
+(window as any).graph = graph;
