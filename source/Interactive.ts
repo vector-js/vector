@@ -149,6 +149,17 @@ export default class Interactive  {
     }
   }
 
+  /**
+  * If set to true, draws a minimal border around the interactive.
+  */
+  set border( value:boolean ) {
+    if( value ){
+      this.svg.classList.add('border');
+    } else {
+      this.svg.classList.remove('border');
+    }
+  }
+
   // TODO: yikes that didn't work as expected
   // set flipCoordinateSystem( value:boolean ) {
   //   if( value ) {
