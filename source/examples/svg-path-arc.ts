@@ -21,7 +21,6 @@ let rx = interactive.slider( 400, 40, 150, 75);
 let ry = interactive.slider( 400, 70, 150, 75);
 let text = interactive.text( 25, 275, "");
 
-// TODO: possibly remove the x-axis-rotation because why would you ever use it?
 let xAxisRotation = interactive.slider( 400, 100, 150, 0);
 xAxisRotation.min = 0;
 xAxisRotation.max = 180;

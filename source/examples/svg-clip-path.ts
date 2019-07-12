@@ -8,7 +8,7 @@ interactive.border = true;
 interactive.width = 600;
 interactive.height = 300;
 interactive.originX = 0;
-interactive.originY = 0;;
+interactive.originY = 0;
 
 // Draw a grid of squares
 let size = 30;

@@ -1,5 +1,5 @@
 
-.window .border  {
+.window, .border {
   display: block;
   margin: 0 auto 1.5em auto;
   overflow: hidden;

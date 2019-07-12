@@ -35,6 +35,7 @@ export default class CheckBox extends Element {
     this.root.id = this.id;
 
     this.box = new Rectangle( -5, -5, 10, 10);
+    this.box.root.setAttribute('rx', '2px');
     this.text = new Text( 18, 1, text);
     this.text.root.setAttribute('alignment-baseline','middle');
     this.root.appendChild(this.box.root);
@@ -55,7 +56,7 @@ export default class CheckBox extends Element {
     if( this._value = value ) {
       this.box.root.style.fill = '#0366EE';
     } else {
-      this.box.root.style.fill = 'white';
+      this.box.root.style.fill = '#f2f2f2';
     }
     this.onchange();
   }
