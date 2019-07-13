@@ -184,6 +184,20 @@ export default class Interactive  {
   }
 
   /**
+  * Returns the maximum x-coordinate of this interactive.
+  */
+  get maxX() : number {
+    return this.minX + this._width;
+  }
+
+  /**
+  * Returns the maximum y-coordinate of this interactive.
+  */
+  get maxY() : number {
+    return this.minX + this._width;
+  }
+
+  /**
   * A user provided description of this interactive.
   */
   set description( description:string ) {

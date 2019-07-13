@@ -60,8 +60,10 @@ export default class Element {
   /**
   * Declares this element dependent on the provided element.
   */
-  addDependency( element: Element ) {
-    Element.controller.dependencyGraph.addDependency( element, this);
+  addDependency( ... elements: Element[] ) {
+    for (let element of elements) {
+      Element.controller.dependencyGraph.addDependency( element, this);
+    }
   }
 
   /**
