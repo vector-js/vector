@@ -13,9 +13,27 @@ let p2 = interactive.control(300,100);
 let p3 = interactive.control(350,200);
 
 // Draw little angle displays
-addAngleDisplayBetweenPoints( p1, p3, p2);
-addAngleDisplayBetweenPoints( p2, p1, p3);
-addAngleDisplayBetweenPoints( p3, p2, p1);
+// addAngleDisplayBetweenPoints( p1, p3, p2);
+// addAngleDisplayBetweenPoints( p2, p1, p3);
+// addAngleDisplayBetweenPoints( p3, p2, p1);
+
+mirrorCircle( p1);
+mirrorCircle( p2);
+mirrorCircle( p3);
+
+function mirrorCircle( point ) {
+  let circle = interactive.circle( point.x, point.y, 25);
+  circle.root.style.fill = 'grey';
+  circle.root.style.fillOpacity = '.3';
+  circle.addDependency(point);
+  circle.update = function() {
+    this.cx = point.x;
+    this.cy = point.y;
+  };
+  circle.update();
+}
+
+
 
 // Draw a triangle for the clip path
 let triangle = interactive.path('');
@@ -28,14 +46,14 @@ triangle.update = function() {
 };
 triangle.update();
 
-// // Draw a triangle for display
-// let display_triangle = interactive.path('');
-// display_triangle.root.style.strokeWidth = '2px';
-// display_triangle.addDependency(triangle);
-// display_triangle.update = function() {
-//   this.d = triangle.d;
-// };
-// display_triangle.update();
+// Draw a triangle for display
+let display_triangle = interactive.path('');
+display_triangle.root.style.strokeWidth = '2px';
+display_triangle.addDependency(triangle);
+display_triangle.update = function() {
+  this.d = triangle.d;
+};
+display_triangle.update();
 
 // TODO: change this
 let clipPath = SVG.ClipPath();

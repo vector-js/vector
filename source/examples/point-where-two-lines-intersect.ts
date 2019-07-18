@@ -1,5 +1,6 @@
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../Interactive.js';
+import {PointWhereTwoLinesIntersect} from '../Util.js';
 
 // Initialize the interactive
 let id = 'point-where-two-lines-intersect';
@@ -16,20 +17,9 @@ let point = interactive.circle(0,100,3);
 point.root.style.fill = '#333333';
 point.addDependency(p1, p2, p3, p4);
 point.update = function() {
-  let slope1 = (p2.y - p1.y)/(p2.x - p1.x);
-  let slope2 = (p4.y - p3.y)/(p4.x - p3.x);
-  let x = ((p4.y - p4.x*slope2) - (p2.y - p2.x*slope1))/(slope1 - slope2);
-
-  if( !isFinite(slope1)) {
-    this.cx = p1.x;
-    this.cy = p3.y + slope2*(this.cx - p3.x);
-  } else if ( !isFinite(slope2)) {
-    this.cx = p3.x;
-    this.cy = p1.y + slope1*(this.cx - p1.x);
-  } else {
-    this.cx = x;
-    this.cy = p1.y + slope1*(this.cx - p1.x);
-  }
+  let point = PointWhereTwoLinesIntersect( p1, p2, p3, p4);
+  this.cx = point.x;
+  this.cy = point.y;
 };
 point.update();
 
