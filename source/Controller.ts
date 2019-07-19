@@ -37,6 +37,7 @@ export default class Controller {
   */
   add( element: Element ) {
     this.dependencyGraph.add(element);
+    this.elements.set( element.id, element);
   }
 
   /**
