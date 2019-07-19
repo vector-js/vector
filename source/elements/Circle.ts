@@ -5,7 +5,7 @@ import SVG from '../SVG.js';
 * A circle is a basic element with a position and radius.
 */
 export default class Circle extends Element {
-  
+
   // make the type of the root to be more specific
   root: SVGCircleElement;
 

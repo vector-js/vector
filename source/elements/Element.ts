@@ -34,6 +34,11 @@ export default class Element {
   root : SVGElement;
 
   /**
+  * Style for this element.
+  */
+  style: CSSStyleDeclaration;
+
+  /**
   * The update function describes how this element should update itself
   */
   update : () => void;

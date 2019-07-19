@@ -17,6 +17,7 @@ export default class Rectangle extends Element{
     super();
     this.root = SVG.Rectangle( x, y, width, height);
     this.root.id = this.id;
+    this.style = this.root.style;
   }
 
   /**

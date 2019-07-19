@@ -9,8 +9,6 @@ export default class Ellipse extends Element {
   // make the type of the root to be more specific
   root: SVGEllipseElement;
 
-  style: CSSStyleDeclaration;
-
   /**
   * Constructs a ellipse element at the position (x,y)
   */

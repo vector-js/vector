@@ -16,6 +16,7 @@ export default class Text extends Element {
     super();
     this.root = SVG.Text( x, y, text );
     this.root.id = this.id;
+    this.style = this.root.style;
   }
 
   /**

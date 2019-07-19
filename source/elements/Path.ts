@@ -17,6 +17,7 @@ export default class Path extends Element {
     this.root = SVG.Path(d);
     this.root.classList.add('default');
     this.root.id = this.id;
+    this.style = this.root.style;
   }
 
   /**
