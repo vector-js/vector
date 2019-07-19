@@ -21,6 +21,15 @@ export default class Controller {
   */
   constructor() {
     this.dependencyGraph = new DependencyGraph<Element>();
+    this.elements = new Map<string, Element>();
+  }
+
+  /**
+  * Clears all the elements from this controller.
+  */
+  clear() {
+    this.dependencyGraph = new DependencyGraph<Element>(); // TODO: implement clear method
+    this.elements.clear()
   }
 
   /**
