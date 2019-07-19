@@ -11,13 +11,16 @@ import Interactive from '../Interactive.js';
 let id = 'svg-coordinate-system';
 let interactive = new Interactive(id);
 let margin = 30;
+interactive.width = 560;
+interactive.height = 260;
+
 interactive.window = false;
 interactive.originX = margin;
 interactive.originY = margin;
 interactive.svg.style.overflow = 'visible';
 
-let rect = interactive.rectangle( 0, 0, interactive.width - 2*margin, interactive.height - 2*margin );
-rect.root.style.stroke = 'cornflowerblue';
+// let rect = interactive.rectangle( 0, 0, interactive.width - 2*margin, interactive.height - 2*margin );
+// rect.root.style.stroke = 'cornflowerblue';
 let xAxis = interactive.line(0,0,interactive.width - 2*margin, 0);
 let yAxis = interactive.line(0,0,0,interactive.height - 2*margin);
 let originDot = interactive.circle(0,0,3);

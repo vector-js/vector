@@ -9,6 +9,8 @@ export default class Ellipse extends Element {
   // make the type of the root to be more specific
   root: SVGEllipseElement;
 
+  style: CSSStyleDeclaration;
+
   /**
   * Constructs a ellipse element at the position (x,y)
   */
@@ -17,6 +19,7 @@ export default class Ellipse extends Element {
    this.root = SVG.Ellipse(cx, cy, rx, ry);
    this.root.classList.add('default');
    this.root.id = this.id;
+   this.style = this.root.style;
   }
 
   /**

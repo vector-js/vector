@@ -19,8 +19,8 @@ export function getScriptName( trimExtension = true ) : string {
   else if ((source = currentStackFrameRegex.exec(error.stack.trim()))) {
     name = source[1];
   }
-  else if( error.fileName != undefined) {
-    return error.fileName;
+  else {
+    return error.message;
   }
 
   // Return name

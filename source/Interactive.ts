@@ -58,10 +58,10 @@ export default class Interactive  {
 
     // store a reference to the container element
     this.root = document.getElementById(id);
-    this.root.classList.add('interactive');
 
     // create and append the root svg element and group elements
     this.svg = this.root.appendChild(SVG.SVG());
+    this.svg.classList.add('interactive');
     this.background = this.svg.appendChild(SVG.Group());
     this.controls = this.svg.appendChild(SVG.Group());
 
