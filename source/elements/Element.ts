@@ -51,6 +51,15 @@ export default class Element {
   }
 
   /**
+  * Clears the static data structures holding elements and resets the count.
+  */
+  static clear( disable = false ) {
+    Element.count = 0;
+    Element.controller.clear();
+    Element.disable = disable;
+  }
+
+  /**
   * Returns the unique generated identifier associated with this element.
   */
   get id() : string {
