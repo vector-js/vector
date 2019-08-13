@@ -6,18 +6,19 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
 
 let id = 'svg-coordinate-system';
 let interactive = new Interactive(id);
 let margin = 30;
-interactive.width = 560;
-interactive.height = 260;
-
-interactive.window = false;
+interactive.width = 600;
+interactive.height = 300;
 interactive.originX = margin;
 interactive.originY = margin;
 interactive.svg.style.overflow = 'visible';
+
+let rectangle = interactive.rectangle(0,0, interactive.width - 2*margin, interactive.height - 2*margin);
+rectangle.style.fill = '#f8f8f8';
 
 // let rect = interactive.rectangle( 0, 0, interactive.width - 2*margin, interactive.height - 2*margin );
 // rect.root.style.stroke = 'cornflowerblue';

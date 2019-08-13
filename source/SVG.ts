@@ -96,6 +96,7 @@ export default class SVG {
   * Constructs a path element with the provided attributes.
   */
   static Path( d:string ) : SVGPathElement {
+
     let path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', d);
     return path;
@@ -105,6 +106,7 @@ export default class SVG {
   * Constructs and returns a clip path element
   */
   static ClipPath() : SVGClipPathElement {
+
     let clipPath = document.createElementNS( 'http://www.w3.org/2000/svg', 'clipPath');
     return clipPath;
   }

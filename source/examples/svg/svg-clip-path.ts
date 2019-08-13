@@ -1,5 +1,5 @@
-import Interactive from '../Interactive.js';
-import SVG from '../SVG.js';
+import Interactive from '../../Interactive.js';
+import SVG from '../../SVG.js';
 
 // Initialize the interactive
 let id = 'svg-clip-path';

@@ -3,7 +3,7 @@
   display: block;
   margin: 0 auto 1.5em auto;
   overflow: hidden;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 
 .window {
@@ -11,7 +11,10 @@
 }
 
 .border {
-  border: 1px solid grey; border-radius: 6px; display:block; margin:auto;
+  border: 1px solid grey;
+  /* border-radius: 6px; */
+  display:block;
+  margin:auto;
 }
 
 .interactive {
@@ -21,31 +24,26 @@
 }
 
 svg {
-  font-style: normal;
+  font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial',sans-serif;
   font-weight: normal;
-  font-size: 16px;
-  font-color: #404040;
-  font-family: monospace, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial;
+  font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-smoothing: antialiased;
-}
-
-.default {
-  stroke:#404040;
-  stroke-width:1px;
-  fill:none;
-}
-
-text {
-  font-style: monospace;
-  font-weight: normal;
-  font-family: monospace, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
      -moz-user-select: none; /* Firefox */
       -ms-user-select: none; /* Internet Explorer/Edge */
           user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+text {
+  fill: #333333;
+}
+
+.default {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:none;
 }
 
 .control-point {
@@ -62,4 +60,16 @@ text {
 
 .control-handle.highlight {
   opacity:1;
+}
+
+.button rect {
+  fill: #555555;
+}
+
+.button:hover rect {
+  fill: #333333;
+}
+
+.button text {
+  fill: #ffffff;
 }

@@ -2,6 +2,7 @@ import SVG from '../SVG.js';
 import Control from './Control.js';
 import Line from '../elements/Line.js';
 import Element from '../elements/Element.js';
+import ControlCircle from './ControlCircle.js';
 
 /**
 * A horizontal slider is an object that allows for a control to be moved along
@@ -33,8 +34,11 @@ export default class Slider extends Element {
 
     this.root = SVG.Group();
     this.line = new Line(x, y, x + width, y);
-    this.control = new Control(x + value, y);
+    this.control = new ControlCircle(x + value, y);
     this.control.constrainWithinBox(x, y, x + width, y);
+    this.control.point.r.baseVal.value -= 2;
+    this.control.handle.r.baseVal.value -= 2;
+
     this.root.appendChild(this.line.root);
     this.root.appendChild(this.control.root);
     this.root.id = this.id;

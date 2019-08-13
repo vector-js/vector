@@ -6,11 +6,11 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
 
 let id = 'svg-line';
 let interactive = new Interactive(id);
-interactive.window = true;
+interactive.border = true;
 
 let line = interactive.line( 0, 0, 0, 0);
 let c1 = interactive.control( 150, 200);

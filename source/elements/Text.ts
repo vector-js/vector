@@ -39,4 +39,5 @@ export default class Text extends Element {
   set y( value:number ) {
     this.root.setAttribute('y', value.toString());
   }
+
 }

@@ -34,7 +34,7 @@ export default class CheckBox extends Element {
     this.root.setAttribute('transform', `translate(${x},${y})`);
     this.root.id = this.id;
 
-    this.box = new Rectangle( -5, -5, 10, 10);
+    this.box = new Rectangle( -6.5, -6.5, 13, 13);
     this.box.root.setAttribute('rx', '2px');
     this.text = new Text( 18, 1, text);
     this.text.root.setAttribute('alignment-baseline','middle');
@@ -54,7 +54,7 @@ export default class CheckBox extends Element {
   */
   set value( value:boolean ) {
     if( this._value = value ) {
-      this.box.root.style.fill = '#0366EE';
+      this.box.root.style.fill = '#404040';
     } else {
       this.box.root.style.fill = '#f2f2f2';
     }

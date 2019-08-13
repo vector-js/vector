@@ -13,13 +13,18 @@ import Control from './input/Control.js';
 import ControlCircle from './input/ControlCircle.js';
 import Slider from './input/Slider.js';
 import CheckBox from './input/CheckBox.js';
+import Button from './input/Button.js';
 
 // complex elements
 import Graph from './charts/Graph.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
-* created and related together.
+* created and related together
+*
+* By default input elements are added to a SVG "controls" group and visual
+* elements are added to the "background" group. This ensures that controls will
+* alwaysbe focusable, despite the order in which elements are created.
 */
 export default class Interactive  {
 
@@ -32,6 +37,11 @@ export default class Interactive  {
   * The main svg that elements are created within
   */
   svg:SVGElement;
+
+  /**
+  * Have a wrapper object for the mouse object?
+  */
+  // mouse:Mouse;
 
   /**
   * The controls groups sits on top of the background group and ensures that
@@ -194,7 +204,7 @@ export default class Interactive  {
   * Returns the maximum y-coordinate of this interactive.
   */
   get maxY() : number {
-    return this.minX + this._width;
+    return this.minY + this._height;
   }
 
   /**
@@ -215,7 +225,16 @@ export default class Interactive  {
   /**
   * Creates a checkbox input at the position (x,y) within this interactive.
   */
-  checkBox( x:number, y:number, label:string, value:boolean, ) : CheckBox {
+  button( x:number, y:number, label:string, ) : Button {
+    let button = new Button(x, y, label);
+    this.controls.appendChild(button.root);
+    return button;
+  }
+
+  /**
+  * Creates a checkbox input at the position (x,y) within this interactive.
+  */
+  checkBox( x:number, y:number, label:string, value:boolean ) : CheckBox {
     let checkBox = new CheckBox(x, y, label, value);
     this.controls.appendChild(checkBox.root);
     return checkBox;

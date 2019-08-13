@@ -8,11 +8,11 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
 
 let id = 'svg-path-bezier-quadratic';
 let interactive = new Interactive(id);
-interactive.window = true;
+interactive.border = true;
 
 let l1 = interactive.line( 0, 0, 0, 0);
 let l2 = interactive.line( 0, 0, 0, 0);

@@ -9,11 +9,11 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
 
 let id = 'svg-path-line';
 let interactive = new Interactive(id);
-interactive.window = true;
+interactive.border = true;
 
 let path = interactive.path('');
 let start = interactive.control( 150, 150);

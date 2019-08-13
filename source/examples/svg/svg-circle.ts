@@ -1,8 +1,8 @@
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
+import { getScriptName } from '../../Util.js';
 
-let id = 'svg-circle';
-let interactive = new Interactive(id);
-interactive.window = true;
+let interactive = new Interactive('svg-' + getScriptName());
+interactive.border = true;
 
 let circle = interactive.circle(0,0,0);
 let l1 = interactive.line( 0, 0, 0, 0);

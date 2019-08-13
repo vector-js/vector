@@ -1,30 +1,15 @@
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../Interactive.js';
-import {PointWhereTwoLinesIntersect} from '../Util.js';
+import { getScriptName } from '../Util.js';
 
 // Initialize the interactive
-let id = 'point-where-two-lines-intersect';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 interactive.window = true;
 
 // Create three control points
 let p1 = interactive.control(200,200);
-let p2 = interactive.control(300,100);
-let p3 = interactive.control(350,200);
-let p4 = interactive.control(100,100);
-
-let point = interactive.circle(0,100,3);
-point.root.style.fill = '#333333';
-point.addDependency(p1, p2, p3, p4);
-point.update = function() {
-  let point = PointWhereTwoLinesIntersect( p1, p2, p3, p4);
-  this.cx = point.x;
-  this.cy = point.y;
-};
-point.update();
-
+let p2 = interactive.control(400,100);
 addLineBetweenPoints(p1, p2);
-addLineBetweenPoints(p3, p4);
 
 // Draws a line between two points
 function addLineBetweenPoints( point1, point2) {
@@ -49,3 +34,23 @@ function addLineBetweenPoints( point1, point2) {
   line.update();
   return line;
 }
+
+let text = interactive.text(100, 100, "(100,100)");
+text.style.fontFamily = "KaTeX_Math";
+text.update = function() {
+  this.x = p1.x + 15;
+  this.y = p1.y - 15;
+  this.contents = `P<tspan baseline-shift = "sub">1</tspan>`;
+};
+text.addDependency(p1);
+text.update();
+
+let text2 = interactive.text(100, 100, "(100,100)");
+text2.style.fontFamily = "KaTeX_Math";
+text2.update = function() {
+  this.x = p2.x + 15;
+  this.y = p2.y - 15;
+  this.contents = `P<tspan baseline-shift = "sub">2</tspan>`;
+};
+text2.addDependency(p2);
+text2.update();

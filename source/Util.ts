@@ -39,7 +39,9 @@ export function getScriptName( trimExtension = true ) : string {
 export function PointWhereTwoLinesIntersect( p1:Point, p2:Point, p3:Point, p4:Point ) : Point {
   let slope1 = (p2.y - p1.y)/(p2.x - p1.x);
   let slope2 = (p4.y - p3.y)/(p4.x - p3.x);
-  let x = ((p4.y - p4.x*slope2) - (p2.y - p2.x*slope1))/(slope1 - slope2);
+  let b1 = (p2.y - p2.x*slope1);
+  let b2 = (p4.y - p4.x*slope2);
+  let x = (b2 - b1)/(slope1 - slope2);
   let y;
   if( !isFinite(slope1)) {
     x = p1.x;

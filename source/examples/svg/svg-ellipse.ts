@@ -6,11 +6,11 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
 
 let id = 'svg-ellipse';
 let interactive = new Interactive(id);
-interactive.window = true;
+interactive.border = true;
 
 let ellipse = interactive.ellipse(0,0,0,0);
 let l1 = interactive.line( 0, 0, 0, 0);
