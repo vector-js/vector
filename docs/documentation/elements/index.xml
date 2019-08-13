@@ -12,46 +12,46 @@
     
     <item>
       <title>Ellipse</title>
-      <link>https://kurtbruns.github.io/vector/documentation/elements/ellipse/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/elements/ellipse/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>let ellipse = interactive.ellipse( 100, 75, 80, 40);    </description>
     </item>
     
     <item>
       <title>Line</title>
-      <link>https://kurtbruns.github.io/vector/documentation/elements/line/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/elements/line/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>let line = interactive.line( 50, 25, 150, 125);    </description>
     </item>
     
     <item>
       <title>Path</title>
-      <link>https://kurtbruns.github.io/vector/documentation/elements/path/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/elements/path/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>let line = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;);    </description>
     </item>
     
     <item>
       <title>Rectangle</title>
-      <link>https://kurtbruns.github.io/vector/documentation/elements/rectangle/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/elements/rectangle/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>let line = interactive.rectangle( 50, 50, 100, 50);    </description>
     </item>
     
     <item>
       <title>Text</title>
-      <link>https://kurtbruns.github.io/vector/documentation/elements/text/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/elements/text/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>let line = interactive.text( 50, 75, &amp;#34;My Text&amp;#34;);    </description>
     </item>
     

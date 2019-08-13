@@ -12,20 +12,20 @@
     
     <item>
       <title>Basic Styling</title>
-      <link>https://kurtbruns.github.io/vector/documentation/styling/basic-styling/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/styling/basic-styling/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>Primitive elements have two basic properties which can be styled: fill and stroke.
 let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);  </description>
     </item>
     
     <item>
       <title>Custom Styling</title>
-      <link>https://kurtbruns.github.io/vector/documentation/styling/custom-styling/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/styling/custom-styling/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript.</description>
     </item>
     

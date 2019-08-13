@@ -21,13 +21,13 @@
   gtag('config', 'UA-106670688-3');
 </script>
 
-  <link rel="stylesheet" href="https://kurtbruns.github.io/vector/dist/Library.css">
+  <link rel="stylesheet" href="https://kurtbruns.github.io/vector/Library.css">
 </head>
 <body>
 <header class="text-center vertical-center">
 	<div class="small-container">
     <a href="https://kurtbruns.github.io/vector/"><h1>Vector.js</h1></a>
-    <p><a class="github-button" href="https://github.com/ntkme/github-buttons" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></p>
+    <p><a class="github-button" href="https://github.com/KurtBruns/vector" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></p>
 		<p>Vector is a javascript library that allows for the creation of interactive graphics.</p>
     <p>
       <button class="muted-button" id="sandbox-button">Sandbox</button>
@@ -153,7 +153,7 @@ document.querySelector("#sandbox-button").onclick = function() {
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Getting Started<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/@vector/Interactive.css&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://kurtbruns.github.io/vector/Library.css&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-interactive&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -164,7 +164,7 @@ document.querySelector("#sandbox-button").onclick = function() {
 <p>After including the script in the HTML file, the interactive will be created within the element with the corresponding id. Make sure to have attribute type=&ldquo;module&rdquo; when including the script since we are using the ES6 import syntax.</p>
 
 <p><div class="filename">getting-started.js</div>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;https://unpkg.com/@vector/Interactive.js&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;https://kurtbruns.github.io/vector/Interactive.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-interactive&#34;</span><span class="p">);</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>

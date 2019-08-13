@@ -12,41 +12,41 @@
     
     <item>
       <title>Button</title>
-      <link>https://kurtbruns.github.io/vector/documentation/input/button/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/input/button/</guid>
-      <description>let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);   import Interactive from &#34;/vector/dist/Interactive.js&#34;; let interactive = new Interactive(&#34;button-id&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; interactive.svg.style.marginLeft =&#34;0&#34;; let button = interactive.button( 100, 75, &#34;My Button&#34;);  </description>
+      <guid>https://kurtbruns.github.io/vector/</guid>
+      <description>let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);    </description>
     </item>
     
     <item>
       <title>Check Box</title>
-      <link>https://kurtbruns.github.io/vector/documentation/input/check-box/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/input/check-box/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>A checkbox has two different states: checked and unchecked. When a user clicks the box the state changes.
-let checkBox = interactive.checkBox( 100, 75, &amp;#34;My Checkbox&amp;#34;);   import Interactive from &#34;/vector/dist/Interactive.js&#34;; let interactive = new Interactive(&#34;check-box-id&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; interactive.svg.style.marginLeft =&#34;0&#34;; let checkBox = interactive.checkBox( 100, 75, &#34;My Checkbox&#34;);  </description>
+let checkBox = interactive.checkBox( 100, 75, &amp;#34;My Checkbox&amp;#34;, false);    </description>
     </item>
     
     <item>
       <title>Control Point</title>
-      <link>https://kurtbruns.github.io/vector/documentation/input/control/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/input/control/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>A control point is a two dimensional point that can be clicked and dragged by the user. The control has a (x,y) position as well as its change in position (dx, dy).
-let control = interactive.control( 150, 75);   import Interactive from &#34;/vector/dist/Interactive.js&#34;; let interactive = new Interactive(&#34;control-id&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let control = interactive.control( 100, 75);  </description>
+let control = interactive.control( 150, 75);    </description>
     </item>
     
     <item>
       <title>Slider</title>
-      <link>https://kurtbruns.github.io/vector/documentation/input/slider/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/input/slider/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>A slider has a position, width, and starting value.
-let slider = interactive.slider( 75, 75, 150, 20);   import Interactive from &#34;/vector/dist/Interactive.js&#34;; let interactive = new Interactive(&#34;interactiveslider&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let slider = interactive.slider( 75, 75, 150, 20);  </description>
+let slider = interactive.slider( 75, 75, 150, 20);    </description>
     </item>
     
   </channel>

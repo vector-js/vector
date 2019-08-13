@@ -12,10 +12,10 @@
     
     <item>
       <title>Animate Along Path</title>
-      <link>https://kurtbruns.github.io/vector/documentation/animation/animate-along-path/</link>
+      <link>https://kurtbruns.github.io/vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/animation/animate-along-path/</guid>
+      <guid>https://kurtbruns.github.io/vector/</guid>
       <description>let circle = interactive.circle( 75, 75, 20); let path = interactive.path(&amp;#34;...&amp;#34;); circle.animateAlongPath( path, true, SPEED);   </description>
     </item>
     

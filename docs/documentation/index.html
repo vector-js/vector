@@ -21,13 +21,13 @@
   gtag('config', 'UA-106670688-3');
 </script>
 
-  <link rel="stylesheet" href="https://kurtbruns.github.io/vector/dist/Library.css">
+  <link rel="stylesheet" href="https://kurtbruns.github.io/vector/Library.css">
 </head>
 <body>
 <header class="text-center vertical-center">
 	<div class="small-container">
     <a href="https://kurtbruns.github.io/vector/"><h1>Vector.js</h1></a>
-    <p><a class="github-button" href="https://github.com/ntkme/github-buttons" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></p>
+    <p><a class="github-button" href="https://github.com/KurtBruns/vector" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></p>
 		<p>Vector is a javascript library that allows for the creation of interactive graphics.</p>
     <p>
       <button class="muted-button" id="sandbox-button">Sandbox</button>
@@ -205,7 +205,7 @@ document.querySelector("#sandbox-button").onclick = function() {
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Getting Started<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/@vector/Interactive.css&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://kurtbruns.github.io/vector/Library.css&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-interactive&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -216,7 +216,7 @@ document.querySelector("#sandbox-button").onclick = function() {
 <p>After including the script in the HTML file, the interactive will be created within the element with the corresponding id. Make sure to have attribute type=&ldquo;module&rdquo; when including the script since we are using the ES6 import syntax.</p>
 
 <p><div class="filename">getting-started.js</div>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;https://unpkg.com/@vector/Interactive.js&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;https://kurtbruns.github.io/vector/Interactive.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-interactive&#34;</span><span class="p">);</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
@@ -236,36 +236,20 @@ document.querySelector("#sandbox-button").onclick = function() {
       <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Button&#34;</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="button-id"></div>
+<div id="button-element"></div>
 
-<script type="module">
-import Interactive from "/vector/dist/Interactive.js";
-let interactive = new Interactive("button-id");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-interactive.svg.style.marginLeft ="0";
-let button = interactive.button( 100, 75, "My Button");
-</script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/button-element.js"></script>
 
       
       <h3 id="check-box">Check Box</h3>
       <p>A checkbox has two different states: checked and unchecked. When a user clicks the box the state changes.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">checkBox</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">checkBox</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Checkbox&#34;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">checkBox</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">checkBox</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Checkbox&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="check-box-id"></div>
+<div id="check-box-element"></div>
 
-<script type="module">
-import Interactive from "/vector/dist/Interactive.js";
-let interactive = new Interactive("check-box-id");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-interactive.svg.style.marginLeft ="0";
-let checkBox = interactive.checkBox( 100, 75, "My Checkbox");
-</script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/check-box-element.js"></script>
 
       
       <h3 id="control-point">Control Point</h3>
@@ -274,16 +258,9 @@ let checkBox = interactive.checkBox( 100, 75, "My Checkbox");
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="control-id"></div>
+<div id="control-element"></div>
 
-<script type="module">
-import Interactive from "/vector/dist/Interactive.js";
-let interactive = new Interactive("control-id");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-let control = interactive.control( 100, 75);
-</script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/control-element.js"></script>
 
       
       <h3 id="slider">Slider</h3>
@@ -292,16 +269,9 @@ let control = interactive.control( 100, 75);
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">slider</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">slider</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="interactiveslider"></div>
+<div id="slider-element"></div>
 
-<script type="module">
-import Interactive from "/vector/dist/Interactive.js";
-let interactive = new Interactive("interactiveslider");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-let slider = interactive.slider( 75, 75, 150, 20);
-</script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/slider-element.js"></script>
 
       
     
@@ -315,7 +285,7 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 <div id="ellipse-element"></div>
 
-<script type="module" src="https://kurtbruns.github.io/vector/dist/examples/elements/ellipse-element.js"></script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/ellipse-element.js"></script>
 
       
       <h3 id="line">Line</h3>
@@ -324,7 +294,7 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 <div id="line-element"></div>
 
-<script type="module" src="https://kurtbruns.github.io/vector/dist/examples/elements/line-element.js"></script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/line-element.js"></script>
 
       
       <h3 id="path">Path</h3>
@@ -333,7 +303,7 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 <div id="path-element"></div>
 
-<script type="module" src="https://kurtbruns.github.io/vector/dist/examples/elements/path-element.js"></script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/path-element.js"></script>
 
       
       <h3 id="rectangle">Rectangle</h3>
@@ -342,7 +312,7 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 <div id="rectangle-element"></div>
 
-<script type="module" src="https://kurtbruns.github.io/vector/dist/examples/elements/rectangle-element.js"></script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/rectangle-element.js"></script>
 
       
       <h3 id="text">Text</h3>
@@ -351,7 +321,7 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 <div id="text-element"></div>
 
-<script type="module" src="https://kurtbruns.github.io/vector/dist/examples/elements/text-element.js"></script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/elements/text-element.js"></script>
 
       
     
@@ -372,22 +342,10 @@ let slider = interactive.slider( 75, 75, 150, 20);
 <span class="p">};</span>
 </code></pre></div>
 
-<div id="interactivedependency-functions"></div>
+<div id="dependency-function"></div>
 
-<script type="module">
-import Interactive from '/vector/dist/Interactive.js';
-let interactive = new Interactive("interactivedependency-functions");
-interactive.width = 768;
-interactive.height = 200;
-interactive.border = true;
+<script type="module" src="https://kurtbruns.github.io/vector/examples/interaction/dependency-function.js">
 
-let control1 = interactive.control( 100, 50);
-let control2 = interactive.control( 200, 150);
-
-control2.addDependency(control1);
-control2.update = function(){
-  this.x += control1.dx;
-};
 </script>
 
       
@@ -399,48 +357,9 @@ control2.update = function(){
 <span class="p">}</span>
 </code></pre></div>
 
-<div id="interactivekeyboard-input"></div>
+<div id="key-board-interaction"></div>
 
-<script type="module">
-
-import Interactive from "/vector/dist/Interactive.js";
-let interactive = new Interactive("interactivekeyboard-input");
-interactive.width = 768;
-interactive.height = 150;
-interactive.border = true;
-
-let keys = [];
-let textKeys = [];
-for( let i = 0; i < 5; i++ ) {
-  let x = i*100 + 25;
-  let y = 75 -32;
-  let rectangle = interactive.rectangle( x, y, 64, 64);
-  rectangle.root.setAttribute('rx', '3px');12341
-  let text = interactive.text( x + 32, y + 32, i + 1);
-  text.root.setAttribute('alignment-baseline','middle');
-  text.root.setAttribute('text-anchor','middle');
-
-  keys.push(rectangle);
-  textKeys.push(text);
-}
-
-window.onkeydown = function( event ) {
-  let index = event.key - 1;
-  if( index >= 0 && index < 5 ) {
-    keys[index].root.style.fill = '#404040';
-    textKeys[index].root.style.fill = '#ffffff';
-  }
-}
-
-window.onkeyup = function( event ) {
-  let index = event.key - 1;
-  if( index >= 0 && index < 5 ) {
-    keys[index].root.style.fill = 'none';
-    textKeys[index].root.style.fill = '';
-  }
-}
-
-</script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/interaction/key-board-interaction.js"></script>
 
       
       <h3 id="mouse-input">Mouse Input</h3>
@@ -453,71 +372,9 @@ expanding circle on click</p>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">?</span>
 </code></pre></div>
 
-<div id="interactivemouse-input"></div>
+<div id="mouse-interaction"></div>
 
-<script type="module">
-import Interactive from '/vector/dist/Interactive.js';
-let interactive = new Interactive("interactivemouse-input");
-interactive.width = 768;
-interactive.height = 200;
-interactive.border = true;
-
-let control = interactive.control( 100, 100);
-control.root.style.display = 'none';
-
-interactive.svg.onmousemove = function( event ) {
-  control.x = event.clientX - interactive.svg.getBoundingClientRect().left;
-  control.y = event.clientY - interactive.svg.getBoundingClientRect().top;
-  control._onchange();
-
-}
-
-interactive.svg.onmouseleave = interactive.svg.onmousemove;
-
-let xline = interactive.line( interactive.minX, control.y, interactive.maxX, control.y);
-xline.addDependency(control);
-xline.update = function() {
-  xline.y1 = control.y;
-  xline.y2 = control.y;
-}
-
-let yline = interactive.line(  control.x, interactive.minY, control.x, interactive.maxY);
-yline.addDependency(control);
-yline.update = function() {
-  yline.x1 = control.x;
-  yline.x2 = control.x;
-}
-
-let opacity = 1;
-let circle = interactive.circle( 0, 0, 3);
-circle.root.style.display = 'none';
-interactive.svg.onclick = function( event ) {
-  opacity = 1;
-  circle.r = 1;
-  circle.root.style.opacity = 1;
-  circle.cx = event.clientX - interactive.svg.getBoundingClientRect().left;
-  circle.cy = event.clientY - interactive.svg.getBoundingClientRect().top;
-  circle.root.style.display = '';
-
-  // Start the animation cycle
-  window.requestAnimationFrame(step);
-}
-
-// Animate this interactive by changing the angle and then updating elements
-function step(timestamp) {
-
-  circle.r += 1;
-  circle.root.style.opacity = opacity;
-  opacity -= .02;
-
-  if (opacity > 0 ) {
-    // set up the next animation frame
-    window.requestAnimationFrame(step);
-  }
-}
-
-
-</script>
+<script type="module" src="https://kurtbruns.github.io/vector/examples/interaction/mouse-interaction.js"></script>
 
       
     
