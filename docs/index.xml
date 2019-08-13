@@ -174,7 +174,7 @@ window.onkeydown = function( event ) { ... }   import Interactive from &#34;/dis
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://interactive-svg.gitlab.io/documentation/elements/line/</guid>
-      <description>let line = interactive.line( 50, 25, 150, 125);   import Interactive from &#39;/dist/Interactive.js&#39;; let interactive = new Interactive(&#34;interactiveline&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let line = interactive.line( 50, 25, 150, 125);  </description>
+      <description>let line = interactive.line( 50, 25, 150, 125);    </description>
     </item>
     
     <item>
@@ -193,7 +193,7 @@ interactive.mouse ? interactive.onclick ? interactive.onmousemove ?   import Int
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://interactive-svg.gitlab.io/documentation/elements/path/</guid>
-      <description>let line = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;);   import Interactive from &#39;/dist/Interactive.js&#39;; let interactive = new Interactive(&#34;interactivepath&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let line = interactive.path(&#34;M 50 50 Q 100 150 150 50&#34;);  </description>
+      <description>let line = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;);    </description>
     </item>
     
     <item>
@@ -202,7 +202,7 @@ interactive.mouse ? interactive.onclick ? interactive.onmousemove ?   import Int
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://interactive-svg.gitlab.io/documentation/elements/rectangle/</guid>
-      <description>let line = interactive.rectangle( 50, 50, 100, 50);   import Interactive from &#39;/dist/Interactive.js&#39;; let interactive = new Interactive(&#34;interactiverectangle&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let line = interactive.rectangle( 50, 50, 100, 50);  </description>
+      <description>let line = interactive.rectangle( 50, 50, 100, 50);    </description>
     </item>
     
     <item>
@@ -230,7 +230,7 @@ let slider = interactive.slider( 75, 75, 150, 20);   import Interactive from &#3
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://interactive-svg.gitlab.io/documentation/elements/text/</guid>
-      <description>let line = interactive.text( 50, 75, &amp;#34;My Text&amp;#34;);   import Interactive from &#39;/dist/Interactive.js&#39;; let interactive = new Interactive(&#34;interactivetext&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let line = interactive.text( 50, 75, &#34;My Text&#34;);  </description>
+      <description>let line = interactive.text( 50, 75, &amp;#34;My Text&amp;#34;);    </description>
     </item>
     
     <item>

@@ -314,73 +314,45 @@ let slider = interactive.slider( 75, 75, 150, 20);
       <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">ellipse</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">ellipse</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="interactiveellipse"></div>
+<div id="ellipse-element"></div>
 
-<script type="module" src="./dist/examples/elements/ellipse.js"></script>
+<script type="module" src="./dist/examples/elements/ellipse-element.js"></script>
 
       
       <h3 id="line">Line</h3>
       <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">125</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="interactiveline"></div>
+<div id="line-element"></div>
 
-<script type="module">
-import Interactive from '/dist/Interactive.js';
-let interactive = new Interactive("interactiveline");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-let line = interactive.line( 50, 25, 150, 125);
-</script>
+<script type="module" src="./dist/examples/elements/line-element.js"></script>
 
       
       <h3 id="path">Path</h3>
       <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&#34;M 50 50 Q 100 150 150 50&#34;</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="interactivepath"></div>
+<div id="path-element"></div>
 
-<script type="module">
-import Interactive from '/dist/Interactive.js';
-let interactive = new Interactive("interactivepath");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-let line = interactive.path("M 50 50 Q 100 150 150 50");
-</script>
+<script type="module" src="./dist/examples/elements/path-element.js"></script>
 
       
       <h3 id="rectangle">Rectangle</h3>
       <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="interactiverectangle"></div>
+<div id="rectangle-element"></div>
 
-<script type="module">
-import Interactive from '/dist/Interactive.js';
-let interactive = new Interactive("interactiverectangle");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-let line = interactive.rectangle( 50, 50, 100, 50);
-</script>
+<script type="module" src="./dist/examples/elements/rectangle-element.js"></script>
 
       
       <h3 id="text">Text</h3>
       <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Text&#34;</span><span class="p">);</span>
 </code></pre></div>
 
-<div id="interactivetext"></div>
+<div id="text-element"></div>
 
-<script type="module">
-import Interactive from '/dist/Interactive.js';
-let interactive = new Interactive("interactivetext");
-interactive.width = 768;
-interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
-let line = interactive.text( 50, 75, "My Text");
-</script>
+<script type="module" src="./dist/examples/elements/text-element.js"></script>
 
       
     
