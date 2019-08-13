@@ -1,0 +1,40 @@
+/**
+* This interactive demonstrates the SVG line element and its attributes.
+*
+* @title SVG Line
+* @date May 3, 2019
+* @author Kurt Bruns
+*/
+import Interactive from '../../Interactive.js';
+let id = 'svg-line';
+let interactive = new Interactive(id);
+interactive.border = true;
+let line = interactive.line(0, 0, 0, 0);
+let c1 = interactive.control(150, 200);
+let c2 = interactive.control(450, 100);
+let text = interactive.text(25, 275, "");
+line.update = function () {
+    this.x1 = c1.x;
+    this.y1 = c1.y;
+    this.x2 = c2.x;
+    this.y2 = c2.y;
+};
+line.update();
+line.addDependency(c1);
+line.addDependency(c2);
+// TODO: this is rather hacky, and probably best replaced by implementing the
+// tspan element in our SVG wrapper class.
+text.update = function () {
+    let tag = `<tspan style="fill:purple">line</tspan>`;
+    let x1 = `<tspan style="fill:#ab6f00">x1</tspan>`;
+    let y1 = `<tspan style="fill:#ab6f00">y1</tspan>`;
+    let x2 = `<tspan style="fill:#ab6f00">x2</tspan>`;
+    let y2 = `<tspan style="fill:#ab6f00">y2</tspan>`;
+    this.contents = `&lt;${tag} ${x1}="${line.x1.toFixed(0)}
+                              ${y1}="${line.y1.toFixed(0)}
+                              ${x2}="${line.x2.toFixed(0)}
+                              ${y2}="${line.y2.toFixed(0)}"&gt`;
+};
+text.update();
+text.addDependency(line);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3ZnLWxpbmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zb3VyY2UvZXhhbXBsZXMvc3ZnL3N2Zy1saW5lLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7RUFNRTtBQUVGLE9BQU8sV0FBVyxNQUFNLHNCQUFzQixDQUFDO0FBRS9DLElBQUksRUFBRSxHQUFHLFVBQVUsQ0FBQztBQUNwQixJQUFJLFdBQVcsR0FBRyxJQUFJLFdBQVcsQ0FBQyxFQUFFLENBQUMsQ0FBQztBQUN0QyxXQUFXLENBQUMsTUFBTSxHQUFHLElBQUksQ0FBQztBQUUxQixJQUFJLElBQUksR0FBRyxXQUFXLENBQUMsSUFBSSxDQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO0FBQ3pDLElBQUksRUFBRSxHQUFHLFdBQVcsQ0FBQyxPQUFPLENBQUUsR0FBRyxFQUFFLEdBQUcsQ0FBQyxDQUFDO0FBQ3hDLElBQUksRUFBRSxHQUFHLFdBQVcsQ0FBQyxPQUFPLENBQUUsR0FBRyxFQUFFLEdBQUcsQ0FBQyxDQUFDO0FBQ3hDLElBQUksSUFBSSxHQUFHLFdBQVcsQ0FBQyxJQUFJLENBQUUsRUFBRSxFQUFFLEdBQUcsRUFBRSxFQUFFLENBQUMsQ0FBQztBQUUxQyxJQUFJLENBQUMsTUFBTSxHQUFHO0lBQ1osSUFBSSxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQ2YsSUFBSSxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQ2YsSUFBSSxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQ2YsSUFBSSxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDO0FBQ2pCLENBQUMsQ0FBQTtBQUNELElBQUksQ0FBQyxNQUFNLEVBQUUsQ0FBQztBQUNkLElBQUksQ0FBQyxhQUFhLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDdkIsSUFBSSxDQUFDLGFBQWEsQ0FBQyxFQUFFLENBQUMsQ0FBQztBQUV2Qiw2RUFBNkU7QUFDN0UsMENBQTBDO0FBQzFDLElBQUksQ0FBQyxNQUFNLEdBQUc7SUFDWixJQUFJLEdBQUcsR0FBRyx5Q0FBeUMsQ0FBQztJQUNwRCxJQUFJLEVBQUUsR0FBRyx3Q0FBd0MsQ0FBQztJQUNsRCxJQUFJLEVBQUUsR0FBRyx3Q0FBd0MsQ0FBQztJQUNsRCxJQUFJLEVBQUUsR0FBRyx3Q0FBd0MsQ0FBQztJQUNsRCxJQUFJLEVBQUUsR0FBRyx3Q0FBd0MsQ0FBQztJQUNsRCxJQUFJLENBQUMsUUFBUSxHQUFHLE9BQU8sR0FBRyxJQUFJLEVBQUUsS0FBSyxJQUFJLENBQUMsRUFBRSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7Z0NBQ3pCLEVBQUUsS0FBSyxJQUFJLENBQUMsRUFBRSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7Z0NBQ3pCLEVBQUUsS0FBSyxJQUFJLENBQUMsRUFBRSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7Z0NBQ3pCLEVBQUUsS0FBSyxJQUFJLENBQUMsRUFBRSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDO0FBQ2hFLENBQUMsQ0FBQTtBQUNELElBQUksQ0FBQyxNQUFNLEVBQUUsQ0FBQztBQUNkLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLENBQUMifQ==

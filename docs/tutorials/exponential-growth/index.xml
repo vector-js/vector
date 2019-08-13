@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exponential Growth on Interactive SVG</title>
+    <link>https://interactive-svg.gitlab.io/tutorials/exponential-growth/</link>
+    <description>Recent content in Exponential Growth on Interactive SVG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://interactive-svg.gitlab.io/tutorials/exponential-growth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
