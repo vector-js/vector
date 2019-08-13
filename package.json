@@ -10,14 +10,12 @@
     "http-server": "^0.11.1",
     "mocha": "^6.1.4",
     "rollup": "^1.17.0",
-    "typedoc": "^0.14.2",
     "typescript": "^3.5.3"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "start": "http-server .",
-    "docs": "typedoc",
     "module": "tsc && cp css/library.css dist/library.css",
     "package": "cp css/library.css dist/library.css && tar -czvf library.tar.gz dist",
     "rollup": "rollup --config",

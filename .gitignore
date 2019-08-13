@@ -3,6 +3,5 @@ builds
 cache
 .DS_Store
 dist
-docs
 types
 library.tar.gz
