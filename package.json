@@ -19,7 +19,7 @@
     "module": "tsc && cp css/Library.css dist/Library.css",
     "package": "cp css/library.css dist/library.css && tar -czvf library.tar.gz dist",
     "rollup": "rollup --config",
-    "prep": "tsc && npm run docs && npm run package && npm run rollup"
+    "prep": "tsc && npm run package && npm run rollup"
   },
   "files": [
     "dist"
