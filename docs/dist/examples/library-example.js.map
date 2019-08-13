@@ -1,0 +1,1 @@
+{"version":3,"file":"library-example.js","sourceRoot":"","sources":["../../source/examples/library-example.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,OAAO,MAAM,eAAe,CAAC;AAEzC,IAAI,aAAa,GAAG,IAAI,OAAO,CAAC,WAAW,CAAC,iBAAiB,CAAC,CAAC;AAC/D,IAAI,OAAO,GAAG,aAAa,CAAC,aAAa,CAAC,GAAG,EAAC,GAAG,CAAC,CAAC"}
