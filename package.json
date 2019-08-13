@@ -16,7 +16,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "start": "http-server .",
-    "module": "tsc && cp css/library.css dist/library.css",
+    "module": "tsc && cp css/Library.css dist/Library.css",
     "package": "cp css/library.css dist/library.css && tar -czvf library.tar.gz dist",
     "rollup": "rollup --config",
     "prep": "tsc && npm run docs && npm run package && npm run rollup"
