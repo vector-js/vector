@@ -4,7 +4,7 @@ description: How to create a map of the United States and color states by their 
 weight: 3
 ---
 
-<img src="/images/exponential-growth.svg/" width="600px" style="display:block; margin:auto; border:1px solid grey; border-radius:4px;">
+<img src="/images/exponential-growth.svg" width="600px" style="display:block; margin:auto; border:1px solid grey; border-radius:4px;">
 
 In this tutorial we will create an interactive map of the United States shown above. <!-- TODO: replace with actual interactive --> Each state will be colored with respect to its percentage of the total population of the country.
 

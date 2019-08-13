@@ -3,7 +3,6 @@ title: Animate Along Path
 description:
 ---
 
-
 {{< highlight javascript>}}
 let circle = interactive.circle( 75, 75, 20);
 let path = interactive.path("...");
