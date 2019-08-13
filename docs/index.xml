@@ -146,7 +146,7 @@ let control = interactive.control( 150, 75);   import Interactive from &#34;/dis
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://interactive-svg.gitlab.io/documentation/elements/ellipse/</guid>
-      <description>let ellipse = interactive.ellipse( 100, 75, 80, 40);   import Interactive from &#39;/dist/Interactive.js&#39;; let interactive = new Interactive(&#34;interactiveellipse&#34;); interactive.width = 768; interactive.height = 150; interactive.svg.style.border = &#34;1px solid grey&#34;; let ellipse = interactive.ellipse( 100, 75, 80, 40);  </description>
+      <description>let ellipse = interactive.ellipse( 100, 75, 80, 40);    </description>
     </item>
     
     <item>
