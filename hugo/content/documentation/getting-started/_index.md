@@ -33,6 +33,6 @@ interactive.border = true;
 let control = interactive.control( 100, 100);
 {{< /highlight >}}
 
-Serve the HTML page from a local folder over the network. <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank">Web Server for Chrome</a> is a handy tool for doing this. The result is the following interactive: a blank SVG image with the default dimensions of 600 by 300 pixels. TODO: Download starter pack or watch the getting started tutorial.
+Serve the HTML page from a local folder over the network. <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> is a handy tool for doing this. The result is the following interactive: a blank SVG image with the default dimensions of 600 by 300 pixels. TODO: Download starter pack or watch the getting started tutorial.
 
 <img src="/images/getting-started.svg" alt="" >

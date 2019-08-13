@@ -10,4 +10,4 @@ let path = interactive.path("...");
 circle.animateAlongPath( path, true, SPEED);
 {{< /highlight >}}
 
-<div style="border-radius:6px; border:1px solid #333333; width:100%; height:150px; background:#dddddd; margin-bottom:16px;"></div>
+<img src="/images/trace-animation.svg" width="100%">
