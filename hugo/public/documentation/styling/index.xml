@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Styling on Interactive SVG</title>
+    <link>https://interactive-svg.gitlab.io/documentation/styling/</link>
+    <description>Recent content in Styling on Interactive SVG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://interactive-svg.gitlab.io/documentation/styling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Basic Styling</title>
+      <link>https://interactive-svg.gitlab.io/documentation/styling/basic-styling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://interactive-svg.gitlab.io/documentation/styling/basic-styling/</guid>
+      <description>Primitive elements have two basic properties which can be styled: fill and stroke.
+let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);  </description>
+    </item>
+    
+    <item>
+      <title>Custom Styling</title>
+      <link>https://interactive-svg.gitlab.io/documentation/styling/custom-styling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://interactive-svg.gitlab.io/documentation/styling/custom-styling/</guid>
+      <description>Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript.</description>
+    </item>
+    
+  </channel>
+</rss>

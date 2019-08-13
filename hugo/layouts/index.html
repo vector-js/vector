@@ -1,0 +1,5 @@
+{{ with .GetPage "/documentation" }}
+  {{ .Render "aside" }}
+{{ else }}
+<h1>Failed to find docs</h1>
+{{ end }}

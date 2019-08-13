@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="{{.Description}}" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  {{ partial "style.html" . }}
+  {{ partial "analytics.html" . }}
+  <link rel="stylesheet" href="/Library.css">
+</head>
+<body>
+{{ partial "hero" . }}
+<main>
+{{ block "main" . }}
+{{ end }}
+</main>
+<footer>
+  <div id="footer-container" class="medium-container">
+    <p id="footer-message">About <a href="/team/" style="font-color:">the team.</a> <a href="/">View on github.</a></p>
+	</div>
+</footer>
+</body>
+</html>

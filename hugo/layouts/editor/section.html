@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>{{.Title}}</title>
+  <meta name="description" content="{{.Description}}" />
+  <link rel="stylesheet" href="/css/editor.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  {{ partial "analytics.html" }}
+</head>
+<body>
+<header>
+<div class="editor-menu">
+    <a class="header-link" href="./">File</a>
+    <a class="header-link" href="./">Edit</a>
+    <a class="header-link" href="./">View</a>
+    <a class="header-link" href="./">Insert</a>
+    <a class="header-link" href="./">Help</a>
+</div>
+<hr>
+</header>
+{{- block "main" . -}}
+{{- end -}}
+<footer>
+</footer>
+</body>
+</html>

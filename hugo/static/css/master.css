@@ -1,0 +1,64 @@
+header {
+
+}
+
+.header-container {
+    padding-top:20px;
+    padding-bottom:20px;
+    display:grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.header-link {
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin:auto;
+  max-width: 45em;
+}
+
+footer {
+    height: 300px;
+}
+
+p {
+  /* font-family: 'Open Sans', sans-serif; */
+}
+
+hr {
+    margin: 0px;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align: start;
+    font-size: 20px;
+}
+
+pre {
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+.classy-link {
+    /* text-decoration: none; */
+    color:black;
+}
+
+.center {
+  display: block;
+  margin: auto;
+}
+
+
+.headshot {
+  clip-path: circle(50px at center);
+  margin: 15px ;
+}

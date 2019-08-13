@@ -12,39 +12,39 @@
     
     <item>
       <title>Button</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/input/button/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/input/button/</guid>
       <description>let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);    </description>
     </item>
     
     <item>
       <title>Check Box</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/input/check-box/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/input/check-box/</guid>
       <description>A checkbox has two different states: checked and unchecked. When a user clicks the box the state changes.
 let checkBox = interactive.checkBox( 100, 75, &amp;#34;My Checkbox&amp;#34;, false);    </description>
     </item>
     
     <item>
       <title>Control Point</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/input/control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/input/control/</guid>
       <description>A control point is a two dimensional point that can be clicked and dragged by the user. The control has a (x,y) position as well as its change in position (dx, dy).
 let control = interactive.control( 150, 75);    </description>
     </item>
     
     <item>
       <title>Slider</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/input/slider/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/input/slider/</guid>
       <description>A slider has a position, width, and starting value.
 let slider = interactive.slider( 75, 75, 150, 20);    </description>
     </item>

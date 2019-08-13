@@ -1,0 +1,40 @@
+/*! Primitive
+ * A front end Sass boilerplate
+ *
+ * Author: Tania Rascia
+ */
+
+// Configuration
+@import "base/variables";
+@import "base/mixins";
+
+// Reset
+@import "base/normalize";
+@import "base/reset";
+
+// Components
+@import "components/scaffolding";
+@import "components/flex";
+@import "components/grid";
+@import "components/helpers";
+@import "components/buttons";
+// @import "components/forms";
+@import "components/tables";
+@import "components/navigation";
+@import "components/layout";
+
+@import "syntax";
+
+// TODO: move
+pre {
+  border: 1px solid gray;
+  background: !important #dddddd;
+}
+
+.filename {
+  padding: .5rem 1rem .75rem;
+  margin-bottom: -.5rem;
+  background: #444444;
+  color: white;
+  border-radius: 4px;
+}

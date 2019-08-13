@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="medium-container">
+  <h1>{{.Title}}</h1>
+  {{.Content}}
+  {{ range .Sections.ByWeight }}
+    <h2 id="{{urlize .Title }}">{{.Title}}</h2>
+    {{ .Content }}
+    {{ range .Pages.ByWeight }}
+    <h3 id="{{ urlize .Title }}">{{.Title}}</h3>
+    {{ .Content }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

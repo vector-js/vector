@@ -1,0 +1,8 @@
+<div style='display:grid; grid-template-columns: 240px 240px 240px;'>
+    {{ range where .Pages "Section" "examples" }}
+    <div class='summary'>
+        <img src='{{.Permalink}}{{.Params.thumbnail}}'>
+        <div style='text-align:center;'><a href={{.Permalink}}>{{.Title}}</a></div>
+    </div>
+    {{- end -}}
+</div>

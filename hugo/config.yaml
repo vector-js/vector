@@ -1,0 +1,13 @@
+baseURL: "https://kurtbruns.github.io/vector/"
+languageCode: "en-us"
+title: "Interactive SVG"
+disableKinds: ["taxonomy", "taxonomyTerm"]
+pygmentsUseClasses: true
+canonifyURLs:  true
+publishDir: "../docs/"
+staticDir:
+  - static
+  - ../dist/
+
+params:
+  repositoryURL: "https://github.com/KurtBruns/vector"

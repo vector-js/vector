@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animation on Interactive SVG</title>
+    <link>https://interactive-svg.gitlab.io/documentation/animation/</link>
+    <description>Recent content in Animation on Interactive SVG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://interactive-svg.gitlab.io/documentation/animation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Animate Along Path</title>
+      <link>https://interactive-svg.gitlab.io/documentation/animation/animate-along-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://interactive-svg.gitlab.io/documentation/animation/animate-along-path/</guid>
+      <description>let circle = interactive.circle( 75, 75, 20); let path = interactive.path(&amp;#34;...&amp;#34;); circle.animateAlongPath( path, true, SPEED);   </description>
+    </item>
+    
+  </channel>
+</rss>

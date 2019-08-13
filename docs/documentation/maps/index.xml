@@ -12,28 +12,28 @@
     
     <item>
       <title>World Map</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/maps/world/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/maps/world/</guid>
       <description>let map = interactive.map(&amp;#34;world-map.geojson&amp;#34;);  </description>
     </item>
     
     <item>
       <title>United States</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/maps/united-states/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/maps/united-states/</guid>
       <description>let map = interactive.map(&amp;#34;united-states.geojson&amp;#34;);  </description>
     </item>
     
     <item>
       <title>Custom Maps</title>
-      <link>https://kurtbruns.github.io/vector/</link>
+      <link>https://kurtbruns.github.io/vector/documentation/maps/custom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/</guid>
+      <guid>https://kurtbruns.github.io/vector/documentation/maps/custom/</guid>
       <description></description>
     </item>
     

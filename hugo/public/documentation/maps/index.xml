@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maps on Interactive SVG</title>
+    <link>https://interactive-svg.gitlab.io/documentation/maps/</link>
+    <description>Recent content in Maps on Interactive SVG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://interactive-svg.gitlab.io/documentation/maps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>World Map</title>
+      <link>https://interactive-svg.gitlab.io/documentation/maps/world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://interactive-svg.gitlab.io/documentation/maps/world/</guid>
+      <description>let map = interactive.map(&amp;#34;world-map.geojson&amp;#34;);  </description>
+    </item>
+    
+    <item>
+      <title>United States</title>
+      <link>https://interactive-svg.gitlab.io/documentation/maps/united-states/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://interactive-svg.gitlab.io/documentation/maps/united-states/</guid>
+      <description>let map = interactive.map(&amp;#34;united-states.geojson&amp;#34;);  </description>
+    </item>
+    
+    <item>
+      <title>Custom Maps</title>
+      <link>https://interactive-svg.gitlab.io/documentation/maps/custom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://interactive-svg.gitlab.io/documentation/maps/custom/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

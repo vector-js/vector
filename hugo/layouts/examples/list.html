@@ -1,0 +1,18 @@
+{{- define "main" -}}
+
+    <h1>{{.Title}}</h1>
+
+    {{- .Content -}}
+
+    {{- range .Pages -}}
+
+        <a href="{{.Permalink}}"><h2>{{.Title}}</h2></a>
+
+        <div id="{{.Params.id}}" class="interactive"></div>
+        <script type="module" src="/dist/examples/{{.Params.id}}.js"></script>
+
+        <p>{{.Description}}</p>
+
+    {{- end -}}
+
+{{- end -}}

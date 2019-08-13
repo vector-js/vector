@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<h1>{{.Title}}</h1>
+
+{{ .Content }}
+
+
+<table>
+{{- range .Pages -}}
+
+    {{ .Render "tr" }}
+
+{{- end -}}
+</table>
+
+{{ end }}

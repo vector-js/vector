@@ -1,0 +1,29 @@
+{{ with .Site.GetPage (print "examples/" (.Get 0)) }}
+<p id="{{.Params.id}}-description"></p>
+<table id="{{.Params.id}}-input">
+</table>
+<div id="{{.Params.id}}" class="interactive"></div>
+<script type="module">
+
+  import * as example from '/interactive/examples/{{.Params.id}}.js';
+  console.log(example);
+  if( example.data ) {
+    let description = document.getElementById('{{.Params.id}}-description');
+    let input = document.getElementById('{{.Params.id}}-input');
+    description.innerText = example.data.description;
+    example.data.input.forEach( function(element){
+      let row = document.createElement('tr');
+      let name = document.createElement('td');
+      let description = document.createElement('td');
+
+      name.innerText = element.label;
+      description.innerText = element.description;
+
+      row.appendChild(name);
+      row.appendChild(description);
+      input.appendChild(row);
+      console.log(element.control);
+    });
+  }
+</script>
+{{ end }}

@@ -1,0 +1,32 @@
+/* Grid
+=============== */
+
+
+.grid {
+  display: grid;
+}
+
+/* Extra small screen breakpoint */
+
+@include small-breakpoint {
+  .grid.two .grid.three {
+    grid-template-columns: auto;
+  }
+}
+
+/* Small screen breakpoint */
+
+@include medium-breakpoint {
+  .grid.two .grid.three {
+    grid-template-columns: auto auto;
+  }
+}
+
+@include large-breakpoint {
+  .grid.two{
+    grid-template-columns: auto auto;
+  }
+  .grid.three {
+    grid-template-columns: auto auto auto;
+  }
+}
