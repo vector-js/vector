@@ -17,7 +17,8 @@ export default class ControlCircle extends Control {
   constructor( x:number, y:number) {
     super(x, y);
     this.point.r.baseVal.value = ControlCircle.circleRadius;
-    this.handle.r.baseVal.value = ControlCircle.circleRadius+.8;
+    this.handle.r.baseVal.value = ControlCircle.circleRadius + .8;
+    this.handle.style.strokeWidth = '2';
     // this.point.style.fill = 'lightblue';
     this.point.style.fill = this.handle.style.stroke;
   }
