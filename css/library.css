@@ -2,10 +2,6 @@ body {
   margin: 16px;
 }
 
-.interactive-container {
-  padding: 0 0 1rem 0;
-}
-
 .window, .border {
   display: block;
   margin: 0 auto 1.5em auto;
