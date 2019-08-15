@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kurtbruns.github.io/vector/</loc>
-    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kurtbruns.github.io/vector/tutorials/getting-started/</loc>
     <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
@@ -46,6 +41,11 @@
   
   <url>
     <loc>https://kurtbruns.github.io/vector/tutorials/</loc>
+  </url>
+  
+  <url>
+    <loc>https://kurtbruns.github.io/vector/</loc>
+    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
   </url>
   
   <url>

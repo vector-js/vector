@@ -12,7 +12,7 @@ for( let i = 0; i < 5; i++ ) {
   let y = 75 -32;
   let rectangle = interactive.rectangle( x, y, 64, 64);
   rectangle.root.setAttribute('rx', '3px');12341
-  let text = interactive.text( x + 32, y + 32, i + 1);
+  let text = interactive.text( x + 32, y + 32, (i + 1).toString());
   text.root.setAttribute('alignment-baseline','middle');
   text.root.setAttribute('text-anchor','middle');
 
@@ -21,7 +21,7 @@ for( let i = 0; i < 5; i++ ) {
 }
 
 window.onkeydown = function( event ) {
-  let index = event.key - 1;
+  let index = parseInt(event.key) - 1;
   if( index >= 0 && index < 5 ) {
     keys[index].root.style.fill = '#404040';
     textKeys[index].root.style.fill = '#ffffff';
@@ -29,7 +29,7 @@ window.onkeydown = function( event ) {
 }
 
 window.onkeyup = function( event ) {
-  let index = event.key - 1;
+  let index = parseInt(event.key) - 1;
   if( index >= 0 && index < 5 ) {
     keys[index].root.style.fill = 'none';
     textKeys[index].root.style.fill = '';

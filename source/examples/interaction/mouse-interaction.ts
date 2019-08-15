@@ -9,10 +9,9 @@ let control = interactive.control( 100, 100);
 control.root.style.display = 'none';
 
 interactive.svg.onmousemove = function( event ) {
-  control.x = event.clientX - interactive.svg.getBoundingClientRect().left;
-  control.y = event.clientY - interactive.svg.getBoundingClientRect().top;
-  control._onchange();
-
+  let x = event.clientX - interactive.svg.getBoundingClientRect().left;
+  let y = event.clientY - interactive.svg.getBoundingClientRect().top;
+  control.translate(x,y);
 }
 
 interactive.svg.onmouseleave = interactive.svg.onmousemove;
@@ -37,7 +36,7 @@ circle.root.style.display = 'none';
 interactive.svg.onclick = function( event ) {
   opacity = 1;
   circle.r = 1;
-  circle.root.style.opacity = 1;
+  circle.root.style.opacity = '1';
   circle.cx = event.clientX - interactive.svg.getBoundingClientRect().left;
   circle.cy = event.clientY - interactive.svg.getBoundingClientRect().top;
   circle.root.style.display = '';
@@ -50,7 +49,7 @@ interactive.svg.onclick = function( event ) {
 function step(timestamp) {
 
   circle.r += 1;
-  circle.root.style.opacity = opacity;
+  circle.root.style.opacity = opacity.toString();
   opacity -= .02;
 
   if (opacity > 0 ) {

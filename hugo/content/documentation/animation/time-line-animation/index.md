@@ -4,9 +4,9 @@ description:
 ---
 
 {{< highlight javascript>}}
-// play button
-// pause button
-// time line scrubber (slider)
+let scrubber = interactive.scrubber( 100, 75, 468);
 {{< /highlight >}}
 
-<img src="/images/time-line-animation.svg" style="display:block; margin:auto; border:1px solid grey;">
+<div id="scrubber-element"></div>
+
+<script type="module" src="/examples/elements/scrubber-element.js"></script>

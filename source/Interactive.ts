@@ -9,12 +9,12 @@ import Text from './elements/Text.js';
 import Rectangle from './elements/Rectangle.js';
 
 // input elements
-import Control from './input/Control.js';
-import ControlCircle from './input/ControlCircle.js';
-import Slider from './input/Slider.js';
-import Scrubber from './input/Scrubber.js';
-import CheckBox from './input/CheckBox.js';
-import Button from './input/Button.js';
+import Button from './elements/Button.js';
+import CheckBox from './elements/CheckBox.js';
+import Control from './elements/Control.js';
+import ControlCircle from './elements/ControlCircle.js';
+import Scrubber from './elements/Scrubber.js';
+import Slider from './elements/Slider.js';
 
 // complex elements
 import Graph from './charts/Graph.js';
