@@ -1,3 +1,10 @@
+body {
+  margin: 16px;
+}
+
+.interactive-container {
+  padding: 0 1.5rem;
+}
 
 .window, .border {
   display: block;
@@ -17,8 +24,7 @@
   margin:auto;
 }
 
-.interactive {
-  margin: 0 auto 1.5rem;
+.interactive{
   display: block;
   max-width: 100%;
 }

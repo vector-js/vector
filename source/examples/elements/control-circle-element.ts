@@ -4,4 +4,4 @@ let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;
 interactive.svg.style.border = "1px solid grey";
-let button = interactive.button( 100, 75, "My Button");
+let control = interactive.controlCircle(100,75);

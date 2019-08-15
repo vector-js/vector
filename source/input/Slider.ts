@@ -34,10 +34,14 @@ export default class Slider extends Element {
 
     this.root = SVG.Group();
     this.line = new Line(x, y, x + width, y);
+    this.line.root.style.strokeWidth = '1.5';
+    this.line.root.style.strokeLinecap = 'round';
+
     this.control = new ControlCircle(x + value, y);
     this.control.constrainWithinBox(x, y, x + width, y);
-    this.control.point.r.baseVal.value -= 2;
+    this.control.point.r.baseVal.value -= 1.5;
     this.control.handle.r.baseVal.value -= 2;
+    this.control.handle.style.strokeWidth = '2';
 
     this.root.appendChild(this.line.root);
     this.root.appendChild(this.control.root);
@@ -62,8 +66,9 @@ export default class Slider extends Element {
   /**
   * Sets the width of the display line
   */
-  set width( value:number ) {
-    this.line.x2 = this.line.x1 + value;
+  set width( width:number ) {
+    this.line.x2 = this.line.x1 + width;
+    this.control.constrainWithinBox(this.line.x1, this.line.y1, this.line.x2, this.line.y2);
   }
 
   /**

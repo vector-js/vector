@@ -12,6 +12,7 @@ import Rectangle from './elements/Rectangle.js';
 import Control from './input/Control.js';
 import ControlCircle from './input/ControlCircle.js';
 import Slider from './input/Slider.js';
+import Scrubber from './input/Scrubber.js';
 import CheckBox from './input/CheckBox.js';
 import Button from './input/Button.js';
 
@@ -68,6 +69,7 @@ export default class Interactive  {
 
     // store a reference to the container element
     this.root = document.getElementById(id);
+    this.root.classList.add('interactive-container');
 
     // create and append the root svg element and group elements
     this.svg = this.root.appendChild(SVG.SVG());
@@ -274,6 +276,15 @@ export default class Interactive  {
     let slider = new Slider(x, y, width, value);
     this.controls.appendChild(slider.root);
     return slider;
+  }
+
+  /**
+  * Creates a scrubber with a play and pause button at the position (x,y).
+  */
+  scrubber(x:number, y:number, width:number ) : Scrubber {
+    let scrubber = new Scrubber( x, y, width);
+    this.controls.appendChild(scrubber.root);
+    return scrubber;
   }
 
   /**
