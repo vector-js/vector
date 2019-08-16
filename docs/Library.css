@@ -1,5 +1,4 @@
-
-.window, .border {
+.window {
   display: block;
   margin: 0 auto 1.5em auto;
   overflow: hidden;
@@ -13,12 +12,9 @@
 .border {
   border: 1px solid grey;
   /* border-radius: 6px; */
-  display:block;
-  margin:auto;
 }
 
 .interactive {
-  margin: 0 auto 1.5rem;
   display: block;
   max-width: 100%;
 }

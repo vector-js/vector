@@ -1,12 +1,4 @@
-body {
-  margin: 16px;
-}
-
-.interactive-container {
-  padding: 0 0 1rem 0;
-}
-
-.window, .border {
+.window {
   display: block;
   margin: 0 auto 1.5em auto;
   overflow: hidden;
@@ -20,15 +12,9 @@ body {
 .border {
   border: 1px solid grey;
   /* border-radius: 6px; */
-  display:block;
-  margin:auto;
 }
 
-* < .interactive {
-  background:
-}
 .interactive {
-  /* margin: 0 auto 1.5rem; */
   display: block;
   max-width: 100%;
 }

@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kurtbruns.github.io/vector/documentation/animation/time-line-animation/</guid>
-      <description>// play button // pause button // time line scrubber (slider)  </description>
+      <description>let scrubber = interactive.scrubber( 100, 75, 468);    </description>
     </item>
     
   </channel>

@@ -5,9 +5,9 @@
 */
 
 // input
-import Control from './input/Control.js';
-import CheckBox from './input/CheckBox.js';
-import Slider from './input/Slider.js';
+import Control from './elements/Control.js';
+import CheckBox from './elements/CheckBox.js';
+import Slider from './elements/Slider.js';
 
 // elements
 import Ellipse from './elements/Ellipse.js';
