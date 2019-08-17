@@ -19,7 +19,7 @@ angleInteractive.width = 2*radius + 2*margin;
 angleInteractive.height = 250;
 angleInteractive.originX = angleInteractive.width/2;
 angleInteractive.originY = angleInteractive.height/2;
-angleInteractive.svg.style.display = 'inline';
+angleInteractive.root.style.display = 'inline';
 
 // Create a circle
 let circle = angleInteractive.circle( 0, 0, 80);
@@ -54,7 +54,7 @@ interactive.height = 250;
 interactive.originX = margin;
 interactive.originY = interactive.height/2;
 interactive.window = false;
-interactive.svg.style.display = 'inline';
+interactive.root.style.display = 'inline';
 
 let graph = interactive.graph( false );
 graph.function = (x:number) => { return Math.sin(x); };
@@ -63,7 +63,7 @@ graph.originY = 0;
 graph.yAxis.style.stroke = 'none';
 graph.xAxis.x1.baseVal.value = 0;
 graph.xAxis.x2.baseVal.value = circle.r*2*Math.PI;
-// interactive.svg.style.overflow = 'visible';
+// interactive.root.style.overflow = 'visible';
 graph.translate(graph.originX, graph.originY);
 graph.scale( 2*Math.PI/(circumference), circle.r);
 graph.draw( 0, circumference);

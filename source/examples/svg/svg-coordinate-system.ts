@@ -15,7 +15,7 @@ interactive.width = 600;
 interactive.height = 300;
 interactive.originX = margin;
 interactive.originY = margin;
-interactive.svg.style.overflow = 'visible';
+interactive.root.style.overflow = 'visible';
 
 let rectangle = interactive.rectangle(0,0, interactive.width - 2*margin, interactive.height - 2*margin);
 rectangle.style.fill = '#f8f8f8';

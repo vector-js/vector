@@ -9,31 +9,24 @@
 */
 
 import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
 
-let interactive = new Interactive(getScriptName());
+let id = 'svg-path-arc';
+let interactive = new Interactive(id);
 interactive.border = true;
-interactive.width = 380;
-interactive.root.style.margin = '8px';
+
 let path = interactive.path('');
 let start = interactive.control( 100, 120);
 let control = interactive.control( 200, 120);
+let rx = interactive.slider( 400, 40, 150, 75);
+let ry = interactive.slider( 400, 70, 150, 75);
 let text = interactive.text( 25, 275, "");
 
-let controls = new Interactive(getScriptName());
-controls.width = 220;
-controls.border = true;
-controls.root.style.margin = '8px';
-let margin = 32;
-let rx = controls.slider( margin, 40, controls.width - 2*margin, 75);
-let ry = controls.slider( margin, 75,  controls.width - 2*margin, 75);
-
-let xAxisRotation = controls.slider( margin, 110,  controls.width - 2*margin, 0);
+let xAxisRotation = interactive.slider( 400, 100, 150, 0);
 xAxisRotation.min = 0;
 xAxisRotation.max = 180;
-let largeArcFlag = controls.checkBox( margin, 160, "large-arc-flag", false);
-let sweepFlag = controls.checkBox( margin, 195, "sweep-flag", false);
-let showEllipsis = controls.checkBox( margin, 230, "show ellipsis", false);
+let largeArcFlag = interactive.checkBox( 400, 130, "large-arc-flag", false);
+let sweepFlag = interactive.checkBox( 400, 160, "sweep-flag", false);
+let showEllipsis = interactive.checkBox( 400, 190, "show ellipsis", false);
 
 path.update = function() {
   this.d = `M ${start.x}

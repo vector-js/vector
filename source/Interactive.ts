@@ -32,12 +32,12 @@ export default class Interactive  {
   /**
   * The container element for this interactive.
   */
-  root:HTMLElement;
+  container:HTMLElement;
 
   /**
   * The main svg that elements are created within
   */
-  svg:SVGElement;
+  root:SVGElement;
 
   /**
   * Have a wrapper object for the mouse object?
@@ -68,14 +68,14 @@ export default class Interactive  {
   constructor( id:string ) {
 
     // store a reference to the container element
-    this.root = document.getElementById(id);
-    this.root.classList.add('interactive-container');
+    this.container = document.getElementById(id);
+    this.container.classList.add('interactive-container');
 
     // create and append the root svg element and group elements
-    this.svg = this.root.appendChild(SVG.SVG());
-    this.svg.classList.add('interactive');
-    this.background = this.svg.appendChild(SVG.Group());
-    this.controls = this.svg.appendChild(SVG.Group());
+    this.root = this.container.appendChild(SVG.SVG());
+    this.root.classList.add('interactive');
+    this.background = this.root.appendChild(SVG.Group());
+    this.controls = this.root.appendChild(SVG.Group());
 
     // default configuration
     this.width = 600;
@@ -83,7 +83,7 @@ export default class Interactive  {
     this.window = false;
 
     // prevent the default behavior of selecting text
-    this.root.addEventListener('mousedown', function( event:MouseEvent ) {
+    this.container.addEventListener('mousedown', function( event:MouseEvent ) {
       event.preventDefault();
     });
   }
@@ -93,7 +93,7 @@ export default class Interactive  {
   */
   set width( value:number ){
     this._width = value;
-    this.svg.setAttribute('width', value.toString());
+    this.root.setAttribute('width', value.toString());
   }
 
   /**
@@ -108,7 +108,7 @@ export default class Interactive  {
   */
   set height( value:number ){
     this._height = value;
-    this.svg.setAttribute('height', value.toString());
+    this.root.setAttribute('height', value.toString());
   }
 
   /**
@@ -155,9 +155,9 @@ export default class Interactive  {
   */
   set window( value:boolean ) {
     if( value ){
-      this.svg.classList.add('window');
+      this.root.classList.add('window');
     } else {
-      this.svg.classList.remove('window');
+      this.root.classList.remove('window');
     }
   }
 
@@ -166,9 +166,9 @@ export default class Interactive  {
   */
   set border( value:boolean ) {
     if( value ){
-      this.svg.classList.add('border');
+      this.root.classList.add('border');
     } else {
-      this.svg.classList.remove('border');
+      this.root.classList.remove('border');
     }
   }
 
@@ -213,7 +213,7 @@ export default class Interactive  {
   * A user provided description of this interactive.
   */
   set description( description:string ) {
-    this.svg.setAttribute('data-description', description);
+    this.root.setAttribute('data-description', description);
   }
 
   /**
@@ -221,7 +221,7 @@ export default class Interactive  {
   * TODO: look into css transform-origin
   */
   setViewBox( minX:number, minY:number, width:number, height:number ) {
-    this.svg.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
+    this.root.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
   }
 
   /**

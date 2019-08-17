@@ -3,5 +3,5 @@ import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
+interactive.root.style.border = "1px solid grey";
 let line = interactive.text( 50, 75, "My Text");

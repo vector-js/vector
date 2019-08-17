@@ -16,7 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kurtbruns.github.io/vector/documentation/input/button/</guid>
-      <description>let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);    </description>
+      <description>The button element has a position, label, and default style. Defining the &amp;ldquo;onclick&amp;rdquo; method handles when a user clicks the button.
+let button = interactive.button( 100, 75, &amp;#34;My Button&amp;#34;);    </description>
     </item>
     
     <item>

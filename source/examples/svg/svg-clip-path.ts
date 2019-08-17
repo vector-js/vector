@@ -45,5 +45,5 @@ circle.update = function() {
 let clipPath = SVG.ClipPath();
 clipPath.id = 'test';
 clipPath.appendChild(circle.root);
-interactive.svg.appendChild(clipPath);
-(interactive.svg.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);
+interactive.root.appendChild(clipPath);
+(interactive.root.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);

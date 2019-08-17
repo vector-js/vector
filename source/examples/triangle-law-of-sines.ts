@@ -23,7 +23,7 @@ let displayAngle2 = mirrorCircle( p3);
 let group = SVG.Group();
 group.appendChild(displayAngle1.root);
 group.appendChild(displayAngle2.root);
-interactive.svg.insertBefore( group, interactive.svg.firstChild);
+interactive.root.insertBefore( group, interactive.root.firstChild);
 
 function mirrorCircle( point ) {
   let circle = interactive.circle( point.x, point.y, 25);
@@ -53,7 +53,7 @@ triangle.update();
 let clipPath = SVG.ClipPath();
 clipPath.id = id + '-clip-path';
 clipPath.appendChild(triangle.root);
-interactive.svg.appendChild(clipPath);
+interactive.root.appendChild(clipPath);
 group.setAttribute('clip-path', `url(#${clipPath.id})`);
 
 let line = interactive.path('');

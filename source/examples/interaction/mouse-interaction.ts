@@ -8,13 +8,13 @@ interactive.border = true;
 let control = interactive.control( 100, 100);
 control.root.style.display = 'none';
 
-interactive.svg.onmousemove = function( event ) {
-  let x = event.clientX - interactive.svg.getBoundingClientRect().left;
-  let y = event.clientY - interactive.svg.getBoundingClientRect().top;
+interactive.root.onmousemove = function( event ) {
+  let x = event.clientX - interactive.root.getBoundingClientRect().left;
+  let y = event.clientY - interactive.root.getBoundingClientRect().top;
   control.translate(x,y);
 }
 
-interactive.svg.onmouseleave = interactive.svg.onmousemove;
+interactive.root.onmouseleave = interactive.root.onmousemove;
 
 let xline = interactive.line( interactive.minX, control.y, interactive.maxX, control.y);
 xline.addDependency(control);
@@ -33,12 +33,12 @@ yline.update = function() {
 let opacity = 1;
 let circle = interactive.circle( 0, 0, 3);
 circle.root.style.display = 'none';
-interactive.svg.onclick = function( event ) {
+interactive.root.onclick = function( event ) {
   opacity = 1;
   circle.r = 1;
   circle.root.style.opacity = '1';
-  circle.cx = event.clientX - interactive.svg.getBoundingClientRect().left;
-  circle.cy = event.clientY - interactive.svg.getBoundingClientRect().top;
+  circle.cx = event.clientX - interactive.root.getBoundingClientRect().left;
+  circle.cy = event.clientY - interactive.root.getBoundingClientRect().top;
   circle.root.style.display = '';
 
   // Start the animation cycle

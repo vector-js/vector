@@ -59,8 +59,8 @@ display_triangle.update();
 let clipPath = SVG.ClipPath();
 clipPath.id = 'triangle-with-angles-clip-path';
 clipPath.appendChild(triangle.root);
-interactive.svg.appendChild(clipPath);
-(interactive.svg.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);
+interactive.root.appendChild(clipPath);
+(interactive.root.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);
 
 // adds a display angle between points
 function addAngleDisplayBetweenPoints( p1, p2, p3) {

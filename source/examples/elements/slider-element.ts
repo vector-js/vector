@@ -5,5 +5,5 @@ import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;
-interactive.svg.style.border = "1px solid grey";
+interactive.root.style.border = "1px solid grey";
 let slider = interactive.slider( 100, 75, 150, 20);
