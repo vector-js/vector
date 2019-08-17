@@ -13,8 +13,7 @@ import { getScriptName } from '../../Util.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 380;
-interactive.root.style.margin = '8px';
+interactive.width = 484;
 let path = interactive.path('');
 let start = interactive.control( 100, 120);
 let control = interactive.control( 200, 120);
@@ -23,7 +22,7 @@ let text = interactive.text( 25, 275, "");
 let controls = new Interactive(getScriptName());
 controls.width = 220;
 controls.border = true;
-controls.root.style.margin = '8px';
+controls.root.style.marginLeft = '16px';
 let margin = 32;
 let rx = controls.slider( margin, 40, controls.width - 2*margin, 75);
 let ry = controls.slider( margin, 75,  controls.width - 2*margin, 75);
