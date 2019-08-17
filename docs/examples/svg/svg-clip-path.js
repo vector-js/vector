@@ -4,7 +4,7 @@ import SVG from '../../SVG.js';
 let id = 'svg-clip-path';
 let interactive = new Interactive(id);
 interactive.border = true;
-interactive.width = 600;
+interactive.width = 704;
 interactive.height = 300;
 interactive.originX = 0;
 interactive.originY = 0;

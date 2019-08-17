@@ -11,6 +11,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-path-arc';
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.width = 704;
 let path = interactive.path('');
 let start = interactive.control(100, 120);
 let control = interactive.control(200, 120);

@@ -9,6 +9,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-rectangle';
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.width = 704;
 let rect = interactive.rectangle(0, 0, 0, 0);
 let c1 = interactive.control(150, 100);
 let c2 = interactive.control(450, 200);

@@ -12,6 +12,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-path-line';
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.width = 704;
 let path = interactive.path('');
 let start = interactive.control(150, 150);
 let end = interactive.control(450, 50);

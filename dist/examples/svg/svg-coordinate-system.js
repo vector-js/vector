@@ -9,7 +9,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-coordinate-system';
 let interactive = new Interactive(id);
 let margin = 30;
-interactive.width = 600;
+interactive.width = 704;
 interactive.height = 300;
 interactive.originX = margin;
 interactive.originY = margin;

@@ -11,6 +11,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-path-bezier-quadratic';
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.width = 704;
 let l1 = interactive.line(0, 0, 0, 0);
 let l2 = interactive.line(0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';

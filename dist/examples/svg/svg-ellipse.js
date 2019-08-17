@@ -9,6 +9,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-ellipse';
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.width = 704;
 let ellipse = interactive.ellipse(0, 0, 0, 0);
 let l1 = interactive.line(0, 0, 0, 0);
 let l2 = interactive.line(0, 0, 0, 0);
