@@ -11,11 +11,12 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-coordinate-system';
 let interactive = new Interactive(id);
 let margin = 0;
-interactive.width = 704;
+interactive.width = 692;
 interactive.height = 300;
 interactive.originX = margin;
 interactive.originY = margin;
 interactive.root.style.overflow = 'visible';
+interactive.root.style.marginLeft = '6px';
 
 let rectangle = interactive.rectangle(0,0, interactive.width - 2*margin, interactive.height - 2*margin);
 rectangle.style.fill = '#f8f8f8';
