@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Example 1 on Interactive SVG</title>
+    <title>Example 1 on Vector.js</title>
     <link>https://kurtbruns.github.io/vector/examples/example13/</link>
-    <description>Recent content in Example 1 on Interactive SVG</description>
+    <description>Recent content in Example 1 on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

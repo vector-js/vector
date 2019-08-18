@@ -1,6 +1,6 @@
 baseURL: "https://kurtbruns.github.io/vector/"
 languageCode: "en-us"
-title: "Interactive SVG"
+title: "Vector.js"
 disableKinds: ["taxonomy", "taxonomyTerm"]
 pygmentsUseClasses: true
 canonifyURLs:  true

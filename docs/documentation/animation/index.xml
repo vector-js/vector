@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Animation on Interactive SVG</title>
+    <title>Animation on Vector.js</title>
     <link>https://kurtbruns.github.io/vector/documentation/animation/</link>
-    <description>Recent content in Animation on Interactive SVG</description>
+    <description>Recent content in Animation on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

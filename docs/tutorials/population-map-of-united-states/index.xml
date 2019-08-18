@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Population Map on Interactive SVG</title>
+    <title>Population Map on Vector.js</title>
     <link>https://kurtbruns.github.io/vector/tutorials/population-map-of-united-states/</link>
-    <description>Recent content in Population Map on Interactive SVG</description>
+    <description>Recent content in Population Map on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
