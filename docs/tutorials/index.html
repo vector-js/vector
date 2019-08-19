@@ -28,7 +28,7 @@
 	<div class="small-container">
     <a href="https://kurtbruns.github.io/vector/"><h1>Vector.js</h1></a>
     <p><a class="github-button" href="https://github.com/KurtBruns/vector" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></p>
-		<p>Vector is a javascript library for the creation of interactive graphics.</p>
+		<p>Vector is a javascript library for the creation of interactive scalable vector graphics.</p>
     <p>
       <button class="muted-button" id="sandbox-button">Sandbox</button>
       <button class="muted-button" id="tutorials-button" >Tutorials</button>
@@ -57,17 +57,17 @@
       </div>
     
       <div style="display:block; height:220px; background:white; margin:16px; border-radius:10px; overflow:hidden; border: 1px solid #dddddd;">
-        <div style="display:block; width:100%; height:2.5rem; background:#E7EAED; border-bottom: 1px solid #999999; padding:.5rem;">Exponential Growth</div>
-				<img src="https://kurtbruns.github.io/vector/play-button.svg" style="margin:auto; display:block;">
-      </div>
-    
-      <div style="display:block; height:220px; background:white; margin:16px; border-radius:10px; overflow:hidden; border: 1px solid #dddddd;">
         <div style="display:block; width:100%; height:2.5rem; background:#E7EAED; border-bottom: 1px solid #999999; padding:.5rem;">Planets</div>
 				<img src="https://kurtbruns.github.io/vector/play-button.svg" style="margin:auto; display:block;">
       </div>
     
       <div style="display:block; height:220px; background:white; margin:16px; border-radius:10px; overflow:hidden; border: 1px solid #dddddd;">
         <div style="display:block; width:100%; height:2.5rem; background:#E7EAED; border-bottom: 1px solid #999999; padding:.5rem;">Population Map</div>
+				<img src="https://kurtbruns.github.io/vector/play-button.svg" style="margin:auto; display:block;">
+      </div>
+    
+      <div style="display:block; height:220px; background:white; margin:16px; border-radius:10px; overflow:hidden; border: 1px solid #dddddd;">
+        <div style="display:block; width:100%; height:2.5rem; background:#E7EAED; border-bottom: 1px solid #999999; padding:.5rem;">SVG Tutorial</div>
 				<img src="https://kurtbruns.github.io/vector/play-button.svg" style="margin:auto; display:block;">
       </div>
     
@@ -161,17 +161,17 @@ document.querySelector("#sandbox-button").onclick = function() {
       </li>
       
       <li>
-          <a class="aside-link" href="#exponential-growth"><img src="https://kurtbruns.github.io/vector/icon.svg" style="padding-right:1rem; vertical-align:middle;">Exponential Growth</a>
-
-      </li>
-      
-      <li>
           <a class="aside-link" href="#planets"><img src="https://kurtbruns.github.io/vector/icon.svg" style="padding-right:1rem; vertical-align:middle;">Planets</a>
 
       </li>
       
       <li>
           <a class="aside-link" href="#population-map"><img src="https://kurtbruns.github.io/vector/icon.svg" style="padding-right:1rem; vertical-align:middle;">Population Map</a>
+
+      </li>
+      
+      <li>
+          <a class="aside-link" href="#svg-tutorial"><img src="https://kurtbruns.github.io/vector/icon.svg" style="padding-right:1rem; vertical-align:middle;">SVG Tutorial</a>
 
       </li>
       
@@ -254,25 +254,6 @@ document.querySelector("#sandbox-button").onclick = function() {
       
       
     
-      <h2 id="exponential-growth">Exponential Growth</h2>
-      <p><img src="https://kurtbruns.github.io/vector/images/exponential-growth.svg" width="600px" style="display:block; margin:auto; border:1px solid grey; border-radius:4px;"></p>
-
-<p>In this tutorial we will create an interactive map of the United States shown above. <!-- TODO: replace with actual interactive --> Each state will be colored with respect to its percentage of the total population of the country.</p>
-
-<!-- TODO: steps -->
-
-<!-- Step 0: Open Editor  -->
-
-<!-- Step 1: Load Map of United States -->
-
-<!-- Step 2: Load Data from somewhere (spreadsheet?) -->
-
-<!-- Step 3: Style States with respect to population -->
-
-<!-- Step 4: Add a mouse click or mouse hover handler that displays information about each state. -->
-
-      
-    
       <h2 id="planets">Planets</h2>
       
       
@@ -294,6 +275,10 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <!-- Step 4: Add a mouse click or mouse hover handler that displays information about each state. -->
 
+      
+    
+      <h2 id="svg-tutorial">SVG Tutorial</h2>
+      
       
     
   </div>
