@@ -13,4 +13,4 @@ TODO: add source folder to also host typescript files?
 
 
 params:
-  repositoryURL: "https://vectorjs.org"
+  repositoryURL: "https://github.com/vector-js/vector.git"
