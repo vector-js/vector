@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maps on Vector.js</title>
-    <link>https://kurtbruns.github.io/vector/documentation/maps/</link>
+    <link>https://vectorjs.org/documentation/maps/</link>
     <description>Recent content in Maps on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://kurtbruns.github.io/vector/documentation/maps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vectorjs.org/documentation/maps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>World Map</title>
-      <link>https://kurtbruns.github.io/vector/documentation/maps/world/</link>
+      <link>https://vectorjs.org/documentation/maps/world/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/maps/world/</guid>
+      <guid>https://vectorjs.org/documentation/maps/world/</guid>
       <description>let map = interactive.map(&amp;#34;world-map.geojson&amp;#34;);  </description>
     </item>
     
     <item>
       <title>United States</title>
-      <link>https://kurtbruns.github.io/vector/documentation/maps/united-states/</link>
+      <link>https://vectorjs.org/documentation/maps/united-states/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/maps/united-states/</guid>
+      <guid>https://vectorjs.org/documentation/maps/united-states/</guid>
       <description>let map = interactive.map(&amp;#34;united-states.geojson&amp;#34;);  </description>
     </item>
     
     <item>
       <title>Custom Maps</title>
-      <link>https://kurtbruns.github.io/vector/documentation/maps/custom/</link>
+      <link>https://vectorjs.org/documentation/maps/custom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/maps/custom/</guid>
+      <guid>https://vectorjs.org/documentation/maps/custom/</guid>
       <description></description>
     </item>
     

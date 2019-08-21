@@ -1,4 +1,4 @@
-baseURL: "https://kurtbruns.github.io/vector/"
+baseURL: "https://vectorjs.org"
 languageCode: "en-us"
 title: "Vector.js"
 disableKinds: ["taxonomy", "taxonomyTerm"]
@@ -13,4 +13,4 @@ TODO: add source folder to also host typescript files?
 
 
 params:
-  repositoryURL: "https://github.com/KurtBruns/vector"
+  repositoryURL: "https://vectorjs.org"

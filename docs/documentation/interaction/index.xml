@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Interaction on Vector.js</title>
-    <link>https://kurtbruns.github.io/vector/documentation/interaction/</link>
+    <link>https://vectorjs.org/documentation/interaction/</link>
     <description>Recent content in Interaction on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://kurtbruns.github.io/vector/documentation/interaction/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vectorjs.org/documentation/interaction/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dependency Functions</title>
-      <link>https://kurtbruns.github.io/vector/documentation/interaction/dependency-functions/</link>
+      <link>https://vectorjs.org/documentation/interaction/dependency-functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/interaction/dependency-functions/</guid>
+      <guid>https://vectorjs.org/documentation/interaction/dependency-functions/</guid>
       <description>All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the function .addDependency and then (optionally?) defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, although hopefully in the future this will be strictly enforced, only the element&amp;rsquo;s data whom have been declared should be used within the update function.</description>
     </item>
     
     <item>
       <title>Keyboard Input</title>
-      <link>https://kurtbruns.github.io/vector/documentation/interaction/keyboard/</link>
+      <link>https://vectorjs.org/documentation/interaction/keyboard/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/interaction/keyboard/</guid>
+      <guid>https://vectorjs.org/documentation/interaction/keyboard/</guid>
       <description>Key board input can be used to change the state of an interactive or control different elements of it. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.
 window.onkeydown = function( event ) { ... }    </description>
     </item>
     
     <item>
       <title>Mouse Input</title>
-      <link>https://kurtbruns.github.io/vector/documentation/interaction/mouse/</link>
+      <link>https://vectorjs.org/documentation/interaction/mouse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kurtbruns.github.io/vector/documentation/interaction/mouse/</guid>
+      <guid>https://vectorjs.org/documentation/interaction/mouse/</guid>
       <description>horizontal line showing x-position veritical line showing y-position expanding circle on click
 interactive.mouse ? interactive.onclick ? interactive.onmousemove ?    </description>
     </item>
