@@ -1,28 +1,4 @@
-{{ define "main" }}
-<div class="flex-container">
-  {{ $pages := .Sections }}
-  <div class="aside-container">
-    <aside>
-      <a href="#"><h1>Vector.js</h1></a>
-      <ul>
-      {{ range $pages.ByWeight }}
-      <li>
-        {{ .Render "link"}}
-      </li>
-      {{ end }}
-    </ul>
-    </aside>
-  </div>
-  <div class="medium-container">
-    {{.Content}}
-    {{ range $pages.ByWeight }}
-      <h2 id="{{urlize .Title }}">{{.Title}}</h2>
-      {{ .Content }}
-      {{ range .Pages.ByWeight }}
-      <h3 id="{{ urlize .Title }}">{{.Title}}</h3>
-      {{ .Content }}
-      {{ end }}
-    {{ end }}
-  </div>
-</div>
+{{ define "body" }}
+{{ partial "hero" . }}
+{{ partial "aside" . }}
 {{ end }}

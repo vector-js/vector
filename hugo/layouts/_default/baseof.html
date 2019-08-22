@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/Library.css">
 </head>
 <body>
+{{ block "body" . }}
 {{ partial "hero" . }}
 <main>
 {{ block "main" . }}
@@ -22,5 +23,6 @@
     <p id="footer-message">About <a href="/team/" style="font-color:">the team.</a> <a href="/">View on github.</a></p>
 	</div>
 </footer>
+{{ end }}
 </body>
 </html>

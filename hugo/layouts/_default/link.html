@@ -1,1 +1,6 @@
-  <a class="aside-link" href="#{{ urlize .Title }}"><img src="{{ with .Params.Icon }}{{.}}{{ else }}/icon.svg{{end}}" style="padding-right:1rem; vertical-align:middle;">{{.Title}}</a>
+{{ $src := (print "/icons/" (print (urlize .Title) ".svg")) }}
+{{if fileExists (print "static" $src ) }}
+<a class="aside-link" href="#{{ urlize .Title }}"><img src="{{ $src }}" alt="{{.Title}}">{{.Title}}</a>
+{{ else }}
+<a class="aside-link" href="#{{ urlize .Title }}"><img src="/icons/icon.svg" alt="{{.Title}}">{{.Title}}</a>
+{{end}}

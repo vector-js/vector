@@ -1,0 +1,33 @@
+{{ define "body" }}
+{{ partial "hero" . }}
+<section class="documentation" style="max-width: 1100px; margin: 0 auto;">
+  <div class="flex-container">
+    <div class="aside-container">
+      <aside>
+        <a href="#"><h1>{{.Title}}</h1></a>
+        <ul>
+          {{ range .Pages }}
+            {{ $heading := urlize .Title }}
+            {{ $title := .Title }}
+            {{ $src := (print "/icons/" (print $heading ".svg")) }}
+            {{if fileExists (print "static" $src ) }}
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{$title}}">{{ $title }}</a></li>
+            {{ else }}
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{$title}}">{{ $title }}</a></li>
+            {{end}}
+          {{ end }}
+        </ul>
+      </aside>
+    </div>
+    <main class="medium-container" id="main-content">
+      {{ range .Pages }}
+        <h2 id="{{ urlize .Title }}">{{.Title}}</h2>
+        {{ .Content }}
+      {{ end }}
+    </main>
+    <div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

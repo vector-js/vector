@@ -1,0 +1,6 @@
+{{ with .Site.GetPage (print "examples/" (.Get 0)) }}
+<div id="{{.Params.id}}" class="interactive"></div>
+<script type="module" src="/dist/examples/{{.Params.id}}.js"></script>
+{{ else }}
+{{ errorf "Failed to find example %q" (print "examples/" (.Get 0)) }}
+{{ end }}

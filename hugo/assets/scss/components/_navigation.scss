@@ -24,6 +24,12 @@ header {
   color: $font-color;
 }
 
+.aside-link img {
+  padding-right:1rem;
+  vertical-align:middle;
+  width: 32px;
+}
+
 .aside-link:hover {
   background: #f0f0f0;
   text-decoration: none;

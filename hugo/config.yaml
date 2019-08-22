@@ -9,8 +9,8 @@ staticDir:
   - static
   - ../dist/
 
-TODO: add source folder to also host typescript files?
-
+permalinks:
+  tutorials: /:title/
 
 params:
   repositoryURL: "https://github.com/vector-js/vector.git"

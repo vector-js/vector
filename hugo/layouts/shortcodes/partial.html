@@ -1,0 +1,7 @@
+{{ $partial := (.Get 0) }}
+{{ $path := (.Get 1) }}
+{{ with $.Site.GetPage $path }}
+  {{ partial $partial . }}
+{{ else }}
+  {{ errorf "Failed to find page %q" $path }}
+{{ end }}

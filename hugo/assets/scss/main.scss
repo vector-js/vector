@@ -22,19 +22,55 @@
 @import "components/tables";
 @import "components/navigation";
 @import "components/layout";
+@import "components/syntax";
 
-@import "syntax";
+.center {
+  margin:auto;
+  display: block;
+}
 
 // TODO: move
 pre {
   border: 1px solid gray;
-  background: !important #dddddd;
+  // background: !important #dddddd;
+}
+.collapse {
+  padding: 2rem 0px;
+  border-bottom:
+  1px solid #dddddd;
+  background: #f8f8f8;
 }
 
-.filename {
-  padding: .5rem 1rem .75rem;
-  margin-bottom: -.5rem;
-  background: #444444;
-  color: white;
-  border-radius: 4px;
+.collapse > * {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.collapse > img {
+  max-width: 100%;
+}
+
+.card {
+   display:block;
+   height:220px;
+   background:white;
+   margin:16px;
+   border-radius:10px;
+   overflow:hidden;
+   border: 1px solid #dddddd;
+}
+
+.card > a {
+  color: $font-color;
+  display:block;
+  width:100%;
+  height:2.5rem;
+  background:#E7EAED;
+  border-bottom: 1px solid #999999;
+  padding:.5rem;
+}
+
+.card > img {
+  margin:auto;
+  display:block;
 }
