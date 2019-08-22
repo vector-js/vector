@@ -1,5 +1,5 @@
 ---
-title: SVG Reference
+title: SVG Tutorial
 description: An interactive SVG tutorial introducing the basics of creating and manipulating SVG documents.
 layout: aside
 type: tutorials
@@ -173,37 +173,38 @@ onhover, etc
 
 ## Scripting
 
-It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section is going to use Javascript and WEB APIs as an example, but other languages work just as well. Also, at this point I would like to add a shameless plug for [vector.js](https://kurtbruns.github.io/vector/) - a library written specifically for creating interactive SVG documents.
+It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section utilizes Javascript and Web APIs to demonstrate creating interactive SVG elements. There are many libraries and frameworks to help with this very thing. This library [vector.js](/) is one of them.
 
 ### Creating SVG Elements
 
-To create a SVG element using the vanilla web APIs you create an element using the w3 namespace and add it into the DOM (document object model). This example demonstrates generating a SVG root element, adding a circle element, and embeding them into a simple static web page.
+To create a SVG element within a simple static web page using javascript: first, you create an element using the W3 namespace and add it into the document object model or DOM for short. This example demonstrates generating a SVG element and adding that to a container element in the HTML page. Then creating a circle element and adding that to the SVG element.
 
 <div class="filename">create-element.js</div>
 
 {{< highlight javascript >}}
 // Get an element in the DOM to append the svg into
-let container = document.getElementById('container');
+let container = document.getElementById("container");
 
 // Creates a root svg element and appends it into HTML the container
-let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-svg.setAttribute('width', '720px');
-svg.setAttribute('height', '200px');
+let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+svg.setAttribute("width", "720px");
+svg.setAttribute("height", "200px");
 container.appendChild(svg);
 
 // Creates a circle element and appends it into the svg element
-let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-circle.setAttribute('cx', '100');
-circle.setAttribute('cy', '100');
-circle.setAttribute('r', '50');
+let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+circle.setAttribute("cx", "100");
+circle.setAttribute("cy", "100");
+circle.setAttribute("r", "50");
 svg.appendChild(circle);
 {{< /highlight >}}
+
+This script needs a corresponding HTML file to run. Note that there is a div element with the identifier "container" and a script element that loads in the script above.
 
 <div class="filename">index.html</div>
 
 {{< highlight html >}}
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -211,15 +212,17 @@ svg.appendChild(circle);
     <title>Create Element</title>
   </head>
   <body>
-    <div id='container'></div>
-    <script src='./create-element.js'></script>
+    <div id="container"></div>
+    <script src="./create-element.js"></script>
   </body>
 </html>
 {{< /highlight >}}
 
-<img src="/images/create-element.svg" width="704px" style="margin:auto; display:block;">
+Placing these to files in a folder together and opening the HTML file in a web browser results in the following SVG.
 
-### Manipulating SVG Elements
+<img src="/images/create-element.svg" width="704px" class="center">
+
+### Selecting Elements
 
 {{< highlight javascript>}}
 // select element by id
@@ -236,6 +239,8 @@ let list = document.getElementsByTagName("circle");
 let list = document.getElementsByClassName("my-class");
 {{< /highlight >}}
 
+### Manipulating Attributes
+
 {{< highlight javascript>}}
 element.setAttribute("some-attribute", "some-value");
 element.getAttribute("some-attribute");
@@ -243,11 +248,30 @@ element.getAttribute("some-attribute");
 
 {{< highlight javascript>}}
 // add / remove class
+{{< /highlight >}}
+
+### Manipulating Style
+
+{{< highlight javascript>}}
 // access style property for inline styling
+{{< /highlight >}}
+
+### Useful Functions
+
+{{< highlight javascript>}}
 // get bounding client rectangle
 {{< /highlight >}}
 
 ### Basic Interactive
+
+Interactivity allows for user input to change the SVG document. The most basic form of this is register handlers to user events. Handlers are registered to specific elements and are called when the event takes place. Examples of events are the mouse click event, mouse move event, mouse over element event, keyboard events, and more.
+
+{{< highlight javascript>}}
+// TODO: interactive that displays types of event handlers being called
+// Maybe some basic shapes with colors
+{{< /highlight >}}
+
+#### Registering an Event Handler
 
 {{< highlight javascript>}}
 // register event listener
