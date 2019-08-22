@@ -593,11 +593,20 @@ header {
   padding: 60px 0px;
   border-bottom: 1px solid #dddddd; }
 
-.flex-container {
-  display: flex; }
+section.aside {
+  display: flex;
+  max-width: 100%; }
 
-.aside-container {
-  position: static; }
+section.aside aside {
+  display: block; }
+
+@media only screen and (max-width: 1024px) {
+  section.aside aside {
+    display: none; } }
+
+@media only screen and (max-width: 736px) {
+  section.aside main {
+    max-width: 100%; } }
 
 .aside-link {
   color: #404040; }

@@ -11,13 +11,29 @@ header {
   border-bottom:1px solid #dddddd;
 }
 
-.flex-container {
+section.aside {
   display: flex;
+  max-width: 100%;
 }
 
-.aside-container {
-  // width:100%;
-  position: static;
+section.aside aside {
+  display: block;
+}
+
+@media only screen and (max-width: $large) {
+  section.aside aside {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $medium) {
+  section.aside main {
+    max-width: 100%;
+  }
+}
+
+section.aside .medium-container {
+  // max-width: 100%;
 }
 
 .aside-link {

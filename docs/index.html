@@ -141,7 +141,7 @@ document.querySelector("#sandbox-button").onclick = function() {
 };
 </script>
 
-<div class="flex-container container">
+<section class="aside container">
   <div class="aside-container">
     <aside>
       <a href="#"><h1>Vector.js</h1></a>
@@ -399,7 +399,7 @@ expanding circle on click</p>
 <span class="nx">circle</span><span class="p">.</span><span class="nx">animateAlongPath</span><span class="p">(</span> <span class="nx">path</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">SPEED</span><span class="p">);</span>
 </code></pre></div>
 
-<p><img src="https://vectorjs.org/images/trace-animation.svg" width="100%"></p>
+<p><img src="https://vectorjs.org/images/trace-animation.svg" class="center" alt="Animate Along SVG Path"></p>
 
 <h3 id="time-line-animation">Time Line Animation</h3>
 
@@ -419,14 +419,14 @@ expanding circle on click</p>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;world-map.geojson&#34;</span><span class="p">);</span>
 </code></pre></div>
 
-<p><img src="https://vectorjs.org/world.svg" alt="" width="100%"></p>
+<p><img src="https://vectorjs.org/images/world-map.svg" alt="SVG World Map" class="center"></p>
 
 <h3 id="united-states">United States</h3>
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;united-states.geojson&#34;</span><span class="p">);</span>
 </code></pre></div>
 
-<p><img src="https://vectorjs.org/united-states.svg" width="600px" style="display:block; margin:auto;"></p>
+<p><img src="https://vectorjs.org/images/united-states.svg" class="center" alt="SVG United States Map"></p>
 
 <h3 id="custom-maps">Custom Maps</h3>
 
@@ -453,7 +453,7 @@ expanding circle on click</p>
 
 <h3 id="scaling">Scaling</h3>
 
-<p><img src="https://vectorjs.org/images/cartesian-coordinate-system.svg" class="border" width="600px" style="display:block; margin:auto;"></p>
+<p><img src="https://vectorjs.org/images/cartesian-coordinate-system.svg" class="border center" alt="SVG Coordinate System"></p>
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: Scaling example
 </span></code></pre></div>
@@ -476,9 +476,7 @@ expanding circle on click</p>
 <p>Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript.</p>
 
   </main>
-  <div>
-  </div>
-</div>
+</section>
 
 </body>
 </html>

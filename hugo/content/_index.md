@@ -224,7 +224,7 @@ let path = interactive.path("...");
 circle.animateAlongPath( path, true, SPEED);
 {{< /highlight >}}
 
-<img src="/images/trace-animation.svg" width="100%">
+<img src="/images/trace-animation.svg" class="center" alt="Animate Along SVG Path">
 
 ### Time Line Animation
 
@@ -246,7 +246,7 @@ Wishful thinking (x,y) to lattitude longitude and vice versa.
 let map = interactive.map("world-map.geojson");
 {{< /highlight >}}
 
-<img src="/world.svg" alt="" width="100%">
+<img src="/images/world-map.svg" alt="SVG World Map" class="center">
 
 ### United States
 
@@ -254,7 +254,7 @@ let map = interactive.map("world-map.geojson");
 let map = interactive.map("united-states.geojson");
 {{< /highlight >}}
 
-<img src="/united-states.svg" width="600px" style="display:block; margin:auto;">
+<img src="/images/united-states.svg" class="center" alt="SVG United States Map">
 
 ### Custom Maps
 
@@ -284,7 +284,7 @@ Alternatively, the viewbox of the interactive can be changed
 
 ### Scaling
 
-<img src="/images/cartesian-coordinate-system.svg" class="border" width="600px" style="display:block; margin:auto;">
+<img src="/images/cartesian-coordinate-system.svg" class="border center" alt="SVG Coordinate System">
 
 {{< highlight javascript>}}
 // TODO: Scaling example

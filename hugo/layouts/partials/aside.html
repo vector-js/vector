@@ -1,29 +1,23 @@
-<section class="documentation" style="max-width: 1100px; margin: 0 auto;">
-  <div class="flex-container">
-    <div class="aside-container">
-      <aside>
-        <a href="#"><h1>{{.Title}}</h1></a>
-        <ul>
-          {{ with .Params.Aside }}
-            {{ range . }}
-              {{ $heading := urlize . }}
-              {{ $src := (print "/icons/" (print $heading ".svg")) }}
-              {{if fileExists (print "static" $src ) }}
-              <li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{.}}">{{ . }}</a></li>
-              {{ else }}
-              <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{.}}">{{ . }}</a></li>
-              {{end}}
-            {{ end }}
-          {{ else }}
-            {{ errorf "Failed to find aside parameter" }}
+<section class="documentation">
+    <aside>
+      <a href="#"><h1>{{.Title}}</h1></a>
+      <ul>
+        {{ with .Params.Aside }}
+          {{ range . }}
+            {{ $heading := urlize . }}
+            {{ $src := (print "/icons/" (print $heading ".svg")) }}
+            {{if fileExists (print "static" $src ) }}
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{.}}">{{ . }}</a></li>
+            {{ else }}
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{.}}">{{ . }}</a></li>
+            {{end}}
           {{ end }}
-        </ul>
-      </aside>
-    </div>
+        {{ else }}
+          {{ errorf "Failed to find aside parameter" }}
+        {{ end }}
+      </ul>
+    </aside>
     <main class="medium-container" id="main-content">
       {{ .Content }}
     </main>
-    <div>
-    </div>
-  </div>
 </section>

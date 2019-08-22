@@ -1,6 +1,6 @@
 {{ define "body" }}
 {{ partial "hero" . }}
-<div class="flex-container container">
+<section class="aside container">
   <div class="aside-container">
     <aside>
       <a href="#"><h1>{{.Title}}</h1></a>
@@ -24,7 +24,5 @@
   <main class="medium-container" id="main-content">
     {{ .Content }}
   </main>
-  <div>
-  </div>
-</div>
+</section>
 {{ end }}
