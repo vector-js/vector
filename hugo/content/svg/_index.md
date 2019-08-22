@@ -56,7 +56,7 @@ The SVG document above is rendered as:
 
 XML elements are formed by opening and closing tags. The opening tag contains a name folled by space separated attributes. Attributes define additional information about the element and are in the form of name="value".
 
-<img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px">
+<img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px" style="max-width:100%;">
 
 ### Tree Structure
 
@@ -102,19 +102,19 @@ SVG elements have the ability to have a transformation attribute defined that ca
 
 Elements can be scaled to larger or smaller sizes.
 
-<img src='/images/transform-scale.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto;" alt="SVG Transform Scale">
+<img src='/images/transform-scale.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Scale">
 
 #### Rotate
 
 Elements can be rotated.
 
-<img src='/images/transform-rotate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto;" alt="SVG Transform Rotate">
+<img src='/images/transform-rotate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Rotate">
 
 #### Translate
 
 Elements can be moved to new locations.
 
-<img src='/images/transform-translate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto;" alt="SVG Transform Translate">
+<img src='/images/transform-translate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Translate">
 
 - skewX
 - skewY
@@ -132,7 +132,7 @@ SVG elements are styled using Cascading Styel Sheets or CSS for short. The styli
 
 Two basic styles are the fill and stroke of a shape or path. The fill controls the color of the interior and the stroke controls the color of the perimeter.
 
-<form style="display:grid; grid-template-columns:auto auto; width:300px;">
+<form style="display:grid; grid-template-columns:auto auto; width:300px; max-width:100%;">
 <label for="fill">Fill</label>
 <input id="fill" name="fill" type="color" value="#4287f5" style="width:100%">
 <label for="stroke">Stroke</label>
@@ -220,7 +220,7 @@ This script needs a corresponding HTML file to run. Note that there is a div ele
 
 Placing these to files in a folder together and opening the HTML file in a web browser results in the following SVG.
 
-<img src="/images/create-element.svg" width="704px" class="center">
+<img src="/images/create-element.svg" width="704px" class="center" style="max-width:100%;">
 
 ### Selecting Elements
 
