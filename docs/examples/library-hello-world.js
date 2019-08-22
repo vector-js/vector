@@ -1,0 +1,5 @@
+import Interactive from '../Interactive.js';
+let myInteractive = new Interactive('library-hello-world');
+myInteractive.window = true;
+let control = myInteractive.control(100, 100);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGlicmFyeS1oZWxsby13b3JsZC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NvdXJjZS9leGFtcGxlcy9saWJyYXJ5LWhlbGxvLXdvcmxkLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sV0FBVyxNQUFNLG1CQUFtQixDQUFDO0FBRTVDLElBQUksYUFBYSxHQUFHLElBQUksV0FBVyxDQUFDLHFCQUFxQixDQUFDLENBQUM7QUFDM0QsYUFBYSxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUM7QUFFNUIsSUFBSSxPQUFPLEdBQUcsYUFBYSxDQUFDLE9BQU8sQ0FBQyxHQUFHLEVBQUMsR0FBRyxDQUFDLENBQUMifQ==
