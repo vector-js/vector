@@ -23,3 +23,7 @@ npm start
 ```
 
 <!-- TODO: contribution details -->
+
+## Acknowledgements
+
+Big shout out to [Tania Rascia](https://github.com/taniarascia) for her SCSS boilerplate, New Moon Syntax Theme, and inspiration.
