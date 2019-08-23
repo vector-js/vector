@@ -18,9 +18,26 @@ Install NPM dependencies and then start the server to view local examples.
 npm install && npm run module
 ```
 
+Then to view the examples in the "index.html" page run the command below.
+
 ```
 npm start
 ```
+
+## Web Site Development
+
+Navigate into the hugo folder
+
+```
+cd hugo
+```
+
+Serve a local version of the site
+
+```
+hugo server
+```
+
 
 <!-- TODO: contribution details -->
 
