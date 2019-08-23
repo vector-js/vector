@@ -1,4 +1,4 @@
 {{ $id := (.Get 0) }}
-{{ $path := (print "https://vectorjs.org/examples/svg/" (print $id ".js")) }}
+{{ $path := (print "/examples/svg/" (print $id ".js")) }}
 <div id="{{ $id }}" class="vertical-center"></div>
 <script type="module" src="{{ $path }}"></script>

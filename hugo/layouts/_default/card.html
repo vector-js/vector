@@ -1,4 +1,10 @@
 <div class="card">
   <a href="{{.Permalink}}">{{.Title}}</a>
-  <img src="/play-button.svg">
+  {{ with .Params.Image }}
+    <img src="{{.}}">
+  {{ else }}
+    <div class="vertical-center">
+      <img src="/play-button.svg">
+    </div>
+  {{ end }}
 </div>

@@ -47,7 +47,7 @@ Often elements have attributes that describe additional details about the elemen
 The SVG document above is rendered as:
 
 <div style="border: 1px solid grey; border-radius: 5px;">
-<svg width="200" height="100">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
     <circle cx="50" cy="50" r="15"></circle>
 </svg>
 </div>
@@ -60,7 +60,21 @@ XML elements are formed by opening and closing tags. The opening tag contains a 
 
 ### Tree Structure
 
-A SVG document has the structure of a tree.
+A SVG document is structured like a tree. Every SVG element has an opening and closing tag. Within the tags is where child elements are placed. These children inherit the coordinate system and styles of the parent element. (TODO: double check these facts)
+
+{{< highlight svg>}}
+<svg>
+  <rect></rect>
+  <circle></circle>
+</svg>
+{{< /highlight >}}
+
+In the example above, the SVG element has two children: a rectangle and circle. The ordering of the elements matters. In this example the circle is rendered on top of the rectangle, because the circle is placed after the rectangle within the SVG document.
+
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150">
+  <rect x=150 y=25 width=150 height=100 style="fill:#cda9d4; stroke:#333333; stroke-width:1px;"></rect>
+  <circle cx=150 cy=75 r=60 style="fill:lightblue; stroke:#333333; stroke-width:1px;"></circle>
+</svg>
 
 ## Basic Elements
 
@@ -171,6 +185,25 @@ onhover, etc
 // how to convert typography to paths?
 {{< /highlight >}}
 
+## Advanced Elements
+
+### Clip Path
+
+Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.
+
+{{<highlight svg>}}
+<g clip-path="url(#my-clip-path)">
+  <!-- grid of rectangles ... -->
+</g>
+<clipPath id="my-clip-path">
+  <circle cx="300" cy="150" r="50"></circle>
+</clipPath>
+{{</highlight>}}
+
+Click and drag the clip path below to change the position of the circle that defines the clipping path.
+
+{{<example "svg-clip-path">}}
+
 ## Scripting
 
 It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section utilizes Javascript and Web APIs to demonstrate creating interactive SVG elements. There are many libraries and frameworks to help with this very thing. This library [vector.js](/) is one of them.
@@ -231,12 +264,12 @@ let element = document.getElementById("my-element-id");
 
 {{< highlight javascript>}}
 // select elements by tag
-let list = document.getElementsByTagName("circle");
+let elementList = document.getElementsByTagName("circle");
 {{< /highlight >}}
 
 {{< highlight javascript>}}
 // select elements by class
-let list = document.getElementsByClassName("my-class");
+let elementList = document.getElementsByClassName("my-class");
 {{< /highlight >}}
 
 ### Manipulating Attributes

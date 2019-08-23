@@ -11,6 +11,7 @@ import Interactive from '../../Interactive.js';
 let id = 'svg-line';
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.width = 704;
 
 let line = interactive.line( 0, 0, 0, 0);
 let c1 = interactive.control( 150, 200);

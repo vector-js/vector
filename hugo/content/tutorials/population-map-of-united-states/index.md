@@ -1,12 +1,25 @@
 ---
 title: Population Map
 description: How to create a map of the United States and color states by their populations with respect to the total population of the United States. Introduces users to basics of working with maps, styling of shapes, and user events in our library.
+image: "/images/united-states-population.svg"
 weight: 3
 ---
 
 <img src="/images/united-states-population.svg" width="600px" style="display:block; margin:auto;">
 
+{{< highlight javascript>}}
+// Step 1: load in map
+// Step 2: highlight states based on population
+// Step 3: click on a state and have the name of the state displayed
+{{< /highlight >}}
+
 In this tutorial we will create an interactive map of the United States shown above. <!-- TODO: replace with actual interactive --> Each state will be colored with respect to its percentage of the total population of the country.
+
+{{< highlight javascript>}}
+// TODO: pull data from google sheets
+
+// Create united states map object via library call
+{{< /highlight >}}
 
 <!-- TODO: steps -->
 <!-- Step 0: Open Editor  -->

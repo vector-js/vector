@@ -3,6 +3,7 @@ import { getScriptName } from '../../Util.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
+interactive.width = 704;
 
 let circle = interactive.circle(0,0,0);
 let l1 = interactive.line( 0, 0, 0, 0);

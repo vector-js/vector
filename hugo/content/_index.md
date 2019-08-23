@@ -106,7 +106,11 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 ## Elements
 
-These visual elements are the basic building blocks of the interactive.
+These elements form the basis of the visual part of the interactive.
+
+{{< highlight javascript>}}
+// How do you use/import a prexisting SVG image?
+{{< /highlight >}}
 
 ### Ellipse
 

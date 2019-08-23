@@ -11,11 +11,11 @@
 	</div>
   <!-- <img src="/logo-dark.svg" alt="" style="opacity:.1; position:absolute; width:1600px; z-index:-1;"> -->
 </header>
-<section id="sandbox" class="full-container collapse" style="display:none">
+<section id="sandbox" class="full-container collapse" style="display:none;">
 	<img src="/sandbox.svg" alt="Sandbox environment" style="width:1200px; margin:auto; display:block;">
 </section>
 <section id="tutorials" class="full-container collapse" style="display:none">
-    <div class="grid three">
+    <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
     {{ range where (where .Site.Pages "Type" "tutorials") ".Title" "!=" "Tutorials" }}
 			{{ .Render "card" }}
     {{ end }}

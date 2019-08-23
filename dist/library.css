@@ -2,7 +2,6 @@
   display: block;
   margin: 0 auto 1.5em auto;
   overflow: hidden;
-  /* border-radius: 6px; */
 }
 
 .window {
@@ -11,11 +10,9 @@
 
 .border {
   border: 1px solid grey;
-  /* border-radius: 6px; */
 }
 
 .interactive {
-  /* display: block; */
   max-width: 100%;
 }
 
@@ -24,12 +21,8 @@ svg {
   font-weight: normal;
   font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-smoothing: antialiased;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 text {
