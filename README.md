@@ -12,13 +12,19 @@ Clone the repository to your local environment.
 git clone https://github.com/vector-js/vector.git
 ```
 
-Install NPM dependencies and then start the server to view local examples.
+Install NPM dependencies
 
 ```
 npm install && npm run module
 ```
 
-Then to view the examples in the "index.html" page run the command below.
+Build the library
+
+```
+npm run module
+```
+
+Then start a local server to view the examples in the "index.html" page.
 
 ```
 npm start
@@ -37,7 +43,6 @@ Serve a local version of the site
 ```
 hugo server
 ```
-
 
 <!-- TODO: contribution details -->
 

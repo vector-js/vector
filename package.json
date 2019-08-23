@@ -1,7 +1,7 @@
 {
   "name": "@interactive-svg/library",
   "version": "0.0.9",
-  "description": "A library for creating interactive images.",
+  "description": "A library for creating interactive vector graphics.",
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -26,13 +26,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://capstone-cs.eng.utah.edu/interactive-svg/library.git"
+    "url": "https://github.com/vector-js/vector.git"
   },
   "keywords": [
     "svg",
     "interactive",
     "visualization",
-    "dom"
+    "dom",
+    "vector-graphics",
+    "animation",
+    "vector"
   ],
   "contributors": [
     "Kurt Bruns",
