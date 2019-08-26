@@ -1,3 +1,6 @@
+{{ define "resources" }}
+<script type="text/javascript" src="/js/aside.js"></script>
+{{ end }}
 {{ define "body" }}
 {{ partial "hero" . }}
 <section class="aside container">
@@ -25,4 +28,6 @@
     {{ .Content }}
   </main>
 </section>
+<footer style="height:200px;">
+</footer>
 {{ end }}

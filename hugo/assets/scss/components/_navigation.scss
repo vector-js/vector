@@ -32,12 +32,12 @@ section.aside aside {
   }
 }
 
-section.aside .medium-container {
-  // max-width: 100%;
-}
-
 .aside-link {
   color: $font-color;
+}
+
+.aside-link.active {
+  color: $primary-color;
 }
 
 .aside-link img {

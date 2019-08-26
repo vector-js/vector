@@ -52,7 +52,7 @@ The SVG document above is rendered as:
 </svg>
 </div>
 
-### XML Syntax
+## XML Syntax
 
 XML elements are formed by opening and closing tags. The opening tag contains a name followed by space separated attributes. Attributes define additional information about the element and are in the form of name="value".
 
@@ -68,7 +68,7 @@ Within the SVG Namespace elements have geometric properties that are represented
 
  <!-- An unique identifier is useful for retrieving a specic elements and applying styles from an external stylesheet to a specific element. The class attribute allows one to apply styles from an external style sheet to all elements that share a class, and the style attribute allows one to apply inline style to an element. -->
 
-### Tree Structure
+## Tree Structure
 
 A SVG document is structured like a tree. Every SVG element has an opening and closing tag. Within the tags is where child elements are placed. These children inherit the coordinate system and styles of the parent element. (TODO: double check these facts)
 
@@ -104,7 +104,7 @@ In this section some basic visual elements are introduced: the line, ellipse, an
 
 {{<render "content" "svg/elements/rectangle">}}
 
-### Path Element
+## Path Element
 
 {{<render "content" "svg/elements/path">}}
 

@@ -611,6 +611,9 @@ section.aside aside {
 .aside-link {
   color: #404040; }
 
+.aside-link.active {
+  color: #0366EE; }
+
 .aside-link img {
   padding-right: 1rem;
   vertical-align: middle;
@@ -744,7 +747,6 @@ footer {
   flex-shrink: 0;
   margin-top: 100px;
   height: 150px;
-  border-top: 1px solid gray;
   background: white; }
 
 #footer-message {
