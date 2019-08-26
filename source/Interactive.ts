@@ -40,6 +40,11 @@ export default class Interactive  {
   root:SVGElement;
 
   /**
+  * CSS applied to this element
+  */
+  style: CSSStyleDeclaration;
+
+  /**
   * Have a wrapper object for the mouse object?
   */
   // mouse:Mouse;
@@ -74,6 +79,7 @@ export default class Interactive  {
     // create and append the root svg element and group elements
     this.root = this.container.appendChild(SVG.SVG());
     this.root.classList.add('interactive');
+    this.style = this.root.style;
     this.background = this.root.appendChild(SVG.Group());
     this.controls = this.root.appendChild(SVG.Group());
 
@@ -340,4 +346,5 @@ export default class Interactive  {
     this.background.appendChild(text.root);
     return text;
   }
+
 }

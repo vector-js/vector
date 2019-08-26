@@ -27,6 +27,13 @@ export default class Text extends Element {
   }
 
   /**
+  * Adds text to the end of
+  */
+  append( text:string ) {
+    this.root.innerHTML += text;
+  }
+
+  /**
   * Sets the x position of this element
   */
   set x( value:number ) {
@@ -39,5 +46,4 @@ export default class Text extends Element {
   set y( value:number ) {
     this.root.setAttribute('y', value.toString());
   }
-
 }

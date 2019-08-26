@@ -155,12 +155,23 @@ let line = interactive.rectangle( 50, 50, 100, 50);
 ### Text
 
 {{< highlight javascript>}}
-let line = interactive.text( 50, 75, "My Text");
+let text = interactive.text( 50, 75, "My Text");
 {{< /highlight >}}
 
 <div id="text-element"></div>
 
 <script type="module" src="/examples/elements/text-element.js"></script>
+
+### TSpan
+
+{{< highlight javascript>}}
+// TODO:
+{{< /highlight >}}
+
+<div id="tspan-element"></div>
+
+<script type="module" src="/examples/elements/tspan-element.js"></script>
+
 
 ## Interaction
 

@@ -25,10 +25,10 @@ c2.update = function() {
 c2.addDependency(c1);
 
 rect.update = function() {
-  this.x = Math.min(c1.x, c2.x);
-  this.y = Math.min(c1.y, c2.y);
-  this.width = Math.max(c1.x, c2.x) - rect.x;
-  this.height = Math.max(c1.y, c2.y) - rect.y;
+  this.x = c1.x;
+  this.y = c1.y;
+  this.width = c2.x - c1.x;
+  this.height = c2.y - c1.y;
 }
 rect.update();
 rect.addDependency(c1);

@@ -29,6 +29,15 @@ export default class SVG {
   }
 
   /**
+  * Returns a SVGTSpanElement element with the provided attributes.
+  */
+  static TSpan( str:string ) : SVGTSpanElement {
+    let text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text');
+    text.innerHTML = str;
+    return text;
+  }
+
+  /**
   * Returns a SVGRectElement with the provided attributes.
   */
   static Rectangle( x:number, y:number, width:number, height:number ) : SVGRectElement {

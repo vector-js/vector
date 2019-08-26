@@ -54,9 +54,19 @@ The SVG document above is rendered as:
 
 ### XML Syntax
 
-XML elements are formed by opening and closing tags. The opening tag contains a name folled by space separated attributes. Attributes define additional information about the element and are in the form of name="value".
+XML elements are formed by opening and closing tags. The opening tag contains a name followed by space separated attributes. Attributes define additional information about the element and are in the form of name="value".
 
 <img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px" style="max-width:100%;">
+
+Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are more general, useful, and that can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.
+
+| attribute | description |
+| --- | --- |
+| id | unique string identifier |
+| class | list of classes separated by spaces |
+| style | inline styling for this element |
+
+ <!-- An unique identifier is useful for retrieving a specic elements and applying styles from an external stylesheet to a specific element. The class attribute allows one to apply styles from an external style sheet to all elements that share a class, and the style attribute allows one to apply inline style to an element. -->
 
 ### Tree Structure
 

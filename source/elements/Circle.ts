@@ -2,7 +2,12 @@ import Element from './Element.js';
 import SVG from '../SVG.js';
 
 /**
-* A circle is a basic element with a position and radius.
+* A circle is a basic geometric element with a position and radius.
+*
+* properties:
+*   - cx
+*   - cy
+*   - r
 */
 export default class Circle extends Element {
 
