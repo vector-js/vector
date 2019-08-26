@@ -263,7 +263,7 @@ This script needs a corresponding HTML file to run. Note that there is a div ele
 
 Placing these to files in a folder together and opening the HTML file in a web browser results in the following SVG.
 
-<img src="/images/create-element.svg" width="704px" class="center" style="max-width:100%;">
+<img src="/images/create-element.svg" width="704px" class="center" style="max-width:100%;" alt="Create SVG Element Javascript">
 
 ### Selecting Elements
 
