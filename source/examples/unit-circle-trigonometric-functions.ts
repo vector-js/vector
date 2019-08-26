@@ -8,10 +8,10 @@
 */
 
 import Interactive from '../Interactive.js';
+import { getScriptName } from '../Util.js';
 
 // Initialize the interactive
-let id = 'unit-circle';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 interactive.window = true;
 interactive.width = 600;
 interactive.height = 600;
