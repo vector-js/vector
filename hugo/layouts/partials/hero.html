@@ -1,7 +1,6 @@
 <header class="text-center vertical-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
-    <!-- <p><a class="github-button" href="{{.Site.Params.RepositoryURL}}" data-icon="octicon-star" data-size="large" data-show-count="false" aria-label="Star ntkme/github-buttons on GitHub">Star</a></p> -->
 		<p>Vector is an open source javascript library for the creation of interactive scalable vector graphics. View on <a href="{{.Site.Params.RepositoryURL}}" target="_blank" rel="noreferrer">github</a>.</p>
     <p>
       <button class="muted-button" id="sandbox-button">Sandbox</button>
@@ -9,7 +8,6 @@
       <button class="muted-button" id="examples-button" >Examples</button>
     </p>
 	</div>
-  <!-- <img src="/logo-dark.svg" alt="" style="opacity:.1; position:absolute; width:1600px; z-index:-1;"> -->
 </header>
 <section id="sandbox" class="full-container collapse" style="display:none;">
 	<img src="/sandbox.svg" alt="Sandbox environment" style="width:1200px; margin:auto; display:block;">
@@ -27,8 +25,11 @@
 <section id="examples" class="full-container collapse" style="display:none">
     <div class="grid three">
 			{{ range (.GetPage "/examples").Sections }}
-	      <div style="display:block; height:220px; background:white; margin:16px; border-radius:10px; overflow:hidden; border: 1px solid #dddddd;">
-	      </div>
+			<div class="card">
+				<a href="{{.Permalink}}">{{.Title}}</a>
+				<div class="vertical-center">
+				</div>
+			</div>
 	    {{ end }}
     </div>
 		<div class="full-container">
