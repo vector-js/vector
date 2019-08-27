@@ -1124,15 +1124,17 @@ pre {
   overflow: hidden;
   border: 1px solid #dddddd; }
 
-.card > a {
+.card > a > h2 {
   color: #404040;
-  display: block;
+  font-size: 1rem;
+  margin: 0;
   height: 2.5rem;
   background: #E7EAED;
   border-bottom: 1px solid #999999;
-  padding: .5rem; }
+  padding-left: .75rem;
+  padding-top: .75rem; }
 
-.card > img {
+.card img {
   margin: auto;
   display: block;
   width: 100%; }

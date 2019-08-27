@@ -1,6 +1,6 @@
 ---
 title: Unit Circle
-image: /images/unit-circle.png
+image: /images/unit-circle.svg
 weight: 1
 ---
 

@@ -3,7 +3,6 @@ languageCode: "en-us"
 title: "Vector.js"
 disableKinds: ["taxonomy", "taxonomyTerm"]
 pygmentsUseClasses: true
-# canonifyURLs:  true
 publishDir: "../docs/"
 staticDir:
   - static

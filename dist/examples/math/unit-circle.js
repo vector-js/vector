@@ -80,7 +80,7 @@ xDisplay.update = function () {
 };
 yDisplay.addDependency(control);
 yDisplay.update = function () {
-    yDisplay.contents = `x = ${(control.y / circle.r).toFixed(2)}`;
+    yDisplay.contents = `y = ${(control.y / circle.r).toFixed(2)}`;
 };
 info.button(3 * x, info.height * 4 / 5, "animate");
 let functions = new Interactive(getScriptName());

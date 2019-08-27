@@ -1,5 +1,6 @@
 ---
 title: SVG Tutorial
+image: /images/svg-tutorial.svg
 description: An interactive SVG tutorial introducing the basics of creating and manipulating SVG documents.
 layout: aside
 type: tutorials
