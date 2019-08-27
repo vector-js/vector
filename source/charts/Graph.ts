@@ -219,6 +219,13 @@ export default class Graph extends Element {
   }
 
   /**
+  * Returns the internal function
+  */
+  get function() : (x:number) => number {
+    return this._function;
+  }
+
+  /**
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
@@ -252,6 +259,9 @@ export default class Graph extends Element {
       d += `L ${x} ${y.toFixed(1)} `;
     }
     this.path.setAttribute('d', d);
+
+    // Update the dependents if there are any
+    this.updateDependents();
   }
 
   /**

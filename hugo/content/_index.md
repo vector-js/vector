@@ -145,7 +145,7 @@ let line = interactive.path("M 50 50 Q 100 150 150 50");
 ### Rectangle
 
 {{< highlight javascript>}}
-let line = interactive.rectangle( 50, 50, 100, 50);
+let rectangle = interactive.rectangle( 50, 50, 100, 50);
 {{< /highlight >}}
 
 <div id="rectangle-element"></div>
@@ -313,10 +313,15 @@ The appearance of elements within this library can be styled using CSS. Styles c
 
 ### Basic Styling
 
-Primitive elements have two basic properties which can be styled: fill and stroke.
+Basic geometric elements have two basic properties: fill and stroke. Fill is the area contained within the shape and stroke is the edge of the geometric shape. These styles can be accessed through the style property.
+
+<img src="/images/fill-stroke.svg" alt="Fill and Stroke Element" width="320px" style="display:block; margin:auto;">
 
 {{< highlight javascript>}}
-let button = interactive.button( 100, 75, "My Button");
+let rectangle = interactive.rectangle( 50, 50, 100, 50);
+rectangle.style.fill = 'blue';
+rectangle.style.stroke = 'red';
+rectangle.style.strokeWidth = '1px';
 {{< /highlight >}}
 
 ### Custom Styling

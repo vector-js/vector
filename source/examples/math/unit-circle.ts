@@ -1,5 +1,6 @@
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
+import Point from '../../elements/Point.js';
 
 let radius = 80;
 let margin = 20;
@@ -28,15 +29,47 @@ line.update = function() {
   line.y2 = control.y;
 };
 
+let rightTriangle = circleInteractive.path('');
+rightTriangle.addDependency(control);
+rightTriangle.update = function() {
+  rightTriangle.d =  `M 0 0
+                      L ${control.x} 0
+                      L ${control.x} ${control.y}
+                      Z`
+};
+rightTriangle.update();
+rightTriangle.style.fill = '#f8f8f8';
+
 let chartInteractive = new Interactive(getScriptName());
 chartInteractive.width = 2*Math.PI*radius;
 chartInteractive.height = 2*(radius + margin);
 chartInteractive.border = true;
+// chartInteractive.originX = 0;
+// chartInteractive.originY = chartInteractive.height/2;
 let graph = chartInteractive.graph(false);
 graph.function = Math.sin;
 graph.originX = 0;
 graph.originY = chartInteractive.height/2;
 graph.scale( 2*Math.PI/chartInteractive.width, chartInteractive.width/(2*Math.PI));
+chartInteractive.text( 8, chartInteractive.height/2 - margin, "0");
+chartInteractive.text( chartInteractive.width/2, chartInteractive.height/2 - margin, "π");
+chartInteractive.text( chartInteractive.width - 28, chartInteractive.height/2 - margin, "2π");
+let chartControl = chartInteractive.control(0,chartInteractive.height/2);
+chartControl.addDependency(graph, control);
+chartControl.update = function() {
+
+  chartControl.x = circle.r*getAngle();
+  chartControl.translate( chartControl.x, chartControl.y);
+};
+chartControl.constrain = (oldPos, newPos) : Point => {
+  let x = (newPos.x + chartInteractive.width) % chartInteractive.width;
+  let y = (-circle.r*graph.function(newPos.x/circle.r) + chartInteractive.height/2);
+  return {x:x, y:y};
+};
+chartControl.onchange = function() {
+  console.log("change");
+
+};
 
 let info = new Interactive(getScriptName());
 info.width = 2*(radius + margin);
@@ -44,9 +77,22 @@ info.height = 2*(radius + margin);
 info.border = true;
 
 let x = 20;
-info.text( x, info.height*1/5, "θ = ...");
-info.text( x, info.height*2/5, "x = ...");
-info.text( x, info.height*3/5, "y = ...");
+let thetaDisplay = info.text( x, info.height*1/5, "θ = ...");
+let xDisplay = info.text( x, info.height*2/5, "x = ...");
+let yDisplay = info.text( x, info.height*3/5, "y = ...");
+thetaDisplay.addDependency(control);
+thetaDisplay.update = function() {
+  thetaDisplay.contents = `θ = ${getAngle().toFixed(2)}`;
+};
+xDisplay.addDependency(control);
+xDisplay.update = function() {
+  xDisplay.contents = `x = ${(control.x/circle.r).toFixed(2)}`;
+};
+yDisplay.addDependency(control);
+yDisplay.update = function() {
+  yDisplay.contents = `x = ${(control.y/circle.r).toFixed(2)}`;
+};
+
 info.button( 3*x, info.height*4/5, "animate");
 
 let functions = new Interactive(getScriptName());
@@ -77,6 +123,23 @@ tanIpnut.onchange = function() {
   }
 }
 
-
 // TODO: replace with interchangeable functions katex or external SVG
 functions.rectangle( 2*radius, functions.height*2/6, 300, functions.height*2/6);
+
+// Set the angle to be one radian
+control.x = circle.r*Math.cos(1);
+control.y = -circle.r*Math.sin(1);
+control.updateDependents();
+
+// Gets the normalized angle between zero and tau. TODO: Maybe transform the
+// coordinate system so that the positive y-direction is up instead of down.
+// UPDATE: transform = 'scale(1,-1)' applied to the main svg  didn't quite work
+// as expected: the text element was upside down, but maybe that could be
+// reversed? bleh.
+function getAngle() : number {
+  if( control.y <= 0 ) {
+    return Math.abs(Math.atan2( control.y, control.x));
+  } else {
+    return Math.PI*2 - Math.atan2( control.y, control.x);
+  }
+}

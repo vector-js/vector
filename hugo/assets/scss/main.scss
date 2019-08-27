@@ -59,16 +59,18 @@ pre {
    border: 1px solid #dddddd;
 }
 
-.card > a {
+.card > a > h2 {
   color: $font-color;
-  display:block;
+  font-size: $font-size;
+  margin: 0;
   height:2.5rem;
   background:#E7EAED;
   border-bottom: 1px solid #999999;
-  padding:.5rem;
+  padding-left:.75rem;
+  padding-top:.75rem;
 }
 
-.card > img {
+.card img {
   margin:auto;
   display:block;
   // height: 220px;

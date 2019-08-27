@@ -23,13 +23,9 @@
 		</div>
 </section>
 <section id="examples" class="full-container collapse" style="display:none">
-    <div class="grid three">
+		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
 			{{ range (.GetPage "/examples").Sections }}
-			<div class="card">
-				<a href="{{.Permalink}}">{{.Title}}</a>
-				<div class="vertical-center">
-				</div>
-			</div>
+				{{ .Render "card" }}
 	    {{ end }}
     </div>
 		<div class="full-container">
