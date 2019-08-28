@@ -14,6 +14,7 @@ export default class Text extends Element {
   */
   constructor( x:number, y:number, text:string ) {
     super();
+
     this.root = SVG.Text( x, y, text );
     this.root.id = this.id;
     this.style = this.root.style;
@@ -27,10 +28,24 @@ export default class Text extends Element {
   }
 
   /**
-  * Adds text to the end of
+  * Sets the contents of this element
   */
-  append( text:string ) {
-    this.root.innerHTML += text;
+  get contents() {
+    return this.root.innerHTML;
+  }
+
+  /**
+  * Gets the x position of this element
+  */
+  get x() {
+    return Number(this.root.getAttribute('x'));
+  }
+
+  /**
+  * Gets the y position of this element
+  */
+  get y() {
+    return Number(this.root.getAttribute('y'));
   }
 
   /**
