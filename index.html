@@ -14,6 +14,15 @@
     div {
       margin-bottom:16px
     }
+    .links line {
+      stroke: #999;
+      stroke-opacity: 0.6;
+    }
+
+    .nodes circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
     </style>
 
 
@@ -21,6 +30,7 @@
     <link rel="stylesheet" href="/css/library.css">
 
     <div id="graph"></div><script type="module" src="./dist/examples/graph.js"></script>
+    <div id="path-animation"></div><script type="module" src="./dist/examples/interaction/path-animation.js"></script>
 
     <!-- INPUT ELEMENTS -->
     <div id="scrubber-element"></div><script type="module" src="./dist/examples/elements/scrubber-element.js"></script>
@@ -36,6 +46,9 @@
     <div id="path-element"></div><script type="module" src="./dist/examples/elements/path-element.js"></script>
     <div id="rectangle-element"></div><script type="module" src="./dist/examples/elements/rectangle-element.js"></script>
     <div id="text-element"></div><script type="module" src="./dist/examples/elements/text-element.js"></script>
+    <div id="node-element"></div><script type="module" src="./dist/examples/elements/node-element.js"></script>
+    <div id="edge-element"></div><script type="module" src="./dist/examples/elements/edge-element.js"></script>
+
 
     <!-- CURRENT INTERACTIVE -->
     <div id="angle-between-two-vectors"></div><script type="module" src="./dist/examples/angle-between-two-vectors.js"></script>

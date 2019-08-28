@@ -12,11 +12,16 @@ export default class Text extends Element {
   /**
   * Constructs text at the position (x,y) with the provided string
   */
-  constructor( x:number, y:number, text:string ) {
+  constructor( xNum:number, yNum:number, text:string ) {
     super();
-    this.root = SVG.Text( x, y, text );
+
+    this.root = SVG.Text( xNum, yNum, text );
     this.root.id = this.id;
     this.style = this.root.style;
+
+    // this.x = xNum;
+    // this.y = yNum;
+    // this.contents = text;
   }
 
   /**
@@ -24,6 +29,20 @@ export default class Text extends Element {
   */
   set contents( str:string) {
     this.root.innerHTML = str;
+  }
+
+  /**
+  * Gets the x position of this element
+  */
+  get x() {
+    return Number(this.root.getAttribute('x'));
+  }
+
+  /**
+  * Gets the y position of this element
+  */
+  get y() {
+    return Number(this.root.getAttribute('y'));
   }
 
   /**

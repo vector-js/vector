@@ -7,6 +7,9 @@ import Line from './elements/Line.js';
 import Path from './elements/Path.js';
 import Text from './elements/Text.js';
 import Rectangle from './elements/Rectangle.js';
+import Node from './elements/Node.js';
+import Edge from './elements/Edge.js';
+
 
 // input elements
 import Button from './elements/Button.js';
@@ -339,5 +342,18 @@ export default class Interactive  {
     let text = new Text( x, y, contents);
     this.background.appendChild(text.root);
     return text;
+  }
+
+  node( x:number, y:number, r: number, contents:string ) : Node {
+    let node = new Node( x, y, r, contents);
+    this.background.appendChild(node.root);
+    node.adjustText();
+    return node;
+  }
+
+  edge (nodeFrom: Node, nodeTo: Node, directed: boolean){
+    let edge = new Edge(nodeFrom, nodeTo, directed);
+    this.background.appendChild(edge.root);
+    return edge;
   }
 }

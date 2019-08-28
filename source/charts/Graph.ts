@@ -62,6 +62,7 @@ export default class Graph extends Element {
   private _scaleY : number;
   private _width : number;
   private _height : number;
+  private _totalScale : number;
 
   /**
   * Constructs a new graph capable of displaying a function in the form of
@@ -78,6 +79,7 @@ export default class Graph extends Element {
     this._originY = this.height/2;
     this._scaleX = 1;
     this._scaleY = 1;
+    this._totalScale = 1;
     this.active = false;
 
     // creates a transparent rectangle to capture all user events
@@ -274,6 +276,15 @@ export default class Graph extends Element {
     if( this.active ) {
       this._originX += event.movementX;
       this._originY += event.movementY;
+      console.log("Spacer, now showing origin position:")
+      console.log(this._originX);
+      console.log(this._originY);
+      console.log("Spacer, now showing mouse position:");
+      console.log(event.x - this.rect.getBoundingClientRect().left);
+      console.log(event.y  - this.rect.getBoundingClientRect().top);
+      console.log("Spacer, now showing client rect:");
+
+
       this.translate( this._originX, this._originY);
     } else {
       this.circle.cx.baseVal.value = x;
@@ -318,9 +329,9 @@ export default class Graph extends Element {
   handleMouseWheelEvent( event:WheelEvent ) {
     let ratio = .95;
     if( event.deltaY > 0 ) {
-      this.scale(ratio, 1/ratio);
+      this.scale(ratio, 1/ratio, event.x - this.rect.getBoundingClientRect().left, event.y - this.rect.getBoundingClientRect().top);
     } else {
-      this.scale(1/ratio, ratio);
+      this.scale(1/ratio, ratio, event.x - this.rect.getBoundingClientRect().left, event.y - this.rect.getBoundingClientRect().top);
     }
     this.draw();
     this.circle.cy.baseVal.value = this.call(this.circle.cx.baseVal.value);
@@ -331,10 +342,57 @@ export default class Graph extends Element {
   /**
   * Scales the x and y axis of this graph.
   */
-  scale( x:number, y:number) {
-    this._scaleX *= x;
-    this._scaleY *= y;
-    this.draw();
+  scale( x:number, y:number, posX?:number, posY?:number) {
+    if(posX)
+    {
+      let initialScale = this._totalScale;
+      //
+      this._scaleX *= x;
+      this._scaleY *= y;
+      this._totalScale *= x;
+
+      let scaleChange = this._totalScale - initialScale;
+
+      let xLength = (posX - this._originX)
+      let yLength = (posY - this._originY)
+
+
+      let offsetX = -(xLength / Math.hypot(xLength, yLength) * scaleChange);
+
+      let offsetY = -(yLength / Math.hypot(xLength, yLength) * scaleChange);
+
+      console.log(this._totalScale);
+      console.log(offsetX);
+      console.log(offsetY);
+
+      this._originX += offsetX;
+      this._originY += offsetY;
+      this.translate(this._originX, this._originY);
+
+      this.draw();
+    }
+    else{
+      this._scaleX *= x;
+      this._scaleY *= y;
+      this.draw();
+    }
+
+    // this._scaleX *= x;
+    // this._scaleY *= y;
+    // this.group.setAttribute('transform', `scale(${x}, ${y})`);
+    // this.draw();
+
+
+
+
+
+    // if(posX)
+    // {
+    //   this._originX += -posX;
+    //   this._originY += -posY;
+    //   this.translate(this._originX, this._originY);
+    //   this.draw();
+    // }
   }
 
   /**
@@ -360,5 +418,13 @@ export default class Graph extends Element {
     this._originX = x;
     this._originY = y;
     this.group.setAttribute('transform', `translate(${x}, ${y})`);
+  }
+
+  scaleUp (x: number, y: number){
+
+  }
+
+  scaleDown (x: number, y: number){
+
   }
 }
