@@ -18,10 +18,6 @@ export default class Text extends Element {
     this.root = SVG.Text( xNum, yNum, text );
     this.root.id = this.id;
     this.style = this.root.style;
-
-    // this.x = xNum;
-    // this.y = yNum;
-    // this.contents = text;
   }
 
   /**
@@ -29,6 +25,13 @@ export default class Text extends Element {
   */
   set contents( str:string) {
     this.root.innerHTML = str;
+  }
+
+  /**
+  * Sets the contents of this element
+  */
+  get contents() {
+    return this.root.innerHTML;
   }
 
   /**

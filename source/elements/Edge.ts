@@ -2,29 +2,33 @@ import Node from './Node.js';
 import Element from './Element.js';
 import SVG from '../SVG.js';
 
-//Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
 /**
-* A circle is a basic element with a position and radius.
+* Creates a line connecting two edges, with an arrow if directed.
 */
 export default class Edge extends Element {
 
-  // make the type of the root to be more specific
   nodeFrom : Node;
   nodeTo : Node;
   root: SVGLineElement;
 
   /**
-  * Constructs a rectangle element at the position (x,y)
+  * Constructs a line frmo the edge of the two circle elements.
   */
   constructor(nodeFrom: Node, nodeTo: Node, directed: boolean) {
     super();
     let arr = this.calculateLinePosition(nodeFrom, nodeTo);
+
+    let arrowhead = document.create
 
     this.root = SVG.Line(arr[0], arr[1], arr[2], arr[3]);
     this.root.id = this.id;
     this.style = this.root.style;
   }
 
+  /**
+  * Function to find where the line connecting two circles should go. return an Array
+  * containing [x1, y1, x2, y2] of the line.
+  */
   calculateLinePosition(nodeFrom: Node, nodeTo:Node)
   {
     let y1 = nodeFrom.nodeCircle.cy;
@@ -54,82 +58,4 @@ export default class Edge extends Element {
 
     return new Array(x1Prime, y1Prime, x2Prime, y2Prime);
   }
-
-  // /**
-  // * Returns the radius of this circle.
-  // */
-  // get r():number {
-  //  return this.root.r.baseVal.value;
-  // }
-  //
-  // /**
-  // * Sets the value of the radius of this circle.
-  // */
-  // set r( value:number ) {
-  //  this.root.r.baseVal.value = value;
-  // }
-  //
-  // /**
-  // * Returns the x position of the rectangle
-  // */
-  // get cx() : number {
-  //  return this.root.cx.baseVal.value;
-  // }
-  //
-  // /**
-  // * Sets the x position of the rectangle
-  // */
-  // set cx( n:number ) {
-  //  this.root.cx.baseVal.value = n;
-  // }
-  //
-  // /**
-  // * Returns the y position of the rectangle
-  // */
-  // get cy():number {
-  //  return this.root.cy.baseVal.value;
-  // }
-  //
-  // /**
-  // * Sets the y position of the rectangle
-  // */
-  // set cy( n:number){
-  //  this.root.cy.baseVal.value = n;
-  // }
-  //
-  // /**
-  // * Translates the circle to a new position by changing the x and y attributes.
-  // */
-  // translate(x:number, y:number){
-  //  this.root.cx.baseVal.value = this.root.cx.baseVal.value + x;
-  //  this.root.cy.baseVal.value = this.root.cy.baseVal.value + y;
-  // }
-  //
-  // /**
-  // * Returns the fill style of this circle
-  // */
-  // get fill() : string{
-  //  return this.root.style.fill;
-  // }
-  //
-  // /**
-  // * Sets the fill style of this circle
-  // */
-  // set fill(s:string){
-  //  this.root.style.fill = s;
-  // }
-  //
-  // /**
-  // * Returns the stroke style of this circle
-  // */
-  // get stroke() : string{
-  //  return this.root.style.stroke;
-  // }
-  //
-  // /**
-  // * Sets the stroke style of this circle
-  // */
-  // set stroke(s: string){
-  //  this.root.style.stroke = s;
-  // }
 }

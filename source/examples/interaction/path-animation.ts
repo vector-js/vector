@@ -22,6 +22,8 @@ let path = interactive.path(pathString)
 
 var pathLength = path.root.getTotalLength();
 
+//This will draw the path. Have not figure out how to integreate it with the scrubber yet
+
 // let pathRoot = path.root.getPathSegAtLength();
 //
 // pathRoot.style.transition = pathRoot.style.webkitTransition =

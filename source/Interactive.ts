@@ -344,6 +344,9 @@ export default class Interactive  {
     return text;
   }
 
+  /**
+  * Creates a node within this interactive.
+  */
   node( x:number, y:number, r: number, contents:string ) : Node {
     let node = new Node( x, y, r, contents);
     this.background.appendChild(node.root);
@@ -351,6 +354,9 @@ export default class Interactive  {
     return node;
   }
 
+  /**
+  * Creates an edge connecting two nodes within this interactive.
+  */
   edge (nodeFrom: Node, nodeTo: Node, directed: boolean){
     let edge = new Edge(nodeFrom, nodeTo, directed);
     this.background.appendChild(edge.root);
