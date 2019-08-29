@@ -42,6 +42,8 @@ export default class Interactive  {
   */
   root:SVGElement;
 
+  markersAdded:boolean;
+
   /**
   * Have a wrapper object for the mouse object?
   */
@@ -57,6 +59,8 @@ export default class Interactive  {
   * The background is where everything that is not a primary control is drawn.
   */
   private background:SVGGElement;
+
+  private defs:SVGDefsElement;
 
   // internal variables
   private _width:number = 0;
@@ -79,6 +83,7 @@ export default class Interactive  {
     this.root.classList.add('interactive');
     this.background = this.root.appendChild(SVG.Group());
     this.controls = this.root.appendChild(SVG.Group());
+    this.defs = this.root.prepend(SVG.Defs());
 
     // default configuration
     this.width = 600;
@@ -350,6 +355,7 @@ export default class Interactive  {
   node( x:number, y:number, r: number, contents:string ) : Node {
     let node = new Node( x, y, r, contents);
     this.background.appendChild(node.root);
+    //alignment-baseline text anchor point change
     node.adjustText();
     return node;
   }
@@ -359,6 +365,7 @@ export default class Interactive  {
   */
   edge (nodeFrom: Node, nodeTo: Node, directed: boolean){
     let edge = new Edge(nodeFrom, nodeTo, directed);
+    if(directed && !markersAdded)
     this.background.appendChild(edge.root);
     return edge;
   }
