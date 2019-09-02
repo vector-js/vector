@@ -297,8 +297,6 @@ export default class Interactive extends Element {
     node(x, y, r, contents) {
         let node = new Node(x, y, r, contents);
         this.background.appendChild(node.root);
-        //alignment-baseline text anchor point change
-        node.adjustText();
         return node;
     }
     /**

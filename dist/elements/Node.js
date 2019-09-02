@@ -25,19 +25,14 @@ export default class Node extends Element {
         this.root.id = this.id;
     }
     /**
-    * Moves the text into the center of the node. unsure about that /4, needs to be changed to fit the text.
+    * Returns the number of edges coming out of this node.
     */
-    adjustText() {
-        // let textWidth = this.nodeName.root.getBBox().width;
-        //
-        // let textHeight = this.nodeName.root.getBBox().height;
-        // this.nodeName.x = this.nodeName.x - textWidth / 2;
-        // this.nodeName.y = this.nodeName.y + textHeight / 4;
-        // console.log(textHeight)
-    }
     edgeWeight() {
         return this.edges.size;
     }
+    /**
+    * Adds an edge to this node.
+    */
     addEdge(edge) {
         this.edges.add(edge);
     }

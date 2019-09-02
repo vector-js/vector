@@ -17,8 +17,10 @@ export default class Graph extends Element {
     }
     clear() {
         for (var i = 0; i < this.nodes.length; i++) {
-            let removeNode = this.nodes[i];
-            removeNode.remove();
+            this.nodes[i].edges.forEach(function (item) {
+                item.remove();
+            });
+            this.nodes[i].remove();
         }
     }
     addNode(x, y, text, r = 20) {

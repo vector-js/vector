@@ -13,6 +13,7 @@ export default class Graph extends Element {
     this.root = SVG.Group();
     this.root.id = this.id;
 
+
     let defs = SVG.Defs();
 
     defs.innerHTML = `<marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
@@ -27,7 +28,10 @@ export default class Graph extends Element {
   clear(){
     for(var i = 0; i < this.nodes.length; i++)
     {
-      this.nodes[i].remove();
+        this.nodes[i].edges.forEach(function(item){
+          item.remove();
+        })
+        this.nodes[i].remove();
     }
   }
 
