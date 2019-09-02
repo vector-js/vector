@@ -1,6 +1,7 @@
 import Element from './Element.js';
 import Circle from './Circle.js';
 import Text from './Text.js';
+import Edge from './Edge.js';
 import SVG from '../SVG.js';
 
 //Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
@@ -11,16 +12,19 @@ export default class Node extends Element {
 
   nodeName: Text;
   nodeCircle: Circle;
-
+  edges: Set<Edge>;
   /**
   * Constructs a Node element at the position (x,y) with radius r containing the string text
   */
   constructor( cx:number, cy:number, r:number, text:string ) {
    super();
 
+   this.edges = new Set<Edge>();
    this.root = SVG.Group();
 
    this.nodeName = new Text(cx, cy, text);
+   this.nodeName.style.textAnchor = "middle";
+   this.nodeName.root.setAttribute("alignment-baseline", "middle");
    this.nodeCircle = new Circle(cx, cy, r);
    this.nodeCircle.fill = '#f8f8f8';
 
@@ -31,15 +35,11 @@ export default class Node extends Element {
    this.root.id = this.id;
   }
 
-  /**
-  * Moves the text into the center of the node. unsure about that /4, needs to be changed to fit the text.
-  */
-  adjustText():void {
-    let textWidth = this.nodeName.root.getBBox().width;
+  edgeWeight(): number{
+    return this.edges.size
+  }
 
-    let textHeight = this.nodeName.root.getBBox().height;
-    this.nodeName.x = this.nodeName.x - textWidth / 2;
-    this.nodeName.y = this.nodeName.y + textHeight / 4;
-    console.log(textHeight)
+  addEdge(edge:Edge):void {
+    this.edges.add(edge);
   }
 }

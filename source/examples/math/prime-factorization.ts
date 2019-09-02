@@ -5,6 +5,8 @@ import Node from '../../elements/Node.js';
 let interactive = new Interactive(getScriptName());
 interactive.height = 400;
 
+let graph = interactive.graph();
+
 // this HTML input element controls the current tree being drawn
 let input = document.createElement('input');
 input.type = 'number';
@@ -21,10 +23,12 @@ interactive.container.parentElement.insertBefore(input, interactive.container);
 input.onchange = function() {
 
   // remove all the graph elements
-  let background = interactive.root.firstChild;
-  while( background.firstChild ){
-    background.removeChild(background.firstChild);
+  let elements = graph.root;
+  while( elements.firstChild ){
+    elements.removeChild(elements.firstChild);
   }
+
+  // graph.clear();
 
   // redraw the prime factorization tree
   primeFactors( parseInt(input.value), 0, interactive.width/2, 60, null);
@@ -43,9 +47,9 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
 
   // base case
   if( n == p || n <= 1 ) {
-    let leaf = interactive.node( x, y, 30, n.toString());
+    let leaf = graph.addNode( x, y, n.toString(), radius);
     if( prev != null ) {
-      interactive.edge( prev, leaf, true);
+      graph.addEdge( prev, leaf, true)
     }
     return;
   }
@@ -54,12 +58,12 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
   // and the prime factor nodes with an edge between them. Otherwise, call this
   // function again with the next prime number.
   if( n % p == 0 ) {
-    let node = interactive.node( x, y, radius, n.toString());
-    let leaf = interactive.node( x - 64, y + 64, radius, p.toString());
+    let node = graph.addNode( x, y, n.toString(),radius,);
+    let leaf = graph.addNode( x - 64, y + 64, p.toString(), radius );
     if( prev ) {
-      interactive.edge( prev, node, true);
+      graph.addEdge( prev, node, true);
     }
-    interactive.edge( node, leaf, true);
+    graph.addEdge( node, leaf, true);
     primeFactors( n/p, p, x + 64, y + 64, node);
   } else {
     primeFactors( n, nextPrime(p), x, y, prev);

@@ -25,6 +25,13 @@ export default class Controller {
         this.elements.set(element.id, element);
     }
     /**
+    * Removes an element from this controller.
+    */
+    remove(element) {
+        this.dependencyGraph.remove(element);
+        this.elements.delete(element.id);
+    }
+    /**
     * Returns the element corresponding to the unique string identifier
     */
     get(id) {
