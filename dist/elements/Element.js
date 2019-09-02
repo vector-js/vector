@@ -29,6 +29,13 @@ export default class Element {
         return this._id;
     }
     /**
+    * Removes this element from the DOM and from the controller.
+    */
+    remove() {
+        Element.controller.remove(this);
+        this.root.remove();
+    }
+    /**
     * Declares this element dependent on the provided element.
     */
     addDependency(...elements) {

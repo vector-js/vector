@@ -41,6 +41,14 @@ export default class Controller {
   }
 
   /**
+  * Removes an element from this controller.
+  */
+  remove(element:Element) {
+    this.dependencyGraph.remove(element);
+    this.elements.delete(element.id);
+  }
+
+  /**
   * Returns the element corresponding to the unique string identifier
   */
   get( id:string ) : Element {

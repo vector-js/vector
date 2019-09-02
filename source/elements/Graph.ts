@@ -4,9 +4,9 @@ import Edge from '../elements/Edge.js';
 import SVG from '../SVG.js';
 
 export default class Graph extends Element {
-  /**
-  * Constructs a control at the position (x,y)
-  */
+
+  nodes: Node[];
+
   constructor() {
     super();
 
@@ -22,13 +22,20 @@ export default class Graph extends Element {
     </marker>`;
 
     this.root.appendChild(defs);
+  }
 
+  clear(){
+    for(var i = 0; i < this.nodes.length; i++)
+    {
+      this.nodes[i].remove();
+    }
   }
 
   addNode(x:number, y:number, text:string, r=20) : Node
   {
     let node = new Node(x, y, r, text);
     this.root.appendChild(node.root);
+    this.nodes.concat(node);
     return node;
   }
 
@@ -42,9 +49,10 @@ export default class Graph extends Element {
     }
 
     this.root.appendChild(edge.root);
+
+    from.addEdge(edge);
+    to.addEdge(edge);
+
     return edge;
   }
-
-
-
 }

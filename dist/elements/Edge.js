@@ -11,6 +11,7 @@ export default class Edge extends Element {
     constructor(nodeFrom, nodeTo, directed) {
         super();
         let arr = this.calculateLinePosition(nodeFrom, nodeTo);
+        this.directed = directed;
         this.root = SVG.Line(arr[0], arr[1], arr[2], arr[3]);
         this.root.id = this.id;
         this.style = this.root.style;
