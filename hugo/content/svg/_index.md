@@ -117,7 +117,20 @@ The origin of the svg coordinate system is at the top-left corner of the image. 
 
 ### View Box
 
+{{< highlight svg>}}
+<svg viewBox="minX minY width height"></svg>
+{{< /highlight >}}
+
+The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed.
+
+{{< highlight svg>}}
+<!-- TODO: example with different view boxes defined -->
+{{< /highlight >}}
+
+{{< highlight svg>}}
 <!-- TODO: preserve aspect ratio attribute -->
+{{< /highlight >}}
+
 
 ### Transforming
 

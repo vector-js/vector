@@ -1,14 +1,14 @@
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../Interactive.js';
-import { getScriptName } from '../Util.js';
+import Interactive from '../../Interactive.js';
+import { getScriptName } from '../../Util.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.window = true;
 
 // Create three control points
-let p1 = interactive.control(200,200);
-let p2 = interactive.control(400,100);
+let p1 = interactive.control(200,100);
+let p2 = interactive.control(400,200);
 addLineBetweenPoints(p1, p2);
 
 // Draws a line between two points

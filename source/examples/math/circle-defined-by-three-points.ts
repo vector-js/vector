@@ -7,7 +7,7 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../Interactive.js';
+import Interactive from '../../Interactive.js';
 
 // Initialize the interactive
 let id = 'circle-defined-by-three-points';
