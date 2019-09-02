@@ -19,6 +19,7 @@ export default class Graph extends Element {
             });
             this.nodes[i].remove();
         }
+        this.nodes = [];
     }
     addNode(x, y, text, r = 20) {
         let node = new Node(x, y, r, text);
@@ -35,6 +36,9 @@ export default class Graph extends Element {
         from.addEdge(edge);
         to.addEdge(edge);
         return edge;
+    }
+    size() {
+        return this.nodes.length;
     }
 }
 //# sourceMappingURL=Graph.js.map

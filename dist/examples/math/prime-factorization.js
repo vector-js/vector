@@ -18,13 +18,21 @@ input.style.fontSize = '14px';
 interactive.container.parentElement.insertBefore(input, interactive.container);
 input.onchange = function () {
     // remove all the graph elements
-    let elements = graph.root;
-    while (elements.firstChild) {
-        elements.removeChild(elements.firstChild);
-    }
-    // graph.clear();
+    // let elements = graph.root;
+    // while( elements.firstChild ){
+    //   elements.removeChild(elements.firstChild);
+    // }
+    graph.clear();
     // redraw the prime factorization tree
-    primeFactors(parseInt(input.value), 0, interactive.width / 2, 60, null);
+    primeFactors(parseInt(input.value), 0, 0, 0, null);
+    let rect = graph.root.getBBox();
+    console.log(graph.size());
+    if (graph.size() == 1) {
+        interactive.setViewBox(rect.x - 32, rect.y - 32, rect.width + 64, rect.height + 64);
+    }
+    else {
+        interactive.setViewBox(rect.x - 8, rect.y - 8, rect.width + 16, rect.height + 16);
+    }
 };
 // draw the initial prime factorization tree for the current input
 let radius = 30;

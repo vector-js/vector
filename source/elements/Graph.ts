@@ -29,6 +29,7 @@ export default class Graph extends Element {
       })
       this.nodes[i].remove();
     }
+    this.nodes = [];
   }
 
   addNode(x:number, y:number, text:string, r=20) : Node
@@ -54,5 +55,9 @@ export default class Graph extends Element {
     to.addEdge(edge);
 
     return edge;
+  }
+
+  size():number{
+    return this.nodes.length;
   }
 }
