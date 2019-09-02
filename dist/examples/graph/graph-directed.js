@@ -5,4 +5,4 @@ let graph = interactive.graph();
 let a = graph.addNode(100, 100, 'a');
 let b = graph.addNode(200, 100, 'b');
 graph.addEdge(a, b, true);
-//# sourceMappingURL=simple.js.map
+//# sourceMappingURL=graph-directed.js.map

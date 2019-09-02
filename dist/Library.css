@@ -1,0 +1,65 @@
+.window {
+  display: block;
+  margin: 0 auto 1.5em auto;
+  overflow: hidden;
+}
+
+.window {
+  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.15), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+.border {
+  border: 1px solid grey;
+}
+
+.interactive {
+  max-width: 100%;
+}
+
+svg {
+  font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial',sans-serif;
+  font-weight: normal;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+text {
+  fill: #333333;
+  stroke: none;
+}
+
+.default {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:none;
+}
+
+.control-point {
+  fill:#0366EE;
+  stroke:none;
+}
+
+.control-handle {
+  fill:transparent;
+  stroke: #0366EE;
+  stroke-width:2px;
+  opacity:0;
+}
+
+.control-handle.highlight {
+  opacity:1;
+}
+
+.button rect {
+  fill: #555555;
+}
+
+.button:hover rect {
+  fill: #333333;
+}
+
+.button text {
+  fill: #ffffff;
+}
