@@ -2,10 +2,14 @@ import Node from './Node.js';
 import Element from './Element.js';
 import SVG from '../SVG.js';
 
+//Make the function static and extend from Line
+
 /**
 * Creates a line connecting two edges, with an arrow if directed.
 */
 export default class Edge extends Element {
+
+  static markerAdded : boolean;
 
   nodeFrom : Node;
   nodeTo : Node;
@@ -34,7 +38,6 @@ export default class Edge extends Element {
 
     let x1 = nodeFrom.nodeCircle.cx;
     let x2 = nodeTo.nodeCircle.cx;
-
 
     let deltaY = y2 - y1;
     let deltaX = x2 - x1;

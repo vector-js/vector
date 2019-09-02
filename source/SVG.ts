@@ -119,4 +119,9 @@ export default class SVG {
     let clipPath = document.createElementNS( 'http://www.w3.org/2000/svg', 'clipPath');
     return clipPath;
   }
+
+  static Defs() : SVGDefsElement {
+    let defs = document.createElementNS( 'http://www.w3.org/2000/svg', 'defs');
+    return defs;
+  }
 }

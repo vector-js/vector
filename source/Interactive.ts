@@ -42,6 +42,8 @@ export default class Interactive extends Element  {
   */
   root:SVGElement;
 
+  markersAdded:boolean;
+
   /**
   * CSS applied to this element
   */
@@ -62,6 +64,8 @@ export default class Interactive extends Element  {
   * The background is where everything that is not a primary control is drawn.
   */
   private background:SVGGElement;
+
+  private defs:SVGDefsElement;
 
   // internal variables
   private _width:number = 0;
@@ -87,6 +91,7 @@ export default class Interactive extends Element  {
     this.style = this.root.style;
     this.background = this.root.appendChild(SVG.Group());
     this.controls = this.root.appendChild(SVG.Group());
+    this.defs = this.root.prepend(SVG.Defs());
 
     // default configuration
     this.width = 600;
@@ -358,6 +363,7 @@ export default class Interactive extends Element  {
   node( x:number, y:number, r: number, contents:string ) : Node {
     let node = new Node( x, y, r, contents);
     this.background.appendChild(node.root);
+    //alignment-baseline text anchor point change
     node.adjustText();
     return node;
   }
@@ -367,6 +373,7 @@ export default class Interactive extends Element  {
   */
   edge (nodeFrom: Node, nodeTo: Node, directed: boolean){
     let edge = new Edge(nodeFrom, nodeTo, directed);
+    if(directed && !markersAdded)
     this.background.appendChild(edge.root);
     return edge;
   }

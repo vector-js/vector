@@ -48,6 +48,7 @@ export default class Interactive extends Element {
         this.style = this.root.style;
         this.background = this.root.appendChild(SVG.Group());
         this.controls = this.root.appendChild(SVG.Group());
+        this.defs = this.root.prepend(SVG.Defs());
         // default configuration
         this.width = 600;
         this.height = 300;
@@ -288,6 +289,7 @@ export default class Interactive extends Element {
     node(x, y, r, contents) {
         let node = new Node(x, y, r, contents);
         this.background.appendChild(node.root);
+        //alignment-baseline text anchor point change
         node.adjustText();
         return node;
     }
@@ -296,7 +298,8 @@ export default class Interactive extends Element {
     */
     edge(nodeFrom, nodeTo, directed) {
         let edge = new Edge(nodeFrom, nodeTo, directed);
-        this.background.appendChild(edge.root);
+        if (directed && !markersAdded)
+            this.background.appendChild(edge.root);
         return edge;
     }
 }
