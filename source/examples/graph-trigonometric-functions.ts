@@ -9,7 +9,7 @@ interactive.border = true;
 
 
 // Create a new graph object
-let graph = interactive.graph();
+let graph = interactive.plot();
 graph.function = (x:number) => { return Math.cos(x); };
 // graph.function = (x:number) => { return Math.sin(x); };
 // graph.function = (x:number) => { return Math.tan(x); };

@@ -6,7 +6,7 @@ interactive.width = 600;
 interactive.height = 300;
 interactive.border = true;
 // Create a new graph object
-let graph = interactive.graph();
+let graph = interactive.plot();
 let s = 100;
 let u = 300;
 graph.function = (x) => { return 1 / (s * Math.sqrt(2 * Math.PI)) * Math.pow(Math.E, -(x - u) * (x - u) / (2 * s * s)); };

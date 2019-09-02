@@ -329,4 +329,4 @@ export default class Plot extends Element {
     scaleDown(x, y) {
     }
 }
-//# sourceMappingURL=Graph.js.map
+//# sourceMappingURL=Plot.js.map

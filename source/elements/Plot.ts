@@ -6,7 +6,7 @@ import Text from '../elements/Text.js';
 /**
 *
 */
-export default class Graph extends Element {
+export default class Plot extends Element {
 
   /**
   * Invisisble element for registering events

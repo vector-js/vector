@@ -7,7 +7,7 @@ interactive.height = 300;
 interactive.border = true;
 let functionText = '(x) => { return Math.sin(x); }';
 // Create a new graph object
-let graph = interactive.graph();
+let graph = interactive.plot();
 graph.function = eval(functionText);
 graph.originX = 0;
 graph.originY = interactive.height / 2;

@@ -9,7 +9,7 @@ interactive.border = true;
 
 
 // Create a new graph object
-let graph = interactive.graph();
+let graph = interactive.plot();
 let s = 100;
 let u = 300;
 

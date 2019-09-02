@@ -6,7 +6,7 @@ let interactive = new Interactive(getScriptName());
 interactive.border = true;
 
 // Create a new graph object
-let graph = interactive.graph();
+let graph = interactive.plot();
 graph.function = (x:number) => { return x*x; };
 graph.originX = interactive.width/2;
 graph.originY = 2*interactive.height/3;

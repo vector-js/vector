@@ -3,17 +3,12 @@ import Node from '../elements/Node.js';
 import Edge from '../elements/Edge.js';
 import SVG from '../SVG.js';
 
-
-
-
 export default class Graph extends Element {
   /**
   * Constructs a control at the position (x,y)
   */
   constructor() {
     super();
-
-
 
     this.root = SVG.Group();
     this.root.id = this.id;
@@ -46,8 +41,8 @@ export default class Graph extends Element {
       edge.root.setAttribute('marker-end', `url(#arrow)`);
     }
 
-    this.root.appendChild(node.root);
-    return node;
+    this.root.appendChild(edge.root);
+    return edge;
   }
 
 

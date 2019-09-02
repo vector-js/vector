@@ -17,7 +17,8 @@ import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
 // complex elements
-import Graph from './charts/Graph.js';
+import Plot from './elements/Plot.js';
+import Graph from './elements/Graph.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -48,7 +49,6 @@ export default class Interactive extends Element {
         this.style = this.root.style;
         this.background = this.root.appendChild(SVG.Group());
         this.controls = this.root.appendChild(SVG.Group());
-        this.defs = this.root.prepend(SVG.Defs());
         // default configuration
         this.width = 600;
         this.height = 300;
@@ -212,10 +212,18 @@ export default class Interactive extends Element {
         return control;
     }
     /**
-    * Creates a control point within this interactive at the position (x,y).
+    * Creates a plot within this interactive at the position (x,y).
     */
-    graph(userEvents = true) {
-        let graph = new Graph(userEvents);
+    plot(userEvents = true) {
+        let plot = new Plot(userEvents);
+        this.background.appendChild(plot.root);
+        return plot;
+    }
+    /**
+    * Creates a graph element within this interactive
+    */
+    graph() {
+        let graph = new Graph();
         this.background.appendChild(graph.root);
         return graph;
     }
@@ -298,8 +306,7 @@ export default class Interactive extends Element {
     */
     edge(nodeFrom, nodeTo, directed) {
         let edge = new Edge(nodeFrom, nodeTo, directed);
-        if (directed && !markersAdded)
-            this.background.appendChild(edge.root);
+        this.background.appendChild(edge.root);
         return edge;
     }
 }

@@ -28,8 +28,8 @@ export default class Graph extends Element {
         if (directed) {
             edge.root.setAttribute('marker-end', `url(#arrow)`);
         }
-        this.root.appendChild(node.root);
-        return node;
+        this.root.appendChild(edge.root);
+        return edge;
     }
 }
 //# sourceMappingURL=Graph.js.map

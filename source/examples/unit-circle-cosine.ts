@@ -57,7 +57,7 @@ interactive.originY = interactive.height/2;
 interactive.window = false;
 interactive.root.style.display = 'inline';
 
-let graph = interactive.graph( false );
+let graph = interactive.plot( false );
 graph.function = Math.cos;
 graph.originX = 0;
 graph.originY = 0;

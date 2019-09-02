@@ -6,7 +6,7 @@ interactive.width = 600;
 interactive.height = 300;
 interactive.border = true;
 // Create a new graph object
-let graph = interactive.graph();
+let graph = interactive.plot();
 graph.function = (x) => { return Math.cos(x); };
 // graph.function = (x:number) => { return Math.sin(x); };
 // graph.function = (x:number) => { return Math.tan(x); };
