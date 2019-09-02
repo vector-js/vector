@@ -273,6 +273,14 @@ export default class Control extends Element {
     this._onchange = func;
   }
 
+  get onchange(){
+    return this._onchange;
+  }
+
+  /**
+  * Constrains the movement of this control point to the path of the provided
+  * element.
+  */
   constrainTo( element:Path|Circle|Rectangle) {
 
     this.addDependency(element);

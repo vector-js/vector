@@ -34,4 +34,4 @@ functionInput.onchange = function() {
   graph.draw();
 };
 
-interactive.container.prepend(functionInput);
+interactive.container.parentElement.insertBefore(functionInput, interactive.container);

@@ -24,6 +24,7 @@ export default class Slider extends Element {
   * The control can be moved along the line to change the value of this input
   */
   control : Control;
+  _onchange: () => void;
 
   /**
   * Constructs the slider at the position (x,y). The leftmost edge of the line
@@ -54,6 +55,13 @@ export default class Slider extends Element {
     this.min = 0;
     this.max = 100;
     this.value = value;
+  }
+
+  set onchange( fn:()=>void ) {
+    this.control.onchange = function() {
+      this.control._onchange();
+      fn();
+    }
   }
 
   /**

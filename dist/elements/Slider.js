@@ -33,6 +33,12 @@ export default class Slider extends Element {
         this.max = 100;
         this.value = value;
     }
+    set onchange(fn) {
+        this.control.onchange = function () {
+            this.control._onchange();
+            fn();
+        };
+    }
     /**
     * Returns the width of the display line
     */

@@ -2,6 +2,7 @@ import SVG from './SVG.js';
 
 // basic elements
 import Circle from './elements/Circle.js';
+import Element from './elements/Element.js';
 import Ellipse from './elements/Ellipse.js';
 import Line from './elements/Line.js';
 import Path from './elements/Path.js';
@@ -9,7 +10,6 @@ import Text from './elements/Text.js';
 import Rectangle from './elements/Rectangle.js';
 import Node from './elements/Node.js';
 import Edge from './elements/Edge.js';
-
 
 // input elements
 import Button from './elements/Button.js';
@@ -30,7 +30,7 @@ import Graph from './charts/Graph.js';
 * elements are added to the "background" group. This ensures that controls will
 * alwaysbe focusable, despite the order in which elements are created.
 */
-export default class Interactive  {
+export default class Interactive extends Element  {
 
   /**
   * The container element for this interactive.
@@ -74,6 +74,7 @@ export default class Interactive  {
   * to the id. If no element is found throws an error.
   */
   constructor( id:string ) {
+    super();
 
     // store a reference to the container element
     this.container = document.getElementById(id);
@@ -82,6 +83,7 @@ export default class Interactive  {
     // create and append the root svg element and group elements
     this.root = this.container.appendChild(SVG.SVG());
     this.root.classList.add('interactive');
+    this.root.id = this.id;
     this.style = this.root.style;
     this.background = this.root.appendChild(SVG.Group());
     this.controls = this.root.appendChild(SVG.Group());

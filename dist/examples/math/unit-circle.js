@@ -51,16 +51,25 @@ chartInteractive.text(chartInteractive.width - 28, chartInteractive.height / 2 -
 let chartControl = chartInteractive.control(0, chartInteractive.height / 2);
 chartControl.addDependency(graph, control);
 chartControl.update = function () {
-    chartControl.x = circle.r * getAngle();
-    chartControl.translate(chartControl.x, chartControl.y);
+    // chartControl.x = circle.r*getAngle();
+    let point = chartControl.constrain({ x: chartControl.x, y: chartControl.y }, { x: circle.r * getAngle(), y: 0 });
+    chartControl.x = point.x;
+    chartControl.y = point.y;
+    // chartControl.translate( chartControl.x, chartControl.y);
 };
+// Constrain the control to follow the path of the graph
 chartControl.constrain = (oldPos, newPos) => {
     let x = (newPos.x + chartInteractive.width) % chartInteractive.width;
     let y = (-circle.r * graph.function(newPos.x / circle.r) + chartInteractive.height / 2);
     return { x: x, y: y };
 };
+// Override the chart control to instead update the data of the unit circle
+// control and then propegate the change through the dependency graph.
 chartControl.onchange = function () {
-    console.log("change");
+    let angle = 2 * Math.PI * chartControl.x / (chartInteractive.width);
+    control.x = radius * Math.cos(angle);
+    control.y = -radius * Math.sin(angle);
+    control.updateDependents();
 };
 let info = new Interactive(getScriptName());
 info.width = 2 * (radius + margin);
@@ -82,7 +91,24 @@ yDisplay.addDependency(control);
 yDisplay.update = function () {
     yDisplay.contents = `y = ${(control.y / circle.r).toFixed(2)}`;
 };
-info.button(3 * x, info.height * 4 / 5, "animate");
+let requestID = 0;
+let animating = false;
+let animate = info.button(3 * x, info.height * 4 / 5, "animate");
+animate.onclick = function () {
+    let step = function (timestamp) {
+        chartControl.x += 1;
+        chartControl.onchange();
+        requestID = window.requestAnimationFrame(step);
+    };
+    if (animating) {
+        window.cancelAnimationFrame(requestID);
+        animating = false;
+    }
+    else {
+        animating = true;
+        requestID = window.requestAnimationFrame(step);
+    }
+};
 let functions = new Interactive(getScriptName());
 functions.width = 2 * Math.PI * radius;
 functions.height = 2 * (radius + margin);

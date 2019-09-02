@@ -28,5 +28,5 @@ functionInput.onchange = function () {
     graph.function = eval(functionInput.value);
     graph.draw();
 };
-interactive.container.prepend(functionInput);
+interactive.container.parentElement.insertBefore(functionInput, interactive.container);
 //# sourceMappingURL=graph.js.map

@@ -48,7 +48,7 @@ export default class Button extends Element {
   /**
   * Fires when the user clicks the left button on the button.
   */
-  set onlick( handler ) {
+  set onclick( handler ) {
     this.root.onclick = handler;
   }
 
