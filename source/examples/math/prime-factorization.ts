@@ -23,7 +23,11 @@ input.style.webkitAppearance = 'textfield'
 input.style.fontSize = '14px';
 interactive.container.parentElement.insertBefore(input, interactive.container);
 input.onchange = function() {
+  drawGraph();
 
+};
+
+function drawGraph(){
   // remove all the graph elements
   graph.clear();
 
@@ -40,12 +44,11 @@ input.onchange = function() {
   else{
     interactive.setViewBox(rect.x-8, rect.y-8, rect.width + 16, rect.height + 16)
   }
-};
+}
 
 // draw the initial prime factorization tree for the current input
 let radius = 30;
-primeFactors( parseInt(input.value), 0, interactive.width/2, 60, null);
-
+drawGraph();
 /**
 * This is a recursive function that draws the prime factorization tree for the
 * input number n.
