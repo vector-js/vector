@@ -24,9 +24,15 @@ export default class Node extends Element {
         this.root.classList.add('default');
         this.root.id = this.id;
     }
+    /**
+    * Returns the number of edges coming out of this node.
+    */
     edgeWeight() {
         return this.edges.size;
     }
+    /**
+    * Adds an edge to this node.
+    */
     addEdge(edge) {
         this.edges.add(edge);
     }

@@ -21,7 +21,7 @@ export default class Graph extends Element {
     this.root.appendChild(defs);
   }
 
-  clear(){
+  clear() {
     for(var i = 0; i < this.nodes.length; i++)
     {
       this.nodes[i].remove();
