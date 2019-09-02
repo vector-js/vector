@@ -61,4 +61,12 @@ export default class Text extends Element {
   set y( value:number ) {
     this.root.setAttribute('y', value.toString());
   }
+
+  /**
+  * Returns the length of the text
+  */
+  get length() : number {
+    const context = document.createElement("canvas").getContext("2d");
+    return context.measureText(this.root.innerHTML).width;
+  }
 }

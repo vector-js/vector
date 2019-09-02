@@ -20,18 +20,20 @@ export default class Button extends Element {
         this.root.classList.add('button');
         this.root.id = this.id;
         // Create a text element
-        this.text = new Text(18, 1, text);
+        this.text = new Text(0, 1, text);
         this.text.root.setAttribute('alignment-baseline', 'middle');
+        this.text.root.style.textAnchor = 'middle';
         // TODO: why is this.text.root.textLength returning zero?
-        this.box = new Rectangle(0, -16, text.length * 12, 32);
+        this.box = new Rectangle(0, -16, this.text.length * 2 + 16, 32);
         this.box.root.setAttribute('rx', '2px');
+        this.text.x = this.box.x + this.box.width / 2;
         this.root.appendChild(this.box.root);
         this.root.appendChild(this.text.root);
     }
     /**
     * Fires when the user clicks the left button on the button.
     */
-    set onlick(handler) {
+    set onclick(handler) {
         this.root.onclick = handler;
     }
     /**

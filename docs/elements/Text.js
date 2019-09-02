@@ -7,9 +7,9 @@ export default class Text extends Element {
     /**
     * Constructs text at the position (x,y) with the provided string
     */
-    constructor(xNum, yNum, text) {
+    constructor(x, y, text) {
         super();
-        this.root = SVG.Text(xNum, yNum, text);
+        this.root = SVG.Text(x, y, text);
         this.root.id = this.id;
         this.style = this.root.style;
     }
@@ -48,6 +48,13 @@ export default class Text extends Element {
     */
     set y(value) {
         this.root.setAttribute('y', value.toString());
+    }
+    /**
+    * Returns the length of the text
+    */
+    get length() {
+        const context = document.createElement("canvas").getContext("2d");
+        return context.measureText(this.root.innerHTML).width;
     }
 }
 //# sourceMappingURL=Text.js.map

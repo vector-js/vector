@@ -1,6 +1,158 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vector.js</title><link>https://vectorjs.org/</link><description>Recent content on Vector.js</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 05 Feb 2019 12:03:45 -0700</lastBuildDate><atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://vectorjs.org/getting-started/</link><pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate><guid>https://vectorjs.org/getting-started/</guid><description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
-Open the Editor Start by opening an instance of the editor in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description></item><item><title>Line</title><link>https://vectorjs.org/svg/elements/line/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/svg/elements/line/</guid><description>This interactive demonstrates the properties of the SVG line element.</description></item><item><title>Rectangle</title><link>https://vectorjs.org/svg/elements/rectangle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/svg/elements/rectangle/</guid><description>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.</description></item><item><title>Custom Element</title><link>https://vectorjs.org/custom-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/custom-element/</guid><description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
-import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements // associated with this custom element.</description></item><item><title>Ellipse</title><link>https://vectorjs.org/svg/elements/ellipse/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/svg/elements/ellipse/</guid><description>This interactive demonstrates the properties of the ellipse element. There are three controls: one that changes the center position of the ellipse, one that controls the length of the x-radius, and another that changes the length of the y-radius.</description></item><item><title>Planets</title><link>https://vectorjs.org/planets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/planets/</guid><description/></item><item><title>Population Map</title><link>https://vectorjs.org/population-map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/population-map/</guid><description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
-// TODO: pull data from google sheets // Create united states map object via library call</description></item><item><title>Path</title><link>https://vectorjs.org/svg/elements/path/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/svg/elements/path/</guid><description>The path element is notorious for its power and difficulty. The path element has one attribute, the &amp;ldquo;d&amp;rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followd by zero or more numbers separated by spaces.
-&amp;lt;path d=&amp;#34;...&amp;#34;&amp;gt;&amp;lt;/path&amp;gt; Name Command Move To M x y Line L x y Quadratic Bezier Q x1 y1 x2 y2 Cubic Bezier C x1 y1 x2 y2 x3 y3 Arc A rx ry x-axis-rotation large-arc-flag sweep-flag x y Close Z Path: Line Command &amp;lt;path d=&amp;#34;L x y&amp;#34;&amp;gt;&amp;lt;/path&amp;gt; Every path starts with a move command which describes where the path starts.</description></item><item><title>Josh</title><link>https://vectorjs.org/team/josh/</link><pubDate>Mon, 11 Feb 2019 10:48:41 -0700</pubDate><guid>https://vectorjs.org/team/josh/</guid><description/></item><item><title>Zach</title><link>https://vectorjs.org/team/zach/</link><pubDate>Mon, 11 Feb 2019 10:48:38 -0700</pubDate><guid>https://vectorjs.org/team/zach/</guid><description/></item><item><title>Derek</title><link>https://vectorjs.org/team/derek/</link><pubDate>Mon, 11 Feb 2019 10:48:32 -0700</pubDate><guid>https://vectorjs.org/team/derek/</guid><description>Bio, links to websites other projects, interests.</description></item><item><title>Reference</title><link>https://vectorjs.org/references/</link><pubDate>Thu, 07 Feb 2019 21:34:52 -0700</pubDate><guid>https://vectorjs.org/references/</guid><description> MBTA Visual Guitar Visual 2016 Election Forecast Hip Hop Vocabulary Explained Visually Google Doodles - Muybridge Bezier Info SVG Path Editor? House Hunting SVG Summit Quad Tree R Tree Google Google Charts Google Calculator and Web Search Utility Google Fidget Spinner Five Thirty Eight Five Thirty Eight Five Thirty Eight - Data Five Thirty Eight - Github Five Thirty Eight - d3 PreProcessing Five Thirty Eight - d3 PreProcessing Choropleth Example Five Thirty Eight - d3 PreProcessing Axes Example d3 d3 d3 Bar Chart d3 Choropleth d3 animation + bezier Other Tools Processing ECharts SigmaJS Desmos High Charts Data Wrapper</description></item><item><title>Clip Path</title><link>https://vectorjs.org/svg/elements/clip-path/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/svg/elements/clip-path/</guid><description>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.
-&amp;lt;g clip-path=&amp;#34;url(#my-clip-path)&amp;#34;&amp;gt; &amp;lt;!-- grid of rectangles ... --&amp;gt; &amp;lt;/g&amp;gt; &amp;lt;clipPath id=&amp;#34;my-clip-path&amp;#34;&amp;gt; &amp;lt;circle cx=&amp;#34;300&amp;#34; cy=&amp;#34;150&amp;#34; r=&amp;#34;50&amp;#34;&amp;gt;&amp;lt;/circle&amp;gt; &amp;lt;/clipPath&amp;gt; Click and drag the clip path below to change the position of the circle that defines the clipping path.</description></item><item><title>Group</title><link>https://vectorjs.org/svg/elements/group/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/svg/elements/group/</guid><description/></item><item><title>Kurt</title><link>https://vectorjs.org/team/kurt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/team/kurt/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vector.js</title>
+    <link>https://vectorjs.org/</link>
+    <description>Recent content on Vector.js</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Feb 2019 10:48:41 -0700</lastBuildDate>
+    
+	<atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://vectorjs.org/getting-started/</link>
+      <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/getting-started/</guid>
+      <description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
+Open the Editor Start by opening an instance of the editor in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description>
+    </item>
+    
+    <item>
+      <title>Line</title>
+      <link>https://vectorjs.org/svg/elements/line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/line/</guid>
+      <description>This interactive demonstrates the properties of the SVG line element.
+  </description>
+    </item>
+    
+    <item>
+      <title>Rectangle</title>
+      <link>https://vectorjs.org/svg/elements/rectangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/rectangle/</guid>
+      <description>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.
+  </description>
+    </item>
+    
+    <item>
+      <title>Custom Element</title>
+      <link>https://vectorjs.org/custom-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/custom-element/</guid>
+      <description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
+import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements  // associated with this custom element.</description>
+    </item>
+    
+    <item>
+      <title>Ellipse</title>
+      <link>https://vectorjs.org/svg/elements/ellipse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/ellipse/</guid>
+      <description>This interactive demonstrates the properties of the ellipse element. There are three controls: one that changes the center position of the ellipse, one that controls the length of the x-radius, and another that changes the length of the y-radius.
+  </description>
+    </item>
+    
+    <item>
+      <title>Planets</title>
+      <link>https://vectorjs.org/planets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/planets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Population Map</title>
+      <link>https://vectorjs.org/population-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/population-map/</guid>
+      <description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed  In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
+// TODO: pull data from google sheets  // Create united states map object via library call  </description>
+    </item>
+    
+    <item>
+      <title>Path</title>
+      <link>https://vectorjs.org/svg/elements/path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/path/</guid>
+      <description>The path element is notorious for its power and difficulty. The path element has one attribute, the &amp;ldquo;d&amp;rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followd by zero or more numbers separated by spaces.
+&amp;lt;path d=&amp;#34;...&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;    Name Command     Move To M x y   Line L x y   Quadratic Bezier Q x1 y1 x2 y2   Cubic Bezier C x1 y1 x2 y2 x3 y3   Arc A rx ry x-axis-rotation large-arc-flag sweep-flag x y   Close Z    Path: Line Command &amp;lt;path d=&amp;#34;L x y&amp;#34;&amp;gt;&amp;lt;/path&amp;gt; Every path starts with a move command which describes where the path starts.</description>
+    </item>
+    
+    <item>
+      <title>Josh</title>
+      <link>https://vectorjs.org/team/josh/</link>
+      <pubDate>Mon, 11 Feb 2019 10:48:41 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/team/josh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zach</title>
+      <link>https://vectorjs.org/team/zach/</link>
+      <pubDate>Mon, 11 Feb 2019 10:48:38 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/team/zach/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Derek</title>
+      <link>https://vectorjs.org/team/derek/</link>
+      <pubDate>Mon, 11 Feb 2019 10:48:32 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/team/derek/</guid>
+      <description>Bio, links to websites other projects, interests.</description>
+    </item>
+    
+    <item>
+      <title>Reference</title>
+      <link>https://vectorjs.org/references/</link>
+      <pubDate>Thu, 07 Feb 2019 21:34:52 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/references/</guid>
+      <description>  MBTA Visual Guitar Visual 2016 Election Forecast Hip Hop Vocabulary Explained Visually Google Doodles - Muybridge Bezier Info SVG Path Editor? House Hunting SVG Summit Quad Tree R Tree  Google  Google Charts Google Calculator and Web Search Utility Google Fidget Spinner  Five Thirty Eight  Five Thirty Eight Five Thirty Eight - Data Five Thirty Eight - Github Five Thirty Eight - d3 PreProcessing Five Thirty Eight - d3 PreProcessing Choropleth Example Five Thirty Eight - d3 PreProcessing Axes Example  d3  d3 d3 Bar Chart d3 Choropleth d3 animation + bezier  Other Tools  Processing ECharts SigmaJS Desmos High Charts Data Wrapper  </description>
+    </item>
+    
+    <item>
+      <title>Clip Path</title>
+      <link>https://vectorjs.org/svg/elements/clip-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/clip-path/</guid>
+      <description>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.
+&amp;lt;g clip-path=&amp;#34;url(#my-clip-path)&amp;#34;&amp;gt; &amp;lt;!-- grid of rectangles ... --&amp;gt; &amp;lt;/g&amp;gt; &amp;lt;clipPath id=&amp;#34;my-clip-path&amp;#34;&amp;gt; &amp;lt;circle cx=&amp;#34;300&amp;#34; cy=&amp;#34;150&amp;#34; r=&amp;#34;50&amp;#34;&amp;gt;&amp;lt;/circle&amp;gt; &amp;lt;/clipPath&amp;gt; Click and drag the clip path below to change the position of the circle that defines the clipping path.</description>
+    </item>
+    
+    <item>
+      <title>Group</title>
+      <link>https://vectorjs.org/svg/elements/group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/group/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kurt</title>
+      <link>https://vectorjs.org/team/kurt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/kurt/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorials on Vector.js</title><link>https://vectorjs.org/tutorials/</link><description>Recent content in Tutorials on Vector.js</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 05 Feb 2019 12:03:45 -0700</lastBuildDate><atom:link href="https://vectorjs.org/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://vectorjs.org/getting-started/</link><pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate><guid>https://vectorjs.org/getting-started/</guid><description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
-Open the Editor Start by opening an instance of the editor in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description></item><item><title>Custom Element</title><link>https://vectorjs.org/custom-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/custom-element/</guid><description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
-import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements // associated with this custom element.</description></item><item><title>Planets</title><link>https://vectorjs.org/planets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/planets/</guid><description/></item><item><title>Population Map</title><link>https://vectorjs.org/population-map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vectorjs.org/population-map/</guid><description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
-// TODO: pull data from google sheets // Create united states map object via library call</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Vector.js</title>
+    <link>https://vectorjs.org/tutorials/</link>
+    <description>Recent content in Tutorials on Vector.js</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Feb 2019 12:03:45 -0700</lastBuildDate>
+    
+	<atom:link href="https://vectorjs.org/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://vectorjs.org/getting-started/</link>
+      <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/getting-started/</guid>
+      <description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
+Open the Editor Start by opening an instance of the editor in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description>
+    </item>
+    
+    <item>
+      <title>Custom Element</title>
+      <link>https://vectorjs.org/custom-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/custom-element/</guid>
+      <description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
+import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements  // associated with this custom element.</description>
+    </item>
+    
+    <item>
+      <title>Planets</title>
+      <link>https://vectorjs.org/planets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/planets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Population Map</title>
+      <link>https://vectorjs.org/population-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/population-map/</guid>
+      <description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed  In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
+// TODO: pull data from google sheets  // Create united states map object via library call  </description>
+    </item>
+    
+  </channel>
+</rss>

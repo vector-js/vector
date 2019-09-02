@@ -4,4 +4,5 @@ image: /images/prime-factorization.svg
 weight: 1
 ---
 
-<img src="/images/prime-factorization.svg" alt="prime factorization of 156" width="600px">
+<div id="prime-factorization"></div>
+<script type="module" src="/examples/math/prime-factorization.js"></script>

@@ -27,6 +27,7 @@ svg {
 
 text {
   fill: #333333;
+  stroke: none;
 }
 
 .default {
