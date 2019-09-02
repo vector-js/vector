@@ -213,6 +213,13 @@ export default class Control extends Element {
     set onchange(func) {
         this._onchange = func;
     }
+    get onchange() {
+        return this._onchange;
+    }
+    /**
+    * Constrains the movement of this control point to the path of the provided
+    * element.
+    */
     constrainTo(element) {
         this.addDependency(element);
         if (element instanceof Path) {

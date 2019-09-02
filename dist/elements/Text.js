@@ -49,5 +49,12 @@ export default class Text extends Element {
     set y(value) {
         this.root.setAttribute('y', value.toString());
     }
+    /**
+    * Returns the length of the text
+    */
+    get length() {
+        const context = document.createElement("canvas").getContext("2d");
+        return context.measureText(this.root.innerHTML).width;
+    }
 }
 //# sourceMappingURL=Text.js.map

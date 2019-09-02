@@ -3,14 +3,16 @@ import Interactive from '../../Interactive.js';
 import Node from '../../elements/Node.js';
 
 let interactive = new Interactive(getScriptName());
+interactive.width = 704;
 interactive.height = 400;
+interactive.border = true;
 
 let graph = interactive.graph();
 
 // this HTML input element controls the current tree being drawn
 let input = document.createElement('input');
 input.type = 'number';
-input.style.width = '600px';
+input.style.width = '704px';
 input.value = '60';
 input.name = 'number';
 input.min = '0';
@@ -23,10 +25,6 @@ interactive.container.parentElement.insertBefore(input, interactive.container);
 input.onchange = function() {
 
   // remove all the graph elements
-  // let elements = graph.root;
-  // while( elements.firstChild ){
-  //   elements.removeChild(elements.firstChild);
-  // }
   graph.clear();
 
   // redraw the prime factorization tree

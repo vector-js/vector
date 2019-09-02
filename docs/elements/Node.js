@@ -12,23 +12,29 @@ export default class Node extends Element {
     */
     constructor(cx, cy, r, text) {
         super();
+        this.edges = new Set();
         this.root = SVG.Group();
         this.nodeName = new Text(cx, cy, text);
+        this.nodeName.style.textAnchor = "middle";
+        this.nodeName.root.setAttribute("alignment-baseline", "middle");
         this.nodeCircle = new Circle(cx, cy, r);
+        this.nodeCircle.fill = '#f8f8f8';
         this.root.appendChild(this.nodeCircle.root);
         this.root.appendChild(this.nodeName.root);
         this.root.classList.add('default');
         this.root.id = this.id;
     }
     /**
-    * Moves the text into the center of the node. unsure about that /4, needs to be changed to fit the text.
+    * Returns the number of edges coming out of this node.
     */
-    adjustText() {
-        let textWidth = this.nodeName.root.getBBox().width;
-        let textHeight = this.nodeName.root.getBBox().height;
-        this.nodeName.x = this.nodeName.x - textWidth / 2;
-        this.nodeName.y = this.nodeName.y + textHeight / 4;
-        console.log(textHeight);
+    edgeWeight() {
+        return this.edges.size;
+    }
+    /**
+    * Adds an edge to this node.
+    */
+    addEdge(edge) {
+        this.edges.add(edge);
     }
 }
 //# sourceMappingURL=Node.js.map

@@ -1,6 +1,7 @@
 import SVG from './SVG.js';
 // basic elements
 import Circle from './elements/Circle.js';
+import Element from './elements/Element.js';
 import Ellipse from './elements/Ellipse.js';
 import Line from './elements/Line.js';
 import Path from './elements/Path.js';
@@ -16,7 +17,8 @@ import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
 // complex elements
-import Graph from './charts/Graph.js';
+import Plot from './elements/Plot.js';
+import Graph from './elements/Graph.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -25,12 +27,13 @@ import Graph from './charts/Graph.js';
 * elements are added to the "background" group. This ensures that controls will
 * alwaysbe focusable, despite the order in which elements are created.
 */
-export default class Interactive {
+export default class Interactive extends Element {
     /**
     * Constructs a new interactive object within the HTML element corresponding
     * to the id. If no element is found throws an error.
     */
     constructor(id) {
+        super();
         // internal variables
         this._width = 0;
         this._height = 0;
@@ -42,6 +45,7 @@ export default class Interactive {
         // create and append the root svg element and group elements
         this.root = this.container.appendChild(SVG.SVG());
         this.root.classList.add('interactive');
+        this.root.id = this.id;
         this.style = this.root.style;
         this.background = this.root.appendChild(SVG.Group());
         this.controls = this.root.appendChild(SVG.Group());
@@ -208,10 +212,18 @@ export default class Interactive {
         return control;
     }
     /**
-    * Creates a control point within this interactive at the position (x,y).
+    * Creates a plot within this interactive at the position (x,y).
     */
-    graph(userEvents = true) {
-        let graph = new Graph(userEvents);
+    plot(userEvents = true) {
+        let plot = new Plot(userEvents);
+        this.background.appendChild(plot.root);
+        return plot;
+    }
+    /**
+    * Creates a graph element within this interactive
+    */
+    graph() {
+        let graph = new Graph();
         this.background.appendChild(graph.root);
         return graph;
     }
@@ -285,7 +297,6 @@ export default class Interactive {
     node(x, y, r, contents) {
         let node = new Node(x, y, r, contents);
         this.background.appendChild(node.root);
-        node.adjustText();
         return node;
     }
     /**
