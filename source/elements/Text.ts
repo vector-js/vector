@@ -1,6 +1,6 @@
 import SVG from '../SVG.js';
 import Element from './Element.js';
-import TSpan from './TSpan.js';
+import TSpan from './Tspan.js';
 
 /**
 * Text is a basic element containing string contents

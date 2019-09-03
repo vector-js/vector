@@ -11,7 +11,7 @@ let graph = interactive.graph();
 
 // this HTML input element controls the current tree being drawn
 let inputContainer = document.createElement('div');
-inputContainer.style.width = '736px';
+inputContainer.style.width = '100%';
 inputContainer.style.height = '2rem';
 inputContainer.style.marginBottom = '1rem';
 
@@ -24,7 +24,7 @@ input.max = '100000';
 input.id = getScriptName() + '-number-input';
 // input.style.paddingLeft = '.25rem';
 // input.style.paddingRight = '.25rem';
-input.style.width = '736px';
+input.style.width = '100$';
 input.style.height = '2rem';
 input.style.paddingLeft = '8px';
 input.style.webkitAppearance = 'textfield'
