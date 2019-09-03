@@ -1,5 +1,6 @@
 import SVG from '../SVG.js';
 import Element from './Element.js';
+import TSpan from './TSpan.js';
 /**
 * Text is a basic element containing string contents
 */
@@ -7,7 +8,7 @@ export default class Text extends Element {
     /**
     * Constructs text at the position (x,y) with the provided string
     */
-    constructor(x, y, text) {
+    constructor(x, y, text = '') {
         super();
         this.root = SVG.Text(x, y, text);
         this.root.id = this.id;
@@ -55,6 +56,11 @@ export default class Text extends Element {
     get length() {
         const context = document.createElement("canvas").getContext("2d");
         return context.measureText(this.root.innerHTML).width;
+    }
+    tspan(text) {
+        let tspan = new TSpan(text);
+        this.root.appendChild(tspan.root);
+        return tspan;
     }
 }
 //# sourceMappingURL=Text.js.map

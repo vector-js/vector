@@ -1,6 +1,12 @@
 import Point from "./elements/Point.js";
 import { saveAs } from './util/file.js';
 
+function parseName( filename:string ) : string {
+  let start = filename.lastIndexOf("/") + 1;
+  let end = filename.lastIndexOf(".");
+  return filename.substr(start, end - start);
+}
+
 /**
 * Returns the current script name.
 */
@@ -122,4 +128,75 @@ export function download( id:string, filename:string ) {
   let data = svg.outerHTML.replace( "&gt;", ">").replace( "&lt;", "<");
   let blob = new Blob([data], {type: 'image/svg+xml'});
   saveAs(blob, filename, {});
+}
+
+/**
+* Returns a promise containing the response object.
+*/
+export function getURL( url:string ) : Promise<string> {
+  // Return a new promise.
+  return new Promise(function(resolve, reject) {
+    // Do the usual XHR stuff
+    var req = new XMLHttpRequest();
+    req.open('GET', url);
+    req.onload = function() {
+      // This is called even on 404 etc so check the status
+      if (req.status == 200) {
+        // Resolve the promise with the response text
+        resolve(req.response);
+      }
+      else {
+        // Otherwise reject with the status text
+        // which will hopefully be a meaningful error
+        reject(Error(req.statusText));
+      }
+    };
+
+    // Handle network errors
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+
+    // Make the request
+    req.send();
+  });
+}
+
+/**
+* Gets the URL parameters of the current session.
+*/
+export function getUrlParams( str:string ) : Map<string, string> {
+    let hashes = str.slice(str.indexOf('?') + 1).split('&')
+    let params = new Map<string, string>();
+    for( let h of hashes ) {
+      let value = h.split('=');
+      params.set(value[0], value[1]);
+    }
+
+    return params
+}
+
+// TODO: this is unfinished
+export function setUrlParams( param:string, value:string) {
+  let url = new URL( window.location.href );
+  let params = new URLSearchParams( url.search.slice(1));
+  params.set(param, value);
+  alert(url.href);
+  // window.location.href = url.href;
+  window.open( url.href);
+}
+
+export function loadScript( url:string, element:HTMLElement ) {
+  getURL(url).then(function(response){
+
+    let div = document.createElement('div');
+    div.id = parseName(url);
+
+    let script = document.createElement('script');
+    script.type = 'module';
+    script.src = url;
+
+    element.appendChild(div);
+    element.appendChild(script);
+  });
 }
