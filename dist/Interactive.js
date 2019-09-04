@@ -17,6 +17,7 @@ import Control from './elements/Control.js';
 import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
+import RadioControl from './elements/RadioControl.js';
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
@@ -195,6 +196,14 @@ export default class Interactive extends Element {
         let checkBox = new CheckBox(x, y, label, value);
         this.controls.appendChild(checkBox.root);
         return checkBox;
+    }
+    /**
+    * Creates a checkbox input at the position (x,y) within this interactive.
+    */
+    radioControl(labels, x, y, index = 0) {
+        let radioControl = new RadioControl(labels, x, y, index);
+        this.controls.appendChild(radioControl.root);
+        return radioControl;
     }
     /**
     * Creates a control point within this interactive at the position (x,y).
