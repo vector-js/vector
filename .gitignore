@@ -4,3 +4,4 @@ cache
 .DS_Store
 types
 library.tar.gz
+*.js.map

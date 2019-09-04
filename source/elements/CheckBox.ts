@@ -43,9 +43,11 @@ export default class CheckBox extends Element {
 
     let temp = this;
     this.value = value;
+    
     this.box.root.onmousedown = function() {
       temp.toggle();
     };
+
     this.addDependency(this.box);
   }
 
