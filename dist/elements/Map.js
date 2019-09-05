@@ -1,13 +1,19 @@
 import { usData } from "../mapsJson.js";
 import Element from '../elements/Element.js';
 /**
-*
+* Map class for displaying geographic maps of the world and its different parts.
 */
 export default class Map extends Element {
-    constructor(test, mapName, width, height) {
+    /*
+    * interactive: the object that called map()
+    * mapName: the name of the map you wish to render
+    * width: width of the map
+    * height: height of the map
+    */
+    constructor(interactive, mapName, width, height) {
         super();
         this.mapName = mapName;
-        this.interactive = test;
+        this.interactive = interactive;
         this.interactive.width = width;
         this.interactive.height = height;
         this.generatePaths();
@@ -15,12 +21,18 @@ export default class Map extends Element {
         this.interactive.root.setAttribute('transform', 'scale(1,-1)');
         this.interactive.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);
     }
+    /*
+    * Get the json for the selected map name
+    */
     getJson(mapName) {
         if (mapName == 'united-states') {
             return usData;
         }
         return usData;
     }
+    /*
+    * Process the geo json and create all paths
+    */
     generatePaths() {
         let json = this.getJson(this.mapName);
         var k = 0;
@@ -65,6 +77,12 @@ export default class Map extends Element {
                 }
             }
         }
+    }
+    /**
+    * The default behavior is to update its dependents on change.
+    */
+    onchange() {
+        this.updateDependents();
     }
 }
 //# sourceMappingURL=Map.js.map
