@@ -1,6 +1,6 @@
 //let rawdata = fs.readFileSync('us-states.json');
 //let rawdata = fs.readFileSync('lowresworld.json');
-import { usData as json } from "../maps.js";
+import { usData as json } from "../mapsJson.js";
 import Interactive from '../Interactive.js';
 var k = 0;
 var c = 0;
