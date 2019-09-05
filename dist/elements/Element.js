@@ -6,11 +6,12 @@ import Controller from '../Controller.js';
 */
 export default class Element {
     /**
-    * Constructs the elements and adds it into the current controller
+    * Constructs the elements and adds it into the current controller.
+    * TODO: Have the constructor take in a root SVGEelement and assign the id to it?
     */
     constructor() {
         // give this element an unique id
-        this._id = `${this.constructor.name}-${Element.count++}`;
+        this._id = `${this.constructor.name.toLowerCase()}-${Element.count++}`;
         // add this element to the controller
         Element.controller.add(this);
     }
@@ -29,14 +30,14 @@ export default class Element {
         return this._id;
     }
     /**
-    * Removes this element from the DOM and from the controller.
+    * Removes this element from the DOM and from the Element controller.
     */
     remove() {
         Element.controller.remove(this);
         this.root.remove();
     }
     /**
-    * Declares this element dependent on the provided element.
+    * Declares this element dependent on the provided element(s).
     */
     addDependency(...elements) {
         for (let element of elements) {

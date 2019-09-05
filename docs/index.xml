@@ -154,5 +154,14 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <description></description>
     </item>
     
+    <item>
+      <title>View Box Attribute</title>
+      <link>https://vectorjs.org/svg/viewbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/viewbox/</guid>
+      <description>   </description>
+    </item>
+    
   </channel>
 </rss>

@@ -20,16 +20,7 @@ weight: 2
 
 ## Getting Started
 
-This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for a complete overview. Two other tutorials worth mentioning are:
-
-<ul>
-  <li>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>
-  </li>
-  <li>
-    <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank" rel="noreferrer">W3 SVG Tutorial</a>
-  </li>
-</ul>
+This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for a complete overview. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>.
 
 SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the "svg" tag, which forms the root of the docuement, looks like:
 
@@ -37,7 +28,7 @@ SVG stands for scalable vector graphic and represents a standard for vector/rast
 <svg></svg>
 {{< /highlight >}}
 
-Often elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of attribute="...". The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
+Elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of attribute="...". The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
 
 {{< highlight svg >}}
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
@@ -121,22 +112,16 @@ The origin of the svg coordinate system is at the top-left corner of the image. 
 <svg viewBox="minX minY width height"></svg>
 {{< /highlight >}}
 
-The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox.
+The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox which is visualized with the rectangle on the left. The resulting svg is shown on the right.
 
-<img src="/images/view-box.svg" alt="View Box Zoom Example" class="center" width="700px" style="max-width:100%;">
+{{<example "svg-view-box">}}
+
+<p></p>
 
 {{< highlight svg>}}
 <svg viewBox="130 100 350 200">
-  <!-- geometric shapes ... -->
+  <!-- colorful squares ... -->
 </svg>
-{{< /highlight >}}
-
-This results in the image below:
-
-<svg id="f800f3bc-d735-4ea5-8c72-c86acce0e7a4" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="130 100 350 200"><defs><style>.fc72c3b5-035f-4002-8f34-521ca2ce475e{fill:#add8e6;stroke:#333;stroke-miterlimit:10;}</style></defs><title>view-box</title><circle class="fc72c3b5-035f-4002-8f34-521ca2ce475e" cx="170.41" cy="141.09" r="39.77"/><ellipse class="fc72c3b5-035f-4002-8f34-521ca2ce475e" cx="436.89" cy="260.41" rx="24.69" ry="39.5"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="307.13 179.31 281.86 141.42 307.13 103.53 332.39 141.42 307.13 179.31"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="307.13 219.98 265.31 250.36 281.28 299.52 332.97 299.52 348.94 250.36 307.13 219.98"/><rect class="fc72c3b5-035f-4002-8f34-521ca2ce475e" x="399.09" y="101.98" width="79.54" height="79.54"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="171.4 230.87 131.62 299.75 211.17 299.75 171.4 230.87"/></svg>
-
-{{< highlight svg>}}
-<!-- TODO: example with different view boxes defined -->
 {{< /highlight >}}
 
 {{< highlight svg>}}
@@ -150,21 +135,31 @@ SVG elements have the ability to have a transformation attribute defined that ca
 
 #### Scale
 
-Elements can be scaled to larger or smaller sizes.
+Elements can be scaled to larger or smaller sizes by adding a scale function to the transform attribute.
 
-<img src='/images/transform-scale.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Scale">
+{{<example "svg-scale">}}
+
+{{< highlight svg>}}
+<g transform="scale(x,y)">
+  <!-- elements to be scaled ... -->
+</g>
+{{< /highlight >}}
 
 #### Rotate
 
 Elements can be rotated.
 
-<img src='/images/transform-rotate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Rotate">
+{{<example "svg-rotate">}}
 
 #### Translate
 
 Elements can be moved to new locations.
 
-<img src='/images/transform-translate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Translate">
+{{<example "svg-translate">}}
+
+<!-- TODO: Put all three together to form basic drawing control -->
+
+#### Other Transformations
 
 - skewX
 - skewY
@@ -201,20 +196,91 @@ onhover, etc
 
 ## Typography
 
-{{< highlight svg>}}
-<text></text>
-{{< /highlight >}}
+Typography is
+
+<svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
+  <style>
+    text.sample {
+      font-family:monospace;
+      font-size:22px;
+      alignment-baseline:middle;
+      text-anchor:middle;
+    }
+    </style>
+  <text x="352" y="75" class="sample">The quick brown fox jumps over the lazy dog.</text>
+</svg>
+
+### Text Element
 
 {{< highlight svg>}}
-<tspan></tspan>
+<text x="..." y="...">The quick brown fox jumps over the lazy dog.</text>
 {{< /highlight >}}
 
+### Tspan Element
+
+The text span element is useful for changing the position and styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word.
+
+<svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
+  <style>
+    text.sample2 {
+      font-size:22px;
+      alignment-baseline:middle;
+      text-anchor:left;
+    }
+    </style>
+    <text x="32" y="75" class="sample2">
+      <tspan style="font-weight:600;">Fly </tspan>
+      <tspan>you fools.</tspan>
+    <text>
+</svg>
+
 {{< highlight svg>}}
-<!-- aligning text -->
+<text x="32" y="75" class="sample2">
+  <tspan style="font-weight:600;">Fly </tspan>
+  <tspan>you fools.</tspan>
+<text>
 {{< /highlight >}}
+
+### Horizontally Align Text
+
+The "text-anchor" attribute allows you to horizontally align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.
+
+<img src="/images/horizontally-align-text.svg" class="border" alt="Horizontally align SVG text.">
+
+{{< highlight css>}}
+text-anchor:left;
+text-anchor:middle;
+text-anchor:right;
+{{< /highlight >}}
+
+### Vertically Align Text
+
+The "alignment-baseline" attribute allows you to vertically align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.
+
+<img src="/images/vertically-align-text.svg" class="border" alt="Vertically align SVG text.">
+
+{{< highlight css>}}
+alignment-baseline:bottom;
+alignment-baseline:middle;
+alignment-baseline:top;
+{{< /highlight >}}
+
+### Superscript and Subscript
 
 {{< highlight svg>}}
 <!-- superscript & subscript text -->
+{{< /highlight >}}
+
+### Auto Wrapping
+
+{{< highlight svg>}}
+<!-- auto wrapping -->
+{{< /highlight >}}
+
+### Preformated Text / Line Breaks
+
+{{< highlight svg>}}
+<!-- pre-formated / line breaks -->
 {{< /highlight >}}
 
 {{< highlight javascript>}}
@@ -240,9 +306,19 @@ Click and drag the clip path below to change the position of the circle that def
 
 {{<example "svg-clip-path">}}
 
+### Defs
+
+{{< highlight svg>}}
+<!-- adding markers / arrows to a path -->
+{{< /highlight >}}
+
+{{< highlight svg>}}
+<!-- adding gradient / pattern to a shape -->
+{{< /highlight >}}
+
 ## Scripting
 
-It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section utilizes Javascript and Web APIs to demonstrate creating interactive SVG elements. There are many libraries and frameworks to help with this very thing. This library [vector.js](/) is one of them.
+It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section demonstrates how to use vanilla Javascript and Web APIs to create, manipulate, and add interactivity to SVG elements.  There are many libraries and frameworks to help with this very thing. This library [vector.js](/) is one of them.
 
 ### Creating SVG Elements
 
@@ -316,7 +392,8 @@ element.getAttribute("some-attribute");
 {{< /highlight >}}
 
 {{< highlight javascript>}}
-// add / remove class
+element.classList.add('my-class');
+element.classList.remove('my-class');
 {{< /highlight >}}
 
 ### Manipulating Style
@@ -329,6 +406,7 @@ element.getAttribute("some-attribute");
 
 {{< highlight javascript>}}
 // get bounding client rectangle
+// SVGGraphicsElement getBBox();
 {{< /highlight >}}
 
 ### Basic Interactive

@@ -232,6 +232,12 @@ interactive.onmousemove ?
 
 <script type="module" src="/examples/interaction/mouse-interaction.js"></script>
 
+### Zooming and Panning
+
+<div id="zoom-in-out"></div>
+
+<script type="module" src="/examples/interaction/zoom-in-out.js"></script>
+
 ## Animation
 
 ### Animate Along Path

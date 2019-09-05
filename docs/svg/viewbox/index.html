@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vector.js</title>
-  <meta name="description" content="This interactive visualizes the prime factorization tree for a given number. There is one input that takes a number less than one-hundred million." />
+  <meta name="description" content="" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -215,10 +215,11 @@ document.querySelector("#sandbox-button").onclick = function() {
 </script>
 
 <main class="medium-container">
-<h1>Prime Factorization</h1><p><div id="prime-factorization"></div>
-<script type="module" src="/examples/math/prime-factorization.js"></script></p>
+<h1>View Box Attribute</h1>
 
-<p>This interactive visualizes the prime factorization tree for a given number. There is one input that takes a number less than one-hundred million. The prime factorization tree is redrawn when the number input changes.</p>
+<div id="svg-view-box" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-view-box.js"></script>
+
 
 </main>
 

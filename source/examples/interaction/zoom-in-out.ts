@@ -2,9 +2,12 @@ import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 
 let interactive = new Interactive(getScriptName());
+interactive.border = true;
 
-let width = 600;
+let width = 768;
 let height = 300;
+interactive.width = 768;
+interactive.height = 300;
 
 let zoomIntensity = .02;
 let scale = 1;
@@ -20,10 +23,9 @@ let w = 20;
 let h = 20;
 for( let i = 0; i < 10; i++) {
   for( let j = 0; j < 10; j ++) {
-    interactive.rectangle(i*w + margin, j*h + margin, w, h);
+    interactive.rectangle(i*w + width/2 - 5*w, j*h + margin, w, h);
   }
 }
-
 
 interactive.root.addEventListener('wheel', function( event:WheelEvent) {
   event.preventDefault();
