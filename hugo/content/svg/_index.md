@@ -121,7 +121,19 @@ The origin of the svg coordinate system is at the top-left corner of the image. 
 <svg viewBox="minX minY width height"></svg>
 {{< /highlight >}}
 
-The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed.
+The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox.
+
+<img src="/images/view-box.svg" alt="View Box Zoom Example" class="center" width="700px" style="max-width:100%;">
+
+{{< highlight svg>}}
+<svg viewBox="130 100 350 200">
+  <!-- geometric shapes ... -->
+</svg>
+{{< /highlight >}}
+
+This results in the image below:
+
+<svg id="f800f3bc-d735-4ea5-8c72-c86acce0e7a4" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="130 100 350 200"><defs><style>.fc72c3b5-035f-4002-8f34-521ca2ce475e{fill:#add8e6;stroke:#333;stroke-miterlimit:10;}</style></defs><title>view-box</title><circle class="fc72c3b5-035f-4002-8f34-521ca2ce475e" cx="170.41" cy="141.09" r="39.77"/><ellipse class="fc72c3b5-035f-4002-8f34-521ca2ce475e" cx="436.89" cy="260.41" rx="24.69" ry="39.5"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="307.13 179.31 281.86 141.42 307.13 103.53 332.39 141.42 307.13 179.31"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="307.13 219.98 265.31 250.36 281.28 299.52 332.97 299.52 348.94 250.36 307.13 219.98"/><rect class="fc72c3b5-035f-4002-8f34-521ca2ce475e" x="399.09" y="101.98" width="79.54" height="79.54"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="171.4 230.87 131.62 299.75 211.17 299.75 171.4 230.87"/></svg>
 
 {{< highlight svg>}}
 <!-- TODO: example with different view boxes defined -->

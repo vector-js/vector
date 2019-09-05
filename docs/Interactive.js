@@ -3,6 +3,7 @@ import SVG from './SVG.js';
 import Circle from './elements/Circle.js';
 import Element from './elements/Element.js';
 import Ellipse from './elements/Ellipse.js';
+import Group from './elements/Group.js';
 import Line from './elements/Line.js';
 import Path from './elements/Path.js';
 import Text from './elements/Text.js';
@@ -286,7 +287,7 @@ export default class Interactive extends Element {
     /**
     * Creates text within this interactive.
     */
-    text(x, y, contents) {
+    text(x, y, contents = '') {
         let text = new Text(x, y, contents);
         this.background.appendChild(text.root);
         return text;
@@ -306,6 +307,21 @@ export default class Interactive extends Element {
         let edge = new Edge(nodeFrom, nodeTo, directed);
         this.background.appendChild(edge.root);
         return edge;
+    }
+    group() {
+        let group = new Group();
+        this.background.appendChild(group.root);
+        return group;
+    }
+    /**
+    *
+    */
+    async loadSVG(url) {
+        let svg = await SVG.getSVG(url);
+        let group = new Group();
+        group.root.appendChild(svg);
+        this.background.appendChild(group.root);
+        return group;
     }
 }
 //# sourceMappingURL=Interactive.js.map

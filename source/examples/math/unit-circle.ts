@@ -132,27 +132,50 @@ functions.border = true;
 let cosInput = functions.checkBox( x + 16, functions.height*2/6, "cos(θ)", false);
 let sinInput = functions.checkBox( x + 16, functions.height*3/6, "sin(θ)", false);
 let tanIpnut = functions.checkBox( x + 16, functions.height*4/6, "tan(θ)", false);
-cosInput.onchange = function() {
-  if( cosInput.value ) {
-    graph.function = Math.cos;
-    graph.draw();
-  }
-}
-sinInput.onchange = function() {
-  if( sinInput.value ) {
-    graph.function = Math.sin;
-    graph.draw();
-  }
-}
-tanIpnut.onchange = function() {
-  if( tanIpnut.value ) {
-    graph.function = Math.tan;
-    graph.draw();
-  }
-}
 
 // TODO: replace with interchangeable functions katex or external SVG
-functions.rectangle( 2*radius, functions.height*2/6, 300, functions.height*2/6);
+let rect = functions.rectangle( 2*radius, functions.height*2/6, 300, functions.height*2/6);
+rect.style.display = 'none';
+
+functions.loadSVG('./sine.svg').then(function(data){
+  data.root.setAttribute('transform', `translate(${rect.x}, ${rect.y})`);
+  data.style.display = 'none';
+  sinInput.onchange = function() {
+    if( sinInput.value ) {
+      data.style.display = '';
+      graph.function = Math.sin;
+      graph.draw();
+    } else {
+      data.style.display = 'none';
+    }
+  }
+});
+functions.loadSVG('./cosine.svg').then(function(data){
+  data.root.setAttribute('transform', `translate(${rect.x}, ${rect.y})`);
+  data.style.display = 'none';
+  cosInput.onchange = function() {
+    if( cosInput.value ) {
+      data.style.display = '';
+      graph.function = Math.cos;
+      graph.draw();
+    } else {
+      data.style.display = 'none';
+    }
+  }
+});;
+functions.loadSVG('./tangent.svg').then(function(data){
+  data.root.setAttribute('transform', `translate(${rect.x}, ${rect.y})`);
+  data.style.display = 'none';
+  tanIpnut.onchange = function() {
+    if( tanIpnut.value ) {
+      data.style.display = '';
+      graph.function = Math.tan;
+      graph.draw();
+    } else {
+      data.style.display = 'none';
+    }
+  }
+});;
 
 // Set the angle to be one radian
 control.x = circle.r*Math.cos(1);

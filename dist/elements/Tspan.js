@@ -27,4 +27,4 @@ export default class TSpan extends Element {
         this.root.innerHTML = str;
     }
 }
-//# sourceMappingURL=TSpan.js.map
+//# sourceMappingURL=Tspan.js.map

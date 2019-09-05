@@ -1,5 +1,6 @@
 import SVG from '../SVG.js';
 import Element from './Element.js';
+import TSpan from './Tspan.js';
 
 /**
 * Text is a basic element containing string contents
@@ -12,7 +13,7 @@ export default class Text extends Element {
   /**
   * Constructs text at the position (x,y) with the provided string
   */
-  constructor( x:number, y:number, text:string ) {
+  constructor( x:number, y:number, text:string = '' ) {
     super();
 
     this.root = SVG.Text( x, y, text );
@@ -68,5 +69,11 @@ export default class Text extends Element {
   get length() : number {
     const context = document.createElement("canvas").getContext("2d");
     return context.measureText(this.root.innerHTML).width;
+  }
+
+  tspan( text:string ) : TSpan {
+    let tspan = new TSpan(text);
+    this.root.appendChild(tspan.root);
+    return tspan;
   }
 }

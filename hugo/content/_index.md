@@ -164,14 +164,18 @@ let text = interactive.text( 50, 75, "My Text");
 
 ### TSpan
 
+A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bolded.
+
 {{< highlight javascript>}}
-// TODO:
+let text = interactive.text( 50, 75, '');
+text.tspan('normal. ');
+text.tspan('bold. ').style.fontWeight = '600';
+text.tspan('normal again.');
 {{< /highlight >}}
 
 <div id="tspan-element"></div>
 
 <script type="module" src="/examples/elements/tspan-element.js"></script>
-
 
 ## Interaction
 

@@ -1,3 +1,4 @@
+import { getURL } from './Util.js';
 /**
 * This wrapper class provides static methods for creating SVG Elements.
 */
@@ -20,16 +21,18 @@ export default class SVG {
         let text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         text.setAttribute('x', x.toString());
         text.setAttribute('y', y.toString());
-        text.innerHTML = str;
+        if (str != undefined) {
+            text.innerHTML = str;
+        }
         return text;
     }
     /**
     * Returns a SVGTSpanElement element with the provided attributes.
     */
     static TSpan(str) {
-        let text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text.innerHTML = str;
-        return text;
+        let tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        tspan.innerHTML = str;
+        return tspan;
     }
     /**
     * Returns a SVGRectElement with the provided attributes.
@@ -103,6 +106,12 @@ export default class SVG {
     static Defs() {
         let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         return defs;
+    }
+    static async getSVG(url) {
+        let parser = new DOMParser();
+        let svg = await getURL(url);
+        let doc = parser.parseFromString(svg, 'image/svg+xml');
+        return doc.documentElement;
     }
 }
 //# sourceMappingURL=SVG.js.map

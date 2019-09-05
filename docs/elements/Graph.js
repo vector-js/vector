@@ -14,8 +14,12 @@ export default class Graph extends Element {
     }
     clear() {
         for (var i = 0; i < this.nodes.length; i++) {
+            this.nodes[i].edges.forEach(function (item) {
+                item.remove();
+            });
             this.nodes[i].remove();
         }
+        this.nodes = [];
     }
     addNode(x, y, text, r = 20) {
         let node = new Node(x, y, r, text);
@@ -32,6 +36,9 @@ export default class Graph extends Element {
         from.addEdge(edge);
         to.addEdge(edge);
         return edge;
+    }
+    size() {
+        return this.nodes.length;
     }
 }
 //# sourceMappingURL=Graph.js.map
