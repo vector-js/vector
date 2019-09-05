@@ -44,8 +44,6 @@ export default class Interactive extends Element  {
   */
   root:SVGElement;
 
-  markersAdded:boolean;
-
   /**
   * CSS applied to this element
   */
@@ -67,8 +65,11 @@ export default class Interactive extends Element  {
   */
   private background:SVGGElement;
 
+  /**
+  * Contains reusable SVG elements.
+  */
   private defs:SVGDefsElement;
-
+  
   // internal variables
   private _width:number = 0;
   private _height:number = 0;

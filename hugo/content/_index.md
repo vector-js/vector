@@ -25,7 +25,7 @@ Download the library or link to the CDN and import the library at the top of you
   <head>
     <meta charset="utf-8">
     <title>Getting Started</title>
-    <link rel="stylesheet" href="{{< baseURL >}}Library.css">
+    <link rel="stylesheet" href="{{< baseURL >}}/Library.css">
   </head>
   <body>
     <div id="my-interactive"></div>
