@@ -21,6 +21,7 @@ import RadioControl from './elements/RadioControl.js';
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
+import Map from './elements/Map.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -236,6 +237,14 @@ export default class Interactive extends Element {
         let graph = new Graph();
         this.background.appendChild(graph.root);
         return graph;
+    }
+    /**
+    * Creates a graph element within this interactive
+    */
+    map(mapName, width, height) {
+        let map = new Map(this, mapName, width, height);
+        this.background.appendChild(map.interactive.root);
+        return map;
     }
     /**
     * Creates a slider input within this interactive
