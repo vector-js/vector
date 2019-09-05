@@ -66,7 +66,7 @@ export default class Interactive extends Element  {
   /**
   * The background is where everything that is not a primary control is drawn.
   */
-  private background:SVGGElement;
+  background:SVGGElement;
 
   private defs:SVGDefsElement;
 
