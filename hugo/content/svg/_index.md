@@ -157,6 +157,8 @@ Elements can be moved to new locations.
 
 {{<example "svg-translate">}}
 
+#### Chaining Transformations
+
 <!-- TODO: Put all three together to form basic drawing control -->
 
 #### Other Transformations
@@ -218,26 +220,32 @@ Typography is
 
 ### Tspan Element
 
-The text span element is useful for changing the position and styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word.
+The text span element is useful for changing the position and or the styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word. Then, later, a tspan element is positioned relative to the last tspan element.
 
 <svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
   <style>
-    text.sample2 {
+    #tspan-example {
       font-size:22px;
       alignment-baseline:middle;
       text-anchor:left;
     }
     </style>
-    <text x="32" y="75" class="sample2">
+    <text id="tspan-example" x="32" y="75" >
+      <tspan>"</tspan>
       <tspan style="font-weight:600;">Fly </tspan>
       <tspan>you fools.</tspan>
+      <tspan>"</tspan>
+      <tspan dx=20 dy=30>Gandalf the Grey</tspan>
     <text>
 </svg>
 
 {{< highlight svg>}}
-<text x="32" y="75" class="sample2">
+<text id="tspan-example" x="32" y="75" >
+  <tspan>"</tspan>
   <tspan style="font-weight:600;">Fly </tspan>
   <tspan>you fools.</tspan>
+  <tspan>"</tspan>
+  <tspan dx=20 dy=30>Gandalf the Grey</tspan>
 <text>
 {{< /highlight >}}
 

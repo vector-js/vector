@@ -21,6 +21,7 @@ r3.style.fill = '#aaaaaa';
 r2.style.fill = '#555555';
 r1.style.fill = '#333333';
 group.style.opacity = '.7';
+// group.style.strokeOpacity = '0';
 let control = interactive.control(2 * w, 2 * w);
 let scaleText = interactive.text(75, interactive.maxY - 20, '');
 scaleText.addDependency(control);

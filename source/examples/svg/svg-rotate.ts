@@ -27,20 +27,18 @@ let control = interactive.control(2*w, 0);
 control.constrainToCircle(0,0,2*w);
 
 
-let scaleText = interactive.text( 75, interactive.maxY - 20, '');
-scaleText.addDependency(control);
-scaleText.update = function() {
-  let scaleX = control.x/(2*w);
-  let scaleY = control.y/(2*w);
-  scaleText.contents = `rotate(${getAngle()})`;
+let rotateText = interactive.text( 75, interactive.maxY - 20, '');
+rotateText.addDependency(control);
+rotateText.update = function() {
+  rotateText.contents = `rotate(${getAngle()})`;
 };
-scaleText.root.setAttribute('alignment-baseline', 'middle');
-scaleText.root.setAttribute('text-anchor', 'middle');
-scaleText.update();
+rotateText.root.setAttribute('alignment-baseline', 'middle');
+rotateText.root.setAttribute('text-anchor', 'middle');
+rotateText.update();
 
-group.addDependency(scaleText);
+group.addDependency(rotateText);
 group.update = function() {
-  group.root.setAttribute('transform', scaleText.contents);
+  group.root.setAttribute('transform', rotateText.contents);
 };
 
 function getAngle() : string {
