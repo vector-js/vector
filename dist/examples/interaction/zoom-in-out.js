@@ -50,8 +50,8 @@ interactive.root.addEventListener('mousemove', function (event) {
     if (active) {
         let deltaX = event.clientX - prevX;
         let deltaY = event.clientY - prevY;
-        originx -= deltaX;
-        originy -= deltaY;
+        originx -= deltaX / scale;
+        originy -= deltaY / scale;
         prevX = event.clientX;
         prevY = event.clientY;
         interactive.setViewBox(originx, originy, visibleWidth, visibleHeight);
