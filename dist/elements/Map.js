@@ -16,7 +16,10 @@ export default class GeoMap extends Element {
         this.interactive = interactive;
         this.interactive.width = width;
         this.interactive.height = height;
-        this.findPathForString(mapName);
+        if (mapName.toLowerCase() == 'world' || mapName.toLowerCase() == 'globe')
+            this.generatePaths();
+        else
+            this.findPathForString(mapName);
         let bbox = this.interactive.background.getBBox();
         this.interactive.root.setAttribute('transform', 'scale(1,-1)');
         this.interactive.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);

@@ -28,7 +28,10 @@ export default class GeoMap extends Element {
     this.interactive = interactive;
     this.interactive.width = width;
     this.interactive.height = height;
-    this.findPathForString(mapName);
+    if(mapName.toLowerCase() == 'world' || mapName.toLowerCase() == 'globe')
+      this.generatePaths();
+    else
+      this.findPathForString(mapName);
     let bbox = this.interactive.background.getBBox();
     this.interactive.root.setAttribute('transform', 'scale(1,-1)')
     this.interactive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
@@ -59,7 +62,6 @@ export default class GeoMap extends Element {
     
     for(let c = 0; c < json.features.length; c++){
       for(let k = 0; k < json.features[c].geometry.coordinates.length; k++){
-    
         if(json.features[c].geometry.coordinates[k].length == 1) {
           let path = this.interactive.path('M 0 0');
           path.root.classList.add('country');
@@ -76,7 +78,6 @@ export default class GeoMap extends Element {
           path.d = `M ${startX} ${startY}  `;
           for(i = 1; i < json.features[c].geometry.coordinates[k][0].length; i++){
             let x = json.features[c].geometry.coordinates[k][0][i][0];
-    
             let y = json.features[c].geometry.coordinates[k][0][i][1];
             path.d += `L ${x} ${y} `;
           }
