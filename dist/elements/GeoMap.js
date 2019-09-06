@@ -1,4 +1,4 @@
-import { usData } from "../mapsJson.js";
+import * as data from "../mapsJson.js";
 import Element from '../elements/Element.js';
 /**
 * Map class for displaying geographic maps of the world and its different parts.
@@ -14,7 +14,6 @@ export default class GeoMap extends Element {
         super();
         this.mapName = mapName;
         this.interactive = interactive;
-        this.paths = new Map();
         this.interactive.width = width;
         this.interactive.height = height;
         this.generatePaths();
@@ -27,9 +26,9 @@ export default class GeoMap extends Element {
     */
     getJson(mapName) {
         if (mapName == 'united-states') {
-            return usData;
+            return data.usData;
         }
-        return usData;
+        return data.globalData;
     }
     /*
     * Process the geo json and create all paths
@@ -79,6 +78,9 @@ export default class GeoMap extends Element {
             }
         }
     }
+    generateAllPaths() {
+        this.paths = new Map();
+    }
     /**
     * The default behavior is to update its dependents on change.
     */
@@ -86,4 +88,4 @@ export default class GeoMap extends Element {
         this.updateDependents();
     }
 }
-//# sourceMappingURL=Map.js.map
+//# sourceMappingURL=GeoMap.js.map

@@ -1,10 +1,12 @@
-import {usData as json, usData} from "../mapsJson.js";
+import * as data from "../mapsJson.js";
 import Interactive from '../Interactive.js';
 import Element from '../elements/Element.js';
+import { Path } from "../Library.js";
+
 /**
 * Map class for displaying geographic maps of the world and its different parts.
 */
-export default class Map extends Element {
+export default class GeoMap extends Element {
   /*
   * the name of the map you want to pull up
   */
@@ -14,6 +16,8 @@ export default class Map extends Element {
   * The actual rendering box for the map itself
   */
   interactive: Interactive;
+
+  paths: Map<string,Path[]>;
 
   /*
   * interactive: the object that called map()
@@ -39,9 +43,9 @@ export default class Map extends Element {
   */
   getJson(mapName: string){
     if(mapName == 'united-states'){
-      return usData;
+      return data.usData;
     }
-    return usData;
+    return data.globalData;
   }
 
   /*
@@ -52,7 +56,7 @@ export default class Map extends Element {
     var k = 0;
     var c = 0;
     var i = 1;
-
+    
     for(let c = 0; c < json.features.length; c++){
       for(let k = 0; k < json.features[c].geometry.coordinates.length; k++){
     
@@ -98,6 +102,10 @@ export default class Map extends Element {
         }
       }
     }
+  }
+
+  generateAllPaths(){
+    this.paths = new Map();
   }
 
   /**

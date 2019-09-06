@@ -24,7 +24,7 @@ import RadioControl from './elements/RadioControl.js';
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
-import Map from './elements/Map.js';
+import Map from './elements/GeoMap.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
