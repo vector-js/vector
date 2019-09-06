@@ -1,7 +1,6 @@
 import * as data from "../mapsJson.js";
 import Interactive from '../Interactive.js';
 import Element from '../elements/Element.js';
-import { Path } from "../Library.js";
 
 /**
 * Map class for displaying geographic maps of the world and its different parts.
@@ -16,8 +15,6 @@ export default class GeoMap extends Element {
   * The actual rendering box for the map itself
   */
   interactive: Interactive;
-
-  paths: Map<string,Path[]>;
 
   /*
   * interactive: the object that called map()
@@ -108,7 +105,6 @@ export default class GeoMap extends Element {
   }
 
   findPathForString(name: string){
-    this.paths = new Map();
     let json = data.globalData
     var k = 0;
     var c = 0;

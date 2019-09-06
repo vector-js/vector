@@ -277,7 +277,7 @@ Wishful thinking (x,y) to lattitude longitude and vice versa.
 let map = interactive.map("world-map.geojson");
 {{< /highlight >}}
 
-<img src="/images/world-map.svg" alt="SVG World Map" class="center">
+<script type="module" src="/examples/elements/map-element.js"></script>
 
 ### United States
 
