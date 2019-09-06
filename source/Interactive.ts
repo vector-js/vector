@@ -311,7 +311,6 @@ export default class Interactive extends Element  {
   */
  map(mapName:string,width:number,height:number) : Map {
   let map = new Map(this,mapName,width,height);
-  this.background.appendChild(map.interactive.root);
   return map;
 }
 

@@ -243,7 +243,6 @@ export default class Interactive extends Element {
     */
     map(mapName, width, height) {
         let map = new Map(this, mapName, width, height);
-        this.background.appendChild(map.interactive.root);
         return map;
     }
     /**
