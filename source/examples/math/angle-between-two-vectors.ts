@@ -8,7 +8,6 @@ interactive.window = true;
 interactive.originX = interactive.width/2;
 interactive.originY = interactive.height/2;;
 
-
 // Create a circle
 let circle = interactive.circle( 0, 0, 100);
 circle.root.style.stroke = 'none';

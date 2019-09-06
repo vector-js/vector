@@ -1,6 +1,7 @@
 ---
 description: Examples of what this library is capable of.
 title: Examples
+layout: examples-page
 weight: 1
 ---
 

@@ -1,0 +1,25 @@
+{{- define "body" -}}
+{{ partial "hero" . }}
+<main class="container">
+  <h1>{{.Title}}</h1>
+  {{ .Content }}
+
+  <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+  {{ range .Sections }}
+    {{ .Render "card" }}
+  {{ end }}
+  </div>
+
+  <section id="examples" class="full-container collapse" style="display:none">
+      <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+        {{ range .Sections }}
+          {{ .Render "card" }}
+        {{ end }}
+      </div>
+      <div class="full-container">
+        <a href="/examples"><button class="muted-button">All Examples</button></a>
+      </div>
+  </section>
+</main>
+
+{{- end -}}

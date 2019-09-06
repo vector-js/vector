@@ -25,6 +25,11 @@
     <script type="module">
       import { getUrlParams, getURL, loadScript } from './dist/Util.js';
       let params = getUrlParams(window.location.search);
+
+      getURL('./dist/examples').then(function(data){
+        console.log(data);
+      });
+
       if (params.has('script')) {
         loadScript( params.get('script'), document.getElementsByTagName('body')[0]);
       } else {
