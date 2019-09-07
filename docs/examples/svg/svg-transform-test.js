@@ -1,3 +1,8 @@
+/**
+* @title SVG Transform
+* @description
+* @draft true
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

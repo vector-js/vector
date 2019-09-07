@@ -1,3 +1,7 @@
+/**
+* @title Coordinate System
+* @description This interactive demonstrates the coordinate system of the Vector.js library.
+*/
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../Interactive.js';
 import { getScriptName } from '../Util.js';

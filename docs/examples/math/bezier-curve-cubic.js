@@ -1,11 +1,7 @@
 /**
-* This interactive demonstrates the cubic bezier command for a SVG path element.
-* There are four control points that allow the user to control the shape of the
-* bezier curve that is drawn.
-*
 * @title Cubic Bezier Curve
-* @date July 31, 2019
-* @author Kurt Bruns
+* @description This interactive demonstrates the cubic bezier command for a SVG path element. There are four control points that allow the user to control the shape of the bezier curve that is drawn.
+* @tags [math]
 */
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';

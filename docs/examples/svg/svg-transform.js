@@ -1,3 +1,7 @@
+/**
+* @title SVG Transform Attribute
+* @description This interactive demonstrates how the transform attribute can be used to transform SVG elements
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

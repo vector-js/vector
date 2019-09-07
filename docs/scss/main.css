@@ -293,8 +293,7 @@ dd {
 
 .full-container {
   max-width: 100%;
-  padding: 0 1rem;
-}
+  padding: 0 1rem; }
 
 .container, .small-container, .medium-container {
   max-width: 1024px;

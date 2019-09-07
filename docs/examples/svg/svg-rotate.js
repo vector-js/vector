@@ -1,3 +1,8 @@
+/**
+* @title SVG Transform Rotate Attribute
+* @description This interactive how the rotate transformation can be applied to a SVG element.
+* @tags [svg]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

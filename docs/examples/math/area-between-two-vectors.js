@@ -1,3 +1,8 @@
+/**
+* @title Area Between Two Vectors
+* @description This interactive demonstrates the area formed between two vectors.
+* @tags [math]
+*/
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
