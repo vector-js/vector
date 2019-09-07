@@ -130,22 +130,20 @@
 
 	    
 				<div class="card">
-  <a href="/examples/unit-circle/">
-    <h2>Unit Circle</h2>
+  <a href="/examples/svg-coordinate-system/">
+    <h2>SVG Coordinate System</h2>
   
-    <img src="/images/unit-circle.svg" alt="Place holder" style="width:100%">
+    <img src="/images/svg-coordinate-system.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example10/">
-    <h2>z Example 1</h2>
+  <a href="/examples/unit-circle/">
+    <h2>Unit Circle</h2>
   
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
+    <img src="/images/unit-circle.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -177,7 +175,7 @@
 	    
     </div>
 		<div class="full-container">
-			<button class="muted-button">All Examples</button>
+			<a href="/examples"><button class="muted-button">All Examples</button></a>
 		</div>
 </section>
 
@@ -601,6 +599,8 @@ document.querySelector("#sandbox-button").onclick = function() {
 <script type="module" src="/examples/svg/svg-translate.js"></script>
 
 
+<h4 id="chaining-transformations">Chaining Transformations</h4>
+
 <!-- TODO: Put all three together to form basic drawing control -->
 
 <h4 id="other-transformations">Other Transformations</h4>
@@ -660,25 +660,31 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <h3 id="tspan-element">Tspan Element</h3>
 
-<p>The text span element is useful for changing the position and styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word.</p>
+<p>The text span element is useful for changing the position and or the styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word. Then, later, a tspan element is positioned relative to the last tspan element.</p>
 
 <p><svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
   <style>
-    text.sample2 {
+    #tspan-example {
       font-size:22px;
       alignment-baseline:middle;
       text-anchor:left;
     }
     </style>
-    <text x="32" y="75" class="sample2">
+    <text id="tspan-example" x="32" y="75" >
+      <tspan>&ldquo;</tspan>
       <tspan style="font-weight:600;">Fly </tspan>
       <tspan>you fools.</tspan>
+      <tspan>&ldquo;</tspan>
+      <tspan dx=20 dy=30>Gandalf the Grey</tspan>
     <text>
 </svg></p>
 
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">x=</span><span class="s">&#34;32&#34;</span> <span class="na">y=</span><span class="s">&#34;75&#34;</span> <span class="na">class=</span><span class="s">&#34;sample2&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">id=</span><span class="s">&#34;tspan-example&#34;</span> <span class="na">x=</span><span class="s">&#34;32&#34;</span> <span class="na">y=</span><span class="s">&#34;75&#34;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>&#34;<span class="nt">&lt;/tspan&gt;</span>
   <span class="nt">&lt;tspan</span> <span class="na">style=</span><span class="s">&#34;font-weight:600;&#34;</span><span class="nt">&gt;</span>Fly <span class="nt">&lt;/tspan&gt;</span>
   <span class="nt">&lt;tspan&gt;</span>you fools.<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>&#34;<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan</span> <span class="na">dx=</span><span class="s">20</span> <span class="na">dy=</span><span class="s">30</span><span class="nt">&gt;</span>Gandalf the Grey<span class="nt">&lt;/tspan&gt;</span>
 <span class="nt">&lt;text&gt;</span></code></pre></div>
 
 <h3 id="horizontally-align-text">Horizontally Align Text</h3>

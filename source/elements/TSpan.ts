@@ -35,4 +35,13 @@ export default class TSpan extends Element {
   set text( str:string ) {
     this.root.innerHTML = str;
   }
+
+  /**
+  * Creates a child tspan element.
+  */
+  tspan( str:string ) : TSpan {
+    let tspan = new TSpan(str);
+    this.root.appendChild(tspan.root);
+    return tspan;
+  }
 }

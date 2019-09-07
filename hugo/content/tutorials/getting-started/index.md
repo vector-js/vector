@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 description: Basic usage and documentation for the interactive svg library. Explains how to build a simple interactive and embed it in the browser.
+image: /images/getting-started-tutorial.svg
 date: "2019-02-05T12:03:45-07:00"
 weight: 1
 ---

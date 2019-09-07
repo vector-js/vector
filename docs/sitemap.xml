@@ -29,11 +29,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/unit-circle/</loc>
+    <loc>https://vectorjs.org/examples/svg-coordinate-system/</loc>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/example10/</loc>
+    <loc>https://vectorjs.org/examples/unit-circle/</loc>
   </url>
   
   <url>
@@ -42,6 +42,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/example12/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/example13/</loc>
   </url>
   
   <url>

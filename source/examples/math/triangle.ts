@@ -1,3 +1,10 @@
+/**
+* @title Triangle
+* @description This interactive demonstrates an angle formed by three points.
+* @tags [math]
+*/
+
+
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../../Interactive.js';
 

@@ -1,25 +1,63 @@
 {{- define "body" -}}
 {{ partial "hero" . }}
-<main class="container">
-  <h1>{{.Title}}</h1>
-  {{ .Content }}
 
+  <section class="full-container" style="max-width:1200px; margin:auto;">
+
+  <div class="full-container">
+    <h2>Examples</h2>
+    <p>{{.Description}}</p>
+    <p>
+      <button class="muted-button">elements</button>
+      <button class="muted-button">graphs</button>
+      <button class="muted-button">interaction</button>
+      <button class="muted-button">maps</button>
+      <button class="muted-button">math</button>
+      <button class="muted-button">svg</button>
+  </p>
+  </div>
   <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-  {{ range .Sections }}
+  {{ range .Pages }}
     {{ .Render "card" }}
   {{ end }}
   </div>
-
-  <section id="examples" class="full-container collapse" style="display:none">
-      <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-        {{ range .Sections }}
-          {{ .Render "card" }}
-        {{ end }}
-      </div>
-      <div class="full-container">
-        <a href="/examples"><button class="muted-button">All Examples</button></a>
-      </div>
   </section>
-</main>
+
+  <!-- <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+    <div class="card">
+      <a href="./">
+        <h2>Maps</h2>
+        <div class="vertical-center">
+          <img src="/images/population-of-united-states.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="./">
+        <h2>Elements</h2>
+        <div class="vertical-center">
+          <img src="/images/elements.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="./">
+        <h2>SVG</h2>
+        <div class="vertical-center">
+          <img src="/images/svg.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="./">
+        <h2>Math</h2>
+        <div class="vertical-center">
+          <img src="/images/prime-factorization.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+  </div> -->
+
+
+
 
 {{- end -}}

@@ -1,7 +1,7 @@
 ---
 title: Population Map
 description: How to create a map of the United States and color states by their populations with respect to the total population of the United States. Introduces users to basics of working with maps, styling of shapes, and user events in our library.
-image: "/images/united-states-population.svg"
+image: "/images/population-of-united-states.svg"
 weight: 3
 ---
 

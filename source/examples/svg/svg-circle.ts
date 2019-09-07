@@ -7,7 +7,7 @@
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 
-export let interactive = new Interactive(getScriptName());
+let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 704;
 
@@ -57,3 +57,14 @@ text.update = function() {
 }
 text.update();
 text.addDependency(circle);
+
+export default {
+  title:'Interactive SVG Circle',
+  description: 'This interactive demonstrates the basic properties of the SVG Circle Element. It has on control point which controls the position of the center of the circle and another control point which controls the length of the radius.',
+  interactive: interactive,
+  input: [
+    centerControl,
+    radiusControl
+  ],
+  tags: ['svg', 'circle']
+};

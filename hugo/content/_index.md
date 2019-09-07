@@ -232,12 +232,6 @@ interactive.onmousemove ?
 
 <script type="module" src="/examples/interaction/mouse-interaction.js"></script>
 
-### Zooming and Panning
-
-<div id="zoom-in-out"></div>
-
-<script type="module" src="/examples/interaction/zoom-in-out.js"></script>
-
 ## Animation
 
 ### Animate Along Path
@@ -283,22 +277,29 @@ let map = interactive.map("united-states.geojson");
 
 ### Custom Maps
 
+{{< highlight javascript>}}
+import { getJSON } from 'Util.js';
+
+getJSON('custom.geojson').then(function(geoData){
+
+});
+
+{{< /highlight >}}
+
 ## Coordinates
 
-The coordinates of the interactive image follow the SVG standard and more traditionally computer graphics. The default origin of the coordinate system is the top left corner of the image with the positive x direction to the right and the positive y direction down.
+The coordinate system of the interactive image follows the SVG standard: the default origin is the top left corner of the image and the positive x direction is to the right and the positive y direction is down. This is visualized by the control point below.
 
-<!-- TODO: Interactive SVG Coordinate System -->
-
-The origin can be changed by setting the originX and originY properties of the interactive object.
+<p>
+  {{<example "svg-coordinate-system">}}
+</p>
 
 {{< highlight javascript>}}
-let interactive = new Interactive("{{<id>}}");
-interactive.originX = interactive.width/2;
-interactive.originY = interactive.height/2;
+// TODO: show changing the origin of the coordinate system
 {{< /highlight >}}
 
 {{< highlight javascript>}}
-// TODO: show interactive with new origin
+// TODO: mathmode -> changes positive direction of the y axis to be up
 {{< /highlight >}}
 
 Alternatively, the viewbox of the interactive can be changed
@@ -314,6 +315,13 @@ Alternatively, the viewbox of the interactive can be changed
 {{< highlight javascript>}}
 // TODO: Scaling example
 {{< /highlight >}}
+
+### Zooming and Panning
+
+<div id="zoom-in-out"></div>
+
+<script type="module" src="/examples/interaction/zoom-in-out.js"></script>
+
 
 ### Transforming
 

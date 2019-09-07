@@ -1,5 +1,5 @@
 ---
-description: Examples of what this library is capable of.
+description: This page contains a gallery of examples of the Vector.js library.
 title: Examples
 layout: examples-page
 weight: 1

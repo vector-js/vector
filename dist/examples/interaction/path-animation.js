@@ -1,3 +1,7 @@
+/**
+* @title Path Animation
+* @description This interactive demonstrates how a element can be animated along a path.
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

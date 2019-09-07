@@ -14,6 +14,9 @@
     div {
       margin-bottom:16px
     }
+    .border {
+      border: none !important;
+    }
     </style>
 
     <!-- STYLESHEET -->
@@ -23,17 +26,23 @@
     <!-- <div id="unit-circle"></div><script type="module" src="./dist/examples/math/unit-circle.js"></script> -->
 
     <script type="module">
-      import { getUrlParams, getURL, loadScript } from './dist/Util.js';
+      import { getUrlParams, getURL, loadScript, download } from './dist/Util.js';
       let params = getUrlParams(window.location.search);
-
-      getURL('./dist/examples').then(function(data){
-        console.log(data);
-      });
 
       if (params.has('script')) {
         loadScript( params.get('script'), document.getElementsByTagName('body')[0]);
       } else {
         throw new Error('no url parameter script. Example: ?script=./dist/examples/math/unit-circle.js');
+      }
+
+      // add a save function to the window to save the current interactive
+      window.save = function() {
+        let interactives = document.getElementsByClassName('interactive');
+        for( let i = 0; i < interactives.length; i++ ) {
+          let name = interactives[i].parentElement.id;
+          let id = interactives[i].id;
+          download(id, `${name}.svg`);
+        }
       }
     </script>
 

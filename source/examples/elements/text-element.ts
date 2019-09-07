@@ -1,3 +1,9 @@
+/**
+* @title Text Element
+* @description This interactive demonstrates the text element.
+* @tags [elements]
+*/
+
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

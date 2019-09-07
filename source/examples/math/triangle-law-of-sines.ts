@@ -1,3 +1,10 @@
+/**
+* @title Triangle Law of Sines
+* @description This interactive demonstrates the relationship between two angles within a triangle.
+* @tags [math]
+*/
+
+
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../../Interactive.js';
 import { PointWhereTwoLinesIntersect } from '../../Util.js';

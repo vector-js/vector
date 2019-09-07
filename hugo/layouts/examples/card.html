@@ -1,12 +1,15 @@
 <div class="card">
   <a href="{{.RelPermalink}}">
     <h2>{{.Title}}</h2>
-  {{ with .Params.Image }}
-    <img src="{{.}}" alt="Place holder" style="width:100%">
-  {{ else }}
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  {{ end }}
+    {{ $path := (print (print "/images/" .Params.Id) ".svg") }}
+    {{ if fileExists (print "static" $path ) }}
+    <div class="vertical-center">
+      <img src="{{ $path }}" alt="{{ .Params.Title }}">
+    </div>
+    {{ else }}
+    <div class="vertical-center">
+      <img src="/images/place-holder.svg" alt="Place holder">
+    </div>
+    {{ end }}
   </a>
 </div>

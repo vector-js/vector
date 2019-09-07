@@ -1,8 +1,6 @@
 /**
-* An interactive that demonstrates how a circle can be uniquely described by
-* three points.
-*
-* @title Circle Defined By Three POints
+* @title Circle Defined By Three Points
+* @description An interactive that demonstrates how a circle can be uniquely described by thee points.
 * @date July 8, 2019
 * @author Kurt Bruns
 */

@@ -1,3 +1,8 @@
+/**
+* @title Control Element
+* @description This interactive demonstrates a draggable point.
+* @tags [elements]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

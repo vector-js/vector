@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="704" height="300" class="interactive" id="interactive-0"><g><ellipse cx="238" cy="139" rx="104" ry="58" class="default" id="ellipse-1"></ellipse><line x1="238" y1="139" x2="342" y2="139" class="default" id="line-2" style="stroke: cornflowerblue;"></line><line x1="238" y1="139" x2="238" y2="81" class="default" id="line-3" style="stroke: cornflowerblue;"></line><text x="20" y="280" id="text-4" style="alignment-baseline: middle;"><tspan id="tspan-8" style="fill: purple;">&lt;ellipse </tspan><tspan id="tspan-9" style="fill: rgb(171, 111, 0);">cx=<tspan id="tspan-14" style="fill: rgb(51, 51, 51);">"238" </tspan></tspan><tspan id="tspan-10" style="fill: rgb(171, 111, 0);">cy=<tspan id="tspan-15" style="fill: rgb(51, 51, 51);">"139" </tspan></tspan><tspan id="tspan-11" style="fill: rgb(171, 111, 0);">rx=<tspan id="tspan-16" style="fill: rgb(51, 51, 51);">"104" </tspan></tspan><tspan id="tspan-12" style="fill: rgb(171, 111, 0);">rx=<tspan id="tspan-17" style="fill: rgb(51, 51, 51);">"58" </tspan></tspan><tspan id="tspan-13" style="fill: purple;">>&lt;/ellipse&gt;</tspan></text></g><g><g class="control" id="control-5" transform="translate( 238, 139)"><circle class="control-point" cy="0" cx="0" r="4"></circle><circle class="control-handle" cy="0" cx="0" r="13"></circle></g><g class="control" id="control-6" transform="translate( 342, 139)"><circle class="control-point" cy="0" cx="0" r="4"></circle><circle class="control-handle" cy="0" cx="0" r="13"></circle></g><g class="control" id="control-7" transform="translate( 238, 81)"><circle class="control-point" cy="0" cx="0" r="4"></circle><circle class="control-handle" cy="0" cx="0" r="13"></circle></g></g><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style></svg>

@@ -22,18 +22,16 @@ r2.style.fill = '#555555';
 r1.style.fill = '#333333';
 group.style.opacity = '.7';
 let control = interactive.control(0, 0);
-let scaleText = interactive.text(75, interactive.maxY - 20, '');
-scaleText.addDependency(control);
-scaleText.update = function () {
-    let scaleX = control.x / (2 * w);
-    let scaleY = control.y / (2 * w);
-    scaleText.contents = `translate(${control.x}, ${control.y})`;
+let translateText = interactive.text(75, interactive.maxY - 20, '');
+translateText.addDependency(control);
+translateText.update = function () {
+    translateText.contents = `translate(${control.x}, ${control.y})`;
 };
-scaleText.root.setAttribute('alignment-baseline', 'middle');
-scaleText.root.setAttribute('text-anchor', 'middle');
-scaleText.update();
-group.addDependency(scaleText);
+translateText.root.setAttribute('alignment-baseline', 'middle');
+translateText.root.setAttribute('text-anchor', 'middle');
+translateText.update();
+group.addDependency(translateText);
 group.update = function () {
-    group.root.setAttribute('transform', scaleText.contents);
+    group.root.setAttribute('transform', translateText.contents);
 };
 //# sourceMappingURL=svg-translate.js.map
