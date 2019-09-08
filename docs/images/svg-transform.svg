@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="interactive-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 600 300" style="enable-background:new 0 0 600 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#666666;stroke:#404040;}
+	.st1{fill:#999999;stroke:#404040;}
+	.st2{fill:#CCCCCC;stroke:#404040;}
+	.st3{fill:#F8F8F8;stroke:#404040;}
+	.st4{fill:#222222;}
+	.st5{font-family:'KaTeX_Main-Regular';}
+	.st6{font-size:33px;}
+	.st7{fill:#F8F8F8;stroke:#333333;stroke-miterlimit:10;}
+	.st8{fill:#333333;}
+	.st9{fill:none;stroke:#333333;stroke-miterlimit:10;}
+	.st10{font-size:22px;}
+</style>
+<rect id="rectangle-2" x="225" y="90.8" class="st0" width="75" height="75"/>
+<rect id="rectangle-3" x="300" y="90.8" class="st1" width="75" height="75"/>
+<rect id="rectangle-4" x="225" y="165.8" class="st2" width="75" height="75"/>
+<rect id="rectangle-5" x="300" y="165.8" class="st3" width="75" height="75"/>
+<text transform="matrix(1 0 0 1 254.25 137.646)" class="st4 st5 st6">1</text>
+<text transform="matrix(1 0 0 1 330.874 137.646)" class="st4 st5 st6">2</text>
+<text transform="matrix(1 0 0 1 254.251 217.5723)" class="st4 st5 st6">3</text>
+<circle class="st7" cx="225" cy="90.8" r="19.5"/>
+<text transform="matrix(1 0 0 1 330.874 217.5723)" class="st4 st5 st6">4</text>
+<circle class="st7" cx="375" cy="240.8" r="19.5"/>
+<circle class="st8" cx="225" cy="90.8" r="6"/>
+<circle class="st8" cx="375" cy="240.8" r="6"/>
+<circle class="st7" cx="300" cy="59.2" r="19.5"/>
+<circle class="st8" cx="300" cy="59.2" r="6"/>
+<line class="st9" x1="300" y1="90.8" x2="300" y2="65.2"/>
+<text transform="matrix(1 0 0 1 325.3504 39.7499)" class="st8 st5 st10">Rotate</text>
+<text transform="matrix(1 0 0 1 407.3686 274.6531)" class="st8 st5 st10">Scale</text>
+<text transform="matrix(1 0 0 1 90.8555 79.0003)" class="st8 st5 st10">Translate</text>
+</svg>
