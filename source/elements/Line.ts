@@ -2,7 +2,7 @@ import SVG from '../SVG.js';
 import Element from './Element.js';
 
 /**
-* A circle is a basic element with a start and end position
+* A circle is a basic shape element with a start and end position.
 */
 export default class Line extends Element {
 

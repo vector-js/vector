@@ -1,4 +1,7 @@
-// import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
+/**
+* @title Line Defined by Two Points
+* @description This interactive demonstrates how a line is uniquely defined by two points.
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 // Initialize the interactive

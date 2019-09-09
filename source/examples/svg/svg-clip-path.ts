@@ -1,3 +1,9 @@
+/**
+* @title Interactive SVG Clip Path
+* @description This interactive demonstrates how a clip path is applied to another element.
+* @tags [svg]
+*/
+
 import Interactive from '../../Interactive.js';
 import SVG from '../../SVG.js';
 

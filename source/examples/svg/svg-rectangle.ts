@@ -1,9 +1,8 @@
 /**
-* This interactive demonstrates the SVG rectangle element and its attributes.
-*
 * @title SVG Rectangle Element
-* @date May 3, 2019
+* @description This interactive demonstrates the SVG rectangle element and its attributes.
 * @author Kurt Bruns
+* @tags [svg]
 */
 
 import Interactive from '../../Interactive.js';

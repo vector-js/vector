@@ -34,6 +34,7 @@ export default class Interactive extends Element {
     /**
     * Constructs a new interactive object within the HTML element corresponding
     * to the id. If no element is found throws an error.
+    * TODO: (possibly) if the string is null, then create a headless interactive
     */
     constructor(id) {
         super();
@@ -42,8 +43,12 @@ export default class Interactive extends Element {
         this._height = 0;
         this._originX = 0;
         this._originY = 0;
-        // store a reference to the container element
+        // store a reference to the container element, check to make sure such an
+        // element exists.
         this.container = document.getElementById(id);
+        if (this.container === null || this.container === undefined) {
+            throw new Error(`There is no HTML element with the id: ${id}`);
+        }
         this.container.classList.add('interactive-container');
         // create and append the root svg element and group elements
         this.root = this.container.appendChild(SVG.SVG());
@@ -325,6 +330,9 @@ export default class Interactive extends Element {
         this.background.appendChild(edge.root);
         return edge;
     }
+    /**
+    * Creates a group element
+    */
     group() {
         let group = new Group();
         this.background.appendChild(group.root);

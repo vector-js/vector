@@ -1,3 +1,9 @@
+/**
+* @title Point Where Two Lines Intersect
+* @description This interactive demonstrates the point where two lines intersect.
+* @tags [math]
+*/
+
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../../Interactive.js';
 import {PointWhereTwoLinesIntersect} from '../../Util.js';

@@ -1,0 +1,61 @@
+{{- define "body" -}}
+{{ partial "hero" . }}
+
+  <section class="full-container" style="max-width:1200px; margin:auto;">
+
+  <div class="full-container">
+    <h2>Examples</h2>
+    <p>{{.Description}}</p>
+    <p>
+      <button class="muted-button">elements</button>
+      <button class="muted-button">input</button>
+      <button class="muted-button">graphs</button>
+      <button class="muted-button">interaction</button>
+      <button class="muted-button">maps</button>
+      <button class="muted-button">math</button>
+      <button class="muted-button">svg</button>
+  </p>
+  </div>
+  <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+  {{ range .Pages }}
+    {{ .Render "card" }}
+  {{ end }}
+  </div>
+  </section>
+
+  <!-- <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+    <div class="card">
+      <a href="./">
+        <h2>Maps</h2>
+        <div class="vertical-center">
+          <img src="/images/population-of-united-states.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="./">
+        <h2>Elements</h2>
+        <div class="vertical-center">
+          <img src="/images/elements.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="./">
+        <h2>SVG</h2>
+        <div class="vertical-center">
+          <img src="/images/svg.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="./">
+        <h2>Math</h2>
+        <div class="vertical-center">
+          <img src="/images/prime-factorization.svg" alt="Place holder">
+        </div>
+      </a>
+    </div>
+  </div> -->
+
+{{ end }}

@@ -1,9 +1,6 @@
 /**
-* An interactive that demonstrates the properties of the right triangle.
-*
-* @title Circle Defined By Three POints
-* @date July 8, 2019
-* @author Kurt Bruns
+* @title Right Triangle
+* @description This interactive demonstrates the properties of a right triangle.
 */
 
 import Interactive from '../../Interactive.js';

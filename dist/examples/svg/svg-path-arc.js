@@ -1,11 +1,8 @@
 /**
-* This interactive demonstrates the quadratic bezier command for a SVG path
-* element. There are three control points that allow the user to control the
-* shape of the bezier curve that is drawn.
-*
-* @title SVG Path Arc
-* @date May 3, 2019
+* @title SVG Path Arc Command
+* @description This interactive demonstrates the Path Element's Arc command. At a high level the command draws an arc using the shape of an ellipse between two points.
 * @author Kurt Bruns
+* @tags [svg]
 */
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';

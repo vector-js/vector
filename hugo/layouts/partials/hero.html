@@ -24,12 +24,12 @@
 </section>
 <section id="examples" class="full-container collapse" style="display:none">
 		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-			{{ range (.GetPage "/examples").Sections }}
+			{{ range first 6 (.GetPage "/examples").Pages.ByWeight }}
 				{{ .Render "card" }}
 	    {{ end }}
     </div>
 		<div class="full-container">
-			<button class="muted-button">All Examples</button>
+			<a href="/examples"><button class="muted-button">All Examples</button></a>
 		</div>
 </section>
 

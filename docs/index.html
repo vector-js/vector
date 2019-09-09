@@ -50,9 +50,7 @@
   <a href="/getting-started/">
     <h2>Getting Started</h2>
   
-  <div class="vertical-center">
-    <img src="/play-button.svg" alt="Place holder">
-  </div>
+    <img src="/images/getting-started-tutorial.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -96,7 +94,7 @@
   <a href="/population-map/">
     <h2>Population Map</h2>
   
-    <img src="/images/united-states-population.svg" alt="Place holder" style="width:100%">
+    <img src="/images/population-of-united-states.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -111,11 +109,27 @@
 		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
 			
 				<div class="card">
+  <a href="/examples/world-map/">
+    <h2>Interactive World Map SVG</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/world-map.svg" alt="Interactive World Map SVG">
+    </div>
+    
+  </a>
+</div>
+
+	    
+				<div class="card">
   <a href="/examples/population-of-united-states/">
-    <h2>Population of United States</h2>
-  
-    <img src="/images/united-states-population.svg" alt="Place holder" style="width:100%">
-  
+    <h2>Population of the United States</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/population-of-united-states.svg" alt="Population of the United States">
+    </div>
+    
   </a>
 </div>
 
@@ -123,9 +137,12 @@
 				<div class="card">
   <a href="/examples/prime-factorization/">
     <h2>Prime Factorization</h2>
-  
-    <img src="/images/prime-factorization.svg" alt="Place holder" style="width:100%">
-  
+    
+    
+    <div class="vertical-center">
+      <img src="/images/prime-factorization.svg" alt="Prime Factorization">
+    </div>
+    
   </a>
 </div>
 
@@ -133,52 +150,45 @@
 				<div class="card">
   <a href="/examples/unit-circle/">
     <h2>Unit Circle</h2>
-  
-    <img src="/images/unit-circle.svg" alt="Place holder" style="width:100%">
-  
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle.svg" alt="Unit Circle">
+    </div>
+    
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example10/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
+  <a href="/examples/angle-between-two-vectors/">
+    <h2>Angle Between Two Vectors</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/angle-between-two-vectors.svg" alt="Angle Between Two Vectors">
+    </div>
+    
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example11/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/example12/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
+  <a href="/examples/angle/">
+    <h2>Angle Interactive</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/angle.svg" alt="Angle Interactive">
+    </div>
+    
   </a>
 </div>
 
 	    
     </div>
 		<div class="full-container">
-			<button class="muted-button">All Examples</button>
+			<a href="/examples"><button class="muted-button">All Examples</button></a>
 		</div>
 </section>
 
@@ -289,7 +299,7 @@ document.querySelector("#sandbox-button").onclick = function() {
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Getting Started<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://vectorjs.orgLibrary.css&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://vectorjs.org/Library.css&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-interactive&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -522,20 +532,29 @@ expanding circle on click</p>
 
 <h3 id="custom-maps">Custom Maps</h3>
 
-<h2 id="coordinates">Coordinates</h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span> <span class="nx">getJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;Util.js&#39;</span><span class="p">;</span>
 
-<p>The coordinates of the interactive image follow the SVG standard and more traditionally computer graphics. The default origin of the coordinate system is the top left corner of the image with the positive x direction to the right and the positive y direction down.</p>
+<span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;custom.geojson&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">geoData</span><span class="p">){</span>
 
-<!-- TODO: Interactive SVG Coordinate System -->
-
-<p>The origin can be changed by setting the originX and originY properties of the interactive object.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;interactivevector.js&#34;</span><span class="p">);</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: show interactive with new origin
+<h2 id="coordinates">Coordinates</h2>
+
+<p>The coordinate system of the interactive image follows the SVG standard: the default origin is the top left corner of the image and the positive x direction is to the right and the positive y direction is down. This is visualized by the control point below.</p>
+
+<p>
+  
+
+<div id="svg-coordinate-system" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-coordinate-system.js"></script>
+
+</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: show changing the origin of the coordinate system
+</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: mathmode -&gt; changes positive direction of the y axis to be up
 </span></code></pre></div>
 
 <p>Alternatively, the viewbox of the interactive can be changed</p>
@@ -549,6 +568,12 @@ expanding circle on click</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: Scaling example
 </span></code></pre></div>
+
+<h3 id="zooming-and-panning">Zooming and Panning</h3>
+
+<div id="zoom-in-out"></div>
+
+<script type="module" src="/examples/interaction/zoom-in-out.js"></script>
 
 <h3 id="transforming">Transforming</h3>
 

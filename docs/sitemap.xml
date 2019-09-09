@@ -17,6 +17,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/world-map/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/line/</loc>
   </url>
   
@@ -30,18 +34,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/unit-circle/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/example10/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/example11/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/example12/</loc>
   </url>
   
   <url>
@@ -103,7 +95,67 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/angle-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/angle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/animate-along-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/area-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/button-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/check-box-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/circle-defined-by-three-points/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/clip-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/control-circle-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/control-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/bezier-curve-cubic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/dependency-function/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/directed-graph-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/distance-between-two-points-2d/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/ellipse-element/</loc>
   </url>
   
   <url>
@@ -111,11 +163,191 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-circle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-clip-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/key-board-input/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/team/kurt/</loc>
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/library-hello-world/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/line-defined-by-two-points/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/line-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/load-svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/mouse-input/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/normal-distribution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/path-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/point-where-two-lines-intersect/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/bezier-curve-quadratic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/rectangle-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/right-triangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-coordinate-system/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-ellipse/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-arc/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-bezier-cubic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-bezier-quadratic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-rectangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-transform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-rotate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-scale/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-translate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-view-box/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/text-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/tspan-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/triangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/triangle-law-of-sines/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/undirected-graph-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-angle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/angle-fixed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-right-triangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/viewbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-in-out/</loc>
   </url>
   
 </urlset>

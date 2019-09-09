@@ -46,8 +46,6 @@ export default class Interactive extends Element  {
   */
   root:SVGElement;
 
-  markersAdded:boolean;
-
   /**
   * CSS applied to this element
   */
@@ -69,6 +67,9 @@ export default class Interactive extends Element  {
   */
   background:SVGGElement;
 
+  /**
+  * Contains reusable SVG elements.
+  */
   private defs:SVGDefsElement;
 
   // internal variables
@@ -80,12 +81,17 @@ export default class Interactive extends Element  {
   /**
   * Constructs a new interactive object within the HTML element corresponding
   * to the id. If no element is found throws an error.
+  * TODO: (possibly) if the string is null, then create a headless interactive
   */
   constructor( id:string ) {
     super();
 
-    // store a reference to the container element
+    // store a reference to the container element, check to make sure such an
+    // element exists.
     this.container = document.getElementById(id);
+    if( this.container === null || this.container === undefined ) {
+      throw new Error(`There is no HTML element with the id: ${id}`);
+    }
     this.container.classList.add('interactive-container');
 
     // create and append the root svg element and group elements
@@ -404,6 +410,9 @@ export default class Interactive extends Element  {
     return edge;
   }
 
+  /**
+  * Creates a group element
+  */
   group() : Group {
     let group = new Group();
     this.background.appendChild(group.root);

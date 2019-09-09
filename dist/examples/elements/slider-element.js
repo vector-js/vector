@@ -1,3 +1,8 @@
+/**
+* @title Slider Element
+* @description This interactive demonstrates the slider element.
+* @tags [elements, input]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 // Initialize the interactive

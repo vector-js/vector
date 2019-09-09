@@ -1,3 +1,8 @@
+/**
+* @title Dependency Relation
+* @description This interactive demonstrates how two elements can be made dependent on eachother.
+*/
+
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

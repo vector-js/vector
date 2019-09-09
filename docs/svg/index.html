@@ -49,9 +49,7 @@
   <a href="/getting-started/">
     <h2>Getting Started</h2>
   
-  <div class="vertical-center">
-    <img src="/play-button.svg" alt="Place holder">
-  </div>
+    <img src="/images/getting-started-tutorial.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -95,7 +93,7 @@
   <a href="/population-map/">
     <h2>Population Map</h2>
   
-    <img src="/images/united-states-population.svg" alt="Place holder" style="width:100%">
+    <img src="/images/population-of-united-states.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -110,11 +108,27 @@
 		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
 			
 				<div class="card">
+  <a href="/examples/world-map/">
+    <h2>Interactive World Map SVG</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/world-map.svg" alt="Interactive World Map SVG">
+    </div>
+    
+  </a>
+</div>
+
+	    
+				<div class="card">
   <a href="/examples/population-of-united-states/">
-    <h2>Population of United States</h2>
-  
-    <img src="/images/united-states-population.svg" alt="Place holder" style="width:100%">
-  
+    <h2>Population of the United States</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/population-of-united-states.svg" alt="Population of the United States">
+    </div>
+    
   </a>
 </div>
 
@@ -122,9 +136,12 @@
 				<div class="card">
   <a href="/examples/prime-factorization/">
     <h2>Prime Factorization</h2>
-  
-    <img src="/images/prime-factorization.svg" alt="Place holder" style="width:100%">
-  
+    
+    
+    <div class="vertical-center">
+      <img src="/images/prime-factorization.svg" alt="Prime Factorization">
+    </div>
+    
   </a>
 </div>
 
@@ -132,52 +149,45 @@
 				<div class="card">
   <a href="/examples/unit-circle/">
     <h2>Unit Circle</h2>
-  
-    <img src="/images/unit-circle.svg" alt="Place holder" style="width:100%">
-  
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle.svg" alt="Unit Circle">
+    </div>
+    
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example10/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
+  <a href="/examples/angle-between-two-vectors/">
+    <h2>Angle Between Two Vectors</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/angle-between-two-vectors.svg" alt="Angle Between Two Vectors">
+    </div>
+    
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example11/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/example12/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
+  <a href="/examples/angle/">
+    <h2>Angle Interactive</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/angle.svg" alt="Angle Interactive">
+    </div>
+    
   </a>
 </div>
 
 	    
     </div>
 		<div class="full-container">
-			<button class="muted-button">All Examples</button>
+			<a href="/examples"><button class="muted-button">All Examples</button></a>
 		</div>
 </section>
 
@@ -291,22 +301,13 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <h2 id="getting-started">Getting Started</h2>
 
-<p>This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for a complete overview. Two other tutorials worth mentioning are:</p>
-
-<ul>
-  <li>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>
-  </li>
-  <li>
-    <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank" rel="noreferrer">W3 SVG Tutorial</a>
-  </li>
-</ul>
+<p>This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for a complete overview. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>.</p>
 
 <p>SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the &ldquo;svg&rdquo; tag, which forms the root of the docuement, looks like:</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg&gt;&lt;/svg&gt;</span></code></pre></div>
 
-<p>Often elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of attribute=&ldquo;&hellip;&rdquo;. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.</p>
+<p>Elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of attribute=&ldquo;&hellip;&rdquo;. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">width=</span><span class="s">&#34;200&#34;</span> <span class="na">height=</span><span class="s">&#34;100&#34;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;50&#34;</span> <span class="na">cy=</span><span class="s">&#34;50&#34;</span> <span class="na">r=</span><span class="s">&#34;15&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
@@ -556,19 +557,19 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&#34;minX minY width height&#34;</span><span class="nt">&gt;&lt;/svg&gt;</span></code></pre></div>
 
-<p>The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox.</p>
+<p>The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox which is visualized with the rectangle on the left. The resulting svg is shown on the right.</p>
 
-<p><img src="/images/view-box.svg" alt="View Box Zoom Example" class="center" width="700px" style="max-width:100%;"></p>
+
+
+<div id="svg-view-box" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-view-box.js"></script>
+
+
+<p></p>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&#34;130 100 350 200&#34;</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- geometric shapes ... --&gt;</span>
+  <span class="c">&lt;!-- colorful squares ... --&gt;</span>
 <span class="nt">&lt;/svg&gt;</span></code></pre></div>
-
-<p>This results in the image below:</p>
-
-<p><svg id="f800f3bc-d735-4ea5-8c72-c86acce0e7a4" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="130 100 350 200"><defs><style>.fc72c3b5-035f-4002-8f34-521ca2ce475e{fill:#add8e6;stroke:#333;stroke-miterlimit:10;}</style></defs><title>view-box</title><circle class="fc72c3b5-035f-4002-8f34-521ca2ce475e" cx="170.41" cy="141.09" r="39.77"/><ellipse class="fc72c3b5-035f-4002-8f34-521ca2ce475e" cx="436.89" cy="260.41" rx="24.69" ry="39.5"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="307.13 179.31 281.86 141.42 307.13 103.53 332.39 141.42 307.13 179.31"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="307.13 219.98 265.31 250.36 281.28 299.52 332.97 299.52 348.94 250.36 307.13 219.98"/><rect class="fc72c3b5-035f-4002-8f34-521ca2ce475e" x="399.09" y="101.98" width="79.54" height="79.54"/><polygon class="fc72c3b5-035f-4002-8f34-521ca2ce475e" points="171.4 230.87 131.62 299.75 211.17 299.75 171.4 230.87"/></svg></p>
-
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- TODO: example with different view boxes defined --&gt;</span></code></pre></div>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- TODO: preserve aspect ratio attribute --&gt;</span></code></pre></div>
 
@@ -578,21 +579,43 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <h4 id="scale">Scale</h4>
 
-<p>Elements can be scaled to larger or smaller sizes.</p>
+<p>Elements can be scaled to larger or smaller sizes by adding a scale function to the transform attribute.</p>
 
-<p><img src='/images/transform-scale.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Scale"></p>
+
+
+<div id="svg-scale" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-scale.js"></script>
+
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;g</span> <span class="na">transform=</span><span class="s">&#34;scale(x,y)&#34;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- elements to be scaled ... --&gt;</span>
+<span class="nt">&lt;/g&gt;</span></code></pre></div>
 
 <h4 id="rotate">Rotate</h4>
 
 <p>Elements can be rotated.</p>
 
-<p><img src='/images/transform-rotate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Rotate"></p>
+
+
+<div id="svg-rotate" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rotate.js"></script>
+
 
 <h4 id="translate">Translate</h4>
 
 <p>Elements can be moved to new locations.</p>
 
-<p><img src='/images/transform-translate.svg' width='600px' style="border: 1px solid grey; border-radius: 6px; display:block; margin:auto; max-width:100%;" alt="SVG Transform Translate"></p>
+
+
+<div id="svg-translate" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-translate.js"></script>
+
+
+<h4 id="chaining-transformations">Chaining Transformations</h4>
+
+<!-- TODO: Put all three together to form basic drawing control -->
+
+<h4 id="other-transformations">Other Transformations</h4>
 
 <ul>
 <li>skewX</li>
@@ -629,13 +652,84 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <h2 id="typography">Typography</h2>
 
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text&gt;&lt;/text&gt;</span></code></pre></div>
+<p>Typography is</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;tspan&gt;&lt;/tspan&gt;</span></code></pre></div>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
+  <style>
+    text.sample {
+      font-family:monospace;
+      font-size:22px;
+      alignment-baseline:middle;
+      text-anchor:middle;
+    }
+    </style>
+  <text x="352" y="75" class="sample">The quick brown fox jumps over the lazy dog.</text>
+</svg></p>
 
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- aligning text --&gt;</span></code></pre></div>
+<h3 id="text-element">Text Element</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">x=</span><span class="s">&#34;...&#34;</span> <span class="na">y=</span><span class="s">&#34;...&#34;</span><span class="nt">&gt;</span>The quick brown fox jumps over the lazy dog.<span class="nt">&lt;/text&gt;</span></code></pre></div>
+
+<h3 id="tspan-element">Tspan Element</h3>
+
+<p>The text span element is useful for changing the position and or the styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word. Then, later, a tspan element is positioned relative to the last tspan element.</p>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
+  <style>
+    #tspan-example {
+      font-size:22px;
+      alignment-baseline:middle;
+      text-anchor:left;
+    }
+    </style>
+    <text id="tspan-example" x="32" y="75" >
+      <tspan>&ldquo;</tspan>
+      <tspan style="font-weight:600;">Fly </tspan>
+      <tspan>you fools.</tspan>
+      <tspan>&ldquo;</tspan>
+      <tspan dx=20 dy=30>Gandalf the Grey</tspan>
+    <text>
+</svg></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">id=</span><span class="s">&#34;tspan-example&#34;</span> <span class="na">x=</span><span class="s">&#34;32&#34;</span> <span class="na">y=</span><span class="s">&#34;75&#34;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>&#34;<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan</span> <span class="na">style=</span><span class="s">&#34;font-weight:600;&#34;</span><span class="nt">&gt;</span>Fly <span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>you fools.<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>&#34;<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan</span> <span class="na">dx=</span><span class="s">20</span> <span class="na">dy=</span><span class="s">30</span><span class="nt">&gt;</span>Gandalf the Grey<span class="nt">&lt;/tspan&gt;</span>
+<span class="nt">&lt;text&gt;</span></code></pre></div>
+
+<h3 id="horizontally-align-text">Horizontally Align Text</h3>
+
+<p>The &ldquo;text-anchor&rdquo; attribute allows you to horizontally align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.</p>
+
+<p><img src="/images/horizontally-align-text.svg" class="border" alt="Horizontally align SVG text."></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">text-anchor</span><span class="p">:</span><span class="nd">left</span><span class="o">;</span>
+<span class="nt">text-anchor</span><span class="p">:</span><span class="nd">middle</span><span class="o">;</span>
+<span class="nt">text-anchor</span><span class="p">:</span><span class="nd">right</span><span class="o">;</span></code></pre></div>
+
+<h3 id="vertically-align-text">Vertically Align Text</h3>
+
+<p>The &ldquo;alignment-baseline&rdquo; attribute allows you to vertically align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.</p>
+
+<p><img src="/images/vertically-align-text.svg" class="border" alt="Vertically align SVG text."></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">alignment-baseline</span><span class="p">:</span><span class="nd">bottom</span><span class="o">;</span>
+<span class="nt">alignment-baseline</span><span class="p">:</span><span class="nd">middle</span><span class="o">;</span>
+<span class="nt">alignment-baseline</span><span class="p">:</span><span class="nd">top</span><span class="o">;</span></code></pre></div>
+
+<h3 id="superscript-and-subscript">Superscript and Subscript</h3>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- superscript &amp; subscript text --&gt;</span></code></pre></div>
+
+<h3 id="auto-wrapping">Auto Wrapping</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- auto wrapping --&gt;</span></code></pre></div>
+
+<h3 id="preformated-text-line-breaks">Preformated Text / Line Breaks</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- pre-formated / line breaks --&gt;</span></code></pre></div>
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// how to convert typography to paths?
 </span></code></pre></div>
@@ -661,9 +755,15 @@ document.querySelector("#sandbox-button").onclick = function() {
 <script type="module" src="/examples/svg/svg-clip-path.js"></script>
 
 
+<h3 id="defs">Defs</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- adding markers / arrows to a path --&gt;</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- adding gradient / pattern to a shape --&gt;</span></code></pre></div>
+
 <h2 id="scripting">Scripting</h2>
 
-<p>It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section utilizes Javascript and Web APIs to demonstrate creating interactive SVG elements. There are many libraries and frameworks to help with this very thing. This library <a href="/">vector.js</a> is one of them.</p>
+<p>It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section demonstrates how to use vanilla Javascript and Web APIs to create, manipulate, and add interactivity to SVG elements.  There are many libraries and frameworks to help with this very thing. This library <a href="/">vector.js</a> is one of them.</p>
 
 <h3 id="creating-svg-elements">Creating SVG Elements</h3>
 
@@ -729,8 +829,9 @@ document.querySelector("#sandbox-button").onclick = function() {
 <span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&#34;some-attribute&#34;</span><span class="p">);</span>
 </code></pre></div>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// add / remove class
-</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;my-class&#39;</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;my-class&#39;</span><span class="p">);</span>
+</code></pre></div>
 
 <h3 id="manipulating-style">Manipulating Style</h3>
 
@@ -740,6 +841,7 @@ document.querySelector("#sandbox-button").onclick = function() {
 <h3 id="useful-functions">Useful Functions</h3>
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// get bounding client rectangle
+</span><span class="c1">// SVGGraphicsElement getBBox();
 </span></code></pre></div>
 
 <h3 id="basic-interactive">Basic Interactive</h3>

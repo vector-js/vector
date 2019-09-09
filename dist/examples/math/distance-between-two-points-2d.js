@@ -1,8 +1,6 @@
 /**
-* An interactive that demonstrates how a circle can be uniquely described by
-* three points.
-*
-* @title Circle Defined By Three POints
+* @title Distance Between Two Points 2D
+* @description This interactive demonstrates how to calculate the distance between two points in two dimensions.
 * @date July 8, 2019
 * @author Kurt Bruns
 */

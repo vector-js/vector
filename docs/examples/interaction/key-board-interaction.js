@@ -1,3 +1,7 @@
+/**
+* @title Keyboard Input
+* @description This interactive demonstrates how key board input can be used to add interactivity.
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

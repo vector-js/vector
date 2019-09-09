@@ -1,3 +1,8 @@
+/**
+* @title Path Element
+* @description This interactive demonstrates the path element.
+* @tags [elements]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

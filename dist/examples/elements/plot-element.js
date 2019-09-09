@@ -1,3 +1,8 @@
+/**
+* @title Plot Element
+* @description This interactive demonstrates the plot element
+* @tags [elements]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 // Initialize the interactive

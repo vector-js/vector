@@ -1,3 +1,9 @@
+/**
+* @title Unit Circle
+* @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions - sine, cosine, and tangent.
+* @weight 1
+*/
+
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 import Point from '../../elements/Point.js';

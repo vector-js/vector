@@ -10,5 +10,14 @@
 	<atom:link href="https://vectorjs.org/svg/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>View Box Attribute</title>
+      <link>https://vectorjs.org/svg/viewbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/viewbox/</guid>
+      <description>   </description>
+    </item>
+    
   </channel>
 </rss>

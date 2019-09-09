@@ -1,0 +1,12 @@
+{{- define "main" -}}
+
+  <h1>{{.Title}} <a style="float:right" href="/editor/?script=/dist/examples/{{.Params.id}}.js" class="button">Open in Editor</a></h1>
+
+  <div id="{{.Params.id}}" class="interactive"></div>
+  <script type="module" src="/dist/examples/{{.Params.id}}.js"></script>
+  <p>{{.Description}}</p>
+  {{- .Content -}}
+
+  {{/* {{ highlight (readFile (print "static/dist/examples/" (print .Params.id ".js"))) "javascript" ""}} */}}
+
+{{- end -}}

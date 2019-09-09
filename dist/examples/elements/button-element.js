@@ -1,3 +1,8 @@
+/**
+* @title Button Element
+* @description The button element is a user clickable button with some text inside of it.
+* @tags [elements, input]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

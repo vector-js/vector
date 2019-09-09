@@ -46,41 +46,18 @@
     <div id="undirected-graph-element"></div><script type="module" src="./dist/examples/elements/undirected-graph-element.js"></script>
     <div id="plot-element"></div><script type="module" src="./dist/examples/elements/plot-element.js"></script>
 
-    <!-- SVG -->
-    <div id="svg-circle"></div><script type="module" src="./dist/examples/svg/svg-circle.js"></script>
-    <div id="svg-coordinate-system"></div><script type="module" src="./dist/examples/svg/svg-coordinate-system.js"></script>
-    <div id="svg-ellipse"></div><script type="module" src="./dist/examples/svg/svg-ellipse.js"></script>
-    <div id="svg-line"></div><script type="module" src="./dist/examples/svg/svg-line.js"></script>
-    <div id="svg-path-arc"></div><script type="module" src="./dist/examples/svg/svg-path-arc.js"></script>
-    <div id="svg-path-bezier-cubic"></div><script type="module" src="./dist/examples/svg/svg-path-bezier-cubic.js"></script>
-    <div id="svg-path-bezier-quadratic"></div><script type="module" src="./dist/examples/svg/svg-path-bezier-quadratic.js"></script>
-    <div id="svg-path-line"></div><script type="module" src="./dist/examples/svg/svg-path-line.js"></script>
-    <div id="svg-rectangle"></div><script type="module" src="./dist/examples/svg/svg-rectangle.js"></script>
-    <div id="svg-clip-path"></div><script type="module" src="./dist/examples/svg/svg-clip-path.js"></script>
+    <script type="module">
+      import { download } from './dist/Util.js';
 
-    <!-- MATHS -->
-    <div id="angle"></div><script type="module" src="./dist/examples/math/angle.js"></script>
-    <div id="angle-between-two-vectors"></div><script type="module" src="./dist/examples/math/angle-between-two-vectors.js"></script>
-    <div id="area-between-two-vectors"></div><script type="module" src="./dist/examples/math/area-between-two-vectors.js"></script>
-    <div id="bezier-curve-quadratic"></div><script type="module" src="./dist/examples/math/bezier-curve-quadratic.js"></script>
-    <div id="bezier-curve-cubic"></div><script type="module" src="./dist/examples/math/bezier-curve-cubic.js"></script>
-    <div id="cartesian-coordinate-system"></div><script type="module" src="./dist/examples/math/cartesian-coordinate-system.js"></script>
-    <div id="circle-defined-by-three-points"></div><script type="module" src="./dist/examples/math/circle-defined-by-three-points.js"></script>
-    <div id="line-defined-by-two-points"></div><script type="module" src="./dist/examples/math/line-defined-by-two-points.js"></script>
-    <div id="point-where-two-lines-intersect"></div><script type="module" src="./dist/examples/math/point-where-two-lines-intersect.js"></script>
-    <div id="plot"></div><script type="module" src="./dist/examples/math/plot-trigonometric-functions.js"></script>
-    <div id="plot-normal-distribution"></div><script type="module" src="./dist/examples/math/plot-normal-distribution.js"></script>
-    <div id="plot-trigonometric-functions"></div><script type="module" src="./dist/examples/math/plot-trigonometric-functions.js"></script>
-    <div id="right-triangle"></div><script type="module" src="./dist/examples/math/right-triangle.js"></script>
-    <div id="triangle"></div><script type="module" src="./dist/examples/math/triangle.js"></script>
-    <div id="triangle-law-of-sines"></div><script type="module" src="./dist/examples/math/triangle-law-of-sines.js"></script>
-    <div id="unit-circle"></div><script type="module" src="./dist/examples/math/unit-circle.js"></script>
-    <div id="unit-circle-trigonometric-functions"></div><script type="module" src="./dist/examples/math/unit-circle-trigonometric-functions.js"></script>
-    <div id="unit-circle-angle"></div><script type="module" src="./dist/examples/math/unit-circle-angle.js"></script>
-    <div id="unit-circle-right-triangle"></div><script type="module" src="./dist/examples/math/unit-circle-right-triangle.js"></script>
-    <div id="unit-circle-cosine"></div><script type="module" src="./dist/examples/math/unit-circle-cosine.js"></script>
-    <div id="unit-circle-sine"></div><script type="module" src="./dist/examples/math/unit-circle-sine.js"></script>
-
-
+      // add a save function to the window to save the current interactive
+      window.save = function() {
+        let interactives = document.getElementsByClassName('interactive');
+        for( let i = 0; i < interactives.length; i++ ) {
+          let name = interactives[i].parentElement.id;
+          let id = interactives[i].id;
+          download(id, `${name}.svg`);
+        }
+      }
+    </script>
   </body>
 </html>

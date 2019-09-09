@@ -1,3 +1,8 @@
+/**
+* @title Ellipse Element
+* @description This interactive demonstrates the ellipse element.
+* @tags [elements]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

@@ -1,8 +1,6 @@
 /**
-* An interactive that demonstrates how an angle is defined as the amount of
-* rotation between two rays in two-dimensional space.
-*
 * @title Angle Interactive
+* @description An interactive that demonstrates how an angle is defined as the amount of rotation between two rays in two-dimensional space.
 * @date June 26, 2019
 * @author Kurt Bruns
 */

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vector.js</title>
-  <meta name="description" content="" />
+  <meta name="description" content="undefined" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -48,9 +48,7 @@
   <a href="/getting-started/">
     <h2>Getting Started</h2>
   
-  <div class="vertical-center">
-    <img src="/play-button.svg" alt="Place holder">
-  </div>
+    <img src="/images/getting-started-tutorial.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -94,7 +92,7 @@
   <a href="/population-map/">
     <h2>Population Map</h2>
   
-    <img src="/images/united-states-population.svg" alt="Place holder" style="width:100%">
+    <img src="/images/population-of-united-states.svg" alt="Place holder" style="width:100%">
   
   </a>
 </div>
@@ -109,11 +107,27 @@
 		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
 			
 				<div class="card">
+  <a href="/examples/world-map/">
+    <h2>Interactive World Map SVG</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/world-map.svg" alt="Interactive World Map SVG">
+    </div>
+    
+  </a>
+</div>
+
+	    
+				<div class="card">
   <a href="/examples/population-of-united-states/">
-    <h2>Population of United States</h2>
-  
-    <img src="/images/united-states-population.svg" alt="Place holder" style="width:100%">
-  
+    <h2>Population of the United States</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/population-of-united-states.svg" alt="Population of the United States">
+    </div>
+    
   </a>
 </div>
 
@@ -121,9 +135,12 @@
 				<div class="card">
   <a href="/examples/prime-factorization/">
     <h2>Prime Factorization</h2>
-  
-    <img src="/images/prime-factorization.svg" alt="Place holder" style="width:100%">
-  
+    
+    
+    <div class="vertical-center">
+      <img src="/images/prime-factorization.svg" alt="Prime Factorization">
+    </div>
+    
   </a>
 </div>
 
@@ -131,52 +148,45 @@
 				<div class="card">
   <a href="/examples/unit-circle/">
     <h2>Unit Circle</h2>
-  
-    <img src="/images/unit-circle.svg" alt="Place holder" style="width:100%">
-  
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle.svg" alt="Unit Circle">
+    </div>
+    
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example10/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
+  <a href="/examples/angle-between-two-vectors/">
+    <h2>Angle Between Two Vectors</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/angle-between-two-vectors.svg" alt="Angle Between Two Vectors">
+    </div>
+    
   </a>
 </div>
 
 	    
 				<div class="card">
-  <a href="/examples/example11/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/example12/">
-    <h2>z Example 1</h2>
-  
-  <div class="vertical-center">
-    <img src="/images/place-holder.svg" alt="Place holder">
-  </div>
-  
+  <a href="/examples/angle/">
+    <h2>Angle Interactive</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/angle.svg" alt="Angle Interactive">
+    </div>
+    
   </a>
 </div>
 
 	    
     </div>
 		<div class="full-container">
-			<button class="muted-button">All Examples</button>
+			<a href="/examples"><button class="muted-button">All Examples</button></a>
 		</div>
 </section>
 
@@ -215,7 +225,19 @@ document.querySelector("#sandbox-button").onclick = function() {
 </script>
 
 <main class="medium-container">
-<h1>Population of United States</h1>
+
+  <h1>Population of the United States</h1>
+  <div id="population-of-united-states"></div>
+  <script type="module" src="/examples/maps/population-of-united-states.js"></script>
+  
+    <h2>Description</h2>
+    <p>undefined</p>
+  
+  
+    <h2>Input</h2>
+    <p>undefined</p>
+  
+
 </main>
 
 

@@ -1,4 +1,10 @@
-import { getScriptName, nextPrime, download } from '../../Util.js';
+/**
+* @title Prime Factorization
+* @description This interactive visualizes the prime factorization tree for a given number.
+* @input There is a number input that takes a number less than one-hundred million.
+* @weight 1
+*/
+import { getScriptName, nextPrime } from '../../Util.js';
 import Interactive from '../../Interactive.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 736;
@@ -86,9 +92,4 @@ function primeFactors(n, p, x, y, prev) {
         }
     }
 }
-// add a save function to the window to save the current prime factorization
-// tree
-window.save = function () {
-    download(interactive.root.id, `prime-factorization-${input.value}.svg`);
-};
 //# sourceMappingURL=prime-factorization.js.map

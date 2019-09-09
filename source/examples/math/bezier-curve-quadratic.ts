@@ -1,9 +1,7 @@
 /**
-* This interactive demonstrates a quadratic bezier curve.
-*
 * @title Quadratic Bezier Curve
-* @date July 31, 2019
-* @author Kurt Bruns
+* @description This interactive demonstrates a quadratic bezier curve.
+* @tags [math]
 */
 
 import Interactive from '../../Interactive.js';

@@ -1,3 +1,8 @@
+/**
+* @title Undirected Graph Element
+* @description This interactive demonstrates the undirected graph element.
+* @tags [elements]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

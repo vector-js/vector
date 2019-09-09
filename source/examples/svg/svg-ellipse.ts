@@ -1,9 +1,9 @@
 /**
-* This interactive demonstrates the SVG ellipse element and its attributes.
-*
-* @title SVG Ellipse
+* @title SVG Ellipse Element
+* @description This interactive demonstrates the SVG ellipse element and its attributes.
 * @date May 3, 2019
 * @author Kurt Bruns
+* @tags [svg]
 */
 
 import Interactive from '../../Interactive.js';
@@ -68,18 +68,47 @@ l2.update();
 l2.addDependency(c0);
 l2.addDependency(c2);
 
-// TODO: this is rather hacky, and probably best replaced by implementing the
-// tspan element in our SVG wrapper class.
-text.update = function() {
-  let tag = `<tspan style="fill:purple">ellipse</tspan>`;
-  let cx = `<tspan style="fill:#ab6f00">cx</tspan>`;
-  let cy = `<tspan style="fill:#ab6f00">cy</tspan>`;
-  let rx = `<tspan style="fill:#ab6f00">rx</tspan>`;
-  let ry = `<tspan style="fill:#ab6f00">ry</tspan>`;
-  this.contents = `&lt;${tag} ${cx}="${ellipse.cx.toFixed(0)}
-                              ${cy}="${ellipse.cy.toFixed(0)}
-                              ${rx}="${ellipse.rx.toFixed(0)}
-                              ${ry}="${ellipse.ry.toFixed(0)}"&gt`;
-}
-text.update();
-text.addDependency(ellipse);
+let tag = text.tspan('&lt;ellipse ');
+let cx = text.tspan('cx=');
+let cy = text.tspan('cy=');
+let rx = text.tspan('rx=');
+let ry = text.tspan('rx=');
+let close = text.tspan('&gt;&lt;/ellipse&gt;');
+text.x = 20;
+text.y = interactive.maxY - 20;
+text.style.alignmentBaseline = 'middle';
+
+tag.style.fill = 'purple';
+cx.style.fill = '#ab6f00';
+cy.style.fill = '#ab6f00';
+rx.style.fill = '#ab6f00';
+ry.style.fill = '#ab6f00';
+close.style.fill = 'purple';
+
+let cxValue = cx.tspan('... ');
+let cyValue = cy.tspan('... ');
+let rxValue = rx.tspan('... ');
+let ryValue = ry.tspan('... ');
+cxValue.style.fill = '#333333';
+cyValue.style.fill = '#333333';
+rxValue.style.fill = '#333333';
+ryValue.style.fill = '#333333';
+
+cxValue.style.fill = '#333333';
+cxValue.addDependency(ellipse);
+cxValue.update = function() {
+  cxValue.text = `"${ellipse.cx.toFixed(0)}" `;
+};
+cyValue.addDependency(ellipse);
+cyValue.update = function() {
+  cyValue.text = `"${ellipse.cy.toFixed(0)}" `;
+};
+rxValue.addDependency(ellipse);
+rxValue.update = function() {
+  rxValue.text = `"${ellipse.rx.toFixed(0)}" `;
+};
+ryValue.addDependency(ellipse);
+ryValue.update = function() {
+  ryValue.text = `"${ellipse.ry.toFixed(0)}" `
+};
+ellipse.updateDependents();

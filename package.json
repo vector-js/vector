@@ -2,7 +2,11 @@
   "name": "@interactive-svg/library",
   "version": "0.0.9",
   "description": "A library for creating interactive vector graphics.",
-  "dependencies": {},
+  "dependencies": {
+    "directory-tree": "^2.2.4",
+    "jsonfile": "^5.0.0",
+    "tree-flatten": "^1.0.0"
+  },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
