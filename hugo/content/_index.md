@@ -92,6 +92,18 @@ let control = interactive.control( 150, 75);
 <!-- TODO: drop down -->
 <!-- TODO: input box -->
 
+### Radio Control
+
+what do i do?
+
+{{< highlight javascript>}}
+let radioControl = interactive.radioControl(["blue","red","green","yellow"],20,20);
+{{< /highlight >}}
+
+<div id="radio-control-element"></div>
+
+<script type="module" src="/examples/elements/radio-control-element.js"></script>
+
 ### Slider
 
 A slider has a position, width, and starting value.
@@ -265,7 +277,7 @@ Wishful thinking (x,y) to lattitude longitude and vice versa.
 let map = interactive.map("world-map.geojson");
 {{< /highlight >}}
 
-<img src="/images/world-map.svg" alt="SVG World Map" class="center">
+<script type="module" src="/examples/elements/map-element.js"></script>
 
 ### United States
 

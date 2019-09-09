@@ -41,12 +41,11 @@ input.style.fontSize = '14px';
 interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
 inputContainer.appendChild(input);
 input.onchange = function() {
+  drawGraph();
 
-  // Ignore input greater than 100 million
-  if( parseInt(input.value) >= 100000000 ) {
-    input.value = '100000000';
-  }
+};
 
+function drawGraph(){
   // remove all the graph elements
   graph.clear();
 
@@ -59,19 +58,11 @@ input.onchange = function() {
   } else {
     interactive.setViewBox(-interactive.width/2, rect.y-32, interactive.width, interactive.height);
   }
-
-  // if(graph.size() >= 1)
-  // {
-  //   interactive.height = rect.height + 64;
-  //   interactive.width = Math.max(128, 2*(rect.width - 64) + 64);
-  //   interactive.setViewBox(-rect.width/2 - 32, rect.y - 32, rect.width + 64, rect.height + 64);
-  // }
-};
+}
 
 // draw the initial prime factorization tree for the current input
 let radius = 30;
-input.onchange(null);
-
+drawGraph();
 /**
 * This is a recursive function that draws the prime factorization tree for the
 * input number n.
