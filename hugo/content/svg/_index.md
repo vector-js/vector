@@ -50,7 +50,7 @@ XML elements are formed by opening and closing tags. The opening tag contains a 
 
 <img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px" style="max-width:100%;">
 
-Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are more general, useful, and that can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.
+Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are specific to the element, but there are also more general attributes that are useful and which can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.
 
 | attribute | description |
 | --- | --- |
@@ -198,7 +198,11 @@ onhover, etc
 
 ## Typography
 
-Typography is
+This section of the tutorial deals with creating and formatting text within SVG documents.
+
+### Text Element
+
+The text element defines text with an x, y position in the document.
 
 <svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
   <style>
@@ -212,10 +216,8 @@ Typography is
   <text x="352" y="75" class="sample">The quick brown fox jumps over the lazy dog.</text>
 </svg>
 
-### Text Element
-
 {{< highlight svg>}}
-<text x="..." y="...">The quick brown fox jumps over the lazy dog.</text>
+<text x="75" y="75">The quick brown fox jumps over the lazy dog.</text>
 {{< /highlight >}}
 
 ### Tspan Element
@@ -297,6 +299,8 @@ alignment-baseline:top;
 
 ## Advanced Elements
 
+The SVG specification has a lot of elements, and while not all are covered in this tutorial, there are a couple of advanced elements worth mentioning.
+
 ### Clip Path
 
 Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.
@@ -315,6 +319,8 @@ Click and drag the clip path below to change the position of the circle that def
 {{<example "svg-clip-path">}}
 
 ### Defs
+
+The defs element contains a graphical "definition" that can be used else where in the document. This is useful for arrows at the start and end of a path, adding markers along a path, or creating a pattern of repeated images.
 
 {{< highlight svg>}}
 <!-- adding markers / arrows to a path -->

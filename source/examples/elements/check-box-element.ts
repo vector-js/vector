@@ -1,7 +1,7 @@
 /**
 * @title Checkbox Element
 * @description This interactive demonstrates the checkbox element.
-* @tags [elements]
+* @tags [elements, input]
 */
 
 import Interactive from '../../Interactive.js';

@@ -36,4 +36,4 @@ window.onkeyup = function (event) {
         textKeys[index].root.style.fill = '';
     }
 };
-//# sourceMappingURL=key-board-interaction.js.map
+//# sourceMappingURL=key-board-input.js.map

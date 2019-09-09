@@ -1,7 +1,7 @@
 /**
 * @title Control Circle Element
 * @description This interactive demonstrates a draggable circle.
-* @tags [elements]
+* @tags [elements, input]
 */
 
 import Interactive from '../../Interactive.js';

@@ -1,5 +1,5 @@
 /**
-* @title Path Animation
+* @title Animate Along Path
 * @description This interactive demonstrates how a element can be animated along a path.
 */
 import Interactive from '../../Interactive.js';
@@ -55,4 +55,4 @@ function moveControl() {
     requestAnimationFrame(moveControl);
 }
 requestAnimationFrame(moveControl);
-//# sourceMappingURL=path-animation.js.map
+//# sourceMappingURL=animate-along-path.js.map

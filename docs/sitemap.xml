@@ -103,6 +103,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/animate-along-path/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/area-between-two-vectors/</loc>
   </url>
   
@@ -135,10 +139,6 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/interactive-coordinate-system/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/examples/bezier-curve-cubic/</loc>
   </url>
   
@@ -163,6 +163,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/coordinate-system/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/svg-circle/</loc>
   </url>
   
@@ -171,7 +175,7 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/key-board-interaction/</loc>
+    <loc>https://vectorjs.org/examples/key-board-input/</loc>
   </url>
   
   <url>
@@ -195,15 +199,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/mouse-interaction/</loc>
+    <loc>https://vectorjs.org/examples/mouse-input/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/examples/normal-distribution/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/path-animation/</loc>
   </url>
   
   <url>

@@ -1,7 +1,7 @@
 /**
 * @title Scrubber Element
 * @description This interactive demonstrates the animation scrubber element.
-* @tags [elements]
+* @tags [elements, input]
 */
 
 import Interactive from '../../Interactive.js';

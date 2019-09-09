@@ -65,6 +65,15 @@
     </item>
     
     <item>
+      <title>Animate Along Path</title>
+      <link>https://vectorjs.org/examples/animate-along-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/animate-along-path/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Area Between Two Vectors</title>
       <link>https://vectorjs.org/examples/area-between-two-vectors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -128,15 +137,6 @@
     </item>
     
     <item>
-      <title>Coordinate System</title>
-      <link>https://vectorjs.org/examples/interactive-coordinate-system/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/interactive-coordinate-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Cubic Bezier Curve</title>
       <link>https://vectorjs.org/examples/bezier-curve-cubic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -182,6 +182,15 @@
     </item>
     
     <item>
+      <title>Interactive Coordinate System</title>
+      <link>https://vectorjs.org/examples/coordinate-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/coordinate-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Interactive SVG Circle</title>
       <link>https://vectorjs.org/examples/svg-circle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -201,10 +210,10 @@
     
     <item>
       <title>Keyboard Input</title>
-      <link>https://vectorjs.org/examples/key-board-interaction/</link>
+      <link>https://vectorjs.org/examples/key-board-input/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://vectorjs.org/examples/key-board-interaction/</guid>
+      <guid>https://vectorjs.org/examples/key-board-input/</guid>
       <description></description>
     </item>
     
@@ -246,10 +255,10 @@
     
     <item>
       <title>Mouse Input</title>
-      <link>https://vectorjs.org/examples/mouse-interaction/</link>
+      <link>https://vectorjs.org/examples/mouse-input/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://vectorjs.org/examples/mouse-interaction/</guid>
+      <guid>https://vectorjs.org/examples/mouse-input/</guid>
       <description></description>
     </item>
     
@@ -259,15 +268,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/normal-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Path Animation</title>
-      <link>https://vectorjs.org/examples/path-animation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/path-animation/</guid>
       <description></description>
     </item>
     

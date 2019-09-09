@@ -1,7 +1,7 @@
 ---
-title: Path Animation
-id: path-animation
-script: /examples/interaction/path-animation.js
+title: Animate Along Path
+id: animate-along-path
+script: /examples/interaction/animate-along-path.js
 description: This interactive demonstrates how a element can be animated along a path.
 input: undefined
 tags: undefined

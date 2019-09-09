@@ -1,7 +1,7 @@
 /**
 * @title Slider Element
 * @description This interactive demonstrates the slider element.
-* @tags [elements]
+* @tags [elements, input]
 */
 
 import Interactive from '../../Interactive.js';

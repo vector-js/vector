@@ -22,6 +22,7 @@
     </aside>
   </div>
   <main class="medium-container" id="main-content">
+    {{ .Content }}
     {{ range .Pages }}
       <h2 id="{{ urlize .Title }}">{{.Title}}</h2>
       {{ .Content }}

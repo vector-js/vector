@@ -1,7 +1,7 @@
 ---
 title: Library Hello World
 id: library-hello-world
-script: /examples/library-hello-world.js
+script: /examples/interaction/library-hello-world.js
 description: The hello world equivelant of our library.
 input: undefined
 tags: undefined

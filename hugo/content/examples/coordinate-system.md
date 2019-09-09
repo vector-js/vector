@@ -1,7 +1,7 @@
 ---
-title: Coordinate System
-id: interactive-coordinate-system
-script: /examples/interactive-coordinate-system.js
+title: Interactive Coordinate System
+id: coordinate-system
+script: /examples/interaction/coordinate-system.js
 description: This interactive demonstrates the coordinate system of the Vector.js library.
 input: undefined
 tags: undefined
