@@ -16,7 +16,7 @@ export default class GeoMap extends Element {
         this.interactive = interactive;
         this.interactive.width = width;
         this.interactive.height = height;
-        if (mapName.toLowerCase() == 'world' || mapName.toLowerCase() == 'globe')
+        if (mapName.toLowerCase() == 'world' || mapName.toLowerCase() == 'globe' || mapName.toLowerCase() == 'united-states-detail')
             this.generatePaths();
         else
             this.findPathForString(mapName);
@@ -29,7 +29,7 @@ export default class GeoMap extends Element {
     */
     getJson(mapName) {
         switch (mapName) {
-            case "united-states":
+            case "united-states-detail":
                 return data.usData;
             case "globe":
                 return data.globalData;
@@ -87,13 +87,14 @@ export default class GeoMap extends Element {
         }
     }
     findPathForString(name) {
+        var listOfNames = name.split(',');
         let json = data.globalData;
         var k = 0;
         var c = 0;
         var i = 1;
         for (let c = 0; c < json.features.length; c++) {
             for (let k = 0; k < json.features[c].geometry.coordinates.length; k++) {
-                if (json.features[c].properties.name.toLowerCase() != name.toLowerCase()) {
+                if (!listOfNames.includes(json.features[c].properties.name.toLowerCase())) {
                     continue;
                 }
                 if (json.features[c].geometry.coordinates[k].length == 1) {
