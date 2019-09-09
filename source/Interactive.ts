@@ -19,10 +19,12 @@ import Control from './elements/Control.js';
 import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
+import RadioControl from './elements/RadioControl.js';
 
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
+import Map from './elements/Map.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -65,7 +67,7 @@ export default class Interactive extends Element  {
   /**
   * The background is where everything that is not a primary control is drawn.
   */
-  private background:SVGGElement;
+  background:SVGGElement;
 
   private defs:SVGDefsElement;
 
@@ -260,6 +262,15 @@ export default class Interactive extends Element  {
   }
 
   /**
+  * Creates a checkbox input at the position (x,y) within this interactive.
+  */
+ radioControl(labels: string[], x:number, y:number, index: number = 0) : RadioControl {
+  let radioControl = new RadioControl(labels,x,y,index);
+  this.controls.appendChild(radioControl.root);
+  return radioControl;
+}
+
+  /**
   * Creates a control point within this interactive at the position (x,y).
   */
   control( x:number, y:number ) : Control {
@@ -294,6 +305,14 @@ export default class Interactive extends Element  {
     this.background.appendChild(graph.root);
     return graph;
   }
+
+  /**
+  * Creates a graph element within this interactive
+  */
+ map(mapName:string,width:number,height:number) : Map {
+  let map = new Map(this,mapName,width,height);
+  return map;
+}
 
   /**
   * Creates a slider input within this interactive
