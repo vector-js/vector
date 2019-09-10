@@ -1,5 +1,5 @@
 /**
-* @title Interactive World Map SVG
+* @title Interactive World Map
 * @description
 * @weight 1
 */

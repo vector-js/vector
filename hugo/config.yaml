@@ -1,6 +1,7 @@
+title: "Vector.js"
+blurb: Vector is an open source javascript library for creating interactive scalable vector graphics.
 baseURL: "https://vectorjs.org"
 languageCode: "en-us"
-title: "Vector.js"
 disableKinds: ["taxonomy", "taxonomyTerm"]
 pygmentsUseClasses: true
 publishDir: "../docs/"

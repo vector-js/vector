@@ -1,3 +1,15 @@
+---
+title: Radio Control Element
+id: radio-control-element
+script: /examples/elements/radio-control-element.js
+description: This interactive demonstrates the radio control element.
+input: undefined
+tags: [elements, input]
+weight: undefined
+draft: undefined
+---
+
+{{< highlight javascript >}}
 /**
 * @title Radio Control Element
 * @description This interactive demonstrates the radio control element.
@@ -17,3 +29,5 @@ ellipse.update = function () {
 };
 ellipse.update();
 //# sourceMappingURL=radio-control-element.js.map
+{{</ highlight >}}
+

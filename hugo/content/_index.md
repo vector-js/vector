@@ -224,9 +224,9 @@ window.onkeydown = function( event ) {
 }
 {{< /highlight >}}
 
-<div id="key-board-interaction"></div>
+<div id="key-board-input"></div>
 
-<script type="module" src="/examples/interaction/key-board-interaction.js"></script>
+<script type="module" src="/examples/interaction/key-board-input.js"></script>
 
 ### Mouse Input
 
@@ -276,6 +276,10 @@ Wishful thinking (x,y) to lattitude longitude and vice versa.
 {{< highlight javascript>}}
 let map = interactive.map("world-map.geojson");
 {{< /highlight >}}
+
+<img src="/images/world-map.svg" class="center" alt="SVG World Map">
+
+<div id="map-element"></div>
 
 <script type="module" src="/examples/elements/map-element.js"></script>
 

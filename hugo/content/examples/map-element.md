@@ -1,3 +1,15 @@
+---
+title: Map Element
+id: map-element
+script: /examples/elements/map-element.js
+description: This interactive demonstrates the interactive world map element.
+input: undefined
+tags: [elements, mapping]
+weight: undefined
+draft: undefined
+---
+
+{{< highlight javascript >}}
 /**
 * @title Map Element
 * @description This interactive demonstrates the interactive world map element.
@@ -39,3 +51,5 @@ input.addEventListener("keyup", function (event) {
     }
 });
 //# sourceMappingURL=map-element.js.map
+{{</ highlight >}}
+

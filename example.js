@@ -12,6 +12,7 @@ json.forEach(function(element){
     element.id = element.name.replace('.js', '');
     element.path = element.path.replace('dist', '');
     if( data != undefined ) {
+      element.script = data;
       let start = null;
       let str = '';
       for( let i = 0; i < data.length; i++ ) {
@@ -40,7 +41,13 @@ input: ${element.input}
 tags: ${element.tags}
 weight: ${element.weight}
 draft: ${element.draft}
----`;
+---
+
+{{< highlight javascript >}}
+${element.script}
+{{</ highlight >}}
+
+`;
     if( element.type === 'file') {
       fs.writeFile(`hugo/content/examples/${element.id}.md`, contents, (error) => {
         if (error) throw error;
