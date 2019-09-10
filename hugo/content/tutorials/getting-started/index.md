@@ -10,7 +10,7 @@ This tutorial introduces the user to the basics of our library through step-by-s
 
 ## Open the Editor
 
-Start by opening an instance of the <a href="/editor/" target="_blank">editor</a> in a new tab.
+Start by opening an instance of the <a href="/sandbox/" target="_blank">sandbox</a> in a new tab.
 <!-- More advanced users may want to set up their own development environment... -->
 
 ## Create a Basic Interactive

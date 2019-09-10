@@ -270,7 +270,7 @@
 
   
 
-<p>The path element is notorious for its power and difficulty. The path element has one attribute, the &ldquo;d&rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followd by zero or more numbers separated by spaces.</p>
+<p>The path element is notorious for its power and difficulty. The path element has one attribute, the &ldquo;d&rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;...&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
 
@@ -315,11 +315,15 @@
 </tbody>
 </table>
 
+<h4 id="path-move-to">Path: Move To</h4>
+
+<p>Every path starts with a move command which describes where the path starts. A path can have multiple move to commands to start drawing the path elsewhere in the document.</p>
+
 <h4 id="path-line-command">Path: Line Command</h4>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;L x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
 
-<p>Every path starts with a move command which describes where the path starts. In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
+<p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
 
 
 

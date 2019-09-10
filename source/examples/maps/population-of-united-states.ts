@@ -1,6 +1,7 @@
 /**
 * @title Population of the United States
 * @description
+* @tags [maps]
 * @weight 1
 */
 

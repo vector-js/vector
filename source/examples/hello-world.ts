@@ -1,6 +1,7 @@
 /**
 * @title Vector.js Hello World
-* @description The hello world equivelant of our library.
+* @description Hi!
+* @tags []
 */
 
 import Interactive from '../Interactive.js';

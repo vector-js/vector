@@ -11,7 +11,7 @@ export default class GeoMap extends Element {
     * height: height of the map
     */
     constructor(interactive, mapName, width, height) {
-        super();
+        super(null);
         this.mapName = mapName;
         this.interactive = interactive;
         this.interactive.width = width;

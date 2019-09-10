@@ -1,6 +1,7 @@
 /**
 * @title Interactive World Map
 * @description
+* @tags [maps]
 * @weight 1
 */
 import Interactive from '../../Interactive.js';

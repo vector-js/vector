@@ -15,7 +15,7 @@
   marginBottom: 1rem;
 }
 
-.input {
+input.input {
   width: 100%;
   height: 2rem;
   padding-left: 8px;

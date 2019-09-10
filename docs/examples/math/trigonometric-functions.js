@@ -1,6 +1,7 @@
 /**
 * @title Trigonometric Functions
 * @description
+* @tags [math]
 */
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';

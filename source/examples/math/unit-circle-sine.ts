@@ -1,5 +1,6 @@
 /**
 * @title Unit Circle Sine
+* @tags [math]
 * @date May 3, 2019
 * @author Kurt Bruns
 */
@@ -57,8 +58,8 @@ graph.function = (x:number) => { return Math.sin(x); };
 graph.originX = 0;
 graph.originY = 0;
 graph.yAxis.style.stroke = 'none';
-graph.xAxis.x1.baseVal.value = 0;
-graph.xAxis.x2.baseVal.value = circle.r*2*Math.PI;
+graph.xAxis.x1 = 0;
+graph.xAxis.x2 = circle.r*2*Math.PI;
 // interactive.root.style.overflow = 'visible';
 graph.translate(graph.originX, graph.originY);
 graph.scale( 2*Math.PI/(circumference), circle.r);

@@ -29,13 +29,19 @@ $constant_pseudo: #76d4d6;
 $support: #e1a6f2;
 $operator: #404040;
 
+.filename + .highlight pre {
+  border-radius: 0px;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+
 .filename {
-  padding: .5rem 1rem .75rem;
-  margin-bottom: -.5rem;
+  padding: .5rem 1rem;
   background: #424242;
   color: #f8f8f8;
   font-weight: 420;
-  border-radius: 4px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 }
 
 /* Background */ .chroma { color: $foreground; background-color: $background }

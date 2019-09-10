@@ -1,19 +1,65 @@
 {{- define "body" -}}
 {{ partial "hero" . }}
 
-  <section class="full-container" style="max-width:1200px; margin:auto;">
+  <section class="full-container" style="max-width:1200px; margin:2rem auto;">
 
-  <div class="full-container">
+  <div class="full-container" style="width:1200px;">
     <h2>Examples</h2>
     <p>{{.Description}}</p>
-    <p>
-      <button class="muted-button">elements</button>
-      <button class="muted-button">input</button>
-      <button class="muted-button">graphs</button>
-      <button class="muted-button">maps</button>
-      <button class="muted-button">math</button>
-      <button class="muted-button">svg</button>
-  </p>
+      <div id="tag-buttons">
+        <button class="muted-button">elements</button>
+        <button class="muted-button">input</button>
+        <button class="muted-button">graph</button>
+        <button class="muted-button">maps</button>
+        <button class="muted-button">math</button>
+        <button class="muted-button">svg</button>
+      </div>
+    <script type="module">
+      let buttons = document.querySelector('#tag-buttons');
+      let selected = new Set();
+
+      /**
+      * Displays the union of the selected tags. If nothing is selected displays
+      * everything.
+      */
+      function display() {
+
+        // console.log(selected);
+        if( selected.size  == 0 ){
+
+          // display everything
+          document.querySelectorAll('.card').forEach((example) => {
+            example.style.display = '';
+          });
+        } else {
+
+          // hide everthing
+          document.querySelectorAll('.card').forEach((example) => {
+            example.style.display = 'none';
+          });
+
+          let query = '.' + Array.from(selected).join(', .');
+          let examples = document.querySelectorAll(query);
+          examples.forEach((example) => {
+            example.style.display = '';
+          });
+        }
+        // document.querySelectorAll( `.${}`)
+      }
+
+      buttons.querySelectorAll('button').forEach((button) => {
+        let tag = button.innerText;
+        button.onclick = function( event) {
+          if( selected.has(tag)) {
+            selected.delete(tag);
+          } else {
+            selected.add(tag);
+          }
+          button.classList.toggle('selected');
+          display();
+        };
+      });
+    </script>
   </div>
   <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
   {{ range .Pages }}

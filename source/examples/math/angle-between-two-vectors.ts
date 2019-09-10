@@ -1,7 +1,7 @@
 /**
 * @title Angle Between Two Vectors
 * @description This interactive demonstrates the angle formed between two vectors.
-* @tags [elements]
+* @tags [math]
 */
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';

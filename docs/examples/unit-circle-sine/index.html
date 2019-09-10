@@ -56,6 +56,7 @@
   <h2>Script</h2>
   <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
 </span><span class="cm">* @title Unit Circle Sine
+</span><span class="cm">* @tags [math]
 </span><span class="cm">* @date May 3, 2019
 </span><span class="cm">* @author Kurt Bruns
 </span><span class="cm">*/</span>
@@ -104,8 +105,8 @@
 <span class="nx">graph</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="nx">graph</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="nx">graph</span><span class="p">.</span><span class="nx">yAxis</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">.</span><span class="nx">x1</span><span class="p">.</span><span class="nx">baseVal</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">.</span><span class="nx">x2</span><span class="p">.</span><span class="nx">baseVal</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+<span class="nx">graph</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">.</span><span class="nx">x1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">graph</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">.</span><span class="nx">x2</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
 <span class="c1">// interactive.root.style.overflow = &#39;visible&#39;;
 </span><span class="c1"></span><span class="nx">graph</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">graph</span><span class="p">.</span><span class="nx">originX</span><span class="p">,</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">originY</span><span class="p">);</span>
 <span class="nx">graph</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="p">(</span><span class="nx">circumference</span><span class="p">),</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span><span class="p">);</span>

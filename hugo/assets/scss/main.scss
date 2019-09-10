@@ -25,6 +25,14 @@
 @import "components/sandbox";
 @import "components/syntax";
 
+.muted-button:focus {
+  outline:0;
+}
+
+button.selected:focus, button.selected {
+  background: #dddddd;
+}
+
 .center {
   margin:auto;
   display: block;

@@ -3,7 +3,7 @@ title: Path
 weight: 4
 ---
 
-The path element is notorious for its power and difficulty. The path element has one attribute, the "d" attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followd by zero or more numbers separated by spaces.
+The path element is notorious for its power and difficulty. The path element has one attribute, the "d" attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.
 
 {{< highlight svg>}}
 <path d="..."></path>
@@ -18,13 +18,17 @@ The path element is notorious for its power and difficulty. The path element has
 | Arc              | A rx ry x-axis-rotation large-arc-flag sweep-flag x y |
 | Close            | Z                                                     |
 
+#### Path: Move To
+
+Every path starts with a move command which describes where the path starts. A path can have multiple move to commands to start drawing the path elsewhere in the document.
+
 #### Path: Line Command
 
 {{< highlight svg>}}
 <path d="L x y"></path>
 {{< /highlight >}}
 
-Every path starts with a move command which describes where the path starts. In the path below, the move command "M 150 150" begins the path at the coordinate (150, 150) and then the line command "L 450 50" draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.
+In the path below, the move command "M 150 150" begins the path at the coordinate (150, 150) and then the line command "L 450 50" draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.
 
 {{<example "svg-path-line">}}
 

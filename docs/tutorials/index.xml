@@ -18,7 +18,7 @@
       
       <guid>https://vectorjs.org/getting-started/</guid>
       <description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
-Open the Editor Start by opening an instance of the editor in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description>
+Open the Editor Start by opening an instance of the sandbox in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description>
     </item>
     
     <item>

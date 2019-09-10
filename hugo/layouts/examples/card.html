@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card {{delimit .Params.Tags " "}}">
   <a href="{{.RelPermalink}}">
     <h2>{{.Title}}</h2>
     {{ $path := (print (print "/images/" .Params.Id) ".svg") }}

@@ -1,6 +1,7 @@
 /**
 * @title Interactive World Map
 * @description
+* @tags [maps]
 * @weight 1
 */
 
