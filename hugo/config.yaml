@@ -8,6 +8,7 @@ publishDir: "../docs/"
 staticDir:
   - static
   - ../dist/
+  - ../css/
 
 permalinks:
   tutorials: /:title/

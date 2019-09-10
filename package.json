@@ -18,12 +18,12 @@
   },
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf ./dist/ && rm -rf ./docs/",
+    "make": "tsc && cd hugo && hugo",
     "watch": "tsc -w",
     "start": "http-server .",
-    "module": "tsc && cp css/Library.css dist/Library.css",
-    "package": "cp css/library.css dist/library.css && tar -czvf library.tar.gz dist",
+    "package": "tar -czvf library.tar.gz ./dist/ ./css/",
     "rollup": "rollup --config",
-    "prep": "tsc && npm run package && npm run rollup"
   },
   "files": [
     "dist"

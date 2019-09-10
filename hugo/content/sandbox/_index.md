@@ -3,7 +3,6 @@ title: Sandbox
 description: The sandbox is a place
 ---
 
-<link rel="stylesheet" href="/css/sandbox.css">
 <div class="sandbox">
 <div class="menu">
   <!-- <button>Run</button> -->
