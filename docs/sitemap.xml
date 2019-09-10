@@ -143,6 +143,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/svg/elements/defs/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/dependency-function/</loc>
   </url>
   
@@ -196,6 +200,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/load-svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/marker/</loc>
   </url>
   
   <url>
@@ -292,6 +300,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/style/</loc>
   </url>
   
   <url>

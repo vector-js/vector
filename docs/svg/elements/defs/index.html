@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vector.js</title>
-  <meta name="description" content="This interactive demonstrates how mouse input can be used to add interactivity." />
+  <meta name="description" content="An interactive SVG rectangle element." />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -225,18 +225,15 @@ document.querySelector("#sandbox-button").onclick = function() {
 </script>
 
 <main class="medium-container">
+<h1>Defs</h1><p>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.</p>
 
-  <h1>Mouse Input</h1>
-  <div id="mouse-interaction"></div>
-  <script type="module" src="/examples/interaction/mouse-interaction.js"></script>
-  
-    <h2>Description</h2>
-    <p>This interactive demonstrates how mouse input can be used to add interactivity.</p>
-  
-  
-    <h2>Input</h2>
-    <p>The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position.</p>
-  
+<!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
+
+
+
+<div id="svg-rectangle" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
 
 </main>
 

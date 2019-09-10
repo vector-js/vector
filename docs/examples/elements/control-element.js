@@ -1,7 +1,7 @@
 /**
 * @title Control Element
 * @description This interactive demonstrates a draggable point.
-* @tags [elements]
+* @tags [elements, input]
 */
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
