@@ -3,66 +3,9 @@
     <a href="/"><h1>Vector.js</h1></a>
 		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="{{.Site.Params.RepositoryURL}}" target="_blank" rel="noreferrer">github</a>.</p>
     <p>
-      <a href="/sandbox/"><button class="muted-button">Sandbox</button></a>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
       <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
       <a href="/examples/"><button class="muted-button">Examples</button></a>
     </p>
 	</div>
 </header>
-<section id="sandbox" class="full-container collapse" style="display:none;">
-	<img src="/sandbox.svg" alt="Sandbox environment" style="width:1200px; margin:auto; display:block;">
-</section>
-<section id="tutorials" class="full-container collapse" style="display:none">
-    <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-    {{ range where (where .Site.Pages "Type" "tutorials") ".Title" "!=" "Tutorials" }}
-			{{ .Render "card" }}
-    {{ end }}
-    </div>
-		<div class="full-container">
-			<button class="muted-button">All tutorials</button>
-		</div>
-</section>
-<section id="examples" class="full-container collapse" style="display:none">
-		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-			{{ range first 6 (.GetPage "/examples").Pages.ByWeight }}
-				{{ .Render "card" }}
-	    {{ end }}
-    </div>
-		<div class="full-container">
-			<a href="/examples"><button class="muted-button">All Examples</button></a>
-		</div>
-</section>
-
-<script type="text/javascript">
-const sandbox = document.querySelector("#sandbox");
-const examples = document.querySelector("#examples");
-const tutorials = document.querySelector("#tutorials");
-document.querySelector("#examples-button").onclick = function() {
-
-  if (examples.style.display === "none") {
-		sandbox.style.display = "none";
-		tutorials.style.display = "none";
-    examples.style.display = "";
-  } else {
-    examples.style.display = "none";
-  }
-};
-document.querySelector("#tutorials-button").onclick = function() {
-	if (tutorials.style.display === "none") {
-		sandbox.style.display = "none";
-		examples.style.display = "none";
-		tutorials.style.display = "";
-	} else {
-		tutorials.style.display = "none";
-	}
-};
-document.querySelector("#sandbox-button").onclick = function() {
-	if (sandbox.style.display === "none") {
-		tutorials.style.display = "none";
-		examples.style.display = "none";
-		sandbox.style.display = "";
-	} else {
-		sandbox.style.display = "none";
-	}
-};
-</script>

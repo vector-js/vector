@@ -165,15 +165,15 @@ export function setUrlParams(param, value) {
     // window.location.href = url.href;
     window.open(url.href);
 }
-export function loadScript(url, element) {
-    getURL(url).then(function (response) {
-        let div = document.createElement('div');
-        div.id = parseName(url);
-        let script = document.createElement('script');
-        script.type = 'module';
-        script.src = url;
-        element.appendChild(div);
-        element.appendChild(script);
-    });
+export async function loadScript(url, element) {
+    const response = await getURL(url);
+    let div = document.createElement('div');
+    div.id = parseName(url);
+    let script = document.createElement('script');
+    script.type = 'module';
+    script.src = url;
+    element.appendChild(div);
+    element.appendChild(script);
+    return response;
 }
 //# sourceMappingURL=Util.js.map

@@ -2,6 +2,10 @@ import Element from '../elements/Element.js';
 import SVG from '../SVG.js';
 import Rectangle from '../elements/Rectangle.js';
 import Text from '../elements/Text.js';
+import Path from './Path.js';
+import Group from './Group.js';
+import Circle from './Circle.js';
+import Line from './Line.js';
 /**
 *
 */
@@ -12,7 +16,7 @@ export default class Plot extends Element {
     * explore the shape and form of the function.
     */
     constructor(userEvents = true) {
-        super();
+        super(SVG.Group());
         // default values
         this._width = 600;
         this._height = 300;
@@ -23,34 +27,31 @@ export default class Plot extends Element {
         this._totalScale = 1;
         this.active = false;
         // creates a transparent rectangle to capture all user events
-        this.rect = SVG.Rectangle(0, 0, this.width, this.height);
+        this.rect = new Rectangle(0, 0, this.width, this.height);
         this.rect.style.fill = 'transparent';
         this.rect.style.stroke = 'none';
         // TODO: change to axis with tick marks and number labels
         // draw two lines to represent the x-axis and y-axis
-        this.xAxis = SVG.Line(-10000, 0, 10000, 0);
-        this.yAxis = SVG.Line(0, -10000, 0, 10000);
+        this.xAxis = new Line(-10000, 0, 10000, 0);
+        this.yAxis = new Line(0, -10000, 0, 10000);
         // create a path to draw the internal function
-        this.path = SVG.Path('');
-        this.path.classList.add('default');
+        this.path = new Path('');
         // a group to hold the path and axis, allows easy transforming of the origin
-        this.group = SVG.Group();
-        this.group.appendChild(this.path);
-        this.group.appendChild(this.xAxis);
-        this.group.appendChild(this.yAxis);
+        this.group = new Group();
+        this.group.root.appendChild(this.path.root);
+        this.group.root.appendChild(this.xAxis.root);
+        this.group.root.appendChild(this.yAxis.root);
         // create a root element to hold everything
-        this.root = SVG.Group();
-        this.root.appendChild(this.rect);
-        this.root.appendChild(this.group);
-        this.root.id = this.id;
+        this.root.appendChild(this.rect.root);
+        this.root.appendChild(this.group.root);
         // translate the origin to its initial position
         this.translate(this.originX, this.originY);
         // Registers event listeners
         if (userEvents) {
             // create a display circle for showing input and output
-            this.circle = SVG.Circle(0, 0, 4);
+            this.circle = new Circle(0, 0, 4);
             this.circle.style.fill = 'cornflowerblue';
-            this.group.appendChild(this.circle);
+            this.group.root.appendChild(this.circle.root);
             this.xRect = new Rectangle(0, 0, 125, 40);
             this.yRect = new Rectangle(120, 0, 125, 40);
             this.xRect.root.style.fill = 'white';
@@ -183,7 +184,7 @@ export default class Plot extends Element {
             }
             d += `L ${x} ${y.toFixed(1)} `;
         }
-        this.path.setAttribute('d', d);
+        this.path.d = d;
         // Update the dependents if there are any
         this.updateDependents();
     }
@@ -203,7 +204,7 @@ export default class Plot extends Element {
     * translates the position of the graph to the new location.
     */
     handleMouseMove(event) {
-        let x = event.clientX - this.rect.getBoundingClientRect().left - this.originX;
+        let x = event.clientX - this.rect.root.getBoundingClientRect().left - this.originX;
         if (this.active) {
             this._originX += event.movementX;
             this._originY += event.movementY;
@@ -211,14 +212,14 @@ export default class Plot extends Element {
             console.log(this._originX);
             console.log(this._originY);
             console.log("Spacer, now showing mouse position:");
-            console.log(event.x - this.rect.getBoundingClientRect().left);
-            console.log(event.y - this.rect.getBoundingClientRect().top);
+            console.log(event.x - this.rect.root.getBoundingClientRect().left);
+            console.log(event.y - this.rect.root.getBoundingClientRect().top);
             console.log("Spacer, now showing client rect:");
             this.translate(this._originX, this._originY);
         }
         else {
-            this.circle.cx.baseVal.value = x;
-            this.circle.cy.baseVal.value = this.call(x);
+            this.circle.cx = x;
+            this.circle.cy = this.call(x);
         }
         let i = this._scaleX * (x);
         let o = this.call(x, false);
@@ -253,13 +254,13 @@ export default class Plot extends Element {
     handleMouseWheelEvent(event) {
         let ratio = .95;
         if (event.deltaY > 0) {
-            this.scale(ratio, 1 / ratio, event.x - this.rect.getBoundingClientRect().left, event.y - this.rect.getBoundingClientRect().top);
+            this.scale(ratio, 1 / ratio, event.x - this.rect.root.getBoundingClientRect().left, event.y - this.rect.root.getBoundingClientRect().top);
         }
         else {
-            this.scale(1 / ratio, ratio, event.x - this.rect.getBoundingClientRect().left, event.y - this.rect.getBoundingClientRect().top);
+            this.scale(1 / ratio, ratio, event.x - this.rect.root.getBoundingClientRect().left, event.y - this.rect.root.getBoundingClientRect().top);
         }
         this.draw();
-        this.circle.cy.baseVal.value = this.call(this.circle.cx.baseVal.value);
+        this.circle.cy = this.call(this.circle.cx);
         event.preventDefault();
     }
     /**
@@ -322,7 +323,7 @@ export default class Plot extends Element {
     translate(x, y) {
         this._originX = x;
         this._originY = y;
-        this.group.setAttribute('transform', `translate(${x}, ${y})`);
+        this.group.root.setAttribute('transform', `translate(${x}, ${y})`);
     }
     scaleUp(x, y) {
     }

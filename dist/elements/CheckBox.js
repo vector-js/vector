@@ -11,14 +11,12 @@ export default class CheckBox extends Element {
     * Constructs a control at the position (x,y)
     */
     constructor(x, y, text, value) {
-        super();
+        super(SVG.Group());
         /**
         * The state of the checkbox
         */
         this._value = false;
-        this.root = SVG.Group();
         this.root.setAttribute('transform', `translate(${x},${y})`);
-        this.root.id = this.id;
         this.box = new Rectangle(-6.5, -6.5, 13, 13);
         this.box.root.setAttribute('rx', '2px');
         this.text = new Text(18, 1, text);

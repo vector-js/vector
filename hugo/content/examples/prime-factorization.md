@@ -25,25 +25,12 @@ interactive.border = true;
 let graph = interactive.graph();
 // this HTML input element controls the current tree being drawn
 let inputContainer = document.createElement('div');
-inputContainer.style.width = '100%';
-inputContainer.style.height = '2rem';
-inputContainer.style.marginBottom = '1rem';
+inputContainer.classList.add('input-container');
 let input = document.createElement('input');
 input.type = 'number';
 input.value = '12';
-input.name = 'number';
-input.min = '0';
-input.max = '100000';
 input.id = getScriptName() + '-number-input';
-// input.style.paddingLeft = '.25rem';
-// input.style.paddingRight = '.25rem';
-input.style.width = '100%';
-input.style.height = '2rem';
-input.style.paddingLeft = '8px';
-input.style.webkitAppearance = 'textfield';
-input.style.border = '1px solid grey';
-input.style.borderRadius = '4px';
-input.style.fontSize = '14px';
+input.classList.add('input');
 interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
 inputContainer.appendChild(input);
 input.onchange = function () {

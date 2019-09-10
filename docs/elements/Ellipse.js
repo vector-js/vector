@@ -5,14 +5,11 @@ import Element from './Element.js';
 */
 export default class Ellipse extends Element {
     /**
-    * Constructs a ellipse element at the position (x,y)
+    * Constructs a ellipse element at the position (cx,cy) with a rx and ry radius.
     */
     constructor(cx, cy, rx, ry) {
-        super();
-        this.root = SVG.Ellipse(cx, cy, rx, ry);
-        this.root.classList.add('default');
-        this.root.id = this.id;
-        this.style = this.root.style;
+        let ellipse = SVG.Ellipse(cx, cy, rx, ry);
+        super(ellipse);
     }
     /**
     * Returns the x position of the rectangle

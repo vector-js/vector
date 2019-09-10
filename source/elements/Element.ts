@@ -34,7 +34,7 @@ export default class Element {
   root : SVGElement;
 
   /**
-  * Style for this element.
+  * Style for the root element.
   */
   style: CSSStyleDeclaration;
 
@@ -45,12 +45,19 @@ export default class Element {
 
   /**
   * Constructs the elements and adds it into the current controller.
-  * TODO: Have the constructor take in a root SVGEelement and assign the id to it?
   */
-  constructor() {
+  constructor( root:SVGElement ) {
 
     // give this element an unique id
     this._id = `${this.constructor.name.toLowerCase()}-${Element.count++}`;
+
+    // store the root element and set the id attribute
+    this.root = root;
+    this.root.id = this.id;
+    this.root.classList.add('element');
+
+    // make the root's style declaration available
+    this.style = this.root.style;
 
     // add this element to the controller
     Element.controller.add(this);

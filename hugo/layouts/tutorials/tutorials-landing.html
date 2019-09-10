@@ -1,8 +1,12 @@
-{{ define "main" }}
-<section class="full-container" style="max-width:1200px; margin:auto;">
+{{ define "body" }}
+{{ partial "hero" . }}
+<section class="full-container" style="max-width:1200px; margin: 0 auto;">
 <h1>{{.Title}}</h1>
+{{.Content}}
+<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
 {{ range where (where .Site.Pages "Type" "tutorials") ".Title" "!=" "Tutorials" }}
   {{ .Render "card" }}
 {{ end }}
+</div>
 </section>
 {{ end }}

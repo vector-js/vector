@@ -17,6 +17,7 @@ export default class CustomElement extends Element {
   // associated with this custom element.
   root: SVGGElement;
 
+  // Constructs an instance of this custom element
   constructor() {
     super();
 

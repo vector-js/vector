@@ -37,7 +37,7 @@ export default class Interactive extends Element {
     * TODO: (possibly) if the string is null, then create a headless interactive
     */
     constructor(id) {
-        super();
+        super(SVG.SVG());
         // internal variables
         this._width = 0;
         this._height = 0;
@@ -51,10 +51,8 @@ export default class Interactive extends Element {
         }
         this.container.classList.add('interactive-container');
         // create and append the root svg element and group elements
-        this.root = this.container.appendChild(SVG.SVG());
+        this.container.appendChild(this.root);
         this.root.classList.add('interactive');
-        this.root.id = this.id;
-        this.style = this.root.style;
         this.background = this.root.appendChild(SVG.Group());
         this.controls = this.root.appendChild(SVG.Group());
         // default configuration

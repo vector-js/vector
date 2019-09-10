@@ -14,11 +14,7 @@ export default class Text extends Element {
   * Constructs text at the position (x,y) with the provided string
   */
   constructor( x:number, y:number, text:string = '' ) {
-    super();
-
-    this.root = SVG.Text( x, y, text );
-    this.root.id = this.id;
-    this.style = this.root.style;
+    super(SVG.Text( x, y, text ));
   }
 
   /**

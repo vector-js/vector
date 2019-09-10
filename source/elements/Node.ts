@@ -18,10 +18,9 @@ export default class Node extends Element {
   * Constructs a Node element at the position (x,y) with radius r containing the string text
   */
   constructor( cx:number, cy:number, r:number, text:string ) {
-   super();
+   super(SVG.Group());
 
    this.edges = new Set<Edge>();
-   this.root = SVG.Group();
 
    this.nodeName = new Text(cx, cy, text);
    this.nodeName.style.textAnchor = "middle";
@@ -31,9 +30,6 @@ export default class Node extends Element {
 
    this.root.appendChild(this.nodeCircle.root);
    this.root.appendChild(this.nodeName.root);
-
-   this.root.classList.add('default');
-   this.root.id = this.id;
   }
 
   /**

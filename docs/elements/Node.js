@@ -11,9 +11,8 @@ export default class Node extends Element {
     * Constructs a Node element at the position (x,y) with radius r containing the string text
     */
     constructor(cx, cy, r, text) {
-        super();
+        super(SVG.Group());
         this.edges = new Set();
-        this.root = SVG.Group();
         this.nodeName = new Text(cx, cy, text);
         this.nodeName.style.textAnchor = "middle";
         this.nodeName.root.setAttribute("alignment-baseline", "middle");
@@ -21,8 +20,6 @@ export default class Node extends Element {
         this.nodeCircle.fill = '#f8f8f8';
         this.root.appendChild(this.nodeCircle.root);
         this.root.appendChild(this.nodeName.root);
-        this.root.classList.add('default');
-        this.root.id = this.id;
     }
     /**
     * Returns the number of edges coming out of this node.

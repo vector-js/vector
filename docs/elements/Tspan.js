@@ -9,10 +9,7 @@ export default class TSpan extends Element {
     * Constructs a tspan element
     */
     constructor(str) {
-        super();
-        this.root = SVG.TSpan(str);
-        this.root.id = this.id;
-        this.style = this.root.style;
+        super(SVG.TSpan(str));
     }
     /**
     * The text contents of this tspan element

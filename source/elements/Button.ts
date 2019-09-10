@@ -27,12 +27,10 @@ export default class Button extends Element {
   * Constructs a button at the position (x,y)
   */
   constructor( x:number, y:number, text:string ) {
-    super();
+    super(SVG.Group());
 
-    this.root = SVG.Group();
     this.root.setAttribute('transform', `translate(${x},${y})`);
     this.root.classList.add('button');
-    this.root.id = this.id;
 
     // Create a text element
     this.text = new Text( 0, 1, text);
@@ -50,7 +48,7 @@ export default class Button extends Element {
   /**
   * Fires when the user clicks the left button on the button.
   */
-  set onclick( handler ) {
+  set onclick( handler : (event: MouseEvent) => void ) {
     this.root.onclick = handler;
   }
 

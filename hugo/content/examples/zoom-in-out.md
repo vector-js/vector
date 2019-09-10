@@ -19,10 +19,11 @@ import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-let width = 768;
-let height = 300;
-interactive.width = 768;
-interactive.height = 300;
+let bbox = interactive.root.getBoundingClientRect();
+let width = 704 > bbox.width ? bbox.width : 704;
+let height = 300 > bbox.height ? bbox.height : 300;
+interactive.width = width;
+interactive.height = height;
 let zoomIntensity = .02;
 let scale = 1;
 let originx = 0;
@@ -35,7 +36,9 @@ let w = 20;
 let h = 20;
 for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
-        let rectangle = interactive.rectangle(i * w + width / 2 - 5 * w, j * h + margin, w, h);
+        let x = i * w + width / 2 - 5;
+        let y = j * h + margin;
+        interactive.rectangle(x, y, w, h);
         // rectangle.root.setAttribute('vector-effect','non-scaling-stroke');
     }
 }
@@ -80,7 +83,6 @@ interactive.root.addEventListener('mousemove', function (event) {
 });
 // xAxis.addStartArrow();
 // xAxis.addEndArrow();
-// interactive.root.innerHTML = `<marker id="arrow" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#333333;"></path></marker>`;
 //# sourceMappingURL=zoom-in-out.js.map
 {{</ highlight >}}
 

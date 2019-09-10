@@ -9,18 +9,15 @@ export default class Edge extends Element {
     * Constructs a line frmo the edge of the two circle elements.
     */
     constructor(nodeFrom, nodeTo, directed) {
-        super();
-        let arr = this.calculateLinePosition(nodeFrom, nodeTo);
+        let arr = Edge.calculateLinePosition(nodeFrom, nodeTo);
+        super(SVG.Line(arr[0], arr[1], arr[2], arr[3]));
         this.directed = directed;
-        this.root = SVG.Line(arr[0], arr[1], arr[2], arr[3]);
-        this.root.id = this.id;
-        this.style = this.root.style;
     }
     /**
     * Function to find where the line connecting two circles should go. return an Array
     * containing [x1, y1, x2, y2] of the line.
     */
-    calculateLinePosition(nodeFrom, nodeTo) {
+    static calculateLinePosition(nodeFrom, nodeTo) {
         let y1 = nodeFrom.nodeCircle.cy;
         let y2 = nodeTo.nodeCircle.cy;
         let x1 = nodeFrom.nodeCircle.cx;

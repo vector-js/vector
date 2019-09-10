@@ -30,203 +30,19 @@
 <header class="text-center vertical-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
-		<p>Vector is an open source javascript library for the creation of interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
+		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
     <p>
-      <button class="muted-button" id="sandbox-button">Sandbox</button>
-      <button class="muted-button" id="tutorials-button" >Tutorials</button>
-      <button class="muted-button" id="examples-button" >Examples</button>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+      <a href="/examples/"><button class="muted-button">Examples</button></a>
     </p>
 	</div>
 </header>
-<section id="sandbox" class="full-container collapse" style="display:none;">
-	<img src="/sandbox.svg" alt="Sandbox environment" style="width:1200px; margin:auto; display:block;">
-</section>
-<section id="tutorials" class="full-container collapse" style="display:none">
-    <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-    
-			<div class="card">
-  <a href="/getting-started/">
-    <h2>Getting Started</h2>
-  
-    <img src="/images/getting-started-tutorial.svg" alt="Place holder" style="width:100%">
-  
-  </a>
-</div>
-
-    
-			<div class="card">
-  <a href="/svg/">
-    <h2>SVG Tutorial</h2>
-  
-    <img src="/images/svg-tutorial.svg" alt="Place holder" style="width:100%">
-  
-  </a>
-</div>
-
-    
-			<div class="card">
-  <a href="/custom-element/">
-    <h2>Custom Element</h2>
-  
-  <div class="vertical-center">
-    <img src="/play-button.svg" alt="Place holder">
-  </div>
-  
-  </a>
-</div>
-
-    
-			<div class="card">
-  <a href="/planets/">
-    <h2>Planets</h2>
-  
-  <div class="vertical-center">
-    <img src="/play-button.svg" alt="Place holder">
-  </div>
-  
-  </a>
-</div>
-
-    
-			<div class="card">
-  <a href="/population-map/">
-    <h2>Population Map</h2>
-  
-    <img src="/images/population-of-united-states.svg" alt="Place holder" style="width:100%">
-  
-  </a>
-</div>
-
-    
-    </div>
-		<div class="full-container">
-			<button class="muted-button">All tutorials</button>
-		</div>
-</section>
-<section id="examples" class="full-container collapse" style="display:none">
-		<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
-			
-				<div class="card">
-  <a href="/examples/world-map/">
-    <h2>Interactive World Map SVG</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/world-map.svg" alt="Interactive World Map SVG">
-    </div>
-    
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/population-of-united-states/">
-    <h2>Population of the United States</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/population-of-united-states.svg" alt="Population of the United States">
-    </div>
-    
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/prime-factorization/">
-    <h2>Prime Factorization</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/prime-factorization.svg" alt="Prime Factorization">
-    </div>
-    
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/unit-circle/">
-    <h2>Unit Circle</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/unit-circle.svg" alt="Unit Circle">
-    </div>
-    
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/angle-between-two-vectors/">
-    <h2>Angle Between Two Vectors</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/angle-between-two-vectors.svg" alt="Angle Between Two Vectors">
-    </div>
-    
-  </a>
-</div>
-
-	    
-				<div class="card">
-  <a href="/examples/angle/">
-    <h2>Angle Interactive</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/angle.svg" alt="Angle Interactive">
-    </div>
-    
-  </a>
-</div>
-
-	    
-    </div>
-		<div class="full-container">
-			<a href="/examples"><button class="muted-button">All Examples</button></a>
-		</div>
-</section>
-
-<script type="text/javascript">
-const sandbox = document.querySelector("#sandbox");
-const examples = document.querySelector("#examples");
-const tutorials = document.querySelector("#tutorials");
-document.querySelector("#examples-button").onclick = function() {
-
-  if (examples.style.display === "none") {
-		sandbox.style.display = "none";
-		tutorials.style.display = "none";
-    examples.style.display = "";
-  } else {
-    examples.style.display = "none";
-  }
-};
-document.querySelector("#tutorials-button").onclick = function() {
-	if (tutorials.style.display === "none") {
-		sandbox.style.display = "none";
-		examples.style.display = "none";
-		tutorials.style.display = "";
-	} else {
-		tutorials.style.display = "none";
-	}
-};
-document.querySelector("#sandbox-button").onclick = function() {
-	if (sandbox.style.display === "none") {
-		tutorials.style.display = "none";
-		examples.style.display = "none";
-		sandbox.style.display = "";
-	} else {
-		sandbox.style.display = "none";
-	}
-};
-</script>
 
 <main class="medium-container">
 
-  <h1>Angle Between Two Vectors</h1>
+  
+  <h1>Angle Between Two Vectors <a style="float:right" href="/sandbox/?script=/examples/math/angle-between-two-vectors.js" class="button">Open in Sandbox</a></h1>
   <div id="angle-between-two-vectors"></div>
   <script type="module" src="/examples/math/angle-between-two-vectors.js"></script>
   
@@ -237,6 +53,142 @@ document.querySelector("#sandbox-button").onclick = function() {
     <h2>Input</h2>
     <p>undefined</p>
   
+  <h2>Script</h2>
+  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm">* @title Angle Between Two Vectors
+</span><span class="cm">* @description This interactive demonstrates the angle formed between two vectors.
+</span><span class="cm">* @tags [elements]
+</span><span class="cm">*/</span>
+<span class="c1">// import Interactive from &#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&#39;;
+</span><span class="c1"></span><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../Interactive.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../Util.js&#39;</span><span class="p">;</span>
+<span class="c1">// Initialize the interactive
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">;</span>
+<span class="c1">// Create a circle
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="c1">// Create a control
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">c0</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">c1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">c2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">// c1.constrainTo( circle);
+</span><span class="c1">// c2.constrainTo( circle);
+</span><span class="c1">// Create a path
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;rgb(236,236,236)&#39;</span><span class="p">;</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">c1</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">a2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">c2</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nx">normalize</span><span class="p">(</span><span class="nx">a2</span> <span class="o">-</span> <span class="nx">a1</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">largeArcFlag</span> <span class="o">=</span> <span class="p">(</span><span class="nx">angle</span> <span class="o">&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">?</span> <span class="kc">false</span> <span class="o">:</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">x1</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">a1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">y1</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">a1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">x2</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">a2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">y2</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">a2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="nx">path</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="sb">`M </span><span class="si">${</span><span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            L </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            L </span><span class="si">${</span><span class="nx">x1</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">y1</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            A </span><span class="si">${</span><span class="nx">r</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">r</span><span class="si">}</span><span class="sb"> 0 </span><span class="si">${</span><span class="o">+</span><span class="nx">largeArcFlag</span><span class="si">}</span><span class="sb"> 0 </span><span class="si">${</span><span class="nx">x2</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">y2</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            L </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            z`</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c0</span><span class="p">);</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c1</span><span class="p">);</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c2</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">arrow1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">arrow1</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c0</span><span class="p">);</span>
+<span class="nx">arrow1</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c1</span><span class="p">);</span>
+<span class="nx">arrow1</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">c1</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="sb">`M </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="si">}</span><span class="sb">
+</span><span class="sb">  L </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb">
+</span><span class="sb">  L </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            Z`</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">arrow1</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#0366EE&#39;</span><span class="p">;</span>
+<span class="nx">arrow1</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="nx">arrow1</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">arrow2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">arrow2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c0</span><span class="p">);</span>
+<span class="nx">arrow2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c2</span><span class="p">);</span>
+<span class="nx">arrow2</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">c2</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="sb">`M </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="si">}</span><span class="sb">
+</span><span class="sb">  L </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb">
+</span><span class="sb">  L </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="sb">
+</span><span class="sb">            Z`</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">arrow2</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#0366EE&#39;</span><span class="p">;</span>
+<span class="nx">arrow2</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="nx">arrow2</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="nx">c1</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c0</span><span class="p">);</span>
+<span class="nx">c1</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">c2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c0</span><span class="p">);</span>
+<span class="nx">c2</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c0</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cx</span> <span class="o">+=</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cy</span> <span class="o">+=</span> <span class="nx">c0</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="c1">// Create a checkbox to toggle between displaying radians and degrees
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">degrees</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">checkBox</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="s2">&#34;degrees&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="cm">/**
+</span><span class="cm">* Normalizes the angle to be within the range [0, 2 PI].
+</span><span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">normalize</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">angle</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">angle</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">+</span> <span class="nx">angle</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Gets the normalized angle between zero and tau. TODO: Maybe transform the
+</span><span class="c1">// coordinate system so that the positive y-direction is up instead of down.
+</span><span class="c1">// UPDATE: transform = &#39;scale(1,-1)&#39; applied to the main svg  didn&#39;t quite work
+</span><span class="c1">// as expected: the text element was upside down, but maybe that could be
+</span><span class="c1">// reversed? bleh.
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">getAngle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">angle</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">c1</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">cy</span><span class="p">,</span> <span class="nx">c1</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">cx</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">a2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">c2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">cy</span><span class="p">,</span> <span class="nx">c2</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">cx</span><span class="p">);</span>
+    <span class="nx">angle</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">-</span> <span class="nx">normalize</span><span class="p">(</span><span class="nx">a2</span> <span class="o">-</span> <span class="nx">a1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">degrees</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nx">angle</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;°&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">angle</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; rad&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Create text to display the current angle. TODO: add a check-box to change
+</span><span class="c1">// between radians and degrees
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="o">-</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="s2">&#34;test&#34;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`angle = </span><span class="si">${</span><span class="nx">getAngle</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">degrees</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c1</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">c2</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">dominantBaseline</span> <span class="o">=</span> <span class="s1">&#39;middle&#39;</span><span class="p">;</span>
+<span class="k">export</span> <span class="p">{</span> <span class="nx">interactive</span><span class="p">,</span> <span class="nx">c1</span> <span class="p">};</span>
+<span class="c1">//# sourceMappingURL=angle-between-two-vectors.js.map
+</span></code></pre></div>
+
 
 </main>
 

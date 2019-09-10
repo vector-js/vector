@@ -53,10 +53,6 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/planets/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/population-map/</loc>
   </url>
   
@@ -199,7 +195,15 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/load-external-data/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/load-svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/map-element/</loc>
   </url>
   
   <url>
@@ -207,7 +211,7 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/mouse-input/</loc>
+    <loc>https://vectorjs.org/examples/mouse-interaction/</loc>
   </url>
   
   <url>
@@ -228,6 +232,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/bezier-curve-quadratic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/radio-control-element/</loc>
   </url>
   
   <url>
@@ -295,6 +303,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/sandbox/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/scrubber-element/</loc>
   </url>
   
@@ -352,6 +364,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/unit-circle-sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/hello-world/</loc>
   </url>
   
   <url>

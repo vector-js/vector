@@ -28,11 +28,9 @@ export default class CheckBox extends Element {
   * Constructs a control at the position (x,y)
   */
   constructor( x:number, y:number, text:string, value:boolean ) {
-    super();
+    super(SVG.Group());
 
-    this.root = SVG.Group();
     this.root.setAttribute('transform', `translate(${x},${y})`);
-    this.root.id = this.id;
 
     this.box = new Rectangle( -6.5, -6.5, 13, 13);
     this.box.root.setAttribute('rx', '2px');
@@ -43,7 +41,7 @@ export default class CheckBox extends Element {
 
     let temp = this;
     this.value = value;
-    
+
     this.box.root.onmousedown = function() {
       temp.toggle();
     };

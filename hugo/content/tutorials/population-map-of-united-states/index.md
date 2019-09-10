@@ -5,7 +5,7 @@ image: "/images/population-of-united-states.svg"
 weight: 3
 ---
 
-<img src="/images/united-states-population.svg" width="600px" style="display:block; margin:auto;">
+<img src="/images/population-of-united-states.svg" width="600px" style="display:block; margin:auto;">
 
 {{< highlight javascript>}}
 // Step 1: load in map

@@ -1,3 +1,8 @@
+/**
+* @title Radio Control Element
+* @description This interactive demonstrates the radio control element.
+* @tags [elements, input]
+*/
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());

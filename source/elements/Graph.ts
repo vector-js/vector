@@ -8,10 +8,7 @@ export default class Graph extends Element {
   nodes: Node[];
 
   constructor() {
-    super();
-
-    this.root = SVG.Group();
-    this.root.id = this.id;
+    super(SVG.Group());
 
     this.nodes = [];
 

@@ -13,8 +13,7 @@ export default class Slider extends Element {
     * is placed at this location.
     */
     constructor(x, y, width = 100, value = 0) {
-        super();
-        this.root = SVG.Group();
+        super(SVG.Group());
         this.line = new Line(x, y, x + width, y);
         this.line.root.style.strokeWidth = '1.5';
         this.line.root.style.strokeLinecap = 'round';
@@ -25,7 +24,6 @@ export default class Slider extends Element {
         this.control.handle.style.strokeWidth = '2';
         this.root.appendChild(this.line.root);
         this.root.appendChild(this.control.root);
-        this.root.id = this.id;
         this.update = () => { };
         this.addDependency(this.control);
         this.width = width;

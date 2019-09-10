@@ -186,17 +186,14 @@ export function setUrlParams( param:string, value:string) {
   window.open( url.href);
 }
 
-export function loadScript( url:string, element:HTMLElement ) {
-  getURL(url).then(function(response){
-
-    let div = document.createElement('div');
-    div.id = parseName(url);
-
-    let script = document.createElement('script');
-    script.type = 'module';
-    script.src = url;
-
-    element.appendChild(div);
-    element.appendChild(script);
-  });
+export async function loadScript( url:string, element:HTMLElement ) {
+  const response = await getURL(url);
+  let div = document.createElement('div');
+  div.id = parseName(url);
+  let script = document.createElement('script');
+  script.type = 'module';
+  script.src = url;
+  element.appendChild(div);
+  element.appendChild(script);
+  return response;
 }

@@ -14,10 +14,7 @@ export default class Rectangle extends Element{
   * Constructs a rectangle element at the position (x,y)
   */
   constructor( x:number, y:number, width:number, height:number ) {
-    super();
-    this.root = SVG.Rectangle( x, y, width, height);
-    this.root.id = this.id;
-    this.style = this.root.style;
+    super(SVG.Rectangle( x, y, width, height));
   }
 
   /**

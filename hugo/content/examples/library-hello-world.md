@@ -1,7 +1,7 @@
 ---
 title: Library Hello World
 id: library-hello-world
-script: /examples/interaction/library-hello-world.js
+script: /examples/library-hello-world.js
 description: The hello world equivelant of our library.
 input: undefined
 tags: undefined
@@ -20,4 +20,6 @@ myInteractive.border = true;
 myInteractive.control(100, 100);
 //# sourceMappingURL=library-hello-world.js.map
 {{</ highlight >}}
+
+hlight >}}
 

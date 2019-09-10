@@ -13,10 +13,7 @@ export default class Line extends Element {
   * Constructs a line between the points (x1, y1) and (x2, y2)
   */
   constructor(x1: number, y1: number, x2: number, y2: number) {
-    super();
-    this.root = SVG.Line(x1, y1, x2, y2);
-    this.root.id = this.id;
-    this.style = this.root.style;
+    super(SVG.Line(x1, y1, x2, y2));
   }
 
   /**

@@ -11,7 +11,7 @@ export default class Control extends Element {
     * Constructs a control at the position (x,y)
     */
     constructor(x, y) {
-        super();
+        super(SVG.Group());
         /**
         * Modifying the transform function allows for the control to be constrained
         * to a path or constrained to the region enclosed in a path.
@@ -20,7 +20,6 @@ export default class Control extends Element {
             return newPosition;
         };
         // create the svg components
-        this.root = SVG.Group();
         this.point = SVG.Circle(0, 0, Control.pointRadius);
         this.handle = SVG.Circle(0, 0, Control.handleRadius);
         this.root.classList.add('control');
@@ -28,7 +27,6 @@ export default class Control extends Element {
         this.handle.classList.add('control-handle');
         this.root.appendChild(this.point);
         this.root.appendChild(this.handle);
-        this.root.id = this.id;
         // initialize instance variables
         this._x = x;
         this._y = y;

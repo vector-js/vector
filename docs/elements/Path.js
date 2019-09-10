@@ -8,11 +8,7 @@ export default class Path extends Element {
     * Construct a new path element with a string of commands.
     */
     constructor(d) {
-        super();
-        this.root = SVG.Path(d);
-        this.root.classList.add('default');
-        this.root.id = this.id;
-        this.style = this.root.style;
+        super(SVG.Path(d));
     }
     /**
     * Returns the d attribute

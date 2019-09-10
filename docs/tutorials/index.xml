@@ -32,15 +32,6 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
     </item>
     
     <item>
-      <title>Planets</title>
-      <link>https://vectorjs.org/planets/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/planets/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Population Map</title>
       <link>https://vectorjs.org/population-map/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -48,6 +39,15 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <guid>https://vectorjs.org/population-map/</guid>
       <description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed  In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
 // TODO: pull data from google sheets  // Create united states map object via library call  </description>
+    </item>
+    
+    <item>
+      <title>Load External Data</title>
+      <link>https://vectorjs.org/load-external-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/load-external-data/</guid>
+      <description>getJSON(&amp;#39;https://example.com/path/to/data.json&amp;#39;).then(function(response){ console.log(&amp;#34;Here is the response&amp;#34;, response); }, function(error) { console.log(&amp;#34;Something went wrong&amp;#34;, error); });  References: JavaScript Promises: an Introduction</description>
     </item>
     
   </channel>

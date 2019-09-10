@@ -15,11 +15,8 @@ export default class RadioControl extends Element {
         if (labels === undefined || labels.length == 0) {
             throw new Error('Labels must not be empty');
         }
-        super();
-        let group = SVG.Group();
-        group.id = this.id;
-        group.setAttribute("transform", `translate(${x},${y})`);
-        this.root = group;
+        super(SVG.Group());
+        this.root.setAttribute("transform", `translate(${x},${y})`);
         this.index = index;
         let counter = 0;
         this.list = [];
@@ -36,7 +33,7 @@ export default class RadioControl extends Element {
                 rc.index = i;
                 rc.onchange();
             };
-            group.appendChild(checkbox.root);
+            this.root.appendChild(checkbox.root);
             this.list.push(checkbox);
             counter += 20;
         });

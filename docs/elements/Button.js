@@ -10,15 +10,13 @@ export default class Button extends Element {
     * Constructs a button at the position (x,y)
     */
     constructor(x, y, text) {
-        super();
+        super(SVG.Group());
         /**
         * The state of the checkbox
         */
         this._count = 0;
-        this.root = SVG.Group();
         this.root.setAttribute('transform', `translate(${x},${y})`);
         this.root.classList.add('button');
-        this.root.id = this.id;
         // Create a text element
         this.text = new Text(0, 1, text);
         this.text.root.setAttribute('alignment-baseline', 'middle');

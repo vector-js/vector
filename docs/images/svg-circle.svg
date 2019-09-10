@@ -1,16 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="704" height="300" class="interactive" id="interactive-0"><g><circle class="default" id="circle-1" cy="150" cx="300" r="75"></circle><line x1="300" y1="150" x2="375" y2="150" class="default" id="line-2" style="stroke: cornflowerblue;"></line><text x="25" y="275" id="text-3"><tspan style="fill:purple">circle</tspan> <tspan style="fill:#ab6f00">cx</tspan>="300
-                              <tspan style="fill:#ab6f00">cy</tspan>="150
-                              <tspan style="fill:#ab6f00">r</tspan>="75"></text></g><g><g class="control" id="control-4" transform="translate( 300, 150)"><circle class="control-point" cy="0" cx="0" r="4"></circle><circle class="control-handle" cy="0" cx="0" r="13"></circle></g><g class="control" id="control-5" transform="translate( 375, 150)"><circle class="control-point" cy="0" cx="0" r="4"></circle><circle class="control-handle" cy="0" cx="0" r="13"></circle></g></g><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
-.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
-.border { border: 1px solid grey; }
-.interactive { max-width: 100%; }
-svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
-text { fill: rgb(51, 51, 51); stroke: none; }
-.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
-.control-point { fill: rgb(3, 102, 238); stroke: none; }
-.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
-.control-handle.highlight { opacity: 1; }
-.button rect { fill: rgb(85, 85, 85); }
-.button:hover rect { fill: rgb(51, 51, 51); }
-.button text { fill: rgb(255, 255, 255); }
-</style></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="interactive-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 300 150" style="enable-background:new 0 0 300 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#404040;}
+	.st1{fill:none;stroke:#6495ED;}
+	.st2{fill:#800080;}
+	.st3{font-family:'HelveticaNeue';}
+	.st4{font-size:12px;}
+	.st5{fill:#333333;}
+	.st6{fill:#AB6F00;}
+	.st7{fill:#0366EE;}
+	.st8{fill-opacity:0;}
+</style>
+<circle id="circle-1" class="st0" cx="150" cy="62" r="50"/>
+<line id="line-2" class="st1" x1="150" y1="62" x2="200" y2="62"/>
+<text transform="matrix(1 0 0 1 28.0359 137.2275)" class="st2 st3 st4">circle</text>
+<text transform="matrix(1 0 0 1 56.4751 137.2275)" class="st5 st3 st4"> </text>
+<text transform="matrix(1 0 0 1 59.8111 137.2275)" class="st6 st3 st4">cx</text>
+<text transform="matrix(1 0 0 1 72.4708 137.2275)" class="st5 st3 st4">=&quot;150&quot; </text>
+<text transform="matrix(1 0 0 1 113.1346 137.2275)" class="st6 st3 st4">cy</text>
+<text transform="matrix(1 0 0 1 125.5785 137.2275)" class="st5 st3 st4">=&quot;90&quot; </text>
+<text transform="matrix(1 0 0 1 162.2423 137.2275)" class="st6 st3 st4">r</text>
+<text transform="matrix(1 0 0 1 166.2382 137.2275)" class="st5 st3 st4">=&quot;50&quot;&gt;</text>
+<text transform="matrix(1 0 0 1 19.9999 137.2275)" class="st5 st3 st4">&lt;</text>
+<g id="control-4" transform="translate( 300, 150)">
+	<circle class="st7" cx="-150" cy="-88" r="4"/>
+	<circle class="st8" cx="-150" cy="-88" r="13"/>
+</g>
+<g id="control-5" transform="translate( 375, 150)">
+	<circle class="st7" cx="-175" cy="-88" r="4"/>
+	<circle class="st8" cx="-175" cy="-88" r="13"/>
+</g>
+</svg>

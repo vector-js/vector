@@ -4,9 +4,7 @@ import Edge from '../elements/Edge.js';
 import SVG from '../SVG.js';
 export default class Graph extends Element {
     constructor() {
-        super();
-        this.root = SVG.Group();
-        this.root.id = this.id;
+        super(SVG.Group());
         this.nodes = [];
         let defs = SVG.Defs();
         defs.innerHTML = `<marker id="arrow" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#333333;"></path></marker>`;

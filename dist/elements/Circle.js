@@ -13,10 +13,7 @@ export default class Circle extends Element {
     * Constructs a rectangle element at the position (x,y)
     */
     constructor(cx, cy, r) {
-        super();
-        this.root = SVG.Circle(cx, cy, r);
-        this.root.classList.add('default');
-        this.root.id = this.id;
+        super(SVG.Circle(cx, cy, r));
     }
     /**
     * Returns the radius of this circle.
