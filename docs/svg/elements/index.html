@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vector.js</title>
-  <meta name="description" content="" />
+  <meta name="description" content="A collection of SVG elements for lookup and reference." />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -263,20 +263,52 @@ document.querySelector("#sandbox-button").onclick = function() {
           
           
           
-          <li><a class="aside-link" href="#clip-path"><img src="/icons/icon.svg" alt="Clip Path">Clip Path</a></li>
+          <li><a class="aside-link" href="#clip-path"><img src="/icons/clip-path.svg" alt="Clip Path">Clip Path</a></li>
           
         
           
           
           
           
-          <li><a class="aside-link" href="#group"><img src="/icons/icon.svg" alt="Group">Group</a></li>
+          <li><a class="aside-link" href="#defs"><img src="/icons/defs.svg" alt="Defs">Defs</a></li>
+          
+        
+          
+          
+          
+          
+          <li><a class="aside-link" href="#group"><img src="/icons/group.svg" alt="Group">Group</a></li>
+          
+        
+          
+          
+          
+          
+          <li><a class="aside-link" href="#marker"><img src="/icons/marker.svg" alt="Marker">Marker</a></li>
+          
+        
+          
+          
+          
+          
+          <li><a class="aside-link" href="#style"><img src="/icons/style.svg" alt="Style">Style</a></li>
           
         
       </ul>
     </aside>
   </div>
   <main class="medium-container" id="main-content">
+    
+
+<h1 id="svg-element-reference">SVG Element Reference</h1>
+
+<p>A collection of SVG elements for lookup and reference. See also our <a href="/svg/">SVG Tutorial</a>. This collection is not comprehensive and instead focuses on shape elements and structural elements. Two other references are:</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element" target="_blank" rel="noreferrer">MDN SVG Elements</a></li>
+<li><a href="https://www.w3.org/TR/SVG/eltindex.html" target="_blank" rel="noreferrer">W3.org SVG Element Index</a></li>
+</ul>
+
     
       <h2 id="line">Line</h2>
       <p>This interactive demonstrates the properties of the SVG line element.</p>
@@ -426,8 +458,46 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 
     
+      <h2 id="defs">Defs</h2>
+      <p>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.</p>
+
+<!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
+
+
+
+<div id="svg-rectangle" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
+
+    
       <h2 id="group">Group</h2>
-      
+      <p>A group is a structural element, useful for applying styles and transformations to multiple elements at once.</p>
+
+    
+      <h2 id="marker">Marker</h2>
+      <p>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</p>
+
+    
+      <h2 id="style">Style</h2>
+      <p>The style element defines CSS that is applied to elements through a combination of selectors.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="c">/* select an individual element by id */</span>
+  <span class="p">#</span><span class="nn">identifier</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+
+  <span class="c">/* select all elements with the class */</span>
+  <span class="p">.</span><span class="nc">className</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+
+  <span class="c">/* select all elements with the tag name*/</span>
+  <span class="nt">tagName</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></code></pre></div>
+
     
   </main>
 </section>

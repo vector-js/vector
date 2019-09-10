@@ -327,7 +327,7 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <p><img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px" style="max-width:100%;"></p>
 
-<p>Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are more general, useful, and that can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.</p>
+<p>Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are specific to the element, but there are also more general attributes that are useful and which can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.</p>
 
 <table>
 <thead>
@@ -380,7 +380,16 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 
 
-  <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"> TODO: possibly insert table of elements with see all link at bottom</code></pre></div>
+  
+
+<h1 id="svg-element-reference">SVG Element Reference</h1>
+
+<p>A collection of SVG elements for lookup and reference. See also our <a href="/svg/">SVG Tutorial</a>. This collection is not comprehensive and instead focuses on shape elements and structural elements. Two other references are:</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element" target="_blank" rel="noreferrer">MDN SVG Elements</a></li>
+<li><a href="https://www.w3.org/TR/SVG/eltindex.html" target="_blank" rel="noreferrer">W3.org SVG Element Index</a></li>
+</ul>
 
 
 
@@ -652,7 +661,11 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <h2 id="typography">Typography</h2>
 
-<p>Typography is</p>
+<p>This section of the tutorial deals with creating and formatting text within SVG documents.</p>
+
+<h3 id="text-element">Text Element</h3>
+
+<p>The text element defines text with an x, y position in the document.</p>
 
 <p><svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
   <style>
@@ -666,9 +679,7 @@ document.querySelector("#sandbox-button").onclick = function() {
   <text x="352" y="75" class="sample">The quick brown fox jumps over the lazy dog.</text>
 </svg></p>
 
-<h3 id="text-element">Text Element</h3>
-
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">x=</span><span class="s">&#34;...&#34;</span> <span class="na">y=</span><span class="s">&#34;...&#34;</span><span class="nt">&gt;</span>The quick brown fox jumps over the lazy dog.<span class="nt">&lt;/text&gt;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">x=</span><span class="s">&#34;75&#34;</span> <span class="na">y=</span><span class="s">&#34;75&#34;</span><span class="nt">&gt;</span>The quick brown fox jumps over the lazy dog.<span class="nt">&lt;/text&gt;</span></code></pre></div>
 
 <h3 id="tspan-element">Tspan Element</h3>
 
@@ -736,6 +747,8 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 <h2 id="advanced-elements">Advanced Elements</h2>
 
+<p>The SVG specification has a lot of elements, and while not all are covered in this tutorial, there are a couple of advanced elements worth mentioning.</p>
+
 <h3 id="clip-path">Clip Path</h3>
 
 <p>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.</p>
@@ -756,6 +769,8 @@ document.querySelector("#sandbox-button").onclick = function() {
 
 
 <h3 id="defs">Defs</h3>
+
+<p>The defs element contains a graphical &ldquo;definition&rdquo; that can be used else where in the document. This is useful for arrows at the start and end of a path, adding markers along a path, or creating a pattern of repeated images.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- adding markers / arrows to a path --&gt;</span></code></pre></div>
 

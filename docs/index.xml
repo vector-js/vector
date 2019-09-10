@@ -272,6 +272,16 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
     </item>
     
     <item>
+      <title>Defs</title>
+      <link>https://vectorjs.org/svg/elements/defs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/defs/</guid>
+      <description>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.
+  </description>
+    </item>
+    
+    <item>
       <title>Dependency Relation</title>
       <link>https://vectorjs.org/examples/dependency-function/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -313,7 +323,7 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/svg/elements/group/</guid>
-      <description></description>
+      <description>A group is a structural element, useful for applying styles and transformations to multiple elements at once.</description>
     </item>
     
     <item>
@@ -395,6 +405,15 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       
       <guid>https://vectorjs.org/examples/load-svg/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Marker</title>
+      <link>https://vectorjs.org/svg/elements/marker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/marker/</guid>
+      <description>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</description>
     </item>
     
     <item>
@@ -602,6 +621,16 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       
       <guid>https://vectorjs.org/examples/slider-element/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Style</title>
+      <link>https://vectorjs.org/svg/elements/style/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/style/</guid>
+      <description>The style element defines CSS that is applied to elements through a combination of selectors.
+&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
     </item>
     
     <item>
