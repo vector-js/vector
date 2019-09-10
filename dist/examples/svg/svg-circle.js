@@ -44,8 +44,8 @@ text.update = function () {
     let cx = `<tspan style="fill:#ab6f00">cx</tspan>`;
     let cy = `<tspan style="fill:#ab6f00">cy</tspan>`;
     let r = `<tspan style="fill:#ab6f00">r</tspan>`;
-    this.contents = `&lt;${tag} ${cx}="${circle.cx.toFixed(0)}
-                              ${cy}="${circle.cy.toFixed(0)}
+    this.contents = `&lt;${tag} ${cx}="${circle.cx.toFixed(0)}"
+                              ${cy}="${circle.cy.toFixed(0)}"
                               ${r}="${circle.r.toFixed(0)}"&gt`;
 };
 text.update();

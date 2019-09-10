@@ -1,14 +1,13 @@
 {{ define "main" }}
-<div class="medium-container">
-  <h1>{{.Title}}</h1>
-  {{.Content}}
-  {{ range .Sections.ByWeight }}
-    <h2 id="{{urlize .Title }}">{{.Title}}</h2>
-    {{ .Content }}
-    {{ range .Pages.ByWeight }}
-    <h3 id="{{ urlize .Title }}">{{.Title}}</h3>
-    {{ .Content }}
-    {{ end }}
-  {{ end }}
+<section class="full-container" style="max-width:1200px; margin:auto;">
+
+<div class="full-container">
+  <h2>Examples</h2>
+  <p>{{.Description}}</p>
+<div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+{{ range .Pages }}
+  {{ .Render "card" }}
+{{ end }}
 </div>
+</section>
 {{ end }}

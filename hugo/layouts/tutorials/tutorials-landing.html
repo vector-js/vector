@@ -1,0 +1,8 @@
+{{ define "main" }}
+<section class="full-container" style="max-width:1200px; margin:auto;">
+<h1>{{.Title}}</h1>
+{{ range where (where .Site.Pages "Type" "tutorials") ".Title" "!=" "Tutorials" }}
+  {{ .Render "card" }}
+{{ end }}
+</section>
+{{ end }}

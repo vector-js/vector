@@ -36,9 +36,9 @@ text.update = function() {
   let y1 = `<tspan style="fill:#ab6f00">y1</tspan>`;
   let x2 = `<tspan style="fill:#ab6f00">x2</tspan>`;
   let y2 = `<tspan style="fill:#ab6f00">y2</tspan>`;
-  this.contents = `&lt;${tag} ${x1}="${line.x1.toFixed(0)}
-                              ${y1}="${line.y1.toFixed(0)}
-                              ${x2}="${line.x2.toFixed(0)}
+  this.contents = `&lt;${tag} ${x1}="${line.x1.toFixed(0)}"
+                              ${y1}="${line.y1.toFixed(0)}"
+                              ${x2}="${line.x2.toFixed(0)}"
                               ${y2}="${line.y2.toFixed(0)}"&gt`;
 }
 text.update();
