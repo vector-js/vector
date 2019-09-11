@@ -18,10 +18,14 @@ import Control from './elements/Control.js';
 import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
+import Stepper from './elements/Stepper.js';
+
 
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
+import Graph from './elements/DirectedGraph.js';
+
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -295,6 +299,15 @@ export default class Interactive extends Element  {
   }
 
   /**
+  * Creates a directed graph element within this interactive
+  */
+  directedGraph() : DirectedGraph {
+    let graph = new DirectedGraph();
+    this.background.appendChild(graph.root);
+    return graph;
+  }
+
+  /**
   * Creates a slider input within this interactive
   */
   slider(x: number, y: number, width?: number, value?:number) : Slider {
@@ -378,9 +391,15 @@ export default class Interactive extends Element  {
   /**
   * Creates an edge connecting two nodes within this interactive.
   */
-  edge (nodeFrom: Node, nodeTo: Node, directed: boolean){
+  edge (nodeFrom: Node, nodeTo: Node, directed: boolean) : Edge{
     let edge = new Edge(nodeFrom, nodeTo, directed);
     this.background.appendChild(edge.root);
     return edge;
+  }
+
+  stepper (x1:number, y1:number, x2:number, y2:number) : Stepper{
+    let stepper = new Stepper(x1, y1, x2, y2);
+    this.background.appendChild(stepper.root);
+    return stepper;
   }
 }

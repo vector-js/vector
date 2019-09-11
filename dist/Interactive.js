@@ -16,6 +16,7 @@ import Control from './elements/Control.js';
 import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
+import Stepper from './elements/Stepper.js';
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
@@ -228,6 +229,14 @@ export default class Interactive extends Element {
         return graph;
     }
     /**
+    * Creates a directed graph element within this interactive
+    */
+    directedGraph() {
+        let graph = new DirectedGraph();
+        this.background.appendChild(graph.root);
+        return graph;
+    }
+    /**
     * Creates a slider input within this interactive
     */
     slider(x, y, width, value) {
@@ -306,6 +315,11 @@ export default class Interactive extends Element {
         let edge = new Edge(nodeFrom, nodeTo, directed);
         this.background.appendChild(edge.root);
         return edge;
+    }
+    stepper(x1, y1, x2, y2) {
+        let stepper = new Stepper(x1, y1, x2, y2);
+        this.background.appendChild(stepper.root);
+        return stepper;
     }
 }
 //# sourceMappingURL=Interactive.js.map
