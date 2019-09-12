@@ -25,5 +25,4 @@ description: The sandbox is a place
 </div>
 
 <script src="https://pagecdn.io/lib/ace/1.4.5/ace.js" integrity="sha256-5Xkhn3k/1rbXB+Q/DX/2RuAtaB4dRRyQvMs83prFjpM=" crossorigin="anonymous"></script>
-
 <script type="module" src="/js/sandbox.js"></script>

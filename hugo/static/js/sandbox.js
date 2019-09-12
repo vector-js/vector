@@ -2,44 +2,62 @@ import { getUrlParams, getURL, loadScript, parseName, download } from '/Util.js'
 import { saveAs } from '/util/file.js';
 import Element from '/elements/Element.js';
 
-let id = 'hello-world';
-let editor = ace.edit("editor");
-// editor.setTheme("ace/theme/monokai");
-editor.session.setMode("ace/mode/javascript");
-editor.session.setUseWrapMode(true);
+// variables
+let script;
+let id;
+let container;
+let editor;
 
-// get the current url parameters and check if there is script defined
-let params = getUrlParams(window.location.search);
-if (params.has('script')) {
+// initialize the sandbox
+initialize();
 
-  let script = params.get('script');
-  let element = document.getElementById("interactive-container");
-  id = parseName(script);
-  let text = loadScript( script, element).then(function(response){
-    editor.setValue(response, 1);
-  });
-} else {
-  console.log('no url parameter script.');
-}
+// Register keyboard shortcuts
+addKeyboardShortcut('R', run);
+addKeyboardShortcut('S', downloadScript);
 
-// TODO: add key board short cuts
-// command + r : Run
-// command + s : Save SVG Image
-
-// TODO: add buttons / drop down menus
-
-let container = document.getElementById('interactive-container');
-
+// Register button events to handlers
 document.getElementById('run').onclick = run;
-document.getElementById('svg').onclick = svg;
+document.getElementById('svg').onclick = downloadSVG;
 document.getElementById('download').onclick = downloadScript;
 
+/**
+* Initializes the sandbox
+*/
+function initialize() {
+
+  // initialize the ace editor
+  editor = ace.edit("editor");
+  // editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/javascript");
+  editor.session.setUseWrapMode(true);
+
+  // get the current url parameters and check if there is script defined
+  let params = getUrlParams(window.location.search);
+  if (params.has('script')) {
+
+    script = params.get('script');
+    container = document.getElementById("interactive-container");
+    id = parseName(script);
+    let text = loadScript( script, container).then(function(response){
+      editor.setValue(response, 1);
+    });
+  } else {
+    console.log('no url parameter script.');
+  }
+}
+
+/**
+* Downloads the script in the text editor.
+*/
 function downloadScript() {
   let blob = new Blob([editor.getValue()], { type: 'text/javascript' });
   saveAs(blob, `${id}.js`, {});
 }
 
-function svg() {
+/**
+* Downloads the current state of the interactive as an SVG document.
+*/
+function downloadSVG() {
   download(id, `${id}.svg`);
 }
 
@@ -47,6 +65,7 @@ function svg() {
 * Takes the script in the editor and executes it.
 */
 function run() {
+
   // Remove all the elements from the interactive container
   while( container.firstChild) {
     container.removeChild(container.firstChild);
@@ -78,4 +97,13 @@ function run() {
   }
 }
 
-window.run = run;
+/**
+* Adds a andler to a shortcut for the window.
+*/
+function addKeyboardShortcut(key, handler) {
+  window.addEventListener('keydown', function(event){
+    if( event.key == key) {
+        handler();
+    }
+  });
+}

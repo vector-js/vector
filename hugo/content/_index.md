@@ -61,9 +61,7 @@ The button element has a position, label, and default style. Defining the "oncli
 let button = interactive.button( 100, 75, "My Button");
 {{< /highlight >}}
 
-<div id="button-element"></div>
-
-<script type="module" src="/examples/elements/button-element.js"></script>
+{{<example "button-element">}}
 
 ### Check Box
 
@@ -73,9 +71,7 @@ A checkbox has two different states: checked and unchecked. When a user clicks t
 let checkBox = interactive.checkBox( 100, 75, "My Checkbox", false);
 {{< /highlight >}}
 
-<div id="check-box-element"></div>
-
-<script type="module" src="/examples/elements/check-box-element.js"></script>
+{{<example "check-box-element">}}
 
 ### Control Point
 
@@ -85,9 +81,7 @@ A control point is a two dimensional point that can be clicked and dragged by th
 let control = interactive.control( 150, 75);
 {{< /highlight >}}
 
-<div id="control-element"></div>
-
-<script type="module" src="/examples/elements/control-element.js"></script>
+{{<example "control-element">}}
 
 <!-- TODO: drop down -->
 <!-- TODO: input box -->
@@ -100,9 +94,7 @@ The radio control elements allows the user to select from a list of options. Onl
 let radio = interactive.radioControl(["red","green","blue"], 100, 50);
 {{< /highlight >}}
 
-<div id="radio-control-element"></div>
-
-<script type="module" src="/examples/elements/radio-control-element.js"></script>
+{{<example "radio-control-element">}}
 
 ### Scrubber
 
@@ -122,9 +114,7 @@ A slider has a position, width, and starting value.
 let slider = interactive.slider( 75, 75, 150, 20);
 {{< /highlight >}}
 
-<div id="slider-element"></div>
-
-<script type="module" src="/examples/elements/slider-element.js"></script>
+{{<example "slider-element">}}
 
 ## Elements
 
@@ -136,9 +126,7 @@ Our library has basic visual elements that are used to create the graphics. All 
 let ellipse = interactive.ellipse( 100, 75, 80, 40);
 {{< /highlight >}}
 
-<div id="ellipse-element"></div>
-
-<script type="module" src="/examples/elements/ellipse-element.js"></script>
+{{<example "ellipse-element">}}
 
 ### Line
 
@@ -146,9 +134,7 @@ let ellipse = interactive.ellipse( 100, 75, 80, 40);
 let line = interactive.line( 50, 25, 150, 125);
 {{< /highlight >}}
 
-<div id="line-element"></div>
-
-<script type="module" src="/examples/elements/line-element.js"></script>
+{{<example "line-element">}}
 
 ### Path
 
@@ -156,9 +142,7 @@ let line = interactive.line( 50, 25, 150, 125);
 let line = interactive.path("M 50 50 Q 100 150 150 50");
 {{< /highlight >}}
 
-<div id="path-element"></div>
-
-<script type="module" src="/examples/elements/path-element.js"></script>
+{{<example "path-element">}}
 
 ### Rectangle
 
@@ -166,9 +150,7 @@ let line = interactive.path("M 50 50 Q 100 150 150 50");
 let rectangle = interactive.rectangle( 50, 50, 100, 50);
 {{< /highlight >}}
 
-<div id="rectangle-element"></div>
-
-<script type="module" src="/examples/elements/rectangle-element.js"></script>
+{{<example "rectangle-element">}}
 
 ### Text
 
@@ -176,9 +158,7 @@ let rectangle = interactive.rectangle( 50, 50, 100, 50);
 let text = interactive.text( 50, 75, "My Text");
 {{< /highlight >}}
 
-<div id="text-element"></div>
-
-<script type="module" src="/examples/elements/text-element.js"></script>
+{{<example "text-element">}}
 
 ### TSpan
 
@@ -191,9 +171,7 @@ text.tspan('bold. ').style.fontWeight = '600';
 text.tspan('normal again.');
 {{< /highlight >}}
 
-<div id="tspan-element"></div>
-
-<script type="module" src="/examples/elements/tspan-element.js"></script>
+{{<example "tspan-element">}}
 
 ## Interaction
 
@@ -218,11 +196,7 @@ control2.update = function(){
 };
 {{< /highlight >}}
 
-<div id="dependency-function"></div>
-
-<script type="module" src="/examples/interaction/dependency-function.js">
-
-</script>
+{{<example "dependency-function">}}
 
 ### Keyboard Input
 
@@ -236,9 +210,7 @@ window.onkeydown = function( event ) {
 }
 {{< /highlight >}}
 
-<div id="key-board-input"></div>
-
-<script type="module" src="/examples/interaction/key-board-input.js"></script>
+{{<example "key-board-input">}}
 
 ### Mouse Input
 
@@ -254,9 +226,7 @@ interactive.onclick ?
 interactive.onmousemove ?
 {{< /highlight >}}
 
-<div id="mouse-interaction"></div>
-
-<script type="module" src="/examples/interaction/mouse-interaction.js"></script>
+{{<example "mouse-interaction">}}
 
 ## Animation
 
@@ -345,10 +315,7 @@ Alternatively, the viewbox of the interactive can be changed
 
 ### Zooming and Panning
 
-<div id="zoom-in-out"></div>
-
-<script type="module" src="/examples/interaction/zoom-in-out.js"></script>
-
+{{<example "zoom-in-out">}}
 
 ### Transforming
 
