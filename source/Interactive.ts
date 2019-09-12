@@ -248,6 +248,16 @@ export default class Interactive extends Element  {
   }
 
   /**
+  * Creates a nested interactive within this interactive
+  */
+  interactive( x:number, y:number ) : Interactive {
+    let obj = new Interactive(this.id);
+    obj.root.setAttribute('x', x.toString());
+    obj.root.setAttribute('y', y.toString());
+    return obj;
+  }
+
+  /**
   * Creates a checkbox input at the position (x,y) within this interactive.
   */
   button( x:number, y:number, label:string, ) : Button {
@@ -272,7 +282,7 @@ export default class Interactive extends Element  {
   let radioControl = new RadioControl(labels,x,y,index);
   this.controls.appendChild(radioControl.root);
   return radioControl;
-}
+  }
 
   /**
   * Creates a control point within this interactive at the position (x,y).
@@ -316,7 +326,7 @@ export default class Interactive extends Element  {
  map(mapName:string,width:number,height:number) : Map {
   let map = new Map(this,mapName,width,height);
   return map;
-}
+  }
 
   /**
   * Creates a slider input within this interactive

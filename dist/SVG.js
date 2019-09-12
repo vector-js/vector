@@ -107,11 +107,14 @@ export default class SVG {
         let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         return defs;
     }
-    static async getSVG(url) {
+    static parseSVG(svg) {
         let parser = new DOMParser();
-        let svg = await getURL(url);
         let doc = parser.parseFromString(svg, 'image/svg+xml');
         return doc.documentElement;
+    }
+    static async getSVG(url) {
+        let svg = await getURL(url);
+        return SVG.parseSVG(svg);
     }
 }
 //# sourceMappingURL=SVG.js.map

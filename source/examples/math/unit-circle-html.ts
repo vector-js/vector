@@ -9,21 +9,23 @@ import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 import Point from '../../elements/Point.js';
 import SVG from '../../SVG.js';
+import { CheckBox } from '../../Library.js';
 
 let radius = 80;
 let margin = 20;
 
-let interactive = new Interactive(getScriptName());
-interactive.width = 200 + 18 + 2*Math.PI*radius;
-interactive.height = 218*2 + 18;
+let container = document.getElementById(getScriptName());
+container.style.display = 'grid';
+container.style.gridTemplateColumns = `${2*(radius + margin)}px ${2*Math.PI*radius}px`;
+container.style.gridGap = '1rem';
 
 // Initialize the interactive
-let circleInteractive = interactive.interactive(0, 0);
+let circleInteractive = new Interactive(getScriptName());
 circleInteractive.width = 2*(radius + margin);
 circleInteractive.height = 2*(radius + margin);
+circleInteractive.border = true;
 circleInteractive.originX = radius + margin;
 circleInteractive.originY = radius + margin;
-circleInteractive.rectangle(-100, -100, circleInteractive.width, circleInteractive.height).style.strokeWidth = '2';
 let xAxis = circleInteractive.line( -(radius + margin), 0, radius + margin, 0);
 let yAxis = circleInteractive.line( 0, -(radius + margin), 0, radius + margin);
 let circle = circleInteractive.circle( 0, 0, radius);
@@ -47,11 +49,10 @@ rightTriangle.update = function() {
 rightTriangle.update();
 rightTriangle.style.fill = '#f8f8f8';
 
-let chartInteractive = interactive.interactive(218, 0);
+let chartInteractive = new Interactive(getScriptName());
 chartInteractive.width = 2*Math.PI*radius;
 chartInteractive.height = 2*(radius + margin);
-chartInteractive.rectangle(0, 0, chartInteractive.width, chartInteractive.height).style.strokeWidth = '2';
-
+chartInteractive.border = true;
 // chartInteractive.originX = 0;
 // chartInteractive.originY = chartInteractive.height/2;
 let graph = chartInteractive.plot(false);
@@ -89,10 +90,10 @@ chartControl.onchange = function() {
   control.updateDependents();
 };
 
-let info = interactive.interactive(0, 218);
+let info = new Interactive(getScriptName());
 info.width = 2*(radius + margin);
 info.height = 2*(radius + margin);
-info.rectangle(0, 0, info.width, info.height).style.strokeWidth = '2';
+info.border = true;
 
 let x = 20;
 let thetaDisplay = info.text( x, info.height*1/5, "θ = ...");
@@ -131,10 +132,10 @@ animate.onclick = function() {
   }
 };
 
-let functions = interactive.interactive(218, 218);
+let functions = new Interactive(getScriptName());
 functions.width = 2*Math.PI*radius;
 functions.height = 2*(radius + margin);
-functions.rectangle(0, 0, functions.width, functions.height).style.strokeWidth = '2';
+functions.border = true;
 
 // TODO: replace with radio input
 // let cosInput = functions.checkBox( x + 16, functions.height*2/6, "cos(θ)", false);

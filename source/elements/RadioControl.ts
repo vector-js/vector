@@ -48,7 +48,7 @@ export default class RadioControl extends Element {
               };
             this.root.appendChild(checkbox.root);
             this.list.push(checkbox);
-            counter += 20;
+            counter += 24;
         });
     }
 

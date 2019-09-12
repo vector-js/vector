@@ -129,10 +129,14 @@ export default class SVG {
     return defs;
   }
 
-  static async getSVG( url:string ) : Promise<SVGElement> {
+  static parseSVG( svg:string ) {
     let parser = new DOMParser();
-    let svg = await getURL(url);
     let doc = parser.parseFromString(svg, 'image/svg+xml');
     return (doc.documentElement as unknown) as SVGElement;
+  }
+
+  static async getSVG( url:string ) : Promise<SVGElement> {
+    let svg = await getURL(url);
+    return SVG.parseSVG(svg);
   }
 }
