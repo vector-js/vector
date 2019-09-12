@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="interactive-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 532 150" style="enable-background:new 0 0 532 150;" xml:space="preserve">
+	 y="0px" viewBox="0 0 300 150" style="enable-background:new 0 0 300 150;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;stroke:#404040;}
 	.st1{fill:#333333;}
@@ -10,19 +10,13 @@
 	.st4{fill:#404040;stroke:#404040;}
 	.st5{fill:#FFFFFF;}
 </style>
-<path id="rectangle-1" class="st0" d="M35,41.3h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3H35c-1.7,0-3-1.3-3-3v-58
-	C32,42.7,33.3,41.3,35,41.3z"/>
-<text id="text-2" transform="matrix(1 0 0 1 58.996 76.6919)" class="st1 st2 st3">1</text>
-<path id="rectangle-3" class="st4" d="M135,41.3h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3h-58c-1.7,0-3-1.3-3-3v-58
-	C132,42.7,133.3,41.3,135,41.3z"/>
-<text id="text-4" transform="matrix(1 0 0 1 158.996 76.6919)" class="st5 st2 st3">2</text>
-<path id="rectangle-5" class="st0" d="M235,41.3h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3h-58c-1.7,0-3-1.3-3-3v-58
-	C232,42.7,233.3,41.3,235,41.3z"/>
-<text id="text-6" transform="matrix(1 0 0 1 258.996 76.6919)" class="st1 st2 st3">3</text>
-<path id="rectangle-7" class="st0" d="M335,41.3h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3h-58c-1.7,0-3-1.3-3-3v-58
-	C332,42.7,333.3,41.3,335,41.3z"/>
-<text id="text-8" transform="matrix(1 0 0 1 358.996 76.6919)" class="st1 st2 st3">4</text>
-<path id="rectangle-9" class="st0" d="M435,41.3h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3h-58c-1.7,0-3-1.3-3-3v-58
-	C432,42.7,433.3,41.3,435,41.3z"/>
-<text id="text-10" transform="matrix(1 0 0 1 458.996 76.6919)" class="st1 st2 st3">5</text>
+<path id="rectangle-1" class="st0" d="M29,43h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3H29c-1.7,0-3-1.3-3-3V46C26,44.4,27.3,43,29,43z
+	"/>
+<text id="text-2" transform="matrix(1 0 0 1 52.996 78.3918)" class="st1 st2 st3">1</text>
+<path id="rectangle-3" class="st4" d="M121,43h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3h-58c-1.7,0-3-1.3-3-3V46
+	C118,44.4,119.3,43,121,43z"/>
+<text id="text-4" transform="matrix(1 0 0 1 144.996 78.3918)" class="st5 st2 st3">2</text>
+<path id="rectangle-5" class="st0" d="M213,43h58c1.7,0,3,1.3,3,3v58c0,1.7-1.3,3-3,3h-58c-1.7,0-3-1.3-3-3V46
+	C210,44.4,211.3,43,213,43z"/>
+<text id="text-6" transform="matrix(1 0 0 1 236.996 78.3918)" class="st1 st2 st3">3</text>
 </svg>

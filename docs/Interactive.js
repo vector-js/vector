@@ -186,6 +186,15 @@ export default class Interactive extends Element {
         this.root.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
     }
     /**
+    * Creates a nested interactive within this interactive
+    */
+    interactive(x, y) {
+        let obj = new Interactive(this.id);
+        obj.root.setAttribute('x', x.toString());
+        obj.root.setAttribute('y', y.toString());
+        return obj;
+    }
+    /**
     * Creates a checkbox input at the position (x,y) within this interactive.
     */
     button(x, y, label) {

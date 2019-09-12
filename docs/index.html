@@ -114,7 +114,7 @@
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Getting Started<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://vectorjs.org/Library.css&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://vectorjs.orglibrary.css&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-interactive&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -179,14 +179,27 @@
 
 <h3 id="radio-control">Radio Control</h3>
 
-<p>what do i do?</p>
+<p>The radio control elements allows the user to select from a list of options. Only one option can be selected at a time.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">radioControl</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">radioControl</span><span class="p">([</span><span class="s2">&#34;blue&#34;</span><span class="p">,</span><span class="s2">&#34;red&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">,</span><span class="s2">&#34;yellow&#34;</span><span class="p">],</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">radio</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">radioControl</span><span class="p">([</span><span class="s2">&#34;red&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">,</span><span class="s2">&#34;blue&#34;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 </code></pre></div>
 
 <div id="radio-control-element"></div>
 
 <script type="module" src="/examples/elements/radio-control-element.js"></script>
+
+<h3 id="scrubber">Scrubber</h3>
+
+<p>The scrubber has a play and pause button that start and stop the animation. The position indicator can also be dragged to change the state of the scrubber.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="scrubber-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/scrubber-element.js"></script>
+
+
 
 <h3 id="slider">Slider</h3>
 
@@ -201,10 +214,7 @@
 
 <h2 id="elements">Elements</h2>
 
-<p>These elements form the basis of the visual part of the interactive.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// How do you use/import a prexisting SVG image?
-</span></code></pre></div>
+<p>Our library has basic visual elements that are used to create the graphics. All elements contain a root SVGElement that contains the visual part of the element. Basic element root&rsquo;s correspond directly to the visual aspect of the element, more complicated elements often contain many SVGElements that describe the graphic.</p>
 
 <h3 id="ellipse">Ellipse</h3>
 
@@ -267,13 +277,17 @@
 
 <h2 id="interaction">Interaction</h2>
 
-<p>There are two primary forms of interaction within our system. The first is dependencies; elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order when an element&rsquo;s state is changed.</p>
+<p>There are two forms of interaction within our system: dependencies and events.</p>
 
-<p>The second form of interaction is the more tradditional event and handler architecture common to the web. Besides being used heavily within the implementation of this system, events are very useful when creating interactives.</p>
+<p>The first form of interaction is dependencies. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p>
+
+<p>The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.</p>
 
 <h3 id="dependency-functions">Dependency Functions</h3>
 
-<p>All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the function .addDependency and then (optionally?) defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, although hopefully in the future this will be strictly enforced, only the element&rsquo;s data whom have been declared should be used within the update function.</p>
+<p>All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the &ldquo;addDependency&rdquo; function and then defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, an element should only use the data of the elements it has declared itself dependent on.</p>
+
+<!-- TODO: hopefully in the future this will be strictly enforced,  -->
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">control1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">control2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
@@ -291,7 +305,9 @@
 
 <h3 id="keyboard-input">Keyboard Input</h3>
 
-<p>Key board input can be used to change the state of an interactive or control different elements of it. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.</p>
+<p>Key board input can be used to change the state of an interactive as well as control different elements within the interactive. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.</p>
+
+<!-- TODO: make an interactive of the whole keyboard -->
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onkeydown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
@@ -304,9 +320,13 @@
 
 <h3 id="mouse-input">Mouse Input</h3>
 
-<p>horizontal line showing x-position
-veritical line showing y-position
-expanding circle on click</p>
+<p>Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse&rsquo;s position, when the users clicks the interactive, etc.</p>
+
+<!-- TODO: add mouse into the depdency eco-system? -->
+
+<!-- TODO: show velocity vector of mouse? -->
+
+<!-- TODO: count mouse leave, mouse enter? -->
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">interactive</span><span class="p">.</span><span class="nx">mouse</span> <span class="o">?</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">?</span>
@@ -319,24 +339,28 @@ expanding circle on click</p>
 
 <h2 id="animation">Animation</h2>
 
-<h3 id="animate-along-path">Animate Along Path</h3>
+<p>While animation isn&rsquo;t the main focus the library, some basic animations are supported.</p>
+
+<h3 id="transitions">Transitions?</h3>
+
+<h3 id="time-line">Time Line</h3>
+
+<p>Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and &ldquo;scrub&rdquo; to different parts of the animation.</p>
+
+<!-- TODO: temporarily stop the update when the scrubber element is grabbed -->
+
+<!-- TODO: when the scrubber is "scrubbed" to the end, set the flag to true so the next time the user clicks the play button the animation restarts. -->
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">);</span>
-
 <span class="nx">circle</span><span class="p">.</span><span class="nx">animateAlongPath</span><span class="p">(</span> <span class="nx">path</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">SPEED</span><span class="p">);</span>
 </code></pre></div>
 
-<p><img src="/images/trace-animation.svg" class="center" alt="Animate Along SVG Path"></p>
 
-<h3 id="time-line-animation">Time Line Animation</h3>
+<div id="animate-along-path" class="vertical-center"></div>
+<script type="module" src="/examples/interaction/animate-along-path.js"></script>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">468</span><span class="p">);</span>
-</code></pre></div>
 
-<div id="scrubber-element"></div>
-
-<script type="module" src="/examples/elements/scrubber-element.js"></script>
 
 <h2 id="maps">Maps</h2>
 
@@ -344,14 +368,17 @@ expanding circle on click</p>
 
 <h3 id="world-map">World Map</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;world-map.geojson&#34;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">canada</span> <span class="nx">from</span> <span class="s1">&#39;./maps/canada.js&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">canada</span><span class="p">);</span>
 </code></pre></div>
 
 <p><img src="/images/world-map.svg" class="center" alt="SVG World Map"></p>
 
-<div id="map-element"></div>
 
+<div id="map-element" class="vertical-center"></div>
 <script type="module" src="/examples/elements/map-element.js"></script>
+
+
 
 <h3 id="united-states">United States</h3>
 
@@ -375,9 +402,9 @@ expanding circle on click</p>
 
 <p>
   
-
 <div id="svg-coordinate-system" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-coordinate-system.js"></script>
+
 
 </p>
 
@@ -426,6 +453,12 @@ expanding circle on click</p>
 <h3 id="custom-styling">Custom Styling</h3>
 
 <p>Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// element.style ...
+</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: how to load a custom style sheet
+</span></code></pre></div>
 
   </main>
 </section>

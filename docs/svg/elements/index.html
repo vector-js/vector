@@ -115,7 +115,7 @@
   <main class="medium-container" id="main-content">
     
 
-<h1 id="svg-element-reference">SVG Element Reference</h1>
+<h1 id="svg-elements">SVG Elements</h1>
 
 <p>A collection of SVG elements for lookup and reference. See also our <a href="/svg/">SVG Tutorial</a>. This collection is not comprehensive and instead focuses on shape elements and structural elements. Two other references are:</p>
 
@@ -129,9 +129,9 @@
       <p>This interactive demonstrates the properties of the SVG line element.</p>
 
 
-
 <div id="svg-line" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-line.js"></script>
+
 
 
     
@@ -141,9 +141,9 @@
 <!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
 
 
-
 <div id="svg-rectangle" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
 
 
     
@@ -151,9 +151,9 @@
       <p>This interactive demonstrates the properties of the ellipse element. There are three controls: one that changes the center position of the ellipse, one that controls the length of the x-radius, and another that changes the length of the y-radius.</p>
 
 
-
 <div id="svg-ellipse" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-ellipse.js"></script>
+
 
 
     
@@ -216,9 +216,9 @@
 <p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
 
 
-
 <div id="svg-path-line" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-line.js"></script>
+
 
 
 <h4 id="path-quadratic-bezier-command">Path: Quadratic Bezier Command</h4>
@@ -228,9 +228,9 @@
 <p>The quadratic bezier curve command draws a curve between two points: the current position of the path and the end point (x2, y2). The shape of the curve is described by the first position in the command (x1, y1). Mathematically the curve is a parameterized polynomial. <a href="https://pomax.github.io/bezierinfo/" target="_blank" rel="noreferrer">More info here</a>.</p>
 
 
-
 <div id="svg-path-bezier-quadratic" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-bezier-quadratic.js"></script>
+
 
 
 <h4 id="path-cubic-bezier-command">Path: Cubic Bezier Command</h4>
@@ -240,9 +240,9 @@
 <p>The cubic bezier curve command is like the quadratic curve with an additional point to further control the shape of the curve.</p>
 
 
-
 <div id="svg-path-bezier-cubic" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-bezier-cubic.js"></script>
+
 
 
 <h4 id="path-arc-command">Path: Arc Command</h4>
@@ -252,9 +252,9 @@
 <p>The arc command draws an arc between two points. The syntax of the command is &ldquo;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&rdquo;. The arc is drawn between the current position of the path and the end position (x,y). The numbers rx and ry define the shape of the ellipse which forms the arc. The x-axis rotation number controls what part of the ellipse&rsquo;s arc is being drawn between the points. The large arc flag determines whether to take the shorter arc or longer path between the two points. Finally, the sweep-flag chooses which of the two ellipsis that pass through the two points to draw.</p>
 
 
-
 <div id="svg-path-arc" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-arc.js"></script>
+
 
 
     
@@ -271,9 +271,9 @@
 <p>Click and drag the clip path below to change the position of the circle that defines the clipping path.</p>
 
 
-
 <div id="svg-clip-path" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-clip-path.js"></script>
+
 
 
     
@@ -283,9 +283,9 @@
 <!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
 
 
-
 <div id="svg-rectangle" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
 
 
     

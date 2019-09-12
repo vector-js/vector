@@ -114,9 +114,13 @@
   <main class="medium-container" id="main-content">
     
 
-<h2 id="getting-started">Getting Started</h2>
+<h1 id="svg-tutorial">SVG Tutorial</h1>
 
-<p>This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for a complete overview. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>.</p>
+<p>This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for an overview of the specification. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>.</p>
+
+<p>See also: <a href="/svg/elements/">SVG Elements</a>.</p>
+
+<h2 id="getting-started">Getting Started</h2>
 
 <p>SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the &ldquo;svg&rdquo; tag, which forms the root of the docuement, looks like:</p>
 
@@ -197,7 +201,7 @@
 
   
 
-<h1 id="svg-element-reference">SVG Element Reference</h1>
+<h1 id="svg-elements">SVG Elements</h1>
 
 <p>A collection of SVG elements for lookup and reference. See also our <a href="/svg/">SVG Tutorial</a>. This collection is not comprehensive and instead focuses on shape elements and structural elements. Two other references are:</p>
 
@@ -218,9 +222,9 @@
   <p>This interactive demonstrates the properties of the SVG line element.</p>
 
 
-
 <div id="svg-line" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-line.js"></script>
+
 
 
 
@@ -235,9 +239,9 @@
   <p>This interactive demonstrates the properties of the ellipse element. There are three controls: one that changes the center position of the ellipse, one that controls the length of the x-radius, and another that changes the length of the y-radius.</p>
 
 
-
 <div id="svg-ellipse" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-ellipse.js"></script>
+
 
 
 
@@ -254,9 +258,9 @@
 <!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
 
 
-
 <div id="svg-rectangle" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
 
 
 
@@ -326,9 +330,9 @@
 <p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
 
 
-
 <div id="svg-path-line" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-line.js"></script>
+
 
 
 <h4 id="path-quadratic-bezier-command">Path: Quadratic Bezier Command</h4>
@@ -338,9 +342,9 @@
 <p>The quadratic bezier curve command draws a curve between two points: the current position of the path and the end point (x2, y2). The shape of the curve is described by the first position in the command (x1, y1). Mathematically the curve is a parameterized polynomial. <a href="https://pomax.github.io/bezierinfo/" target="_blank" rel="noreferrer">More info here</a>.</p>
 
 
-
 <div id="svg-path-bezier-quadratic" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-bezier-quadratic.js"></script>
+
 
 
 <h4 id="path-cubic-bezier-command">Path: Cubic Bezier Command</h4>
@@ -350,9 +354,9 @@
 <p>The cubic bezier curve command is like the quadratic curve with an additional point to further control the shape of the curve.</p>
 
 
-
 <div id="svg-path-bezier-cubic" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-bezier-cubic.js"></script>
+
 
 
 <h4 id="path-arc-command">Path: Arc Command</h4>
@@ -362,9 +366,9 @@
 <p>The arc command draws an arc between two points. The syntax of the command is &ldquo;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&rdquo;. The arc is drawn between the current position of the path and the end position (x,y). The numbers rx and ry define the shape of the ellipse which forms the arc. The x-axis rotation number controls what part of the ellipse&rsquo;s arc is being drawn between the points. The large arc flag determines whether to take the shorter arc or longer path between the two points. Finally, the sweep-flag chooses which of the two ellipsis that pass through the two points to draw.</p>
 
 
-
 <div id="svg-path-arc" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-path-arc.js"></script>
+
 
 
 
@@ -376,9 +380,9 @@
 <p>The origin of the svg coordinate system is at the top-left corner of the image. The positive x-direction is to the right and the positive y-direction is down. In the world of computer graphics it is standard to have the y-axis flipped since elements are positioned relative to the top-left corner of the container. Try clicking and dragging the control point below.</p>
 
 
-
 <div id="svg-coordinate-system" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-coordinate-system.js"></script>
+
 
 
 <h3 id="view-box">View Box</h3>
@@ -388,9 +392,9 @@
 <p>The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox which is visualized with the rectangle on the left. The resulting svg is shown on the right.</p>
 
 
-
 <div id="svg-view-box" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-view-box.js"></script>
+
 
 
 <p></p>
@@ -410,9 +414,9 @@
 <p>Elements can be scaled to larger or smaller sizes by adding a scale function to the transform attribute.</p>
 
 
-
 <div id="svg-scale" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-scale.js"></script>
+
 
 
 <div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;g</span> <span class="na">transform=</span><span class="s">&#34;scale(x,y)&#34;</span><span class="nt">&gt;</span>
@@ -424,9 +428,9 @@
 <p>Elements can be rotated.</p>
 
 
-
 <div id="svg-rotate" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-rotate.js"></script>
+
 
 
 <h4 id="translate">Translate</h4>
@@ -434,9 +438,9 @@
 <p>Elements can be moved to new locations.</p>
 
 
-
 <div id="svg-translate" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-translate.js"></script>
+
 
 
 <h4 id="chaining-transformations">Chaining Transformations</h4>
@@ -582,9 +586,9 @@
 <p>Click and drag the clip path below to change the position of the circle that defines the clipping path.</p>
 
 
-
 <div id="svg-clip-path" class="vertical-center"></div>
 <script type="module" src="/examples/svg/svg-clip-path.js"></script>
+
 
 
 <h3 id="defs">Defs</h3>

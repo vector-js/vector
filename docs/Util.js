@@ -1,8 +1,11 @@
 import { saveAs } from './util/file.js';
-function parseName(filename) {
-    let start = filename.lastIndexOf("/") + 1;
-    let end = filename.lastIndexOf(".");
-    return filename.substr(start, end - start);
+/**
+* Returns the filename portion of a file path.
+*/
+export function parseName(path) {
+    let start = path.lastIndexOf("/") + 1;
+    let end = path.lastIndexOf(".");
+    return path.substr(start, end - start);
 }
 /**
 * Returns the current script name.
@@ -13,8 +16,8 @@ export function getScriptName(trimExtension = true) {
     let source;
     let lastStackFrameRegex = new RegExp(/.+\/(.*?):\d+(:\d+)*$/);
     let currentStackFrameRegex = new RegExp(/getScriptName \(.+\/(.*):\d+:\d+\)/);
-    let name;
     // Get the script name
+    let name;
     if ((source = lastStackFrameRegex.exec(error.stack.trim())) && source[1] != "") {
         name = source[1];
     }
@@ -89,12 +92,12 @@ export function isPrime(n) {
 * Downloads the current drawing as an svg file.
 */
 export function download(id, filename) {
-    let svg = document.getElementById(id);
+    let svg = document.getElementById(id).firstChild;
     console.log(id);
     let styleSheet = null;
     for (let i = 0; i < document.styleSheets.length; i++) {
         // TODO: there is a better way to do this
-        if (document.styleSheets[i].href != null && document.styleSheets[i].href.includes("library.css")) {
+        if (document.styleSheets[i].href != null && document.styleSheets[i].href.toLowerCase().includes("library.css")) {
             styleSheet = document.styleSheets[i];
             break;
         }
@@ -112,6 +115,9 @@ export function download(id, filename) {
     // console.log(style);
     // console.log(svg);
     let data = svg.outerHTML.replace("&gt;", ">").replace("&lt;", "<");
+    saveSVG(filename, data);
+}
+export function saveSVG(filename, data) {
     let blob = new Blob([data], { type: 'image/svg+xml' });
     saveAs(blob, filename, {});
 }
@@ -165,6 +171,9 @@ export function setUrlParams(param, value) {
     // window.location.href = url.href;
     window.open(url.href);
 }
+/**
+* Loads the interactive script at the provided url into the provided HTMLElement.
+*/
 export async function loadScript(url, element) {
     const response = await getURL(url);
     let div = document.createElement('div');

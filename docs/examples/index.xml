@@ -43,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle/</guid>
-      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions - sine, cosine, and tangent. * @tags [math] * @weight 1 */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let radius = 80; let margin = 20; let container = document.getElementById(getScriptName()); container.style.display = &amp;#39;grid&amp;#39;; container.style.gridTemplateColumns = `${2 * (radius + margin)}px ${2 * Math.PI * radius}px`; container.</description>
+      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions - sine, cosine, and tangent. * @tags [math] * @weight 1 */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; import SVG from &amp;#39;../../SVG.js&amp;#39;; let radius = 80; let margin = 20; let interactive = new Interactive(getScriptName()); interactive.width = 200 + 18 + 2 * Math.PI * radius; interactive.</description>
     </item>
     
     <item>
@@ -313,7 +313,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/radio-control-element/</guid>
-      <description>/** * @title Radio Control Element * @description This interactive demonstrates the radio control element. * @tags [elements, input] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let radio = interactive.radioControl([&amp;#34;blue&amp;#34;, &amp;#34;red&amp;#34;, &amp;#34;green&amp;#34;, &amp;#34;yellow&amp;#34;], 20, 20); let ellipse = interactive.ellipse(400, 75, 50, 50); ellipse.addDependency(radio); ellipse.update = function () { ellipse.style.fill = radio.</description>
+      <description>/** * @title Radio Control Element * @description This interactive demonstrates the radio control element. * @tags [elements, input] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let radio = interactive.radioControl([&amp;#34;red&amp;#34;, &amp;#34;green&amp;#34;, &amp;#34;blue&amp;#34;], 100, 50); // let ellipse = interactive.ellipse(400,75,50,50); // ellipse.addDependency(radio); // ellipse.update = function(){ // ellipse.style.fill = radio.getCurrentValue(); // } // ellipse.</description>
     </item>
     
     <item>
