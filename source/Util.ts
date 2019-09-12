@@ -1,10 +1,13 @@
 import Point from "./elements/Point.js";
 import { saveAs } from './util/file.js';
 
-function parseName( filename:string ) : string {
-  let start = filename.lastIndexOf("/") + 1;
-  let end = filename.lastIndexOf(".");
-  return filename.substr(start, end - start);
+/**
+* Returns the filename portion of a file path.
+*/
+export function parseName( path:string ) : string {
+  let start = path.lastIndexOf("/") + 1;
+  let end = path.lastIndexOf(".");
+  return path.substr(start, end - start);
 }
 
 /**
@@ -17,9 +20,9 @@ export function getScriptName( trimExtension = true ) : string {
   let source: any[] | RegExpExecArray;
   let lastStackFrameRegex = new RegExp(/.+\/(.*?):\d+(:\d+)*$/)
   let currentStackFrameRegex = new RegExp(/getScriptName \(.+\/(.*):\d+:\d+\)/);
-  let name;
 
   // Get the script name
+  let name;
   if((source = lastStackFrameRegex.exec(error.stack.trim())) && source[1] != "") {
     name = source[1];
   }
@@ -186,6 +189,9 @@ export function setUrlParams( param:string, value:string) {
   window.open( url.href);
 }
 
+/**
+* Loads the interactive script at the provided url into the provided HTMLElement.
+*/
 export async function loadScript( url:string, element:HTMLElement ) {
   const response = await getURL(url);
   let div = document.createElement('div');

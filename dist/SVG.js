@@ -97,21 +97,30 @@ export default class SVG {
         return path;
     }
     /**
-    * Constructs and returns a clip path element
+    * Constructs and returns a clip path element.
     */
     static ClipPath() {
         let clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
         return clipPath;
     }
+    /**
+    * Constructs a defs element.
+    */
     static Defs() {
         let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         return defs;
     }
+    /**
+    * Parses and returns the SVG documented represented by the string argument..
+    */
     static parseSVG(svg) {
         let parser = new DOMParser();
         let doc = parser.parseFromString(svg, 'image/svg+xml');
         return doc.documentElement;
     }
+    /**
+    * Returns a promise containing the svg at the provided url.
+    */
     static async getSVG(url) {
         let svg = await getURL(url);
         return SVG.parseSVG(svg);

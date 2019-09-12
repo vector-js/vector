@@ -245,6 +245,8 @@ window.onkeydown = function( event ) {
 Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse's position, when the users clicks the interactive, etc.
 
 <!-- TODO: add mouse into the depdency eco-system? -->
+<!-- TODO: show velocity vector of mouse? -->
+<!-- TODO: count mouse leave, mouse enter? -->
 
 {{< highlight javascript>}}
 interactive.mouse ?
@@ -284,14 +286,13 @@ Wishful thinking (x,y) to lattitude longitude and vice versa.
 ### World Map
 
 {{< highlight javascript>}}
-let map = interactive.map("world-map.geojson");
+import canada from './maps/canada.js';
+let map = interactive.map(canada);
 {{< /highlight >}}
 
 <img src="/images/world-map.svg" class="center" alt="SVG World Map">
 
-<div id="map-element"></div>
-
-<script type="module" src="/examples/elements/map-element.js"></script>
+{{<example "map-element">}}
 
 ### United States
 

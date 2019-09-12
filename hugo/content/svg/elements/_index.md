@@ -4,7 +4,7 @@ description: A collection of SVG elements for lookup and reference.
 layout: aside-list
 ---
 
-# SVG Element Reference
+# SVG Elements
 
 A collection of SVG elements for lookup and reference. See also our [SVG Tutorial](/svg/). This collection is not comprehensive and instead focuses on shape elements and structural elements. Two other references are:
 

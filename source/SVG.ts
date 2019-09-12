@@ -116,25 +116,33 @@ export default class SVG {
   }
 
   /**
-  * Constructs and returns a clip path element
+  * Constructs and returns a clip path element.
   */
   static ClipPath() : SVGClipPathElement {
-
     let clipPath = document.createElementNS( 'http://www.w3.org/2000/svg', 'clipPath');
     return clipPath;
   }
 
+  /**
+  * Constructs a defs element.
+  */
   static Defs() : SVGDefsElement {
     let defs = document.createElementNS( 'http://www.w3.org/2000/svg', 'defs');
     return defs;
   }
 
+  /**
+  * Parses and returns the SVG documented represented by the string argument..
+  */
   static parseSVG( svg:string ) {
     let parser = new DOMParser();
     let doc = parser.parseFromString(svg, 'image/svg+xml');
     return (doc.documentElement as unknown) as SVGElement;
   }
 
+  /**
+  * Returns a promise containing the svg at the provided url.
+  */
   static async getSVG( url:string ) : Promise<SVGElement> {
     let svg = await getURL(url);
     return SVG.parseSVG(svg);

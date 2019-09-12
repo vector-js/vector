@@ -5,8 +5,11 @@ description: The sandbox is a place
 
 <div class="sandbox">
 <div class="menu">
-  <!-- <button>Run</button> -->
-  <!-- <button>SVG</button> -->
+  <div class="vertical-center" style="float:left;">
+    <button id="run" class="accent-button" style="margin:.5rem; padding:.5rem 1rem;">Run</button>
+    <button id="downalod" class="accent-button" style="margin:.5rem; padding:.5rem 1rem;">Download</button>
+    <button id="svg" class="accent-button" style="margin:.5rem; padding:.5rem 1rem;">SVG</button>
+  </div>
   <a class="vertical-center" style="float:right; padding:.5rem;">
     <img src="/icons/full-screen-view.svg" alt="Full Screen Button" width="32px">
   </a>
@@ -22,37 +25,5 @@ description: The sandbox is a place
 </div>
 
 <script src="https://pagecdn.io/lib/ace/1.4.5/ace.js" integrity="sha256-5Xkhn3k/1rbXB+Q/DX/2RuAtaB4dRRyQvMs83prFjpM=" crossorigin="anonymous"></script>
-<script>
-    var editor = ace.edit("editor");
-    // editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/javascript");
-    editor.session.setUseWrapMode(true);
 
-</script>
-
-<script type="module">
-  import { getUrlParams, getURL, loadScript } from '/Util.js';
-
-  // get the current url parameters
-  let params = getUrlParams(window.location.search);
-
-  // check if there is a script defined
-  if (params.has('script')) {
-
-    let script = params.get('script');
-    let element = document.getElementById("interactive-container");
-
-    let text = loadScript( script, element).then(function(response){
-      editor.setValue(response, 1);
-    });
-  } else {
-    console.log('no url parameter script.');
-  }
-
-  // TODO: add key board short cuts
-  // command + r : Run
-  // command + s : Save SVG Image
-
-  // TODO: add buttons / drop down menus
-
-</script>
+<script type="module" src="/js/sandbox.js"></script>
