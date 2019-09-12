@@ -498,15 +498,15 @@ dd {
 .accent-button,
 a.accent-button {
   color: #ffffff;
-  border: 1px solid #29de7d;
-  background: #29de7d; }
+  border: 1px solid #00bd00;
+  background: #00bd00; }
   .accent-button:hover, .accent-button:focus, .accent-button:active,
   a.accent-button:hover,
   a.accent-button:focus,
   a.accent-button:active {
     color: #ffffff;
-    border: 1px solid #1cb864;
-    background: #1cb864; }
+    border: 1px solid #008a00;
+    background: #008a00; }
 
 .muted-button,
 a.muted-button {

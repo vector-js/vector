@@ -1,4 +1,5 @@
 import { getUrlParams, getURL, loadScript, parseName, download } from '/Util.js';
+import { saveAs } from '/util/file.js';
 import Element from '/elements/Element.js';
 
 let id = 'hello-world';
@@ -31,6 +32,12 @@ let container = document.getElementById('interactive-container');
 
 document.getElementById('run').onclick = run;
 document.getElementById('svg').onclick = svg;
+document.getElementById('download').onclick = downloadScript;
+
+function downloadScript() {
+  let blob = new Blob([editor.getValue()], { type: 'text/javascript' });
+  saveAs(blob, `${id}.js`, {});
+}
 
 function svg() {
   download(id, `${id}.svg`);

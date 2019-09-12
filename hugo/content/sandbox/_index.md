@@ -6,9 +6,9 @@ description: The sandbox is a place
 <div class="sandbox">
 <div class="menu">
   <div class="vertical-center" style="float:left;">
-    <button id="run" class="accent-button" style="margin:.5rem; padding:.5rem 1rem;">Run</button>
-    <button id="downalod" class="accent-button" style="margin:.5rem; padding:.5rem 1rem;">Download</button>
-    <button id="svg" class="accent-button" style="margin:.5rem; padding:.5rem 1rem;">SVG</button>
+    <button id="run" class="dark-button" style="margin:.5rem; padding:.5rem 1rem;">Run</button>
+    <button id="download" class="dark-button" style="margin:.5rem; padding:.5rem 1rem;">Download</button>
+    <button id="svg" class="dark-button" style="margin:.5rem; padding:.5rem 1rem;">SVG</button>
   </div>
   <a class="vertical-center" style="float:right; padding:.5rem;">
     <img src="/icons/full-screen-view.svg" alt="Full Screen Button" width="32px">

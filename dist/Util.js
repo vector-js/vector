@@ -92,12 +92,12 @@ export function isPrime(n) {
 * Downloads the current drawing as an svg file.
 */
 export function download(id, filename) {
-    let svg = document.getElementById(id);
+    let svg = document.getElementById(id).firstChild;
     console.log(id);
     let styleSheet = null;
     for (let i = 0; i < document.styleSheets.length; i++) {
         // TODO: there is a better way to do this
-        if (document.styleSheets[i].href != null && document.styleSheets[i].href.includes("library.css")) {
+        if (document.styleSheets[i].href != null && document.styleSheets[i].href.toLowerCase().includes("library.css")) {
             styleSheet = document.styleSheets[i];
             break;
         }
@@ -115,6 +115,9 @@ export function download(id, filename) {
     // console.log(style);
     // console.log(svg);
     let data = svg.outerHTML.replace("&gt;", ">").replace("&lt;", "<");
+    saveSVG(filename, data);
+}
+export function saveSVG(filename, data) {
     let blob = new Blob([data], { type: 'image/svg+xml' });
     saveAs(blob, filename, {});
 }
