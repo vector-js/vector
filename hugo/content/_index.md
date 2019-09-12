@@ -94,15 +94,25 @@ let control = interactive.control( 150, 75);
 
 ### Radio Control
 
-what do i do?
+The radio control elements allows the user to select from a list of options. Only one option can be selected at a time.
 
 {{< highlight javascript>}}
-let radioControl = interactive.radioControl(["blue","red","green","yellow"],20,20);
+let radio = interactive.radioControl(["red","green","blue"], 100, 50);
 {{< /highlight >}}
 
 <div id="radio-control-element"></div>
 
 <script type="module" src="/examples/elements/radio-control-element.js"></script>
+
+### Scrubber
+
+The scrubber has a play and pause button that start and stop the animation. The position indicator can also be dragged to change the state of the scrubber.
+
+{{< highlight javascript>}}
+let scrubber = interactive.scrubber( 100, 75, 400);
+{{< /highlight >}}
+
+{{<example "scrubber-element">}}
 
 ### Slider
 
@@ -118,11 +128,7 @@ let slider = interactive.slider( 75, 75, 150, 20);
 
 ## Elements
 
-These elements form the basis of the visual part of the interactive.
-
-{{< highlight javascript>}}
-// How do you use/import a prexisting SVG image?
-{{< /highlight >}}
+Our library has basic visual elements that are used to create the graphics. All elements contain a root SVGElement that contains the visual part of the element. Basic element root's correspond directly to the visual aspect of the element, more complicated elements often contain many SVGElements that describe the graphic.
 
 ### Ellipse
 
@@ -191,13 +197,17 @@ text.tspan('normal again.');
 
 ## Interaction
 
-There are two primary forms of interaction within our system. The first is dependencies; elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order when an element's state is changed.
+There are two forms of interaction within our system: dependencies and events.
 
-The second form of interaction is the more tradditional event and handler architecture common to the web. Besides being used heavily within the implementation of this system, events are very useful when creating interactives.
+The first form of interaction is dependencies. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element's state is changed.
+
+The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.
 
 ### Dependency Functions
 
-All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the function .addDependency and then (optionally?) defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, although hopefully in the future this will be strictly enforced, only the element's data whom have been declared should be used within the update function.
+All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the "addDependency" function and then defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, an element should only use the data of the elements it has declared itself dependent on.
+
+<!-- TODO: hopefully in the future this will be strictly enforced,  -->
 
 {{< highlight javascript>}}
 let control1 = interactive.control( 100, 100);
@@ -216,7 +226,9 @@ control2.update = function(){
 
 ### Keyboard Input
 
-Key board input can be used to change the state of an interactive or control different elements of it. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.
+Key board input can be used to change the state of an interactive as well as control different elements within the interactive. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.
+
+<!-- TODO: make an interactive of the whole keyboard -->
 
 {{< highlight javascript>}}
 window.onkeydown = function( event ) {
@@ -230,9 +242,9 @@ window.onkeydown = function( event ) {
 
 ### Mouse Input
 
-horizontal line showing x-position
-veritical line showing y-position
-expanding circle on click
+Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse's position, when the users clicks the interactive, etc.
+
+<!-- TODO: add mouse into the depdency eco-system? -->
 
 {{< highlight javascript>}}
 interactive.mouse ?
@@ -246,26 +258,24 @@ interactive.onmousemove ?
 
 ## Animation
 
-### Animate Along Path
+While animation isn't the main focus the library, some basic animations are supported.
+
+### Transitions?
+
+### Time Line
+
+Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and "scrub" to different parts of the animation.
+
+<!-- TODO: temporarily stop the update when the scrubber element is grabbed -->
+<!-- TODO: when the scrubber is "scrubbed" to the end, set the flag to true so the next time the user clicks the play button the animation restarts. -->
 
 {{< highlight javascript>}}
 let circle = interactive.circle( 75, 75, 20);
 let path = interactive.path("...");
-
 circle.animateAlongPath( path, true, SPEED);
 {{< /highlight >}}
 
-<img src="/images/trace-animation.svg" class="center" alt="Animate Along SVG Path">
-
-### Time Line Animation
-
-{{< highlight javascript>}}
-let scrubber = interactive.scrubber( 100, 75, 468);
-{{< /highlight >}}
-
-<div id="scrubber-element"></div>
-
-<script type="module" src="/examples/elements/scrubber-element.js"></script>
+{{<example "animate-along-path">}}
 
 ## Maps
 
@@ -361,3 +371,11 @@ rectangle.style.strokeWidth = '1px';
 ### Custom Styling
 
 Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript.
+
+{{< highlight javascript>}}
+// element.style ...
+{{< /highlight >}}
+
+{{< highlight javascript>}}
+// TODO: how to load a custom style sheet
+{{< /highlight >}}
