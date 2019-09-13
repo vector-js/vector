@@ -241,8 +241,8 @@ export default class Interactive extends Element {
     /**
     * Creates a graph element within this interactive
     */
-    map(mapName, width, height) {
-        let map = new Map(this, mapName, width, height);
+    map(mapName, width, height, externalData = null) {
+        let map = new Map(this, mapName, width, height, externalData);
         return map;
     }
     /**

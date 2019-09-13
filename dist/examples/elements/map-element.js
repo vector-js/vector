@@ -2,7 +2,7 @@ import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 let interactive = new Interactive(getScriptName());
 interactive.root.style.border = "1px solid grey";
-let map = interactive.map("canada", 768, 300);
+let map = interactive.map("", 768, 300);
 let inputContainer = document.createElement('div');
 inputContainer.style.width = '100%';
 inputContainer.style.height = '2rem';
@@ -24,7 +24,7 @@ input.addEventListener("keyup", function (event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
         let bbb = document.getElementById('map-element');
-        let t = document.getElementsByClassName('country');
+        let t = bbb.getElementsByClassName('country');
         let stop = t.length;
         let i = 0;
         for (i = 0; i < stop; i = (i + 1) % t.length) {

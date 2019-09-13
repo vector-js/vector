@@ -309,8 +309,8 @@ export default class Interactive extends Element  {
   /**
   * Creates a graph element within this interactive
   */
- map(mapName:string,width:number,height:number) : Map {
-  let map = new Map(this,mapName,width,height);
+ map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
+  let map = new Map(this,mapName,width,height, externalData);
   return map;
 }
 
