@@ -1,9 +1,9 @@
 import * as data from "../mapsJson.js";
-import Element from '../elements/Element.js';
+import OurElement from '../elements/Element.js';
 /**
 * Map class for displaying geographic maps of the world and its different parts.
 */
-export default class GeoMap extends Element {
+export default class GeoMap extends OurElement {
     /*
     * interactive: the object that called map()
     * mapName: the name of the map you wish to render
@@ -32,6 +32,15 @@ export default class GeoMap extends Element {
         this.interactive.root.setAttribute('transform', 'scale(1,-1)');
         this.interactive.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);
     }
+    clearPaths() {
+        let mapDiv = document.getElementById(this.interactive.scriptName);
+        let t = mapDiv.getElementsByClassName('country');
+        let stop = t.length;
+        let i = 0;
+        for (i = 0; i < stop; i = (i + 1) % t.length) {
+            mapDiv.children[0].children[0].removeChild(t[i]);
+        }
+    }
     /*
     * Get the json for the selected map name
     */
@@ -45,6 +54,10 @@ export default class GeoMap extends Element {
                 return data.globalData;
         }
         ;
+    }
+    getCountryElements() {
+        let myDiv = document.getElementById(this.interactive.scriptName);
+        return Array.from(myDiv.getElementsByClassName('country'));
     }
     generateStates() {
         let json = data.usData;

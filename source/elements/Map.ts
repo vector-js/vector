@@ -1,11 +1,11 @@
 import * as data from "../mapsJson.js";
 import Interactive from '../Interactive.js';
-import Element from '../elements/Element.js';
+import OurElement from '../elements/Element.js';
 
 /**
 * Map class for displaying geographic maps of the world and its different parts.
 */
-export default class GeoMap extends Element {
+export default class GeoMap extends OurElement {
   /*
   * the name of the map you want to pull up
   */
@@ -53,6 +53,16 @@ export default class GeoMap extends Element {
     this.interactive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
   }
 
+  clearPaths(){
+    let mapDiv = document.getElementById(this.interactive.scriptName);
+    let t = mapDiv.getElementsByClassName('country');
+    let stop = t.length;
+    let i = 0;
+    for(i = 0; i < stop; i = (i+1)%t.length){
+      mapDiv.children[0].children[0].removeChild(t[i]);
+    }
+  }
+
   /*
   * Get the json for the selected map name
   */
@@ -65,6 +75,11 @@ export default class GeoMap extends Element {
       default:
         return data.globalData;
     };
+  }
+
+  getCountryElements(): Array<Element>{
+    let myDiv = document.getElementById(this.interactive.scriptName);
+    return Array.from(myDiv.getElementsByClassName('country'));
   }
 
   generateStates(){

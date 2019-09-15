@@ -9,11 +9,11 @@ let map = interactive.map("united-states-detail",768,300);
 let text = interactive.text(-270,-120,"");
 text.style.transform = "scale(0.5,-0.5)";
 
-let myDiv = document.getElementById('map-element-two');
-let countries = Array.from(myDiv.getElementsByClassName('country'));
+let countries = map.getCountryElements();
+
 countries.forEach(element => {
     element.setAttribute("style",`stroke:black;stroke-width:0.15px;fill:${getColor(densityMap[element.getAttribute("name")])};`);
-    
+
     element.addEventListener("mouseenter", function(){
         element.setAttribute("style",`stroke:black;stroke-width:0.35px;fill:#03dffc;`);
         text.contents = element.getAttribute("name");

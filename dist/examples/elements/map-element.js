@@ -23,13 +23,7 @@ inputContainer.appendChild(input);
 input.addEventListener("keyup", function (event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
-        let bbb = document.getElementById('map-element');
-        let t = bbb.getElementsByClassName('country');
-        let stop = t.length;
-        let i = 0;
-        for (i = 0; i < stop; i = (i + 1) % t.length) {
-            bbb.children[0].children[0].removeChild(t[i]);
-        }
+        map.clearPaths();
         map = interactive.map(input.value, 768, 300);
     }
 });

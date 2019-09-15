@@ -43,6 +43,7 @@ export default class Interactive extends Element {
         this._originX = 0;
         this._originY = 0;
         // store a reference to the container element
+        this.scriptName = id;
         this.container = document.getElementById(id);
         this.container.classList.add('interactive-container');
         // create and append the root svg element and group elements

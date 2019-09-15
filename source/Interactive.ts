@@ -46,6 +46,11 @@ export default class Interactive extends Element  {
   */
   root:SVGElement;
 
+  /*
+  * Name of the script creating the interactive
+  */
+  scriptName:string;
+
   markersAdded:boolean;
 
   /**
@@ -85,6 +90,7 @@ export default class Interactive extends Element  {
     super();
 
     // store a reference to the container element
+    this.scriptName = id;
     this.container = document.getElementById(id);
     this.container.classList.add('interactive-container');
 
