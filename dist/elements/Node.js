@@ -33,25 +33,43 @@ export default class Node extends Element {
     edgeWeight() {
         return this.edges.size;
     }
+    /**
+    * Getter for the cx of this node.
+    */
     get cx() {
         return this._cx;
     }
+    /**
+    * Moves this nodes cx by the given amount.
+    */
     moveX(x) {
         this.nodeEllipse.cx += x;
         this.nodeName.x += x;
         this._cx += x;
     }
+    /**
+    * Moves this nodes cy by the given amount.
+    */
     moveY(y) {
         this.nodeEllipse.cy += y;
         this.nodeName.y += y;
         this._cy += y;
     }
+    /**
+    * Getter for cy of this node
+    */
     get cy() {
         return this._cy;
     }
+    /**
+    * Getter for the text of this node
+    */
     get text() {
         return this._text;
     }
+    /**
+    * Setter for the text of this node
+    */
     set text(text) {
         this.nodeName.contents = text;
         this._text = text;

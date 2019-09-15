@@ -3,10 +3,15 @@ import Node from '../elements/Node.js';
 import Edge from '../elements/Edge.js';
 import SVG from '../SVG.js';
 
+/**
+* A Directed graph is a complex element containing nodes and directed edges.
+*/
 export default class DirectedGraph extends Element {
 
   nodes: Node[];
-
+  /**
+  * Constructs a directed graph
+  */
   constructor() {
     super();
 
@@ -21,6 +26,9 @@ export default class DirectedGraph extends Element {
     this.root.appendChild(defs);
   }
 
+  /**
+  * Clears all nodes and all edges from the graph, removes them from the dom.
+  */
   clear() {
     for(var i = 0; i < this.nodes.length; i++)
     {
@@ -32,6 +40,9 @@ export default class DirectedGraph extends Element {
     this.nodes = [];
   }
 
+  /**
+  * Adds a node at the given location with the given text. radius defaults to 20, 20
+  */
   addNode(x:number, y:number, text:string, rx=20, ry=20) : Node
   {
     let node = new Node(x, y, rx, ry, text);
@@ -40,6 +51,9 @@ export default class DirectedGraph extends Element {
     return node;
   }
 
+  /**
+  * Adds an edge without direction between the two given nodes.
+  */
   addEdge(from: Node, to: Node) : Edge
   {
     let edge = new Edge(from, to, true);
@@ -54,6 +68,16 @@ export default class DirectedGraph extends Element {
     return edge;
   }
 
+  /**
+  * Getter for the list of all nodes inside this graph.
+  */
+  getNodes():Node[]
+  {
+    return this.nodes;
+  }
+  /**
+  * Returns the size of this graph
+  */
   size():number{
     return this.nodes.length;
   }
