@@ -51,7 +51,7 @@ function createArrays(list:number[]){
   allArrays = [];
   let rootNode = graph.addNode(0, 0, list.toString(), list.length * 15, 20);
   nodeCountTo = 1;
-  mergeSort(list, 0, rootNode, 0);
+  mergeSort(list, 0, rootNode);
 
   let rect = (graph.root as SVGGraphicsElement).getBBox();
 

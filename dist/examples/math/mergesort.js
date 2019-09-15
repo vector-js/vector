@@ -42,7 +42,7 @@ function createArrays(list) {
     allArrays = [];
     let rootNode = graph.addNode(0, 0, list.toString(), list.length * 15, 20);
     nodeCountTo = 1;
-    mergeSort(list, 0, rootNode, 0);
+    mergeSort(list, 0, rootNode);
     let rect = graph.root.getBBox();
     if (graph.size() == 1) {
         interactive.setViewBox(rect.x - 32, rect.y - 32, rect.width + 64, rect.height + 64);

@@ -20,10 +20,16 @@ export default class Edge extends Element {
   constructor(nodeFrom: Node, nodeTo: Node, directed: boolean) {
     super();
 
-    let arr = this.calculateLinePosition(nodeFrom, nodeTo);
+    if(directed)
+    {
+      let arr = this.calculateLinePosition(nodeFrom, nodeTo);
+      this.root = SVG.Line(arr[0], arr[1], arr[2], arr[3]);
+    }
+    else{
+      this.root = SVG.Line(nodeFrom.cx, nodeFrom.cy, nodeTo.cx, nodeTo.cy);
+    }
     this.directed = directed;
 
-    this.root = SVG.Line(nodeFrom.cx, nodeFrom.cy, nodeTo.cx, nodeTo.cy);
     this.root.id = this.id;
     this.style = this.root.style;
   }
@@ -34,32 +40,32 @@ export default class Edge extends Element {
   */
   //Keeping this code here, could be useful in the future. But for now lines are just being placed underneath nodes.
 
-  // calculateLinePosition(nodeFrom: Node, nodeTo:Node)
-  // {
-  //   let y1 = nodeFrom.nodeEllipse.cy;
-  //   let y2 = nodeTo.nodeEllipse.cy;
-  //
-  //   let x1 = nodeFrom.nodeEllipse.cx;
-  //   let x2 = nodeTo.nodeEllipse.cx;
-  //
-  //   let deltaY = y2 - y1;
-  //   let deltaX = x2 - x1;
-  //
-  //   let L = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
-  //
-  //   let r1Lx = nodeFrom.nodeEllipse.rx / L * deltaX;
-  //   let r1Ly = nodeFrom.nodeEllipse.rx / L * deltaY;
-  //
-  //   let r2Lx = nodeTo.nodeEllipse.rx / L * deltaX;
-  //   let r2Ly = nodeTo.nodeEllipse.rx / L * deltaY;
-  //
-  //
-  //   let y1Prime = y1 + r1Ly;
-  //   let y2Prime = y2 - r2Ly;
-  //
-  //   let x1Prime = x1 + r1Lx;
-  //   let x2Prime = x2 - r2Lx;
-  //
-  //   return new Array(x1Prime, y1Prime, x2Prime, y2Prime);
-  // }
+  calculateLinePosition(nodeFrom: Node, nodeTo:Node)
+  {
+    let y1 = nodeFrom.nodeEllipse.cy;
+    let y2 = nodeTo.nodeEllipse.cy;
+
+    let x1 = nodeFrom.nodeEllipse.cx;
+    let x2 = nodeTo.nodeEllipse.cx;
+
+    let deltaY = y2 - y1;
+    let deltaX = x2 - x1;
+
+    let L = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
+
+    let r1Lx = nodeFrom.nodeEllipse.rx / L * deltaX;
+    let r1Ly = nodeFrom.nodeEllipse.rx / L * deltaY;
+
+    let r2Lx = nodeTo.nodeEllipse.rx / L * deltaX;
+    let r2Ly = nodeTo.nodeEllipse.rx / L * deltaY;
+
+  
+    let y1Prime = y1 + r1Ly;
+    let y2Prime = y2 - r2Ly;
+
+    let x1Prime = x1 + r1Lx;
+    let x2Prime = x2 - r2Lx;
+
+    return new Array(x1Prime, y1Prime, x2Prime, y2Prime);
+  }
 }
