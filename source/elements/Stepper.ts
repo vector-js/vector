@@ -28,6 +28,4 @@ export default class Stepper extends Element {
     this.root.appendChild(this.backButton.root);
     this.root.appendChild(this.forwardButton.root);
   }
-
-
 }

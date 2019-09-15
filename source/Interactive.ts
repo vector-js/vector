@@ -24,7 +24,7 @@ import Stepper from './elements/Stepper.js';
 // complex elements
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
-import Graph from './elements/DirectedGraph.js';
+import DirectedGraph from './elements/DirectedGraph.js';
 
 
 /**
@@ -382,8 +382,8 @@ export default class Interactive extends Element  {
   /**
   * Creates a node within this interactive.
   */
-  node( x:number, y:number, r: number, contents:string ) : Node {
-    let node = new Node( x, y, r, contents);
+  node( x:number, y:number, rx: number, ry:number, contents:string ) : Node {
+    let node = new Node( x, y, rx, ry, contents);
     this.background.appendChild(node.root);
     return node;
   }
@@ -397,8 +397,8 @@ export default class Interactive extends Element  {
     return edge;
   }
 
-  stepper (x1:number, y1:number, x2:number, y2:number) : Stepper{
-    let stepper = new Stepper(x1, y1, x2, y2);
+  stepper (x1:number, y1:number, x2:number, y2:number, length:number) : Stepper{
+    let stepper = new Stepper(x1, y1, x2, y2, length);
     this.background.appendChild(stepper.root);
     return stepper;
   }

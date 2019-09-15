@@ -21,8 +21,8 @@ export default class DirectedGraph extends Element {
         }
         this.nodes = [];
     }
-    addNode(x, y, text, r = 20) {
-        let node = new Node(x, y, r, text);
+    addNode(x, y, text, rx = 20, ry = 20) {
+        let node = new Node(x, y, rx, ry, text);
         this.root.appendChild(node.root);
         this.nodes.push(node);
         return node;

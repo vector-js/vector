@@ -8,6 +8,8 @@ interactive.height = 400;
 interactive.border = true;
 
 let graph = interactive.graph();
+let nodeCounterMax = 1;
+let nodeCountTo = 0;
 
 let allArrays:number[][] = [];
 
@@ -25,6 +27,11 @@ input.style.webkitAppearance = 'textfield'
 input.style.fontSize = '14px';
 interactive.container.parentElement.insertBefore(input, interactive.container);
 input.onchange = function() {
+  nodeCounterMax = 1;
+  inputChange();
+};
+
+function inputChange(){
   let arr = input.value.split(/[ ,]+/);
   let numArr:number[] = []
   for(let i = 0; i < arr.length; i++)
@@ -32,67 +39,88 @@ input.onchange = function() {
     numArr.push(parseInt(arr[i]))
   }
   createArrays(numArr);
-  console.log(allArrays);
-};
-
-function drawGraph(levels:number){
-  graph.clear();
-
-
-
-  for (let i = 0; i < allArrays.length; i++)
-  {
-
-  }
-
-  // let rect = (graph.root as SVGGraphicsElement).getBBox();
-  //
-  // console.log(graph.size());
-  // if(graph.size() == 1)
-  // {
-  //   interactive.setViewBox(rect.x-32, rect.y-32, rect.width + 64, rect.height + 64)
-  // }
-  // else{
-  //   interactive.setViewBox(rect.x-8, rect.y-8, rect.width + 16, rect.height + 16)
-  // }
 }
 
-function drawVis( n:number, p:number, x:number, y:number, prev:Node ) {
-  // base case
-  if( n == p || n <= 1 ) {
-    let leaf = graph.addNode( x, y, n.toString(), radius);
-    if( prev != null ) {
-      graph.addEdge( prev, leaf, true)
-    }
-    return;
-  }
-
-  // check if the current prime divides the current number. If so, draw the
-  // and the prime factor nodes with an edge between them. Otherwise, call this
-  // function again with the next prime number.
-  if( n % p == 0 ) {
-    let node = graph.addNode( x, y, n.toString(),radius,);
-    let leaf = graph.addNode( x - 64, y + 64, p.toString(), radius );
-    if( prev ) {
-      graph.addEdge( prev, node, true);
-    }
-    graph.addEdge( node, leaf, true);
-    primeFactors( n/p, p, x + 64, y + 64, node);
-  } else {
-    primeFactors( n, nextPrime(p), x, y, prev);
-  }
-}
-// draw the initial prime factorization tree for the current input
 /**
 * This is a recursive function that draws the prime factorization tree for the
 * input number n.
 */
-function createArrays(list:number[]): number[][]{
+
+function createArrays(list:number[]){
+  graph.clear();
   allArrays = [];
-  mergeSort(list, 0)
+  let rootNode = graph.addNode(0, 0, list.toString(), list.length * 15, 20);
+  nodeCountTo = 1;
+  mergeSort(list, 0, rootNode, 0);
+
+  let rect = (graph.root as SVGGraphicsElement).getBBox();
+
+  if(graph.size() == 1)
+  {
+    interactive.setViewBox(rect.x-32, rect.y-32, rect.width + 64, rect.height + 64)
+  }
+  else{
+    interactive.setViewBox(rect.x-8, rect.y-8, rect.width + 16, rect.height + 16)
+  }
 }
 
-export function mergeSort(array: number[], level:number): number[] {
+
+function addNodeToFit(parentNode:Node, arr:number[], leftOrRight:string) : Node
+{
+  let isLeft = (leftOrRight == "left");
+  let otherNodes = graph.getNodes();
+
+  let newNode:Node = undefined;
+  if(isLeft){
+    newNode = graph.addNode(parentNode.cx - arr.length * 40, parentNode.cy + 64, arr.toString(), arr.length * 20, 20);
+
+    let overlap = false;
+
+    for(let i = 0; i < otherNodes.length; i++)
+    {
+      let rect1 = otherNodes[i].root.getBoundingClientRect();
+      let rect2 = newNode.root.getBoundingClientRect();
+
+      let currOverlap = !(rect1.right < rect2.left ||
+                    rect1.left > rect2.right ||
+                    rect1.bottom < rect2.top ||
+                    rect1.top > rect2.bottom)
+
+      if(currOverlap){
+        otherNodes[i].moveX(-10);
+        newNode.moveX(10);
+        overlap = true;
+      }
+    }
+  }
+  else{
+    newNode = graph.addNode(parentNode.cx + arr.length * 40, parentNode.cy + 64, arr.toString(), arr.length * 20, 20);
+
+    let overlap = false;
+
+    for(let i = 0; i < otherNodes.length; i++)
+    {
+      let rect1 = otherNodes[i].root.getBoundingClientRect();
+      let rect2 = newNode.root.getBoundingClientRect();
+
+      let currOverlap = !(rect1.right < rect2.left ||
+                    rect1.left > rect2.right ||
+                    rect1.bottom < rect2.top ||
+                    rect1.top > rect2.bottom)
+      if(currOverlap){
+        otherNodes[i].moveX(10);
+        newNode.moveX(-10);
+        overlap = true;
+      }
+    }
+  }
+
+  graph.addEdge(parentNode, newNode);
+
+  return newNode;
+}
+
+export function mergeSort(array: number[], level:number, parent:Node): number[] {
   if (array.length <= 1) {
     return array;
   }
@@ -101,20 +129,96 @@ export function mergeSort(array: number[], level:number): number[] {
   const left = array.slice(0, middle);
   const right = array.slice(middle);
 
-  if(allArrays[level] === undefined)
-  {
-    allArrays.push([left, right]);
-  }
-  else{
-    allArrays[level].push(left);
-    allArrays[level].push(right);
+  let otherNodes = graph.root.getElementsByTagName("ellipse");
+
+  let leafLeft:Node = undefined;
+  let leafRight:Node = undefined;
+
+  if(nodeCountTo < nodeCounterMax){
+    parent.nodeEllipse.fill = "palegreen"
+    nodeCountTo += 1;
   }
 
-  return merge(mergeSort(left, level +1), mergeSort(right, level+1));
+  if(nodeCountTo < nodeCounterMax){
+    parent.nodeName.root.setAttribute("opacity", ".5")
+    leafLeft = addNodeToFit(parent, left, "left");
+    leafLeft.nodeEllipse.fill = "#FFFF99"
+    nodeCountTo += 1;
+  }
+  else{
+    return left;
+  }
+
+
+  if(nodeCountTo < nodeCounterMax){
+    leafLeft.nodeEllipse.fill = "rgb(248, 248, 248)"
+    parent.nodeEllipse.fill = "rgb(248, 248, 248)"
+  }
+
+  let mergeLeft = mergeSort(left, level +1,leafLeft);
+
+
+  if (nodeCountTo < nodeCounterMax){
+      leafLeft.nodeEllipse.fill = "#FFFF99"
+      parent.nodeEllipse.fill = "palegreen"
+      if(mergeLeft.length == 1){
+        nodeCountTo -= 1;
+      }
+      nodeCountTo += 1;
+  }
+
+  if(nodeCountTo < nodeCounterMax){
+    parent.nodeName.root.setAttribute("opacity", ".5")
+    leafRight = addNodeToFit(parent, right, "right");
+    leafRight.nodeEllipse.fill = "#FFFF99"
+    nodeCountTo += 1;
+  }
+  else{
+    return [];
+  }
+
+  if(nodeCountTo < nodeCounterMax){
+    leafLeft.nodeEllipse.fill = "rgb(248, 248, 248)"
+    leafRight.nodeEllipse.fill = "rgb(248, 248, 248)"
+    parent.nodeEllipse.fill = "rgb(248, 248, 248)"
+  }
+  let mergeRight = mergeSort(right, level+1, leafRight)
+
+  if(nodeCountTo < nodeCounterMax){
+      leafLeft.nodeEllipse.fill = "#FFFF99"
+      leafRight.nodeEllipse.fill = "#FFFF99"
+      parent.nodeEllipse.fill = "palegreen"
+      if(mergeRight.length == 1){
+        nodeCountTo -= 1;
+      }
+      nodeCountTo += 1;
+  }
+
+  let mergedArr = merge(mergeLeft, mergeRight)
+
+  if(nodeCountTo < nodeCounterMax){
+    parent.text = mergedArr.toString();
+    parent.nodeName.root.setAttribute("opacity", "1")
+    nodeCountTo++;
+  }
+
+  if(nodeCountTo < nodeCounterMax){
+    leafLeft.nodeEllipse.fill = "rgb(248, 248, 248)"
+    leafRight.nodeEllipse.fill = "rgb(248, 248, 248)"
+    parent.nodeEllipse.fill = "rgb(248, 248, 248)"
+
+
+    return mergedArr;
+  }
+  return []
 }
 
 /** Merge (conquer) step of mergeSort */
-function merge(left: number[], right: number[]): number[] {
+function merge(left: number[], right: number[]): number[]
+{
+  console.log(left)
+  console.log(right)
+  console.log()
   const array: number[] = [];
   let lIndex = 0;
   let rIndex = 0;
@@ -142,3 +246,14 @@ function merge(left: number[], right: number[]): number[] {
 (window as any).save = function() {
   download(interactive.root.id, `prime-factorization-${input.value}.svg`);
 }
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 37) {
+      nodeCounterMax--;
+      inputChange();
+    }
+    else if(event.keyCode == 39) {
+      nodeCounterMax++;
+      inputChange();
+    }
+});

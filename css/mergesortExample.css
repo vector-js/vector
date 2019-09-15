@@ -1,0 +1,11 @@
+.selectedParent {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:palegreen;
+}
+
+.selectedChild {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:yellow;
+}

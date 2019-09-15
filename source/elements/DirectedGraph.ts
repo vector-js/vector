@@ -32,9 +32,9 @@ export default class DirectedGraph extends Element {
     this.nodes = [];
   }
 
-  addNode(x:number, y:number, text:string, r=20) : Node
+  addNode(x:number, y:number, text:string, rx=20, ry=20) : Node
   {
-    let node = new Node(x, y, r, text);
+    let node = new Node(x, y, rx, ry, text);
     this.root.appendChild(node.root);
     this.nodes.push(node);
     return node;

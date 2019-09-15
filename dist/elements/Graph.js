@@ -18,18 +18,21 @@ export default class Graph extends Element {
         }
         this.nodes = [];
     }
-    addNode(x, y, text, r = 20) {
-        let node = new Node(x, y, r, text);
+    addNode(x, y, text, rx = 20, ry = 20) {
+        let node = new Node(x, y, rx, ry, text);
         this.root.appendChild(node.root);
         this.nodes.push(node);
         return node;
     }
     addEdge(from, to) {
         let edge = new Edge(from, to, false);
-        this.root.appendChild(edge.root);
+        this.root.prepend(edge.root);
         from.addEdge(edge);
         to.addEdge(edge);
         return edge;
+    }
+    getNodes() {
+        return this.nodes;
     }
     size() {
         return this.nodes.length;

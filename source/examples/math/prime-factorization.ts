@@ -24,7 +24,6 @@ input.style.fontSize = '14px';
 interactive.container.parentElement.insertBefore(input, interactive.container);
 input.onchange = function() {
   drawGraph();
-
 };
 
 function drawGraph(){
@@ -59,7 +58,7 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
   if( n == p || n <= 1 ) {
     let leaf = graph.addNode( x, y, n.toString(), radius);
     if( prev != null ) {
-      graph.addEdge( prev, leaf, true)
+      graph.addEdge( prev, leaf)
     }
     return;
   }
@@ -71,9 +70,9 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
     let node = graph.addNode( x, y, n.toString(),radius,);
     let leaf = graph.addNode( x - 64, y + 64, p.toString(), radius );
     if( prev ) {
-      graph.addEdge( prev, node, true);
+      graph.addEdge( prev, node);
     }
-    graph.addEdge( node, leaf, true);
+    graph.addEdge( node, leaf);
     primeFactors( n/p, p, x + 64, y + 64, node);
   } else {
     primeFactors( n, nextPrime(p), x, y, prev);

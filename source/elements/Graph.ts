@@ -27,9 +27,9 @@ export default class Graph extends Element {
     this.nodes = [];
   }
 
-  addNode(x:number, y:number, text:string, r=20) : Node
+  addNode(x:number, y:number, text:string, rx=20, ry=20) : Node
   {
-    let node = new Node(x, y, r, text);
+    let node = new Node(x, y, rx, ry, text);
     this.root.appendChild(node.root);
     this.nodes.push(node);
     return node;
@@ -39,12 +39,17 @@ export default class Graph extends Element {
   {
     let edge = new Edge(from, to, false);
 
-    this.root.appendChild(edge.root);
+    this.root.prepend(edge.root);
 
     from.addEdge(edge);
     to.addEdge(edge);
 
     return edge;
+  }
+
+  getNodes():Node[]
+  {
+    return this.nodes;
   }
 
   size():number{
