@@ -325,10 +325,10 @@ export default class Interactive extends Element  {
   /**
   * Creates a graph element within this interactive
   */
-  map(mapName:string,width:number,height:number) : Map {
-    let map = new Map(this,mapName,width,height);
-    return map;
-  }
+  map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
+   let map = new Map(this,mapName,width,height, externalData);
+   return map;
+   }
 
   /*
   * Creates a directed graph element within this interactive
@@ -338,6 +338,7 @@ export default class Interactive extends Element  {
     this.background.appendChild(graph.root);
     return graph;
   }
+
 
   /**
   * Creates a slider input within this interactive
