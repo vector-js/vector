@@ -57,13 +57,13 @@
   <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
 </span><span class="cm">* @title Map Element
 </span><span class="cm">* @description This interactive demonstrates the interactive world map element.
-</span><span class="cm">* @tags [elements, mapping]
+</span><span class="cm">* @tags [elements, maps]
 </span><span class="cm">*/</span>
 <span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../Interactive.js&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../Util.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&#34;1px solid grey&#34;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;canada&#34;</span><span class="p">,</span> <span class="mi">768</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="mi">768</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">inputContainer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
 <span class="nx">inputContainer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="s1">&#39;100%&#39;</span><span class="p">;</span>
 <span class="nx">inputContainer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="s1">&#39;2rem&#39;</span><span class="p">;</span>
@@ -84,13 +84,7 @@
 <span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;keyup&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Number 13 is the &#34;Enter&#34; key on the keyboard
 </span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">13</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">bbb</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;map-element&#39;</span><span class="p">);</span>
-        <span class="kd">let</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">);</span>
-        <span class="kd">let</span> <span class="nx">stop</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-        <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">stop</span><span class="p">;</span> <span class="nx">i</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nx">t</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">bbb</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-        <span class="p">}</span>
+        <span class="nx">map</span><span class="p">.</span><span class="nx">clearPaths</span><span class="p">();</span>
         <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mi">768</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">});</span>

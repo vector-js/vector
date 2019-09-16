@@ -52,7 +52,7 @@ function primeFactors(n, p, x, y, prev) {
     while (n > 1) {
         // base case
         if (n == p) {
-            let leaf = graph.addNode(x, y, n.toString(), radius);
+            let leaf = graph.addNode(x, y, n.toString(), radius, radius);
             if (prev != null) {
                 graph.addEdge(prev, leaf);
             }
@@ -63,8 +63,8 @@ function primeFactors(n, p, x, y, prev) {
         // function again with the next prime number.
         if (n % p == 0) {
             // draw nodes and edges
-            let node = graph.addNode(x, y, n.toString(), radius);
-            let leaf = graph.addNode(x - 64, y + 64, p.toString(), radius);
+            let node = graph.addNode(x, y, n.toString(), radius, radius);
+            let leaf = graph.addNode(x - 64, y + 64, p.toString(), radius, radius);
             if (prev) {
                 graph.addEdge(prev, node);
             }

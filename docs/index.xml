@@ -55,7 +55,7 @@ Open the Editor Start by opening an instance of the sandbox in a new tab. Create
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/prime-factorization/</guid>
-      <description>/** * @title Prime Factorization * @description This interactive visualizes the prime factorization tree for a given number. * @input There is a number input that takes a number less than one-hundred million. * @tags [math, graph] * @weight 1 */ import { getScriptName, nextPrime } from &amp;#39;../../Util.js&amp;#39;; import Interactive from &amp;#39;../../Interactive.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 400; interactive.border = true; let graph = interactive.graph(); // this HTML input element controls the current tree being drawn let inputContainer = document.</description>
+      <description>/** * @title Prime Factorization * @description This interactive visualizes the prime factorization tree for a given number. * @input There is a number input that takes a number less than one-hundred million. * @tags [math, graph] * @weight 1 */ import { getScriptName, nextPrime } from &amp;#39;../../Util.js&amp;#39;; import Interactive from &amp;#39;../../Interactive.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 400; interactive.border = true; let graph = interactive.directedGraph(); // this HTML input element controls the current tree being drawn let inputContainer = document.</description>
     </item>
     
     <item>
@@ -287,7 +287,7 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/directed-graph-element/</guid>
-      <description>/** * @title Directed Graph Element * @description This interactive demonstrates the directed graph element. * @tags [elements] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph(); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b, true); //# sourceMappingURL=directed-graph-element.js.map  </description>
+      <description>/** * @title Directed Graph Element * @description This interactive demonstrates the directed graph element. * @tags [elements] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.directedGraph(); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=directed-graph-element.js.map  </description>
     </item>
     
     <item>
@@ -404,7 +404,16 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/map-element/</guid>
-      <description>/** * @title Map Element * @description This interactive demonstrates the interactive world map element. * @tags [elements, mapping] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;canada&amp;#34;, 768, 300); let inputContainer = document.createElement(&amp;#39;div&amp;#39;); inputContainer.style.width = &amp;#39;100%&amp;#39;; inputContainer.style.height = &amp;#39;2rem&amp;#39;; inputContainer.style.marginBottom = &amp;#39;1rem&amp;#39;; let input = document.createElement(&amp;#39;input&amp;#39;); input.type = &amp;#39;text&amp;#39;; input.value = &amp;#39;&amp;#39;; input.id = getScriptName() + &amp;#39;-text-input&amp;#39;; input.</description>
+      <description>/** * @title Map Element * @description This interactive demonstrates the interactive world map element. * @tags [elements, maps] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;&amp;#34;, 768, 300); let inputContainer = document.createElement(&amp;#39;div&amp;#39;); inputContainer.style.width = &amp;#39;100%&amp;#39;; inputContainer.style.height = &amp;#39;2rem&amp;#39;; inputContainer.style.marginBottom = &amp;#39;1rem&amp;#39;; let input = document.createElement(&amp;#39;input&amp;#39;); input.type = &amp;#39;text&amp;#39;; input.value = &amp;#39;&amp;#39;; input.id = getScriptName() + &amp;#39;-text-input&amp;#39;; input.</description>
+    </item>
+    
+    <item>
+      <title>Map Element Two</title>
+      <link>https://vectorjs.org/examples/map-element-two/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/map-element-two/</guid>
+      <description>/** * @title Map Element Two * @description This interactive demonstrates the interactive world map element. * @tags [elements, maps] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; import { usDensityMap as densityMap } from &amp;#39;./map-element-two-data.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;united-states-detail&amp;#34;, 768, 300); let text = interactive.text(-270, -120, &amp;#34;&amp;#34;); text.style.transform = &amp;#34;scale(0.5,-0.5)&amp;#34;; let countries = map.getCountryElements(); countries.forEach(element =&amp;gt; { element.</description>
     </item>
     
     <item>
@@ -414,6 +423,15 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       
       <guid>https://vectorjs.org/svg/elements/marker/</guid>
       <description>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</description>
+    </item>
+    
+    <item>
+      <title>Merge Sort Interactive</title>
+      <link>https://vectorjs.org/examples/merge-sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/merge-sort/</guid>
+      <description>/** * @title Merge Sort Interactive * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree. * @tags [math, algorithm] */ import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; import Interactive from &amp;#39;../../Interactive.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 704; interactive.height = 400; interactive.border = true; let graph = interactive.graph(); let nodeCounterMax = 1; let nodeCountTo = 0; let allArrays = []; // this HTML input element controls the current tree being drawn let input = document.</description>
     </item>
     
     <item>
@@ -693,7 +711,7 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/undirected-graph-element/</guid>
-      <description>/** * @title Undirected Graph Element * @description This interactive demonstrates the undirected graph element. * @tags [elements] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph(); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b, false); //# sourceMappingURL=undirected-graph-element.js.map  </description>
+      <description>/** * @title Undirected Graph Element * @description This interactive demonstrates the undirected graph element. * @tags [elements] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph(); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=undirected-graph-element.js.map  </description>
     </item>
     
     <item>
@@ -775,6 +793,15 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       
       <guid>https://vectorjs.org/examples/zoom-in-out/</guid>
       <description>/** * @title Zoom and Pan Interactive * @description This interactive demonstrates how to zoom in and out on a specific point. * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position. * @tags [] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; let bbox = interactive.root.getBoundingClientRect(); let width = 704 &amp;gt; bbox.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/map-element-two-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/map-element-two-data/</guid>
+      <description>export let usDensityMap = { &amp;#34;Alabama&amp;#34;: 94.65, &amp;#34;Alaska&amp;#34;: 1.264, &amp;#34;Arizona&amp;#34;: 57.05, &amp;#34;Arkansas&amp;#34;: 56.43, &amp;#34;California&amp;#34;: 241.7, &amp;#34;Colorado&amp;#34;: 49.33, &amp;#34;Connecticut&amp;#34;: 739.1, &amp;#34;Delaware&amp;#34;: 464.3, &amp;#34;District of Columbia&amp;#34;: 10065, &amp;#34;Florida&amp;#34;: 353.4, &amp;#34;Georgia&amp;#34;: 169.5, &amp;#34;Hawaii&amp;#34;: 214.1, &amp;#34;Idaho&amp;#34;: 19.15, &amp;#34;Illinois&amp;#34;: 231.5, &amp;#34;Indiana&amp;#34;: 181.7, &amp;#34;Iowa&amp;#34;: 54.81, &amp;#34;Kansas&amp;#34;: 35.09, &amp;#34;Kentucky&amp;#34;: 110, &amp;#34;Louisiana&amp;#34;: 105, &amp;#34;Maine&amp;#34;: 43.04, &amp;#34;Maryland&amp;#34;: 596.3, &amp;#34;Massachusetts&amp;#34;: 840.2, &amp;#34;Michigan&amp;#34;: 173.9, &amp;#34;Minnesota&amp;#34;: 67.14, &amp;#34;Mississippi&amp;#34;: 63.5, &amp;#34;Missouri&amp;#34;: 87.26, &amp;#34;Montana&amp;#34;: 6.858, &amp;#34;Nebraska&amp;#34;: 23.97, &amp;#34;Nevada&amp;#34;: 24.8, &amp;#34;New Hampshire&amp;#34;: 147, &amp;#34;New Jersey&amp;#34;: 1189, &amp;#34;New Mexico&amp;#34;: 17.</description>
     </item>
     
   </channel>

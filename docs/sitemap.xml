@@ -203,7 +203,15 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/map-element-two/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/marker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/merge-sort/</loc>
   </url>
   
   <url>
@@ -372,6 +380,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/zoom-in-out/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/map-element-two-data/</loc>
   </url>
   
 </urlset>
