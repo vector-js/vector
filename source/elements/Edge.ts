@@ -59,7 +59,6 @@ export default class Edge extends Element {
     let r2Lx = nodeTo.nodeEllipse.rx / L * deltaX;
     let r2Ly = nodeTo.nodeEllipse.rx / L * deltaY;
 
-  
     let y1Prime = y1 + r1Ly;
     let y2Prime = y2 - r2Ly;
 

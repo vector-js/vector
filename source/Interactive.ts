@@ -396,10 +396,4 @@ export default class Interactive extends Element  {
     this.background.appendChild(edge.root);
     return edge;
   }
-
-  stepper (x1:number, y1:number, x2:number, y2:number, length:number) : Stepper{
-    let stepper = new Stepper(x1, y1, x2, y2, length);
-    this.background.appendChild(stepper.root);
-    return stepper;
-  }
 }
