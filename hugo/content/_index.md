@@ -39,7 +39,7 @@ After including the script in the HTML file, the interactive will be created wit
 <div class="filename">getting-started.js</div>
 
 {{< highlight javascript>}}
-import Interactive from "{{< baseURL >}}Interactive.js";
+import Interactive from "{{< baseURL >}}/Interactive.js";
 let interactive = new Interactive("my-interactive");
 interactive.border = true;
 let control = interactive.control( 100, 100);
