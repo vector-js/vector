@@ -27,7 +27,6 @@ function drawGraph() {
     // redraw the prime factorization tree
     primeFactors(parseInt(input.value), 0, 0, 0, null);
     let rect = graph.root.getBBox();
-    console.log(graph.size());
     if (graph.size() == 1) {
         interactive.setViewBox(rect.x - 32, rect.y - 32, rect.width + 64, rect.height + 64);
     }
