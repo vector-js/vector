@@ -23,7 +23,7 @@
 
   
   
-  <link rel="stylesheet" type="text/css" href="/Library.css">
+  <link rel="stylesheet" type="text/css" href="/library.css">
 </head>
 <body>
 
@@ -107,7 +107,7 @@
 </span><span class="c1"></span>    <span class="c1">// } else {
 </span><span class="c1"></span>    <span class="c1">// 	counter -= 0.001;
 </span><span class="c1"></span>    <span class="c1">// }
-</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="p">(</span><span class="nx">scrubber</span><span class="p">.</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">min</span><span class="p">);</span>
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">value</span> <span class="err">/ (scrubber.max - scrubber.min);</span>
     <span class="nx">control</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getPointAtLength</span><span class="p">(</span><span class="nx">currentPosition</span> <span class="o">*</span> <span class="nx">pathLength</span><span class="p">).</span><span class="nx">x</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getPointAtLength</span><span class="p">(</span><span class="nx">currentPosition</span> <span class="o">*</span> <span class="nx">pathLength</span><span class="p">).</span><span class="nx">y</span><span class="p">);</span>
     <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">moveControl</span><span class="p">);</span>
 <span class="p">}</span>

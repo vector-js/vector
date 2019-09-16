@@ -6,6 +6,8 @@
 */
 
 import Interactive from '../../Interactive.js';
+import data from './data.js';
+data["version"];
 
 let myInteractive = new Interactive('library-hello-world');
 myInteractive.window = true;

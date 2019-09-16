@@ -338,7 +338,7 @@ rectangle.style.strokeWidth = '1px';
 
 ### Custom Styling
 
-Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript.
+Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript. The style sheet for the library can be found in the <a href="/Library.css">Library.css</a> file. Typically, elements have an associated class that gives them their default look and feel.
 
 {{< highlight javascript>}}
 // element.style ...

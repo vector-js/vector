@@ -23,7 +23,7 @@
 
   
   
-  <link rel="stylesheet" type="text/css" href="/Library.css">
+  <link rel="stylesheet" type="text/css" href="/library.css">
 </head>
 <body>
 
@@ -73,7 +73,7 @@
     <span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
     <span class="nx">line</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">point1</span><span class="p">,</span> <span class="nx">point2</span><span class="p">);</span>
     <span class="nx">line</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">slope</span> <span class="o">=</span> <span class="p">(</span><span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">point1</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">point2</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">point1</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nx">slope</span> <span class="o">=</span> <span class="p">(</span><span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">point1</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="err">/ (point2.x - point1.x);</span>
         <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">slope</span> <span class="o">*</span> <span class="nx">point2</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">isFinite</span><span class="p">(</span><span class="nx">slope</span><span class="p">))</span> <span class="p">{</span>
             <span class="k">this</span><span class="p">.</span><span class="nx">x1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">minX</span> <span class="o">-</span> <span class="mi">10</span><span class="p">;</span>
