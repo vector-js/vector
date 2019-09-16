@@ -1,5 +1,6 @@
 import * as data from "../mapsJson.js";
 import OurElement from '../elements/Element.js';
+import SVG from "../SVG.js";
 /**
 * Map class for displaying geographic maps of the world and its different parts.
 */
@@ -11,7 +12,7 @@ export default class GeoMap extends OurElement {
     * height: height of the map
     */
     constructor(interactive, mapName, width, height, externalData) {
-        super(null);
+        super(SVG.Group());
         this.mapName = mapName;
         this.interactive = interactive;
         this.interactive.width = width;

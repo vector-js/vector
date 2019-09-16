@@ -1,3 +1,9 @@
+/**
+* @title Map Element Two
+* @description This interactive demonstrates the interactive world map element.
+* @tags [elements, maps]
+*/
+
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
 import {usDensityMap as densityMap} from './map-element-two-data.js';

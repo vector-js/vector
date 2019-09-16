@@ -1,7 +1,7 @@
 /**
 * @title Map Element
 * @description This interactive demonstrates the interactive world map element.
-* @tags [elements, mapping]
+* @tags [elements, maps]
 */
 import Interactive from '../../Interactive.js';
 import { getScriptName } from '../../Util.js';
