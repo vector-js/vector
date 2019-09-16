@@ -11,7 +11,7 @@ let interactive = new Interactive(getScriptName());
 interactive.width = 736;
 interactive.height = 400;
 interactive.border = true;
-let graph = interactive.graph();
+let graph = interactive.directedGraph();
 // this HTML input element controls the current tree being drawn
 let inputContainer = document.createElement('div');
 inputContainer.classList.add('input-container');
@@ -31,11 +31,11 @@ function drawGraph() {
     // redraw the prime factorization tree
     primeFactors(parseInt(input.value), 0, 0, 0, null);
     let rect = graph.root.getBBox();
-    if (graph.size() >= 11) {
-        interactive.setViewBox(-rect.width / 2 - 32, rect.y - 32, rect.width + 64, rect.height + 64);
+    if (graph.size() == 1) {
+        interactive.setViewBox(rect.x - 32, rect.y - 32, rect.width + 64, rect.height + 64);
     }
     else {
-        interactive.setViewBox(-interactive.width / 2, rect.y - 32, interactive.width, interactive.height);
+        interactive.setViewBox(rect.x - 8, rect.y - 8, rect.width + 16, rect.height + 16);
     }
 }
 // draw the initial prime factorization tree for the current input
@@ -54,7 +54,7 @@ function primeFactors(n, p, x, y, prev) {
         if (n == p) {
             let leaf = graph.addNode(x, y, n.toString(), radius);
             if (prev != null) {
-                graph.addEdge(prev, leaf, true);
+                graph.addEdge(prev, leaf);
             }
             return;
         }
@@ -66,9 +66,9 @@ function primeFactors(n, p, x, y, prev) {
             let node = graph.addNode(x, y, n.toString(), radius);
             let leaf = graph.addNode(x - 64, y + 64, p.toString(), radius);
             if (prev) {
-                graph.addEdge(prev, node, true);
+                graph.addEdge(prev, node);
             }
-            graph.addEdge(node, leaf, true);
+            graph.addEdge(node, leaf);
             // update variables
             n = n / p;
             x += 64;

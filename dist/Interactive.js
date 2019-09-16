@@ -22,6 +22,7 @@ import RadioControl from './elements/RadioControl.js';
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
 import Map from './elements/Map.js';
+import DirectedGraph from './elements/DirectedGraph.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -257,6 +258,14 @@ export default class Interactive extends Element {
         let map = new Map(this, mapName, width, height);
         return map;
     }
+    /*
+    * Creates a directed graph element within this interactive
+    */
+    directedGraph() {
+        let graph = new DirectedGraph();
+        this.background.appendChild(graph.root);
+        return graph;
+    }
     /**
     * Creates a slider input within this interactive
     */
@@ -324,8 +333,8 @@ export default class Interactive extends Element {
     /**
     * Creates a node within this interactive.
     */
-    node(x, y, r, contents) {
-        let node = new Node(x, y, r, contents);
+    node(x, y, rx, ry, contents) {
+        let node = new Node(x, y, rx, ry, contents);
         this.background.appendChild(node.root);
         return node;
     }

@@ -4,19 +4,23 @@ import Edge from '../elements/Edge.js';
 import SVG from '../SVG.js';
 
 /**
-* A Graph is a complex element containing nodes and undirected edges.
+* A Directed graph is a complex element containing nodes and directed edges.
 */
-export default class Graph extends Element {
+export default class DirectedGraph extends Element {
 
   nodes: Node[];
-
   /**
-  * Constructs a graph
+  * Constructs a directed graph
   */
   constructor() {
     super(SVG.Group());
 
     this.nodes = [];
+
+    let defs = SVG.Defs();
+    defs.innerHTML = `<marker id="arrow" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#333333;"></path></marker>`;
+
+    this.root.appendChild(defs);
   }
 
   /**
@@ -49,9 +53,11 @@ export default class Graph extends Element {
   */
   addEdge(from: Node, to: Node) : Edge
   {
-    let edge = new Edge(from, to, false);
+    let edge = new Edge(from, to, true);
 
-    this.root.prepend(edge.root);
+    edge.root.setAttribute('marker-end', `url(#arrow)`);
+
+    this.root.appendChild(edge.root);
 
     from.addEdge(edge);
     to.addEdge(edge);
@@ -66,7 +72,6 @@ export default class Graph extends Element {
   {
     return this.nodes;
   }
-
   /**
   * Returns the size of this graph
   */

@@ -12,5 +12,5 @@ interactive.border = true;
 let graph = interactive.graph();
 let a = graph.addNode(75, 75, 'a');
 let b = graph.addNode(200, 75, 'b');
-graph.addEdge(a, b, false);
+graph.addEdge(a, b);
 //# sourceMappingURL=undirected-graph-element.js.map

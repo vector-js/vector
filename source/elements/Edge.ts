@@ -19,8 +19,13 @@ export default class Edge extends Element {
   */
   constructor(nodeFrom: Node, nodeTo: Node, directed: boolean) {
     let arr = Edge.calculateLinePosition(nodeFrom, nodeTo);
-    super(SVG.Line(arr[0], arr[1], arr[2], arr[3]));
 
+    if(directed) {
+      super(SVG.Line(arr[0], arr[1], arr[2], arr[3]));
+    }
+    else {
+      super(SVG.Line(nodeFrom.cx, nodeFrom.cy, nodeTo.cx, nodeTo.cy));
+    }
     this.directed = directed;
   }
 
@@ -30,23 +35,22 @@ export default class Edge extends Element {
   */
   static calculateLinePosition(nodeFrom: Node, nodeTo:Node)
   {
-    let y1 = nodeFrom.nodeCircle.cy;
-    let y2 = nodeTo.nodeCircle.cy;
+    let y1 = nodeFrom.nodeEllipse.cy;
+    let y2 = nodeTo.nodeEllipse.cy;
 
-    let x1 = nodeFrom.nodeCircle.cx;
-    let x2 = nodeTo.nodeCircle.cx;
+    let x1 = nodeFrom.nodeEllipse.cx;
+    let x2 = nodeTo.nodeEllipse.cx;
 
     let deltaY = y2 - y1;
     let deltaX = x2 - x1;
 
     let L = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
 
-    let r1Lx = nodeFrom.nodeCircle.r / L * deltaX;
-    let r1Ly = nodeFrom.nodeCircle.r / L * deltaY;
+    let r1Lx = nodeFrom.nodeEllipse.rx / L * deltaX;
+    let r1Ly = nodeFrom.nodeEllipse.rx / L * deltaY;
 
-    let r2Lx = nodeTo.nodeCircle.r / L * deltaX;
-    let r2Ly = nodeTo.nodeCircle.r / L * deltaY;
-
+    let r2Lx = nodeTo.nodeEllipse.rx / L * deltaX;
+    let r2Ly = nodeTo.nodeEllipse.rx / L * deltaY;
 
     let y1Prime = y1 + r1Ly;
     let y2Prime = y2 - r2Ly;

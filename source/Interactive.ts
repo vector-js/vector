@@ -25,6 +25,8 @@ import RadioControl from './elements/RadioControl.js';
 import Plot from './elements/Plot.js';
 import Graph from './elements/Graph.js';
 import Map from './elements/Map.js';
+import DirectedGraph from './elements/DirectedGraph.js';
+
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -323,9 +325,18 @@ export default class Interactive extends Element  {
   /**
   * Creates a graph element within this interactive
   */
- map(mapName:string,width:number,height:number) : Map {
-  let map = new Map(this,mapName,width,height);
-  return map;
+  map(mapName:string,width:number,height:number) : Map {
+    let map = new Map(this,mapName,width,height);
+    return map;
+  }
+
+  /*
+  * Creates a directed graph element within this interactive
+  */
+  directedGraph() : DirectedGraph {
+    let graph = new DirectedGraph();
+    this.background.appendChild(graph.root);
+    return graph;
   }
 
   /**
@@ -403,8 +414,8 @@ export default class Interactive extends Element  {
   /**
   * Creates a node within this interactive.
   */
-  node( x:number, y:number, r: number, contents:string ) : Node {
-    let node = new Node( x, y, r, contents);
+  node( x:number, y:number, rx: number, ry:number, contents:string ) : Node {
+    let node = new Node( x, y, rx, ry, contents);
     this.background.appendChild(node.root);
     return node;
   }
@@ -412,7 +423,7 @@ export default class Interactive extends Element  {
   /**
   * Creates an edge connecting two nodes within this interactive.
   */
-  edge (nodeFrom: Node, nodeTo: Node, directed: boolean) {
+  edge (nodeFrom: Node, nodeTo: Node, directed: boolean) : Edge{
     let edge = new Edge(nodeFrom, nodeTo, directed);
     this.background.appendChild(edge.root);
     return edge;
