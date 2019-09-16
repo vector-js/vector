@@ -18,8 +18,6 @@ import Control from './elements/Control.js';
 import ControlCircle from './elements/ControlCircle.js';
 import Scrubber from './elements/Scrubber.js';
 import Slider from './elements/Slider.js';
-import Stepper from './elements/Stepper.js';
-
 
 // complex elements
 import Plot from './elements/Plot.js';
