@@ -168,9 +168,6 @@ export function mergeSort(array, level, parent) {
 }
 /** Merge (conquer) step of mergeSort */
 function merge(left, right) {
-    console.log(left);
-    console.log(right);
-    console.log();
     const array = [];
     let lIndex = 0;
     let rIndex = 0;

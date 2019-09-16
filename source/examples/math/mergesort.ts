@@ -216,9 +216,6 @@ export function mergeSort(array: number[], level:number, parent:Node): number[] 
 /** Merge (conquer) step of mergeSort */
 function merge(left: number[], right: number[]): number[]
 {
-  console.log(left)
-  console.log(right)
-  console.log()
   const array: number[] = [];
   let lIndex = 0;
   let rIndex = 0;
