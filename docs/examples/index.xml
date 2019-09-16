@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/world-map/</guid>
-      <description>/** * @title Interactive World Map * @description * @tags [maps] * @weight 1 */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; let myInteractive = new Interactive(&amp;#39;library-hello-world&amp;#39;); myInteractive.window = true; let control = myInteractive.control(100, 100); //# sourceMappingURL=world-map.js.map  </description>
+      <description>/** * @title Interactive World Map * @description Every country in the world displayed in an interactive. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); let map = myInteractive.map(&amp;#34;world&amp;#34;, 768, 300); //# sourceMappingURL=world-map.js.map  </description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/population-of-united-states/</guid>
-      <description>/** * @title Population of the United States * @description * @tags [maps] * @weight 1 */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; let myInteractive = new Interactive(&amp;#39;library-hello-world&amp;#39;); myInteractive.window = true; let control = myInteractive.control(100, 100); //# sourceMappingURL=population-of-united-states.js.map  </description>
+      <description>/** * @title Population of the United States * @description Every state of the United States colored by population density. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; import { usDensityMap as densityMap } from &amp;#39;../elements/map-element-two-data.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.</description>
     </item>
     
     <item>
@@ -250,7 +250,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/map-element/</guid>
-      <description>/** * @title Map Element * @description This interactive demonstrates the interactive world map element. * @tags [elements, maps] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;&amp;#34;, 768, 300); let inputContainer = document.createElement(&amp;#39;div&amp;#39;); inputContainer.style.width = &amp;#39;100%&amp;#39;; inputContainer.style.height = &amp;#39;2rem&amp;#39;; inputContainer.style.marginBottom = &amp;#39;1rem&amp;#39;; let input = document.createElement(&amp;#39;input&amp;#39;); input.type = &amp;#39;text&amp;#39;; input.value = &amp;#39;&amp;#39;; input.id = getScriptName() + &amp;#39;-text-input&amp;#39;; input.</description>
+      <description>/** * @title Map Element * @description This interactive demonstrates the interactive world map element. * @tags [elements, maps] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;&amp;#34;, 768, 300); let inputContainer = document.createElement(&amp;#39;div&amp;#39;); inputContainer.classList.add(&amp;#39;input-container&amp;#39;); let input = document.createElement(&amp;#39;input&amp;#39;); input.type = &amp;#39;text&amp;#39;; input.value = &amp;#39;&amp;#39;; input.id = getScriptName() + &amp;#39;-text-input&amp;#39;; input.classList.add(&amp;#39;input&amp;#39;); interactive.container.parentElement.insertBefore(inputContainer, interactive.container); inputContainer.appendChild(input); input.</description>
     </item>
     
     <item>
