@@ -2,9 +2,9 @@ import { saveAs } from './util/file.js';
 /**
 * Returns the filename portion of a file path.
 */
-export function parseName(path) {
+export function parseName(path, trimExtension = true) {
     let start = path.lastIndexOf("/") + 1;
-    let end = path.lastIndexOf(".");
+    let end = trimExtension ? path.lastIndexOf(".") : path.length;
     return path.substr(start, end - start);
 }
 /**
@@ -23,6 +23,9 @@ export function getScriptName(trimExtension = true) {
     }
     else if ((source = currentStackFrameRegex.exec(error.stack.trim()))) {
         name = source[1];
+    }
+    else if (name = parseName(error.stack.trim(), trimExtension)) {
+        return name;
     }
     else {
         return error.message;

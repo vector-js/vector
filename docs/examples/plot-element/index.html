@@ -23,11 +23,11 @@
 
   
   
-  <link rel="stylesheet" type="text/css" href="/library.css">
+  <link rel="stylesheet" type="text/css" href="/Library.css">
 </head>
 <body>
 
-<header class="text-center vertical-center">
+<header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
 		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
@@ -71,8 +71,8 @@
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">();</span>
 <span class="nx">graph</span><span class="p">.</span><span class="kd">function</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">functionText</span><span class="p">);</span>
 <span class="nx">graph</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="err">/ 2;</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="sr">/ interactive.width, interactive.width /</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">));</span>
+<span class="nx">graph</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">graph</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">));</span>
 <span class="c1">// Function input
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">functionInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
 <span class="nx">functionInput</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
@@ -95,7 +95,6 @@
 
 
 </main>
-
 
 </body>
 </html>

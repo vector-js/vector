@@ -6,7 +6,7 @@
     <description>Recent content on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Feb 2019 12:03:45 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 11 Feb 2019 10:48:41 -0700</lastBuildDate>
     
 	<atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -404,7 +404,7 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/map-element/</guid>
-      <description>/** * @title Map Element * @description This interactive demonstrates the interactive world map element. * @tags [elements, maps] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;&amp;#34;, 768, 300); let inputContainer = document.createElement(&amp;#39;div&amp;#39;); inputContainer.classList.add(&amp;#39;input-container&amp;#39;); let input = document.createElement(&amp;#39;input&amp;#39;); input.type = &amp;#39;text&amp;#39;; input.value = &amp;#39;&amp;#39;; input.id = getScriptName() + &amp;#39;-text-input&amp;#39;; input.classList.add(&amp;#39;input&amp;#39;); interactive.container.parentElement.insertBefore(inputContainer, interactive.container); inputContainer.appendChild(input); input.</description>
+      <description>/** * @title Map Element * @description This interactive demonstrates the interactive world map element. * @tags [elements, maps] */ import Interactive from &amp;#39;../../Interactive.js&amp;#39;; import { getScriptName } from &amp;#39;../../Util.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(&amp;#34;&amp;#34;, 768, 300); let inputContainer = document.createElement(&amp;#39;div&amp;#39;); inputContainer.classList.add(&amp;#39;input-container&amp;#39;); let input = document.createElement(&amp;#39;input&amp;#39;); input.type = &amp;#39;text&amp;#39;; input.value = &amp;#39;world&amp;#39;; input.id = getScriptName() + &amp;#39;-text-input&amp;#39;; input.classList.add(&amp;#39;input&amp;#39;); interactive.container.parentElement.insertBefore(inputContainer, interactive.container); inputContainer.appendChild(input); input.</description>
     </item>
     
     <item>

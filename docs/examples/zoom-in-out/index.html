@@ -23,11 +23,11 @@
 
   
   
-  <link rel="stylesheet" type="text/css" href="/library.css">
+  <link rel="stylesheet" type="text/css" href="/Library.css">
 </head>
 <body>
 
-<header class="text-center vertical-center">
+<header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
 		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
@@ -81,7 +81,7 @@
 <span class="kd">let</span> <span class="nx">h</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">w</span> <span class="o">+</span> <span class="nx">width</span> <span class="err">/ 2 - 5;</span>
+        <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">w</span> <span class="o">+</span> <span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>
         <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">j</span> <span class="o">*</span> <span class="nx">h</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">;</span>
         <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">h</span><span class="p">);</span>
         <span class="c1">// rectangle.root.setAttribute(&#39;vector-effect&#39;,&#39;non-scaling-stroke&#39;);
@@ -97,11 +97,11 @@
 </span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">wheel</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">deltaY</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">zoom</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="nx">wheel</span> <span class="o">*</span> <span class="nx">zoomIntensity</span><span class="p">);</span>
     <span class="c1">// let zoom = Math.log10(Math.abs(event.deltaY));
-</span><span class="c1"></span>    <span class="nx">originx</span> <span class="o">-=</span> <span class="nx">x</span> <span class="sr">/ (scale * zoom) - x /</span> <span class="nx">scale</span><span class="p">;</span>
-    <span class="nx">originy</span> <span class="o">-=</span> <span class="nx">y</span> <span class="sr">/ (scale * zoom) - y /</span> <span class="nx">scale</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="nx">originx</span> <span class="o">-=</span> <span class="nx">x</span> <span class="o">/</span> <span class="p">(</span><span class="nx">scale</span> <span class="o">*</span> <span class="nx">zoom</span><span class="p">)</span> <span class="o">-</span> <span class="nx">x</span> <span class="o">/</span> <span class="nx">scale</span><span class="p">;</span>
+    <span class="nx">originy</span> <span class="o">-=</span> <span class="nx">y</span> <span class="o">/</span> <span class="p">(</span><span class="nx">scale</span> <span class="o">*</span> <span class="nx">zoom</span><span class="p">)</span> <span class="o">-</span> <span class="nx">y</span> <span class="o">/</span> <span class="nx">scale</span><span class="p">;</span>
     <span class="nx">scale</span> <span class="o">*=</span> <span class="nx">zoom</span><span class="p">;</span>
-    <span class="nx">visibleWidth</span> <span class="o">=</span> <span class="nx">width</span> <span class="err">/ scale;</span>
-    <span class="nx">visibleHeight</span> <span class="o">=</span> <span class="nx">height</span> <span class="err">/ scale;</span>
+    <span class="nx">visibleWidth</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">/</span> <span class="nx">scale</span><span class="p">;</span>
+    <span class="nx">visibleHeight</span> <span class="o">=</span> <span class="nx">height</span> <span class="o">/</span> <span class="nx">scale</span><span class="p">;</span>
     <span class="nx">interactive</span><span class="p">.</span><span class="nx">setViewBox</span><span class="p">(</span><span class="nx">originx</span><span class="p">,</span> <span class="nx">originy</span><span class="p">,</span> <span class="nx">visibleWidth</span><span class="p">,</span> <span class="nx">visibleHeight</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="kd">let</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
@@ -119,8 +119,8 @@
     <span class="k">if</span> <span class="p">(</span><span class="nx">active</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">deltaX</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="nx">prevX</span><span class="p">;</span>
         <span class="kd">let</span> <span class="nx">deltaY</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">-</span> <span class="nx">prevY</span><span class="p">;</span>
-        <span class="nx">originx</span> <span class="o">-=</span> <span class="nx">deltaX</span> <span class="err">/ scale;</span>
-        <span class="nx">originy</span> <span class="o">-=</span> <span class="nx">deltaY</span> <span class="err">/ scale;</span>
+        <span class="nx">originx</span> <span class="o">-=</span> <span class="nx">deltaX</span> <span class="o">/</span> <span class="nx">scale</span><span class="p">;</span>
+        <span class="nx">originy</span> <span class="o">-=</span> <span class="nx">deltaY</span> <span class="o">/</span> <span class="nx">scale</span><span class="p">;</span>
         <span class="nx">prevX</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
         <span class="nx">prevY</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
         <span class="nx">interactive</span><span class="p">.</span><span class="nx">setViewBox</span><span class="p">(</span><span class="nx">originx</span><span class="p">,</span> <span class="nx">originy</span><span class="p">,</span> <span class="nx">visibleWidth</span><span class="p">,</span> <span class="nx">visibleHeight</span><span class="p">);</span>
@@ -133,7 +133,6 @@
 
 
 </main>
-
 
 </body>
 </html>

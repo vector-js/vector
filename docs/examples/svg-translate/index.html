@@ -23,11 +23,11 @@
 
   
   
-  <link rel="stylesheet" type="text/css" href="/library.css">
+  <link rel="stylesheet" type="text/css" href="/Library.css">
 </head>
 <body>
 
-<header class="text-center vertical-center">
+<header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
 		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
@@ -66,8 +66,8 @@
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="err">/ 2 - w;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="err">/ 2 - w;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="nx">w</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="nx">w</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">group</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">r1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">w</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">r2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">w</span><span class="p">);</span>
@@ -100,7 +100,6 @@
 
 
 </main>
-
 
 </body>
 </html>

@@ -23,11 +23,11 @@
 
   
   
-  <link rel="stylesheet" type="text/css" href="/library.css">
+  <link rel="stylesheet" type="text/css" href="/Library.css">
 </head>
 <body>
 
-<header class="text-center vertical-center">
+<header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
 		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
@@ -157,7 +157,7 @@
     <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">const</span> <span class="nx">middle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="err">/ 2);</span>
+    <span class="k">const</span> <span class="nx">middle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
     <span class="k">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">middle</span><span class="p">);</span>
     <span class="k">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">middle</span><span class="p">);</span>
     <span class="kd">let</span> <span class="nx">otherNodes</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;ellipse&#34;</span><span class="p">);</span>
@@ -269,7 +269,6 @@
 
 
 </main>
-
 
 </body>
 </html>

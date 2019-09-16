@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/tutorials/</loc>
+    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/</loc>
   </url>
   
@@ -25,11 +30,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/prime-factorization/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/tutorials/</loc>
-    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
   
   <url>
@@ -62,6 +62,11 @@
   
   <url>
     <loc>https://vectorjs.org/team/josh/</loc>
+    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/</loc>
     <lastmod>2019-02-11T10:48:41-07:00</lastmod>
   </url>
   
@@ -363,11 +368,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/unit-circle-sine/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/</loc>
-    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
   
   <url>
