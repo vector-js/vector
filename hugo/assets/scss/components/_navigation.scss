@@ -55,9 +55,9 @@ section.aside aside {
 aside {
   overscroll-behavior-y: contain;
   overscroll-behavior: none;
-
   float:right;
   position:sticky;
+  position:-webkit-sticky;
   top:0;
   width: 230px;
   padding: .5rem;

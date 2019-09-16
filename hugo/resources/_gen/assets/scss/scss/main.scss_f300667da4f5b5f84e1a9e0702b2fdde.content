@@ -629,6 +629,7 @@ aside {
   overscroll-behavior: none;
   float: right;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   width: 230px;
   padding: .5rem;

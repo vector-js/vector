@@ -4,9 +4,9 @@ import { saveAs } from './util/file.js';
 /**
 * Returns the filename portion of a file path.
 */
-export function parseName( path:string ) : string {
+export function parseName( path:string, trimExtension = true ) : string {
   let start = path.lastIndexOf("/") + 1;
-  let end = path.lastIndexOf(".");
+  let end = trimExtension ? path.lastIndexOf(".") : path.length;
   return path.substr(start, end - start);
 }
 
@@ -25,11 +25,11 @@ export function getScriptName( trimExtension = true ) : string {
   let name;
   if((source = lastStackFrameRegex.exec(error.stack.trim())) && source[1] != "") {
     name = source[1];
-  }
-  else if ((source = currentStackFrameRegex.exec(error.stack.trim()))) {
+  } else if ((source = currentStackFrameRegex.exec(error.stack.trim()))) {
     name = source[1];
-  }
-  else {
+  } else if ( name = parseName(error.stack.trim(), trimExtension)) {
+    return name;
+  } else {
     return error.message;
   }
 
