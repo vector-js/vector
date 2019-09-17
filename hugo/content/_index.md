@@ -15,9 +15,7 @@ aside:
 
 ## Getting Started
 
-Download <a href="/getting-started.tgz" download>getting-started.tgz</a>
-
-Download the library or link to the CDN and import the library at the top of your Javascript file. After importing the library create an interactive object by passing the string identifier of a HTML container element. This interactive object contains function calls and helper methods for creating elements and the interactions between them.
+Download the tar ball <a href="/getting-started.tgz" download>getting-started.tgz</a> or follow the instructions below. The tar ball contains a directory with the files: index.html and script.js. The HTML file links the library's stylesheet and includes the script file to run.
 
 <div class="filename">index.html</div>
 
@@ -27,27 +25,34 @@ Download the library or link to the CDN and import the library at the top of you
   <head>
     <meta charset="utf-8">
     <title>Getting Started</title>
-    <link rel="stylesheet" href="{{< baseURL >}}/library.css">
+    <link rel="stylesheet" href="https://vectorjs.org/library.css">
   </head>
   <body>
     <div id="my-interactive"></div>
-    <script type="module" src="getting-started.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
 {{< /highlight >}}
 
-After including the script in the HTML file, the interactive will be created within the element with the corresponding id. Make sure to have attribute type="module" when including the script since we are using the ES6 import syntax.
+The script creates an interactive object using the identifier "my-interactive" which corresponds to the div element within the HTML file. Then the script creates a control point which can be dragged around.
 
-<div class="filename">getting-started.js</div>
+<div class="filename">script.js</div>
 
 {{< highlight javascript>}}
-import Interactive from "{{< baseURL >}}/Interactive.js";
-let interactive = new Interactive("my-interactive");
-interactive.border = true;
-let control = interactive.control( 100, 100);
+import Interactive from "https://vectorjs.org/Interactive.js";
+
+// Construct an interactive within the HTML element with the id "my-interactive"
+let myInteractive = new Interactive("my-interactive");
+myInteractive.border = true;
+
+// Construct a control point at the the location (100, 100)
+let control = myInteractive.control(100, 100);
+
+// Print the two objects to the console
+console.log( control, myInteractive);
 {{< /highlight >}}
 
-Serve the HTML page from a local folder over the network. <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> is a handy tool for doing this. The result is the following interactive: a blank SVG image with the default dimensions of 600 by 300 pixels. TODO: Download starter pack or watch the getting started tutorial.
+To view the interactive, serve the HTML page using a local server. We recommend using <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a>. The result is an interactive with the default dimensions of 600 by 300 pixels.
 
 <img src="/images/getting-started.svg" alt="">
 
