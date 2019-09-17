@@ -15,6 +15,8 @@ aside:
 
 ## Getting Started
 
+Download <a href="/getting-started.tgz" download>getting-started.tgz</a>
+
 Download the library or link to the CDN and import the library at the top of your Javascript file. After importing the library create an interactive object by passing the string identifier of a HTML container element. This interactive object contains function calls and helper methods for creating elements and the interactions between them.
 
 <div class="filename">index.html</div>

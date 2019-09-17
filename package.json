@@ -21,7 +21,8 @@
     "website": "tsc && cd hugo && hugo",
     "watch": "tsc -w",
     "start": "http-server .",
-    "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/Library.css",
+    "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
+    "tutorial": "./getting-started.sh",
     "rollup": "rollup --config"
   },
   "files": [
