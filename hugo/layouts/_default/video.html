@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <div class="video">
+    <iframe title="vimeo-player" src="{{.Params.Video.Src}}" width="{{.Params.Video.Width}}" height="{{.Params.Video.Height}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <h1>{{.Title}}</h1>
+  {{ .Content }}
+{{ end }}

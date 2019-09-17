@@ -15,46 +15,7 @@ aside:
 
 ## Getting Started
 
-Download the tar ball <a href="/getting-started.tgz" download>getting-started.tgz</a> or follow the instructions below. The tar ball contains a directory with the files: index.html and script.js. The HTML file links the library's stylesheet and includes the script file to run.
-
-<div class="filename">index.html</div>
-
-{{< highlight html>}}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Getting Started</title>
-    <link rel="stylesheet" href="https://vectorjs.org/library.css">
-  </head>
-  <body>
-    <div id="my-interactive"></div>
-    <script type="module" src="script.js"></script>
-  </body>
-</html>
-{{< /highlight >}}
-
-The script creates an interactive object using the identifier "my-interactive" which corresponds to the div element within the HTML file. Then the script creates a control point which can be dragged around.
-
-<div class="filename">script.js</div>
-
-{{< highlight javascript>}}
-import Interactive from "https://vectorjs.org/Interactive.js";
-
-// Construct an interactive within the HTML element with the id "my-interactive"
-let myInteractive = new Interactive("my-interactive");
-myInteractive.border = true;
-
-// Construct a control point at the the location (100, 100)
-let control = myInteractive.control(100, 100);
-
-// Print the two objects to the console
-console.log( control, myInteractive);
-{{< /highlight >}}
-
-To view the interactive, serve the HTML page using a local server. We recommend using <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a>. The result is an interactive with the default dimensions of 600 by 300 pixels.
-
-<img src="/images/getting-started.svg" alt="">
+{{<render "content" "/tutorials/getting-started">}}
 
 ## Input
 
