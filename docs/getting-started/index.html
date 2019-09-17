@@ -42,59 +42,43 @@
 <main class="medium-container">
 <h1>Getting Started</h1>
 
-<p>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.</p>
+<p class="vertical-center">
+  <iframe src="https://player.vimeo.com/video/360629850" width="768" height="516" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</p>
 
-<h2 id="open-the-editor">Open the Editor</h2>
+<p>Hi and welcome to vector js. In this tutorial we are going to create a simple interactive using the vector.js library. First, navigate the the website vectorjs.org and download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball. Open the tar ball file to get a directory containing an index.html file and script.js file.</p>
 
-<p>Start by opening an instance of the <a href="/sandbox/" target="_blank">sandbox</a> in a new tab.
-<!-- More advanced users may want to set up their own development environment... --></p>
+<div class="filename">index.html</div>
 
-<h2 id="create-a-basic-interactive">Create a Basic Interactive</h2>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span> <span class="na">dir</span><span class="o">=</span><span class="s">&#34;ltr&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Getting Started<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://vectorjs.org/library.css&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-interactive&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;script.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
 
-<p>Create a new interactive with a simple control point. Copy and paste the following into the text area. The first line of code creates a new &ldquo;interactive&rdquo; within the HTML element corresponding to the id. The second line creates a simple control point and is an example of how the end user interfaces with the interactive.</p>
+<div class="filename">script.js</div>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-id&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;https://vectorjs.org/Interactive.js&#34;</span><span class="p">;</span>
+
+<span class="c1">// Construct an interactive within the HTML element with the id &#34;my-interactive&#34;
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-interactive&#34;</span><span class="p">);</span>
+<span class="nx">myInteractive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Construct a control point at the the location (100, 100)
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">// Print the two objects to the console
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">myInteractive</span><span class="p">);</span>
 </code></pre></div>
 
-<p>After pressing the render button, this should result in an interactive identical to the one below with a blue control point at the coordinates (100, 100). Try clicking and dragging the point around.</p>
-
-<p><div id="step-0" class="interactive"></div>
-<script type="module" src="./step-0.js"></script></p>
-
-<h2 id="relate-elements-together">Relate Elements Together</h2>
-
-<p>By convention, the coordinates are measured from the top-left point of the interactive. Let&rsquo;s add some text to display the current location of the point. This demonstrates how elements can be created and related to eachother. When the state of one element changes all of the dependent elements will get updated.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&#34;(100,100)&#34;</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`(</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div>
-
-<p>This should result in the interactive below.</p>
-
-<p><div id="step-1" class="interactive"></div>
-<script type="module" src="./step-1.js"></script></p>
-
-<p>The text accurately reflects the position of the point, but we can still do better. Modify the update function to also update the x and y position of the text element.</p>
-
-<!-- TODO: When setting the update function it could be possible to always call the function immediately after setting it? Note, instead of fiddling around with updating the position of the text in two places, the update function is called right after being defined which is a convenient way to ignore the element's initial state. -->
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">15</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">15</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`( </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
-</code></pre></div>
-
-<p>This should result in the finished simple interactive: a control point that displays its current position when it is dragged around.</p>
-
-<p><div id="step-2" class="interactive"></div>
-<script type="module" src="./step-2.js"></script></p>
+<p>The HTML file links the library&rsquo;s style sheet, has an element with an unique id, and includes the script file. To view the interactive serve this HTML file with a local server using Web Server for Chrome. Select the getting-started directory. The result is a simple interactive with a draggable control point.</p>
 
 <h2 id="onward">Onward</h2>
 
@@ -103,7 +87,6 @@
 <ul>
 <li><a href="/tutorials/">Tutorials</a></li>
 <li><a href="/examples/">Examples</a></li>
-<li><a href="/documentation/">Documentation</a></li>
 </ul>
 
 </main>

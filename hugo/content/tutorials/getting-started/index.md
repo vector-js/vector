@@ -6,62 +6,46 @@ date: "2019-02-05T12:03:45-07:00"
 weight: 1
 ---
 
-This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
+<p class="vertical-center">
+  <iframe src="https://player.vimeo.com/video/360629850" width="768" height="516" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</p>
 
-## Open the Editor
+Hi and welcome to vector js. In this tutorial we are going to create a simple interactive using the vector.js library. First, navigate the the website vectorjs.org and download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball. Open the tar ball file to get a directory containing an index.html file and script.js file.
 
-Start by opening an instance of the <a href="/sandbox/" target="_blank">sandbox</a> in a new tab.
-<!-- More advanced users may want to set up their own development environment... -->
+<div class="filename">index.html</div>
 
-## Create a Basic Interactive
+{{< highlight html>}}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Started</title>
+    <link rel="stylesheet" href="https://vectorjs.org/library.css">
+  </head>
+  <body>
+    <div id="my-interactive"></div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
+{{< /highlight >}}
 
-Create a new interactive with a simple control point. Copy and paste the following into the text area. The first line of code creates a new "interactive" within the HTML element corresponding to the id. The second line creates a simple control point and is an example of how the end user interfaces with the interactive.
+<div class="filename">script.js</div>
 
-{{< highlight javascript >}}
-let interactive = new Interactive("my-id");
-let control = interactive.control( 100, 100);
-interactive.window = true;
-{{< / highlight >}}
+{{< highlight javascript>}}
+import Interactive from "https://vectorjs.org/Interactive.js";
 
-After pressing the render button, this should result in an interactive identical to the one below with a blue control point at the coordinates (100, 100). Try clicking and dragging the point around.
+// Construct an interactive within the HTML element with the id "my-interactive"
+let myInteractive = new Interactive("my-interactive");
+myInteractive.border = true;
 
-<div id="step-0" class="interactive"></div>
-<script type="module" src="./step-0.js"></script>
+// Construct a control point at the the location (100, 100)
+let control = myInteractive.control(100, 100);
 
-## Relate Elements Together
+// Print the two objects to the console
+console.log( control, myInteractive);
+{{< /highlight >}}
 
-By convention, the coordinates are measured from the top-left point of the interactive. Let's add some text to display the current location of the point. This demonstrates how elements can be created and related to eachother. When the state of one element changes all of the dependent elements will get updated.
-
-{{< highlight javascript >}}
-let text = interactive.text(100, 100, "(100,100)");
-text.addDependency(control);
-text.update = function() {
-  this.contents = `(${control.x},${control.y})`;
-};
-{{< / highlight >}}
-
-This should result in the interactive below.
-
-<div id="step-1" class="interactive"></div>
-<script type="module" src="./step-1.js"></script>
-
-The text accurately reflects the position of the point, but we can still do better. Modify the update function to also update the x and y position of the text element.
-
-<!-- TODO: When setting the update function it could be possible to always call the function immediately after setting it? Note, instead of fiddling around with updating the position of the text in two places, the update function is called right after being defined which is a convenient way to ignore the element's initial state. -->
-
-{{< highlight javascript >}}
-text.update = function() {
-  this.x = control.x + 15;
-  this.y = control.y - 15;
-  this.contents = `( ${control.x}, ${control.y})`;
-};
-text.update();
-{{< / highlight >}}
-
-This should result in the finished simple interactive: a control point that displays its current position when it is dragged around.
-
-<div id="step-2" class="interactive"></div>
-<script type="module" src="./step-2.js"></script>
+The HTML file links the library's style sheet, has an element with an unique id, and includes the script file. To view the interactive serve this HTML file with a local server using Web Server for Chrome. Select the getting-started directory. The result is a simple interactive with a draggable control point.
 
 ## Onward
 
@@ -69,4 +53,3 @@ To learn more follow other tutorials, browse and fork examples, or read the docu
 
 - [Tutorials](/tutorials/)
 - [Examples](/examples/)
-- [Documentation](/documentation/)

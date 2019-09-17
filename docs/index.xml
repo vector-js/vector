@@ -17,8 +17,8 @@
       <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
       
       <guid>https://vectorjs.org/getting-started/</guid>
-      <description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
-Open the Editor Start by opening an instance of the sandbox in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description>
+      <description>Hi and welcome to vector js. In this tutorial we are going to create a simple interactive using the vector.js library. First, navigate the the website vectorjs.org and download the getting-started.tgz tar ball. Open the tar ball file to get a directory containing an index.html file and script.js file.
+index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.org/library.css&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;my-interactive&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;script.</description>
     </item>
     
     <item>
@@ -115,6 +115,16 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <guid>https://vectorjs.org/svg/elements/path/</guid>
       <description>The path element is notorious for its power and difficulty. The path element has one attribute, the &amp;ldquo;d&amp;rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.
 &amp;lt;path d=&amp;#34;...&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;    Name Command     Move To M x y   Line L x y   Quadratic Bezier Q x1 y1 x2 y2   Cubic Bezier C x1 y1 x2 y2 x3 y3   Arc A rx ry x-axis-rotation large-arc-flag sweep-flag x y   Close Z    Path: Move To Every path starts with a move command which describes where the path starts.</description>
+    </item>
+    
+    <item>
+      <title>Control With Position</title>
+      <link>https://vectorjs.org/control-with-position/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/control-with-position/</guid>
+      <description>This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
+Open the Editor Start by opening an instance of the sandbox in a new tab. Create a Basic Interactive Create a new interactive with a simple control point. Copy and paste the following into the text area.</description>
     </item>
     
     <item>
