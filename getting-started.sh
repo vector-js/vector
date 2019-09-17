@@ -3,4 +3,5 @@
 rm ./dist/getting-started.tgz
 rm -rf ./dist/getting-started
 
-tar --exclude=\"*.js.map\" -czvf ./dist/getting-started.tgz ./dist/ ./css/ -C getting-started .
+# tar --exclude=\"*.js.map\" -czvf ./dist/getting-started.tgz ./dist/ ./css/ -C getting-started .
+tar --exclude=\"*.js.map\" -czvf ./dist/getting-started.tgz -C getting-started .
