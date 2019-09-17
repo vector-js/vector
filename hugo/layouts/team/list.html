@@ -2,15 +2,13 @@
 
 <h1>{{.Title}}</h1>
 
+<table>
+{{ range .Pages }}
+    {{ .Render "tr" }}
+{{ end }}
+</table>
+
 {{ .Content }}
 
-
-<table>
-{{- range .Pages -}}
-
-    {{ .Render "tr" }}
-
-{{- end -}}
-</table>
 
 {{ end }}

@@ -32,7 +32,7 @@
 <header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
-		<p>Vector is an open source javascript library for creating interactive scalable vector graphics. View on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a>.</p>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a> or meet the <a href="/team/">team</a>.</p>
     <p>
       <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
       <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
@@ -105,7 +105,10 @@
 
 <h2 id="getting-started">Getting Started</h2>
 
-<p>Download the tar ball <a href="/getting-started.tgz" download>getting-started.tgz</a> or follow the instructions below. The tar ball contains a directory with the files: index.html and script.js. The HTML file links the library&rsquo;s stylesheet and includes the script file to run.</p>
+
+
+
+  <p>Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, has an element with an unique id, and includes the script file.</p>
 
 <div class="filename">index.html</div>
 
@@ -122,7 +125,7 @@
   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
 
-<p>The script creates an interactive object using the identifier &ldquo;my-interactive&rdquo; which corresponds to the div element within the HTML file. Then the script creates a control point which can be dragged around.</p>
+<p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then constructs a control point which can be dragged around. It also prints out the control and interactive to the console to play around with.</p>
 
 <div class="filename">script.js</div>
 
@@ -139,9 +142,13 @@
 </span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">myInteractive</span><span class="p">);</span>
 </code></pre></div>
 
-<p>To view the interactive, serve the HTML page using a local server. We recommend using <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a>. The result is an interactive with the default dimensions of 600 by 300 pixels.</p>
+<p>To view the interactive, serve the folder containing the two files using a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p>
 
 <p><img src="/images/getting-started.svg" alt=""></p>
+
+
+
+
 
 <h2 id="input">Input</h2>
 
