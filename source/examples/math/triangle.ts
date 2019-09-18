@@ -6,7 +6,7 @@
 
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
 
 // Initialize the interactive
 let id = 'triangle';

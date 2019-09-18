@@ -1,7 +1,7 @@
-import Element from '../elements/Element.js';
-import Node from '../elements/Node.js';
-import Edge from '../elements/Edge.js';
-import SVG from '../SVG.js';
+import Element from '../elements/element.js';
+import Node from '../elements/node.js';
+import Edge from '../elements/edge.js';
+import SVG from '../svg.js';
 /**
 * A Graph is a complex element containing nodes and undirected edges.
 */
@@ -57,4 +57,4 @@ export default class Graph extends Element {
         return this.nodes.length;
     }
 }
-//# sourceMappingURL=Graph.js.map
+//# sourceMappingURL=graph.js.map

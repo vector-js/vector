@@ -4,9 +4,9 @@
 * @tags [math]
 */
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../../Interactive.js';
-import { PointWhereTwoLinesIntersect } from '../../Util.js';
-import SVG from '../../SVG.js';
+import Interactive from '../../interactive.js';
+import { PointWhereTwoLinesIntersect } from '../../util.js';
+import SVG from '../../svg.js';
 // Initialize the interactive
 let id = 'triangle-law-of-sines';
 let interactive = new Interactive(id);

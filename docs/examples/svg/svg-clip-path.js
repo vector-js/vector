@@ -3,11 +3,11 @@
 * @description This interactive demonstrates how a clip path is applied to another element.
 * @tags [svg]
 */
-import Interactive from '../../Interactive.js';
-import SVG from '../../SVG.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
+import SVG from '../../svg.js';
 // Initialize the interactive
-let id = 'svg-clip-path';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 704;
 interactive.height = 300;

@@ -6,11 +6,12 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 
 // Initialize the interactive
 let id = 'angle';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 interactive.window = true;
 interactive.width = 600;
 interactive.height = 300;

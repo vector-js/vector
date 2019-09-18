@@ -17,9 +17,9 @@ draft: undefined
 * @author Kurt Bruns
 * @tags [svg]
 */
-import Interactive from '../../Interactive.js';
-let id = 'svg-rectangle';
-let interactive = new Interactive(id);
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
+let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 704;
 let rect = interactive.rectangle(0, 0, 0, 0);

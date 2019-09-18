@@ -1,7 +1,7 @@
-import * as data from "../mapsJson.js";
-import Interactive from '../Interactive.js';
-import OurElement from '../elements/Element.js';
-import SVG from "../SVG.js";
+import * as data from "../maps-json.js";
+import Interactive from '../interactive.js';
+import OurElement from '../elements/element.js';
+import SVG from "../svg.js";
 
 /**
 * Map class for displaying geographic maps of the world and its different parts.

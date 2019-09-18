@@ -1,28 +1,28 @@
-import SVG from './SVG.js';
+import SVG from './svg.js';
 // basic elements
-import Circle from './elements/Circle.js';
-import Element from './elements/Element.js';
-import Ellipse from './elements/Ellipse.js';
-import Group from './elements/Group.js';
-import Line from './elements/Line.js';
-import Path from './elements/Path.js';
-import Text from './elements/Text.js';
-import Rectangle from './elements/Rectangle.js';
-import Node from './elements/Node.js';
-import Edge from './elements/Edge.js';
+import Circle from './elements/circle.js';
+import Element from './elements/element.js';
+import Ellipse from './elements/ellipse.js';
+import Group from './elements/group.js';
+import Line from './elements/line.js';
+import Path from './elements/path.js';
+import Text from './elements/text.js';
+import Rectangle from './elements/rectangle.js';
+import Node from './elements/node.js';
+import Edge from './elements/edge.js';
 // input elements
-import Button from './elements/Button.js';
-import CheckBox from './elements/CheckBox.js';
-import Control from './elements/Control.js';
-import ControlCircle from './elements/ControlCircle.js';
-import Scrubber from './elements/Scrubber.js';
-import Slider from './elements/Slider.js';
-import RadioControl from './elements/RadioControl.js';
+import Button from './elements/button.js';
+import CheckBox from './elements/check-box.js';
+import Control from './elements/control.js';
+import ControlCircle from './elements/control-circle.js';
+import Scrubber from './elements/scrubber.js';
+import Slider from './elements/slider.js';
+import RadioControl from './elements/radio-control.js';
 // complex elements
-import Plot from './elements/Plot.js';
-import Graph from './elements/Graph.js';
-import Map from './elements/Map.js';
-import DirectedGraph from './elements/DirectedGraph.js';
+import Plot from './elements/plot.js';
+import Graph from './elements/graph.js';
+import Map from './elements/map.js';
+import DirectedGraph from './elements/directed-graph.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -365,4 +365,4 @@ export default class Interactive extends Element {
         return group;
     }
 }
-//# sourceMappingURL=Interactive.js.map
+//# sourceMappingURL=interactive.js.map

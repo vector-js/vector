@@ -17,8 +17,8 @@ draft: undefined
 * @tags [math]
 */
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../../Interactive.js';
-import { PointWhereTwoLinesIntersect } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { PointWhereTwoLinesIntersect } from '../../util.js';
 // Initialize the interactive
 let id = 'point-where-two-lines-intersect';
 let interactive = new Interactive(id);

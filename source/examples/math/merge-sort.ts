@@ -4,9 +4,9 @@
 * @tags [math, algorithm]
 */
 
-import { getScriptName } from '../../Util.js';
-import Interactive from '../../Interactive.js';
-import Node from '../../elements/Node.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
+import Node from '../../elements/node.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 704;

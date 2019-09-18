@@ -1,5 +1,5 @@
-import Element from './Element.js';
-import SVG from '../SVG.js';
+import Element from './element.js';
+import SVG from '../svg.js';
 /**
 * A circle is a basic geometric element with a position and radius.
 *
@@ -83,4 +83,4 @@ export default class Circle extends Element {
         this.root.style.stroke = s;
     }
 }
-//# sourceMappingURL=Circle.js.map
+//# sourceMappingURL=circle.js.map

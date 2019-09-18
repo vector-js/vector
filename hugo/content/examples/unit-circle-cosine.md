@@ -17,7 +17,7 @@ draft: undefined
 * @date May 3, 2019
 * @author Kurt Bruns
 */
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
 // Initialize the interactive
 let id = 'unit-circle-cosine';
 let angleInteractive = new Interactive(id);

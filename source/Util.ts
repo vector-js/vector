@@ -1,4 +1,4 @@
-import Point from "./elements/Point.js";
+import Point from "./elements/point.js";
 import { saveAs } from './util/file.js';
 
 /**
@@ -128,7 +128,7 @@ export function download( id:string, filename:string ) {
   // console.log(style);
   // console.log(svg);
 
-  let data = svg.outerHTML.replace( "&gt;", ">").replace( "&lt;", "<");
+  let data = (svg as HTMLElement).outerHTML.replace( "&gt;", ">").replace( "&lt;", "<");
   saveSVG( filename, data);
 }
 

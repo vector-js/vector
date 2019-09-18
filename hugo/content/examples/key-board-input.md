@@ -16,8 +16,8 @@ draft: undefined
 * @description This interactive demonstrates how key board input can be used to add interactivity.
 * @tags [input]
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;

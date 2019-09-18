@@ -9,6 +9,7 @@ staticDir:
   - static
   - ../dist/
   - ../css/
+  - ../svg/
 
 permalinks:
   tutorials: /:title/

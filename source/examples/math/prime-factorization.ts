@@ -6,9 +6,9 @@
 * @weight 1
 */
 
-import { getScriptName, nextPrime } from '../../Util.js';
-import Interactive from '../../Interactive.js';
-import Node from '../../elements/Node.js';
+import { getScriptName, nextPrime } from '../../util.js';
+import Interactive from '../../interactive.js';
+import Node from '../../elements/node.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 736;

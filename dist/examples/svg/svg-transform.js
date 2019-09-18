@@ -3,8 +3,8 @@
 * @description This interactive demonstrates how the transform attribute can be used to transform SVG elements
 * @tags [svg]
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 700;
 interactive.height = 300;

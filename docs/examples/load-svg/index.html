@@ -59,8 +59,8 @@
 </span><span class="cm">* @description This interactive demonstrates how to load and use an external svg.
 </span><span class="cm">* @tags []
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../Interactive.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../Util.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../interactive.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="kd">let</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">loadSVG</span><span class="p">(</span><span class="s1">&#39;./test.svg&#39;</span><span class="p">);</span>
 <span class="nx">svg</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>

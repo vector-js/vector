@@ -1,5 +1,5 @@
-import SVG from '../SVG.js';
-import Element from './Element.js';
+import SVG from '../svg.js';
+import Element from './element.js';
 /**
 * An ellipse is a basic element with a position, x-radius, and y-radius
 */
@@ -91,4 +91,4 @@ export default class Ellipse extends Element {
         this.root.style.stroke = s;
     }
 }
-//# sourceMappingURL=Ellipse.js.map
+//# sourceMappingURL=ellipse.js.map

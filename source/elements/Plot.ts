@@ -1,11 +1,11 @@
-import Element from '../elements/Element.js';
-import SVG from '../SVG.js';
-import Rectangle from '../elements/Rectangle.js';
-import Text from '../elements/Text.js';
-import Path from './Path.js';
-import Group from './Group.js';
-import Circle from './Circle.js';
-import Line from './Line.js';
+import Element from '../elements/element.js';
+import SVG from '../svg.js';
+import Rectangle from '../elements/rectangle.js';
+import Text from '../elements/text.js';
+import Path from './path.js';
+import Group from './group.js';
+import Circle from './circle.js';
+import Line from './line.js';
 
 /**
 *

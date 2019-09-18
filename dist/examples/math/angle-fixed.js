@@ -5,10 +5,11 @@
 * @date June 9, 2019
 * @author Kurt Bruns
 */
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 // Initialize the interactive
 let id = 'unit-circle-angle';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 interactive.window = false;
 interactive.width = 320;
 interactive.height = 340;

@@ -1,4 +1,4 @@
-import { isPrime, nextPrime } from '../Util.js';
+import { isPrime, nextPrime } from '../util.js';
 describe('Util', function () {
     describe('isPrime', function () {
         // edge cases
@@ -92,4 +92,4 @@ describe('Util', function () {
         });
     });
 });
-//# sourceMappingURL=Util.test.js.map
+//# sourceMappingURL=util.test.js.map

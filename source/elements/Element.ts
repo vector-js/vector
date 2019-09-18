@@ -1,4 +1,4 @@
-import Controller from '../Controller.js';
+import Controller from '../controller.js';
 
 /**
 * A basic element of the interactive ecosystem. Each element has an unique

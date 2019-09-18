@@ -17,9 +17,9 @@ draft: true
 * @author Kurt Bruns
 * @draft true
 */
-import Interactive from '../../Interactive.js';
-let id = 'svg-path-arc';
-let interactive = new Interactive(id);
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
+let interactive = new Interactive(getScriptName());
 interactive.border = true;
 let path = interactive.path('');
 let start = interactive.control(100, 120);

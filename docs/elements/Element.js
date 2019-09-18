@@ -1,4 +1,4 @@
-import Controller from '../Controller.js';
+import Controller from '../controller.js';
 /**
 * A basic element of the interactive ecosystem. Each element has an unique
 * identifier, an update function to be defined by the user, and the ability to
@@ -69,4 +69,4 @@ Element.controller = new Controller();
 * This number uniquely identifes elements
 */
 Element.count = 0;
-//# sourceMappingURL=Element.js.map
+//# sourceMappingURL=element.js.map

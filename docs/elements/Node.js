@@ -1,7 +1,7 @@
-import Element from './Element.js';
-import Ellipse from './Ellipse.js';
-import Text from './Text.js';
-import SVG from '../SVG.js';
+import Element from './element.js';
+import Ellipse from './ellipse.js';
+import Text from './text.js';
+import SVG from '../svg.js';
 //Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
 /**
 * A Node is a basic element with a position, radius, and text held within it.
@@ -78,4 +78,4 @@ export default class Node extends Element {
         this.edges.add(edge);
     }
 }
-//# sourceMappingURL=Node.js.map
+//# sourceMappingURL=node.js.map

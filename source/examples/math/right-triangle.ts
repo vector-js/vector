@@ -4,9 +4,9 @@
 * @tags [math]
 */
 
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
-import SVG from '../../SVG.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
+import SVG from '../../svg.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());

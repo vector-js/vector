@@ -1,5 +1,5 @@
-import Element from './Element.js';
-import SVG from '../SVG.js';
+import Element from './element.js';
+import SVG from '../svg.js';
 //Make the function static and extend from Line
 /**
 * Creates a line connecting two edges, with an arrow if directed.
@@ -41,4 +41,4 @@ export default class Edge extends Element {
         return new Array(x1Prime, y1Prime, x2Prime, y2Prime);
     }
 }
-//# sourceMappingURL=Edge.js.map
+//# sourceMappingURL=edge.js.map

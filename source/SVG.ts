@@ -1,4 +1,4 @@
-import { getURL } from './Util.js';
+import { getURL } from './util.js';
 
 /**
 * This wrapper class provides static methods for creating SVG Elements.

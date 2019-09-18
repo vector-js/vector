@@ -1,8 +1,8 @@
-import SVG from '../SVG.js';
-import Control from './Control.js';
-import Line from '../elements/Line.js';
-import Element from '../elements/Element.js';
-import ControlCircle from './ControlCircle.js';
+import SVG from '../svg.js';
+import Control from './control.js';
+import Line from '../elements/line.js';
+import Element from '../elements/element.js';
+import ControlCircle from './control-circle.js';
 
 /**
 * A horizontal slider is an object that allows for a control to be moved along

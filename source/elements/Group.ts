@@ -1,5 +1,5 @@
-import Element from './Element.js';
-import SVG from '../SVG.js';
+import Element from './element.js';
+import SVG from '../svg.js';
 
 /**
 * A group is a sctructural element that allows for elements to be grouped

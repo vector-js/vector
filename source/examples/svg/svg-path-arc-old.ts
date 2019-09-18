@@ -5,10 +5,10 @@
 * @draft true
 */
 
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 
-let id = 'svg-path-arc';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 interactive.border = true;
 
 let path = interactive.path('');

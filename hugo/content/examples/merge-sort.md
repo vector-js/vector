@@ -16,8 +16,8 @@ draft: undefined
 * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
 * @tags [math, algorithm]
 */
-import { getScriptName } from '../../Util.js';
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 704;
 interactive.height = 400;

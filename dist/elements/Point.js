@@ -3,4 +3,4 @@
 */
 export default class Point {
 }
-//# sourceMappingURL=Point.js.map
+//# sourceMappingURL=point.js.map

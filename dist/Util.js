@@ -188,4 +188,4 @@ export async function loadScript(url, element) {
     element.appendChild(script);
     return response;
 }
-//# sourceMappingURL=Util.js.map
+//# sourceMappingURL=util.js.map

@@ -16,8 +16,8 @@ draft: undefined
 * @description This interactive demonstrates how a element can be animated along a path.
 * @tags [animation]
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 225;

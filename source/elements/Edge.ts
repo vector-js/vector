@@ -1,6 +1,6 @@
-import Node from './Node.js';
-import Element from './Element.js';
-import SVG from '../SVG.js';
+import Node from './node.js';
+import Element from './element.js';
+import SVG from '../svg.js';
 
 //Make the function static and extend from Line
 

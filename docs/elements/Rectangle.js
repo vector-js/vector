@@ -1,5 +1,5 @@
-import SVG from '../SVG.js';
-import Element from './Element.js';
+import SVG from '../svg.js';
+import Element from './element.js';
 /**
 * A rectangle is a basic element with a position, width, and height. The
 * position refers to the top left corner of the rectangle
@@ -94,4 +94,4 @@ export default class Rectangle extends Element {
         this.root.style.stroke = s;
     }
 }
-//# sourceMappingURL=Rectangle.js.map
+//# sourceMappingURL=rectangle.js.map

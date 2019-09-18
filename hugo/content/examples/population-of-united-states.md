@@ -18,8 +18,8 @@ draft: undefined
 * @tags [maps]
 * @weight 1
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 import { usDensityMap as densityMap } from '../elements/map-element-two-data.js';
 let interactive = new Interactive(getScriptName());
 interactive.root.style.border = "1px solid grey";

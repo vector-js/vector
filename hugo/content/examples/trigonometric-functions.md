@@ -16,8 +16,8 @@ draft: undefined
 * @description
 * @tags [math]
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.width = 600;

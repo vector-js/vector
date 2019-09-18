@@ -1,8 +1,8 @@
-import SVG from '../SVG.js';
-import Element from '../elements/Element.js';
-import Path from '../elements/Path.js';
-import Circle from '../elements/Circle.js';
-import Rectangle from '../elements/Rectangle.js';
+import SVG from '../svg.js';
+import Element from '../elements/element.js';
+import Path from '../elements/path.js';
+import Circle from '../elements/circle.js';
+import Rectangle from '../elements/rectangle.js';
 /**
 * A control point is a draggable two dimensional point.
 */
@@ -307,4 +307,4 @@ Control.slopX = 0;
 Control.slopY = 0;
 // Keep track of whether global event listeners have been initialized
 Control.initalized = false;
-//# sourceMappingURL=Control.js.map
+//# sourceMappingURL=control.js.map

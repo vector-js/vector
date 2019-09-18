@@ -1,7 +1,7 @@
-import SVG from '../SVG.js';
-import Rectangle from '../elements/Rectangle.js';
-import Text from '../elements/Text.js';
-import Element from '../elements/Element.js';
+import SVG from '../svg.js';
+import Rectangle from '../elements/rectangle.js';
+import Text from '../elements/text.js';
+import Element from '../elements/element.js';
 /**
 * A button that when pressed fires an onclick event.
 */
@@ -41,4 +41,4 @@ export default class Button extends Element {
         this.updateDependents();
     }
 }
-//# sourceMappingURL=Button.js.map
+//# sourceMappingURL=button.js.map

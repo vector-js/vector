@@ -1,5 +1,5 @@
-import SVG from '../SVG.js';
-import Element from './Element.js';
+import SVG from '../svg.js';
+import Element from './element.js';
 /**
 * A path element allows for the creation of complicated shapes and curves.
 */
@@ -23,4 +23,4 @@ export default class Path extends Element {
         this.root.setAttribute('d', d);
     }
 }
-//# sourceMappingURL=Path.js.map
+//# sourceMappingURL=path.js.map

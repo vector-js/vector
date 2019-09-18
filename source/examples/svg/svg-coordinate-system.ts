@@ -6,10 +6,10 @@
 * @tags [svg]
 */
 
-import Interactive from '../../Interactive.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 
-let id = 'svg-coordinate-system';
-let interactive = new Interactive(id);
+let interactive = new Interactive(getScriptName());
 let margin = 0;
 interactive.width = 692;
 interactive.height = 300;

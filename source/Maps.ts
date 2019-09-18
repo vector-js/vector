@@ -1,3 +1,3 @@
-import {getURL} from './Util.js'
+import {getURL} from './util.js'
 
 export let USAData = getURL('');

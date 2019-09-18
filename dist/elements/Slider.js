@@ -1,7 +1,7 @@
-import SVG from '../SVG.js';
-import Line from '../elements/Line.js';
-import Element from '../elements/Element.js';
-import ControlCircle from './ControlCircle.js';
+import SVG from '../svg.js';
+import Line from '../elements/line.js';
+import Element from '../elements/element.js';
+import ControlCircle from './control-circle.js';
 /**
 * A horizontal slider is an object that allows for a control to be moved along
 * a user- defined range. The slider has a minimum value and a maximum value
@@ -93,4 +93,4 @@ export default class Slider extends Element {
         return this.max - this.min;
     }
 }
-//# sourceMappingURL=Slider.js.map
+//# sourceMappingURL=slider.js.map

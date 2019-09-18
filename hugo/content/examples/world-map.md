@@ -18,8 +18,8 @@ draft: undefined
 * @tags [maps]
 * @weight 1
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 let myInteractive = new Interactive(getScriptName());
 let map = myInteractive.map("world", 768, 300);
 //# sourceMappingURL=world-map.js.map

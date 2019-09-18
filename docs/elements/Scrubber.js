@@ -1,5 +1,5 @@
-import SVG from '../SVG.js';
-import Slider from './Slider.js';
+import SVG from '../svg.js';
+import Slider from './slider.js';
 export default class Scrubber extends Slider {
     // TODO: When the scrubber control is grabbed, active should be set to false and the animation cycle should be stopped.
     // TODO: Reset done variable when the control is changed
@@ -80,4 +80,4 @@ export default class Scrubber extends Slider {
         window.cancelAnimationFrame(this.requestID);
     }
 }
-//# sourceMappingURL=Scrubber.js.map
+//# sourceMappingURL=scrubber.js.map

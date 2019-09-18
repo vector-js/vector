@@ -17,9 +17,9 @@ draft: undefined
 * @tags [math]
 * @weight 1
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
-import SVG from '../../SVG.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
+import SVG from '../../svg.js';
 let radius = 80;
 let margin = 20;
 let interactive = new Interactive(getScriptName());

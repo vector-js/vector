@@ -1,6 +1,6 @@
-import * as data from "../mapsJson.js";
-import OurElement from '../elements/Element.js';
-import SVG from "../SVG.js";
+import * as data from "../maps-json.js";
+import OurElement from '../elements/element.js';
+import SVG from "../svg.js";
 /**
 * Map class for displaying geographic maps of the world and its different parts.
 */
@@ -256,4 +256,4 @@ export default class GeoMap extends OurElement {
         this.updateDependents();
     }
 }
-//# sourceMappingURL=Map.js.map
+//# sourceMappingURL=map.js.map

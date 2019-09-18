@@ -62,25 +62,3 @@ ${element.script}
 jsonfile.writeFile('hugo/data/examples.json', json, function (err) {
   if (err) console.error(err)
 });
-
-// glob(__dirname + '/dist/examples/**/*.js', {}, (err, files)=>{
-//   console.log(files)
-//   var json = new Map();
-//   for( let i = 0; i < files.length; i++) {
-//     let file = files[i];
-//     fs.readFileSync(file, 'utf8', function(err, data){
-//         if( err ) throw err;
-//
-//         // path to the script
-//         let path = './' + file.substring( file.indexOf('examples'), file.length);
-//
-//         // script name
-//         let start = file.lastIndexOf('/');
-//         let end = file.lastIndexOf('.js');
-//         let name = file.substring( start + 1, end);
-//
-//         json.set(name, path);
-//     });
-//   }
-//   console.log(json);
-// });

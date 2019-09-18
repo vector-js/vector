@@ -3,8 +3,8 @@
 * @description This interactive demonstrates the animation scrubber element.
 * @tags [elements, input]
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 // let test = new Interactive(getScriptName());
 // test.width = 768;
 // test.height = 200;

@@ -17,8 +17,8 @@ draft: undefined
 * @author Kurt Bruns
 * @tags [svg]
 */
-import Interactive from '../../Interactive.js';
-import { getScriptName } from '../../Util.js';
+import Interactive from '../../interactive.js';
+import { getScriptName } from '../../util.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 484;

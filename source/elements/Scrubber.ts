@@ -1,5 +1,5 @@
-import SVG from '../SVG.js';
-import Slider from './Slider.js';
+import SVG from '../svg.js';
+import Slider from './slider.js';
 
 export default class Scrubber extends Slider {
 

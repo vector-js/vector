@@ -59,8 +59,8 @@
 </span><span class="cm">* @description This interactive demonstrates the interactive world map element.
 </span><span class="cm">* @tags [elements, maps]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../Interactive.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../Util.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../interactive.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&#34;1px solid grey&#34;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="mi">768</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
@@ -68,7 +68,7 @@
 <span class="nx">inputContainer</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;input-container&#39;</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
 <span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
-<span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="nx">input</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">getScriptName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;-text-input&#39;</span><span class="p">;</span>
 <span class="nx">input</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">inputContainer</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">);</span>

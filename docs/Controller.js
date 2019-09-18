@@ -1,4 +1,4 @@
-import DependencyGraph from './model/DependencyGraph.js';
+import DependencyGraph from './model/dependency-graph.js';
 /**
 * This controller manages the dependencies between elements.
 */
@@ -47,4 +47,4 @@ export default class Controller {
         }
     }
 }
-//# sourceMappingURL=Controller.js.map
+//# sourceMappingURL=controller.js.map
