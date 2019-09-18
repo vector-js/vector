@@ -1,6 +1,6 @@
-import { getUrlParams, getURL, loadScript, parseName, download } from '/Util.js';
+import { getUrlParams, getURL, loadScript, parseName, download } from '/util.js';
 import { saveAs } from '/util/file.js';
-import Element from '/elements/Element.js';
+import Element from '/elements/element.js';
 
 // variables
 let script;
