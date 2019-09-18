@@ -97,6 +97,19 @@ export default class DependencyGraph {
         }
     }
     /**
+    * Returns a topological sort of this dependency
+    */
+    getTopologicalSort() {
+        let list = new LinkedList();
+        let visited = new Set();
+        for (let node of this.getNodes()) {
+            if (!visited.has(node)) {
+                this.getTopologicalDependents(node, visited, list);
+            }
+        }
+        return list;
+    }
+    /**
     Returns a list of the arguent node and all of its dependents in topological order.
     */
     getTopologicalDependents(node, visited = new Set(), list = new LinkedList()) {

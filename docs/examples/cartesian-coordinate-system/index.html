@@ -1,38 +1,98 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><title>Vector.js</title><meta name=description content="This interactive demonstrates the cartesian coordinate system."><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type="image/x-icon'href='/favicon.png"><script async defer src=https://buttons.github.io/buttons.js></script><link href=/scss/main.css rel=stylesheet media=screen><script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','UA-106670688-3');</script><link rel=stylesheet type=text/css href=/library.css></head><body><header class=text-center><div class=small-container><a href=/><h1>Vector.js</h1></a><p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href=https://github.com/vector-js/vector.git target=_blank rel=noreferrer>github</a> or meet the <a href=/team/>team</a>.</p><p><a href="/sandbox/?script=/examples/hello-world.js"><button class=muted-button>Sandbox</button></a>
-<a href=/tutorials/><button class=muted-button>Tutorials</button></a>
-<a href=/examples/><button class=muted-button>Examples</button></a></p></div></header><main class=medium-container><h1>Cartesian Coordinate System <a style=float:right href="/sandbox/?script=/examples/math/cartesian-coordinate-system.js" class=button>Open in Sandbox</a></h1><div id=cartesian-coordinate-system></div><script type=module src=/examples/math/cartesian-coordinate-system.js></script><h2>Description</h2><p>This interactive demonstrates the cartesian coordinate system.</p><h2>Input</h2><p>undefined</p><h2>Script</h2><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=cm>/**
-</span><span class=cm>* @title Cartesian Coordinate System
-</span><span class=cm>* @description This interactive demonstrates the cartesian coordinate system.
-</span><span class=cm>* @tags [math]
-</span><span class=cm>*/</span>
-<span class=c1>// import Interactive from &#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&#39;;
-</span><span class=c1></span><span class=k>import</span> <span class=nx>Interactive</span> <span class=nx>from</span> <span class=s1>&#39;../../interactive.js&#39;</span><span class=p>;</span>
-<span class=k>import</span> <span class=p>{</span> <span class=nx>getScriptName</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;../../util.js&#39;</span><span class=p>;</span>
-<span class=c1>// Initialize the interactive
-</span><span class=c1></span><span class=kd>let</span> <span class=nx>interactive</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Interactive</span><span class=p>(</span><span class=nx>getScriptName</span><span class=p>());</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nb>window</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nx>originX</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>width</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nx>originY</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>height</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
-<span class=c1>// Create three control points
-</span><span class=c1></span><span class=kd>let</span> <span class=nx>point</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>control</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
-<span class=kd>let</span> <span class=nx>xAxis</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>line</span><span class=p>(</span><span class=o>-</span><span class=nx>interactive</span><span class=p>.</span><span class=nx>width</span> <span class=o>/</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>width</span> <span class=o>/</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
-<span class=kd>let</span> <span class=nx>yAxis</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>line</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=o>-</span><span class=nx>interactive</span><span class=p>.</span><span class=nx>height</span> <span class=o>/</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>height</span> <span class=o>/</span> <span class=mi>2</span><span class=p>);</span>
-<span class=kd>let</span> <span class=nx>xPosition</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>line</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
-<span class=nx>xPosition</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>stroke</span> <span class=o>=</span> <span class=s1>&#39;cornflowerblue&#39;</span><span class=p>;</span>
-<span class=nx>xPosition</span><span class=p>.</span><span class=nx>addDependency</span><span class=p>(</span><span class=nx>point</span><span class=p>);</span>
-<span class=nx>xPosition</span><span class=p>.</span><span class=nx>update</span> <span class=o>=</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>x1</span> <span class=o>=</span> <span class=nx>point</span><span class=p>.</span><span class=nx>x</span><span class=p>;</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>x2</span> <span class=o>=</span> <span class=nx>point</span><span class=p>.</span><span class=nx>x</span><span class=p>;</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>y2</span> <span class=o>=</span> <span class=nx>point</span><span class=p>.</span><span class=nx>y</span><span class=p>;</span>
-<span class=p>};</span>
-<span class=kd>let</span> <span class=nx>yPosition</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>line</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
-<span class=nx>yPosition</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>stroke</span> <span class=o>=</span> <span class=s1>&#39;cornflowerblue&#39;</span><span class=p>;</span>
-<span class=nx>yPosition</span><span class=p>.</span><span class=nx>addDependency</span><span class=p>(</span><span class=nx>point</span><span class=p>);</span>
-<span class=nx>yPosition</span><span class=p>.</span><span class=nx>update</span> <span class=o>=</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>y1</span> <span class=o>=</span> <span class=nx>point</span><span class=p>.</span><span class=nx>y</span><span class=p>;</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>x2</span> <span class=o>=</span> <span class=nx>point</span><span class=p>.</span><span class=nx>x</span><span class=p>;</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>y2</span> <span class=o>=</span> <span class=nx>point</span><span class=p>.</span><span class=nx>y</span><span class=p>;</span>
-<span class=p>};</span>
-<span class=c1>//# sourceMappingURL=cartesian-coordinate-system.js.map
-</span></code></pre></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="This interactive demonstrates the cartesian coordinate system." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a> or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+			<a href="/api/"><button class="muted-button">API</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+
+  
+  <h1>Cartesian Coordinate System <a style="float:right" href="/sandbox/?script=/examples/math/cartesian-coordinate-system.js" class="button">Open in Sandbox</a></h1>
+  <div id="cartesian-coordinate-system"></div>
+  <script type="module" src="/examples/math/cartesian-coordinate-system.js"></script>
+  
+    <h2>Description</h2>
+    <p>This interactive demonstrates the cartesian coordinate system.</p>
+  
+  
+    <h2>Input</h2>
+    <p>undefined</p>
+  
+  <h2>Script</h2>
+  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm">* @title Cartesian Coordinate System
+</span><span class="cm">* @description This interactive demonstrates the cartesian coordinate system.
+</span><span class="cm">* @tags [math]
+</span><span class="cm">*/</span>
+<span class="c1">// import Interactive from &#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&#39;;
+</span><span class="c1"></span><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../interactive.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util.js&#39;</span><span class="p">;</span>
+<span class="c1">// Initialize the interactive
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// Create three control points
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">xAxis</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="o">-</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">yAxis</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">xPosition</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">xPosition</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
+<span class="nx">xPosition</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">point</span><span class="p">);</span>
+<span class="nx">xPosition</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x1</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x2</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y2</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">let</span> <span class="nx">yPosition</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">yPosition</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
+<span class="nx">yPosition</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">point</span><span class="p">);</span>
+<span class="nx">yPosition</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y1</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x2</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y2</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="c1">//# sourceMappingURL=cartesian-coordinate-system.js.map
+</span></code></pre></div>
+
+
+</main>
+
+</body>
+</html>

@@ -9,6 +9,12 @@ class Node {
         this.data = data;
         this.next = null;
     }
+    /**
+    * Returns the string representation of the data.
+    */
+    toString() {
+        return this.data.toString();
+    }
 }
 /**
 * A dynamic, singlely linked list.
@@ -55,6 +61,18 @@ export default class LinkedList {
         else {
             return false;
         }
+    }
+    /**
+    * Prints out the string reprsentation of this linked list.
+    */
+    toString() {
+        let current = this.head;
+        let str = '';
+        while (current != null) {
+            str += current.toString() + ' ';
+            current = current.next;
+        }
+        return str.substr(0, str.length - 1);
     }
     /**
     Returns an iterator over the elements in the list

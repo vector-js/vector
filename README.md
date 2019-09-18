@@ -13,13 +13,13 @@ git clone https://github.com/vector-js/vector.git
 Install NPM dependencies
 
 ```
-npm install && npm run module
+npm install
 ```
 
 Build the library
 
 ```
-npm run module
+npm run build
 ```
 
 Then start a local server to view the examples in the "index.html" page.
@@ -42,7 +42,11 @@ Serve a local version of the site
 hugo server
 ```
 
-<!-- TODO: contribution details -->
+## Tools
+
+- [hugo](https://gohugo.io/)
+- [typescript](https://www.typescriptlang.org/index.html)
+- [typedoc](https://typedoc.org/)
 
 ## Acknowledgements
 

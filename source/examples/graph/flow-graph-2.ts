@@ -6,4 +6,4 @@ let graph = `a->b
 b->c
 a->c`;
 
-interactive.flowGraph(graph);
+// interactive.flowGraph(graph);

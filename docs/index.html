@@ -1,74 +1,510 @@
-<!doctype html><html lang=en dir=ltr><head><meta name=generator content="Hugo 0.55.6"><meta charset=utf-8><title>Vector.js</title><meta name=description content="A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives."><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type="image/x-icon'href='/favicon.png"><script async defer src=https://buttons.github.io/buttons.js></script><link href=/scss/main.css rel=stylesheet media=screen><script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','UA-106670688-3');</script><script type=text/javascript src=/js/aside.js></script><link rel=stylesheet type=text/css href=/library.css></head><body><header class=text-center><div class=small-container><a href=/><h1>Vector.js</h1></a><p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href=https://github.com/vector-js/vector.git target=_blank rel=noreferrer>github</a> or meet the <a href=/team/>team</a>.</p><p><a href="/sandbox/?script=/examples/hello-world.js"><button class=muted-button>Sandbox</button></a>
-<a href=/tutorials/><button class=muted-button>Tutorials</button></a>
-<a href=/examples/><button class=muted-button>Examples</button></a></p></div></header><section class="aside container"><div class=aside-container><aside><a href=#><h1>Vector.js</h1></a><ul><li><a class=aside-link href=#getting-started><img src=/icons/getting-started.svg alt="Getting Started">Getting Started</a></li><li><a class=aside-link href=#input><img src=/icons/input.svg alt=Input>Input</a></li><li><a class=aside-link href=#elements><img src=/icons/elements.svg alt=Elements>Elements</a></li><li><a class=aside-link href=#interaction><img src=/icons/interaction.svg alt=Interaction>Interaction</a></li><li><a class=aside-link href=#animation><img src=/icons/animation.svg alt=Animation>Animation</a></li><li><a class=aside-link href=#maps><img src=/icons/maps.svg alt=Maps>Maps</a></li><li><a class=aside-link href=#coordinates><img src=/icons/coordinates.svg alt=Coordinates>Coordinates</a></li><li><a class=aside-link href=#styling><img src=/icons/styling.svg alt=Styling>Styling</a></li></ul></aside></div><main class=medium-container id=main-content><h2 id=getting-started>Getting Started</h2><p>Welcome! To use this library, download the <a href=/getting-started.tgz download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, has an element with an unique id, and includes the script file.</p><div class=filename>index.html</div><div class=highlight><pre class=chroma><code class=language-html data-lang=html><span class=cp>&lt;!DOCTYPE html&gt;</span>
-<span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span> <span class=na>dir</span><span class=o>=</span><span class=s>&#34;ltr&#34;</span><span class=p>&gt;</span>
-  <span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;utf-8&#34;</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Getting Started<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://vectorjs.org/library.css&#34;</span><span class=p>&gt;</span>
-  <span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
-  <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;my-interactive&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;module&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;script.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-  <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
-<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span></code></pre></div><p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then constructs a control point which can be dragged around. It also prints out the control and interactive to the console to play around with.</p><div class=filename>script.js</div><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=k>import</span> <span class=nx>Interactive</span> <span class=nx>from</span> <span class=s2>&#34;https://vectorjs.org/interactive.js&#34;</span><span class=p>;</span>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.55.6" />
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
 
-<span class=c1>// Construct an interactive within the HTML element with the id &#34;my-interactive&#34;
-</span><span class=c1></span><span class=kd>let</span> <span class=nx>myInteractive</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Interactive</span><span class=p>(</span><span class=s2>&#34;my-interactive&#34;</span><span class=p>);</span>
-<span class=nx>myInteractive</span><span class=p>.</span><span class=nx>border</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+<link href="/scss/main.css" rel="stylesheet" media="screen">
 
-<span class=c1>// Construct a control point at the the location (100, 100)
-</span><span class=c1></span><span class=kd>let</span> <span class=nx>control</span> <span class=o>=</span> <span class=nx>myInteractive</span><span class=p>.</span><span class=nx>control</span><span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>);</span>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<span class=c1>// Print the two objects to the console
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span> <span class=nx>control</span><span class=p>,</span> <span class=nx>myInteractive</span><span class=p>);</span>
-</code></pre></div><p>To view the interactive, serve the folder containing the two files using a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target=_blank rel=noopener>Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p><p><img src=/images/getting-started.svg alt></p><h2 id=input>Input</h2><p>User input drives the animations of these graphics and is the main focus of this library. These input elements are part of the SVG ecosystem and provide the end users with ways to manipulate and interact with the visual in front of them.</p><h3 id=button>Button</h3><p>The button element has a position, label, and default style. Defining the &ldquo;onclick&rdquo; method handles when a user clicks the button.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>button</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>button</span><span class=p>(</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=s2>&#34;My Button&#34;</span><span class=p>);</span>
-</code></pre></div><div id=button-element class=vertical-center></div><script type=module src=/examples/elements/button-element.js></script><h3 id=check-box>Check Box</h3><p>A checkbox has two different states: checked and unchecked. When a user clicks the box the state changes.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>checkBox</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>checkBox</span><span class=p>(</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=s2>&#34;My Checkbox&#34;</span><span class=p>,</span> <span class=kc>false</span><span class=p>);</span>
-</code></pre></div><div id=check-box-element class=vertical-center></div><script type=module src=/examples/elements/check-box-element.js></script><h3 id=control-point>Control Point</h3><p>A control point is a two dimensional point that can be clicked and dragged by the user. The control has a (x,y) position as well as its change in position (dx, dy).</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>control</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>control</span><span class=p>(</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>75</span><span class=p>);</span>
-</code></pre></div><div id=control-element class=vertical-center></div><script type=module src=/examples/elements/control-element.js></script><h3 id=radio-control>Radio Control</h3><p>The radio control elements allows the user to select from a list of options. Only one option can be selected at a time.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>radio</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>radioControl</span><span class=p>([</span><span class=s2>&#34;red&#34;</span><span class=p>,</span><span class=s2>&#34;green&#34;</span><span class=p>,</span><span class=s2>&#34;blue&#34;</span><span class=p>],</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>50</span><span class=p>);</span>
-</code></pre></div><div id=radio-control-element class=vertical-center></div><script type=module src=/examples/elements/radio-control-element.js></script><h3 id=scrubber>Scrubber</h3><p>The scrubber has a play and pause button that start and stop the animation. The position indicator can also be dragged to change the state of the scrubber.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>scrubber</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>scrubber</span><span class=p>(</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>400</span><span class=p>);</span>
-</code></pre></div><div id=scrubber-element class=vertical-center></div><script type=module src=/examples/elements/scrubber-element.js></script><h3 id=slider>Slider</h3><p>A slider has a position, width, and starting value.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>slider</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>slider</span><span class=p>(</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>20</span><span class=p>);</span>
-</code></pre></div><div id=slider-element class=vertical-center></div><script type=module src=/examples/elements/slider-element.js></script><h2 id=elements>Elements</h2><p>Our library has basic visual elements that are used to create the graphics. All elements contain a root SVGElement that contains the visual part of the element. Basic element root&rsquo;s correspond directly to the visual aspect of the element, more complicated elements often contain many SVGElements that describe the graphic.</p><h3 id=ellipse>Ellipse</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>ellipse</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>ellipse</span><span class=p>(</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>80</span><span class=p>,</span> <span class=mi>40</span><span class=p>);</span>
-</code></pre></div><div id=ellipse-element class=vertical-center></div><script type=module src=/examples/elements/ellipse-element.js></script><h3 id=line>Line</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>line</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>line</span><span class=p>(</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>125</span><span class=p>);</span>
-</code></pre></div><div id=line-element class=vertical-center></div><script type=module src=/examples/elements/line-element.js></script><h3 id=path>Path</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>line</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>path</span><span class=p>(</span><span class=s2>&#34;M 50 50 Q 100 150 150 50&#34;</span><span class=p>);</span>
-</code></pre></div><div id=path-element class=vertical-center></div><script type=module src=/examples/elements/path-element.js></script><h3 id=rectangle>Rectangle</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>rectangle</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>rectangle</span><span class=p>(</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>50</span><span class=p>);</span>
-</code></pre></div><div id=rectangle-element class=vertical-center></div><script type=module src=/examples/elements/rectangle-element.js></script><h3 id=text>Text</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>text</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>text</span><span class=p>(</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=s2>&#34;My Text&#34;</span><span class=p>);</span>
-</code></pre></div><div id=text-element class=vertical-center></div><script type=module src=/examples/elements/text-element.js></script><h3 id=tspan>TSpan</h3><p>A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bolded.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>text</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>text</span><span class=p>(</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>);</span>
-<span class=nx>text</span><span class=p>.</span><span class=nx>tspan</span><span class=p>(</span><span class=s1>&#39;normal. &#39;</span><span class=p>);</span>
-<span class=nx>text</span><span class=p>.</span><span class=nx>tspan</span><span class=p>(</span><span class=s1>&#39;bold. &#39;</span><span class=p>).</span><span class=nx>style</span><span class=p>.</span><span class=nx>fontWeight</span> <span class=o>=</span> <span class=s1>&#39;600&#39;</span><span class=p>;</span>
-<span class=nx>text</span><span class=p>.</span><span class=nx>tspan</span><span class=p>(</span><span class=s1>&#39;normal again.&#39;</span><span class=p>);</span>
-</code></pre></div><div id=tspan-element class=vertical-center></div><script type=module src=/examples/elements/tspan-element.js></script><h2 id=interaction>Interaction</h2><p>There are two forms of interaction within our system: dependencies and events.</p><p>The first form of interaction is dependencies. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p><p>The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.</p><h3 id=dependency-functions>Dependency Functions</h3><p>All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the &ldquo;addDependency&rdquo; function and then defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, an element should only use the data of the elements it has declared itself dependent on.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>control1</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>control</span><span class=p>(</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>);</span>
-<span class=kd>let</span> <span class=nx>control2</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>control</span><span class=p>(</span> <span class=mi>200</span><span class=p>,</span> <span class=mi>200</span><span class=p>);</span>
-<span class=nx>control2</span><span class=p>.</span><span class=nx>addDependency</span><span class=p>(</span><span class=nx>control1</span><span class=p>);</span>
-<span class=nx>control2</span><span class=p>.</span><span class=nx>update</span> <span class=o>=</span> <span class=kd>function</span><span class=p>(){</span>
-  <span class=k>this</span><span class=p>.</span><span class=nx>x</span> <span class=o>+=</span> <span class=nx>control1</span><span class=p>.</span><span class=nx>dx</span><span class=p>;</span>
-<span class=p>};</span>
-</code></pre></div><div id=dependency-function class=vertical-center></div><script type=module src=/examples/interaction/dependency-function.js></script><h3 id=keyboard-input>Keyboard Input</h3><p>Key board input can be used to change the state of an interactive as well as control different elements within the interactive. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=nb>window</span><span class=p>.</span><span class=nx>onkeydown</span> <span class=o>=</span> <span class=kd>function</span><span class=p>(</span> <span class=nx>event</span> <span class=p>)</span> <span class=p>{</span>
-  <span class=p>...</span>
-<span class=p>}</span>
-</code></pre></div><div id=key-board-input class=vertical-center></div><script type=module src=/examples/interaction/key-board-input.js></script><h3 id=mouse-input>Mouse Input</h3><p>Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse&rsquo;s position, when the users clicks the interactive, etc.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=nx>interactive</span><span class=p>.</span><span class=nx>mouse</span> <span class=o>?</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nx>onclick</span> <span class=o>?</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nx>onmousemove</span> <span class=o>?</span>
-</code></pre></div><div id=mouse-interaction class=vertical-center></div><script type=module src=/examples/interaction/mouse-interaction.js></script><h2 id=animation>Animation</h2><p>While animation isn&rsquo;t the main focus the library, some basic animations are supported.</p><h3 id=transitions>Transitions?</h3><h3 id=time-line>Time Line</h3><p>Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and &ldquo;scrub&rdquo; to different parts of the animation.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>circle</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>circle</span><span class=p>(</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>20</span><span class=p>);</span>
-<span class=kd>let</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>path</span><span class=p>(</span><span class=s2>&#34;...&#34;</span><span class=p>);</span>
-<span class=nx>circle</span><span class=p>.</span><span class=nx>animateAlongPath</span><span class=p>(</span> <span class=nx>path</span><span class=p>,</span> <span class=kc>true</span><span class=p>,</span> <span class=nx>SPEED</span><span class=p>);</span>
-</code></pre></div><div id=animate-along-path class=vertical-center></div><script type=module src=/examples/interaction/animate-along-path.js></script><h2 id=maps>Maps</h2><p>Wishful thinking (x,y) to lattitude longitude and vice versa.</p><h3 id=world-map>World Map</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=k>import</span> <span class=nx>canada</span> <span class=nx>from</span> <span class=s1>&#39;./maps/canada.js&#39;</span><span class=p>;</span>
-<span class=kd>let</span> <span class=nx>map</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>canada</span><span class=p>);</span>
-</code></pre></div><p><img src=/images/world-map.svg class=center alt="SVG World Map"></p><div id=map-element class=vertical-center></div><script type=module src=/examples/elements/map-element.js></script><h3 id=united-states>United States</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>map</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=s2>&#34;united-states.geojson&#34;</span><span class=p>);</span>
-</code></pre></div><p><img src=/images/united-states.svg class=center alt="SVG United States Map"></p><h3 id=custom-maps>Custom Maps</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=k>import</span> <span class=p>{</span> <span class=nx>getJSON</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;Util.js&#39;</span><span class=p>;</span>
+  gtag('config', 'UA-106670688-3');
+</script>
 
-<span class=nx>getJSON</span><span class=p>(</span><span class=s1>&#39;custom.geojson&#39;</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>geoData</span><span class=p>){</span>
+  
+<script type="text/javascript" src="/js/aside.js"></script>
 
-<span class=p>});</span>
-</code></pre></div><h2 id=coordinates>Coordinates</h2><p>The coordinate system of the interactive image follows the SVG standard: the default origin is the top left corner of the image and the positive x direction is to the right and the positive y direction is down. This is visualized by the control point below.</p><p><div id=svg-coordinate-system class=vertical-center></div><script type=module src=/examples/svg/svg-coordinate-system.js></script></p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// TODO: show changing the origin of the coordinate system
-</span></code></pre></div><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// TODO: mathmode -&gt; changes positive direction of the y axis to be up
-</span></code></pre></div><p>Alternatively, the viewbox of the interactive can be changed</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// what happens when the dimensions of the interactive and the viewbox disagree?
-</span></code></pre></div><h3 id=scaling>Scaling</h3><p><img src=/images/cartesian-coordinate-system.svg class="border center" alt="SVG Coordinate System"></p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// TODO: Scaling example
-</span></code></pre></div><h3 id=zooming-and-panning>Zooming and Panning</h3><div id=zoom-in-out class=vertical-center></div><script type=module src=/examples/interaction/zoom-in-out.js></script><h3 id=transforming>Transforming</h3><h2 id=styling>Styling</h2><p>The appearance of elements within this library can be styled using CSS. Styles can either be applied using a user defined style sheet or directly within the Javascript file. Helper classes are provided for the convenience of the user.</p><h3 id=basic-styling>Basic Styling</h3><p>Basic geometric elements have two basic properties: fill and stroke. Fill is the area contained within the shape and stroke is the edge of the geometric shape. These styles can be accessed through the style property.</p><p><img src=/images/fill-stroke.svg alt="Fill and Stroke Element" width=320px style=display:block;margin:auto></p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>rectangle</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>rectangle</span><span class=p>(</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>50</span><span class=p>);</span>
-<span class=nx>rectangle</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>fill</span> <span class=o>=</span> <span class=s1>&#39;blue&#39;</span><span class=p>;</span>
-<span class=nx>rectangle</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>stroke</span> <span class=o>=</span> <span class=s1>&#39;red&#39;</span><span class=p>;</span>
-<span class=nx>rectangle</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>strokeWidth</span> <span class=o>=</span> <span class=s1>&#39;1px&#39;</span><span class=p>;</span>
-</code></pre></div><h3 id=custom-styling>Custom Styling</h3><p>Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript. The style sheet for the library can be found in the <a href=/Library.css>Library.css</a> file. Typically, elements have an associated class that gives them their default look and feel.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// element.style ...
-</span></code></pre></div><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// TODO: how to load a custom style sheet
-</span></code></pre></div></main></section></body></html>
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a> or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+			<a href="/api/"><button class="muted-button">API</button></a>
+    </p>
+	</div>
+</header>
+
+<section class="aside container">
+  <div class="aside-container">
+    <aside>
+      <a href="#"><h1>Vector.js</h1></a>
+      <ul>
+        
+          
+            
+            
+            
+            <li><a class="aside-link" href="#getting-started"><img src="/icons/getting-started.svg" alt="Getting Started">Getting Started</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#input"><img src="/icons/input.svg" alt="Input">Input</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#elements"><img src="/icons/elements.svg" alt="Elements">Elements</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#interaction"><img src="/icons/interaction.svg" alt="Interaction">Interaction</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#animation"><img src="/icons/animation.svg" alt="Animation">Animation</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#maps"><img src="/icons/maps.svg" alt="Maps">Maps</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#coordinates"><img src="/icons/coordinates.svg" alt="Coordinates">Coordinates</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#styling"><img src="/icons/styling.svg" alt="Styling">Styling</a></li>
+            
+          
+        
+      </ul>
+    </aside>
+  </div>
+  <main class="medium-container" id="main-content">
+    
+
+<h2 id="getting-started">Getting Started</h2>
+
+
+
+
+  <p>Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, has an element with an unique id, and includes the script file.</p>
+
+<div class="filename">index.html</div>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span> <span class="na">dir</span><span class="o">=</span><span class="s">&#34;ltr&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Getting Started<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://vectorjs.org/library.css&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-interactive&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;script.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
+
+<p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then constructs a control point which can be dragged around. It also prints out the control and interactive to the console to play around with.</p>
+
+<div class="filename">script.js</div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;https://vectorjs.org/interactive.js&#34;</span><span class="p">;</span>
+
+<span class="c1">// Construct an interactive within the HTML element with the id &#34;my-interactive&#34;
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-interactive&#34;</span><span class="p">);</span>
+<span class="nx">myInteractive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Construct a control point at the the location (100, 100)
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">// Print the two objects to the console
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">myInteractive</span><span class="p">);</span>
+</code></pre></div>
+
+<p>To view the interactive, serve the folder containing the two files using a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p>
+
+<p><img src="/images/getting-started.svg" alt=""></p>
+
+
+
+
+
+<h2 id="input">Input</h2>
+
+<p>User input drives the animations of these graphics and is the main focus of this library. These input elements are part of the SVG ecosystem and provide the end users with ways to manipulate and interact with the visual in front of them.</p>
+
+<h3 id="button">Button</h3>
+
+<p>The button element has a position, label, and default style. Defining the &ldquo;onclick&rdquo; method handles when a user clicks the button.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Button&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="button-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/button-element.js"></script>
+
+
+
+<h3 id="check-box">Check Box</h3>
+
+<p>A checkbox has two different states: checked and unchecked. When a user clicks the box the state changes.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">checkBox</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">checkBox</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Checkbox&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="check-box-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/check-box-element.js"></script>
+
+
+
+<h3 id="control-point">Control Point</h3>
+
+<p>A control point is a two dimensional point that can be clicked and dragged by the user. The control has a (x,y) position as well as its change in position (dx, dy).</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="control-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/control-element.js"></script>
+
+
+
+<!-- TODO: drop down -->
+
+<!-- TODO: input box -->
+
+<h3 id="radio-control">Radio Control</h3>
+
+<p>The radio control elements allows the user to select from a list of options. Only one option can be selected at a time.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">radio</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">radioControl</span><span class="p">([</span><span class="s2">&#34;red&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">,</span><span class="s2">&#34;blue&#34;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="radio-control-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/radio-control-element.js"></script>
+
+
+
+<h3 id="scrubber">Scrubber</h3>
+
+<p>The scrubber has a play and pause button that start and stop the animation. The position indicator can also be dragged to change the state of the scrubber.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="scrubber-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/scrubber-element.js"></script>
+
+
+
+<h3 id="slider">Slider</h3>
+
+<p>A slider has a position, width, and starting value.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">slider</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">slider</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="slider-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/slider-element.js"></script>
+
+
+
+<h2 id="elements">Elements</h2>
+
+<p>Our library has basic visual elements that are used to create the graphics. All elements contain a root SVGElement that contains the visual part of the element. Basic element root&rsquo;s correspond directly to the visual aspect of the element, more complicated elements often contain many SVGElements that describe the graphic.</p>
+
+<h3 id="ellipse">Ellipse</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">ellipse</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">ellipse</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="ellipse-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/ellipse-element.js"></script>
+
+
+
+<h3 id="line">Line</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">125</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="line-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/line-element.js"></script>
+
+
+
+<h3 id="path">Path</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&#34;M 50 50 Q 100 150 150 50&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="path-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/path-element.js"></script>
+
+
+
+<h3 id="rectangle">Rectangle</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="rectangle-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/rectangle-element.js"></script>
+
+
+
+<h3 id="text">Text</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&#34;My Text&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="text-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/text-element.js"></script>
+
+
+
+<h3 id="tspan">TSpan</h3>
+
+<p>A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bolded.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s1">&#39;normal. &#39;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s1">&#39;bold. &#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontWeight</span> <span class="o">=</span> <span class="s1">&#39;600&#39;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s1">&#39;normal again.&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="tspan-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/tspan-element.js"></script>
+
+
+
+<h2 id="interaction">Interaction</h2>
+
+<p>There are two forms of interaction within our system: dependencies and events.</p>
+
+<p>The first form of interaction is dependencies. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p>
+
+<p>The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.</p>
+
+<h3 id="dependency-functions">Dependency Functions</h3>
+
+<p>All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the &ldquo;addDependency&rdquo; function and then defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, an element should only use the data of the elements it has declared itself dependent on.</p>
+
+<!-- TODO: hopefully in the future this will be strictly enforced,  -->
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">control1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">control2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">control2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control1</span><span class="p">);</span>
+<span class="nx">control2</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">control1</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<div id="dependency-function" class="vertical-center"></div>
+<script type="module" src="/examples/interaction/dependency-function.js"></script>
+
+
+
+<h3 id="keyboard-input">Keyboard Input</h3>
+
+<p>Key board input can be used to change the state of an interactive as well as control different elements within the interactive. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.</p>
+
+<!-- TODO: make an interactive of the whole keyboard -->
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onkeydown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<div id="key-board-input" class="vertical-center"></div>
+<script type="module" src="/examples/interaction/key-board-input.js"></script>
+
+
+
+<h3 id="mouse-input">Mouse Input</h3>
+
+<p>Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse&rsquo;s position, when the users clicks the interactive, etc.</p>
+
+<!-- TODO: add mouse into the depdency eco-system? -->
+
+<!-- TODO: show velocity vector of mouse? -->
+
+<!-- TODO: count mouse leave, mouse enter? -->
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">interactive</span><span class="p">.</span><span class="nx">mouse</span> <span class="o">?</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">?</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">?</span>
+</code></pre></div>
+
+
+<div id="mouse-interaction" class="vertical-center"></div>
+<script type="module" src="/examples/interaction/mouse-interaction.js"></script>
+
+
+
+<h2 id="animation">Animation</h2>
+
+<p>While animation isn&rsquo;t the main focus the library, some basic animations are supported.</p>
+
+<h3 id="transitions">Transitions?</h3>
+
+<h3 id="time-line">Time Line</h3>
+
+<p>Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and &ldquo;scrub&rdquo; to different parts of the animation.</p>
+
+<!-- TODO: temporarily stop the update when the scrubber element is grabbed -->
+
+<!-- TODO: when the scrubber is "scrubbed" to the end, set the flag to true so the next time the user clicks the play button the animation restarts. -->
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">animateAlongPath</span><span class="p">(</span> <span class="nx">path</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">SPEED</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div id="animate-along-path" class="vertical-center"></div>
+<script type="module" src="/examples/interaction/animate-along-path.js"></script>
+
+
+
+<h2 id="maps">Maps</h2>
+
+<p>Wishful thinking (x,y) to lattitude longitude and vice versa.</p>
+
+<h3 id="world-map">World Map</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">canada</span> <span class="nx">from</span> <span class="s1">&#39;./maps/canada.js&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">canada</span><span class="p">);</span>
+</code></pre></div>
+
+<p><img src="/images/world-map.svg" class="center" alt="SVG World Map"></p>
+
+
+<div id="map-element" class="vertical-center"></div>
+<script type="module" src="/examples/elements/map-element.js"></script>
+
+
+
+<h3 id="united-states">United States</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;united-states.geojson&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<p><img src="/images/united-states.svg" class="center" alt="SVG United States Map"></p>
+
+<h3 id="custom-maps">Custom Maps</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span> <span class="nx">getJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;Util.js&#39;</span><span class="p">;</span>
+
+<span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;custom.geojson&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">geoData</span><span class="p">){</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="coordinates">Coordinates</h2>
+
+<p>The coordinate system of the interactive image follows the SVG standard: the default origin is the top left corner of the image and the positive x direction is to the right and the positive y direction is down. This is visualized by the control point below.</p>
+
+<p>
+  
+<div id="svg-coordinate-system" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-coordinate-system.js"></script>
+
+
+</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: show changing the origin of the coordinate system
+</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: mathmode -&gt; changes positive direction of the y axis to be up
+</span></code></pre></div>
+
+<p>Alternatively, the viewbox of the interactive can be changed</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// what happens when the dimensions of the interactive and the viewbox disagree?
+</span></code></pre></div>
+
+<h3 id="scaling">Scaling</h3>
+
+<p><img src="/images/cartesian-coordinate-system.svg" class="border center" alt="SVG Coordinate System"></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: Scaling example
+</span></code></pre></div>
+
+<h3 id="zooming-and-panning">Zooming and Panning</h3>
+
+
+<div id="zoom-in-out" class="vertical-center"></div>
+<script type="module" src="/examples/interaction/zoom-in-out.js"></script>
+
+
+
+<h3 id="transforming">Transforming</h3>
+
+<h2 id="styling">Styling</h2>
+
+<p>The appearance of elements within this library can be styled using CSS. Styles can either be applied using a user defined style sheet or directly within the Javascript file. Helper classes are provided for the convenience of the user.</p>
+
+<h3 id="basic-styling">Basic Styling</h3>
+
+<p>Basic geometric elements have two basic properties: fill and stroke. Fill is the area contained within the shape and stroke is the edge of the geometric shape. These styles can be accessed through the style property.</p>
+
+<p><img src="/images/fill-stroke.svg" alt="Fill and Stroke Element" width="320px" style="display:block; margin:auto;"></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">;</span>
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="s1">&#39;1px&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="custom-styling">Custom Styling</h3>
+
+<p>Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript. The style sheet for the library can be found in the <a href="/Library.css">Library.css</a> file. Typically, elements have an associated class that gives them their default look and feel.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// element.style ...
+</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: how to load a custom style sheet
+</span></code></pre></div>
+
+  </main>
+</section>
+
+</body>
+</html>

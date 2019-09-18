@@ -1,4 +1,146 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><title>Vector.js</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type="image/x-icon'href='/favicon.png"><script async defer src=https://buttons.github.io/buttons.js></script><link href=/scss/main.css rel=stylesheet media=screen><script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','UA-106670688-3');</script><link rel=stylesheet type=text/css href=/library.css></head><body><header class=text-center><div class=small-container><a href=/><h1>Vector.js</h1></a><p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href=https://github.com/vector-js/vector.git target=_blank rel=noreferrer>github</a> or meet the <a href=/team/>team</a>.</p><p><a href="/sandbox/?script=/examples/hello-world.js"><button class=muted-button>Sandbox</button></a>
-<a href=/tutorials/><button class=muted-button>Tutorials</button></a>
-<a href=/examples/><button class=muted-button>Examples</button></a></p></div></header><main class=medium-container><h1>Path</h1><p>The path element is notorious for its power and difficulty. The path element has one attribute, the &ldquo;d&rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.</p><div class=highlight><pre class=chroma><code class=language-svg data-lang=svg><span class=nt>&lt;path</span> <span class=na>d=</span><span class=s>&#34;...&#34;</span><span class=nt>&gt;&lt;/path&gt;</span></code></pre></div><table><thead><tr><th>Name</th><th>Command</th></tr></thead><tbody><tr><td>Move To</td><td>M x y</td></tr><tr><td>Line</td><td>L x y</td></tr><tr><td>Quadratic Bezier</td><td>Q x1 y1 x2 y2</td></tr><tr><td>Cubic Bezier</td><td>C x1 y1 x2 y2 x3 y3</td></tr><tr><td>Arc</td><td>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</td></tr><tr><td>Close</td><td>Z</td></tr></tbody></table><h4 id=path-move-to>Path: Move To</h4><p>Every path starts with a move command which describes where the path starts. A path can have multiple move to commands to start drawing the path elsewhere in the document.</p><h4 id=path-line-command>Path: Line Command</h4><div class=highlight><pre class=chroma><code class=language-svg data-lang=svg><span class=nt>&lt;path</span> <span class=na>d=</span><span class=s>&#34;L x y&#34;</span><span class=nt>&gt;&lt;/path&gt;</span></code></pre></div><p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p><div id=svg-path-line class=vertical-center></div><script type=module src=/examples/svg/svg-path-line.js></script><h4 id=path-quadratic-bezier-command>Path: Quadratic Bezier Command</h4><div class=highlight><pre class=chroma><code class=language-svg data-lang=svg><span class=nt>&lt;path</span> <span class=na>d=</span><span class=s>&#34;Q x1 y1 x2 y2&#34;</span><span class=nt>&gt;&lt;/path&gt;</span></code></pre></div><p>The quadratic bezier curve command draws a curve between two points: the current position of the path and the end point (x2, y2). The shape of the curve is described by the first position in the command (x1, y1). Mathematically the curve is a parameterized polynomial. <a href=https://pomax.github.io/bezierinfo/ target=_blank rel=noreferrer>More info here</a>.</p><div id=svg-path-bezier-quadratic class=vertical-center></div><script type=module src=/examples/svg/svg-path-bezier-quadratic.js></script><h4 id=path-cubic-bezier-command>Path: Cubic Bezier Command</h4><div class=highlight><pre class=chroma><code class=language-svg data-lang=svg><span class=nt>&lt;path</span> <span class=na>d=</span><span class=s>&#34;C x1 y1 x2 y2 x3 y3&#34;</span><span class=nt>&gt;&lt;/path&gt;</span></code></pre></div><p>The cubic bezier curve command is like the quadratic curve with an additional point to further control the shape of the curve.</p><div id=svg-path-bezier-cubic class=vertical-center></div><script type=module src=/examples/svg/svg-path-bezier-cubic.js></script><h4 id=path-arc-command>Path: Arc Command</h4><div class=highlight><pre class=chroma><code class=language-svg data-lang=svg><span class=nt>&lt;path</span> <span class=na>d=</span><span class=s>&#34;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&#34;</span><span class=nt>&gt;&lt;/path&gt;</span></code></pre></div><p>The arc command draws an arc between two points. The syntax of the command is &ldquo;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&rdquo;. The arc is drawn between the current position of the path and the end position (x,y). The numbers rx and ry define the shape of the ellipse which forms the arc. The x-axis rotation number controls what part of the ellipse&rsquo;s arc is being drawn between the points. The large arc flag determines whether to take the shorter arc or longer path between the two points. Finally, the sweep-flag chooses which of the two ellipsis that pass through the two points to draw.</p><div id=svg-path-arc class=vertical-center></div><script type=module src=/examples/svg/svg-path-arc.js></script></main></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a> or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+			<a href="/api/"><button class="muted-button">API</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+<h1>Path</h1>
+
+<p>The path element is notorious for its power and difficulty. The path element has one attribute, the &ldquo;d&rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;...&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Command</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Move To</td>
+<td>M x y</td>
+</tr>
+
+<tr>
+<td>Line</td>
+<td>L x y</td>
+</tr>
+
+<tr>
+<td>Quadratic Bezier</td>
+<td>Q x1 y1 x2 y2</td>
+</tr>
+
+<tr>
+<td>Cubic Bezier</td>
+<td>C x1 y1 x2 y2 x3 y3</td>
+</tr>
+
+<tr>
+<td>Arc</td>
+<td>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</td>
+</tr>
+
+<tr>
+<td>Close</td>
+<td>Z</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="path-move-to">Path: Move To</h4>
+
+<p>Every path starts with a move command which describes where the path starts. A path can have multiple move to commands to start drawing the path elsewhere in the document.</p>
+
+<h4 id="path-line-command">Path: Line Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;L x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
+
+
+<div id="svg-path-line" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-line.js"></script>
+
+
+
+<h4 id="path-quadratic-bezier-command">Path: Quadratic Bezier Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;Q x1 y1 x2 y2&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The quadratic bezier curve command draws a curve between two points: the current position of the path and the end point (x2, y2). The shape of the curve is described by the first position in the command (x1, y1). Mathematically the curve is a parameterized polynomial. <a href="https://pomax.github.io/bezierinfo/" target="_blank" rel="noreferrer">More info here</a>.</p>
+
+
+<div id="svg-path-bezier-quadratic" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-bezier-quadratic.js"></script>
+
+
+
+<h4 id="path-cubic-bezier-command">Path: Cubic Bezier Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;C x1 y1 x2 y2 x3 y3&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The cubic bezier curve command is like the quadratic curve with an additional point to further control the shape of the curve.</p>
+
+
+<div id="svg-path-bezier-cubic" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-bezier-cubic.js"></script>
+
+
+
+<h4 id="path-arc-command">Path: Arc Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The arc command draws an arc between two points. The syntax of the command is &ldquo;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&rdquo;. The arc is drawn between the current position of the path and the end position (x,y). The numbers rx and ry define the shape of the ellipse which forms the arc. The x-axis rotation number controls what part of the ellipse&rsquo;s arc is being drawn between the points. The large arc flag determines whether to take the shorter arc or longer path between the two points. Finally, the sweep-flag chooses which of the two ellipsis that pass through the two points to draw.</p>
+
+
+<div id="svg-path-arc" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-arc.js"></script>
+
+
+
+</main>
+
+</body>
+</html>

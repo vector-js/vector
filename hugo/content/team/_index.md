@@ -6,6 +6,6 @@ title: Team
 
 ## Contact
 
-If you have a question or comment feel free to send us an email at the address below.
+If you have a question or comment send us an email at the address below.
 
 <a href="mailto:contact@vectorjs.org" target="_blank">contact@vectorjs.org</a>

@@ -180,5 +180,29 @@ describe('DependencyGraph', function () {
             chai.expect(Array.from(dg.getDependents('a'))).to.include('c');
         });
     });
+    describe('DependencyGraph.getTopologicalSort', function () {
+        it('should return "a b c" or "a c b"', function () {
+            // Create a graph
+            let dg = new DependencyGraph();
+            dg.add('a');
+            dg.add('b');
+            dg.add('c');
+            dg.addDependency('a', 'b');
+            dg.addDependency('a', 'c');
+            chai.expect(dg.getTopologicalSort().toString()).to.equal('a c b');
+        });
+        it('should return "a b c" or "a c b"', function () {
+            // Create a graph
+            let dg = new DependencyGraph();
+            dg.add('a');
+            dg.add('b');
+            dg.add('c');
+            dg.addDependency('a', 'b');
+            dg.addDependency('b', 'c');
+            dg.addDependency('a', 'c');
+            console.log(dg.getTopologicalSort());
+            chai.expect(dg.getTopologicalSort().toString()).to.equal('a b c');
+        });
+    });
 });
 //# sourceMappingURL=dependency-graph.test.js.map
