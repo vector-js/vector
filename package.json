@@ -18,12 +18,13 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf ./dist/ && rm -rf ./docs/",
-    "website": "tsc && cd hugo && hugo",
-    "watch": "tsc -w",
-    "start": "http-server .",
+    "deploy": "npm run clean && npm run build && npm run tutorial && npm run website",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
-    "tutorial": "./getting-started.sh",
-    "rollup": "rollup --config"
+    "website": "cd hugo && hugo --minify",
+    "watch": "tsc -w",
+    "rollup": "rollup --config",
+    "start": "http-server .",
+    "tutorial": "./getting-started.sh"
   },
   "files": [
     "dist"

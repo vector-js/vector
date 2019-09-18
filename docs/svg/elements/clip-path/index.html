@@ -1,63 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>Vector.js</title>
-  <meta name="description" content="An interactive SVG clip path element." />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  
-
-<link href="/scss/main.css" rel="stylesheet" media="screen">
-
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-106670688-3');
-</script>
-
-  
-  
-  <link rel="stylesheet" type="text/css" href="/library.css">
-</head>
-<body>
-
-<header class="text-center">
-	<div class="small-container">
-    <a href="/"><h1>Vector.js</h1></a>
-		<p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">github</a> or meet the <a href="/team/">team</a>.</p>
-    <p>
-      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
-      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
-      <a href="/examples/"><button class="muted-button">Examples</button></a>
-    </p>
-	</div>
-</header>
-
-<main class="medium-container">
-<h1>Clip Path</h1><p>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;g</span> <span class="na">clip-path=</span><span class="s">&#34;url(#my-clip-path)&#34;</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- grid of rectangles ... --&gt;</span>
-<span class="nt">&lt;/g&gt;</span>
-<span class="nt">&lt;clipPath</span> <span class="na">id=</span><span class="s">&#34;my-clip-path&#34;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;300&#34;</span> <span class="na">cy=</span><span class="s">&#34;150&#34;</span> <span class="na">r=</span><span class="s">&#34;50&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
-<span class="nt">&lt;/clipPath&gt;</span></code></pre></div>
-
-<p>Click and drag the clip path below to change the position of the circle that defines the clipping path.</p>
-
-
-<div id="svg-clip-path" class="vertical-center"></div>
-<script type="module" src="/examples/svg/svg-clip-path.js"></script>
-
-
-
-</main>
-
-</body>
-</html>
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><title>Vector.js</title><meta name=description content="An interactive SVG clip path element."><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type="image/x-icon'href='/favicon.png"><script async defer src=https://buttons.github.io/buttons.js></script><link href=/scss/main.css rel=stylesheet media=screen><script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-106670688-3');</script><link rel=stylesheet type=text/css href=/library.css></head><body><header class=text-center><div class=small-container><a href=/><h1>Vector.js</h1></a><p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href=https://github.com/vector-js/vector.git target=_blank rel=noreferrer>github</a> or meet the <a href=/team/>team</a>.</p><p><a href="/sandbox/?script=/examples/hello-world.js"><button class=muted-button>Sandbox</button></a>
+<a href=/tutorials/><button class=muted-button>Tutorials</button></a>
+<a href=/examples/><button class=muted-button>Examples</button></a></p></div></header><main class=medium-container><h1>Clip Path</h1><p>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.</p><div class=highlight><pre class=chroma><code class=language-svg data-lang=svg><span class=nt>&lt;g</span> <span class=na>clip-path=</span><span class=s>&#34;url(#my-clip-path)&#34;</span><span class=nt>&gt;</span>
+  <span class=c>&lt;!-- grid of rectangles ... --&gt;</span>
+<span class=nt>&lt;/g&gt;</span>
+<span class=nt>&lt;clipPath</span> <span class=na>id=</span><span class=s>&#34;my-clip-path&#34;</span><span class=nt>&gt;</span>
+  <span class=nt>&lt;circle</span> <span class=na>cx=</span><span class=s>&#34;300&#34;</span> <span class=na>cy=</span><span class=s>&#34;150&#34;</span> <span class=na>r=</span><span class=s>&#34;50&#34;</span><span class=nt>&gt;&lt;/circle&gt;</span>
+<span class=nt>&lt;/clipPath&gt;</span></code></pre></div><p>Click and drag the clip path below to change the position of the circle that defines the clipping path.</p><div id=svg-clip-path class=vertical-center></div><script type=module src=/examples/svg/svg-clip-path.js></script></main></body></html>

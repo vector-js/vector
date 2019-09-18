@@ -1,6 +1,6 @@
-import '../dist/tests/DependencyGraph.test.js';
-import '../dist/tests/LinkedList.test.js';
-import '../dist/tests/Util.test.js';
+import '../dist/tests/dependency-graph.test.js';
+import '../dist/tests/linked-list.test.js';
+import '../dist/tests/util.test.js';
 
 mocha.checkLeaks();
 mocha.run();
