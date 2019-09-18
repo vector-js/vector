@@ -98,6 +98,13 @@ export default class DependencyGraph<T> {
 	}
 
 	/**
+	* Returns the adjacent dependent nodes.
+	*/
+	getAdjacentNodes( node:T ) : Set<T> {
+		return this.relationships.get(node);
+	}
+
+	/**
 	* Returns an iterator to the dependents of the node.
 	*/
 	getDependents( node:T, shallow:boolean = false ) : Iterable<T> {

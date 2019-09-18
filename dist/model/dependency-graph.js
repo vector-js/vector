@@ -77,6 +77,12 @@ export default class DependencyGraph {
         return this.contains(node) && this.relationships.get(node).size != 0;
     }
     /**
+    * Returns the adjacent dependent nodes.
+    */
+    getAdjacentNodes(node) {
+        return this.relationships.get(node);
+    }
+    /**
     * Returns an iterator to the dependents of the node.
     */
     getDependents(node, shallow = false) {
@@ -95,6 +101,19 @@ export default class DependencyGraph {
             list.remove();
             return list;
         }
+    }
+    /**
+    * Returns a topological sort of this dependency
+    */
+    getTopologicalSort() {
+        let list = new LinkedList();
+        let visited = new Set();
+        for (let node of this.getNodes()) {
+            if (!visited.has(node)) {
+                this.getTopologicalDependents(node, visited, list);
+            }
+        }
+        return list;
     }
     /**
     Returns a list of the arguent node and all of its dependents in topological order.

@@ -72,6 +72,8 @@ export default class DirectedGraph extends Element {
   {
     return this.nodes;
   }
+
+
   /**
   * Returns the size of this graph
   */

@@ -26,6 +26,8 @@ import Plot from './elements/plot.js';
 import Graph from './elements/graph.js';
 import Map from './elements/map.js';
 import DirectedGraph from './elements/directed-graph.js';
+import FlowGraph from './elements/flow-graph.js';
+
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -338,6 +340,14 @@ export default class Interactive extends Element  {
     return graph;
   }
 
+  /*
+  * Creates a flow graph element within this interactive
+  */
+  flowGraph(str:string) : FlowGraph {
+    let flowGraph = new FlowGraph(str);
+    this.background.appendChild(flowGraph.root);
+    return flowGraph;
+  }
 
   /**
   * Creates a slider input within this interactive
