@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="interactive-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 300 150" style="enable-background:new 0 0 300 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#333333;}
+	.st1{font-family:'HelveticaNeue';}
+	.st2{font-size:12px;}
+	.st3{fill:#0366EE;}
+	.st4{fill-opacity:0;}
+</style>
+<g>
+	<text id="text-2" transform="matrix(1 0 0 1 99.8876 62.1121)" class="st0 st1 st2">(100,100)</text>
+</g>
+<g>
+	<g id="control-1" transform="translate( 100, 100)">
+		<circle class="st3" cx="-15.1" cy="-22.9" r="4"/>
+		<circle class="st4" cx="-15.1" cy="-22.9" r="13"/>
+	</g>
+</g>
+</svg>

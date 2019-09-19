@@ -132,6 +132,8 @@ export default class Control extends Element {
     */
     handleMouseDown(event) {
         if (!Element.disable) {
+            event.preventDefault();
+            event.stopPropagation();
             Control.active = this;
             Control.slopX = Control.active.x - event.clientX;
             Control.slopY = Control.active.y - event.clientY;

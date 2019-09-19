@@ -949,6 +949,11 @@ var Interactive = (function () {
             const context = document.createElement("canvas").getContext("2d");
             return context.measureText(this.root.innerHTML).width;
         }
+        text(x, y, str) {
+            let text = new Text(x, y, str);
+            this.root.appendChild(text.root);
+            return text;
+        }
         tspan(text) {
             let tspan = new TSpan(text);
             this.root.appendChild(tspan.root);
@@ -1405,6 +1410,8 @@ var Interactive = (function () {
         */
         handleMouseDown(event) {
             if (!Element.disable) {
+                event.preventDefault();
+                event.stopPropagation();
                 Control.active = this;
                 Control.slopX = Control.active.x - event.clientX;
                 Control.slopY = Control.active.y - event.clientY;

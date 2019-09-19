@@ -20,7 +20,7 @@
     "api": "typedoc --mode file --target ES6 --out hugo/static/api --theme minimal --exclude \"./source/examples/**/*\"",
     "build": "tsc",
     "clean": "rm -rf ./dist/ && rm -rf ./docs/",
-    "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run website",
+    "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run rollup && npm run website",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
     "website": "cd hugo && hugo --minify",
     "watch": "tsc -w",
