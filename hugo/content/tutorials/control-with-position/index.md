@@ -1,65 +1,57 @@
 ---
 title: Control With Position
-description: Basic usage and documentation for the interactive svg library. Explains how to build a simple interactive and embed it in the browser.
+description: How to add a text label to a control point that moves with the point and displays its position.
+image: "/images/control-with-position.svg"
 weight: 10
 ---
 
-This tutorial introduces the user to the basics of our library through step-by-step instructions. By the end, the user should have a simple interactive that demonstrates the functionality and utility of the library.
+This tutorial shows the user how to add a text label to a control point. Then the text label will be made to follow the position of the point and show the point's current position. If you haven't gone through [getting started tutorial]({{<relref "/tutorials/getting-started">}}), do so to get to the starting point.
 
-## Open the Editor
+## Starting point
 
-Start by opening an instance of the <a href="/sandbox/" target="_blank">sandbox</a> in a new tab.
-<!-- More advanced users may want to set up their own development environment... -->
+The starting point is an interactive with a control point that can be dragged around.
 
-## Create a Basic Interactive
-
-Create a new interactive with a simple control point. Copy and paste the following into the text area. The first line of code creates a new "interactive" within the HTML element corresponding to the id. The second line creates a simple control point and is an example of how the end user interfaces with the interactive.
-
-{{< highlight javascript >}}
-let interactive = new Interactive("my-id");
-let control = interactive.control( 100, 100);
-interactive.window = true;
-{{< / highlight >}}
-
-After pressing the render button, this should result in an interactive identical to the one below with a blue control point at the coordinates (100, 100). Try clicking and dragging the point around.
-
-<div id="step-0" class="interactive"></div>
+<div id="step-0" class="interactive center"></div>
 <script type="module" src="./step-0.js"></script>
 
-## Relate Elements Together
+{{< highlight javascript "linenos=inline,linenostart=1">}}
+import Interactive from '/interactive.js';
 
-By convention, the coordinates are measured from the top-left point of the interactive. Let's add some text to display the current location of the point. This demonstrates how elements can be created and related to eachother. When the state of one element changes all of the dependent elements will get updated.
+// Initialize the interactive
+let interactive = new Interactive("step-0");
+interactive.border = true;
 
-{{< highlight javascript >}}
-let text = interactive.text(100, 100, "(100,100)");
-text.addDependency(control);
-text.update = function() {
-  this.contents = `(${control.x},${control.y})`;
-};
-{{< / highlight >}}
+// Create a control point at the location (100, 100)
+let control = interactive.control( 100, 100);
+{{< /highlight >}}
 
-This should result in the interactive below.
+## Adding a Text Label
 
-<div id="step-1" class="interactive"></div>
+<div id="step-1" class="interactive center"></div>
 <script type="module" src="./step-1.js"></script>
 
-The text accurately reflects the position of the point, but we can still do better. Modify the update function to also update the x and y position of the text element.
+{{< highlight javascript "linenos=inline,linenostart=10">}}
+// Create a text element at the location (150,150);
+let text = interactive.text(150, 150, "myText");
+{{< /highlight >}}
 
-<!-- TODO: When setting the update function it could be possible to always call the function immediately after setting it? Note, instead of fiddling around with updating the position of the text in two places, the update function is called right after being defined which is a convenient way to ignore the element's initial state. -->
+## Update Contents and Position of Text
 
-{{< highlight javascript >}}
+Next let's make it so when the control moves as well. Let's also make it so the contents of the text displays the position of the control.
+
+<div id="step-2" class="interactive center"></div>
+<script type="module" src="./step-2.js"></script>
+
+{{< highlight javascript "linenos=inline,linenostart=13">}}
+// Update the text when the control changes
+text.addDependency(control);
 text.update = function() {
   this.x = control.x + 15;
   this.y = control.y - 15;
-  this.contents = `( ${control.x}, ${control.y})`;
+  this.contents = `(${control.x},${control.y})`;
 };
 text.update();
-{{< / highlight >}}
-
-This should result in the finished simple interactive: a control point that displays its current position when it is dragged around.
-
-<div id="step-2" class="interactive"></div>
-<script type="module" src="./step-2.js"></script>
+{{< /highlight >}}
 
 ## Onward
 
