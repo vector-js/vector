@@ -183,12 +183,12 @@ SVG elements are styled using Cascading Style Sheets or CSS for short. Styling c
 Styling can be applied to individual elements using the style attribute. This is very useful for testing out different styling on an element, but in practice it is better to use CSS selectors to style elements based on id, class, and tagname.
 
 {{<highlight svg>}}
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
   <circle cx="150" cy="75" r="50" style="fill:purple;"></circle>
 </svg>
 {{</highlight>}}
 
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
   <circle cx="150" cy="75" r="50" style="fill:purple;"></circle>
 </svg>
 
@@ -197,7 +197,7 @@ Styling can be applied to individual elements using the style attribute. This is
 CSS rules can be applied in the style element within the SVG document. A CSS rule applies styling to elements that match the selectors before the style enclosed in the curly braces. In the example below the selector "circle" will be applied to all circle elements within the SVG.
 
 {{< highlight svg>}}
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
   <style>
   circle {
     stroke:purple;
@@ -209,7 +209,7 @@ CSS rules can be applied in the style element within the SVG document. A CSS rul
 </svg>
 {{< /highlight >}}
 
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
   <style>
   circle.style-element {
     stroke:purple;
@@ -271,7 +271,7 @@ The text element defines text with an x, y position in the document.
 
 The text span element is useful for changing the position and or the styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word. Then, later, a tspan element is positioned relative to the last tspan element.
 
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
   <style>
     #tspan-example {
       font-size:22px;
