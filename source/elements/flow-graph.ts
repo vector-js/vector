@@ -39,6 +39,8 @@ export default class FlowGraph extends DirectedGraph {
     let currentLevel:number = 0;
 
     for(let node of this.list){
+
+
       let currNodes = this.levelsMap.get(currentLevel);
       if(currNodes.size == 0){
         currNodes.add(node);
