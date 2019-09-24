@@ -80,6 +80,28 @@ export default class Element {
   }
 
   /**
+  * Sets the provided attribute with the value.
+  */
+  setAttribute( attribute: string, value: string ) {
+    this.root.setAttribute(attribute, value);
+  }
+
+  /**
+  * Returns the value associated with the attribute.
+  */
+  getAttribute( attribute: string ) : string {
+    return this.root.getAttribute(attribute);
+  }
+
+  /**
+  * Appends the element as a child within this element.
+  */
+  appendChild( child:Element ) : Element {
+    this.root.appendChild(child.root);
+    return child;
+  }
+
+  /**
   * Removes this element from the DOM and from the Element controller.
   */
   remove() {

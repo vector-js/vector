@@ -1,9 +1,35 @@
 import { getURL } from './util.js';
+import Element from './elements/element.js';
 
 /**
 * This wrapper class provides static methods for creating SVG Elements.
 */
-export default class SVG {
+export default class SVG extends Element {
+
+  root: SVGSVGElement;
+
+  /**
+  * Constructs a svg element.
+  */
+  constructor() {
+    super(SVG.SVG());
+  }
+
+  get width() {
+    return this.root.width.baseVal.value;
+  }
+
+  set width( value:number ) {
+    this.root.width.baseVal.value = value;
+  }
+
+  get height() {
+    return this.root.height.baseVal.value;
+  }
+
+  set height( value:number ) {
+    this.root.height.baseVal.value = value;
+  }
 
   /**
   * Constructs and returns a SVG element. The default dimensions is 600 by 300

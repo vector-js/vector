@@ -18,9 +18,9 @@ let functionText = '(x) => { return Math.sin(x); }';
 // Create a new graph object
 let graph = interactive.plot();
 graph.function = eval(functionText);
-graph.originX = 0;
-graph.originY = interactive.height/2;
-graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
+// graph.originX = 0;
+// graph.originY = interactive.height/2;
+// graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
 
 // Function input
 let functionInput = document.createElement('input');

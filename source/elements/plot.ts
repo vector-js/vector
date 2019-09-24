@@ -12,6 +12,8 @@ import Line from './line.js';
 */
 export default class Plot extends Element {
 
+  root : SVGGElement;
+
   /**
   * Invisisble element for registering events
   */
@@ -20,7 +22,8 @@ export default class Plot extends Element {
   /**
   * This group holds the drawn path & axis
   */
-  group : Group;
+  viewPort : SVG;
+  viewPortGroup : Group;
 
   /**
   * Represents the path taken by the function.
@@ -66,6 +69,10 @@ export default class Plot extends Element {
   private _scaleY : number;
   private _width : number;
   private _height : number;
+  private _prevX : number;
+  private _prevY : number;
+  private _visibleWidth : number;
+  private _visibleHeight : number;
   private _totalScale : number;
 
   /**
@@ -79,11 +86,15 @@ export default class Plot extends Element {
     // default values
     this._width = 600;
     this._height = 300;
-    this._originX = this.width/2;
-    this._originY = this.height/2;
+    this._originX = 0;
+    this._originY = 0;
+    this._prevX = 0;
+    this._prevY = 0;
+    this._visibleWidth = this.width;
+    this._visibleHeight = this.height;
+    this._totalScale = 1;
     this._scaleX = 1;
     this._scaleY = 1;
-    this._totalScale = 1;
     this.active = false;
 
     // creates a transparent rectangle to capture all user events
@@ -100,17 +111,21 @@ export default class Plot extends Element {
     this.path = new Path('');
 
     // a group to hold the path and axis, allows easy transforming of the origin
-    this.group = new Group();
-    this.group.root.appendChild(this.path.root);
-    this.group.root.appendChild(this.xAxis.root);
-    this.group.root.appendChild(this.yAxis.root);
+    this.viewPort = new SVG();
+    this.viewPortGroup = new Group();
+    this.viewPort.appendChild(this.viewPortGroup);
+    this.viewPort.appendChild(this.path);
+    this.viewPortGroup.appendChild(this.xAxis);
+    this.viewPortGroup.appendChild(this.yAxis);
+
+    // this.viewPortGroup.setAttribute('transform', 'scale(1,-1)');
 
     // create a root element to hold everything
-    this.root.appendChild(this.rect.root);
-    this.root.appendChild(this.group.root);
+    this.appendChild(this.rect);
+    this.appendChild(this.viewPort);
 
     // translate the origin to its initial position
-    this.translate( this.originX, this.originY);
+    // this.translate( this.originX, this.originY);
 
     // Registers event listeners
     if( userEvents ) {
@@ -118,24 +133,38 @@ export default class Plot extends Element {
       // create a display circle for showing input and output
       this.circle = new Circle(0,0,4);
       this.circle.style.fill = 'cornflowerblue';
-      this.group.root.appendChild(this.circle.root);
+      this.viewPort.appendChild(this.circle);
 
       this.xRect = new Rectangle(0, 0, 125, 40);
       this.yRect = new Rectangle(120, 0, 125, 40);
       this.xRect.root.style.fill = 'white';
       this.yRect.root.style.fill = 'white';
-      this.root.appendChild(this.xRect.root);
-      this.root.appendChild(this.yRect.root);
+      this.appendChild(this.xRect);
+      this.appendChild(this.yRect);
 
       this.x = new Text( 15, 20, 'x:0');
       this.x.root.style.dominantBaseline = 'middle';
       this.x.root.style.whiteSpace = 'pre';
-      this.root.appendChild(this.x.root);
+      this.appendChild(this.x);
 
       this.y = new Text( 125 + 15, 20, 'y:0');
       this.y.root.style.dominantBaseline = 'middle';
       this.y.root.style.whiteSpace = 'pre';
-      this.root.appendChild(this.y.root);
+      this.appendChild(this.y);
+
+      // draw a grid of rectangles
+      // draw rectangles for debugging
+      let w = 25;
+      let h = 25;
+      for( let i = 0; i < 10; i++) {
+        for( let j = 0; j < 10; j ++) {
+          let x = i*w;
+          let y = j*h;
+          let rectangle = new Rectangle(x, y, w, h);
+          this.viewPortGroup.appendChild(rectangle);
+          // rectangle.root.setAttribute('vector-effect','non-scaling-stroke');
+        }
+      }
 
       let graph = this;
       this.root.addEventListener('mousemove', function( event:MouseEvent) {
@@ -283,37 +312,33 @@ export default class Plot extends Element {
   * translates the position of the graph to the new location.
   */
   handleMouseMove( event:MouseEvent ) {
-    let x = event.clientX - this.rect.root.getBoundingClientRect().left - this.originX;
     if( this.active ) {
-      this._originX += event.movementX;
-      this._originY += event.movementY;
-      console.log("Spacer, now showing origin position:")
-      console.log(this._originX);
-      console.log(this._originY);
-      console.log("Spacer, now showing mouse position:");
-      console.log(event.x - this.rect.root.getBoundingClientRect().left);
-      console.log(event.y  - this.rect.root.getBoundingClientRect().top);
-      console.log("Spacer, now showing client rect:");
-
-
-      this.translate( this._originX, this._originY);
+      let deltaX = event.clientX - this._prevX;
+      let deltaY = event.clientY - this._prevY;
+      this._originX -= deltaX/this._scaleX;
+      this._originY -= deltaY/this._scaleY;
+      this._prevX = event.clientX;
+      this._prevY = event.clientY;
+      this.viewPort.setAttribute('viewBox', `${this._originX} ${this._originY} ${this._visibleWidth} ${this._visibleHeight}`);
     } else {
-      this.circle.cx = x;
-      this.circle.cy = this.call(x);
+      // this.circle.cx = x;
+      // this.circle.cy = this.call(x);
     }
 
-    let i = this._scaleX*(x);
-    let o = this.call(x, false);
-
-    this.x.contents = `x:${i < 0 ? '' : ' '}${this.format(i)}`;
-    this.y.contents = `y:${o < 0 ? '' : ' '}${this.format(o)}`;
+    // let i = this._scaleX*(x);
+    // let o = this.call(x, false);
+    //
+    // this.x.contents = `x:${i < 0 ? '' : ' '}${this.format(i)}`;
+    // this.y.contents = `y:${o < 0 ? '' : ' '}${this.format(o)}`;
   }
 
   /**
   * When a user mouses down over this graph a drag is active.
   */
-  handleMouseDown( _event:MouseEvent ) {
+  handleMouseDown( event:MouseEvent ) {
     this.active = true;
+    this._prevX = event.clientX;
+    this._prevY = event.clientY;
   }
 
   /**
@@ -321,7 +346,7 @@ export default class Plot extends Element {
   */
   handleMouseUp( _event:MouseEvent ) {
     this.active = false;
-    this.draw();
+    // this.draw();
   }
 
   /**
@@ -338,16 +363,28 @@ export default class Plot extends Element {
   * "momentum" that it can also affect the graph.
   */
   handleMouseWheelEvent( event:WheelEvent ) {
-    let ratio = .95;
-    if( event.deltaY > 0 ) {
-      this.scale(ratio, 1/ratio, event.x - this.rect.root.getBoundingClientRect().left, event.y - this.rect.root.getBoundingClientRect().top);
-    } else {
-      this.scale(1/ratio, ratio, event.x - this.rect.root.getBoundingClientRect().left, event.y - this.rect.root.getBoundingClientRect().top);
-    }
-    this.draw();
-    this.circle.cy = this.call(this.circle.cx);
-
     event.preventDefault();
+
+    let zoomIntensity = .02;
+    let br = this.rect.root.getBoundingClientRect();
+    let x = event.clientX - br.left;
+    let y = event.clientY - br.top;
+
+    let wheel = event.deltaZ < 0 ? 1 : -1;
+    let zoom = Math.exp(wheel*zoomIntensity);
+
+    this._originX -= x/(this._scaleX*zoom) - x/this._scaleX;
+    this._originY -= y/(this._scaleY*zoom) - y/this._scaleY;
+    this._scaleX *= zoom;
+    this._scaleY *= zoom;
+    this._visibleWidth = this.width/this._scaleX;
+    this._visibleHeight = this.width/this._scaleY;
+
+    this.viewPort.setAttribute('viewBox', `${this._originX} ${this._originY} ${this._visibleWidth} ${this._visibleHeight}`);
+
+    // this.draw();
+    // this.circle.cy = this.call(this.circle.cx);
+
   }
 
   /**
@@ -380,46 +417,13 @@ export default class Plot extends Element {
       this._originY += offsetY;
       this.translate(this._originX, this._originY);
 
-      this.draw();
+      // this.draw();
     }
     else{
       this._scaleX *= x;
       this._scaleY *= y;
-      this.draw();
+      // this.draw();
     }
-
-    // this._scaleX *= x;
-    // this._scaleY *= y;
-    // this.group.setAttribute('transform', `scale(${x}, ${y})`);
-    // this.draw();
-
-
-
-
-
-    // if(posX)
-    // {
-    //   this._originX += -posX;
-    //   this._originY += -posY;
-    //   this.translate(this._originX, this._originY);
-    //   this.draw();
-    // }
-  }
-
-  /**
-  * Scales the x axis of this graph.
-  */
-  set scaleX( x:number ) {
-    this._scaleX *= x;
-    this.draw();
-  }
-
-  /**
-  * Scales the y axis of this graph.
-  */
-  set scaleY( y:number ) {
-    this._scaleY *= y;
-    this.draw();
   }
 
   /**
@@ -428,7 +432,7 @@ export default class Plot extends Element {
   translate( x:number, y:number ) {
     this._originX = x;
     this._originY = y;
-    this.group.root.setAttribute('transform', `translate(${x}, ${y})`);
+    this.viewPort.setAttribute('viewBox', `${-x} ${-y} ${this.viewPort.width} ${this.viewPort.height}`);
   }
 
   scaleUp (x: number, y: number){
