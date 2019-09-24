@@ -2464,6 +2464,9 @@ img {
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="interactive.html#adddependency" class="tsd-kind-icon">add<wbr>Dependency</a>
 				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="interactive.html#appendchild" class="tsd-kind-icon">append<wbr>Child</a>
+				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="interactive.html#button" class="tsd-kind-icon">button</a>
 				</li>
@@ -2487,6 +2490,9 @@ img {
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="interactive.html#ellipse" class="tsd-kind-icon">ellipse</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="interactive.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="interactive.html#graph" class="tsd-kind-icon">graph</a>
@@ -2526,6 +2532,9 @@ img {
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="interactive.html#scrubber" class="tsd-kind-icon">scrubber</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="interactive.html#setattribute" class="tsd-kind-icon">set<wbr>Attribute</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="interactive.html#setviewbox" class="tsd-kind-icon">set<wbr>View<wbr>Box</a>
@@ -2622,6 +2631,7 @@ img {
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#adddependency" class="tsd-kind-icon">add<wbr>Dependency</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#appendchild" class="tsd-kind-icon">append<wbr>Child</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#button" class="tsd-kind-icon">button</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#checkbox" class="tsd-kind-icon">check<wbr>Box</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#circle" class="tsd-kind-icon">circle</a></li>
@@ -2630,6 +2640,7 @@ img {
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#directedgraph" class="tsd-kind-icon">directed<wbr>Graph</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#edge" class="tsd-kind-icon">edge</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#ellipse" class="tsd-kind-icon">ellipse</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#graph" class="tsd-kind-icon">graph</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#group" class="tsd-kind-icon">group</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#interactive-1" class="tsd-kind-icon">interactive</a></li>
@@ -2643,6 +2654,7 @@ img {
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#rectangle" class="tsd-kind-icon">rectangle</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#remove" class="tsd-kind-icon">remove</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#scrubber" class="tsd-kind-icon">scrubber</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#setattribute" class="tsd-kind-icon">set<wbr>Attribute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#setviewbox" class="tsd-kind-icon">set<wbr>View<wbr>Box</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#slider" class="tsd-kind-icon">slider</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#text" class="tsd-kind-icon">text</a></li>
@@ -3110,7 +3122,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#adddependency">addDependency</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:93</li>
+								<li>Defined in elements/element.ts:115</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3125,6 +3137,35 @@ img {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="appendchild" class="tsd-anchor"></a>
+				<h3>append<wbr>Child</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">append<wbr>Child<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="element.html" class="tsd-signature-type">Element</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="element.html" class="tsd-signature-type">Element</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#appendchild">appendChild</a></p>
+							<ul>
+								<li>Defined in elements/element.ts:99</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Appends the element as a child within this element.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>child: <a href="element.html" class="tsd-signature-type">Element</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="element.html" class="tsd-signature-type">Element</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -3380,6 +3421,35 @@ img {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="ellipse.html" class="tsd-signature-type">Ellipse</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="getattribute" class="tsd-anchor"></a>
+				<h3>get<wbr>Attribute</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Attribute<span class="tsd-signature-symbol">(</span>attribute<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#getattribute">getAttribute</a></p>
+							<ul>
+								<li>Defined in elements/element.ts:92</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns the value associated with the attribute.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>attribute: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3736,7 +3806,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#remove">remove</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:85</li>
+								<li>Defined in elements/element.ts:107</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3779,6 +3849,38 @@ img {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="scrubber.html" class="tsd-signature-type">Scrubber</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="setattribute" class="tsd-anchor"></a>
+				<h3>set<wbr>Attribute</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">set<wbr>Attribute<span class="tsd-signature-symbol">(</span>attribute<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#setattribute">setAttribute</a></p>
+							<ul>
+								<li>Defined in elements/element.ts:85</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Sets the provided attribute with the value.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>attribute: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5>value: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3902,7 +4004,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#updatedependents">updateDependents</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:102</li>
+								<li>Defined in elements/element.ts:124</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
