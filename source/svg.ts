@@ -1,8 +1,9 @@
-import { getURL } from './util.js';
 import Element from './elements/element.js';
+// import { Structural, Shape, Descriptive } from './mixins.js';
 
 /**
-* This wrapper class provides static methods for creating SVG Elements.
+* This wrapper class provides static methods for creating SVG Elements. Each
+* element has a content model
 */
 export default class SVG extends Element {
 
@@ -38,9 +39,9 @@ export default class SVG extends Element {
   static SVG( width:number = 600, height:number = 300 ) : SVGElement {
 
     let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
-    svg.setAttribute('width',width.toString());
-    svg.setAttribute('height',height.toString());
+    // svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+    svg.setAttributeNS(null, 'width',width.toString());
+    svg.setAttributeNS(null, 'height',height.toString());
     return svg;
   }
 
@@ -50,8 +51,8 @@ export default class SVG extends Element {
   static Text( x:number, y:number, str:string ) : SVGTextElement {
 
     let text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text');
-    text.setAttribute('x', x.toString());
-    text.setAttribute('y', y.toString());
+    text.setAttributeNS(null, 'x', x.toString());
+    text.setAttributeNS(null, 'y', y.toString());
     if( str != undefined ) {
       text.innerHTML = str;
     }
@@ -62,6 +63,7 @@ export default class SVG extends Element {
   * Returns a SVGTSpanElement element with the provided attributes.
   */
   static TSpan( str:string ) : SVGTSpanElement {
+
     let tspan = document.createElementNS( 'http://www.w3.org/2000/svg', 'tspan');
     tspan.innerHTML = str;
     return tspan;
@@ -72,12 +74,11 @@ export default class SVG extends Element {
   */
   static Rectangle( x:number, y:number, width:number, height:number ) : SVGRectElement {
 
-    // constructs and initializes the rectangle
     let rect = document.createElementNS( 'http://www.w3.org/2000/svg', 'rect');
-    rect.setAttribute('x', x.toString());
-    rect.setAttribute('y', y.toString());
-    rect.setAttribute('width', width.toString());
-    rect.setAttribute('height', height.toString());
+    rect.setAttributeNS(null, 'x', x.toString());
+    rect.setAttributeNS(null, 'y', y.toString());
+    rect.setAttributeNS(null, 'width', width.toString());
+    rect.setAttributeNS(null, 'height', height.toString());
     rect.classList.add('default');
     return rect;
   }
@@ -88,10 +89,10 @@ export default class SVG extends Element {
   static Ellipse(cx:number,cy:number,rx:number,ry:number) : SVGEllipseElement{
 
     let ell = document.createElementNS( 'http://www.w3.org/2000/svg', 'ellipse');
-    ell.setAttribute('cx', cx.toString());
-    ell.setAttribute('cy', cy.toString());
-    ell.setAttribute('rx', rx.toString());
-    ell.setAttribute('ry', ry.toString());
+    ell.setAttributeNS(null, 'cx', cx.toString());
+    ell.setAttributeNS(null, 'cy', cy.toString());
+    ell.setAttributeNS(null, 'rx', rx.toString());
+    ell.setAttributeNS(null, 'ry', ry.toString());
     ell.classList.add('default');
     return ell;
   }
@@ -102,10 +103,10 @@ export default class SVG extends Element {
   static Line(x1: number, y1: number, x2: number, y2: number): SVGLineElement {
 
     let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1.toString());
-    line.setAttribute('y1', y1.toString());
-    line.setAttribute('x2', x2.toString());
-    line.setAttribute('y2', y2.toString());
+    line.setAttributeNS(null, 'x1', x1.toString());
+    line.setAttributeNS(null, 'y1', y1.toString());
+    line.setAttributeNS(null, 'x2', x2.toString());
+    line.setAttributeNS(null, 'y2', y2.toString());
     line.classList.add('default');
     return line;
   }
@@ -116,9 +117,9 @@ export default class SVG extends Element {
   static Circle( cx: number, cy: number, radius: number): SVGCircleElement {
 
     let circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle');
-    circle.cx.baseVal.value = cx;
-    circle.cy.baseVal.value = cy;
-    circle.r.baseVal.value = radius;
+    circle.setAttributeNS(null, 'cx', cx.toString());
+    circle.setAttributeNS(null, 'cy', cy.toString());
+    circle.setAttributeNS(null, 'r', radius.toString());
     return circle;
   }
 
@@ -157,29 +158,26 @@ export default class SVG extends Element {
     return defs;
   }
 
+  /**
+  * Constructs a symbol element.
+  */
   static Symbol() : SVGSymbolElement {
     return document.createElementNS( 'http://www.w3.org/2000/svg', 'symbol');
   }
 
+  /**
+  * Constructs a use element.
+  */
   static Use() : SVGUseElement {
     return document.createElementNS( 'http://www.w3.org/2000/svg', 'use');
   }
 
-
   /**
-  * Parses and returns the SVG documented represented by the string argument..
+  * Parses and returns the SVG documented represented by the string argument.
   */
   static parseSVG( svg:string ) {
     let parser = new DOMParser();
     let doc = parser.parseFromString(svg, 'image/svg+xml');
     return (doc.documentElement as unknown) as SVGElement;
-  }
-
-  /**
-  * Returns a promise containing the svg at the provided url.
-  */
-  static async getSVG( url:string ) : Promise<SVGElement> {
-    let svg = await getURL(url);
-    return SVG.parseSVG(svg);
   }
 }

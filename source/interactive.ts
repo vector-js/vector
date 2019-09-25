@@ -312,7 +312,7 @@ export default class Interactive extends Element  {
         icon.root.appendChild(use);
 
       }).catch(function(error){
-        throw new Error(error);
+        throw new error;
       });
     }
 
@@ -486,10 +486,13 @@ export default class Interactive extends Element  {
   *
   */
   async loadSVG( url:string ) : Promise<Group> {
-    let svg = await SVG.getSVG(url);
     let group = new Group();
-    group.root.appendChild(svg);
     this.background.appendChild(group.root);
+    getURL(url).then(function(response){
+      group.root.appendChild(SVG.parseSVG(response));
+    }).catch(function(error){
+      throw error;
+    });
     return group;
   }
 }

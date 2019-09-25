@@ -1,11 +1,12 @@
 import Element from './element.js';
 import SVG from '../svg.js';
+import { Shape, Structural, Descriptive } from '../mixins.js';
 /**
 * A group is a sctructural element that allows for elements to be grouped
 * together and have styles and transformations applied to the elements in the
 * group.
 */
-export default class Group extends Element {
+export default class Group extends Descriptive(Shape(Structural(Element))) {
     /**
     * Constructs a rectangle element at the position (x,y)
     */

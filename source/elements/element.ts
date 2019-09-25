@@ -1,11 +1,30 @@
 import Controller from '../controller.js';
 
 /**
+* This interface ensures that every element contains a root element and a style
+* declaration.
+*/
+export interface ElementInterface {
+
+  /**
+  * The root element of this element
+  */
+  root : SVGElement;
+
+  /**
+  * Style for the root element.
+  */
+  style: CSSStyleDeclaration;
+
+}
+
+
+/**
 * A basic element of the interactive ecosystem. Each element has an unique
 * identifier, an update function to be defined by the user, and the ability to
 * add dependencies on other elements.
 */
-export default class Element {
+export default class Element implements ElementInterface {
 
   /**
   * Allows for the events attatched to elements to be disabled.
@@ -29,19 +48,13 @@ export default class Element {
   private _id : string;
 
   /**
-  * The root element of this element
-  */
-  root : SVGElement;
-
-  /**
-  * Style for the root element.
-  */
-  style: CSSStyleDeclaration;
-
-  /**
   * The update function describes how this element should update itself
   */
   update : () => void;
+
+  // interface data members
+  root : SVGElement;
+  style: CSSStyleDeclaration;
 
   /**
   * Constructs the elements and adds it into the current controller.

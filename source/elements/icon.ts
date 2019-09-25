@@ -8,6 +8,7 @@ export default class Icon extends Element {
   constructor( x:number, y:number ) {
     super(SVG.Group());
     // TODO: make this a default behavior
+    this.root.setAttribute('transform',`translate(${x}, ${y})`);
     this.root.classList.add('icon');
   }
 }

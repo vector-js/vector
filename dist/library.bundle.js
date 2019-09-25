@@ -2,36 +2,6 @@ var Interactive = (function () {
     'use strict';
 
     /**
-    * Returns a promise containing the response object.
-    */
-    function getURL(url) {
-        // Return a new promise.
-        return new Promise(function (resolve, reject) {
-            // Do the usual XHR stuff
-            var req = new XMLHttpRequest();
-            req.open('GET', url);
-            req.onload = function () {
-                // This is called even on 404 etc so check the status
-                if (req.status == 200) {
-                    // Resolve the promise with the response text
-                    resolve(req.response);
-                }
-                else {
-                    // Otherwise reject with the status text
-                    // which will hopefully be a meaningful error
-                    reject(Error(req.statusText));
-                }
-            };
-            // Handle network errors
-            req.onerror = function () {
-                reject(Error("Network Error"));
-            };
-            // Make the request
-            req.send();
-        });
-    }
-
-    /**
     * A node class contains data and a recursive next point.
     */
     class Node {
@@ -445,155 +415,19 @@ var Interactive = (function () {
     Element.count = 0;
 
     /**
-    * This wrapper class provides static methods for creating SVG Elements.
+    * A group is a sctructural element that allows for elements to be grouped
+    * together and have styles and transformations applied to the elements in the
+    * group.
     */
-    class SVG extends Element {
+    class Group extends Element {
         /**
-        * Constructs a svg element.
+        * Constructs a rectangle element at the position (x,y)
         */
         constructor() {
-            super(SVG.SVG());
+            super(SVG.Group());
         }
-        get width() {
-            return this.root.width.baseVal.value;
-        }
-        set width(value) {
-            this.root.width.baseVal.value = value;
-        }
-        get height() {
-            return this.root.height.baseVal.value;
-        }
-        set height(value) {
-            this.root.height.baseVal.value = value;
-        }
-        /**
-        * Constructs and returns a SVG element. The default dimensions is 600 by 300
-        * units.
-        */
-        static SVG(width = 600, height = 300) {
-            let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-            svg.setAttribute('width', width.toString());
-            svg.setAttribute('height', height.toString());
-            return svg;
-        }
-        /**
-        * Returns a SVGTextElement element with the provided attributes.
-        */
-        static Text(x, y, str) {
-            let text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-            text.setAttribute('x', x.toString());
-            text.setAttribute('y', y.toString());
-            if (str != undefined) {
-                text.innerHTML = str;
-            }
-            return text;
-        }
-        /**
-        * Returns a SVGTSpanElement element with the provided attributes.
-        */
-        static TSpan(str) {
-            let tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-            tspan.innerHTML = str;
-            return tspan;
-        }
-        /**
-        * Returns a SVGRectElement with the provided attributes.
-        */
-        static Rectangle(x, y, width, height) {
-            // constructs and initializes the rectangle
-            let rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-            rect.setAttribute('x', x.toString());
-            rect.setAttribute('y', y.toString());
-            rect.setAttribute('width', width.toString());
-            rect.setAttribute('height', height.toString());
-            rect.classList.add('default');
-            return rect;
-        }
-        /**
-        * Returns a SVGEllipseElement with the provided attributes.
-        */
-        static Ellipse(cx, cy, rx, ry) {
-            let ell = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
-            ell.setAttribute('cx', cx.toString());
-            ell.setAttribute('cy', cy.toString());
-            ell.setAttribute('rx', rx.toString());
-            ell.setAttribute('ry', ry.toString());
-            ell.classList.add('default');
-            return ell;
-        }
-        /**
-        * Returns a SVGLineElement element with the provided attributes.
-        */
-        static Line(x1, y1, x2, y2) {
-            let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            line.setAttribute('x1', x1.toString());
-            line.setAttribute('y1', y1.toString());
-            line.setAttribute('x2', x2.toString());
-            line.setAttribute('y2', y2.toString());
-            line.classList.add('default');
-            return line;
-        }
-        /**
-        * Returns a SVGCircleElement element with the provided attributes.
-        */
-        static Circle(cx, cy, radius) {
-            let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.cx.baseVal.value = cx;
-            circle.cy.baseVal.value = cy;
-            circle.r.baseVal.value = radius;
-            return circle;
-        }
-        /**
-        * Constructs a group element with the provided attributes.
-        */
-        static Group() {
-            let group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-            return group;
-        }
-        /**
-        * Constructs a path element with the provided attributes.
-        */
-        static Path(d) {
-            let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            path.setAttribute('d', d);
-            return path;
-        }
-        /**
-        * Constructs and returns a clip path element.
-        */
-        static ClipPath() {
-            let clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
-            return clipPath;
-        }
-        /**
-        * Constructs a defs element.
-        */
-        static Defs() {
-            let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-            return defs;
-        }
-        static Symbol() {
-            return document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
-        }
-        static Use() {
-            return document.createElementNS('http://www.w3.org/2000/svg', 'use');
-        }
-        /**
-        * Parses and returns the SVG documented represented by the string argument..
-        */
-        static parseSVG(svg) {
-            let parser = new DOMParser();
-            let doc = parser.parseFromString(svg, 'image/svg+xml');
-            return doc.documentElement;
-        }
-        /**
-        * Returns a promise containing the svg at the provided url.
-        */
-        static async getSVG(url) {
-            let svg = await getURL(url);
-            return SVG.parseSVG(svg);
-        }
+    }
+    class Group$1 extends Descriptive(Shape(Structural(Group))) {
     }
 
     /**
@@ -677,6 +511,236 @@ var Interactive = (function () {
         */
         set stroke(s) {
             this.root.style.stroke = s;
+        }
+    }
+
+    /**
+    * Adds functions for creating descriptive elements to the base class.
+    */
+    function Descriptive(Base) {
+        return class extends Base {
+            /**
+            * Creates and appends a description element within this element.
+            */
+            description() {
+                throw new Error('not implemented');
+            }
+            /**
+            * Creates and appends a metadata element within this element.
+            */
+            metadata() {
+                throw new Error('not implemented');
+            }
+            /**
+            * Creates and appends a title element within this element.
+            */
+            title() {
+                throw new Error('not implemented');
+            }
+        };
+    }
+    /**
+    * Adds functions for creating shape elements to the base class.
+    */
+    function Shape(Base) {
+        return class extends Base {
+            /**
+            * Constructs and appends a circle within this element.
+            */
+            circle(cx, cy, r) {
+                let circle = new Circle(cx, cy, r);
+                this.root.appendChild(circle.root);
+                return circle;
+            }
+            ellipse() {
+                throw new Error('not implemented');
+            }
+            line() {
+                throw new Error('not implemented');
+            }
+            path() {
+                throw new Error('not implemented');
+            }
+            polygon() {
+                throw new Error('not implemented');
+            }
+            rectangle() {
+                throw new Error('not implemented');
+            }
+        };
+    }
+    /**
+    * Adds functions for creating structural elements to the base class.
+    */
+    function Structural(Base) {
+        return class extends Base {
+            defs() {
+                throw new Error('not implemented');
+            }
+            group() {
+                let group = new Group$1();
+                this.root.appendChild(group.root);
+                return group;
+            }
+            svg() {
+                let svg = new SVG();
+                this.root.appendChild(svg.root);
+                return svg;
+            }
+            use() {
+                throw new Error('not implemented');
+            }
+        };
+    }
+
+    /**
+    * This wrapper class provides static methods for creating SVG Elements. Each
+    * element has a content model
+    */
+    class SVG extends Descriptive(Shape(Structural(Element))) {
+        /**
+        * Constructs a svg element.
+        */
+        constructor() {
+            super(SVG.SVG());
+        }
+        get width() {
+            return this.root.width.baseVal.value;
+        }
+        set width(value) {
+            this.root.width.baseVal.value = value;
+        }
+        get height() {
+            return this.root.height.baseVal.value;
+        }
+        set height(value) {
+            this.root.height.baseVal.value = value;
+        }
+        /**
+        * Constructs and returns a SVG element. The default dimensions is 600 by 300
+        * units.
+        */
+        static SVG(width = 600, height = 300) {
+            let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            // svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+            svg.setAttributeNS(null, 'width', width.toString());
+            svg.setAttributeNS(null, 'height', height.toString());
+            return svg;
+        }
+        /**
+        * Returns a SVGTextElement element with the provided attributes.
+        */
+        static Text(x, y, str) {
+            let text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            text.setAttributeNS(null, 'x', x.toString());
+            text.setAttributeNS(null, 'y', y.toString());
+            if (str != undefined) {
+                text.innerHTML = str;
+            }
+            return text;
+        }
+        /**
+        * Returns a SVGTSpanElement element with the provided attributes.
+        */
+        static TSpan(str) {
+            let tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            tspan.innerHTML = str;
+            return tspan;
+        }
+        /**
+        * Returns a SVGRectElement with the provided attributes.
+        */
+        static Rectangle(x, y, width, height) {
+            let rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            rect.setAttributeNS(null, 'x', x.toString());
+            rect.setAttributeNS(null, 'y', y.toString());
+            rect.setAttributeNS(null, 'width', width.toString());
+            rect.setAttributeNS(null, 'height', height.toString());
+            rect.classList.add('default');
+            return rect;
+        }
+        /**
+        * Returns a SVGEllipseElement with the provided attributes.
+        */
+        static Ellipse(cx, cy, rx, ry) {
+            let ell = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+            ell.setAttributeNS(null, 'cx', cx.toString());
+            ell.setAttributeNS(null, 'cy', cy.toString());
+            ell.setAttributeNS(null, 'rx', rx.toString());
+            ell.setAttributeNS(null, 'ry', ry.toString());
+            ell.classList.add('default');
+            return ell;
+        }
+        /**
+        * Returns a SVGLineElement element with the provided attributes.
+        */
+        static Line(x1, y1, x2, y2) {
+            let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttributeNS(null, 'x1', x1.toString());
+            line.setAttributeNS(null, 'y1', y1.toString());
+            line.setAttributeNS(null, 'x2', x2.toString());
+            line.setAttributeNS(null, 'y2', y2.toString());
+            line.classList.add('default');
+            return line;
+        }
+        /**
+        * Returns a SVGCircleElement element with the provided attributes.
+        */
+        static Circle(cx, cy, radius) {
+            let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttributeNS(null, 'cx', cx.toString());
+            circle.setAttributeNS(null, 'cy', cy.toString());
+            circle.setAttributeNS(null, 'r', radius.toString());
+            return circle;
+        }
+        /**
+        * Constructs a group element with the provided attributes.
+        */
+        static Group() {
+            let group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            return group;
+        }
+        /**
+        * Constructs a path element with the provided attributes.
+        */
+        static Path(d) {
+            let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', d);
+            return path;
+        }
+        /**
+        * Constructs and returns a clip path element.
+        */
+        static ClipPath() {
+            let clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
+            return clipPath;
+        }
+        /**
+        * Constructs a defs element.
+        */
+        static Defs() {
+            let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            return defs;
+        }
+        /**
+        * Constructs a symbol element.
+        */
+        static Symbol() {
+            return document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
+        }
+        /**
+        * Constructs a use element.
+        */
+        static Use() {
+            return document.createElementNS('http://www.w3.org/2000/svg', 'use');
+        }
+        /**
+        * Parses and returns the SVG documented represented by the string argument.
+        */
+        static parseSVG(svg) {
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(svg, 'image/svg+xml');
+            return doc.documentElement;
         }
     }
 
@@ -769,20 +833,6 @@ var Interactive = (function () {
         */
         set stroke(s) {
             this.root.style.stroke = s;
-        }
-    }
-
-    /**
-    * A group is a sctructural element that allows for elements to be grouped
-    * together and have styles and transformations applied to the elements in the
-    * group.
-    */
-    class Group extends Element {
-        /**
-        * Constructs a rectangle element at the position (x,y)
-        */
-        constructor() {
-            super(SVG.Group());
         }
     }
 
@@ -1222,6 +1272,7 @@ var Interactive = (function () {
         constructor(x, y) {
             super(SVG.Group());
             // TODO: make this a default behavior
+            this.root.setAttribute('transform', `translate(${x}, ${y})`);
             this.root.classList.add('icon');
         }
     }
@@ -1950,7 +2001,7 @@ var Interactive = (function () {
             this.path = new Path('');
             // a group to hold the path and axis, allows easy transforming of the origin
             this.viewPort = new SVG();
-            this.viewPortGroup = new Group();
+            this.viewPortGroup = new Group$1();
             this.viewPort.appendChild(this.viewPortGroup);
             this.viewPort.appendChild(this.path);
             this.viewPortGroup.appendChild(this.xAxis);
@@ -56092,6 +56143,36 @@ var Interactive = (function () {
     }
 
     /**
+    * Returns a promise containing the response object.
+    */
+    function getURL(url) {
+        // Return a new promise.
+        return new Promise(function (resolve, reject) {
+            // Do the usual XHR stuff
+            var req = new XMLHttpRequest();
+            req.open('GET', url);
+            req.onload = function () {
+                // This is called even on 404 etc so check the status
+                if (req.status == 200) {
+                    // Resolve the promise with the response text
+                    resolve(req.response);
+                }
+                else {
+                    // Otherwise reject with the status text
+                    // which will hopefully be a meaningful error
+                    reject(Error(req.statusText));
+                }
+            };
+            // Handle network errors
+            req.onerror = function () {
+                reject(Error("Network Error"));
+            };
+            // Make the request
+            req.send();
+        });
+    }
+
+    /**
     * This class exposes the high level functionality of our library. Elements can
     * created and related together
     *
@@ -56307,7 +56388,7 @@ var Interactive = (function () {
                     use.setAttribute('href', `#${str}`);
                     icon.root.appendChild(use);
                 }).catch(function (error) {
-                    throw new Error(error);
+                    throw new error;
                 });
             }
             return icon;
@@ -56451,7 +56532,7 @@ var Interactive = (function () {
         * Creates a group element
         */
         group() {
-            let group = new Group();
+            let group = new Group$1();
             this.background.appendChild(group.root);
             return group;
         }
@@ -56459,10 +56540,13 @@ var Interactive = (function () {
         *
         */
         async loadSVG(url) {
-            let svg = await SVG.getSVG(url);
-            let group = new Group();
-            group.root.appendChild(svg);
+            let group = new Group$1();
             this.background.appendChild(group.root);
+            getURL(url).then(function (response) {
+                group.root.appendChild(SVG.parseSVG(response));
+            }).catch(function (error) {
+                throw error;
+            });
             return group;
         }
     }
