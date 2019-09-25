@@ -7,7 +7,7 @@
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../../interactive.js';
-import { PointWhereTwoLinesIntersect } from '../../util.js';
+import { PointWhereTwoLinesIntersect } from '../../util/math.js';
 import SVG from '../../svg.js';
 
 // Initialize the interactive

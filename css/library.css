@@ -37,6 +37,20 @@ input.input {
   user-select: none;
 }
 
+svg.cartesian {
+  display:flex;
+}
+
+/* Flip the vertical axis in <g> to emulate cartesian. */
+svg.cartesian {
+  transform: scaleY(-1);
+}
+
+/* Re-flip all <text> element descendants to their original side up. */
+svg.cartesian > g text {
+  transform: scaleY(-1);
+}
+
 text.element {
   fill: #333333;
   stroke: none;
@@ -63,6 +77,11 @@ path.element, line.element, rect.element, ellipse.element, circle.element {
   stroke: #0366EE;
   stroke-width:2px;
   opacity:0;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
 }
 
 .control-handle.highlight {

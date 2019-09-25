@@ -131,6 +131,15 @@ export default class SVG {
     return defs;
   }
 
+  static Symbol() : SVGSymbolElement {
+    return document.createElementNS( 'http://www.w3.org/2000/svg', 'symbol');
+  }
+
+  static Use() : SVGUseElement {
+    return document.createElementNS( 'http://www.w3.org/2000/svg', 'use');
+  }
+
+
   /**
   * Parses and returns the SVG documented represented by the string argument..
   */

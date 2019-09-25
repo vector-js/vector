@@ -18,3 +18,8 @@ control2.addDependency(control1);
 control2.update = function(){
   this.x += control1.dx;
 };
+
+console.log(control2.update);
+
+export default interactive;
+export {control1, control2};

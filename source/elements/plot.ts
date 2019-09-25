@@ -1,19 +1,19 @@
-import Element from '../elements/element.js';
-import SVG from '../svg.js';
-import Rectangle from '../elements/rectangle.js';
-import Text from '../elements/text.js';
-import Path from './path.js';
-import Group from './group.js';
 import Circle from './circle.js';
+import Element from '../elements/element.js';
+import Group from './group.js';
 import Line from './line.js';
+import Path from './path.js';
+import Rectangle from '../elements/rectangle.js';
+import SVG from '../svg.js';
+import Text from '../elements/text.js';
 
 /**
-*
+* A plot of the graph of a function.
 */
 export default class Plot extends Element {
 
   /**
-  * Invisisble element for registering events
+  * Invisible element for registering events
   */
   rect : Rectangle;
 

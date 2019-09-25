@@ -1,6 +1,6 @@
-import {isPrime, nextPrime} from '../util.js';
+import {isPrime, nextPrime} from '../util/math.js';
 
-describe('Util', function () {
+describe('Math', function () {
   describe('isPrime', function() {
     // edge cases
     it('should return false for a negative number', function(){

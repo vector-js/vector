@@ -76,9 +76,11 @@ class Zoomable extends Interactive {
   set mathMode( value:boolean ) {
     this._mathMode = value;
     if( value ) {
+      this.root.classList.add('cartesian');
       this.root.setAttribute('transform','scale(1,-1)');
     } else {
-      this.root.setAttribute('transform','scale(1,1)');
+      this.root.classList.remove('cartesian');
+      this.root.setAttribute('transform','scale(1,-1)');
     }
   }
 
@@ -143,7 +145,6 @@ class Zoomable extends Interactive {
     let internal = new Text(0,0,contents);
     group.root.appendChild(internal.root);
 
-    internal.root.setAttribute('transform','scale(1,-1)');
     this.background.appendChild(group.root);
     return group;
   }
@@ -155,5 +156,11 @@ interactive.mathMode = true;
 interactive.circle(0, 0, 5).style.fill = '#333333';
 let control = interactive.control(-15,-15);
 let text = interactive.mathModeText( -15, -15, "(0,0)");
-text.root.style.dominantBaseline = 'hanging';
-// interactive.text( -15, -15, "(0,0)");
+// let text = interactive.text( -15, -15, "(0,0)");
+console.log(control);
+
+text.addDependency(control);
+text.update = function() {
+  text.root.setAttribute('transform', `translate(${control.x + 15}, ${control.y + 15})`);
+  (text.root.firstChild as HTMLElement).innerHTML = `(${control.x.toFixed(2)}, ${control.y.toFixed(2)})`;
+}

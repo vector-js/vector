@@ -11,6 +11,7 @@ import Text from './elements/text.js';
 import Rectangle from './elements/rectangle.js';
 import Node from './elements/node.js';
 import Edge from './elements/edge.js';
+import Icon from './elements/icon.js';
 
 // input elements
 import Button from './elements/button.js';
@@ -26,6 +27,7 @@ import Plot from './elements/plot.js';
 import Graph from './elements/graph.js';
 import Map from './elements/map.js';
 import DirectedGraph from './elements/directed-graph.js';
+import { getURL } from './util.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -261,7 +263,7 @@ export default class Interactive extends Element  {
   /**
   * Creates a checkbox input at the position (x,y) within this interactive.
   */
-  button( x:number, y:number, label:string, ) : Button {
+  button( x:number, y:number, label:string ) : Button {
     let button = new Button(x, y, label);
     this.controls.appendChild(button.root);
     return button;
@@ -274,6 +276,48 @@ export default class Interactive extends Element  {
     let checkBox = new CheckBox(x, y, label, value);
     this.controls.appendChild(checkBox.root);
     return checkBox;
+  }
+
+  icon( x:number, y:number, str:string ) : Icon {
+
+    // create a new icon element
+    let icon = new Icon(x,y);
+    this.background.appendChild(icon.root);
+
+    // check to see if we have loaded the symbols svg, if not load it
+    let id = 'vector-js-symbols';
+    let svg = document.getElementById(id) as any as SVGElement;
+    if ( svg === undefined || svg === null ) {
+      svg = SVG.SVG();
+      svg.style.display = 'none';
+      svg.id = id;
+      document.body.appendChild(svg);
+    }
+
+    // check to see if we have loaded this icon before
+    let symbol = svg.querySelector(`#${str}`);
+    if( !symbol ) {
+      getURL(`/resources/icons/${str}.svg`).then(function(response){
+
+        let symbol = SVG.Symbol();
+        symbol.id = str;
+        let symbolSVG = SVG.parseSVG(response);
+        while (symbolSVG.childNodes.length > 0) {
+            symbol.appendChild(symbolSVG.childNodes[0]);
+        }
+        svg.appendChild(symbol);
+
+        let use = SVG.Use();
+        use.setAttribute('href',`#${str}`);
+        icon.root.appendChild(use);
+
+      }).catch(function(error){
+        throw new Error(error);
+      });
+    }
+
+    return icon;
+
   }
 
   /**
