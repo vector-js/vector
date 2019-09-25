@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from '../elements/svg.js';
 import Element from '../elements/element.js';
 export default class UnitedStates extends Element {
     constructor() {

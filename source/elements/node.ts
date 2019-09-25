@@ -2,7 +2,7 @@ import Element from './element.js';
 import Ellipse from './ellipse.js';
 import Text from './text.js';
 import Edge from './edge.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 
 //Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
 /**

@@ -1,7 +1,7 @@
 import Element from '../elements/element.js';
 import Node from '../elements/node.js';
 import Edge from '../elements/edge.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 
 /**
 * A Directed graph is a complex element containing nodes and directed edges.

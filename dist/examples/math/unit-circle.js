@@ -6,7 +6,7 @@
 */
 import Interactive from '../../interactive.js';
 import { getScriptName } from '../../util.js';
-import SVG from '../../svg.js';
+import SVG from '../../elements/svg.js';
 let radius = 80;
 let margin = 20;
 let interactive = new Interactive(getScriptName());

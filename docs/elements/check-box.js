@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Rectangle from '../elements/rectangle.js';
 import Text from '../elements/text.js';
 import Element from '../elements/element.js';

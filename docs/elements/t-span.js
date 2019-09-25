@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Element from './element.js';
 /**
 * A tspan element is a text element that allows the user to change the style

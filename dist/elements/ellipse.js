@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Element from './element.js';
 /**
 * An ellipse is a basic element with a position, x-radius, and y-radius

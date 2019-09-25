@@ -1,11 +1,12 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Element from './element.js';
 import TSpan from './t-span.js';
+import { Typography } from '../content-model.js';
 
 /**
 * Text is a basic element containing string contents
 */
-export default class Text extends Element {
+export default class Text extends Element implements Typography {
 
   // make the type of the root to be more specific
   root: SVGTextElement;
@@ -67,7 +68,7 @@ export default class Text extends Element {
     return context.measureText(this.root.innerHTML).width;
   }
 
-  text( x, y, str:string ) : Text {
+  text( x: number, y: number, str:string ) : Text {
     let text = new Text(x,y,str);
     this.root.appendChild(text.root);
     return text;

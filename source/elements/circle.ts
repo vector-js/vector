@@ -1,5 +1,5 @@
 import Element from './element.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 
 /**
 * A circle is a basic geometric element with a position and radius.

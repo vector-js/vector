@@ -1,5 +1,5 @@
 import Element from './element.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 //Make the function static and extend from Line
 /**
 * Creates a line connecting two edges, with an arrow if directed.

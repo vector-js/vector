@@ -1,17 +1,10 @@
-import SVG from './svg.js';
+// util
+import { getURL } from './util.js';
 // basic elements
-import Circle from './elements/circle.js';
-import Element from './elements/element.js';
-import Ellipse from './elements/ellipse.js';
+import SVG from './elements/svg.js';
+import { Input } from './elements/element.js';
 import Group from './elements/group.js';
-import Line from './elements/line.js';
-import Path from './elements/path.js';
-import Text from './elements/text.js';
-import Rectangle from './elements/rectangle.js';
-import Node from './elements/node.js';
-import Edge from './elements/edge.js';
-import Icon from './elements/icon.js';
-// input elements
+// elements
 import Button from './elements/button.js';
 import CheckBox from './elements/check-box.js';
 import Control from './elements/control.js';
@@ -20,11 +13,13 @@ import Scrubber from './elements/scrubber.js';
 import Slider from './elements/slider.js';
 import RadioControl from './elements/radio-control.js';
 // complex elements
+import Node from './elements/node.js';
+import Edge from './elements/edge.js';
+import Icon from './elements/icon.js';
 import Plot from './elements/plot.js';
 import Graph from './elements/graph.js';
 import Map from './elements/map.js';
 import DirectedGraph from './elements/directed-graph.js';
-import { getURL } from './util.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -33,14 +28,14 @@ import { getURL } from './util.js';
 * elements are added to the "background" group. This ensures that controls will
 * alwaysbe focusable, despite the order in which elements are created.
 */
-export default class Interactive extends Element {
+export default class Interactive extends SVG {
     /**
     * Constructs a new interactive object within the HTML element corresponding
     * to the id. If no element is found throws an error.
     * TODO: (possibly) if the string is null, then create a headless interactive
     */
     constructor(id) {
-        super(SVG.SVG());
+        super();
         // internal variables
         this._width = 0;
         this._height = 0;
@@ -56,8 +51,10 @@ export default class Interactive extends Element {
         // create and append the root svg element and group elements
         this.container.appendChild(this.root);
         this.root.classList.add('interactive');
-        this.background = this.root.appendChild(SVG.Group());
-        this.controls = this.root.appendChild(SVG.Group());
+        this.background = new Group();
+        this.input = new Group();
+        this.root.appendChild(this.background.root);
+        this.root.appendChild(this.input.root);
         // default configuration
         this.width = 600;
         this.height = 300;
@@ -97,27 +94,25 @@ export default class Interactive extends Element {
     * Sets the x coordinate of the origin.
     */
     set originX(value) {
-        this._originX = value;
-        this.setViewBox(this.minX, this.minY, this.width, this.height);
+        throw new Error('not implemented');
     }
     /**
     * Returns the value of the x-coordinate of the origin.
     */
     get originX() {
-        return this._originX;
+        throw new Error('not implemented');
     }
     /**
     * Sets the y coordinate of the origin.
     */
     set originY(value) {
-        this._originY = value;
-        this.setViewBox(this.minX, this.minY, this.width, this.height);
+        throw new Error('not implemented');
     }
     /**
     * Returns the value of the x-coordinate of the origin.
     */
     get originY() {
-        return this._originY;
+        throw new Error('not implemented');
     }
     /**
     * If set to true, styles the interactive to float on top of the background.
@@ -143,14 +138,6 @@ export default class Interactive extends Element {
             this.root.classList.remove('border');
         }
     }
-    // TODO: yikes that didn't work as expected
-    // set flipCoordinateSystem( value:boolean ) {
-    //   if( value ) {
-    //     this.svg.style.transform = 'scale(1,-1)';
-    //   } else {
-    //     this.svg.style.transform = '';
-    //   }
-    // }
     /**
     * Returns the minimum x-coordinate of this interactive.
     */
@@ -176,17 +163,18 @@ export default class Interactive extends Element {
         return this.minY + this._height;
     }
     /**
-    * A user provided description of this interactive.
+    * Appends the element within the interactive. If the element is an "input"
+    * element, places the element in the input group so that visually the element
+    * is always placed above other graphical elements.
     */
-    set description(description) {
-        this.root.setAttribute('data-description', description);
-    }
-    /**
-    * Sets the viewbox of the root svg element to the provided values.
-    * TODO: look into css transform-origin
-    */
-    setViewBox(minX, minY, width, height) {
-        this.root.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
+    appendChild(child) {
+        if (child instanceof Input) {
+            this.input.appendChild(child);
+        }
+        else {
+            this.background.appendChild(child);
+        }
+        return child;
     }
     /**
     * Creates a nested interactive within this interactive
@@ -201,22 +189,18 @@ export default class Interactive extends Element {
     * Creates a checkbox input at the position (x,y) within this interactive.
     */
     button(x, y, label) {
-        let button = new Button(x, y, label);
-        this.controls.appendChild(button.root);
-        return button;
+        return this.appendChild(new Button(x, y, label));
     }
     /**
     * Creates a checkbox input at the position (x,y) within this interactive.
     */
     checkBox(x, y, label, value) {
-        let checkBox = new CheckBox(x, y, label, value);
-        this.controls.appendChild(checkBox.root);
-        return checkBox;
+        return this.appendChild(new CheckBox(x, y, label, value));
     }
     icon(x, y, str) {
         // create a new icon element
         let icon = new Icon(x, y);
-        this.background.appendChild(icon.root);
+        this.appendChild(icon);
         // check to see if we have loaded the symbols svg, if not load it
         let id = 'vector-js-symbols';
         let svg = document.getElementById(id);
@@ -251,40 +235,32 @@ export default class Interactive extends Element {
     */
     radioControl(labels, x, y, index = 0) {
         let radioControl = new RadioControl(labels, x, y, index);
-        this.controls.appendChild(radioControl.root);
+        this.appendChild(radioControl);
         return radioControl;
     }
     /**
     * Creates a control point within this interactive at the position (x,y).
     */
     control(x, y) {
-        let control = new Control(x, y);
-        this.controls.appendChild(control.root);
-        return control;
+        return this.appendChild(new Control(x, y));
     }
     /**
     * Creates a control point within this interactive at the position (x,y).
     */
     controlCircle(x, y) {
-        let control = new ControlCircle(x, y);
-        this.controls.appendChild(control.root);
-        return control;
+        return this.appendChild(new ControlCircle(x, y));
     }
     /**
     * Creates a plot within this interactive at the position (x,y).
     */
     plot(userEvents = true) {
-        let plot = new Plot(userEvents);
-        this.background.appendChild(plot.root);
-        return plot;
+        return this.appendChild(new Plot(userEvents));
     }
     /**
     * Creates a graph element within this interactive
     */
     graph() {
-        let graph = new Graph();
-        this.background.appendChild(graph.root);
-        return graph;
+        return this.appendChild(new Graph());
     }
     /**
     * Creates a graph element within this interactive
@@ -297,104 +273,38 @@ export default class Interactive extends Element {
     * Creates a directed graph element within this interactive
     */
     directedGraph() {
-        let graph = new DirectedGraph();
-        this.background.appendChild(graph.root);
-        return graph;
+        return this.appendChild(new DirectedGraph());
     }
     /**
     * Creates a slider input within this interactive
     */
     slider(x, y, width, value) {
-        let slider = new Slider(x, y, width, value);
-        this.controls.appendChild(slider.root);
-        return slider;
+        return this.appendChild(new Slider(x, y, width, value));
     }
     /**
     * Creates a scrubber with a play and pause button at the position (x,y).
     */
     scrubber(x, y, width) {
-        let scrubber = new Scrubber(x, y, width);
-        this.controls.appendChild(scrubber.root);
-        return scrubber;
-    }
-    /**
-    * Creates a circle within this interactive.
-    */
-    circle(cx, cy, r) {
-        let circle = new Circle(cx, cy, r);
-        this.background.appendChild(circle.root);
-        return circle;
-    }
-    /**
-    * Creates an ellipse within this interactive.
-    */
-    ellipse(cx, cy, rx, ry) {
-        let ellipse = new Ellipse(cx, cy, rx, ry);
-        this.background.appendChild(ellipse.root);
-        return ellipse;
-    }
-    /**
-    * Creates a line within this interactive.
-    */
-    line(x1, y1, x2, y2) {
-        let line = new Line(x1, y1, x2, y2);
-        this.background.appendChild(line.root);
-        return line;
-    }
-    /**
-    * Creates a path within this interactive.
-    */
-    path(d) {
-        let path = new Path(d);
-        this.background.appendChild(path.root);
-        return path;
-    }
-    /**
-    * Creates a rectangle within this interactive.
-    */
-    rectangle(x, y, width, height) {
-        let rectangle = new Rectangle(x, y, width, height);
-        this.background.appendChild(rectangle.root);
-        return rectangle;
-    }
-    /**
-    * Creates text within this interactive.
-    */
-    text(x, y, contents = '') {
-        let text = new Text(x, y, contents);
-        this.background.appendChild(text.root);
-        return text;
+        return this.appendChild(new Scrubber(x, y, width));
     }
     /**
     * Creates a node within this interactive.
     */
     node(x, y, rx, ry, contents) {
-        let node = new Node(x, y, rx, ry, contents);
-        this.background.appendChild(node.root);
-        return node;
+        return this.appendChild(new Node(x, y, rx, ry, contents));
     }
     /**
     * Creates an edge connecting two nodes within this interactive.
     */
     edge(nodeFrom, nodeTo, directed) {
-        let edge = new Edge(nodeFrom, nodeTo, directed);
-        this.background.appendChild(edge.root);
-        return edge;
-    }
-    /**
-    * Creates a group element
-    */
-    group() {
-        let group = new Group();
-        this.background.appendChild(group.root);
-        return group;
+        return this.appendChild(new Edge(nodeFrom, nodeTo, directed));
     }
     /**
     *
     */
     async loadSVG(url) {
         let group = new Group();
-        this.background.appendChild(group.root);
+        this.appendChild(group);
         getURL(url).then(function (response) {
             group.root.appendChild(SVG.parseSVG(response));
         }).catch(function (error) {

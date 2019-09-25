@@ -1,5 +1,6 @@
-import Element from './elements/element.js';
-import Text from './elements/text.js';
+import Element from './element.js';
+import Group from './group.js';
+import Text from './text.js';
 /**
 * This wrapper class provides static methods for creating SVG Elements. Each
 * element has a content model
@@ -78,10 +79,10 @@ export default class SVG extends Element {
         throw new Error("Method not implemented.");
     }
     group() {
-        throw new Error("Method not implemented.");
+        return this.appendChild(new Group());
     }
     svg() {
-        throw new Error("Method not implemented.");
+        return this.appendChild(new SVG());
     }
     use() {
         throw new Error("Method not implemented.");

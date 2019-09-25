@@ -88,4 +88,9 @@ Element.controller = new Controller();
 * This number uniquely identifes elements
 */
 Element.count = 0;
+/**
+*
+*/
+export class Input extends Element {
+}
 //# sourceMappingURL=element.js.map

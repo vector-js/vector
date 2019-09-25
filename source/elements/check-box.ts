@@ -1,13 +1,13 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Rectangle from '../elements/rectangle.js';
 import Text from '../elements/text.js';
-import Element from '../elements/element.js';
+import { Input } from '../elements/element.js';
 
 /**
 * A checkbox with an label. The can be checked, unchecked, and related to other
 * elements.
 */
-export default class CheckBox extends Element {
+export default class CheckBox extends Input {
 
   /**
   * The state of the checkbox

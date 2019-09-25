@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Line from '../elements/line.js';
 import Element from '../elements/element.js';
 import ControlCircle from './control-circle.js';

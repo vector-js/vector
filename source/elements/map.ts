@@ -1,7 +1,7 @@
 import * as data from "../maps-json.js";
 import Interactive from '../interactive.js';
 import OurElement from '../elements/element.js';
-import SVG from "../svg.js";
+import SVG from "../elements/svg.js";
 
 /**
 * Map class for displaying geographic maps of the world and its different parts.
@@ -49,7 +49,7 @@ export default class GeoMap extends OurElement {
         this.findPathForString(mapName);
     }
 
-    let bbox = this.interactive.background.getBBox();
+    let bbox = this.interactive.background.root.getBBox();
     this.interactive.root.setAttribute('transform', 'scale(1,-1)')
     this.interactive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
   }

@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Element from '../elements/element.js';
 import CheckBox from './check-box.js';
 /**

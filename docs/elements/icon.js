@@ -1,5 +1,5 @@
 import Element from './element.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 export default class Icon extends Element {
     constructor(x, y) {
         super(SVG.Group());

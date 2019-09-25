@@ -1,5 +1,5 @@
 import Element from './element.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import { Shape, Structural, Descriptive } from '../mixins.js';
 /**
 * A group is a sctructural element that allows for elements to be grouped

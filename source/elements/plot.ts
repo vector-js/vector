@@ -4,7 +4,7 @@ import Group from './group.js';
 import Line from './line.js';
 import Path from './path.js';
 import Rectangle from '../elements/rectangle.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Text from '../elements/text.js';
 
 /**

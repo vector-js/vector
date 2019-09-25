@@ -1,5 +1,5 @@
 import Element from '../elements/element.js';
-import SVG from '../svg.js';
+import SVG from './svg.js';
 describe('Element', function () {
     describe('constructor', function () {
         it('should create an element with a unique id and add it to the element controller', function () {

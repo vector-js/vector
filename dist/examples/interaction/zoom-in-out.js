@@ -106,7 +106,7 @@ class Zoomable extends Interactive {
         group.root.setAttribute('transform', `translate(${x},${y})`);
         let internal = new Text(0, 0, contents);
         group.root.appendChild(internal.root);
-        this.background.appendChild(group.root);
+        this.appendChild(group);
         return group;
     }
 }

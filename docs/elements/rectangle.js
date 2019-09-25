@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Element from './element.js';
 /**
 * A rectangle is a basic element with a position, width, and height. The

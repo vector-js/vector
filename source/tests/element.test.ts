@@ -1,5 +1,5 @@
 import Element from '../elements/element.js';
-import SVG from '../svg.js';
+import SVG from '../elements/svg.js';
 
 describe('Element', function () {
   describe('constructor', function () {

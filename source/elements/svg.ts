@@ -1,12 +1,20 @@
-import Element from './elements/element.js';
-// import { Structural, Shape, Descriptive } from './mixins.js';
+import { Descriptive, Shape, Structural, Typography } from '../content-model.js';
+import Element from './element.js';
+import Circle from './circle.js';
+import Ellipse from './ellipse.js';
+import Line from './line.js';
+import Path from './path.js';
+import Rectangle from './rectangle.js';
+import Group from './group.js';
+import Text from './text.js';
 
 /**
 * This wrapper class provides static methods for creating SVG Elements. Each
 * element has a content model
 */
-export default class SVG extends Element {
+export default class SVG extends Element implements Descriptive, Shape, Structural, Typography {
 
+  // make the type of the root more specific
   root: SVGSVGElement;
 
   /**
@@ -16,21 +24,101 @@ export default class SVG extends Element {
     super(SVG.SVG());
   }
 
+  /**
+  * Return the width of this svg element.
+  */
   get width() {
     return this.root.width.baseVal.value;
   }
 
+  /**
+  * Set the width of this svg element.
+  */
   set width( value:number ) {
     this.root.width.baseVal.value = value;
   }
 
+  /**
+  * Returns the height of this svg element.
+  */
   get height() {
     return this.root.height.baseVal.value;
   }
 
+  /**
+  * Sets the height of this svg element to the provided value.
+  */
   set height( value:number ) {
     this.root.height.baseVal.value = value;
   }
+
+  get viewBox() : string {
+    return this.root.getAttribute('viewBox');
+  }
+
+  set viewBox( value:string ) {
+    this.root.setAttribute('viewBox', value);
+  }
+
+  setViewBox( x:number, y:number, width:number, height:number ) {
+    this.viewBox = `${x} ${y} ${width} ${height}`;
+  }
+
+  // descriptive elements
+
+  description(): void {
+    throw new Error("Method not implemented.");
+  }
+  metadata(): void {
+    throw new Error("Method not implemented.");
+  }
+  title(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  // shape elements
+
+  circle(cx: number, cy: number, r: number): Circle {
+    throw new Error("Method not implemented.");
+  }
+  ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse {
+    throw new Error("Method not implemented.");
+  }
+  line(x1: number, y1: number, x2: number, y2: number): Line {
+    throw new Error("Method not implemented.");
+  }
+  path(d: string): Path {
+    throw new Error("Method not implemented.");
+  }
+  polygon(points: string): void {
+    throw new Error("Method not implemented.");
+  }
+  rectangle(x: number, y: number, width: number, height: number): Rectangle {
+    throw new Error("Method not implemented.");
+  }
+
+  // structural elements
+
+  defs(): void {
+    throw new Error("Method not implemented.");
+  }
+  group(): Group {
+    return this.appendChild(new Group());
+  }
+  svg(): SVG {
+    return this.appendChild(new SVG());
+  }
+  use(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  // typography elements
+
+  text(x: number, y: number, str: string): Text {
+    return this.appendChild(new Text(x, y, str));
+  }
+
+  // static methods
 
   /**
   * Constructs and returns a SVG element. The default dimensions is 600 by 300

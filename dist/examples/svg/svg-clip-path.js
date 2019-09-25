@@ -5,7 +5,7 @@
 */
 import Interactive from '../../interactive.js';
 import { getScriptName } from '../../util.js';
-import SVG from '../../svg.js';
+import SVG from '../../elements/svg.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.border = true;

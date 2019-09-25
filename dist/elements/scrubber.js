@@ -1,4 +1,4 @@
-import SVG from '../svg.js';
+import SVG from './svg.js';
 import Slider from './slider.js';
 export default class Scrubber extends Slider {
     // TODO: When the scrubber control is grabbed, active should be set to false and the animation cycle should be stopped.

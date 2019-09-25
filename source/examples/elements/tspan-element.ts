@@ -26,7 +26,7 @@ let emphasize = responseArray.slice(index, index + 1).join(' ');
 let end = responseArray.slice(index + 1, responseArray.length).join(' ');
 
 // Add the response as three tspan elements within the text element
-let response = interactive.text( 50, 105);
+let response = interactive.text( 50, 105, '');
 response.tspan( start);
 response.tspan( ` ${emphasize} `).style.fontWeight = '600';
 response.tspan( end);
