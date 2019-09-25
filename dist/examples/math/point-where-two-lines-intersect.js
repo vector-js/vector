@@ -5,7 +5,7 @@
 */
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import Interactive from '../../interactive.js';
-import { PointWhereTwoLinesIntersect } from '../../util.js';
+import { PointWhereTwoLinesIntersect } from '../../util/math.js';
 // Initialize the interactive
 let id = 'point-where-two-lines-intersect';
 let interactive = new Interactive(id);

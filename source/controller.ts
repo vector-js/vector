@@ -43,7 +43,7 @@ export default class Controller {
   /**
   * Removes an element from this controller.
   */
-  remove(element:Element) {
+  remove( element:Element) {
     this.dependencyGraph.remove(element);
     this.elements.delete(element.id);
   }

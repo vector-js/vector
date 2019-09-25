@@ -129,6 +129,12 @@ export default class SVG extends Element {
         let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         return defs;
     }
+    static Symbol() {
+        return document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
+    }
+    static Use() {
+        return document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    }
     /**
     * Parses and returns the SVG documented represented by the string argument..
     */

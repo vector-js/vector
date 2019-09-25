@@ -1,7 +1,7 @@
 /**
 * @title Merge Sort Interactive
 * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
-* @tags [math, algorithm]
+* @tags [math, algorithm, graph]
 */
 import Interactive from '../../interactive.js';
 import { getScriptName } from '../../util.js';

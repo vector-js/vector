@@ -18,6 +18,8 @@ export default class Control extends Element {
   private static active : Control = null;
   private static slopX : number = 0;
   private static slopY : number = 0;
+  private static prevX : number = 0;
+  private static prevY : number = 0;
 
   // Private instance variables
   private _x: number;
@@ -108,9 +110,7 @@ export default class Control extends Element {
   */
   static handleMouseMove( event:MouseEvent ) {
     if( Control.active != null ) {
-      let x = event.clientX + Control.slopX;
-      let y = event.clientY + Control.slopY;
-      Control.active.translate( x, y);
+      Control.handleMoveTo(event.clientX,event.clientY);
     }
   }
 
@@ -120,11 +120,39 @@ export default class Control extends Element {
   */
   static handleTouchMove( event:TouchEvent) {
     if( Control.active != null ) {
-      let x = event.touches[0].clientX + Control.slopX;
-      let y = event.touches[0].clientY + Control.slopY;
-      Control.active.translate( x, y);
-      event.preventDefault();
+      Control.handleMoveTo(event.touches[0].clientX, event.touches[0].clientY);
     }
+  }
+
+  static handleMoveTo( clientX, clientY) {
+
+    let viewPort = Control.active.root.viewportElement;
+    let viewBox = viewPort.getAttribute('viewBox');
+
+    let transform = viewPort.getAttribute('transform');
+    let start = transform.indexOf(',');
+    let end = transform.indexOf(')');
+
+    let yDirection = parseInt(transform.substr(start + 1, end - start));
+    let width = parseInt(viewPort.getAttribute('width'));
+    let height = parseInt(viewPort.getAttribute('height'));
+    let viewBoxArray = viewBox.split(' ');
+    // let originX = parseInt(viewBoxArray[0]);
+    // let originY = parseInt(viewBoxArray[1]);
+    let visibleWidth = parseInt(viewBoxArray[2]);
+    let visibleHeight = parseInt(viewBoxArray[3]);
+    let scaleX = width/visibleWidth;
+    let scaleY = height/visibleHeight;
+
+    let deltaX = clientX - Control.prevX;
+    let deltaY = clientY - Control.prevY;
+    Control.prevX = clientX;
+    Control.prevY = clientY;
+    let x = Control.active.x + deltaX/scaleX;
+    let y = Control.active.y + deltaY/scaleY*yDirection;
+
+    Control.active.translate( x, y);
+    event.preventDefault();
   }
 
   /**
@@ -183,6 +211,8 @@ export default class Control extends Element {
       Control.active = this;
       Control.slopX = Control.active.x - event.clientX;
       Control.slopY = Control.active.y - event.clientY;
+      Control.prevX = event.clientX;
+      Control.prevY = event.clientY;
     }
   }
 
