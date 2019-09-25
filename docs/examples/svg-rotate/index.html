@@ -13,8 +13,8 @@ gtag('js',new Date());gtag('config','UA-106670688-3');</script><link rel=stylesh
 <span class=nx>interactive</span><span class=p>.</span><span class=nx>height</span> <span class=o>=</span> <span class=mi>300</span><span class=p>;</span>
 <span class=nx>interactive</span><span class=p>.</span><span class=nx>border</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
 <span class=kd>let</span> <span class=nx>w</span> <span class=o>=</span> <span class=mi>50</span><span class=p>;</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nx>originX</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>width</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
-<span class=nx>interactive</span><span class=p>.</span><span class=nx>originY</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>height</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
+<span class=nx>interactive</span><span class=p>.</span><span class=nx>originX</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>width</span> <span class=err>/ 2;</span>
+<span class=nx>interactive</span><span class=p>.</span><span class=nx>originY</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>height</span> <span class=err>/ 2;</span>
 <span class=kd>let</span> <span class=nx>group</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>group</span><span class=p>();</span>
 <span class=kd>let</span> <span class=nx>r1</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>rectangle</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>w</span><span class=p>,</span> <span class=nx>w</span><span class=p>);</span>
 <span class=kd>let</span> <span class=nx>r2</span> <span class=o>=</span> <span class=nx>interactive</span><span class=p>.</span><span class=nx>rectangle</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>w</span><span class=p>,</span> <span class=nx>w</span><span class=p>);</span>
@@ -51,7 +51,7 @@ gtag('js',new Date());gtag('config','UA-106670688-3');</script><link rel=stylesh
     <span class=k>else</span> <span class=p>{</span>
         <span class=nx>angle</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>PI</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>-</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>atan2</span><span class=p>(</span><span class=nx>control</span><span class=p>.</span><span class=nx>y</span><span class=p>,</span> <span class=nx>control</span><span class=p>.</span><span class=nx>x</span><span class=p>);</span>
     <span class=p>}</span>
-    <span class=k>return</span> <span class=p>(</span><span class=mi>360</span> <span class=o>-</span> <span class=nx>angle</span> <span class=o>*</span> <span class=mi>180</span> <span class=o>/</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>PI</span><span class=p>).</span><span class=nx>toFixed</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+    <span class=k>return</span> <span class=p>(</span><span class=mi>360</span> <span class=o>-</span> <span class=nx>angle</span> <span class=o>*</span> <span class=mi>180</span> <span class=err>/ Math.PI).toFixed(1);</span>
 <span class=p>}</span>
 <span class=c1>//# sourceMappingURL=svg-rotate.js.map
 </span></code></pre></div></main></body></html>

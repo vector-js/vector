@@ -1,5 +1,5 @@
-import { isPrime, nextPrime } from '../util.js';
-describe('Util', function () {
+import { isPrime, nextPrime } from '../util/math.js';
+describe('Math', function () {
     describe('isPrime', function () {
         // edge cases
         it('should return false for a negative number', function () {
@@ -92,4 +92,4 @@ describe('Util', function () {
         });
     });
 });
-//# sourceMappingURL=util.math.test.js.map
+//# sourceMappingURL=math.test.js.map

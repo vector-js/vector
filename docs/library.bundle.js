@@ -573,6 +573,12 @@ var Interactive = (function () {
             let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
             return defs;
         }
+        static Symbol() {
+            return document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
+        }
+        static Use() {
+            return document.createElementNS('http://www.w3.org/2000/svg', 'use');
+        }
         /**
         * Parses and returns the SVG documented represented by the string argument..
         */
@@ -1212,6 +1218,14 @@ var Interactive = (function () {
         }
     }
 
+    class Icon extends Element {
+        constructor(x, y) {
+            super(SVG.Group());
+            // TODO: make this a default behavior
+            this.root.classList.add('icon');
+        }
+    }
+
     /**
     * A button that when pressed fires an onclick event.
     */
@@ -1384,9 +1398,7 @@ var Interactive = (function () {
         */
         static handleMouseMove(event) {
             if (Control.active != null) {
-                let x = event.clientX + Control.slopX;
-                let y = event.clientY + Control.slopY;
-                Control.active.translate(x, y);
+                Control.handleMoveTo(event.clientX, event.clientY);
             }
         }
         /**
@@ -1395,11 +1407,33 @@ var Interactive = (function () {
         */
         static handleTouchMove(event) {
             if (Control.active != null) {
-                let x = event.touches[0].clientX + Control.slopX;
-                let y = event.touches[0].clientY + Control.slopY;
-                Control.active.translate(x, y);
-                event.preventDefault();
+                Control.handleMoveTo(event.touches[0].clientX, event.touches[0].clientY);
             }
+        }
+        static handleMoveTo(clientX, clientY) {
+            let viewPort = Control.active.root.viewportElement;
+            let viewBox = viewPort.getAttribute('viewBox');
+            let transform = viewPort.getAttribute('transform');
+            let start = transform.indexOf(',');
+            let end = transform.indexOf(')');
+            let yDirection = parseInt(transform.substr(start + 1, end - start));
+            let width = parseInt(viewPort.getAttribute('width'));
+            let height = parseInt(viewPort.getAttribute('height'));
+            let viewBoxArray = viewBox.split(' ');
+            // let originX = parseInt(viewBoxArray[0]);
+            // let originY = parseInt(viewBoxArray[1]);
+            let visibleWidth = parseInt(viewBoxArray[2]);
+            let visibleHeight = parseInt(viewBoxArray[3]);
+            let scaleX = width / visibleWidth;
+            let scaleY = height / visibleHeight;
+            let deltaX = clientX - Control.prevX;
+            let deltaY = clientY - Control.prevY;
+            Control.prevX = clientX;
+            Control.prevY = clientY;
+            let x = Control.active.x + deltaX / scaleX;
+            let y = Control.active.y + deltaY / scaleY * yDirection;
+            Control.active.translate(x, y);
+            event.preventDefault();
         }
         /**
         * Handles when a use mouses up over the window or ends their touch event.
@@ -1452,6 +1486,8 @@ var Interactive = (function () {
                 Control.active = this;
                 Control.slopX = Control.active.x - event.clientX;
                 Control.slopY = Control.active.y - event.clientY;
+                Control.prevX = event.clientX;
+                Control.prevY = event.clientY;
             }
         }
         /**
@@ -1620,6 +1656,8 @@ var Interactive = (function () {
     Control.active = null;
     Control.slopX = 0;
     Control.slopY = 0;
+    Control.prevX = 0;
+    Control.prevY = 0;
     // Keep track of whether global event listeners have been initialized
     Control.initalized = false;
 
@@ -1877,7 +1915,7 @@ var Interactive = (function () {
     }
 
     /**
-    *
+    * A plot of the graph of a function.
     */
     class Plot extends Element {
         /**
@@ -56240,6 +56278,39 @@ var Interactive = (function () {
             let checkBox = new CheckBox(x, y, label, value);
             this.controls.appendChild(checkBox.root);
             return checkBox;
+        }
+        icon(x, y, str) {
+            // create a new icon element
+            let icon = new Icon(x, y);
+            this.background.appendChild(icon.root);
+            // check to see if we have loaded the symbols svg, if not load it
+            let id = 'vector-js-symbols';
+            let svg = document.getElementById(id);
+            if (svg === undefined || svg === null) {
+                svg = SVG.SVG();
+                svg.style.display = 'none';
+                svg.id = id;
+                document.body.appendChild(svg);
+            }
+            // check to see if we have loaded this icon before
+            let symbol = svg.querySelector(`#${str}`);
+            if (!symbol) {
+                getURL(`/resources/icons/${str}.svg`).then(function (response) {
+                    let symbol = SVG.Symbol();
+                    symbol.id = str;
+                    let symbolSVG = SVG.parseSVG(response);
+                    while (symbolSVG.childNodes.length > 0) {
+                        symbol.appendChild(symbolSVG.childNodes[0]);
+                    }
+                    svg.appendChild(symbol);
+                    let use = SVG.Use();
+                    use.setAttribute('href', `#${str}`);
+                    icon.root.appendChild(use);
+                }).catch(function (error) {
+                    throw new Error(error);
+                });
+            }
+            return icon;
         }
         /**
         * Creates a checkbox input at the position (x,y) within this interactive.

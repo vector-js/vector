@@ -5,7 +5,8 @@
 * @tags [math, graph]
 * @weight 1
 */
-import { getScriptName, nextPrime } from '../../util.js';
+import { getScriptName } from '../../util.js';
+import { nextPrime } from '../../util/math.js';
 import Interactive from '../../interactive.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 736;
