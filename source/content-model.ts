@@ -1,6 +1,7 @@
 import Group from './elements/group.js';
 import SVG from './elements/svg.js';
 import Circle from './elements/circle.js';
+import Element from './elements/element.js';
 import Ellipse from './elements/ellipse.js';
 import Line from './elements/line.js';
 import Path from './elements/path.js';
@@ -10,7 +11,7 @@ import Text from './elements/text.js';
 /**
 * Describes methods for creating descriptive elements.
 */
-export interface Descriptive {
+export interface Descriptive extends Element {
 
   /**
   * Creates and appends a description element within this element.
@@ -31,7 +32,7 @@ export interface Descriptive {
 /**
 * Describes methods for creating structural elements.
 */
-export interface Shape {
+export interface Shape extends Element {
 
   /**
   * Constructs and appends a circle within this element.
@@ -67,7 +68,7 @@ export interface Shape {
 /**
 * Describes methods for creating structural elements.
 */
-export interface Structural {
+export interface Structural extends Element {
 
   /**
   * Creates and appends a defs element within this element.
@@ -94,7 +95,7 @@ export interface Structural {
 /**
 * Describes methods for creating textual elements.
 */
-export interface Typography {
+export interface Typography extends Element {
 
   /**
   * Creates and appends a text element within this element.

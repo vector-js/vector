@@ -3,19 +3,18 @@ describe('Interactive', function () {
     let container;
     let count = 0;
     let str = 'identifier';
-    function createContainer(display = '') {
+    function createContainer(hidden = false) {
         let container = document.createElement('div');
         container.id = `${str}-${count++}`;
-        container.style.display = display;
-        container.style.cssFloat = 'left';
-        container.style.margin = '1rem';
+        container.hidden = hidden;
+        container.classList.add('interactive-container');
         document.body.appendChild(container);
         return container;
     }
     describe('Creation', function () {
         // create a new container before each test function
         beforeEach(function () {
-            container = createContainer('none');
+            container = createContainer(true);
         });
         describe('constructor', function () {
             it('should create an interactive element within the HTML container', function () {
@@ -41,24 +40,17 @@ describe('Interactive', function () {
             interactive.width = 100;
             interactive.height = 100;
         });
-        describe('shapes', function () {
-            describe('circle', function () {
-                it('should create circle within the interactive', function () {
-                    let circle = interactive.circle(50, 50, 40);
-                });
-            });
-            describe('rectangle', function () {
-                it('should create rectangle within the interactive', function () {
-                    let rectangle = interactive.rectangle(10, 10, 80, 80);
-                });
-            });
-            describe('ellipse', function () {
-                it('should create rectangle within the interactive', function () {
-                    let ellipse = interactive.ellipse(50, 50, 40, 20);
-                });
-            });
+        it('should create circle within the interactive', function () {
+            let circle = interactive.circle(50, 50, 40);
         });
-        describe('structural', function () {
+        it('should create rectangle within the interactive', function () {
+            let rectangle = interactive.rectangle(10, 10, 80, 80);
+        });
+        it('should create rectangle within the interactive', function () {
+            let ellipse = interactive.ellipse(50, 50, 40, 20);
+        });
+        it('should visually create input elements on top of other non-input elements', function () {
+            chai.expect.fail('not implemented');
         });
     });
 });
