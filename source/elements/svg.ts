@@ -79,10 +79,10 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   // shape elements
 
   circle(cx: number, cy: number, r: number): Circle {
-    throw new Error("Method not implemented.");
+    return this.appendChild(new Circle(cx, cy, r));
   }
   ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse {
-    throw new Error("Method not implemented.");
+    return this.appendChild(new Ellipse(cx, cy, rx, ry));
   }
   line(x1: number, y1: number, x2: number, y2: number): Line {
     throw new Error("Method not implemented.");
@@ -94,7 +94,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
     throw new Error("Method not implemented.");
   }
   rectangle(x: number, y: number, width: number, height: number): Rectangle {
-    throw new Error("Method not implemented.");
+    return this.appendChild(new Rectangle(x, y, width, height));
   }
 
   // structural elements

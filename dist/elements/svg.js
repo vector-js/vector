@@ -1,4 +1,7 @@
 import Element from './element.js';
+import Circle from './circle.js';
+import Ellipse from './ellipse.js';
+import Rectangle from './rectangle.js';
 import Group from './group.js';
 import Text from './text.js';
 /**
@@ -57,10 +60,10 @@ export default class SVG extends Element {
     }
     // shape elements
     circle(cx, cy, r) {
-        throw new Error("Method not implemented.");
+        return this.appendChild(new Circle(cx, cy, r));
     }
     ellipse(cx, cy, rx, ry) {
-        throw new Error("Method not implemented.");
+        return this.appendChild(new Ellipse(cx, cy, rx, ry));
     }
     line(x1, y1, x2, y2) {
         throw new Error("Method not implemented.");
@@ -72,7 +75,7 @@ export default class SVG extends Element {
         throw new Error("Method not implemented.");
     }
     rectangle(x, y, width, height) {
-        throw new Error("Method not implemented.");
+        return this.appendChild(new Rectangle(x, y, width, height));
     }
     // structural elements
     defs() {

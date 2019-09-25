@@ -66,18 +66,24 @@ export default class Interactive extends SVG {
   private _originY:number = 0;
 
   /**
-  * Constructs a new interactive object within the HTML element corresponding
-  * to the id. If no element is found throws an error.
-  * TODO: (possibly) if the string is null, then create a headless interactive
+  * Constructs a new interactive object and appends it into the DOM. If the
+  * provided argument is an HTMLElement appends the interactive within that
+  * element. If the provided a value is a string, appends the interactive within
+  * the HTML element with the corresponding ID. If no element is found throws an
+  * error.
   */
-  constructor( id:string ) {
+  constructor( value:string | HTMLElement ) {
     super();
 
-    // store a reference to the container element, check to make sure such an
-    // element exists.
-    this.container = document.getElementById(id);
-    if( this.container === null || this.container === undefined ) {
-      throw new Error(`There is no HTML element with the id: ${id}`);
+    // If the user passes in a string identifier check to see if such an
+    // element exists in the current document.
+    if (typeof value == "string") {
+      this.container = document.getElementById(value);
+      if( this.container === null || this.container === undefined ) {
+        throw new Error(`There is no HTML element with the id: ${value}`);
+      }
+    } else {
+      this.container = value;
     }
     this.container.classList.add('interactive-container');
 

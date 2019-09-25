@@ -1035,7 +1035,7 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="interactive.html#graph" class="tsd-kind-icon">graph</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="interactive.html#group" class="tsd-kind-icon">group</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1092,7 +1092,7 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="interactive.html#svg" class="tsd-kind-icon">svg</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="interactive.html#text" class="tsd-kind-icon">text</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1185,6 +1185,7 @@ img { max-width: 100%; }
 				<li><a href="../interfaces/descriptive.html" class="tsd-signature-type">Descriptive</a></li>
 				<li><a href="../interfaces/shape.html" class="tsd-signature-type">Shape</a></li>
 				<li><a href="../interfaces/structural.html" class="tsd-signature-type">Structural</a></li>
+				<li><a href="../interfaces/typography.html" class="tsd-signature-type">Typography</a></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -1250,7 +1251,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#ellipse" class="tsd-kind-icon">ellipse</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#graph" class="tsd-kind-icon">graph</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="interactive.html#group" class="tsd-kind-icon">group</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#group" class="tsd-kind-icon">group</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#icon" class="tsd-kind-icon">icon</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#interactive-1" class="tsd-kind-icon">interactive</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#line" class="tsd-kind-icon">line</a></li>
@@ -1269,7 +1270,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#setviewbox" class="tsd-kind-icon">set<wbr>View<wbr>Box</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#slider" class="tsd-kind-icon">slider</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#svg" class="tsd-kind-icon">svg</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="interactive.html#text" class="tsd-kind-icon">text</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#text" class="tsd-kind-icon">text</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#title" class="tsd-kind-icon">title</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#updatedependents" class="tsd-kind-icon">update<wbr>Dependents</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="interactive.html#use" class="tsd-kind-icon">use</a></li>
@@ -1299,27 +1300,29 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Interactive<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interactive.html" class="tsd-signature-type">Interactive</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Interactive<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interactive.html" class="tsd-signature-type">Interactive</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides <a href="svg.html">SVG</a>.<a href="svg.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in interactive.ts:68</li>
+								<li>Defined in interactive.ts:66</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Constructs a new interactive object within the HTML element corresponding
-									to the id. If no element is found throws an error.
-								TODO: (possibly) if the string is null, then create a headless interactive</p>
+								<p>Constructs a new interactive object and appends it into the DOM. If the
+									provided argument is an HTMLElement appends the interactive within that
+									element. If the provided a value is a string, appends the interactive within
+									the HTML element with the corresponding ID. If no element is found throws an
+								error.</p>
 							</div>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>id: <span class="tsd-signature-type">string</span></h5>
+								<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="interactive.html" class="tsd-signature-type">Interactive</a></h4>
@@ -1335,7 +1338,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">_height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:66</li>
+						<li>Defined in interactive.ts:64</li>
 					</ul>
 				</aside>
 			</section>
@@ -1345,7 +1348,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">_originX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:67</li>
+						<li>Defined in interactive.ts:65</li>
 					</ul>
 				</aside>
 			</section>
@@ -1355,7 +1358,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">_originY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:68</li>
+						<li>Defined in interactive.ts:66</li>
 					</ul>
 				</aside>
 			</section>
@@ -1365,7 +1368,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">_width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:65</li>
+						<li>Defined in interactive.ts:63</li>
 					</ul>
 				</aside>
 			</section>
@@ -1375,7 +1378,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">background<span class="tsd-signature-symbol">:</span> <a href="group.html" class="tsd-signature-type">Group</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:62</li>
+						<li>Defined in interactive.ts:60</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1390,7 +1393,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:46</li>
+						<li>Defined in interactive.ts:44</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1405,7 +1408,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">document<span class="tsd-signature-symbol">:</span> <a href="svg.html" class="tsd-signature-type">SVG</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:51</li>
+						<li>Defined in interactive.ts:49</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1420,7 +1423,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">input<span class="tsd-signature-symbol">:</span> <a href="group.html" class="tsd-signature-type">Group</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:57</li>
+						<li>Defined in interactive.ts:55</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1438,7 +1441,7 @@ img { max-width: 100%; }
 					<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#root">root</a></p>
 					<p>Overrides <a href="element.html">Element</a>.<a href="element.html#root">root</a></p>
 					<ul>
-						<li>Defined in svg.ts:17</li>
+						<li>Defined in elements/svg.ts:18</li>
 					</ul>
 				</aside>
 			</section>
@@ -1547,7 +1550,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">border<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:179</li>
+						<li>Defined in interactive.ts:183</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1563,8 +1566,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Overrides <a href="svg.html">SVG</a>.<a href="svg.html#height">height</a></p>
 					<ul>
-						<li>Defined in interactive.ts:123</li>
-						<li>Defined in interactive.ts:131</li>
+						<li>Defined in interactive.ts:127</li>
+						<li>Defined in interactive.ts:135</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1596,7 +1599,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">maxX<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:204</li>
+						<li>Defined in interactive.ts:208</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1611,7 +1614,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">maxY<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:211</li>
+						<li>Defined in interactive.ts:215</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1626,7 +1629,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">minX<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:190</li>
+						<li>Defined in interactive.ts:194</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1641,7 +1644,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">minY<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:197</li>
+						<li>Defined in interactive.ts:201</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1656,8 +1659,8 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">originX<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:138</li>
-						<li>Defined in interactive.ts:145</li>
+						<li>Defined in interactive.ts:142</li>
+						<li>Defined in interactive.ts:149</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1673,8 +1676,8 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">originY<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:152</li>
-						<li>Defined in interactive.ts:159</li>
+						<li>Defined in interactive.ts:156</li>
+						<li>Defined in interactive.ts:163</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1691,8 +1694,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#viewbox">viewBox</a></p>
 					<ul>
-						<li>Defined in svg.ts:54</li>
-						<li>Defined in svg.ts:58</li>
+						<li>Defined in elements/svg.ts:55</li>
+						<li>Defined in elements/svg.ts:59</li>
 					</ul>
 				</aside>
 			</section>
@@ -1703,8 +1706,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Overrides <a href="svg.html">SVG</a>.<a href="svg.html#width">width</a></p>
 					<ul>
-						<li>Defined in interactive.ts:108</li>
-						<li>Defined in interactive.ts:116</li>
+						<li>Defined in interactive.ts:112</li>
+						<li>Defined in interactive.ts:120</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1720,7 +1723,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">window<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in interactive.ts:168</li>
+						<li>Defined in interactive.ts:172</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1774,7 +1777,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#appendchild">appendChild</a></p>
 							<ul>
-								<li>Defined in interactive.ts:222</li>
+								<li>Defined in interactive.ts:224</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1783,7 +1786,6 @@ img { max-width: 100%; }
 									element, places the element in the input group so that visually the element
 								is always placed above other graphical elements.</p>
 							</div>
-							<p>Overrides the default Element.appendChild method</p>
 						</div>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
@@ -1811,7 +1813,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:244</li>
+								<li>Defined in interactive.ts:246</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1845,7 +1847,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:251</li>
+								<li>Defined in interactive.ts:253</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1884,7 +1886,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/shape.html">Shape</a>.<a href="../interfaces/shape.html#circle">circle</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#circle">circle</a></p>
 							<ul>
-								<li>Defined in svg.ts:81</li>
+								<li>Defined in elements/svg.ts:81</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1913,7 +1915,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:309</li>
+								<li>Defined in interactive.ts:311</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1944,7 +1946,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:316</li>
+								<li>Defined in interactive.ts:318</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1977,7 +1979,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/structural.html">Structural</a>.<a href="../interfaces/structural.html#defs">defs</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#defs">defs</a></p>
 							<ul>
-								<li>Defined in svg.ts:102</li>
+								<li>Defined in elements/svg.ts:102</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1996,7 +1998,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/descriptive.html">Descriptive</a>.<a href="../interfaces/descriptive.html#description">description</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#description">description</a></p>
 							<ul>
-								<li>Defined in svg.ts:69</li>
+								<li>Defined in elements/svg.ts:69</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2013,7 +2015,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:345</li>
+								<li>Defined in interactive.ts:347</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="directedgraph.html" class="tsd-signature-type">DirectedGraph</a></h4>
@@ -2030,7 +2032,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:380</li>
+								<li>Defined in interactive.ts:375</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2066,7 +2068,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/shape.html">Shape</a>.<a href="../interfaces/shape.html#ellipse">ellipse</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#ellipse">ellipse</a></p>
 							<ul>
-								<li>Defined in svg.ts:84</li>
+								<li>Defined in elements/svg.ts:84</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2127,7 +2129,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:330</li>
+								<li>Defined in interactive.ts:332</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2139,26 +2141,21 @@ img { max-width: 100%; }
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="group" class="tsd-anchor"></a>
 				<h3>group</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<li class="tsd-signature tsd-kind-icon">group<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="group.html" class="tsd-signature-type">Group</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Implementation of <a href="../interfaces/structural.html">Structural</a>.<a href="../interfaces/structural.html#group">group</a></p>
-							<p>Overrides <a href="svg.html">SVG</a>.<a href="svg.html#group">group</a></p>
+							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#group">group</a></p>
 							<ul>
-								<li>Defined in interactive.ts:387</li>
+								<li>Defined in elements/svg.ts:105</li>
 							</ul>
 						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Creates a group element</p>
-							</div>
-						</div>
 						<h4 class="tsd-returns-title">Returns <a href="group.html" class="tsd-signature-type">Group</a></h4>
 					</li>
 				</ul>
@@ -2173,7 +2170,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:255</li>
+								<li>Defined in interactive.ts:257</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2202,7 +2199,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:234</li>
+								<li>Defined in interactive.ts:236</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2235,7 +2232,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/shape.html">Shape</a>.<a href="../interfaces/shape.html#line">line</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#line">line</a></p>
 							<ul>
-								<li>Defined in svg.ts:87</li>
+								<li>Defined in elements/svg.ts:87</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2267,7 +2264,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:394</li>
+								<li>Defined in interactive.ts:382</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2290,7 +2287,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:337</li>
+								<li>Defined in interactive.ts:339</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2329,7 +2326,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/descriptive.html">Descriptive</a>.<a href="../interfaces/descriptive.html#metadata">metadata</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#metadata">metadata</a></p>
 							<ul>
-								<li>Defined in svg.ts:72</li>
+								<li>Defined in elements/svg.ts:72</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2346,7 +2343,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:373</li>
+								<li>Defined in interactive.ts:368</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2388,7 +2385,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/shape.html">Shape</a>.<a href="../interfaces/shape.html#path">path</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#path">path</a></p>
 							<ul>
-								<li>Defined in svg.ts:90</li>
+								<li>Defined in elements/svg.ts:90</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2411,7 +2408,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:323</li>
+								<li>Defined in interactive.ts:325</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2441,7 +2438,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/shape.html">Shape</a>.<a href="../interfaces/shape.html#polygon">polygon</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#polygon">polygon</a></p>
 							<ul>
-								<li>Defined in svg.ts:93</li>
+								<li>Defined in elements/svg.ts:93</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2464,7 +2461,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:300</li>
+								<li>Defined in interactive.ts:302</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2503,7 +2500,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/shape.html">Shape</a>.<a href="../interfaces/shape.html#rectangle">rectangle</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#rectangle">rectangle</a></p>
 							<ul>
-								<li>Defined in svg.ts:96</li>
+								<li>Defined in elements/svg.ts:96</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2558,7 +2555,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:359</li>
+								<li>Defined in interactive.ts:361</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2625,7 +2622,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#setviewbox">setViewBox</a></p>
 							<ul>
-								<li>Defined in svg.ts:62</li>
+								<li>Defined in elements/svg.ts:63</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2657,7 +2654,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in interactive.ts:352</li>
+								<li>Defined in interactive.ts:354</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2696,31 +2693,28 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/structural.html">Structural</a>.<a href="../interfaces/structural.html#svg">svg</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#svg-1">svg</a></p>
 							<ul>
-								<li>Defined in svg.ts:108</li>
+								<li>Defined in elements/svg.ts:108</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="svg.html" class="tsd-signature-type">SVG</a></h4>
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="text" class="tsd-anchor"></a>
 				<h3>text</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, contents<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="text.html" class="tsd-signature-type">Text</a></li>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="text.html" class="tsd-signature-type">Text</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#text">text</a></p>
+							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#text">text</a></p>
 							<ul>
-								<li>Defined in interactive.ts:366</li>
+								<li>Defined in elements/svg.ts:117</li>
 							</ul>
 						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Creates text within this interactive.</p>
-							</div>
-						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
@@ -2730,7 +2724,7 @@ img { max-width: 100%; }
 								<h5>y: <span class="tsd-signature-type">number</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> contents: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+								<h5>str: <span class="tsd-signature-type">string</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="text.html" class="tsd-signature-type">Text</a></h4>
@@ -2749,7 +2743,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/descriptive.html">Descriptive</a>.<a href="../interfaces/descriptive.html#title">title</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#title">title</a></p>
 							<ul>
-								<li>Defined in svg.ts:75</li>
+								<li>Defined in elements/svg.ts:75</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2791,7 +2785,7 @@ img { max-width: 100%; }
 							<p>Implementation of <a href="../interfaces/structural.html">Structural</a>.<a href="../interfaces/structural.html#use">use</a></p>
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#use">use</a></p>
 							<ul>
-								<li>Defined in svg.ts:111</li>
+								<li>Defined in elements/svg.ts:111</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2809,7 +2803,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#circle-1">Circle</a></p>
 							<ul>
-								<li>Defined in svg.ts:199</li>
+								<li>Defined in elements/svg.ts:205</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2844,7 +2838,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#clippath">ClipPath</a></p>
 							<ul>
-								<li>Defined in svg.ts:230</li>
+								<li>Defined in elements/svg.ts:236</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2867,7 +2861,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#defs-1">Defs</a></p>
 							<ul>
-								<li>Defined in svg.ts:238</li>
+								<li>Defined in elements/svg.ts:244</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2890,7 +2884,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#ellipse-1">Ellipse</a></p>
 							<ul>
-								<li>Defined in svg.ts:171</li>
+								<li>Defined in elements/svg.ts:177</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2928,7 +2922,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#group-1">Group</a></p>
 							<ul>
-								<li>Defined in svg.ts:211</li>
+								<li>Defined in elements/svg.ts:217</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2951,7 +2945,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#line-1">Line</a></p>
 							<ul>
-								<li>Defined in svg.ts:185</li>
+								<li>Defined in elements/svg.ts:191</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2989,7 +2983,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#path-1">Path</a></p>
 							<ul>
-								<li>Defined in svg.ts:220</li>
+								<li>Defined in elements/svg.ts:226</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3018,7 +3012,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#rectangle-1">Rectangle</a></p>
 							<ul>
-								<li>Defined in svg.ts:157</li>
+								<li>Defined in elements/svg.ts:163</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3056,7 +3050,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#svg-2">SVG</a></p>
 							<ul>
-								<li>Defined in svg.ts:121</li>
+								<li>Defined in elements/svg.ts:127</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3089,7 +3083,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#symbol">Symbol</a></p>
 							<ul>
-								<li>Defined in svg.ts:246</li>
+								<li>Defined in elements/svg.ts:252</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3112,7 +3106,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#tspan">TSpan</a></p>
 							<ul>
-								<li>Defined in svg.ts:147</li>
+								<li>Defined in elements/svg.ts:153</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3139,9 +3133,9 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#text">Text</a></p>
+							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#text-1">Text</a></p>
 							<ul>
-								<li>Defined in svg.ts:133</li>
+								<li>Defined in elements/svg.ts:139</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3176,7 +3170,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#use-1">Use</a></p>
 							<ul>
-								<li>Defined in svg.ts:253</li>
+								<li>Defined in elements/svg.ts:259</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3228,7 +3222,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="svg.html">SVG</a>.<a href="svg.html#parsesvg">parseSVG</a></p>
 							<ul>
-								<li>Defined in svg.ts:260</li>
+								<li>Defined in elements/svg.ts:266</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
