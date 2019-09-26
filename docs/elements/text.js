@@ -54,6 +54,11 @@ export default class Text extends Element {
         const context = document.createElement("canvas").getContext("2d");
         return context.measureText(this.root.innerHTML).width;
     }
+    text(x, y, str) {
+        let text = new Text(x, y, str);
+        this.root.appendChild(text.root);
+        return text;
+    }
     tspan(text) {
         let tspan = new TSpan(text);
         this.root.appendChild(tspan.root);

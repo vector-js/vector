@@ -1,7 +1,7 @@
 /**
 * @title Load External SVG
 * @description This interactive demonstrates how to load and use an external svg.
-* @tags []
+* @tags [svg]
 */
 
 import Interactive from '../../interactive.js';

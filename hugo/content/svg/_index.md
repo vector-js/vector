@@ -44,7 +44,8 @@ The SVG document above is rendered as:
 
 <div style="border: 1px solid grey; border-radius: 5px;">
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
-    <circle cx="50" cy="50" r="15"></circle>
+
+  <circle cx="50" cy="50" r="15" style="fill:#333333;"></circle>
 </svg>
 </div>
 
@@ -173,32 +174,74 @@ Elements can be moved to new locations.
 
 ## Styling
 
-SVG elements are styled using Cascading Styel Sheets or CSS for short. The styling can be applied to individual elements as inline style, defined in a \<style\> tag within the SVG document, or defined in a .css file.
+SVG elements are styled using Cascading Style Sheets or CSS for short. Styling can be applied to individual elements as inline style, defined in a \<style\> tag within the SVG document, or defined externally in a .css file. There are many different styles that can be applied to each element. Two of the most basic are the fill and stroke color.
+
+<img src="/images/fill-stroke.svg" alt="Fill and Stroke Element" width="320px" style="display:block; margin:auto;">
+
+### Inline Style
+
+Styling can be applied to individual elements using the style attribute. This is very useful for testing out different styling on an element, but in practice it is better to use CSS selectors to style elements based on id, class, and tagname.
 
 {{<highlight svg>}}
-<circle cx="300" cy="150" r="50" style="..."></circle>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <circle cx="150" cy="75" r="50" style="fill:purple;"></circle>
+</svg>
 {{</highlight>}}
 
-### Fill
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <circle cx="150" cy="75" r="50" style="fill:purple;"></circle>
+</svg>
 
-Two basic styles are the fill and stroke of a shape or path. The fill controls the color of the interior and the stroke controls the color of the perimeter.
+### Style Element
 
-<form style="display:grid; grid-template-columns:auto auto; width:300px; max-width:100%;">
-<label for="fill">Fill</label>
-<input id="fill" name="fill" type="color" value="#4287f5" style="width:100%">
-<label for="stroke">Stroke</label>
-<input id="stroke" name="stroke" type="color" value="#333333" style="width:100%">
-<label for="stroke-width">Stroke Width</label>
-<input id="stroke-width" name="stroke-width" type="number" value="1">
-</form>
+CSS rules can be applied in the style element within the SVG document. A CSS rule applies styling to elements that match the selectors before the style enclosed in the curly braces. In the example below the selector "circle" will be applied to all circle elements within the SVG.
 
-### Stroke
+{{< highlight svg>}}
+<svg xmlns="http://www.w3.org/2000/svg">
+  <style>
+  circle {
+    stroke:purple;
+    stroke-width:1px;
+    fill:none;
+  }
+  </style>
+  <circle cx="150" cy="75" r="50"></circle>
+</svg>
+{{< /highlight >}}
 
-### Gradient
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <style>
+  circle.style-element {
+    stroke:purple;
+    stroke-width:1px;
+    fill:none;
+  }
+  </style>
+  <circle cx="150" cy="75" r="50" class="style-element"></circle>
+</svg>
 
 ### Effects
 
-onhover, etc
+Styling can be applied to a specific element state such as ":active", ":focus", ":hover". For example when the user hover's over the circle below additional styling is applied to make the fill of the circle darker.
+
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <style>
+  #my-circle{
+    fill:#f8f8f8;
+    stroke:#333333;
+  }
+  #my-circle:hover{
+    fill:cornflowerblue;
+  }
+  </style>
+  <circle cx="150" cy="75" r="50" id="my-circle"></circle>
+</svg>
+
+{{< highlight css>}}
+#my-circle:hover{
+  fill:cornflowerblue;
+}
+{{< /highlight >}}
 
 ## Typography
 
@@ -208,7 +251,7 @@ This section of the tutorial deals with creating and formatting text within SVG 
 
 The text element defines text with an x, y position in the document.
 
-<svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
   <style>
     text.sample {
       font-family:monospace;
@@ -228,7 +271,7 @@ The text element defines text with an x, y position in the document.
 
 The text span element is useful for changing the position and or the styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word. Then, later, a tspan element is positioned relative to the last tspan element.
 
-<svg xmlns="http://www.w3.org/2000/svg" width="704" height="150" class="border">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
   <style>
     #tspan-example {
       font-size:22px;
@@ -259,7 +302,7 @@ The text span element is useful for changing the position and or the styling of 
 
 The "text-anchor" attribute allows you to horizontally align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.
 
-<img src="/images/horizontally-align-text.svg" class="border" alt="Horizontally align SVG text.">
+<img src="/images/horizontally-align-text.svg" class="border" alt="Horizontally align SVG text." width="100%">
 
 {{< highlight css>}}
 text-anchor:left;
@@ -271,12 +314,12 @@ text-anchor:right;
 
 The "alignment-baseline" attribute allows you to vertically align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.
 
-<img src="/images/vertically-align-text.svg" class="border" alt="Vertically align SVG text.">
+<img src="/images/vertically-align-text.svg" class="border" alt="Vertically align SVG text." width="100%">
 
 {{< highlight css>}}
-alignment-baseline:bottom;
-alignment-baseline:middle;
-alignment-baseline:top;
+dominant-baseline:baseline;
+dominant-baseline:middle;
+dominant-baseline:hanging;
 {{< /highlight >}}
 
 ### Superscript and Subscript

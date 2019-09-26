@@ -1,37 +1,41 @@
 {
-  "name": "@interactive-svg/library",
-  "version": "0.0.9",
-  "description": "A library for creating interactive vector graphics.",
+  "name": "@vector-js/library",
+  "version": "0.0.1",
+  "description": "A library for creating interactive vector graphics on the web.",
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
+    "directory-tree": "^2.2.4",
     "http-server": "^0.11.1",
+    "jsonfile": "^5.0.0",
     "mocha": "^6.1.4",
     "rollup": "^1.17.0",
-    "typescript": "^3.5.3",
-    "directory-tree": "^2.2.4",
-    "jsonfile": "^5.0.0",
-    "tree-flatten": "^1.0.0"
+    "tree-flatten": "^1.0.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.5.3"
   },
   "scripts": {
+    "api": "typedoc --mode file --target ES6 --out hugo/static/api --theme minimal --exclude \"./source/examples/**/*\"",
     "build": "tsc",
     "clean": "rm -rf ./dist/ && rm -rf ./docs/",
-    "deploy": "npm run clean && npm run build && npm run tutorial && npm run website",
+    "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run rollup && npm run website",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
     "website": "cd hugo && hugo --minify",
     "watch": "tsc -w",
     "rollup": "rollup --config",
     "start": "http-server .",
+    "docs": "documentation build 'dist/**' -f html -o docs",
     "tutorial": "./getting-started.sh"
   },
   "files": [
-    "dist"
+    "dist",
+    "css"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vector-js/vector.git"
+    "url": "git+https://github.com/vector-js/vector.git"
   },
   "keywords": [
     "svg",
@@ -49,7 +53,15 @@
     "Josh Homer"
   ],
   "license": "ISC",
-  "main": "dist/Library.bundle.js",
-  "module": "dist/Interactive.js",
-  "modules.root": "dist"
+  "main": "dist/library.bundle.js",
+  "module": "dist/interactive.js",
+  "modules.root": "dist",
+  "bugs": {
+    "url": "https://github.com/vector-js/vector/issues"
+  },
+  "homepage": "https://github.com/vector-js/vector#readme",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  }
 }

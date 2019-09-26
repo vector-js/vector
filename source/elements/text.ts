@@ -67,6 +67,12 @@ export default class Text extends Element {
     return context.measureText(this.root.innerHTML).width;
   }
 
+  text( x, y, str:string ) : Text {
+    let text = new Text(x,y,str);
+    this.root.appendChild(text.root);
+    return text;
+  }
+
   tspan( text:string ) : TSpan {
     let tspan = new TSpan(text);
     this.root.appendChild(tspan.root);

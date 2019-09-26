@@ -1,23 +1,69 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><title>Vector.js</title><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type="image/x-icon'href='/favicon.png"><script async defer src=https://buttons.github.io/buttons.js></script><link href=/scss/main.css rel=stylesheet media=screen><script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','UA-106670688-3');</script><link rel=stylesheet type=text/css href=/library.css></head><body><header class=text-center><div class=small-container><a href=/><h1>Vector.js</h1></a><p>Vector is an open source javascript library for creating interactive vector graphics. View the repository on <a href=https://github.com/vector-js/vector.git target=_blank rel=noreferrer>github</a> or meet the <a href=/team/>team</a>.</p><p><a href="/sandbox/?script=/examples/hello-world.js"><button class=muted-button>Sandbox</button></a>
-<a href=/tutorials/><button class=muted-button>Tutorials</button></a>
-<a href=/examples/><button class=muted-button>Examples</button></a></p></div></header><main class=medium-container><h1>Custom Element</h1><p>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the <a href=/svg/>SVG Tutorial</a>). It also gets into how Vector.js is implemented.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=k>import</span> <span class=nx>Element</span> <span class=nx>from</span> <span class=s1>&#39;../elements/Element.js&#39;</span><span class=p>;</span>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
 
-<span class=c1>// Extending the Element class guarantees that the custom element exists within
-</span><span class=c1>// the interactive ecosystem.
-</span><span class=c1></span><span class=k>export</span> <span class=k>default</span> <span class=k>class</span> <span class=nx>CustomElement</span> <span class=k>extends</span> <span class=nx>Element</span> <span class=p>{</span>
+<link href="/scss/main.css" rel="stylesheet" media="screen">
 
-  <span class=c1>// The root property is an SVG element that contains all of the SVG elements
-</span><span class=c1></span>  <span class=c1>// associated with this custom element.
-</span><span class=c1></span>  <span class=nx>root</span><span class=o>:</span> <span class=nx>SVGGElement</span><span class=p>;</span>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <span class=c1>// Constructs an instance of this custom element
-</span><span class=c1></span>  <span class=nx>constructor</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>super</span><span class=p>();</span>
+  gtag('config', 'UA-106670688-3');
+</script>
 
-    <span class=k>this</span><span class=p>.</span><span class=nx>root</span> <span class=o>=</span> <span class=nx>SVG</span><span class=p>.</span><span class=nx>Group</span><span class=p>();</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>root</span><span class=p>.</span><span class=nx>classList</span><span class=p>.</span><span class=nx>add</span><span class=p>(</span><span class=s1>&#39;custom-element&#39;</span><span class=p>);</span>
-    <span class=k>this</span><span class=p>.</span><span class=nx>root</span><span class=p>.</span><span class=nx>id</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>id</span><span class=p>;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div></main></body></html>
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/">API</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+<h1>Custom Element</h1><p>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the <a href="/svg/">SVG Tutorial</a>). It also gets into how Vector.js is implemented.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Element</span> <span class="nx">from</span> <span class="s1">&#39;../elements/Element.js&#39;</span><span class="p">;</span>
+
+<span class="c1">// Extending the Element class guarantees that the custom element exists within
+</span><span class="c1">// the interactive ecosystem.
+</span><span class="c1"></span><span class="k">export</span> <span class="k">default</span> <span class="k">class</span> <span class="nx">CustomElement</span> <span class="k">extends</span> <span class="nx">Element</span> <span class="p">{</span>
+
+  <span class="c1">// The root property is an SVG element that contains all of the SVG elements
+</span><span class="c1"></span>  <span class="c1">// associated with this custom element.
+</span><span class="c1"></span>  <span class="nx">root</span><span class="o">:</span> <span class="nx">SVGGElement</span><span class="p">;</span>
+
+  <span class="c1">// Constructs an instance of this custom element
+</span><span class="c1"></span>  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">root</span> <span class="o">=</span> <span class="nx">SVG</span><span class="p">.</span><span class="nx">Group</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;custom-element&#39;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</main>
+
+</body>
+</html>
