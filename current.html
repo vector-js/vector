@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/library.css">
 
     <script type="module">
-      import { getUrlParams, getURL, loadScript, download } from './dist/Util.js';
+      import { getUrlParams, getURL, loadScript, download } from './dist/util/file.js';
       let params = getUrlParams(window.location.search);
 
       if (params.has('script')) {

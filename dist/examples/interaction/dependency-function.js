@@ -3,8 +3,7 @@
 * @description This interactive demonstrates how two elements can be made dependent on eachother.
 * @tags []
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 200;
@@ -15,4 +14,7 @@ control2.addDependency(control1);
 control2.update = function () {
     this.x += control1.dx;
 };
+console.log(control2.update);
+export default interactive;
+export { control1, control2 };
 //# sourceMappingURL=dependency-function.js.map

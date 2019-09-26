@@ -4,8 +4,7 @@
 * @tags [elements, input]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, {getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());

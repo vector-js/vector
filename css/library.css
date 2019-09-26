@@ -26,7 +26,7 @@ input.input {
 }
 
 .interactive {
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .interactive {
@@ -35,6 +35,20 @@ input.input {
   font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-smoothing: antialiased;
   user-select: none;
+}
+
+svg.cartesian {
+  display:flex;
+}
+
+/* Flip the vertical axis in <g> to emulate cartesian. */
+svg.cartesian {
+  transform: scaleY(-1);
+}
+
+/* Re-flip all <text> element descendants to their original side up. */
+svg.cartesian > g text {
+  transform: scaleY(-1);
 }
 
 text.element {
@@ -48,12 +62,21 @@ path.element, line.element, rect.element, ellipse.element, circle.element {
   fill:none;
 }
 
-.default text {
-  fill: #333333;
-  stroke: none;
+.control > :first-child {
+  fill:#0366EE;
+  stroke:none;
 }
 
-.control-point {
+.control > :nth-child(2) {
+  fill:transparent;
+  stroke: #0366EE;
+  stroke-width:2px;
+  opacity:0;
+}
+
+
+
+/* .control-point {
   fill:#0366EE;
   stroke:none;
 }
@@ -63,6 +86,11 @@ path.element, line.element, rect.element, ellipse.element, circle.element {
   stroke: #0366EE;
   stroke-width:2px;
   opacity:0;
+} */
+
+.icon {
+  width: 1rem;
+  height: 1rem;
 }
 
 .control-handle.highlight {

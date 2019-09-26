@@ -1,5 +1,5 @@
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive from '../../elements/interactive.js';
+import { getScriptName } from '../../util/file.js';
 import DependencyGraph from "../../model/dependency-graph.js"
 
 let interactive = new Interactive(getScriptName());

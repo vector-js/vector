@@ -1,29 +1,25 @@
-import SVG from './svg.js';
+import SVG from './SVG.js';
 // basic elements
-import Circle from './elements/circle.js';
-import Element from './elements/element.js';
-import Ellipse from './elements/ellipse.js';
-import Group from './elements/group.js';
-import Line from './elements/line.js';
-import Path from './elements/path.js';
-import Text from './elements/text.js';
-import Rectangle from './elements/rectangle.js';
-import Node from './elements/node.js';
-import Edge from './elements/edge.js';
+import Circle from './elements/Circle.js';
+import Element from './elements/Element.js';
+import Ellipse from './elements/Ellipse.js';
+import Group from './elements/Group.js';
+import Line from './elements/Line.js';
+import Path from './elements/Path.js';
+import Text from './elements/Text.js';
+import Rectangle from './elements/Rectangle.js';
+import Node from './elements/Node.js';
+import Edge from './elements/Edge.js';
 // input elements
-import Button from './elements/button.js';
-import CheckBox from './elements/check-box.js';
-import Control from './elements/control.js';
-import ControlCircle from './elements/control-circle.js';
-import Scrubber from './elements/scrubber.js';
-import Slider from './elements/slider.js';
-import RadioControl from './elements/radio-control.js';
+import Button from './elements/Button.js';
+import CheckBox from './elements/CheckBox.js';
+import Control from './elements/Control.js';
+import ControlCircle from './elements/ControlCircle.js';
+import Scrubber from './elements/Scrubber.js';
+import Slider from './elements/Slider.js';
 // complex elements
-import Plot from './elements/plot.js';
-import Graph from './elements/graph.js';
-import Map from './elements/map.js';
-import DirectedGraph from './elements/directed-graph.js';
-import FlowGraph from './elements/flow-graph.js';
+import Plot from './elements/Plot.js';
+import Graph from './elements/Graph.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -36,25 +32,22 @@ export default class Interactive extends Element {
     /**
     * Constructs a new interactive object within the HTML element corresponding
     * to the id. If no element is found throws an error.
-    * TODO: (possibly) if the string is null, then create a headless interactive
     */
     constructor(id) {
-        super(SVG.SVG());
+        super();
         // internal variables
         this._width = 0;
         this._height = 0;
         this._originX = 0;
         this._originY = 0;
-        // store a reference to the container element, check to make sure such an
-        // element exists.
+        // store a reference to the container element
         this.container = document.getElementById(id);
-        if (this.container === null || this.container === undefined) {
-            throw new Error(`There is no HTML element with the id: ${id}`);
-        }
         this.container.classList.add('interactive-container');
         // create and append the root svg element and group elements
-        this.container.appendChild(this.root);
+        this.root = this.container.appendChild(SVG.SVG());
         this.root.classList.add('interactive');
+        this.root.id = this.id;
+        this.style = this.root.style;
         this.background = this.root.appendChild(SVG.Group());
         this.controls = this.root.appendChild(SVG.Group());
         // default configuration
@@ -188,15 +181,6 @@ export default class Interactive extends Element {
         this.root.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
     }
     /**
-    * Creates a nested interactive within this interactive
-    */
-    interactive(x, y) {
-        let obj = new Interactive(this.id);
-        obj.root.setAttribute('x', x.toString());
-        obj.root.setAttribute('y', y.toString());
-        return obj;
-    }
-    /**
     * Creates a checkbox input at the position (x,y) within this interactive.
     */
     button(x, y, label) {
@@ -211,14 +195,6 @@ export default class Interactive extends Element {
         let checkBox = new CheckBox(x, y, label, value);
         this.controls.appendChild(checkBox.root);
         return checkBox;
-    }
-    /**
-    * Creates a checkbox input at the position (x,y) within this interactive.
-    */
-    radioControl(labels, x, y, index = 0) {
-        let radioControl = new RadioControl(labels, x, y, index);
-        this.controls.appendChild(radioControl.root);
-        return radioControl;
     }
     /**
     * Creates a control point within this interactive at the position (x,y).
@@ -251,29 +227,6 @@ export default class Interactive extends Element {
         let graph = new Graph();
         this.background.appendChild(graph.root);
         return graph;
-    }
-    /**
-    * Creates a graph element within this interactive
-    */
-    map(mapName, width, height, externalData = null) {
-        let map = new Map(this, mapName, width, height, externalData);
-        return map;
-    }
-    /*
-    * Creates a directed graph element within this interactive
-    */
-    directedGraph() {
-        let graph = new DirectedGraph();
-        this.background.appendChild(graph.root);
-        return graph;
-    }
-    /*
-    * Creates a flow graph element within this interactive
-    */
-    flowGraph(str) {
-        let flowGraph = new FlowGraph(str);
-        this.background.appendChild(flowGraph.root);
-        return flowGraph;
     }
     /**
     * Creates a slider input within this interactive
@@ -342,8 +295,8 @@ export default class Interactive extends Element {
     /**
     * Creates a node within this interactive.
     */
-    node(x, y, rx, ry, contents) {
-        let node = new Node(x, y, rx, ry, contents);
+    node(x, y, r, contents) {
+        let node = new Node(x, y, r, contents);
         this.background.appendChild(node.root);
         return node;
     }
@@ -355,9 +308,6 @@ export default class Interactive extends Element {
         this.background.appendChild(edge.root);
         return edge;
     }
-    /**
-    * Creates a group element
-    */
     group() {
         let group = new Group();
         this.background.appendChild(group.root);

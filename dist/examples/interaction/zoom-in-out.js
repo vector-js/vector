@@ -4,21 +4,18 @@
 * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position.
 * @tags []
 */
-import Interactive from '../../interactive.js';
-import Text from '../../elements/text.js';
-import { getScriptName } from '../../util.js';
-import Group from '../../elements/group.js';
+import Interactive, { getScriptName } from '../../index.js';
+import Text from '../../elements/svg/text.js';
+import Group from '../../elements/svg/group.js';
 class Zoomable extends Interactive {
     /**
     * Constructs a new interactive with zooming capabilities
     */
-    constructor(id) {
+    constructor(id, width, height) {
         super(id);
         let bbox = this.root.getBoundingClientRect();
-        let width = 704 > bbox.width ? bbox.width : 704;
-        let height = 300 > bbox.height ? bbox.height : 300;
-        this.width = width;
-        this.height = height;
+        this.width = width > bbox.width ? bbox.width : width;
+        this.height = height > bbox.height ? bbox.height : height;
         // initialize variables
         this.zoomIntensity = .02;
         this.scale = 1;
@@ -51,9 +48,11 @@ class Zoomable extends Interactive {
     set mathMode(value) {
         this._mathMode = value;
         if (value) {
+            this.root.classList.add('cartesian');
             this.root.setAttribute('transform', 'scale(1,-1)');
         }
         else {
+            this.root.classList.remove('cartesian');
             this.root.setAttribute('transform', 'scale(1,1)');
         }
     }
@@ -104,17 +103,21 @@ class Zoomable extends Interactive {
         group.root.setAttribute('transform', `translate(${x},${y})`);
         let internal = new Text(0, 0, contents);
         group.root.appendChild(internal.root);
-        internal.root.setAttribute('transform', 'scale(1,-1)');
-        this.background.appendChild(group.root);
+        this.appendChild(group);
         return group;
     }
 }
-let interactive = new Zoomable(getScriptName());
+let interactive = new Zoomable(getScriptName(), 500, 500);
 interactive.border = true;
-interactive.mathMode = true;
+interactive.mathMode = false;
 interactive.circle(0, 0, 5).style.fill = '#333333';
 let control = interactive.control(-15, -15);
 let text = interactive.mathModeText(-15, -15, "(0,0)");
-text.root.style.dominantBaseline = 'hanging';
-// interactive.text( -15, -15, "(0,0)");
+// let text = interactive.text( -15, -15, "(0,0)");
+console.log(control);
+text.addDependency(control);
+text.update = function () {
+    text.root.setAttribute('transform', `translate(${control.x + 15}, ${control.y + 15})`);
+    text.root.firstChild.innerHTML = `(${control.x.toFixed(2)}, ${control.y.toFixed(2)})`;
+};
 //# sourceMappingURL=zoom-in-out.js.map

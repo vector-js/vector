@@ -4,9 +4,7 @@
 * @tags [math]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
-import SVG from '../../svg.js';
+import Interactive, {getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
@@ -53,17 +51,12 @@ function mirrorCircle( point ) {
 }
 
 // Draw a triangle for display
-let display_triangle = interactive.path('');
+let clipPath = interactive.clipPath();
+let display_triangle = clipPath.path('');
 display_triangle.root.style.strokeWidth = '2px';
 display_triangle.addDependency(triangle);
 display_triangle.update = function() {
   this.d = triangle.d;
 };
 display_triangle.update();
-
-// TODO: change this
-let clipPath = SVG.ClipPath();
-clipPath.id = 'triangle-with-angles-clip-path';
-clipPath.appendChild(triangle.root);
-interactive.root.appendChild(clipPath);
-(interactive.root.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);
+interactive.background.root.setAttribute('clip-path', `url(#${clipPath.id})`);

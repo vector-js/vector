@@ -5,8 +5,7 @@
 * @author Kurt Bruns
 * @tags [svg]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 let margin = 0;
 interactive.width = 692;

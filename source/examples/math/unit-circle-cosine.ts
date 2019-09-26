@@ -5,7 +5,7 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../../interactive.js';
+import Interactive, {getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let id = 'unit-circle-cosine';

@@ -1,4 +1,4 @@
-import Controller from '../controller.js';
+import Controller from './controller.js';
 /**
 * A basic element of the interactive ecosystem. Each element has an unique
 * identifier, an update function to be defined by the user, and the ability to
@@ -33,6 +33,25 @@ export default class Element {
     */
     get id() {
         return this._id;
+    }
+    /**
+    * Sets the provided attribute with the value.
+    */
+    setAttribute(attribute, value) {
+        this.root.setAttribute(attribute, value);
+    }
+    /**
+    * Returns the value associated with the attribute.
+    */
+    getAttribute(attribute) {
+        return this.root.getAttribute(attribute);
+    }
+    /**
+    * Appends the element as a child within this element.
+    */
+    appendChild(child) {
+        this.root.appendChild(child.root);
+        return child;
     }
     /**
     * Removes this element from the DOM and from the Element controller.

@@ -5,8 +5,7 @@
 * @date July 8, 2019
 * @author Kurt Bruns
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.window = true;

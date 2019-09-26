@@ -1,12 +1,11 @@
 /**
 * @title Merge Sort Interactive
 * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
-* @tags [math, algorithm]
+* @tags [math, algorithm, graph]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
-import Node from '../../elements/node.js';
+import Interactive, {getScriptName} from '../../index.js';
+import Node from '../../elements/graph/node.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 704;
@@ -203,7 +202,7 @@ export function mergeSort(array: number[], level:number, parent:Node): number[] 
   let mergedArr = merge(mergeLeft, mergeRight)
 
   if(nodeCountTo < nodeCounterMax){
-    parent.text = mergedArr.toString();
+    parent.label = mergedArr.toString();
     parent.nodeName.root.setAttribute("opacity", "1")
     nodeCountTo++;
   }
