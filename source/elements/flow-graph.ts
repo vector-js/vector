@@ -4,8 +4,6 @@ import Edge from '../elements/edge.js';
 import DirectedGraph from '../elements/directed-graph.js';
 import DependencyGraph from '../model/dependency-graph.js';
 import LinkedList from '../model/linked-list.js';
-
-
 import SVG from '../svg.js';
 
 /**
@@ -14,9 +12,9 @@ import SVG from '../svg.js';
 export default class FlowGraph extends DirectedGraph {
 
   dGraph:DependencyGraph<string>;
-  levelsMap: Map<number, Set<Node>>;
-  edgeMap: Map<Node, Set<Node>>;
-  list:LinkedList<Node>;
+  levelsMap: Map<number, Set<string>>;
+  edgeMap: Map<string, Set<string>>;
+  list:LinkedList<string>;
   /**
   * Constructs a directed graph
   */
@@ -32,7 +30,7 @@ export default class FlowGraph extends DirectedGraph {
     this.draw();
   }
 
-  setLevels(list: LinkedList<string>){
+  setLevels(){
 
     this.levelsMap.set(0, new Set<string>())
 
@@ -70,13 +68,6 @@ export default class FlowGraph extends DirectedGraph {
       }
       x = 0;
       y+= 64;
-    }
-
-    for(let node of this.list){
-      let dependents = this.dGraph.getAdjacentNodes(node);
-      for(let edge of dependents){
-        this.addEdge()
-      }
     }
   }
 }

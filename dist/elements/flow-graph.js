@@ -16,7 +16,7 @@ export default class FlowGraph extends DirectedGraph {
         this.setLevels();
         this.draw();
     }
-    setLevels(list) {
+    setLevels() {
         this.levelsMap.set(0, new Set());
         let currentLevel = 0;
         for (let node of this.list) {
@@ -47,12 +47,6 @@ export default class FlowGraph extends DirectedGraph {
             }
             x = 0;
             y += 64;
-        }
-        for (let node of this.list) {
-            let dependents = this.dGraph.getAdjacentNodes(node);
-            for (let edge of dependents) {
-                this.addEdge();
-            }
         }
     }
 }
