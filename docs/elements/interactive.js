@@ -3,7 +3,7 @@ import { getURL } from '../util/file.js';
 import { parseSVG } from '../util/svg.js';
 // basic elements
 import Element from '../elements/element.js';
-import Input from '../elements/input.js';
+import Input from '../elements/input/input.js';
 // svg elements
 import SVG from '../elements/svg/svg.js';
 import Group from '../elements/svg/group.js';
@@ -73,6 +73,8 @@ export default class Interactive extends SVG {
         this._originY = 0;
         this._width = 600;
         this._height = 300;
+        this.root.setAttribute('width', this._width.toString());
+        this.root.setAttribute('height', this._height.toString());
         this.setViewBox(-this._originX, -this._originY, this._width, this._height);
         this.window = false;
         // prevent the default behavior of selecting text

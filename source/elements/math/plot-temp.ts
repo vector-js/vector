@@ -7,7 +7,7 @@ import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
 import ZoomPanInteractive from './zoom-pan.js';
 
-import Input from '../input.js';
+import Input from '../input/input.js';
 
 /**
 * A plot of the graph of a function.

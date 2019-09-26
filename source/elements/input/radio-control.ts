@@ -1,11 +1,10 @@
-import Input from '../element.js';
+import Input from './input.js';
 import CheckBox from './check-box.js';
-import Group from '../svg/group.js';
 
 /**
 *  Radio Buttons with labels. Only one of the checkboxes will be checked at any given time.
 */
-export default class RadioControl extends Group implements Input {
+export default class RadioControl extends Input {
 
   /*
   * the list of checkboxes that belong to the radio control

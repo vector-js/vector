@@ -8,7 +8,7 @@ import Interactive, {getScriptName} from '../../index.js';
 
 let myInteractive = new Interactive(getScriptName());
 
-let svg = myInteractive.loadSVG('/images/united-states.svg');
+let svg = myInteractive.loadSVG('/resources/maps/united-states.svg');
 svg.then(function(data){
   let bbox = data.root.getBBox();
   myInteractive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);

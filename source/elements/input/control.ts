@@ -1,5 +1,5 @@
 import Element from '../element.js';
-import Input from '../input.js';
+import Input from './input.js';
 
 import Path from '../svg/path.js';
 import Circle from '../svg/circle.js';
@@ -17,7 +17,7 @@ class Point {
 /**
 * A control point is a draggable two dimensional point.
 */
-export default class Control extends Group implements Input {
+export default class Control extends Input {
 
   // Describes the size of the control handle and point
   private static pointRadius : number = 4;

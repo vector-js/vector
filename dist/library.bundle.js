@@ -494,12 +494,6 @@ var Interactive = (function (exports) {
     Element.count = 0;
 
     /**
-    * An object that takes in user input in the form of user events.
-    */
-    class Input extends Element {
-    }
-
-    /**
     * A circle is a basic geometric element with a position and radius.
     *
     * properties:
@@ -588,98 +582,28 @@ var Interactive = (function (exports) {
     }
 
     /**
-    * An ellipse is a basic element with a position, x-radius, and y-radius
+    * A path element allows for the creation of complicated shapes and curves.
     */
-    class Ellipse extends Element {
+    class Path extends Element {
         /**
-        * Constructs a ellipse element at the position (cx,cy) with a rx and ry radius.
+        * Construct a new path element with a string of commands.
         */
-        constructor(cx, cy, rx, ry) {
-            let ellipse = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
-            ellipse.setAttributeNS(null, 'cx', cx.toString());
-            ellipse.setAttributeNS(null, 'cy', cy.toString());
-            ellipse.setAttributeNS(null, 'rx', rx.toString());
-            ellipse.setAttributeNS(null, 'ry', ry.toString());
-            super(ellipse);
+        constructor(d) {
+            let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', d);
+            super(path);
         }
         /**
-        * Returns the x position of the rectangle
+        * Returns the d attribute
         */
-        get cx() {
-            return this.root.cx.baseVal.value;
+        get d() {
+            return this.root.getAttribute('d');
         }
         /**
-        * Sets the x position of the rectangle
+        * Sets the d attribute
         */
-        set cx(n) {
-            this.root.cx.baseVal.value = n;
-        }
-        /**
-        * Returns the y position of the rectangle
-        */
-        get cy() {
-            return this.root.cy.baseVal.value;
-        }
-        /**
-        * Sets the y position of the rectangle
-        */
-        set cy(n) {
-            this.root.cy.baseVal.value = n;
-        }
-        /**
-        * Returns the width of the rectangle
-        */
-        get rx() {
-            return this.root.rx.baseVal.value;
-        }
-        /**
-        * Sets the width of the rectangle
-        */
-        set rx(n) {
-            this.root.rx.baseVal.value = n;
-        }
-        /**
-        * Returns the height of the rectangle
-        */
-        get ry() {
-            return this.root.ry.baseVal.value;
-        }
-        /**
-        * Sets the height of the rectangle
-        */
-        set ry(n) {
-            this.root.ry.baseVal.value = n;
-        }
-        /**
-        * Translates the ellipse to a new position by changing the x and y attributes.
-        */
-        translate(x, y) {
-            this.root.cx.baseVal.value = this.root.cx.baseVal.value + x;
-            this.root.cy.baseVal.value = this.root.cy.baseVal.value + y;
-        }
-        /**
-        * Returns the fill style of this ellipse
-        */
-        get fill() {
-            return this.root.style.fill;
-        }
-        /**
-        * Sets the fill style of this ellipse
-        */
-        set fill(s) {
-            this.root.style.fill = s;
-        }
-        /**
-        * Returns the stroke style of this ellipse
-        */
-        get stroke() {
-            return this.root.style.stroke;
-        }
-        /**
-        * Sets the stroke style of this ellipse
-        */
-        set stroke(s) {
-            this.root.style.stroke = s;
+        set d(d) {
+            this.root.setAttribute('d', d);
         }
     }
 
@@ -785,28 +709,105 @@ var Interactive = (function (exports) {
     }
 
     /**
-    * A path element allows for the creation of complicated shapes and curves.
+    * An ellipse is a basic element with a position, x-radius, and y-radius
     */
-    class Path extends Element {
+    class Ellipse extends Element {
         /**
-        * Construct a new path element with a string of commands.
+        * Constructs a ellipse element at the position (cx,cy) with a rx and ry radius.
         */
-        constructor(d) {
-            let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            path.setAttribute('d', d);
-            super(path);
+        constructor(cx, cy, rx, ry) {
+            let ellipse = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+            ellipse.setAttributeNS(null, 'cx', cx.toString());
+            ellipse.setAttributeNS(null, 'cy', cy.toString());
+            ellipse.setAttributeNS(null, 'rx', rx.toString());
+            ellipse.setAttributeNS(null, 'ry', ry.toString());
+            super(ellipse);
         }
         /**
-        * Returns the d attribute
+        * Returns the x position of the rectangle
         */
-        get d() {
-            return this.root.getAttribute('d');
+        get cx() {
+            return this.root.cx.baseVal.value;
         }
         /**
-        * Sets the d attribute
+        * Sets the x position of the rectangle
         */
-        set d(d) {
-            this.root.setAttribute('d', d);
+        set cx(n) {
+            this.root.cx.baseVal.value = n;
+        }
+        /**
+        * Returns the y position of the rectangle
+        */
+        get cy() {
+            return this.root.cy.baseVal.value;
+        }
+        /**
+        * Sets the y position of the rectangle
+        */
+        set cy(n) {
+            this.root.cy.baseVal.value = n;
+        }
+        /**
+        * Returns the width of the rectangle
+        */
+        get rx() {
+            return this.root.rx.baseVal.value;
+        }
+        /**
+        * Sets the width of the rectangle
+        */
+        set rx(n) {
+            this.root.rx.baseVal.value = n;
+        }
+        /**
+        * Returns the height of the rectangle
+        */
+        get ry() {
+            return this.root.ry.baseVal.value;
+        }
+        /**
+        * Sets the height of the rectangle
+        */
+        set ry(n) {
+            this.root.ry.baseVal.value = n;
+        }
+        /**
+        * Translates the ellipse to a new position by changing the x and y attributes.
+        */
+        translate(x, y) {
+            this.root.cx.baseVal.value = this.root.cx.baseVal.value + x;
+            this.root.cy.baseVal.value = this.root.cy.baseVal.value + y;
+        }
+        /**
+        * Returns the fill style of this ellipse
+        */
+        get fill() {
+            return this.root.style.fill;
+        }
+        /**
+        * Sets the fill style of this ellipse
+        */
+        set fill(s) {
+            this.root.style.fill = s;
+        }
+        /**
+        * Returns the stroke style of this ellipse
+        */
+        get stroke() {
+            return this.root.style.stroke;
+        }
+        /**
+        * Sets the stroke style of this ellipse
+        */
+        set stroke(s) {
+            this.root.style.stroke = s;
+        }
+    }
+
+    class Use extends Element {
+        constructor() {
+            let use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+            super(use);
         }
     }
 
@@ -851,20 +852,6 @@ var Interactive = (function (exports) {
         }
         title() {
             throw new Error("Method not implemented.");
-        }
-    }
-
-    class Use extends Element {
-        constructor() {
-            let use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-            super(use);
-        }
-    }
-
-    class Defs extends Element {
-        constructor() {
-            let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-            super(defs);
         }
     }
 
@@ -965,6 +952,13 @@ var Interactive = (function (exports) {
         */
         set stroke(s) {
             this.root.style.stroke = s;
+        }
+    }
+
+    class Symbol$1 extends Element {
+        constructor() {
+            let symbol = document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
+            super(symbol);
         }
     }
 
@@ -1075,77 +1069,6 @@ var Interactive = (function (exports) {
     }
 
     /**
-    * A group is a structural element that allows for elements to be grouped
-    * together and have styles and transformations applied to the elements in the
-    * group.
-    */
-    class Group extends Element {
-        /**
-        * Constructs a rectangle element at the position (x,y)
-        */
-        constructor() {
-            let group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-            super(group);
-        }
-        // Descriptive methods
-        symbol() {
-            throw new Error("Method not implemented.");
-        }
-        description() {
-            throw new Error("Method not implemented.");
-        }
-        metadata() {
-            throw new Error("Method not implemented.");
-        }
-        title() {
-            throw new Error("Method not implemented.");
-        }
-        // Structural methods
-        defs() {
-            return this.appendChild(new Defs());
-        }
-        group() {
-            return this.appendChild(new Group());
-        }
-        svg() {
-            return this.appendChild(new SVG());
-        }
-        use() {
-            return this.appendChild(new Use());
-        }
-        // Shape methods
-        circle(cx, cy, r) {
-            return this.appendChild(new Circle(cx, cy, r));
-        }
-        ellipse(cx, cy, rx, ry) {
-            return this.appendChild(new Ellipse(cx, cy, rx, ry));
-        }
-        line(x1, y1, x2, y2) {
-            return this.appendChild(new Line(x1, y1, x2, y2));
-        }
-        path(d) {
-            return this.appendChild(new Path(d));
-        }
-        polygon() {
-            throw new Error("Method not implemented.");
-        }
-        rectangle(x, y, width, height) {
-            return this.appendChild(new Rectangle(x, y, width, height));
-        }
-        // other methods
-        text(x, y, str) {
-            return this.appendChild(new Text(x, y, str));
-        }
-    }
-
-    class Symbol$1 extends Element {
-        constructor() {
-            let symbol = document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
-            super(symbol);
-        }
-    }
-
-    /**
     * This class represents a svg element.
     */
     class SVG extends Element {
@@ -1250,6 +1173,86 @@ var Interactive = (function (exports) {
         }
     }
 
+    class Defs extends Element {
+        constructor() {
+            let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            super(defs);
+        }
+    }
+
+    /**
+    * A group is a structural element that allows for elements to be grouped
+    * together and have styles and transformations applied to the elements in the
+    * group.
+    */
+    class Group extends Element {
+        /**
+        * Constructs a rectangle element at the position (x,y)
+        */
+        constructor() {
+            let group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            super(group);
+        }
+        // Descriptive methods
+        symbol() {
+            throw new Error("Method not implemented.");
+        }
+        description() {
+            throw new Error("Method not implemented.");
+        }
+        metadata() {
+            throw new Error("Method not implemented.");
+        }
+        title() {
+            throw new Error("Method not implemented.");
+        }
+        // Structural methods
+        defs() {
+            return this.appendChild(new Defs());
+        }
+        group() {
+            return this.appendChild(new Group());
+        }
+        svg() {
+            return this.appendChild(new SVG());
+        }
+        use() {
+            return this.appendChild(new Use());
+        }
+        // Shape methods
+        circle(cx, cy, r) {
+            return this.appendChild(new Circle(cx, cy, r));
+        }
+        ellipse(cx, cy, rx, ry) {
+            return this.appendChild(new Ellipse(cx, cy, rx, ry));
+        }
+        line(x1, y1, x2, y2) {
+            return this.appendChild(new Line(x1, y1, x2, y2));
+        }
+        path(d) {
+            return this.appendChild(new Path(d));
+        }
+        polygon() {
+            throw new Error("Method not implemented.");
+        }
+        rectangle(x, y, width, height) {
+            return this.appendChild(new Rectangle(x, y, width, height));
+        }
+        // other methods
+        text(x, y, str) {
+            return this.appendChild(new Text(x, y, str));
+        }
+    }
+
+    /**
+    * An object that takes in user input in the form of user events.
+    */
+    class Input extends Group {
+        constructor() {
+            super();
+        }
+    }
+
     class Icon extends Group {
         constructor(x, y) {
             super();
@@ -1262,11 +1265,11 @@ var Interactive = (function (exports) {
     /**
     * A button that when pressed fires an onclick event.
     */
-    class Button extends Group {
+    class Button extends Input {
         /**
         * Constructs a button at the position (x,y)
         */
-        constructor(x, y, text) {
+        constructor(x, y, str) {
             super();
             /**
             * The state of the checkbox
@@ -1275,13 +1278,14 @@ var Interactive = (function (exports) {
             this.root.setAttribute('transform', `translate(${x},${y})`);
             this.root.classList.add('button');
             // Create a text element
-            this.label = this.text(0, 1, text);
+            this.label = new Text(0, 1, str);
             this.label.root.setAttribute('alignment-baseline', 'middle');
             this.label.root.style.textAnchor = 'middle';
             // TODO: why is this.text.root.textLength returning zero?
-            this.box = this.rectangle(0, -16, this.text.length * 2 + 16, 32);
+            this.box = this.rectangle(0, -16, this.label.length * 2 + 16, 32);
             this.box.root.setAttribute('rx', '2px');
             this.label.x = this.box.x + this.box.width / 2;
+            this.appendChild(this.label);
         }
         /**
         * Fires when the user clicks the left button on the button.
@@ -1301,7 +1305,7 @@ var Interactive = (function (exports) {
     * A checkbox with an label. The can be checked, unchecked, and related to other
     * elements.
     */
-    class CheckBox extends Group {
+    class CheckBox extends Input {
         /**
         * Constructs a control at the position (x,y)
         */
@@ -1366,7 +1370,7 @@ var Interactive = (function (exports) {
     /**
     * A control point is a draggable two dimensional point.
     */
-    class Control extends Group {
+    class Control extends Input {
         /**
         * Constructs a control at the position (x,y)
         */
@@ -1729,7 +1733,7 @@ var Interactive = (function (exports) {
     /**
     *  Radio Buttons with labels. Only one of the checkboxes will be checked at any given time.
     */
-    class RadioControl extends Group {
+    class RadioControl extends Input {
         /*
         * labels: the labels for the radio buttons
         * x: x position of control
@@ -1790,7 +1794,7 @@ var Interactive = (function (exports) {
     * a user- defined range. The slider has a minimum value and a maximum value
     * which default to the range [0, 100].
     */
-    class Slider extends Group {
+    class Slider extends Input {
         /**
         * Constructs the slider at the position (x,y). The leftmost edge of the line
         * is placed at this location.
@@ -56292,6 +56296,8 @@ var Interactive = (function (exports) {
             this._originY = 0;
             this._width = 600;
             this._height = 300;
+            this.root.setAttribute('width', this._width.toString());
+            this.root.setAttribute('height', this._height.toString());
             this.setViewBox(-this._originX, -this._originY, this._width, this._height);
             this.window = false;
             // prevent the default behavior of selecting text

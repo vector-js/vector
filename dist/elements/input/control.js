@@ -1,8 +1,8 @@
 import Element from '../element.js';
+import Input from './input.js';
 import Path from '../svg/path.js';
 import Circle from '../svg/circle.js';
 import Rectangle from '../svg/rectangle.js';
-import Group from '../svg/group.js';
 /**
 * A point has an x position and y position
 */
@@ -11,7 +11,7 @@ class Point {
 /**
 * A control point is a draggable two dimensional point.
 */
-export default class Control extends Group {
+export default class Control extends Input {
     /**
     * Constructs a control at the position (x,y)
     */

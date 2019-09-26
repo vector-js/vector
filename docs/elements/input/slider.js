@@ -1,12 +1,12 @@
 import Line from '../svg/line.js';
+import Input from './input.js';
 import ControlCircle from './control-circle.js';
-import Group from '../svg/group.js';
 /**
 * A horizontal slider is an object that allows for a control to be moved along
 * a user- defined range. The slider has a minimum value and a maximum value
 * which default to the range [0, 100].
 */
-export default class Slider extends Group {
+export default class Slider extends Input {
     /**
     * Constructs the slider at the position (x,y). The leftmost edge of the line
     * is placed at this location.

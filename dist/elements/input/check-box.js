@@ -1,11 +1,11 @@
 import Rectangle from '../svg/rectangle.js';
 import Text from '../svg/text.js';
-import Group from '../svg/group.js';
+import Input from './input.js';
 /**
 * A checkbox with an label. The can be checked, unchecked, and related to other
 * elements.
 */
-export default class CheckBox extends Group {
+export default class CheckBox extends Input {
     /**
     * Constructs a control at the position (x,y)
     */

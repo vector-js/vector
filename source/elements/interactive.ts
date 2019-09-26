@@ -4,7 +4,7 @@ import { parseSVG } from '../util/svg.js';
 
 // basic elements
 import Element from '../elements/element.js';
-import Input from '../elements/input.js';
+import Input from '../elements/input/input.js';
 
 // svg elements
 import SVG from '../elements/svg/svg.js';
