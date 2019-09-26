@@ -3,8 +3,7 @@
 * @description This interactive demonstrates how a line is uniquely defined by two points.
 * @tags [math]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.window = true;

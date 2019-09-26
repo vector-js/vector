@@ -1,4 +1,4 @@
-import SVG from '../elements/svg.js';
+import SVG from '../elements/svg/svg.js';
 import { descriptiveTests, shapeTests, structuralTests, typographyTests } from './content-model.test.js';
 
 describe('SVG', function () {

@@ -1,4 +1,4 @@
-import Controller from '../controller.js';
+import Controller from './controller.js';
 
 /**
 * A basic element of the interactive ecosystem. Each element has an unique
@@ -124,11 +124,4 @@ export default class Element {
   updateDependents() {
     Element.controller.update(this);
   }
-}
-
-/**
-*
-*/
-export class Input extends Element {
-
 }

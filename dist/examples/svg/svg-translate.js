@@ -3,8 +3,7 @@
 * @description This interactive how the translate transformation can be applied to a SVG element.
 * @tags [svg]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 700;
 interactive.height = 300;

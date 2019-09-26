@@ -5,7 +5,7 @@
 * @date June 9, 2019
 * @author Kurt Bruns
 */
-import Interactive from '../../interactive.js';
+import Interactive from '../../index.js';
 // Initialize the interactive
 let id = 'unit-circle-right-triangle';
 let interactive = new Interactive(id);

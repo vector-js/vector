@@ -1,4 +1,4 @@
-import { Descriptive, Shape, Structural, Typography } from '../content-model.js';
+import { Descriptive, Shape, Structural, Typography } from '../elements/svg-content-model.js';
 
 /**
 * Tests that the provided element correctly implements the "descriptive" content
@@ -69,16 +69,20 @@ export var structuralTests = function() {
   });
 
   it('should create and append a defs element', function() {
-    chai.expect.fail('not implemented');
+    let defs = element.defs();
+    chai.expect(element.root.contains(defs.root));
   });
   it('should create and append a group element', function() {
-    chai.expect.fail('not implemented');
+    let group = element.group();
+    chai.expect(element.root.contains(group.root));
   });
   it('should create and append a svg element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.svg();
+    chai.expect(element.root.contains(child.root));
   });
   it('should create and append a use element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.use();
+    chai.expect(element.root.contains(child.root));
   });
 };
 

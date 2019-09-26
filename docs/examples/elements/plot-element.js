@@ -3,8 +3,7 @@
 * @description This interactive demonstrates the plot element
 * @tags [elements]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.width = 600;
@@ -14,6 +13,7 @@ let functionText = '(x) => { return Math.sin(x); }';
 // Create a new graph object
 let graph = interactive.plot();
 graph.function = eval(functionText);
+graph.draw();
 // graph.originX = 0;
 // graph.originY = interactive.height/2;
 // graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
@@ -31,7 +31,6 @@ functionInput.style.marginBottom = '8px';
 functionInput.style.padding = '0 .5rem';
 functionInput.onchange = function () {
     graph.function = eval(functionInput.value);
-    graph.draw();
 };
 interactive.container.parentElement.insertBefore(functionInput, interactive.container);
 //# sourceMappingURL=plot-element.js.map

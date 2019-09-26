@@ -26,7 +26,7 @@ input.input {
 }
 
 .interactive {
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .interactive {
@@ -62,12 +62,21 @@ path.element, line.element, rect.element, ellipse.element, circle.element {
   fill:none;
 }
 
-.default text {
-  fill: #333333;
-  stroke: none;
+.control > :first-child {
+  fill:#0366EE;
+  stroke:none;
 }
 
-.control-point {
+.control > :nth-child(2) {
+  fill:transparent;
+  stroke: #0366EE;
+  stroke-width:2px;
+  opacity:0;
+}
+
+
+
+/* .control-point {
   fill:#0366EE;
   stroke:none;
 }
@@ -77,7 +86,7 @@ path.element, line.element, rect.element, ellipse.element, circle.element {
   stroke: #0366EE;
   stroke-width:2px;
   opacity:0;
-}
+} */
 
 .icon {
   width: 1rem;

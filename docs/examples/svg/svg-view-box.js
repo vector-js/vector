@@ -3,8 +3,7 @@
 * @description This interactive demonstrates how the view box attribute can be applied to a SVG element to change the view port of the image.
 * @tags [svg]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let viewBoxControl = new Interactive(getScriptName());
 viewBoxControl.border = true;
 viewBoxControl.width = 704 / 2;

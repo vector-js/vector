@@ -1,4 +1,4 @@
-import Point from '../elements/point.js';
+import Point from '../elements/math/point.js';
 
 /**
 * Returns the next prime number after the given integer.

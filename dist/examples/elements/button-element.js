@@ -3,8 +3,7 @@
 * @description The button element is a user clickable button with some text inside of it.
 * @tags [elements, input]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;

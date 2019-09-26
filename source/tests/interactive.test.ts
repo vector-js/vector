@@ -1,4 +1,4 @@
-import Interactive from '../interactive.js';
+import Interactive from '../index.js';
 
 describe('Interactive', function () {
 

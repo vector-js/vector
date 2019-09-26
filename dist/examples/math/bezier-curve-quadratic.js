@@ -3,8 +3,7 @@
 * @description This interactive demonstrates a quadratic bezier curve.
 * @tags [math]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.window = true;
 let l1 = interactive.line(0, 0, 0, 0);

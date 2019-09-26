@@ -75,10 +75,16 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "typedocOptions": {
-    "mode": "modules",
-    "exclude": "**/examples/*",
-    "out": "docs",
+    "mode": "file",
+    "target": "ES6",
+    "out": "hugo/static/api",
+    "includes" : "./source",
+    "exclude": ["./source/examples/**/*", "./source/tests/**/*"],
     "theme": "minimal",
     "readme": "README.md"
+    /* exclude internal */
+    /* exclude not exported */
+    /* exclude private */
+    /* readme none */
   }
 }

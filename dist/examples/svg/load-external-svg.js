@@ -3,8 +3,7 @@
 * @description This interactive demonstrates how to load and use an external svg.
 * @tags [svg]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import Interactive, { getScriptName } from '../../index.js';
 let myInteractive = new Interactive(getScriptName());
 let svg = myInteractive.loadSVG('/images/united-states.svg');
 svg.then(function (data) {

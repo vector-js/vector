@@ -942,8 +942,26 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a href="edge.html#disable" class="tsd-kind-icon">disable</a>
 				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#fill" class="tsd-kind-icon">fill</a>
+				</li>
 				<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 					<a href="edge.html#id" class="tsd-kind-icon">id</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#stroke" class="tsd-kind-icon">stroke</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#x1" class="tsd-kind-icon">x1</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#x2" class="tsd-kind-icon">x2</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#y1" class="tsd-kind-icon">y1</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#y2" class="tsd-kind-icon">y2</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="edge.html#adddependency" class="tsd-kind-icon">add<wbr>Dependency</a>
@@ -959,6 +977,9 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="edge.html#setattribute" class="tsd-kind-icon">set<wbr>Attribute</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="edge.html#translate" class="tsd-kind-icon">translate</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="edge.html#updatedependents" class="tsd-kind-icon">update<wbr>Dependents</a>
@@ -986,7 +1007,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<a href="element.html" class="tsd-signature-type">Element</a>
+					<a href="line.html" class="tsd-signature-type">Line</a>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">Edge</span>
@@ -1022,7 +1043,13 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-inherited">
 						<h3>Accessors</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#fill" class="tsd-kind-icon">fill</a></li>
 							<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#id" class="tsd-kind-icon">id</a></li>
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#stroke" class="tsd-kind-icon">stroke</a></li>
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#x1" class="tsd-kind-icon">x1</a></li>
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#x2" class="tsd-kind-icon">x2</a></li>
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#y1" class="tsd-kind-icon">y1</a></li>
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#y2" class="tsd-kind-icon">y2</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -1033,6 +1060,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#remove" class="tsd-kind-icon">remove</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#setattribute" class="tsd-kind-icon">set<wbr>Attribute</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#translate" class="tsd-kind-icon">translate</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="edge.html#updatedependents" class="tsd-kind-icon">update<wbr>Dependents</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="edge.html#calculatelineposition" class="tsd-kind-icon">calculate<wbr>Line<wbr>Position</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="edge.html#clear" class="tsd-kind-icon">clear</a></li>
@@ -1052,9 +1080,9 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#constructor">constructor</a></p>
+							<p>Overrides <a href="line.html">Line</a>.<a href="line.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in elements/edge.ts:15</li>
+								<li>Defined in elements/graph/edge.ts:14</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1087,7 +1115,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">directed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/edge.ts:12</li>
+						<li>Defined in elements/graph/edge.ts:11</li>
 					</ul>
 				</aside>
 			</section>
@@ -1097,7 +1125,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">node<wbr>From<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Node</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/edge.ts:13</li>
+						<li>Defined in elements/graph/edge.ts:12</li>
 					</ul>
 				</aside>
 			</section>
@@ -1107,7 +1135,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">node<wbr>To<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Node</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/edge.ts:14</li>
+						<li>Defined in elements/graph/edge.ts:13</li>
 					</ul>
 				</aside>
 			</section>
@@ -1116,9 +1144,9 @@ img { max-width: 100%; }
 				<h3>root</h3>
 				<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SVGLineElement</span></div>
 				<aside class="tsd-sources">
-					<p>Overrides <a href="element.html">Element</a>.<a href="element.html#root">root</a></p>
+					<p>Overrides <a href="line.html">Line</a>.<a href="line.html#root">root</a></p>
 					<ul>
-						<li>Defined in elements/edge.ts:15</li>
+						<li>Defined in elements/graph/edge.ts:14</li>
 					</ul>
 				</aside>
 			</section>
@@ -1221,6 +1249,24 @@ img { max-width: 100%; }
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 			<h2>Accessors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="fill" class="tsd-anchor"></a>
+				<h3>fill</h3>
+				<div class="tsd-signature tsd-kind-icon">fill<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#fill">fill</a></p>
+					<ul>
+						<li>Defined in elements/svg/line.ts:95</li>
+						<li>Defined in elements/svg/line.ts:102</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the fill style of this line
+						Sets the fill style of this line</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 				<a name="id" class="tsd-anchor"></a>
 				<h3>id</h3>
@@ -1234,6 +1280,96 @@ img { max-width: 100%; }
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Returns the unique generated identifier associated with this element.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="stroke" class="tsd-anchor"></a>
+				<h3>stroke</h3>
+				<div class="tsd-signature tsd-kind-icon">stroke<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#stroke">stroke</a></p>
+					<ul>
+						<li>Defined in elements/svg/line.ts:109</li>
+						<li>Defined in elements/svg/line.ts:116</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the stroke style of this line
+						Sets the stroke style of this line</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="x1" class="tsd-anchor"></a>
+				<h3>x1</h3>
+				<div class="tsd-signature tsd-kind-icon">x1<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#x1">x1</a></p>
+					<ul>
+						<li>Defined in elements/svg/line.ts:26</li>
+						<li>Defined in elements/svg/line.ts:33</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the x position of the start position
+						Sets the x position of the start position</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="x2" class="tsd-anchor"></a>
+				<h3>x2</h3>
+				<div class="tsd-signature tsd-kind-icon">x2<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#x2">x2</a></p>
+					<ul>
+						<li>Defined in elements/svg/line.ts:54</li>
+						<li>Defined in elements/svg/line.ts:61</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the x position of the end position
+						Sets the x position of the end position</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="y1" class="tsd-anchor"></a>
+				<h3>y1</h3>
+				<div class="tsd-signature tsd-kind-icon">y1<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#y1">y1</a></p>
+					<ul>
+						<li>Defined in elements/svg/line.ts:40</li>
+						<li>Defined in elements/svg/line.ts:47</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the y position of the start position
+						Sets the y position of the start position</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="y2" class="tsd-anchor"></a>
+				<h3>y2</h3>
+				<div class="tsd-signature tsd-kind-icon">y2<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#y2">y2</a></p>
+					<ul>
+						<li>Defined in elements/svg/line.ts:68</li>
+						<li>Defined in elements/svg/line.ts:75</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the y position of the end position
+						Sets the y position of the end position</p>
 					</div>
 				</div>
 			</section>
@@ -1389,6 +1525,33 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="translate" class="tsd-anchor"></a>
+				<h3>translate</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="line.html">Line</a>.<a href="line.html#translate">translate</a></p>
+							<ul>
+								<li>Defined in elements/svg/line.ts:85</li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>x: <span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>y: <span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="updatedependents" class="tsd-anchor"></a>
 				<h3>update<wbr>Dependents</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1421,7 +1584,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/edge.ts:36</li>
+								<li>Defined in elements/graph/edge.ts:35</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

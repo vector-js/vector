@@ -1,5 +1,5 @@
 export default {
-  input: 'dist/interactive.js',
+  input: 'dist/index.js',
   output: {
     file: 'dist/library.bundle.js',
     format: 'iife',

@@ -4,9 +4,7 @@
 * @tags [svg]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
-import SVG from '../../elements/svg.js';
+import Interactive, {getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
@@ -35,21 +33,17 @@ for (let i = 0; i < interactive.width/size; i++) {
 // Create a control circle and modify its dimensions, also hide the display point
 // TODO: in the future it probably will be best to be able to make a basic element draggable
 let control = interactive.controlCircle( interactive.width/2, interactive.height/2);
-control.handle.r.baseVal.value = 50;
+control.handle.r = 50;
 control.handle.style.strokeOpacity = '1';
 control.point.style.display = 'none';
 
-// Create a circle
-let circle = interactive.circle( interactive.width/2, interactive.height/2, 50);
+// TODO: this is hacky and should be replaced with a clip path element? or a wrapper or something?
+let clipPath = interactive.clipPath();
+let circle = clipPath.circle( interactive.width/2, interactive.height/2, 50);
 circle.addDependency(control);
 circle.update = function() {
   this.cx = control.x;
   this.cy = control.y;
 }
 
-// TODO: this is hacky and should be replaced with a clip path element? or a wrapper or something?
-let clipPath = SVG.ClipPath();
-clipPath.id = 'test';
-clipPath.appendChild(circle.root);
-interactive.root.appendChild(clipPath);
-(interactive.root.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);
+interactive.background.root.setAttribute('clip-path', `url(#${clipPath.id})`);

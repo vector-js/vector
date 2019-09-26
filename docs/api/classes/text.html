@@ -951,7 +951,7 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="text.html#adddependency" class="tsd-kind-icon">add<wbr>Dependency</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a href="text.html#appendchild" class="tsd-kind-icon">append<wbr>Child</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1004,7 +1004,7 @@ img { max-width: 100%; }
 		<section class="tsd-panel">
 			<h3>Implements</h3>
 			<ul class="tsd-hierarchy">
-				<li><a href="../interfaces/elementinterface.html" class="tsd-signature-type">ElementInterface</a></li>
+				<li><a href="../interfaces/typography.html" class="tsd-signature-type">Typography</a></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -1042,7 +1042,7 @@ img { max-width: 100%; }
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="text.html#adddependency" class="tsd-kind-icon">add<wbr>Dependency</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="text.html#appendchild" class="tsd-kind-icon">append<wbr>Child</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="text.html#appendchild" class="tsd-kind-icon">append<wbr>Child</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="text.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="text.html#remove" class="tsd-kind-icon">remove</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="text.html#setattribute" class="tsd-kind-icon">set<wbr>Attribute</a></li>
@@ -1061,14 +1061,14 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Text<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, text<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="text.html" class="tsd-signature-type">Text</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Text<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, str<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="text.html" class="tsd-signature-type">Text</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in elements/text.ts:11</li>
+								<li>Defined in elements/svg/text.ts:11</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1085,7 +1085,7 @@ img { max-width: 100%; }
 								<h5>y: <span class="tsd-signature-type">number</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> text: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> str: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="text.html" class="tsd-signature-type">Text</a></h4>
@@ -1100,10 +1100,10 @@ img { max-width: 100%; }
 				<h3>root</h3>
 				<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SVGTextElement</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/elementinterface.html">ElementInterface</a>.<a href="../interfaces/elementinterface.html#root">root</a></p>
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#root">root</a></p>
 					<p>Overrides <a href="element.html">Element</a>.<a href="element.html#root">root</a></p>
 					<ul>
-						<li>Defined in elements/text.ts:11</li>
+						<li>Defined in elements/svg/text.ts:11</li>
 					</ul>
 				</aside>
 			</section>
@@ -1112,21 +1112,27 @@ img { max-width: 100%; }
 				<h3>style</h3>
 				<div class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSStyleDeclaration</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/elementinterface.html">ElementInterface</a>.<a href="../interfaces/elementinterface.html#style">style</a></p>
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#style">style</a></p>
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#style">style</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:57</li>
+						<li>Defined in elements/element.ts:44</li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Style for the root element.</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 				<a name="update" class="tsd-anchor"></a>
 				<h3>update</h3>
 				<div class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#update">update</a></p>
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#update">update</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:53</li>
+						<li>Defined in elements/element.ts:34</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1155,9 +1161,10 @@ img { max-width: 100%; }
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> controller</h3>
 				<div class="tsd-signature tsd-kind-icon">controller<span class="tsd-signature-symbol">:</span> <a href="controller.html" class="tsd-signature-type">Controller</a><span class="tsd-signature-symbol"> =&nbsp;new Controller()</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#controller">controller</a></p>
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#controller">controller</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:38</li>
+						<li>Defined in elements/element.ts:19</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1172,9 +1179,10 @@ img { max-width: 100%; }
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> count</h3>
 				<div class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#count">count</a></p>
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#count">count</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:43</li>
+						<li>Defined in elements/element.ts:24</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1188,9 +1196,10 @@ img { max-width: 100%; }
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> disable</h3>
 				<div class="tsd-signature tsd-kind-icon">disable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#disable">disable</a></p>
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#disable">disable</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:32</li>
+						<li>Defined in elements/element.ts:13</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1208,8 +1217,8 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">contents<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/text.ts:23</li>
-						<li>Defined in elements/text.ts:30</li>
+						<li>Defined in elements/svg/text.ts:27</li>
+						<li>Defined in elements/svg/text.ts:34</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1224,9 +1233,10 @@ img { max-width: 100%; }
 				<h3>id</h3>
 				<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#id">id</a></p>
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#id">id</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:91</li>
+						<li>Defined in elements/element.ts:78</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1241,7 +1251,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/text.ts:65</li>
+						<li>Defined in elements/svg/text.ts:69</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1256,8 +1266,8 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/text.ts:37</li>
-						<li>Defined in elements/text.ts:51</li>
+						<li>Defined in elements/svg/text.ts:41</li>
+						<li>Defined in elements/svg/text.ts:55</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1273,8 +1283,8 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/text.ts:44</li>
-						<li>Defined in elements/text.ts:58</li>
+						<li>Defined in elements/svg/text.ts:48</li>
+						<li>Defined in elements/svg/text.ts:62</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1296,9 +1306,10 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#adddependency">addDependency</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#adddependency">addDependency</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:128</li>
+								<li>Defined in elements/element.ts:115</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1316,18 +1327,19 @@ img { max-width: 100%; }
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 				<a name="appendchild" class="tsd-anchor"></a>
 				<h3>append<wbr>Child</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">append<wbr>Child<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="element.html" class="tsd-signature-type">Element</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="element.html" class="tsd-signature-type">Element</a></li>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">append<wbr>Child&lt;T&gt;<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#appendchild">appendChild</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#appendchild">appendChild</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:112</li>
+								<li>Defined in elements/element.ts:99</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1335,13 +1347,19 @@ img { max-width: 100%; }
 								<p>Appends the element as a child within this element.</p>
 							</div>
 						</div>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>T<span class="tsd-signature-symbol">: </span><a href="element.html" class="tsd-signature-type">Element</a></h4>
+							</li>
+						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>child: <a href="element.html" class="tsd-signature-type">Element</a></h5>
+								<h5>child: <span class="tsd-signature-type">T</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="element.html" class="tsd-signature-type">Element</a></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1354,9 +1372,10 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#getattribute">getAttribute</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#getattribute">getAttribute</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:105</li>
+								<li>Defined in elements/element.ts:92</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1383,9 +1402,10 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#remove">remove</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#remove">remove</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:120</li>
+								<li>Defined in elements/element.ts:107</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1406,9 +1426,10 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#setattribute">setAttribute</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#setattribute">setAttribute</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:98</li>
+								<li>Defined in elements/element.ts:85</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1433,22 +1454,23 @@ img { max-width: 100%; }
 				<a name="text-1" class="tsd-anchor"></a>
 				<h3>text</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="text.html" class="tsd-signature-type">Text</a></li>
+					<li class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="text.html" class="tsd-signature-type">Text</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#text">text</a></p>
 							<ul>
-								<li>Defined in elements/text.ts:70</li>
+								<li>Defined in elements/svg/text.ts:74</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>x: <span class="tsd-signature-type">any</span></h5>
+								<h5>x: <span class="tsd-signature-type">number</span></h5>
 							</li>
 							<li>
-								<h5>y: <span class="tsd-signature-type">any</span></h5>
+								<h5>y: <span class="tsd-signature-type">number</span></h5>
 							</li>
 							<li>
 								<h5>str: <span class="tsd-signature-type">string</span></h5>
@@ -1468,7 +1490,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/text.ts:76</li>
+								<li>Defined in elements/svg/text.ts:80</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1490,9 +1512,10 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#updatedependents">updateDependents</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#updatedependents">updateDependents</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:137</li>
+								<li>Defined in elements/element.ts:124</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1513,9 +1536,10 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/typography.html">Typography</a>.<a href="../interfaces/typography.html#clear">clear</a></p>
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#clear">clear</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:82</li>
+								<li>Defined in elements/element.ts:69</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
