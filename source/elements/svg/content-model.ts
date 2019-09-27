@@ -1,17 +1,17 @@
-import Group from './svg/group.js';
-import SVG from './svg/svg.js';
-import Circle from './svg/circle.js';
-import Defs from './svg/defs.js';
-import Ellipse from './svg/ellipse.js';
-import Line from './svg/line.js';
-import Path from './svg/path.js';
-import Polygon from './svg/polygon.js';
-import Rectangle from './svg/rectangle.js';
-import Symbol from './svg/symbol.js';
-import Text from './svg/text.js';
-import Use from './svg/use.js';
+import Group from './group.js';
+import SVG from './svg.js';
+import Circle from './circle.js';
+import Defs from './defs.js';
+import Ellipse from './ellipse.js';
+import Line from './line.js';
+import Path from './path.js';
+import Polygon from './polygon.js';
+import Rectangle from './rectangle.js';
+import Symbol from './symbol.js';
+import Text from './text.js';
+import Use from './use.js';
 
-import Element from './element.js';
+import Element from '../element.js';
 
 /**
 * Describes methods for creating descriptive elements.

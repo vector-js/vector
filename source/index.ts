@@ -3,4 +3,4 @@ import {getScriptName} from './util/file.js';
 
 export default Interactive;
 
-export { Interactive, getScriptName }
+export { getScriptName };

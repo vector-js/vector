@@ -1,5 +1,5 @@
 import Element from '../element.js';
-import { Structural, Shape, Descriptive } from '../svg-content-model.js';
+import { Structural, Shape, Descriptive } from './content-model.js';
 
 import Circle from './circle.js';
 import Polygon from './polygon.js';

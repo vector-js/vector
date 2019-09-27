@@ -6,7 +6,7 @@ import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
 
 import Element from '../element.js';
-import { Descriptive, Shape } from '../svg-content-model.js';
+import { Descriptive, Shape } from './content-model.js';
 
 export default class ClipPath extends Element implements Descriptive, Shape {
 

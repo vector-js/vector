@@ -1,4 +1,4 @@
-import { Descriptive, Shape, Structural, Typography } from '../svg-content-model.js';
+import { Descriptive, Shape, Structural, Typography } from './content-model.js';
 import Element from '../element.js';
 
 import Circle from './circle.js';
@@ -112,7 +112,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   // structural elements
 
   defs(): Defs {
-    throw new Error("Method not implemented.");
+    return this.appendChild(new Defs());
   }
   group(): Group {
     return this.appendChild(new Group());

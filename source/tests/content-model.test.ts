@@ -1,4 +1,4 @@
-import { Descriptive, Shape, Structural, Typography } from '../elements/svg-content-model.js';
+import { Descriptive, Shape, Structural, Typography } from '../elements/svg/content-model.js';
 
 /**
 * Tests that the provided element correctly implements the "descriptive" content
@@ -33,27 +33,45 @@ export var shapeTests = function() {
   });
 
   it('should create and append a circle element', function() {
-    let circle = element.circle(50, 50, 40);
-    chai.expect(element.root.contains(circle.root));
+    let child = element.circle(1, 2, 3);
+    chai.expect(child.cx).to.equal(1);
+    chai.expect(child.cy).to.equal(2);
+    chai.expect(child.r ).to.equal(3);
+    chai.expect(element.root.contains(child.root));
   });
   it('should create and append an ellipse element', function() {
-    let ellipse = element.ellipse(50, 50, 40, 20);
-    chai.expect(element.root.contains(ellipse.root));
+    let child = element.ellipse(1, 2, 3, 4);
+    chai.expect(child.cx).to.equal(1);
+    chai.expect(child.cy).to.equal(2);
+    chai.expect(child.rx).to.equal(3);
+    chai.expect(child.ry).to.equal(4);
+    chai.expect(element.root.contains(child.root));
   });
   it('should create and append a line element', function() {
-    let line = element.line(10, 10, 90, 90);
-    chai.expect(element.root.contains(line.root));
+    let child = element.line(1, 2, 3, 4);
+    chai.expect(child.x1).to.equal(1);
+    chai.expect(child.y1).to.equal(2);
+    chai.expect(child.x2).to.equal(3);
+    chai.expect(child.y2).to.equal(4);
+    chai.expect(element.root.contains(child.root));
   });
   it('should create and append a path element', function() {
-    let child = element.path('');
+    let child = element.path('M 1 2 L 3 4');
+    chai.expect(child.d).to.equal('M 1 2 L 3 4');
     chai.expect(element.root.contains(child.root));
   });
   it('should create and append a polygon element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.polygon('1,2 3,4');
+    chai.expect(child.points).to.equal('1,2 3,4');
+    chai.expect(element.root.contains(child.root));
   });
-  it('should create and append a path element', function() {
-    let rectangle = element.rectangle(10, 10, 80, 80);
-    chai.expect(element.root.contains(rectangle.root))
+  it('should create and append a rectangle element', function() {
+    let child = element.rectangle(1, 2, 3, 4);
+    chai.expect(child.x).to.equal(1);
+    chai.expect(child.y).to.equal(2);
+    chai.expect(child.width).to.equal(3);
+    chai.expect(child.height).to.equal(4);
+    chai.expect(element.root.contains(child.root))
   });
 };
 
@@ -98,14 +116,25 @@ export var typographyTests = function() {
   });
 
   it('should create and append a text element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.text(1, 2, 'hello-world');
+    chai.expect(child.x).to.equal(1);
+    chai.expect(child.y).to.equal(2);
+    chai.expect(child.contents).to.equal('hello-world');
+    chai.expect(element.root.contains(child.root));
   });
   it('created text elements should be able to creat tspan elements', function() {
-    // TODO: text.tspan();
-    chai.expect.fail('not implemented');
+    let child = element.text(1, 2, ''); // TODO: allow default parameter?
+    let tspan = child.tspan('child-tspan');
+    chai.expect(tspan.text).to.equal('child-tspan');
+    chai.expect(element.root.contains(tspan.root));
   });
   it('created tspan elements should be able to creat tspan elements', function() {
-    // TODO: tspan.tspan();
-    chai.expect.fail('not implemented');
+    let child = element.text(1, 2, ''); // TODO: allow default parameter?
+    let tspan1 = child.tspan('t1');
+    let tspan2 = tspan1.tspan('t2');
+    chai.expect(tspan2.text).to.equal('t2');
+    chai.expect(child.root.contains(tspan1.root));
+    chai.expect(child.root.contains(tspan2.root));
+    chai.expect(tspan1.root.contains(tspan2.root));
   });
 };
