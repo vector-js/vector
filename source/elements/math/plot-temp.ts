@@ -12,7 +12,7 @@ import Input from '../input/input.js';
 /**
 * A plot of the graph of a function.
 */
-export default class Plot extends Group implements Input {
+export default class Plot extends Group {
 
   /**
   * Invisible element for registering events

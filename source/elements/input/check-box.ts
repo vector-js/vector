@@ -69,13 +69,6 @@ export default class CheckBox extends Input {
   }
 
   /**
-  * The default behavior is to update its dependents on change.
-  */
-  onchange() {
-    this.updateDependents();
-  }
-
-  /**
   * Converts the current true/false state of the checkbox to a zero or one.
   */
   number() : number {

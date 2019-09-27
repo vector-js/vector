@@ -43,7 +43,6 @@ export default class Button extends Input {
     this.label.x = this.box.x + this.box.width/2;
     this.appendChild(this.label);
 
-
   }
 
   /**
@@ -51,12 +50,7 @@ export default class Button extends Input {
   */
   set onclick( handler : (event: MouseEvent) => void ) {
     this.root.onclick = handler;
-  }
-
-  /**
-  * The default behavior is to update its dependents on change.
-  */
-  onchange() {
-    this.updateDependents();
+    this._count++;
+    this.onchange();
   }
 }
