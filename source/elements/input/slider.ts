@@ -1,8 +1,6 @@
-import Control from './control.js';
 import Line from '../svg/line.js';
-import Input from './input.js';
 import ControlCircle from './control-circle.js';
-import Group from '../svg/group.js';
+import Input from './input.js';
 
 /**
 * A horizontal slider is an object that allows for a control to be moved along
@@ -18,13 +16,9 @@ export default class Slider extends Input {
   /**
   * Visually displays the possible positions along the range
   */
-  _line : Line;
+  private _line : Line;
 
-  /**
-  * The control can be moved along the line to change the value of this input
-  */
-  control : Control;
-  _onchange: () => void;
+  private _control : ControlCircle;
 
   /**
   * Constructs the slider at the position (x,y). The leftmost edge of the line
@@ -33,32 +27,27 @@ export default class Slider extends Input {
   constructor( x:number, y:number, width:number=100, value:number=0) {
     super();
 
-    this._line = new Line(x, y, x + width, y);
+    this._line = this.line(x, y, x + width, y);
     this._line.root.style.strokeWidth = '1.5';
     this._line.root.style.strokeLinecap = 'round';
 
-    this.control = new ControlCircle(x + value, y);
-    this.control.constrainWithinBox(x, y, x + width, y);
-    this.control.point.r -= 1.5;
-    this.control.handle.r -= 2;
-    this.control.handle.style.strokeWidth = '2';
-
-    this.root.appendChild(this._line.root);
-    this.root.appendChild(this.control.root);
-
-    this.update = () => {};
-    this.addDependency(this.control);
+    this._control = new ControlCircle(x + value, y);
+    this._control.constrainWithinBox(x, y, x + width, y);
+    this._control.point.r -= 1.5;
+    this._control.handle.r -= 2;
+    this._control.handle.style.strokeWidth = '2';
+    this.appendChild(this._control);
 
     this.width = width;
     this.min = 0;
     this.max = 100;
     this.value = value;
-  }
 
-  set onchange( fn:()=>void ) {
-    this.control.onchange = function() {
-      this.control._onchange();
+    let slider = this;
+    let fn = slider._control.onchange;
+    slider._control.onchange = function() {
       fn();
+      slider.onchange();
     }
   }
 
@@ -74,21 +63,21 @@ export default class Slider extends Input {
   */
   set width( width:number ) {
     this._line.x2 = this._line.x1 + width;
-    this.control.constrainWithinBox(this._line.x1, this._line.y1, this._line.x2, this._line.y2);
+    this._control.constrainWithinBox(this._line.x1, this._line.y1, this._line.x2, this._line.y2);
   }
 
   /**
   * Returns the value currently represented by this slider.
   */
   get value():number {
-    return (this.control.x - this._line.x1)/this.width * (this.range);
+    return (this._control.x - this._line.x1)/this.width * (this.range);
   }
 
   /**
   * Sets the value currently represented by this slider.
   */
   set value( n:number ) {
-    this.control.x = this._line.x1 + n/this.range * (this.width);
+    this._control.x = this._line.x1 + n/this.range * (this.width);
   }
 
   /**

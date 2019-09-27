@@ -35,7 +35,6 @@ export default class Control extends Input {
   private _y: number;
   private _dx: number;
   private _dy: number;
-  private _onchange : () => void;
 
   // Keep track of whether global event listeners have been initialized
   private static initalized = false;
@@ -70,11 +69,6 @@ export default class Control extends Input {
     this._y = y;
     this._dx = 0;
     this._dy = 0;
-
-    // the default behavior of a control is to update its dependents on change
-    this.onchange = function() {
-      this.updateDependents();
-    };
 
     this.update = () => {};
 
@@ -266,7 +260,7 @@ export default class Control extends Input {
     this.root.setAttribute('transform', `translate( ${this.x}, ${this.y})`);
 
     // call the onchange function
-    this._onchange();
+    this.onchange();
   }
 
   /**
@@ -313,17 +307,6 @@ export default class Control extends Input {
   */
   get dy() {
     return this._dy;
-  }
-
-  /**
-  * Whenever the position of this control is changed this function is called.
-  */
-  set onchange( func: () => void ) {
-    this._onchange = func;
-  }
-
-  get onchange(){
-    return this._onchange;
   }
 
   /**

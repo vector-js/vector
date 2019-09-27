@@ -1,14 +1,17 @@
 import Group from './group.js';
 import SVG from './svg.js';
 import Circle from './circle.js';
-import Defs from './defs.js';
+import Defs from './definitions.js';
+import Description from './description.js';
 import Ellipse from './ellipse.js';
 import Line from './line.js';
+import MetaData from './meta-data.js';
 import Path from './path.js';
 import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
 import Symbol from './symbol.js';
 import Text from './text.js';
+import Title from './title.js';
 import Use from './use.js';
 
 import Element from '../element.js';
@@ -21,17 +24,17 @@ export interface Descriptive extends Element {
   /**
   * Creates and appends a description element within this element.
   */
-  description() : void;
+  description() : Description;
 
   /**
   * Creates and appends a metadata element within this element.
   */
-  metadata() : void;
+  metadata() : MetaData;
 
   /**
   * Creates and appends a title element within this element.
   */
-  title() : void;
+  title() : Title;
 }
 
 /**

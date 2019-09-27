@@ -11,13 +11,16 @@ export var descriptiveTests = function() {
     element = this.element as Descriptive;
   });
   it('should create and append a description element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.description();
+    chai.expect(element.root.contains(child.root));
   });
   it('should create and append a metadata element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.metadata();
+    chai.expect(element.root.contains(child.root));
   });
   it('should create and append a title element', function() {
-    chai.expect.fail('not implemented');
+    let child = element.title();
+    chai.expect(element.root.contains(child.root));
   });
 };
 

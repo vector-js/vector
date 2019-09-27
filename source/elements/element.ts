@@ -102,6 +102,13 @@ export default class Element {
   }
 
   /**
+  * Returns true if this element contains the argument element.
+  */
+  contains( element:Element ) {
+    return this.root.contains(element.root);
+  }
+
+  /**
   * Removes this element from the DOM and from the Element controller.
   */
   remove() {

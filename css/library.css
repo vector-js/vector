@@ -56,7 +56,7 @@ text.element {
   stroke: none;
 }
 
-path.element, line.element, rect.element, ellipse.element, circle.element {
+path.element, line.element, rect.element, ellipse.element, circle.element, polygon.element{
   stroke:#404040;
   stroke-width:1px;
   fill:none;

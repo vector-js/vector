@@ -3,7 +3,7 @@ import Element from '../element.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
-import Defs from './defs.js';
+import Defs from './definitions.js';
 import Ellipse from './ellipse.js';
 import Group from './group.js';
 import Line from './line.js';
@@ -12,7 +12,10 @@ import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
 import Symbol from './symbol.js';
 import Text from './text.js';
+import Title from './title.js';
 import Use from './use.js';
+import Description from './description.js';
+import MetaData from './meta-data.js';
 
 /**
 * This class represents a svg element.
@@ -78,14 +81,14 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 
   // descriptive elements
 
-  description(): void {
-    throw new Error("Method not implemented.");
+  description(): Description {
+    return this.appendChild(new Description());
   }
-  metadata(): void {
-    throw new Error("Method not implemented.");
+  metadata(): MetaData {
+    return this.appendChild(new MetaData());
   }
-  title(): void {
-    throw new Error("Method not implemented.");
+  title(): Title {
+    return this.appendChild(new Title());
   }
 
   // shape elements

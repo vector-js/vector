@@ -2,16 +2,20 @@ import Element from '../element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
 import Circle from './circle.js';
-import Polygon from './polygon.js';
-import Path from './path.js';
-import Line from './line.js';
+import ClipPath from './clip-path.js';
+import Defs from './definitions.js';
 import Ellipse from './ellipse.js';
-import Use from './use.js';
-import SVG from './svg.js';
-import Defs from './defs.js';
-import Symbol from './symbol.js';
+import Line from './line.js';
+import Path from './path.js';
+import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
+import Symbol from './symbol.js';
+import SVG from './svg.js';
 import Text from './text.js';
+import Title from './title.js';
+import Use from './use.js';
+import Description from './description.js';
+import MetaData from './meta-data.js';
 
 /**
 * A group is a structural element that allows for elements to be grouped
@@ -33,17 +37,14 @@ export default class Group extends Element implements Descriptive, Shape, Struct
 
   // Descriptive methods
 
-  symbol(): Symbol{
-    throw new Error("Method not implemented.");
+  description(): Description {
+    return this.appendChild(new Description());
   }
-  description(): void {
-    throw new Error("Method not implemented.");
+  metadata(): MetaData {
+    return this.appendChild(new MetaData());
   }
-  metadata(): void {
-    throw new Error("Method not implemented.");
-  }
-  title(): void {
-    throw new Error("Method not implemented.");
+  title(): Title {
+    return this.appendChild(new Title());
   }
 
   // Structural methods
@@ -58,6 +59,10 @@ export default class Group extends Element implements Descriptive, Shape, Struct
 
   svg(): SVG {
     return this.appendChild(new SVG());
+  }
+
+  symbol(): Symbol{
+    return this.appendChild(new Symbol());
   }
 
   use(): Use {
@@ -78,8 +83,8 @@ export default class Group extends Element implements Descriptive, Shape, Struct
   path( d:string ): Path {
     return this.appendChild(new Path(d));
   }
-  polygon(): Polygon {
-    throw new Error("Method not implemented.");
+  polygon( points:string ): Polygon {
+    return this.appendChild(new Polygon(points));
   }
   rectangle( x:number, y:number, width:number, height:number ): Rectangle {
     return this.appendChild(new Rectangle(x, y, width, height));

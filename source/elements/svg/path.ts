@@ -30,4 +30,11 @@ export default class Path extends Element {
   set d( d:string ) {
     this.root.setAttribute('d', d);
   }
+
+  /**
+  * Returns the location of the point on the path.
+  */
+  getPointAtLength(x:number) : DOMPoint{
+    return this.root.getPointAtLength(x);
+  }
 }

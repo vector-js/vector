@@ -84,6 +84,15 @@ export default class Scrubber extends Slider {
     this.pauseButton.root.addEventListener('click', function(){
       scrubber.pause();
     });
+    let fn = this.onchange;
+    this.onchange = function() {
+      if( scrubber.value == scrubber.max ) {
+        scrubber.done = true;
+      } else {
+        scrubber.done = false;
+      }
+      fn();
+    };
   }
 
   play() {
