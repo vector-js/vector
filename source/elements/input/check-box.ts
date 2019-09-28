@@ -1,14 +1,13 @@
 import Rectangle from '../svg/rectangle.js';
 import Text from '../svg/text.js';
-import Group from '../svg/group.js';
 
-import Input from '../input.js';
+import Input from './input.js';
 
 /**
 * A checkbox with an label. The can be checked, unchecked, and related to other
 * elements.
 */
-export default class CheckBox extends Group implements Input {
+export default class CheckBox extends Input {
 
   /**
   * The state of the checkbox
@@ -67,13 +66,6 @@ export default class CheckBox extends Group implements Input {
   */
   get value() : boolean {
     return this._value;
-  }
-
-  /**
-  * The default behavior is to update its dependents on change.
-  */
-  onchange() {
-    this.updateDependents();
   }
 
   /**

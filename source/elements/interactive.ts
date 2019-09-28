@@ -4,7 +4,7 @@ import { parseSVG } from '../util/svg.js';
 
 // basic elements
 import Element from '../elements/element.js';
-import Input from '../elements/input.js';
+import Input from '../elements/input/input.js';
 
 // svg elements
 import SVG from '../elements/svg/svg.js';
@@ -318,10 +318,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a checkbox input at the position (x,y) within this interactive.
   */
-  radioControl(labels: string[], x:number, y:number, index: number = 0) : RadioControl {
-    let radioControl = new RadioControl(labels,x,y,index);
-    this.appendChild(radioControl);
-    return radioControl;
+  radioControl(x:number, y:number, labels: string[], index: number = 0) : RadioControl {
+    return this.appendChild(new RadioControl(x, y, labels, index));
   }
 
   /**

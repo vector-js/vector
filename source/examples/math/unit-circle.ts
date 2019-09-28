@@ -140,7 +140,7 @@ functions.rectangle(0, 0, functions.width, functions.height).style.strokeWidth =
 // let sinInput = functions.checkBox( x + 16, functions.height*3/6, "sin(θ)", false);
 // let tanInput = functions.checkBox( x + 16, functions.height*4/6, "tan(θ)", false);
 
-let radio = functions.radioControl(['cos(θ)', 'sin(θ)', 'tan(θ)'], x + 16, functions.height/2 - 16);
+let radio = functions.radioControl(x + 16, functions.height/2 - 16, ['cos(θ)', 'sin(θ)', 'tan(θ)']);
 radio.style.fontFamily = 'monospace';
 radio.style.fontSize = '18px';
 

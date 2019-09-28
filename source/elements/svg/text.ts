@@ -1,6 +1,6 @@
 import Element from '../element.js';
 import TSpan from './t-span.js';
-import { Typography } from '../svg-content-model.js';
+import { Typography } from './content-model.js';
 
 /**
 * Text is a basic element containing string contents

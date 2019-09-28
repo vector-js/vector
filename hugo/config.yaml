@@ -10,6 +10,7 @@ staticDir:
   - ../dist/
   - ../css/
   - ../svg/
+  - ../api/
 
 permalinks:
   tutorials: /:title/

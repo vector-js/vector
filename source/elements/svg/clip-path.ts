@@ -6,7 +6,10 @@ import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
 
 import Element from '../element.js';
-import { Descriptive, Shape } from '../svg-content-model.js';
+import { Descriptive, Shape } from './content-model.js';
+import Description from './description.js';
+import MetaData from './meta-data.js';
+import Title from './title.js';
 
 export default class ClipPath extends Element implements Descriptive, Shape {
 
@@ -31,17 +34,17 @@ export default class ClipPath extends Element implements Descriptive, Shape {
     return this.appendChild(new Polygon(points));
   }
   rectangle(x: number, y: number, width: number, height: number): Rectangle {
-    throw new Error("Method not implemented.");
+    return this.appendChild(new Rectangle(x, y, width, height));
   }
 
 
-  description(): void {
-    throw new Error("Method not implemented.");
+  description(): Description {
+    return this.appendChild(new Description());
   }
-  metadata(): void {
-    throw new Error("Method not implemented.");
+  metadata(): MetaData {
+    return this.appendChild(new MetaData());
   }
-  title(): void {
-    throw new Error("Method not implemented.");
+  title(): Title {
+    return this.appendChild(new Title());
   }
 }

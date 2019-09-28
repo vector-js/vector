@@ -1,5 +1,5 @@
 import Element from '../element.js';
-import Input from '../input.js';
+import Input from './input.js';
 
 import Path from '../svg/path.js';
 import Circle from '../svg/circle.js';
@@ -17,7 +17,7 @@ class Point {
 /**
 * A control point is a draggable two dimensional point.
 */
-export default class Control extends Group implements Input {
+export default class Control extends Input {
 
   // Describes the size of the control handle and point
   private static pointRadius : number = 4;
@@ -35,7 +35,6 @@ export default class Control extends Group implements Input {
   private _y: number;
   private _dx: number;
   private _dy: number;
-  private _onchange : () => void;
 
   // Keep track of whether global event listeners have been initialized
   private static initalized = false;
@@ -62,19 +61,12 @@ export default class Control extends Group implements Input {
     this.point = this.circle(0,0, Control.pointRadius);
     this.handle = this.circle(0,0, Control.handleRadius);
     this.root.classList.add('control');
-    this.point.root.classList.add('control-point');
-    this.handle.root.classList.add('control-handle');
 
     // initialize instance variables
     this._x = x;
     this._y = y;
     this._dx = 0;
     this._dy = 0;
-
-    // the default behavior of a control is to update its dependents on change
-    this.onchange = function() {
-      this.updateDependents();
-    };
 
     this.update = () => {};
 
@@ -266,7 +258,7 @@ export default class Control extends Group implements Input {
     this.root.setAttribute('transform', `translate( ${this.x}, ${this.y})`);
 
     // call the onchange function
-    this._onchange();
+    this.onchange();
   }
 
   /**
@@ -313,17 +305,6 @@ export default class Control extends Group implements Input {
   */
   get dy() {
     return this._dy;
-  }
-
-  /**
-  * Whenever the position of this control is changed this function is called.
-  */
-  set onchange( func: () => void ) {
-    this._onchange = func;
-  }
-
-  get onchange(){
-    return this._onchange;
   }
 
   /**

@@ -1,15 +1,6 @@
-/**
-* @title Zoom and Pan Interactive
-* @description This interactive demonstrates how to zoom in and out on a specific point.
-* @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position.
-* @tags []
-*/
+import Interactive from "../../index.js";
 
-import Interactive, {getScriptName} from '../../index.js';
-import Text from '../../elements/svg/text.js';
-import Group from '../../elements/svg/group.js';
-
-class Zoomable extends Interactive {
+export default class ZoomAndPan extends Interactive {
 
   zoomIntensity : number;
   scale : number;
@@ -31,8 +22,8 @@ class Zoomable extends Interactive {
     super(id);
 
     let bbox = this.root.getBoundingClientRect();
-    this.width = width > bbox.width ? bbox.width : width;
-    this.height = height > bbox.height ? bbox.height : height;
+    this.width = width;
+    this.height = height;
 
     // initialize variables
     this.zoomIntensity = .02;
@@ -42,7 +33,6 @@ class Zoomable extends Interactive {
     this.visibleWidth = this.width;
     this.visibleHeight = this.height;
 
-    this.mathMode = false;
     this.active = false;
     this.prevX = 0;
     this.prevY = 0;
@@ -54,29 +44,6 @@ class Zoomable extends Interactive {
     interactive.root.addEventListener('mouseup', (event) => { interactive.handleMouseUp(event) });
     interactive.root.addEventListener('mousemove', (event) => { interactive.handleMouseMove(event) });
     interactive.root.addEventListener('wheel', (event) => { interactive.handleWheel(event) });
-
-    // draw rectangles for debugging
-    let w = 25;
-    let h = 25;
-    for( let i = 0; i < 10; i++) {
-      for( let j = 0; j < 10; j ++) {
-        let x = i*w;
-        let y = j*h;
-        let rectangle = interactive.rectangle(x, y, w, h);
-        // rectangle.root.setAttribute('vector-effect','non-scaling-stroke');
-      }
-    }
-  }
-
-  set mathMode( value:boolean ) {
-    this._mathMode = value;
-    if( value ) {
-      this.root.classList.add('cartesian');
-      this.root.setAttribute('transform','scale(1,-1)');
-    } else {
-      this.root.classList.remove('cartesian');
-      this.root.setAttribute('transform','scale(1,1)');
-    }
   }
 
   get mathMode() : boolean {
@@ -97,11 +64,11 @@ class Zoomable extends Interactive {
     if( this.active ) {
       let deltaX = event.clientX - this.prevX;
       let deltaY = event.clientY - this.prevY;
-      interactive.originx -= deltaX/interactive.scale;
-      interactive.originy -= deltaY/interactive.scale*(this.mathMode ? -1 : 1) ;
+      this.originx -= deltaX/this.scale;
+      this.originy -= deltaY/this.scale;
       this.prevX = event.clientX;
       this.prevY = event.clientY;
-      interactive.setViewBox( interactive.originx, interactive.originy, interactive.visibleWidth, interactive.visibleHeight);
+      this.setViewBox( this.originx, this.originy, this.visibleWidth, this.visibleHeight);
     }
   }
 
@@ -131,31 +98,4 @@ class Zoomable extends Interactive {
 
     this.setViewBox( this.originx, this.originy, this.visibleWidth, this.visibleHeight);
   }
-
-  mathModeText( x, y, contents) {
-
-    let group = new Group();
-    group.root.setAttribute('transform', `translate(${x},${y})`);
-
-    let internal = new Text(0,0,contents);
-    group.root.appendChild(internal.root);
-
-    this.appendChild(group);
-    return group;
-  }
-}
-
-let interactive = new Zoomable(getScriptName(), 500, 500);
-interactive.border = true;
-interactive.mathMode = false;
-interactive.circle(0, 0, 5).style.fill = '#333333';
-let control = interactive.control(-15,-15);
-let text = interactive.mathModeText( -15, -15, "(0,0)");
-// let text = interactive.text( -15, -15, "(0,0)");
-// console.log(control);
-
-text.addDependency(control);
-text.update = function() {
-  text.root.setAttribute('transform', `translate(${control.x + 15}, ${control.y + 15})`);
-  (text.root.firstChild as HTMLElement).innerHTML = `(${control.x.toFixed(2)}, ${control.y.toFixed(2)})`;
 }

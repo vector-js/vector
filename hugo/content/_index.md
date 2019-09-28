@@ -59,7 +59,7 @@ let control = interactive.control( 150, 75);
 The radio control elements allows the user to select from a list of options. Only one option can be selected at a time.
 
 {{< highlight javascript>}}
-let radio = interactive.radioControl(["red","green","blue"], 100, 50);
+let radio = interactive.radioControl(100, 50, ["red","green","blue"]);
 {{< /highlight >}}
 
 {{<example "radio-control-element">}}

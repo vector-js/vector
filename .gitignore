@@ -1,7 +1,9 @@
+.DS_Store
 node_modules
 builds
 cache
-.DS_Store
 types
-library.tar.gz
+docs
+dist
+api
 *.js.map

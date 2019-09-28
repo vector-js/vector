@@ -1,11 +1,10 @@
-import Input from '../element.js';
+import Input from './input.js';
 import CheckBox from './check-box.js';
-import Group from '../svg/group.js';
 
 /**
 *  Radio Buttons with labels. Only one of the checkboxes will be checked at any given time.
 */
-export default class RadioControl extends Group implements Input {
+export default class RadioControl extends Input {
 
   /*
   * the list of checkboxes that belong to the radio control
@@ -23,7 +22,7 @@ export default class RadioControl extends Group implements Input {
   * y: y position of the control
   * index: the starting button to be highlighted
   */
-  constructor(labels: string[], x:number, y:number, index: number = 0) {
+  constructor( x:number, y:number, labels: string[], index: number = 0) {
       if(labels === undefined || labels.length == 0){
           throw new Error('Labels must not be empty');
       }
@@ -66,12 +65,5 @@ export default class RadioControl extends Group implements Input {
       this.list.forEach(element => {
           element.value = false;
       });
-  }
-
-  /**
-  * The default behavior is to update its dependents on change.
-  */
-  onchange() {
-    this.updateDependents();
   }
 }
