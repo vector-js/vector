@@ -152,7 +152,7 @@ interactive.circle(0, 0, 5).style.fill = '#333333';
 let control = interactive.control(-15,-15);
 let text = interactive.mathModeText( -15, -15, "(0,0)");
 // let text = interactive.text( -15, -15, "(0,0)");
-console.log(control);
+// console.log(control);
 
 text.addDependency(control);
 text.update = function() {

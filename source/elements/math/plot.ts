@@ -426,11 +426,4 @@ export default class Plot extends Group {
     this.viewPort.setAttribute('viewBox', `${-x} ${-y} ${this.viewPort.width} ${this.viewPort.height}`);
   }
 
-  scaleUp (x: number, y: number){
-
-  }
-
-  scaleDown (x: number, y: number){
-
-  }
 }

@@ -5,7 +5,6 @@ import Path from '../svg/path.js';
 import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
-import ZoomPanInteractive from './zoom-pan.js';
 
 import Input from '../input/input.js';
 

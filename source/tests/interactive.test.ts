@@ -86,13 +86,12 @@ describe('Interactive', function () {
 
     it('should create a path within the interactive', function() {
       let path = interactive.path(`M 20 50 l 50 30 l 0 -30 l -50 -30 z`);
-      console.log(path.root);
+      console.log(path);
       chai.expect(interactive.contains(path));
     });
 
     it('should create a polygon within the interactive', function() {
       let path = interactive.polygon(`50,30 70,70 30,70`);
-      console.log(path.root);
       chai.expect(interactive.contains(path));
     });
 
@@ -162,9 +161,9 @@ describe('Interactive', function () {
       chai.expect(interactive.contains(element));
     });
     it('should create a scrubber within the interactive', function() {
-      let x = 20;
+      let x = 30;
       let y = 50;
-      interactive.width = 200;
+      interactive.width = 217;
       let element = interactive.scrubber(x, y, 160);
       chai.expect(interactive.contains(element));
     });

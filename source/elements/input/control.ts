@@ -61,8 +61,6 @@ export default class Control extends Input {
     this.point = this.circle(0,0, Control.pointRadius);
     this.handle = this.circle(0,0, Control.handleRadius);
     this.root.classList.add('control');
-    this.point.root.classList.add('control-point');
-    this.handle.root.classList.add('control-handle');
 
     // initialize instance variables
     this._x = x;

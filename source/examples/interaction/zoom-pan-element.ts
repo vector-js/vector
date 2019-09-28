@@ -4,7 +4,7 @@
 * @tags [elements, maps]
 */
 
-import Interactive from '../../elements/math/zoom-pan.js';
+import Interactive from './zoom-pan.js';
 import {getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName(), 600, 600);

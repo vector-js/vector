@@ -37,4 +37,11 @@ export default class Path extends Element {
   getPointAtLength(x:number) : DOMPoint{
     return this.root.getPointAtLength(x);
   }
+
+  /**
+  * Returns the total length of this path.
+  */
+  getTotalLength() : number {
+    return this.root.getTotalLength();
+  }
 }
