@@ -6,8 +6,6 @@ import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
 
-import Input from '../input/input.js';
-
 /**
 * A plot of the graph of a function.
 */

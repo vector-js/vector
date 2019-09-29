@@ -245,8 +245,6 @@ describe('DependencyGraph', function () {
 			dg.addDependency('a','b');
 			dg.addDependency('b','c');
 			dg.addDependency('a','c');
-
-			console.log(dg.getTopologicalSort());
 			chai.expect(dg.getTopologicalSort().toString()).to.equal('a b c');
 		});
 	});

@@ -37,7 +37,7 @@ describe('SVG', function () {
       svg.width = 100;
       svg.height = 100;
       let div = document.createElement('div');
-      div.classList.add('container');
+      div.classList.add('test-container');
       div.style.border = '1px solid cornflowerblue';
       div.appendChild(svg.root);
       document.body.appendChild(div);

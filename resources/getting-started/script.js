@@ -1,4 +1,4 @@
-import Interactive from "https://vectorjs.org/Interactive.js";
+import Interactive from "https://vectorjs.org/interactive.js";
 
 // Construct an interactive within the HTML element with the id "my-interactive"
 let myInteractive = new Interactive("my-interactive");

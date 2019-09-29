@@ -26,7 +26,6 @@
     "watch": "tsc -w",
     "rollup": "rollup --config",
     "start": "http-server .",
-    "docs": "documentation build 'dist/**' -f html -o docs",
     "tutorial": "./getting-started.sh"
   },
   "files": [

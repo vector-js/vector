@@ -1,4 +1,5 @@
 import Interactive from '../index.js';
+import { Input, Element } from '../index.js';
 
 describe('Interactive', function () {
 
@@ -10,7 +11,7 @@ describe('Interactive', function () {
   beforeEach(function() {
     container = document.createElement('div');
     container.id = `${str}-${count++}`;
-    container.classList.add('container');
+    container.classList.add('test-container');
     document.body.appendChild(container);
     return container;
   });
@@ -86,7 +87,6 @@ describe('Interactive', function () {
 
     it('should create a path within the interactive', function() {
       let path = interactive.path(`M 20 50 l 50 30 l 0 -30 l -50 -30 z`);
-      console.log(path);
       chai.expect(interactive.contains(path));
     });
 
@@ -180,7 +180,7 @@ describe('Interactive', function () {
       interactive.height = 100;
     });
 
-    it('should visually create input elements on top of other non-input elements', function() {
+    it('should visually create input elements on top of other non-input elements (clear-box)', function() {
 
       // hide this test from visually displaying
       container.hidden = true;
@@ -197,5 +197,43 @@ describe('Interactive', function () {
         chai.expect(interactive.input.contains(input)).to.be.true;
       });
     });
+
+		it('should visually create input elements on top of other non-input elements (black-box)', function() {
+
+			// hide this test from visually displaying
+			container.hidden = true;
+
+			// clear box testing
+			let inputs:Input[] = [];
+			let elements:Element[] = [];
+
+			// create some elements before
+			elements.push(interactive.circle(10,10,10));
+			elements.push(interactive.circle(10,10,10));
+			elements.push(interactive.circle(10,10,10));
+
+			inputs.push(interactive.button(0,0, 'my-button'));
+			inputs.push(interactive.checkBox(5,6, 'my-checkbox', false));
+			inputs.push(interactive.control(0,0));
+			inputs.push(interactive.radioControl(0,0, ['option-1', 'option-2']));
+			inputs.push(interactive.scrubber(0,0,100));
+			inputs.push(interactive.slider(0,0));
+
+			// create some elements after
+			elements.push(interactive.circle(10,10,10));
+			elements.push(interactive.circle(10,10,10));
+			elements.push(interactive.circle(10,10,10));
+
+			// check that input elements come after ordinary elements in the DOM tree
+			inputs.forEach((input) => {
+				elements.forEach((element) => {
+					if(element.root.compareDocumentPosition(input.root) & Node.DOCUMENT_POSITION_FOLLOWING) {
+						chai.expect(true).to.be.true;
+					} else {
+						chai.expect(false, 'Input elements should come after ordinary elements in the DOM tree ').to.be.true;
+					}
+				});
+			});
+		});
   });
 });
