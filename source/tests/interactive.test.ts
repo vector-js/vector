@@ -10,7 +10,7 @@ describe('Interactive', function () {
   beforeEach(function() {
     container = document.createElement('div');
     container.id = `${str}-${count++}`;
-    container.classList.add('interactive-container');
+    container.classList.add('container');
     document.body.appendChild(container);
     return container;
   });

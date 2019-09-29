@@ -43,28 +43,48 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   * Return the width of this svg element.
   */
   get width() {
-    return this.root.width.baseVal.value;
+    // return this.root.width.baseVal.value;
+    return parseInt(this.root.getAttribute('width'));
   }
 
   /**
   * Set the width of this svg element.
   */
   set width( value:number ) {
-    this.root.width.baseVal.value = value;
+    // this.root.width.baseVal.value = value;
+    this.root.setAttributeNS(null, 'width', value.toString());
   }
 
   /**
   * Returns the height of this svg element.
   */
   get height() {
-    return this.root.height.baseVal.value;
+    // return this.root.height.baseVal.value;
+    return parseInt(this.root.getAttribute('width'));
   }
 
   /**
   * Sets the height of this svg element to the provided value.
   */
   set height( value:number ) {
-    this.root.height.baseVal.value = value;
+    // this.root.height.baseVal.value = value;
+    this.root.setAttributeNS(null, 'height', value.toString());
+  }
+
+  get x() {
+    return this.root.x.baseVal.value;
+  }
+
+  set x( value:number ) {
+    this.root.x.baseVal.value = value;
+  }
+
+  get y() {
+    return this.root.y.baseVal.value;
+  }
+
+  set y( value:number ) {
+    this.root.y.baseVal.value = value;
   }
 
   get viewBox() : string {

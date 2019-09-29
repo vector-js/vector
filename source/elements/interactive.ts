@@ -337,8 +337,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a plot within this interactive at the position (x,y).
   */
-  plot( userEvents = true ) : Plot {
-    return this.appendChild(new Plot(userEvents));
+  plot( userEvents = true, width = 600, height = 300, scaleX?:number, scaleY?:number ) : Plot {
+    return this.appendChild(new Plot(userEvents, width, height, scaleX, scaleY));
   }
 
   /**

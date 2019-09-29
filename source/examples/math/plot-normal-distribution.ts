@@ -21,6 +21,6 @@ graph.function = (x:number) => { return 1/(s*Math.sqrt(2*Math.PI))* Math.pow(Mat
 // graph.function = (x:number) => { return Math.sin(x); };
 // graph.function = (x:number) => { return Math.tan(x); };
 
-graph.originX = 0;
-graph.originY = interactive.height/2;
-graph.scale( 1, 30000);
+// graph.originX = 0;
+// graph.originY = interactive.height/2;
+// graph.scale( 1, 30000);

@@ -53,11 +53,10 @@ chartInteractive.rectangle(0, 0, chartInteractive.width, chartInteractive.height
 
 // chartInteractive.originX = 0;
 // chartInteractive.originY = chartInteractive.height/2;
-let graph = chartInteractive.plot(false);
+let scale = chartInteractive.width/(2*Math.PI);
+let graph = chartInteractive.plot(false, 600, 300, scale, scale);
 graph.function = Math.sin;
-graph.originX = 0;
-graph.originY = chartInteractive.height/2;
-graph.scale( 2*Math.PI/chartInteractive.width, chartInteractive.width/(2*Math.PI));
+graph.setOrigin(0, chartInteractive.height/2);
 chartInteractive.text( 8, chartInteractive.height/2 - margin, "0");
 chartInteractive.text( chartInteractive.width/2, chartInteractive.height/2 - margin, "π");
 chartInteractive.text( chartInteractive.width - 28, chartInteractive.height/2 - margin, "2π");
