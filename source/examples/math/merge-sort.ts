@@ -92,8 +92,8 @@ function addNodeToFit(parentNode:Node, arr:number[], leftOrRight:string) : Node
                     rect1.top > rect2.bottom)
 
       if(currOverlap){
-        otherNodes[i].moveX(-10);
-        newNode.moveX(10);
+        otherNodes[i].translate(-10, 0);
+        newNode.translate(10, 0);
         overlap = true;
       }
     }
@@ -113,8 +113,8 @@ function addNodeToFit(parentNode:Node, arr:number[], leftOrRight:string) : Node
                     rect1.bottom < rect2.top ||
                     rect1.top > rect2.bottom)
       if(currOverlap){
-        otherNodes[i].moveX(10);
-        newNode.moveX(-10);
+        otherNodes[i].translate(10, 0);
+        newNode.translate(-10, 0);
         overlap = true;
       }
     }
