@@ -70,42 +70,51 @@ describe('Node', function () {
   });
 
   describe('translate', function () {
-    it('should create a circle and move it over 10, 10', function() {
-      let circle = new Circle(100, 100, 100);
-      circle.translate(10, 10);
-      chai.expect(circle.cx).to.equal(110);
-      chai.expect(circle.cy).to.equal(110);
+    it('should create a node and move it over 10, 10', function() {
+      let node = new Node(100, 100, 100, 100, 'testNode');
+      node.translate(10, 10);
+      chai.expect(node.cx).to.equal(110);
+      chai.expect(node.cy).to.equal(110);
     });
-    it('should create a circle and translate by 0, maintaining the same position', function() {
-      let circle = new Circle(100, 100, 100);
-      circle.translate(0, 0);
-      chai.expect(circle.cx).to.equal(100);
-      chai.expect(circle.cy).to.equal(100);
+
+    it('should create a node and translate by 0, maintaining the same position', function() {
+      let node = new Node(100, 100, 100, 100, 'testNode');
+      node.translate(0, 0);
+      chai.expect(node.cx).to.equal(100);
+      chai.expect(node.cy).to.equal(100);
     });
-    it('should create a circle, move it over 10, then manually move the x', function() {
-      let circle = new Circle(100, 100, 100);
-      circle.translate(10, 10);
-      chai.expect(circle.cx).to.equal(110);
-      chai.expect(circle.cy).to.equal(110);
 
-      circle.cx = 90;
-      chai.expect(circle.cx).to.equal(90);
-      chai.expect(circle.cy).to.equal(110);
+    it('should create a node and translate by 10, make sure the actual ellipse moves', function() {
+      let node = new Node(100, 100, 100, 100, 'testNode');
+      node.translate(10, 10);
+      chai.expect(node.cx).to.equal(110);
+      chai.expect(node.cy).to.equal(110);
+      chai.expect(node.cx).to.equal(node.nodeEllipse.cx);
+      chai.expect(node.cy).to.equal(node.nodeEllipse.cx);
     });
-    it('should create a circle, translate it, manually move the x and y, then translate again', function() {
-      let circle = new Circle(100, 100, 100);
-      circle.translate(10, 10);
-      chai.expect(circle.cx).to.equal(110);
-      chai.expect(circle.cy).to.equal(110);
 
-      circle.cx = 90;
-      circle.cy = 80;
-      chai.expect(circle.cx).to.equal(90);
-      chai.expect(circle.cy).to.equal(80);
+    it('should create a node and translate by 10, make sure the text moves', function() {
+      let node = new Node(100, 100, 100, 100, 'testNode');
+      node.translate(10, 10);
+      chai.expect(node.cx).to.equal(110);
+      chai.expect(node.cy).to.equal(110);
+      chai.expect(node.cx).to.equal(node.nodeName.x);
+      chai.expect(node.cy).to.equal(node.nodeName.y);
+    });
 
-      circle.translate(-100, -100);
-      chai.expect(circle.cx).to.equal(-10);
-      chai.expect(circle.cy).to.equal(-20);
+    it('should create a node, translate it, manually move the x and y, then translate again', function() {
+      let node = new Node(100, 100, 100, 100, 'testNode');
+      node.translate(10, 10);
+      chai.expect(node.cx).to.equal(110);
+      chai.expect(node.cy).to.equal(110);
+
+      node.translate(-20, -30)
+      chai.expect(node.cx).to.equal(90);
+      chai.expect(node.cy).to.equal(80);
+
+      node.translate(-100, -100);
+      chai.expect(node.cx).to.equal(-10);
+      chai.expect(node.cy).to.equal(-20);
     });
   });
 });

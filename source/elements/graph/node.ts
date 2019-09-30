@@ -119,8 +119,8 @@ export default class Node extends Group {
   * Setter for ry of this node
   */
   set ry(ry:number){
-    this._rx = ry;
-    this.nodeEllipse.rx = ry;
+    this._ry = ry;
+    this.nodeEllipse.ry = ry;
   }
 
   /**
