@@ -32,7 +32,7 @@ import DirectedGraph from '../elements/graph/directed-graph.js';
 import Map from '../elements/maps/map.js';
 
 // math elements
-import Plot from '../elements/math/plot.js';
+import Plot, { PlotOptions } from '../elements/math/plot.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -336,8 +336,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a plot within this interactive at the position (x,y).
   */
-  plot( userEvents = true, width = 600, height = 300, scaleX?:number, scaleY?:number ) : Plot {
-    return this.appendChild(new Plot(userEvents, width, height, scaleX, scaleY));
+  plot(width:number = 600, height:number = 300, fn:(x:number)=>number, options:PlotOptions ) : Plot {
+    return this.appendChild(new Plot(width, height, fn, options));
   }
 
   /**

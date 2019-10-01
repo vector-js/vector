@@ -96,6 +96,7 @@ export default class Control extends Input {
   static handleMouseMove( event:MouseEvent ) {
     if( Control.active != null ) {
       Control.handleMoveTo(event.clientX,event.clientY);
+      event.preventDefault();
     }
   }
 
@@ -106,19 +107,24 @@ export default class Control extends Input {
   static handleTouchMove( event:TouchEvent) {
     if( Control.active != null ) {
       Control.handleMoveTo(event.touches[0].clientX, event.touches[0].clientY);
+      event.preventDefault();
     }
   }
 
-  static handleMoveTo( clientX, clientY) {
+  /**
+  * Moves the active control to the new (x,y) position.
+  */
+  static handleMoveTo( clientX: number, clientY: number) {
 
-    let deltaX = clientX - Control.prevX;
-    let deltaY = clientY - Control.prevY;
-    Control.prevX = clientX;
-    Control.prevY = clientY;
-    let x = Control.active.x + deltaX;
-    let y = Control.active.y + deltaY;
+    // let deltaX = clientX - Control.prevX;
+    // let deltaY = clientY - Control.prevY;
+    // Control.prevX = clientX;
+    // Control.prevY = clientY;
+    // let x = Control.active.x + deltaX;
+    // let y = Control.active.y + deltaY;
+    let x = clientX + Control.slopX;
+    let y = clientY + Control.slopY;
     Control.active.translate( x, y);
-    event.preventDefault();
   }
 
   // static handleMoveTo( clientX, clientY) {

@@ -28,7 +28,7 @@ angleControl.constrainToCircle( circle.cx, circle.cy, circle.r);
 let triangle = angleInteractive.path('');
 triangle.addDependency(angleControl);
 triangle.update = function() {
-  this.d = `M ${angleControl.x} 0 L ${angleControl.x} ${angleControl.y} L 0 0z`;
+  this.d = `M ${angleControl.x} 0 L 0 0 L ${angleControl.x} ${angleControl.y}`;
 };
 triangle.update();
 
@@ -54,15 +54,19 @@ interactive.window = false;
 interactive.root.style.display = 'inline';
 
 let scale = circumference/(2*Math.PI);
-let graph = interactive.plot( false, circumference, interactive.height, scale, scale );
-graph.function = Math.sin;
+let graph = interactive.plot(600, 300, Math.sin, {
+  scaleX: scale,
+  scaleY: scale,
+  zoomable: false,
+  displayPoint: false
+});
 graph.setOrigin(0, interactive.height/2);
 // graph.xAxis.x1 = 0;
 // graph.xAxis.x2 = circle.r*2*Math.PI;
 // interactive.root.style.overflow = 'visible';
 graph.draw();
 
-let y = interactive.line(0,0,0,0);
+let y = graph.staticGroup.line(0,0,0,0);
 y.root.style.stroke = 'red';
 let control = interactive.control( 0, 0);
 
@@ -74,9 +78,9 @@ function getAngle() : number {
   }
 }
 
+graph.staticGroup.appendChild(control);
 control.addDependency(angleControl);
 control.update = function() {
-
   this.x = circle.r*getAngle();
   this.y = angleControl.y;
 
@@ -87,7 +91,7 @@ control.constrain = function( o, n) {
 };
 control.onchange = function() {
   angleControl.x = circle.r*Math.cos(control.x/circle.r);
-  angleControl.y = control.y;
+  angleControl.y = -control.y;
   angleControl.updateDependents();
 };
 
@@ -100,15 +104,15 @@ y.update = function() {
 };
 y.update();
 
-interactive.line(0*circumference/4,-4,0*circumference/4,4);
-interactive.line(1*circumference/4,-4,1*circumference/4,4);
-interactive.line(2*circumference/4,-4,2*circumference/4,4);
-interactive.line(3*circumference/4,-4,3*circumference/4,4);
-interactive.line(4*circumference/4,-4,4*circumference/4,4);
+graph.staticGroup.line(0*circumference/4,-4,0*circumference/4,4);
+graph.staticGroup.line(1*circumference/4,-4,1*circumference/4,4);
+graph.staticGroup.line(2*circumference/4,-4,2*circumference/4,4);
+graph.staticGroup.line(3*circumference/4,-4,3*circumference/4,4);
+graph.staticGroup.line(4*circumference/4,-4,4*circumference/4,4);
 
-interactive.text(0*circumference/4,-10, `0`).root.style.textAnchor = 'middle';
-interactive.text(2*circumference/4,-10, `π`).root.style.textAnchor = 'middle';
-interactive.text(4*circumference/4,-10, `τ`).root.style.textAnchor = 'middle';
+graph.staticGroup.text(0*circumference/4 + 8,-10, `0`).root.style.textAnchor = 'middle';
+graph.staticGroup.text(2*circumference/4 + 0,-10, `π`).root.style.textAnchor = 'middle';
+graph.staticGroup.text(4*circumference/4 - 8,-10, `τ`).root.style.textAnchor = 'middle';
 
 // let text = interactive.text(interactive.width/2, - interactive.height/2 + 30, 'y = sin(θ)');
 // text.root.style.textAnchor = 'middle';

@@ -6,6 +6,17 @@ import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
 
+export interface PlotOptions {
+  zoomable?:boolean;
+  displayPoint?:boolean;
+  grid?:boolean;
+  scaleX?:number;
+  scaleY?:number;
+  originX?:number;
+  originY?:number;
+  border?:boolean;
+}
+
 /**
 * A plot of the graph of a function.
 */
@@ -89,8 +100,29 @@ export default class Plot extends Group {
   * x -> y. The user is able to drag, zoom-in, and zoom-out on the graph to
   * explore the shape and form of the function.
   */
-  constructor( userEvents = true, width = 600, height = 300, scaleX?:number, scaleY?:number ) {
+  constructor( width = 600, height = 300, fn:(x:number) => number, options:PlotOptions ) {
     super();
+
+    // event variables
+    this.prevX = 0;
+    this.prevY = 0;
+    this.active = false;
+    this._function = fn;
+
+    // calculate the visible dimensions and top-left position of svg coordinates
+    this.x = -width/2;
+    this.y = -height/2;
+    this.width = width;
+    this.height = height;
+
+    // creates a transparent rectangle to capture all user events
+    this.rect = this.rectangle(0, 0, this.width, this.height);
+    this.rect.style.fill = 'transparent';
+    if( options.border === undefined || options.border ) {
+      this.rect.style.border = '1px solid #404040';
+    } else {
+      this.rect.style.stroke = 'none';
+    }
 
     // default values
     this.viewPort = this.svg();
@@ -102,42 +134,46 @@ export default class Plot extends Group {
     this.staticGroup.line( 0, -10000, 0, 10000 );
     this.staticGroup.circle(0, 0, 3).fill = '#404040';
 
-    // calculate the visible dimensions and top-left position of svg coordinates
-    this.x = -width/2;
-    this.y = -height/2;
-    this.width = width;
-    this.height = height;
-
     // initialize the scaling
-    scaleX ? this.scaleX = scaleX : this.scaleX = 1;
-    scaleY ? this.scaleY = scaleY : this.scaleY = 1;
+    options.scaleX ? this.scaleX = options.scaleX : this.scaleX = 1;
+    options.scaleY ? this.scaleY = options.scaleY : this.scaleY = 1;
 
     // calculate the visible dimensions and top-left position of internal coordinates
     this.visibleWidth = this.width/this.scaleX;
     this.visibleHeight = this.height/this.scaleY;
     this.internalX = -this.visibleWidth/2;
     this.internalY = -this.visibleHeight/2;
-    this.setViewBox();
-
-    this.prevX = 0;
-    this.prevY = 0;
-    this.active = false;
-
-    // creates a transparent rectangle to capture all user events
-    this.rect = this.rectangle(0, 0, this.width, this.height);
-    this.rect.style.fill = 'transparent';
-    this.rect.style.stroke = 'none';
 
     this.fPath = this.staticGroup.path('');
     this.fPath.root.setAttribute('vector-effect','non-scaling-stroke');
     this.fPath.setAttribute('transform', 'scale(1, -1)');
 
-    // this.staticGroup.setAttribute('transform', 'scale(1,-1)');
-    // this.staticGroup.circle(0, 40, 5).style.fill = 'red';
-    // this.staticGroup.circle(40, 0, 5).style.fill = 'red';
+    this.setViewBox();
+
+    if( options.originX != undefined && options.originY != undefined){
+      this.setOrigin(options.originX, options.originY);
+    }
+
+    // draw a grid of rectangles
+    if( options.grid ) {
+      let w = 10;
+      let h = 10;
+      for( let i = -10; i <= 10; i++) {
+        for( let j = -10; j <= 10; j ++) {
+          let x = i*w;
+          let y = j*h;
+          let rect = this.viewPort.rectangle(x, y, w, h);
+          rect.style.stroke = '#777777';
+          rect.root.setAttribute('vector-effect','non-scaling-stroke');
+        }
+      }
+    }
+
+    // store a temp variable for registering events
+    let graph = this;
 
     // Registers event listeners
-    if( userEvents ) {
+    if( options.displayPoint === undefined || options.displayPoint ) {
 
       // create a display circle for showing input and output
       this.displayCircle = this.staticGroup.circle(0,0,4);
@@ -157,22 +193,13 @@ export default class Plot extends Group {
       this.yText.root.style.dominantBaseline = 'middle';
       this.yText.root.style.whiteSpace = 'pre';
 
-      // draw a grid of rectangles
-      let w = 10;
-      let h = 10;
-      for( let i = -10; i <= 10; i++) {
-        for( let j = -10; j <= 10; j ++) {
-          let x = i*w;
-          let y = j*h;
-          let rect = this.viewPort.rectangle(x, y, w, h);
-          rect.root.setAttribute('vector-effect','non-scaling-stroke');
-        }
-      }
-
-      let graph = this;
       this.root.addEventListener('mousemove', function( event:MouseEvent) {
         graph.handleMouseMove(event);
       });
+
+    }
+
+    if( options.zoomable === undefined || options.zoomable ) {
       this.root.addEventListener('mousedown', function( event:MouseEvent) {
         graph.handleMouseDown(event);
       });
@@ -186,6 +213,9 @@ export default class Plot extends Group {
         graph.handleMouseWheelEvent(event);
       }, {passive:false});
     }
+
+    // draw the initial state of the graph
+    this.draw();
   }
 
   /**

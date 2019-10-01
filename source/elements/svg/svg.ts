@@ -30,6 +30,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   */
   constructor( width?:number, height?:number ) {
     let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     if( width ) {
       svg.setAttributeNS(null, 'width', width.toString());
     }

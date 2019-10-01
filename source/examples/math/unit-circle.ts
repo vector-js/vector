@@ -54,8 +54,12 @@ chartInteractive.rectangle(0, 0, chartInteractive.width, chartInteractive.height
 // chartInteractive.originX = 0;
 // chartInteractive.originY = chartInteractive.height/2;
 let scale = chartInteractive.width/(2*Math.PI);
-let graph = chartInteractive.plot(false, 600, 300, scale, scale);
-graph.function = Math.sin;
+let graph = chartInteractive.plot(600, 300, Math.sin, {
+  scaleX: scale,
+  scaleY: scale,
+  zoomable: false,
+  displayPoint: false
+});
 graph.setOrigin(0, chartInteractive.height/2);
 chartInteractive.text( 8, chartInteractive.height/2 - margin, "0");
 chartInteractive.text( chartInteractive.width/2, chartInteractive.height/2 - margin, "π");
