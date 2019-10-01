@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="An interactive SVG tutorial introducing the basics of creating and manipulating SVG documents." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+<script type="text/javascript" src="/js/aside.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/">API</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<section class="aside container">
+  <div class="aside-container">
+    <aside>
+      <a href="#"><h1>SVG Tutorial</h1></a>
+      <ul>
+        
+          
+            
+            
+            
+            <li><a class="aside-link" href="#getting-started"><img src="/icons/getting-started.svg" alt="Getting Started">Getting Started</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#xml-syntax"><img src="/icons/xml-syntax.svg" alt="XML Syntax">XML Syntax</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#tree-structure"><img src="/icons/tree-structure.svg" alt="Tree Structure">Tree Structure</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#basic-elements"><img src="/icons/basic-elements.svg" alt="Basic Elements">Basic Elements</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#path-element"><img src="/icons/path-element.svg" alt="Path Element">Path Element</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#coordinate-system"><img src="/icons/coordinate-system.svg" alt="Coordinate System">Coordinate System</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#styling"><img src="/icons/styling.svg" alt="Styling">Styling</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#typography"><img src="/icons/typography.svg" alt="Typography">Typography</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#advanced-elements"><img src="/icons/advanced-elements.svg" alt="Advanced Elements">Advanced Elements</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#scripting"><img src="/icons/scripting.svg" alt="Scripting">Scripting</a></li>
+            
+          
+        
+      </ul>
+    </aside>
+  </div>
+  <main class="medium-container" id="main-content">
+    
+
+<h1 id="svg-tutorial">SVG Tutorial</h1>
+
+<p>This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for an overview of the specification. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>.</p>
+
+<p>See also: <a href="/svg/elements/">SVG Elements</a>.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the &ldquo;svg&rdquo; tag, which forms the root of the docuement, looks like:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg&gt;&lt;/svg&gt;</span></code></pre></div>
+
+<p>Elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of attribute=&ldquo;&hellip;&rdquo;. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">width=</span><span class="s">&#34;200&#34;</span> <span class="na">height=</span><span class="s">&#34;100&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;50&#34;</span> <span class="na">cy=</span><span class="s">&#34;50&#34;</span> <span class="na">r=</span><span class="s">&#34;15&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/svg&gt;</span></code></pre></div>
+
+<p>The SVG document above is rendered as:</p>
+
+<div style="border: 1px solid grey; border-radius: 5px;">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+
+  <circle cx="50" cy="50" r="15" style="fill:#333333;"></circle>
+</svg>
+</div>
+
+<h2 id="xml-syntax">XML Syntax</h2>
+
+<p>XML elements are formed by opening and closing tags. The opening tag contains a name followed by space separated attributes. Attributes define additional information about the element and are in the form of name=&ldquo;value&rdquo;.</p>
+
+<p><img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px" style="max-width:100%;"></p>
+
+<p>Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are specific to the element, but there are also more general attributes that are useful and which can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.</p>
+
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string identifier</td>
+</tr>
+
+<tr>
+<td>class</td>
+<td>list of classes separated by spaces</td>
+</tr>
+
+<tr>
+<td>style</td>
+<td>inline styling for this element</td>
+</tr>
+</tbody>
+</table>
+
+<p><!-- An unique identifier is useful for retrieving a specic elements and applying styles from an external stylesheet to a specific element. The class attribute allows one to apply styles from an external style sheet to all elements that share a class, and the style attribute allows one to apply inline style to an element. --></p>
+
+<h2 id="tree-structure">Tree Structure</h2>
+
+<p>A SVG document is structured like a tree. Every SVG element has an opening and closing tag. Within the tags is where child elements are placed. These children inherit the coordinate system and styles of the parent element. (TODO: double check these facts)</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg&gt;</span>
+  <span class="nt">&lt;rect&gt;&lt;/rect&gt;</span>
+  <span class="nt">&lt;circle&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/svg&gt;</span></code></pre></div>
+
+<p>In the example above, the SVG element has two children: a rectangle and circle. The ordering of the elements matters. In this example the circle is rendered on top of the rectangle, because the circle is placed after the rectangle within the SVG document.</p>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150">
+  <rect x=150 y=25 width=150 height=100 style="fill:#cda9d4; stroke:#333333; stroke-width:1px;"></rect>
+  <circle cx=150 cy=75 r=60 style="fill:lightblue; stroke:#333333; stroke-width:1px;"></circle>
+</svg></p>
+
+<h2 id="basic-elements">Basic Elements</h2>
+
+<p>In this section some basic visual elements are introduced: the line, ellipse, and rectangle element. See <a href="/svg/elements/">SVG Elements</a> for a non-comprehensive but useful nonetheless reference of more SVG elements.</p>
+
+
+
+
+  
+
+<h1 id="svg-elements">SVG Elements</h1>
+
+<p>A collection of SVG elements for lookup and reference. See also our <a href="/svg/">SVG Tutorial</a>. This collection is not comprehensive and instead focuses on shape elements and structural elements. Two other references are:</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element" target="_blank" rel="noreferrer">MDN SVG Elements</a></li>
+<li><a href="https://www.w3.org/TR/SVG/eltindex.html" target="_blank" rel="noreferrer">W3.org SVG Element Index</a></li>
+</ul>
+
+
+
+
+
+<h3 id="line-element">Line Element</h3>
+
+
+
+
+  <p>This interactive demonstrates the properties of the SVG line element.</p>
+
+
+<div id="svg-line" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-line.js"></script>
+
+
+
+
+
+
+
+<h3 id="ellipse-element">Ellipse Element</h3>
+
+
+
+
+  <p>This interactive demonstrates the properties of the ellipse element. There are three controls: one that changes the center position of the ellipse, one that controls the length of the x-radius, and another that changes the length of the y-radius.</p>
+
+
+<div id="svg-ellipse" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-ellipse.js"></script>
+
+
+
+
+
+
+
+<h3 id="rectangle-element">Rectangle Element</h3>
+
+
+
+
+  <p>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.</p>
+
+<!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
+
+
+<div id="svg-rectangle" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
+
+
+
+
+
+
+<h2 id="path-element">Path Element</h2>
+
+
+
+
+  
+
+<p>The path element is notorious for its power and difficulty. The path element has one attribute, the &ldquo;d&rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;...&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Command</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Move To</td>
+<td>M x y</td>
+</tr>
+
+<tr>
+<td>Line</td>
+<td>L x y</td>
+</tr>
+
+<tr>
+<td>Quadratic Bezier</td>
+<td>Q x1 y1 x2 y2</td>
+</tr>
+
+<tr>
+<td>Cubic Bezier</td>
+<td>C x1 y1 x2 y2 x3 y3</td>
+</tr>
+
+<tr>
+<td>Arc</td>
+<td>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</td>
+</tr>
+
+<tr>
+<td>Close</td>
+<td>Z</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="path-move-to">Path: Move To</h4>
+
+<p>Every path starts with a move command which describes where the path starts. A path can have multiple move to commands to start drawing the path elsewhere in the document.</p>
+
+<h4 id="path-line-command">Path: Line Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;L x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
+
+
+<div id="svg-path-line" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-line.js"></script>
+
+
+
+<h4 id="path-quadratic-bezier-command">Path: Quadratic Bezier Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;Q x1 y1 x2 y2&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The quadratic bezier curve command draws a curve between two points: the current position of the path and the end point (x2, y2). The shape of the curve is described by the first position in the command (x1, y1). Mathematically the curve is a parameterized polynomial. <a href="https://pomax.github.io/bezierinfo/" target="_blank" rel="noreferrer">More info here</a>.</p>
+
+
+<div id="svg-path-bezier-quadratic" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-bezier-quadratic.js"></script>
+
+
+
+<h4 id="path-cubic-bezier-command">Path: Cubic Bezier Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;C x1 y1 x2 y2 x3 y3&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The cubic bezier curve command is like the quadratic curve with an additional point to further control the shape of the curve.</p>
+
+
+<div id="svg-path-bezier-cubic" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-bezier-cubic.js"></script>
+
+
+
+<h4 id="path-arc-command">Path: Arc Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The arc command draws an arc between two points. The syntax of the command is &ldquo;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&rdquo;. The arc is drawn between the current position of the path and the end position (x,y). The numbers rx and ry define the shape of the ellipse which forms the arc. The x-axis rotation number controls what part of the ellipse&rsquo;s arc is being drawn between the points. The large arc flag determines whether to take the shorter arc or longer path between the two points. Finally, the sweep-flag chooses which of the two ellipsis that pass through the two points to draw.</p>
+
+
+<div id="svg-path-arc" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-arc.js"></script>
+
+
+
+
+
+
+
+<h2 id="coordinate-system">Coordinate System</h2>
+
+<p>The origin of the svg coordinate system is at the top-left corner of the image. The positive x-direction is to the right and the positive y-direction is down. In the world of computer graphics it is standard to have the y-axis flipped since elements are positioned relative to the top-left corner of the container. Try clicking and dragging the control point below.</p>
+
+
+<div id="svg-coordinate-system" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-coordinate-system.js"></script>
+
+
+
+<h3 id="view-box">View Box</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&#34;minX minY width height&#34;</span><span class="nt">&gt;&lt;/svg&gt;</span></code></pre></div>
+
+<p>The view box attribute allows the user to define a view port of the image. This means defining where the origin is and the relative dimensions: width and height to be displayed. For example, if we want to zoom in on the geometric shapes below we can apply a viewbox which is visualized with the rectangle on the left. The resulting svg is shown on the right.</p>
+
+
+<div id="svg-view-box" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-view-box.js"></script>
+
+
+
+<p></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&#34;130 100 350 200&#34;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- colorful squares ... --&gt;</span>
+<span class="nt">&lt;/svg&gt;</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- TODO: preserve aspect ratio attribute --&gt;</span></code></pre></div>
+
+<h3 id="transforming">Transforming</h3>
+
+<p>SVG elements have the ability to have a transformation attribute defined that can transform the element geometrically.</p>
+
+<h4 id="scale">Scale</h4>
+
+<p>Elements can be scaled to larger or smaller sizes by adding a scale function to the transform attribute.</p>
+
+
+<div id="svg-scale" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-scale.js"></script>
+
+
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;g</span> <span class="na">transform=</span><span class="s">&#34;scale(x,y)&#34;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- elements to be scaled ... --&gt;</span>
+<span class="nt">&lt;/g&gt;</span></code></pre></div>
+
+<h4 id="rotate">Rotate</h4>
+
+<p>Elements can be rotated.</p>
+
+
+<div id="svg-rotate" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rotate.js"></script>
+
+
+
+<h4 id="translate">Translate</h4>
+
+<p>Elements can be moved to new locations.</p>
+
+
+<div id="svg-translate" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-translate.js"></script>
+
+
+
+<h4 id="chaining-transformations">Chaining Transformations</h4>
+
+<!-- TODO: Put all three together to form basic drawing control -->
+
+<h4 id="other-transformations">Other Transformations</h4>
+
+<ul>
+<li>skewX</li>
+<li>skewY</li>
+<li>3 by 3 matrix</li>
+</ul>
+
+<h2 id="styling">Styling</h2>
+
+<p>SVG elements are styled using Cascading Style Sheets or CSS for short. Styling can be applied to individual elements as inline style, defined in a &lt;style&gt; tag within the SVG document, or defined externally in a .css file. There are many different styles that can be applied to each element. Two of the most basic are the fill and stroke color.</p>
+
+<p><img src="/images/fill-stroke.svg" alt="Fill and Stroke Element" width="320px" style="display:block; margin:auto;"></p>
+
+<h3 id="inline-style">Inline Style</h3>
+
+<p>Styling can be applied to individual elements using the style attribute. This is very useful for testing out different styling on an element, but in practice it is better to use CSS selectors to style elements based on id, class, and tagname.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;150&#34;</span> <span class="na">cy=</span><span class="s">&#34;75&#34;</span> <span class="na">r=</span><span class="s">&#34;50&#34;</span> <span class="na">style=</span><span class="s">&#34;fill:purple;&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/svg&gt;</span></code></pre></div>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <circle cx="150" cy="75" r="50" style="fill:purple;"></circle>
+</svg></p>
+
+<h3 id="style-element">Style Element</h3>
+
+<p>CSS rules can be applied in the style element within the SVG document. A CSS rule applies styling to elements that match the selectors before the style enclosed in the curly braces. In the example below the selector &ldquo;circle&rdquo; will be applied to all circle elements within the SVG.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+  circle {
+    stroke:purple;
+    stroke-width:1px;
+    fill:none;
+  }
+  <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;150&#34;</span> <span class="na">cy=</span><span class="s">&#34;75&#34;</span> <span class="na">r=</span><span class="s">&#34;50&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/svg&gt;</span></code></pre></div>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <style>
+  circle.style-element {
+    stroke:purple;
+    stroke-width:1px;
+    fill:none;
+  }
+  </style>
+  <circle cx="150" cy="75" r="50" class="style-element"></circle>
+</svg></p>
+
+<h3 id="effects">Effects</h3>
+
+<p>Styling can be applied to a specific element state such as &ldquo;:active&rdquo;, &ldquo;:focus&rdquo;, &ldquo;:hover&rdquo;. For example when the user hover&rsquo;s over the circle below additional styling is applied to make the fill of the circle darker.</p>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <style>
+  #my-circle{
+    fill:#f8f8f8;
+    stroke:#333333;
+  }
+  #my-circle:hover{
+    fill:cornflowerblue;
+  }
+  </style>
+  <circle cx="150" cy="75" r="50" id="my-circle"></circle>
+</svg></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">my-circle</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span>
+  <span class="n">fill</span><span class="p">:</span><span class="kc">cornflowerblue</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<h2 id="typography">Typography</h2>
+
+<p>This section of the tutorial deals with creating and formatting text within SVG documents.</p>
+
+<h3 id="text-element">Text Element</h3>
+
+<p>The text element defines text with an x, y position in the document.</p>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" class="border">
+  <style>
+    text.sample {
+      font-family:monospace;
+      font-size:22px;
+      alignment-baseline:middle;
+      text-anchor:middle;
+    }
+    </style>
+  <text x="352" y="75" class="sample">The quick brown fox jumps over the lazy dog.</text>
+</svg></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">x=</span><span class="s">&#34;75&#34;</span> <span class="na">y=</span><span class="s">&#34;75&#34;</span><span class="nt">&gt;</span>The quick brown fox jumps over the lazy dog.<span class="nt">&lt;/text&gt;</span></code></pre></div>
+
+<h3 id="tspan-element">Tspan Element</h3>
+
+<p>The text span element is useful for changing the position and or the styling of a piece of text within a text element. In the example below, the first word is placed within a tspan element and bolded to emphasize the word. Then, later, a tspan element is positioned relative to the last tspan element.</p>
+
+<p><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:150px;" class="border">
+  <style>
+    #tspan-example {
+      font-size:22px;
+      alignment-baseline:middle;
+      text-anchor:left;
+    }
+    </style>
+    <text id="tspan-example" x="32" y="75" >
+      <tspan>&ldquo;</tspan>
+      <tspan style="font-weight:600;">Fly </tspan>
+      <tspan>you fools.</tspan>
+      <tspan>&ldquo;</tspan>
+      <tspan dx=20 dy=30>Gandalf the Grey</tspan>
+    <text>
+</svg></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;text</span> <span class="na">id=</span><span class="s">&#34;tspan-example&#34;</span> <span class="na">x=</span><span class="s">&#34;32&#34;</span> <span class="na">y=</span><span class="s">&#34;75&#34;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>&#34;<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan</span> <span class="na">style=</span><span class="s">&#34;font-weight:600;&#34;</span><span class="nt">&gt;</span>Fly <span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>you fools.<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan&gt;</span>&#34;<span class="nt">&lt;/tspan&gt;</span>
+  <span class="nt">&lt;tspan</span> <span class="na">dx=</span><span class="s">20</span> <span class="na">dy=</span><span class="s">30</span><span class="nt">&gt;</span>Gandalf the Grey<span class="nt">&lt;/tspan&gt;</span>
+<span class="nt">&lt;text&gt;</span></code></pre></div>
+
+<h3 id="horizontally-align-text">Horizontally Align Text</h3>
+
+<p>The &ldquo;text-anchor&rdquo; attribute allows you to horizontally align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.</p>
+
+<p><img src="/images/horizontally-align-text.svg" class="border" alt="Horizontally align SVG text." width="100%"></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">text-anchor</span><span class="p">:</span><span class="nd">left</span><span class="o">;</span>
+<span class="nt">text-anchor</span><span class="p">:</span><span class="nd">middle</span><span class="o">;</span>
+<span class="nt">text-anchor</span><span class="p">:</span><span class="nd">right</span><span class="o">;</span></code></pre></div>
+
+<h3 id="vertically-align-text">Vertically Align Text</h3>
+
+<p>The &ldquo;alignment-baseline&rdquo; attribute allows you to vertically align text relative to its position. This is demonstrated below in the SVG, the red dot represents each text elements position.</p>
+
+<p><img src="/images/vertically-align-text.svg" class="border" alt="Vertically align SVG text." width="100%"></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">dominant-baseline</span><span class="p">:</span><span class="nd">baseline</span><span class="o">;</span>
+<span class="nt">dominant-baseline</span><span class="p">:</span><span class="nd">middle</span><span class="o">;</span>
+<span class="nt">dominant-baseline</span><span class="p">:</span><span class="nd">hanging</span><span class="o">;</span></code></pre></div>
+
+<h3 id="superscript-and-subscript">Superscript and Subscript</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- superscript &amp; subscript text --&gt;</span></code></pre></div>
+
+<h3 id="auto-wrapping">Auto Wrapping</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- auto wrapping --&gt;</span></code></pre></div>
+
+<h3 id="preformated-text-line-breaks">Preformated Text / Line Breaks</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- pre-formated / line breaks --&gt;</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// how to convert typography to paths?
+</span></code></pre></div>
+
+<h2 id="advanced-elements">Advanced Elements</h2>
+
+<p>The SVG specification has a lot of elements, and while not all are covered in this tutorial, there are a couple of advanced elements worth mentioning.</p>
+
+<h3 id="clip-path">Clip Path</h3>
+
+<p>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;g</span> <span class="na">clip-path=</span><span class="s">&#34;url(#my-clip-path)&#34;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- grid of rectangles ... --&gt;</span>
+<span class="nt">&lt;/g&gt;</span>
+<span class="nt">&lt;clipPath</span> <span class="na">id=</span><span class="s">&#34;my-clip-path&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;300&#34;</span> <span class="na">cy=</span><span class="s">&#34;150&#34;</span> <span class="na">r=</span><span class="s">&#34;50&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/clipPath&gt;</span></code></pre></div>
+
+<p>Click and drag the clip path below to change the position of the circle that defines the clipping path.</p>
+
+
+<div id="svg-clip-path" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-clip-path.js"></script>
+
+
+
+<h3 id="defs">Defs</h3>
+
+<p>The defs element contains a graphical &ldquo;definition&rdquo; that can be used else where in the document. This is useful for arrows at the start and end of a path, adding markers along a path, or creating a pattern of repeated images.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- adding markers / arrows to a path --&gt;</span></code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="c">&lt;!-- adding gradient / pattern to a shape --&gt;</span></code></pre></div>
+
+<h2 id="scripting">Scripting</h2>
+
+<p>It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section demonstrates how to use vanilla Javascript and Web APIs to create, manipulate, and add interactivity to SVG elements.  There are many libraries and frameworks to help with this very thing. This library <a href="/">vector.js</a> is one of them.</p>
+
+<h3 id="creating-svg-elements">Creating SVG Elements</h3>
+
+<p>To create a SVG element within a simple static web page using javascript: first, you create an element using the W3 namespace and add it into the document object model or DOM for short. This example demonstrates generating a SVG element and adding that to a container element in the HTML page. Then creating a circle element and adding that to the SVG element.</p>
+
+<div class="filename">create-element.js</div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Get an element in the DOM to append the svg into
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;container&#34;</span><span class="p">);</span>
+
+<span class="c1">// Creates a root svg element and appends it into HTML the container
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElementNS</span><span class="p">(</span><span class="s2">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">,</span> <span class="s2">&#34;svg&#34;</span><span class="p">);</span>
+<span class="nx">svg</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;xmlns&#34;</span><span class="p">,</span> <span class="s2">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">);</span>
+<span class="nx">svg</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;width&#34;</span><span class="p">,</span> <span class="s2">&#34;720px&#34;</span><span class="p">);</span>
+<span class="nx">svg</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;height&#34;</span><span class="p">,</span> <span class="s2">&#34;200px&#34;</span><span class="p">);</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">svg</span><span class="p">);</span>
+
+<span class="c1">// Creates a circle element and appends it into the svg element
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElementNS</span><span class="p">(</span><span class="s2">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">,</span> <span class="s2">&#34;circle&#34;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;cx&#34;</span><span class="p">,</span> <span class="s2">&#34;100&#34;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;cy&#34;</span><span class="p">,</span> <span class="s2">&#34;100&#34;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="s2">&#34;50&#34;</span><span class="p">);</span>
+<span class="nx">svg</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
+</code></pre></div>
+
+<p>This script needs a corresponding HTML file to run. Note that there is a div element with the identifier &ldquo;container&rdquo; and a script element that loads in the script above.</p>
+
+<div class="filename">index.html</div>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span> <span class="na">dir</span><span class="o">=</span><span class="s">&#34;ltr&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Create Element<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./create-element.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
+
+<p>Placing these to files in a folder together and opening the HTML file in a web browser results in the following SVG.</p>
+
+<p><img src="/images/create-element.svg" width="704px" class="center" style="max-width:100%;" alt="Create SVG Element Javascript"></p>
+
+<h3 id="selecting-elements">Selecting Elements</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// select element by id
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;my-element-id&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// select elements by tag
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">elementList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;circle&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// select elements by class
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">elementList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;my-class&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="manipulating-attributes">Manipulating Attributes</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;some-attribute&#34;</span><span class="p">,</span> <span class="s2">&#34;some-value&#34;</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&#34;some-attribute&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;my-class&#39;</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;my-class&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="manipulating-style">Manipulating Style</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// access style property for inline styling
+</span></code></pre></div>
+
+<h3 id="useful-functions">Useful Functions</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// get bounding client rectangle
+</span><span class="c1">// SVGGraphicsElement getBBox();
+</span></code></pre></div>
+
+<h3 id="basic-interactive">Basic Interactive</h3>
+
+<p>Interactivity allows for user input to change the SVG document. The most basic form of this is register handlers to user events. Handlers are registered to specific elements and are called when the event takes place. Examples of events are the mouse click event, mouse move event, mouse over element event, keyboard events, and more.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: interactive that displays types of event handlers being called
+</span><span class="c1">// Maybe some basic shapes with colors
+</span></code></pre></div>
+
+<h4 id="registering-an-event-handler">Registering an Event Handler</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// register event listener
+</span></code></pre></div>
+
+<h3 id="svg-scripting-libraries">SVG Scripting Libraries</h3>
+
+<ul>
+<li>Vector.js</li>
+<li>D3</li>
+<li>svgjs</li>
+</ul>
+
+  </main>
+</section>
+
+
+</body>
+</html>

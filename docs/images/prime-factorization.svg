@@ -1,0 +1,287 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="252" class="interactive" id="Interactive-0" viewBox="-158 -62 316 252"><g><g id="Graph-1"><defs><marker id="arrow" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#333333;"></path></marker></defs><g class="default" id="Node-534"><circle class="default" id="Circle-536" style="fill: rgb(248, 248, 248);" r="30" cx="0" cy="0"></circle><text x="0" y="0" id="Text-535" alignment-baseline="middle" style="text-anchor: middle;">12</text></g><g class="default" id="Node-537"><circle class="default" id="Circle-539" style="fill: rgb(248, 248, 248);" r="30" cx="-64" cy="64"></circle><text x="-64" y="64" id="Text-538" alignment-baseline="middle" style="text-anchor: middle;">2</text></g><line x1="-21.213203435596423" y1="21.213203435596423" x2="-42.78679656440357" y2="42.78679656440357" class="default" id="Edge-540" marker-end="url(#arrow)"></line><g class="default" id="Node-541"><circle class="default" id="Circle-543" style="fill: rgb(248, 248, 248);" r="30" cx="64" cy="64"></circle><text x="64" y="64" id="Text-542" alignment-baseline="middle" style="text-anchor: middle;">6</text></g><g class="default" id="Node-544"><circle class="default" id="Circle-546" style="fill: rgb(248, 248, 248);" r="30" cx="0" cy="128"></circle><text x="0" y="128" id="Text-545" alignment-baseline="middle" style="text-anchor: middle;">2</text></g><line x1="21.213203435596423" y1="21.213203435596423" x2="42.78679656440357" y2="42.78679656440357" class="default" id="Edge-547" marker-end="url(#arrow)"></line><line x1="42.78679656440357" y1="85.21320343559643" x2="21.213203435596423" y2="106.78679656440357" class="default" id="Edge-548" marker-end="url(#arrow)"></line><g class="default" id="Node-549"><circle class="default" id="Circle-551" style="fill: rgb(248, 248, 248);" r="30" cx="128" cy="128"></circle><text x="128" y="128" id="Text-550" alignment-baseline="middle" style="text-anchor: middle;">3</text></g><line x1="85.21320343559643" y1="85.21320343559643" x2="106.78679656440357" y2="106.78679656440357" class="default" id="Edge-552" marker-end="url(#arrow)"></line></g></g><g></g><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style><style type="text/css">.window { display: block; margin: 0px auto 1.5em; overflow: hidden; }
+.window { box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 9px 0px, rgba(0, 0, 0, 0.19) 0px 3px 10px 0px; }
+.border { border: 1px solid grey; }
+.interactive { max-width: 100%; }
+svg { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: normal; font-feature-settings: "kern", "liga", "clig", "calt"; -webkit-font-smoothing: antialiased; user-select: none; }
+text { fill: rgb(51, 51, 51); stroke: none; }
+.default { stroke: rgb(64, 64, 64); stroke-width: 1px; fill: none; }
+.control-point { fill: rgb(3, 102, 238); stroke: none; }
+.control-handle { fill: transparent; stroke: rgb(3, 102, 238); stroke-width: 2px; opacity: 0; }
+.control-handle.highlight { opacity: 1; }
+.button rect { fill: rgb(85, 85, 85); }
+.button:hover rect { fill: rgb(51, 51, 51); }
+.button text { fill: rgb(255, 255, 255); }
+</style></svg>

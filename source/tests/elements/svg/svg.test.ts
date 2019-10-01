@@ -44,7 +44,7 @@ describe('SVG', function () {
     });
 
     it('test', function(){
-			console.log(this);
+			// console.log(this);
       svg.circle(50, 50, 30);
     });
 

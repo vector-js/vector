@@ -81,7 +81,9 @@
     "includes" : "./source",
     "exclude": ["./source/examples/**/*", "./source/tests/**/*"],
     "theme": "minimal",
-    "readme": "README.md"
+    "readme": "README.md",
+    "excludePrivate": "true",
+    "excludeNotExported": "true"
     /* exclude internal */
     /* exclude not exported */
     /* exclude private */
