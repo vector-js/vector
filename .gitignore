@@ -6,5 +6,5 @@ types
 *.js.map
 
 # ignore generated files on development branches
-# docs
-# dist
+docs
+dist
