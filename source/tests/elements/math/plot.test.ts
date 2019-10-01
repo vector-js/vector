@@ -1,6 +1,5 @@
-import Interactive from '../index.js';
-import Container from './container.js';
-import { Element, Plot } from '../index.js';
+import Container from '../../container.js';
+import Interactive from '../../../interactive.js';
 
 describe('Plot', function () {
 

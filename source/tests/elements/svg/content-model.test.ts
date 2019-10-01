@@ -1,4 +1,4 @@
-import { Descriptive, Shape, Structural, Typography } from '../elements/svg/content-model.js';
+import { Descriptive, Shape, Structural, Typography } from '../../../elements/svg/content-model.js';
 
 /**
 * Tests that the provided element correctly implements the "descriptive" content

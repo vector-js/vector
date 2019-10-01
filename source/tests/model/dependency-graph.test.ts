@@ -2,7 +2,7 @@
 * @ignore
 */
 
-import DependencyGraph  from '../model/dependency-graph.js';
+import DependencyGraph  from '../../model/dependency-graph.js';
 
 describe('DependencyGraph', function () {
 

@@ -4,7 +4,7 @@
 * @tags [svg]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 let viewBoxControl = new Interactive(getScriptName());
 viewBoxControl.border = true;

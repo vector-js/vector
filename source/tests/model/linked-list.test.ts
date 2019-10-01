@@ -2,7 +2,7 @@
 * @ignore
 */
 
-import LinkedList from '../model/linked-list.js';
+import LinkedList from '../../model/linked-list.js';
 
 describe('LinkedList', function () {
 

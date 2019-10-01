@@ -1,4 +1,4 @@
-import Element from '../elements/element.js';
+import Element from '../../elements/element.js';
 
 describe('Element', function () {
   describe('constructor', function () {

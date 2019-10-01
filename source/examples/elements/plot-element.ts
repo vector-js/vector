@@ -4,7 +4,7 @@
 * @tags [elements]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import Plot from '../../elements/math/plot.js';
 
 // Initialize the interactive

@@ -4,7 +4,7 @@
 * @tags [math, algorithm, graph]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import Node from '../../elements/graph/node.js';
 
 let interactive = new Interactive(getScriptName());

@@ -1,4 +1,4 @@
-import {isPrime, nextPrime} from '../util/math.js';
+import {isPrime, nextPrime} from '../../util/math.js';
 
 describe('Math', function () {
   describe('isPrime', function() {

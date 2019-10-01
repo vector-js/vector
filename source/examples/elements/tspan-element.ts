@@ -3,7 +3,7 @@
 * @description This interactive demonstrates the text span element.
 * @tags [elements]
 */
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;

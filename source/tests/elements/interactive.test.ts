@@ -1,6 +1,5 @@
-import Interactive from '../index.js';
-import Container from './container.js';
-import { Input, Element } from '../index.js';
+import Container from '../container.js';
+import { Interactive, Input, Element } from '../../index.js';
 
 describe('Interactive', function () {
 

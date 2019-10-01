@@ -350,7 +350,7 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  map(mapName:string,width:number,height:number,externalData: JSON = null) : Promise<Map> {
+  map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
    let map = new Map(this,mapName,width,height, externalData);
    return map;
    }

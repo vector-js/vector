@@ -4,7 +4,7 @@
 * @tags [elements, maps]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import {usDensityMap as densityMap} from './map-element-two-data.js';
 
 let interactive = new Interactive(getScriptName());

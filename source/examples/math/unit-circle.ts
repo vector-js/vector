@@ -5,7 +5,7 @@
 * @weight 1
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import Point from '../../elements/math/point.js';
 import { parseSVG } from '../../util/svg.js';
 
