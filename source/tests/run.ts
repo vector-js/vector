@@ -9,5 +9,8 @@ import './svg.test.js';
 import './group.test.js';
 import './interactive.test.js';
 
-mocha.checkLeaks();
+// complex elements
+import './plot.test.js';
+
+// mocha.checkLeaks();
 mocha.run();

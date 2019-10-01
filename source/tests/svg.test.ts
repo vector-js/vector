@@ -31,6 +31,7 @@ describe('SVG', function () {
   describe('geometric properties', function(){
 
     // create a new svg element before each test in this block
+		let section : HTMLElement = document.getElementById('tests');
     let svg : SVG;
     beforeEach(function() {
       svg = new SVG();
@@ -38,12 +39,12 @@ describe('SVG', function () {
       svg.height = 100;
       let div = document.createElement('div');
       div.classList.add('test-container');
-      div.style.border = '1px solid cornflowerblue';
       div.appendChild(svg.root);
-      document.body.appendChild(div);
+      section.appendChild(div);
     });
 
     it('test', function(){
+			console.log(this);
       svg.circle(50, 50, 30);
     });
 

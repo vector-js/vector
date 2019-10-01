@@ -1,19 +1,15 @@
 import Interactive from '../index.js';
+import Container from './container.js';
 import { Input, Element } from '../index.js';
 
 describe('Interactive', function () {
 
+	// initialize testing section
   let container : HTMLElement;
-  let count = 0;
-  let str = 'identifier';
 
   // create a new container before each test function
   beforeEach(function() {
-    container = document.createElement('div');
-    container.id = `${str}-${count++}`;
-    container.classList.add('test-container');
-    document.body.appendChild(container);
-    return container;
+    container = Container.createContainer();
   });
 
   describe('Constructor', function () {
@@ -46,6 +42,7 @@ describe('Interactive', function () {
       interactive = new Interactive(container);
       interactive.width = 100;
       interactive.height = 100;
+			interactive.border = true;
     });
 
     it('should create circle within the interactive', function() {
@@ -118,6 +115,7 @@ describe('Interactive', function () {
       interactive = new Interactive(container);
       interactive.width = 100;
       interactive.height = 100;
+			interactive.border = true;
     });
     it('should create a button within the interactive', function() {
       let x = 15;
@@ -178,6 +176,7 @@ describe('Interactive', function () {
       interactive = new Interactive(container);
       interactive.width = 100;
       interactive.height = 100;
+			interactive.border = true;
     });
 
     it('should visually create input elements on top of other non-input elements (clear-box)', function() {

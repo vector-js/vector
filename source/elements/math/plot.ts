@@ -326,7 +326,7 @@ export default class Plot extends Group {
       if( this.displayCircle != undefined ) {
         this.displayCircle.cx = event.clientX - br.left + this.x;
         this.displayCircle.cy = this.call(this.displayCircle.cx);
-        this.yText.contents = this.format(this.displayCircle.cx/this.scaleX);
+        this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
         this.yText.contents = this.format(this.displayCircle.cy/this.scaleY);
       }
     }

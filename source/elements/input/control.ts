@@ -74,23 +74,9 @@ export default class Control extends Input {
     this.translate(x,y);
 
     // register event handlers
-    let control = this;
-
-    this.root.onmousedown = function( event:MouseEvent) {
-      control.handleMouseDown( event);
-    };
-
-    this.root.ondblclick = function( event:MouseEvent) {
-      // do nothing on double click
-      event.preventDefault();
-    };
-
-    this.handle.root.onmouseout = function( event:MouseEvent ) {
-      control.handleMouseOut( event);
-    }
-
-    // set passive to false so chrome doesn't complain
-    this.handle.root.addEventListener('touchstart', control.handleTouchStart.bind(this), {passive:false});
+    this.root.onmousedown = this.handleMouseDown.bind(this);
+    this.handle.root.onmouseout = this.handleMouseOut.bind(this);
+    this.handle.root.addEventListener('touchstart', this.handleTouchStart.bind(this), {passive:false});
 
     // initialize window event listeners only once
     if( !Control.initalized ) {

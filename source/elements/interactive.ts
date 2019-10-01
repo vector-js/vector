@@ -91,7 +91,6 @@ export default class Interactive extends SVG {
     } else {
       this.container = value;
     }
-    this.container.classList.add('interactive-container');
 
     // create and append the root svg element and group elements
     this.container.appendChild(this.root);
@@ -351,7 +350,7 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
+  map(mapName:string,width:number,height:number,externalData: JSON = null) : Promise<Map> {
    let map = new Map(this,mapName,width,height, externalData);
    return map;
    }
