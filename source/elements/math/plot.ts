@@ -64,11 +64,7 @@ export default class Plot extends Group {
   */
   private _function : (x:number) => number;
 
-  // private member variables
-
   // actual height and width of plot element
-  // TODO: ox, oy actually refer to the origin of the static coordinate system,
-  // but originX, originY refer to the top left corner of the internal coordinate system.
   private x : number;
   private y : number;
   private width : number;
@@ -100,18 +96,23 @@ export default class Plot extends Group {
     this.viewPort = this.svg();
     this.viewPort.setAttribute('preserveAspectRatio','none');
 
+    // create a static group for non-size-scaling objects
     this.staticGroup = this.group();
     this.staticGroup.line(-10000, 0, 10000, 0);
     this.staticGroup.line( 0, -10000, 0, 10000 );
     this.staticGroup.circle(0, 0, 3).fill = '#404040';
+
+    // calculate the visible dimensions and top-left position of svg coordinates
     this.x = -width/2;
     this.y = -height/2;
     this.width = width;
     this.height = height;
 
+    // initialize the scaling
     scaleX ? this.scaleX = scaleX : this.scaleX = 1;
     scaleY ? this.scaleY = scaleY : this.scaleY = 1;
 
+    // calculate the visible dimensions and top-left position of internal coordinates
     this.visibleWidth = this.width/this.scaleX;
     this.visibleHeight = this.height/this.scaleY;
     this.internalX = -this.visibleWidth/2;
@@ -120,7 +121,6 @@ export default class Plot extends Group {
 
     this.prevX = 0;
     this.prevY = 0;
-
     this.active = false;
 
     // creates a transparent rectangle to capture all user events
@@ -158,7 +158,6 @@ export default class Plot extends Group {
       this.yText.root.style.whiteSpace = 'pre';
 
       // draw a grid of rectangles
-      // draw rectangles for debugging
       let w = 10;
       let h = 10;
       for( let i = -10; i <= 10; i++) {
@@ -204,11 +203,42 @@ export default class Plot extends Group {
   }
 
   /**
+  * Updates the display circle based on its current cx position, also updates
+  * the display text elements to represent the position of the display circle.
+  */
+  updateDisplayCircle() {
+    // Set the initial display position
+    if( this.displayCircle != undefined ) {
+      let cy = this.call(this.displayCircle.cx, false);
+      if( isNaN(cy)) {
+        this.displayCircle.cy = 0;
+      } else if( isFinite(cy) ){
+        this.displayCircle.cy = cy;
+        this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
+        this.yText.contents = this.format(this.displayCircle.cy/this.scaleY);
+      } else {
+        this.displayCircle.cy = this.height*3;;
+        this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
+        this.yText.contents = cy.toString();
+      }
+    }
+  }
+
+  /**
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
-  call( x:number ) : number {
-    return this.scaleY*this._function(x/this.scaleX);
+  call( x:number, normalize = true ) : number {
+
+    // call and scale the function
+    let y = this.scaleY*this._function(x/this.scaleX);
+
+    // normalize big/small y values
+    if( normalize ) {
+      if( y >  2*this.height ) { y =  2*this.height; }
+      if( y < -2*this.height ) { y = -2*this.height; }
+    }
+    return y;
   }
 
   /**
@@ -228,29 +258,35 @@ export default class Plot extends Group {
   * graph there is enough drawn so that a translate may be applied instead of
   * having to call draw again.
   */
-  draw( startX = this.x - this.width, endX = this.y + 2*this.width ) {
+  draw( startX = this.x - this.width, endX = this.x + 2*this.width ) {
 
     this.setViewBox();
-    if( this.displayCircle != undefined ) {
-      this.displayCircle.cy = this.call(this.displayCircle.cx);
-    }
+    this.updateDisplayCircle();
 
-    // Draw the function
+    // Start drawing the function
+    let start = false;
     let x = startX;
     let y = this.call(x);
-    if( y >  2*this.height ) { y =  2*this.height; }
-    if( y < -2*this.height ) { y = -2*this.height; }
-    let d = `M ${x} ${y} `;
-    let prev = y;
+    let d : string = '';
+    let prev : number;
 
-    // TODO: remove vertical asymptote's by starting jumping to a new spot...
-    // L ... L ... M ... L ... L ...
+    // If y is valid input start drawing
+    if(!isNaN(y)) {
+      d = `M ${x} ${y} `;
+      prev = y;
+      start = true;
+    }
+
+    // Loop through and draw coordiantes of the function path
     for( x ++; x < endX; x ++ ){
       let y = this.call(x);
-      if( y >  2*this.height ) { y =  2*this.height; }
-      if( y < -2*this.height ) { y = -2*this.height; }
-      if( Math.abs(prev - y) >= this.height) {
+      if( isNaN(y)) {
+        continue;
+      }
+      // check for vertical asymptotes or if we haven't started drawing
+      else if( Math.abs(prev - y) >= this.height || !start ) {
         d += `M ${x.toFixed(1)} ${y.toFixed(1)} `;
+        start = true;
       } else {
         d += `L ${x.toFixed(1)} ${y.toFixed(1)} `;
       }
@@ -276,7 +312,6 @@ export default class Plot extends Group {
   */
   handleMouseUp( _event:MouseEvent ) {
     this.active = false;
-    // this.draw();
   }
 
   /**
@@ -286,6 +321,10 @@ export default class Plot extends Group {
     this.handleMouseUp(event);
   }
 
+  /**
+  * Updates the position of the static group and sets the viewbox on the
+  * viewPort element.
+  */
   setViewBox() {
     this.staticGroup.setAttribute('transform',`translate(${-this.x}, ${-this.y})`);
     this.viewPort.setAttribute('viewBox', `${this.internalX} ${this.internalY} ${this.visibleWidth} ${this.visibleHeight}`);
@@ -325,13 +364,10 @@ export default class Plot extends Group {
       let br = this.rect.root.getBoundingClientRect();
       if( this.displayCircle != undefined ) {
         this.displayCircle.cx = event.clientX - br.left + this.x;
-        this.displayCircle.cy = this.call(this.displayCircle.cx);
-        this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
-        this.yText.contents = this.format(this.displayCircle.cy/this.scaleY);
+        this.updateDisplayCircle();
       }
     }
   }
-
 
   /**
   * Zooms in and out on this graph. TODO: There is some jarring wheel action
@@ -364,12 +400,12 @@ export default class Plot extends Group {
     this.x = this.internalX*this.scaleX;
     this.y = this.internalY*this.scaleY;
 
+    // update the position of the display circle
     if( this.displayCircle != undefined ) {
       this.displayCircle.cx = event.clientX - br.left + this.x;
-      this.displayCircle.cy = this.call(this.displayCircle.cx);
     }
 
-    // redraw the path
+    // redraw visual elements
     this.draw();
   }
 }

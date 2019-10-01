@@ -77,10 +77,15 @@ export default class Plot extends Group {
     */
     function: (x: number) => number;
     /**
+    * Updates the display circle based on its current cx position, also updates
+    * the display text elements to represent the position of the display circle.
+    */
+    updateDisplayCircle(): void;
+    /**
     * Returns the result of calling the internal function with the provided
     * function scaling both the input and the output.
     */
-    call(x: number): number;
+    call(x: number, normalize?: boolean): number;
     /**
     * Formats the input number to be displayed within the graph.
     */
@@ -104,6 +109,10 @@ export default class Plot extends Group {
     * When the user's mouse leaves the graph deactivates any concurrent drag.
     */
     handleMouseLeave(event: MouseEvent): void;
+    /**
+    * Updates the position of the static group and sets the viewbox on the
+    * viewPort element.
+    */
     setViewBox(): void;
     /**
     * This moves the origin of the plot to the location (x,y) relative to the size
