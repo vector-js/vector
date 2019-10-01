@@ -5,8 +5,7 @@
 */
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());

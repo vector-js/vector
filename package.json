@@ -17,16 +17,15 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "api": "typedoc --mode file --target ES6 --out hugo/static/api --theme minimal --exclude \"./source/examples/**/*\"",
+    "api": "typedoc",
     "build": "tsc",
     "clean": "rm -rf ./dist/ && rm -rf ./docs/",
     "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run rollup && npm run website",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
-    "website": "cd hugo && hugo --minify",
+    "website": "cd hugo && hugo",
     "watch": "tsc -w",
     "rollup": "rollup --config",
     "start": "http-server .",
-    "docs": "documentation build 'dist/**' -f html -o docs",
     "tutorial": "./getting-started.sh"
   },
   "files": [

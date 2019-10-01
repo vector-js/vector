@@ -4,9 +4,7 @@
 * @tags [math]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
-import SVG from '../../svg.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
@@ -20,9 +18,12 @@ interactive.originY = interactive.height/2;;
 let p1 = interactive.control( 100, -80);
 let p2 = interactive.control( -100, 80);
 
+let group = interactive.group();
+
 // Create a line between the points
-let triangle = interactive.path('');
+let triangle = group.path('');
 // triangle.root.style.fill = 'rgb(236,236,236)';
+triangle.style.stroke = 'none';
 triangle.addDependency(p1);
 triangle.addDependency(p2);
 triangle.update = function() {
@@ -30,7 +31,15 @@ triangle.update = function() {
 };
 triangle.update();
 
-let square = interactive.rectangle( 0,0,40,40);
+let mirrorTriangle = interactive.path(triangle.d);
+mirrorTriangle.addDependency(triangle);
+mirrorTriangle.update = function() {
+  mirrorTriangle.d = triangle.d;
+};
+
+let square = group.rectangle( 0-.5,0-.5,40-.5,40-.5);
+square.style.fill = 'grey';
+square.style.fillOpacity = '.3';
 square.addDependency(p1, p2);
 square.update = function() {
   square.x = p1.x - square.width/2;
@@ -41,7 +50,7 @@ square.update();
 mirrorCircle( p2);
 
 function mirrorCircle( point ) {
-  let circle = interactive.circle( point.x, point.y, 30);
+  let circle = group.circle( point.x, point.y, 30);
   circle.root.style.fill = 'grey';
   circle.root.style.fillOpacity = '.3';
   circle.addDependency(point);
@@ -53,17 +62,12 @@ function mirrorCircle( point ) {
 }
 
 // Draw a triangle for display
-let display_triangle = interactive.path('');
+let clipPath = interactive.clipPath();
+let display_triangle = clipPath.path('');
 display_triangle.root.style.strokeWidth = '2px';
 display_triangle.addDependency(triangle);
 display_triangle.update = function() {
   this.d = triangle.d;
 };
 display_triangle.update();
-
-// TODO: change this
-let clipPath = SVG.ClipPath();
-clipPath.id = 'triangle-with-angles-clip-path';
-clipPath.appendChild(triangle.root);
-interactive.root.appendChild(clipPath);
-(interactive.root.firstChild as SVGGElement).setAttribute('clip-path', `url(#${clipPath.id})`);
+group.root.setAttribute('clip-path', `url(#${clipPath.id})`);

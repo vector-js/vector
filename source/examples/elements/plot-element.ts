@@ -4,8 +4,8 @@
 * @tags [elements]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import {Interactive, getScriptName} from '../../index.js';
+import Plot from '../../elements/math/plot.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
@@ -13,14 +13,18 @@ interactive.width = 600;
 interactive.height = 300;
 interactive.border = true;
 
-let functionText = '(x) => { return Math.sin(x); }';
+let functionText = 'Math.cos';
 
 // Create a new graph object
-let graph = interactive.plot();
+let graph = new Plot(true, 600, 300, 300/Math.PI, 300/Math.PI);
 graph.function = eval(functionText);
-graph.originX = 0;
-graph.originY = interactive.height/2;
-graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
+graph.draw();
+graph.setOrigin(0, 150);
+interactive.appendChild(graph);
+
+// graph.originX = 0;
+// graph.originY = interactive.height/2;
+// graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
 
 // Function input
 let functionInput = document.createElement('input');

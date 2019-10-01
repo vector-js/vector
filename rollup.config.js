@@ -1,7 +1,7 @@
 export default {
-  input: 'dist/interactive.js',
+  input: 'dist/index.js',
   output: {
-    file: 'dist/library.bundle.js',
+    file: 'dist/index.bundle.js',
     format: 'iife',
     name: 'Interactive',
     globals: {

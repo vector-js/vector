@@ -4,11 +4,9 @@
 * @tags [math]
 */
 
-
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../../interactive.js';
-import { PointWhereTwoLinesIntersect } from '../../util.js';
-import SVG from '../../svg.js';
+import {Interactive, getScriptName} from '../../index.js';
+import { PointWhereTwoLinesIntersect } from '../../util/math.js';
 
 // Initialize the interactive
 let id = 'triangle-law-of-sines';
@@ -27,10 +25,10 @@ let p3 = interactive.control(425,225);
 
 let displayAngle1 = mirrorCircle( p2);
 let displayAngle2 = mirrorCircle( p3);
-let group = SVG.Group();
-group.appendChild(displayAngle1.root);
-group.appendChild(displayAngle2.root);
-interactive.root.insertBefore( group, interactive.root.firstChild);
+let group = interactive.group();
+group.root.appendChild(displayAngle1.root);
+group.root.appendChild(displayAngle2.root);
+interactive.root.insertBefore( group.root, interactive.root.firstChild);
 
 function mirrorCircle( point ) {
   let circle = interactive.circle( point.x, point.y, 25);
@@ -46,8 +44,8 @@ function mirrorCircle( point ) {
 }
 
 // Draw a triangle for the clip path
-let triangle = interactive.path('');
-// triangle.root.style.fill = 'rgb(236,236,236)';
+let clipPath = interactive.clipPath();
+let triangle = clipPath.path('');
 triangle.addDependency(p1);
 triangle.addDependency(p2);
 triangle.addDependency(p3);
@@ -56,11 +54,7 @@ triangle.update = function() {
 };
 triangle.update();
 
-// TODO: change this
-let clipPath = SVG.ClipPath();
-clipPath.id = id + '-clip-path';
-clipPath.appendChild(triangle.root);
-interactive.root.appendChild(clipPath);
+
 group.setAttribute('clip-path', `url(#${clipPath.id})`);
 
 let line = interactive.path('');

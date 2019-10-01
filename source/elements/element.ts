@@ -1,4 +1,4 @@
-import Controller from '../controller.js';
+import Controller from './controller.js';
 
 /**
 * A basic element of the interactive ecosystem. Each element has an unique
@@ -29,6 +29,11 @@ export default class Element {
   private _id : string;
 
   /**
+  * The update function describes how this element should update itself
+  */
+  update : () => void;
+
+  /**
   * The root element of this element
   */
   root : SVGElement;
@@ -37,11 +42,6 @@ export default class Element {
   * Style for the root element.
   */
   style: CSSStyleDeclaration;
-
-  /**
-  * The update function describes how this element should update itself
-  */
-  update : () => void;
 
   /**
   * Constructs the elements and adds it into the current controller.
@@ -77,6 +77,35 @@ export default class Element {
   */
   get id() : string {
     return this._id;
+  }
+
+  /**
+  * Sets the provided attribute with the value.
+  */
+  setAttribute( attribute: string, value: string ) {
+    this.root.setAttribute(attribute, value);
+  }
+
+  /**
+  * Returns the value associated with the attribute.
+  */
+  getAttribute( attribute: string ) : string {
+    return this.root.getAttribute(attribute);
+  }
+
+  /**
+  * Appends the element as a child within this element.
+  */
+  appendChild<T extends Element>( child:T ) : T {
+    this.root.appendChild(child.root);
+    return child;
+  }
+
+  /**
+  * Returns true if this element contains the argument element.
+  */
+  contains( element:Element ) {
+    return this.root.contains(element.root);
   }
 
   /**

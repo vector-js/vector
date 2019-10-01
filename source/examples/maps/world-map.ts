@@ -6,8 +6,7 @@
 * @weight 1
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 let myInteractive = new Interactive(getScriptName());
 let map = myInteractive.map("world",768,300);

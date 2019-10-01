@@ -7,9 +7,10 @@ pygmentsUseClasses: true
 publishDir: "../docs/"
 staticDir:
   - static
-  - ../dist/
+  - ../api/
   - ../css/
-  - ../svg/
+  - ../dist/
+  - ../resources/
 
 permalinks:
   tutorials: /:title/

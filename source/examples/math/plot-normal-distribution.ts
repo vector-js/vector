@@ -4,8 +4,7 @@
 * @tags [math]
 */
 
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
@@ -22,6 +21,6 @@ graph.function = (x:number) => { return 1/(s*Math.sqrt(2*Math.PI))* Math.pow(Mat
 // graph.function = (x:number) => { return Math.sin(x); };
 // graph.function = (x:number) => { return Math.tan(x); };
 
-graph.originX = 0;
-graph.originY = interactive.height/2;
-graph.scale( 1, 30000);
+// graph.originX = 0;
+// graph.originY = interactive.height/2;
+// graph.scale( 1, 30000);

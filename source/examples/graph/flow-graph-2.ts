@@ -1,5 +1,4 @@
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
 let graph = `a->b

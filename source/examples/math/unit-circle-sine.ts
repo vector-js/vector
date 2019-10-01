@@ -5,7 +5,7 @@
 * @author Kurt Bruns
 */
 
-import Interactive from '../../interactive.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let id = 'unit-circle-sine';
@@ -46,24 +46,21 @@ anglePoint.fill = 'black';
 
 let circumference = circle.r*2*Math.PI;
 let interactive = new Interactive(id);
-interactive.width = circumference + 2*margin;
+interactive.width = circumference;
 interactive.height = 250;
-interactive.originX = margin;
-interactive.originY = interactive.height/2;
+// interactive.originX = margin;
+// interactive.originY = interactive.height/2;
 interactive.window = false;
 interactive.root.style.display = 'inline';
 
-let graph = interactive.plot( false );
-graph.function = (x:number) => { return Math.sin(x); };
-graph.originX = 0;
-graph.originY = 0;
-graph.yAxis.style.stroke = 'none';
-graph.xAxis.x1 = 0;
-graph.xAxis.x2 = circle.r*2*Math.PI;
+let scale = circumference/(2*Math.PI);
+let graph = interactive.plot( false, circumference, interactive.height, scale, scale );
+graph.function = Math.sin;
+graph.setOrigin(0, interactive.height/2);
+// graph.xAxis.x1 = 0;
+// graph.xAxis.x2 = circle.r*2*Math.PI;
 // interactive.root.style.overflow = 'visible';
-graph.translate(graph.originX, graph.originY);
-graph.scale( 2*Math.PI/(circumference), circle.r);
-graph.draw( 0, circumference);
+graph.draw();
 
 let y = interactive.line(0,0,0,0);
 y.root.style.stroke = 'red';
