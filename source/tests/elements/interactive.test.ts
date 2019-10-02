@@ -234,4 +234,87 @@ describe('Interactive', function () {
 			});
 		});
   });
+
+	describe('Custom Elements', function() {
+
+		let interactive : Interactive;
+
+		// create a new interactive before each test
+		beforeEach(function() {
+			interactive = new Interactive(container);
+			interactive.width = 100;
+			interactive.height = 100;
+			interactive.border = true;
+		});
+
+		describe('icon', function(){
+
+			let icons = [
+				'advanced-elements',
+				'animation',
+				'basic-elements',
+				'circle',
+				'clip-path',
+				'control',
+				'defs',
+				'elements',
+				'ellipse',
+				'favicon',
+				'full-screen-close',
+				'full-screen-view',
+				'full-screen',
+				'getting-started',
+				'github',
+				'graph',
+				'graphs copy',
+				'graphs',
+				'group',
+				'icon',
+				'instagram',
+				'javascript',
+				'line',
+				'mail',
+				'marker',
+				'mouse',
+				'path',
+				'rectangle',
+				'resume',
+				'scripting',
+				'stories',
+				'style',
+				'tree-structure',
+				'twitter',
+				'typography',
+				'utah'
+			]
+
+			it('should create an icon for each icon we have defined', function() {
+				interactive.width = 300;
+				interactive.height = 300;
+				let margin = 2;
+				let size = Math.ceil(Math.sqrt(icons.length));
+				let width = interactive.width/size;
+				for (let r = 0; r < size; r++) {
+					for (let c = 0; r*size + c < icons.length; c++) {
+						let icon = icons[r*size + c];
+						interactive.icon( c*width + margin, r*width + margin, width - 2*margin, width - 2*margin, icon);
+					}
+				}
+			});
+
+			it('should create an icon repeatedly if wanted', function() {
+				interactive.width = 300;
+				interactive.height = 300;
+				let icon = 'advanced-elements';
+				let margin = 2;
+				let size = 10;
+				let width = interactive.width/size;
+				for (let r = 0; r < size; r++) {
+					for (let c = 0; c < size; c++) {
+						interactive.icon( c*width + margin, r*width + margin, width - 2*margin, width - 2*margin, icon);
+					}
+				}
+			});
+		});
+	});
 });

@@ -29,7 +29,7 @@ import Graph from '../elements/graph/graph.js';
 import DirectedGraph from '../elements/graph/directed-graph.js';
 
 // map elements
-import Map from '../elements/maps/map.js';
+import GeoMap from '../elements/maps/map.js';
 
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
@@ -47,7 +47,7 @@ export default class Interactive extends SVG {
   /**
   * The container element for this interactive.
   */
-  container:HTMLElement;
+	container:HTMLElement;
 
   /**
   * The SVG document root.
@@ -64,6 +64,16 @@ export default class Interactive extends SVG {
   * The background is where everything that is not a primary control is drawn.
   */
   background:Group;
+
+	/**
+	* This group contains symbols that can be reused within this interactive.
+	*/
+	private symbols:Group;
+
+	/**
+	* Maps icon names to ids.
+	*/
+	private icons:Set<string>;
 
   // internal variables
   private _width:number = 0;
@@ -95,10 +105,13 @@ export default class Interactive extends SVG {
     // create and append the root svg element and group elements
     this.container.appendChild(this.root);
     this.root.classList.add('interactive');
-    this.background = new Group();
-    this.input = new Group();
-    this.root.appendChild(this.background.root);
-    this.root.appendChild(this.input.root);
+
+		// Have to create and manually append because overridden append child will
+		// throw an error.
+		this.background = new Group();
+		this.input = new Group();
+		this.root.appendChild(this.background.root);
+		this.root.appendChild(this.input.root)
 
     // default configuration
     this._originX = 0;
@@ -268,46 +281,45 @@ export default class Interactive extends SVG {
     return this.appendChild( new CheckBox(x, y, label, value));
   }
 
-  icon( x:number, y:number, str:string ) : Icon {
+	/**
+	* Creates an icon at the position (x,y) with the provided dimensions.
+	*/
+  icon( x:number, y:number, width:number, height:number, str:string ) : Icon {
+
+		// check to see if the symbols group has been initialized
+		if( this.symbols === undefined ) {
+			this.symbols = new Group();
+			this.root.appendChild(this.symbols.root);
+			this.icons = new Set();
+		}
 
     // create a new icon element
-    let icon = new Icon(x,y);
+    let icon = new Icon(x,y,width,height);
     this.appendChild(icon);
 
-    // check to see if we have loaded the symbols svg, if not load it
-    let id = 'vector-js-symbols';
-    let svg : SVG;
-    let svgElement = document.getElementsByClassName(id)[0] as HTMLElement;
-    if ( svgElement === undefined || svgElement === null ) {
-      svg = new SVG();
-      svg.style.display = 'none';
-      svg.root.classList.add(id)
-      document.body.appendChild(svg.root);
-    } else {
-      svg = Element.controller.get(svgElement.id) as SVG;
-    }
-
     // check to see if we have loaded this icon before
-    let symbol = svg.root.querySelector(`#${str}`);
-    if( !symbol ) {
-      getURL(`/resources/icons/${str}.svg`).then(function(response){
+		let id = `${this.id}-${str}`
+    if( !this.icons.has(id) ) {
+			let temp = this;
+      getURL(`/icons/${str}.svg`).then(function(response){
 
-        let symbol = svg.symbol();
-        symbol.root.id = str;
         let symbolSVG = parseSVG(response);
+				let symbol = temp.symbols.symbol();
+				symbol.root.id = id;
+				symbol.viewBox = symbolSVG.getAttribute('viewBox');
         while (symbolSVG.childNodes.length > 0) {
             symbol.root.appendChild(symbolSVG.childNodes[0]);
         }
-
-        let use = icon.use();
-        use.setAttribute('href',`#${str}`);
-        icon.appendChild(use);
+				icon.href = `#${id}`;
 
       }).catch(function(error){
         throw error;
       });
-    }
-
+    } else {
+			icon.href = `#${id}`;
+		}
+		
+		this.icons.add(id);
     return icon;
 
   }
@@ -350,8 +362,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
-   let map = new Map(this,mapName,width,height, externalData);
+  map(mapName:string,width:number,height:number,externalData: JSON = null) : GeoMap {
+   let map = new GeoMap(this,mapName,width,height, externalData);
    return map;
    }
 

@@ -12,4 +12,4 @@ let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 704;
 
-interactive.marker();
+// interactive.marker();

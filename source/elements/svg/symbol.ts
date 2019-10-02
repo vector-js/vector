@@ -55,11 +55,11 @@ export default class Symbol extends Element {
   }
 
   get viewBox() : string {
-    throw new Error('Not Implemented')
+    return this.root.getAttribute('viewBox');
   }
 
   set viewBox(value:string) {
-    throw new Error('Not Implemented');
+    this.root.setAttributeNS(null, 'viewBox', value);
   }
 
   get refX() : number {

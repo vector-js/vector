@@ -2386,6 +2386,9 @@ img {
 				<li class=" tsd-kind-property tsd-parent-kind-class">
 					<a href="plot.html#active" class="tsd-kind-icon">active</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a href="plot.html#classlist" class="tsd-kind-icon">class<wbr>List</a>
+				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class">
 					<a href="plot.html#displaycircle" class="tsd-kind-icon">display<wbr>Circle</a>
 				</li>
@@ -2578,6 +2581,9 @@ img {
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a href="plot.html#updatedependents" class="tsd-kind-icon">update<wbr>Dependents</a>
 				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="plot.html#updatedisplaycircle" class="tsd-kind-icon">update<wbr>Display<wbr>Circle</a>
+				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a href="plot.html#use" class="tsd-kind-icon">use</a>
 				</li>
@@ -2639,6 +2645,7 @@ img {
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="plot.html#active" class="tsd-kind-icon">active</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="plot.html#classlist" class="tsd-kind-icon">class<wbr>List</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="plot.html#displaycircle" class="tsd-kind-icon">display<wbr>Circle</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="plot.html#fpath" class="tsd-kind-icon">f<wbr>Path</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="plot.html#height" class="tsd-kind-icon">height</a></li>
@@ -2713,6 +2720,7 @@ img {
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="plot.html#text" class="tsd-kind-icon">text</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="plot.html#title" class="tsd-kind-icon">title</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="plot.html#updatedependents" class="tsd-kind-icon">update<wbr>Dependents</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="plot.html#updatedisplaycircle" class="tsd-kind-icon">update<wbr>Display<wbr>Circle</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="plot.html#use" class="tsd-kind-icon">use</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static"><a href="plot.html#clear" class="tsd-kind-icon">clear</a></li>
 						</ul>
@@ -2726,14 +2734,14 @@ img {
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Plot<span class="tsd-signature-symbol">(</span>userEvents<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, scaleX<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, scaleY<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="plot.html" class="tsd-signature-type">Plot</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Plot<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/plotoptions.html" class="tsd-signature-type">PlotOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="plot.html" class="tsd-signature-type">Plot</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides <a href="group.html">Group</a>.<a href="group.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in elements/math/plot.ts:89</li>
+								<li>Defined in elements/math/plot.ts:96</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2746,19 +2754,34 @@ img {
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> userEvents: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
-							</li>
-							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> width: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;600</span></h5>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> height: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;300</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> scaleX: <span class="tsd-signature-type">number</span></h5>
+								<h5>fn: <span class="tsd-signature-type">function</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-siganture">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>x: <span class="tsd-signature-type">number</span></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> scaleY: <span class="tsd-signature-type">number</span></h5>
+								<h5>options: <a href="../interfaces/plotoptions.html" class="tsd-signature-type">PlotOptions</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="plot.html" class="tsd-signature-type">Plot</a></h4>
@@ -2778,13 +2801,31 @@ img {
 					</ul>
 				</aside>
 			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<a name="classlist" class="tsd-anchor"></a>
+				<h3>class<wbr>List</h3>
+				<div class="tsd-signature tsd-kind-icon">class<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DOMTokenList</span></div>
+				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/structural.html">Structural</a>.<a href="../interfaces/structural.html#classlist">classList</a></p>
+					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#classlist">classList</a></p>
+					<p>Overrides <a href="element.html">Element</a>.<a href="element.html#classlist">classList</a></p>
+					<ul>
+						<li>Defined in elements/element.ts:49</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class attribute for the root element.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="displaycircle" class="tsd-anchor"></a>
 				<h3>display<wbr>Circle</h3>
 				<div class="tsd-signature tsd-kind-icon">display<wbr>Circle<span class="tsd-signature-symbol">:</span> <a href="circle.html" class="tsd-signature-type">Circle</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:39</li>
+						<li>Defined in elements/math/plot.ts:50</li>
 						<li>Defined in elements/math/plot-temp.ts:35</li>
 					</ul>
 				</aside>
@@ -2801,7 +2842,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">f<wbr>Path<span class="tsd-signature-symbol">:</span> <a href="path.html" class="tsd-signature-type">Path</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:34</li>
+						<li>Defined in elements/math/plot.ts:45</li>
 						<li>Defined in elements/math/plot-temp.ts:30</li>
 					</ul>
 				</aside>
@@ -2868,7 +2909,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">rect<span class="tsd-signature-symbol">:</span> <a href="rectangle.html" class="tsd-signature-type">Rectangle</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:17</li>
+						<li>Defined in elements/math/plot.ts:28</li>
 						<li>Defined in elements/math/plot-temp.ts:17</li>
 					</ul>
 				</aside>
@@ -2908,7 +2949,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">static<wbr>Group<span class="tsd-signature-symbol">:</span> <a href="group.html" class="tsd-signature-type">Group</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:29</li>
+						<li>Defined in elements/math/plot.ts:40</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2975,7 +3016,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">view<wbr>Port<span class="tsd-signature-symbol">:</span> <a href="svg.html" class="tsd-signature-type">SVG</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:23</li>
+						<li>Defined in elements/math/plot.ts:34</li>
 						<li>Defined in elements/math/plot-temp.ts:22</li>
 					</ul>
 				</aside>
@@ -3043,7 +3084,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">x<wbr>Axis<span class="tsd-signature-symbol">:</span> <a href="line.html" class="tsd-signature-type">Line</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:44</li>
+						<li>Defined in elements/math/plot.ts:55</li>
 						<li>Defined in elements/math/plot-temp.ts:40</li>
 					</ul>
 				</aside>
@@ -3060,7 +3101,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">x<wbr>Rect<span class="tsd-signature-symbol">:</span> <a href="rectangle.html" class="tsd-signature-type">Rectangle</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:52</li>
+						<li>Defined in elements/math/plot.ts:63</li>
 						<li>Defined in elements/math/plot-temp.ts:49</li>
 					</ul>
 				</aside>
@@ -3071,7 +3112,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">x<wbr>Text<span class="tsd-signature-symbol">:</span> <a href="text.html" class="tsd-signature-type">Text</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:54</li>
+						<li>Defined in elements/math/plot.ts:65</li>
 					</ul>
 				</aside>
 			</section>
@@ -3091,7 +3132,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">y<wbr>Axis<span class="tsd-signature-symbol">:</span> <a href="line.html" class="tsd-signature-type">Line</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:49</li>
+						<li>Defined in elements/math/plot.ts:60</li>
 						<li>Defined in elements/math/plot-temp.ts:45</li>
 					</ul>
 				</aside>
@@ -3108,7 +3149,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">y<wbr>Rect<span class="tsd-signature-symbol">:</span> <a href="rectangle.html" class="tsd-signature-type">Rectangle</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:53</li>
+						<li>Defined in elements/math/plot.ts:64</li>
 						<li>Defined in elements/math/plot-temp.ts:50</li>
 					</ul>
 				</aside>
@@ -3119,7 +3160,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">y<wbr>Text<span class="tsd-signature-symbol">:</span> <a href="text.html" class="tsd-signature-type">Text</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:55</li>
+						<li>Defined in elements/math/plot.ts:66</li>
 					</ul>
 				</aside>
 			</section>
@@ -3197,8 +3238,8 @@ img {
 				<div class="tsd-signature tsd-kind-icon">function<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:195</li>
-						<li>Defined in elements/math/plot.ts:202</li>
+						<li>Defined in elements/math/plot.ts:224</li>
+						<li>Defined in elements/math/plot.ts:231</li>
 						<li>Defined in elements/math/plot-temp.ts:159</li>
 						<li>Defined in elements/math/plot-temp.ts:167</li>
 					</ul>
@@ -3221,7 +3262,7 @@ img {
 					<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#id">id</a></p>
 					<p>Overrides <a href="element.html">Element</a>.<a href="element.html#id">id</a></p>
 					<ul>
-						<li>Defined in elements/element.ts:78</li>
+						<li>Defined in elements/element.ts:84</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3246,7 +3287,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#adddependency">addDependency</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#adddependency">addDependency</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:122</li>
+								<li>Defined in elements/element.ts:128</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3277,7 +3318,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#appendchild">appendChild</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#appendchild">appendChild</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:99</li>
+								<li>Defined in elements/element.ts:105</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3305,13 +3346,13 @@ img {
 				<a name="call" class="tsd-anchor"></a>
 				<h3>call</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">call<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">call<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, normalize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:210</li>
+								<li>Defined in elements/math/plot.ts:261</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3324,6 +3365,9 @@ img {
 						<ul class="tsd-parameters">
 							<li>
 								<h5>x: <span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> normalize: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -3375,7 +3419,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#contains">contains</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#contains">contains</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:107</li>
+								<li>Defined in elements/element.ts:113</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3443,7 +3487,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:231</li>
+								<li>Defined in elements/math/plot.ts:291</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3460,7 +3504,7 @@ img {
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> startX: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;this.x - this.width</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> endX: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;this.y + 2*this.width</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> endX: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;this.x + 2*this.width</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -3512,7 +3556,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:217</li>
+								<li>Defined in elements/math/plot.ts:277</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3543,7 +3587,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#getattribute">getAttribute</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#getattribute">getAttribute</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:92</li>
+								<li>Defined in elements/element.ts:98</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3591,7 +3635,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:268</li>
+								<li>Defined in elements/math/plot.ts:334</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3619,7 +3663,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:285</li>
+								<li>Defined in elements/math/plot.ts:350</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3647,7 +3691,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:313</li>
+								<li>Defined in elements/math/plot.ts:382</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3676,7 +3720,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:277</li>
+								<li>Defined in elements/math/plot.ts:343</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3704,7 +3748,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:342</li>
+								<li>Defined in elements/math/plot.ts:408</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3911,7 +3955,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#remove">remove</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#remove">remove</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:114</li>
+								<li>Defined in elements/element.ts:120</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3936,7 +3980,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#setattribute">setAttribute</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#setattribute">setAttribute</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:85</li>
+								<li>Defined in elements/element.ts:91</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3967,7 +4011,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:301</li>
+								<li>Defined in elements/math/plot.ts:370</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -4002,9 +4046,15 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in elements/math/plot.ts:289</li>
+								<li>Defined in elements/math/plot.ts:358</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Updates the position of the static group and sets the viewbox on the
+								viewPort element.</p>
+							</div>
+						</div>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
@@ -4113,12 +4163,35 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#updatedependents">updateDependents</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#updatedependents">updateDependents</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:131</li>
+								<li>Defined in elements/element.ts:137</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>Updates all of the elements that depend on this element.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="updatedisplaycircle" class="tsd-anchor"></a>
+				<h3>update<wbr>Display<wbr>Circle</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">update<wbr>Display<wbr>Circle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in elements/math/plot.ts:239</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Updates the display circle based on its current cx position, also updates
+								the display text elements to represent the position of the display circle.</p>
 							</div>
 						</div>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -4158,7 +4231,7 @@ img {
 							<p>Inherited from <a href="element.html">Element</a>.<a href="element.html#clear">clear</a></p>
 							<p>Overrides <a href="element.html">Element</a>.<a href="element.html#clear">clear</a></p>
 							<ul>
-								<li>Defined in elements/element.ts:69</li>
+								<li>Defined in elements/element.ts:75</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

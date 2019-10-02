@@ -1,11 +1,12 @@
-import Group from '../svg/group.js';
+import Use from '../svg/use.js';
 
-export default class Icon extends Group {
+export default class Icon extends Use {
 
-  constructor( x:number, y:number ) {
-    super();
-    // TODO: make this a default behavior
-    this.root.setAttribute('transform',`translate(${x}, ${y})`);
-    this.root.classList.add('icon');
+	/**
+	* Construct an icon element at the position (x,y) with the provided dimensions
+	*/
+  constructor( x:number, y:number, width:number, height:number ) {
+    super(x,y,width,height);
+    this.classList.add('icon');
   }
 }

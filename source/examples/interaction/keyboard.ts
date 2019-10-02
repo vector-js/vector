@@ -33,9 +33,6 @@ for( let row = 0; row < keys.length; row++ ) {
       case 'Backspace':
         text = '⌫';
         break;
-      case 'Tan':
-        width = 60;
-        break;
       case 'CapsLock':
         text = '⇪';
         width = 64;

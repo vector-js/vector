@@ -4,11 +4,11 @@ import SVG from '../../../elements/svg/svg.js';
 describe('SVG', function () {
 
   describe('content model', function(){
-
+		let element : SVG;
     beforeEach(function() {
-      this.element = new SVG();
+			let element = new SVG();
+      this.element = element;
     });
-
     describe('descriptive', function(){
       descriptiveTests();
     });
@@ -21,11 +21,21 @@ describe('SVG', function () {
     describe('typography', function(){
       typographyTests();
     });
-    // TODO: test creation of 'a' element
-    // TODO: test creation of 'clipPath' element
-    // TODO: test creation of 'script' element
-    // TODO: test creation of 'style' element
-    // TODO: test creation of 'view' element
+		it('should be able to create an \'a\' element (link)', function(){
+			// let a = element.a();
+		});
+		it('should be able to create an \'clipPath\' element', function(){
+
+		});
+		it('should be able to create an \'script\' element', function(){
+
+		});
+		it('should be able to create an \'style\' element', function(){
+
+		});
+		it('should be able to create an \'view\' element', function(){
+			// TODO: The MDN example for the view isn't currently working?
+		});
   });
 
   describe('geometric properties', function(){
