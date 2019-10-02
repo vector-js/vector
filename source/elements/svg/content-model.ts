@@ -101,7 +101,7 @@ export interface Structural extends Element {
   /**
   * Creates and appends a use element within this element.
   */
-  use() : Use;
+  use(x:number, y:number, width:number, height:number) : Use;
 
 }
 

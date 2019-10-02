@@ -247,7 +247,7 @@ describe('Interactive', function () {
 			interactive.border = true;
 		});
 
-		describe('icon', function(){
+		describe('Icon', function(){
 
 			let icons = [
 				'advanced-elements',
@@ -291,18 +291,17 @@ describe('Interactive', function () {
 			it('should create an icon for each icon we have defined', function() {
 				interactive.width = 300;
 				interactive.height = 300;
-				let margin = 2;
+				let m = 2;
 				let size = Math.ceil(Math.sqrt(icons.length));
-				let width = interactive.width/size;
-				for (let r = 0; r < size; r++) {
-					for (let c = 0; r*size + c < icons.length; c++) {
-						let icon = icons[r*size + c];
-						interactive.icon( c*width + margin, r*width + margin, width - 2*margin, width - 2*margin, icon);
-					}
-				}
+				let w = interactive.width/size;
+        for( let i = 0; i < icons.length; i++) {
+          let c = (i % size);
+          let r = Math.floor(i/size);
+          interactive.icon( c*w + m, r*w + m, w - 2*m, w - 2*m, icons[i]);
+        }
 			});
 
-			it('should create an icon repeatedly if wanted', function() {
+			it('should repeatedly use an icon, but not have to re-add it', function() {
 				interactive.width = 300;
 				interactive.height = 300;
 				let icon = 'advanced-elements';

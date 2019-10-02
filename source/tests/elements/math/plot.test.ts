@@ -17,7 +17,6 @@ describe('Plot', function () {
 
   describe('User Events', function() {
     it('should create a plot without zoom & pan events', function(){
-      console.log(this);
       interactive.plot(600, 300, Math.sin, {
         scaleX: 300/Math.PI,
         scaleY: 300/Math.PI,

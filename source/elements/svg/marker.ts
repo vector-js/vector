@@ -64,8 +64,8 @@ export default class Marker extends Element implements Descriptive, Shape, Struc
     return this.appendChild(new Symbol());
   }
 
-  use(): Use {
-    return this.appendChild(new Use());
+  use(x:number, y:number, width:number, height:number): Use {
+    return this.appendChild(new Use(x, y, width, height));
   }
 
   // Shape methods

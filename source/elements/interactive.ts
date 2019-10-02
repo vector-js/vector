@@ -300,6 +300,11 @@ export default class Interactive extends SVG {
     // check to see if we have loaded this icon before
 		let id = `${this.id}-${str}`
     if( !this.icons.has(id) ) {
+
+			// TODO: maybe we should only request one SVG file with that defines many
+			// icon symbols. Then add the symbols as needed from, rather than have
+			// many network requests for symbols. Or maybe the user could add the
+			// symbols to their web page themselves.
 			let temp = this;
       getURL(`/icons/${str}.svg`).then(function(response){
 
@@ -318,7 +323,7 @@ export default class Interactive extends SVG {
     } else {
 			icon.href = `#${id}`;
 		}
-		
+
 		this.icons.add(id);
     return icon;
 

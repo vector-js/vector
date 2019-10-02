@@ -147,8 +147,8 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   symbol(): Symbol {
     return this.appendChild(new Symbol());
   }
-  use(): Use {
-    return this.appendChild(new Use());
+  use(x:number, y:number, width:number, height:number): Use {
+    return this.appendChild(new Use(x, y, width, height));
   }
 
   // typography elements
