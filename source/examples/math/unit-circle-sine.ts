@@ -12,7 +12,9 @@ let id = 'unit-circle-sine';
 let angleInteractive = new Interactive(id);
 let margin = 18;
 let radius = 80;
-angleInteractive.width = 2*radius + 2*margin;
+// angleInteractive.width = 2*radius + 2*margin;
+angleInteractive.root.style.border = '1px solid #aaaaaa';
+angleInteractive.width = 250;
 angleInteractive.height = 250;
 angleInteractive.originX = angleInteractive.width/2;
 angleInteractive.originY = angleInteractive.height/2;
@@ -54,17 +56,16 @@ interactive.window = false;
 interactive.root.style.display = 'inline';
 
 let scale = circumference/(2*Math.PI);
-let graph = interactive.plot(600, 300, Math.sin, {
+let graph = interactive.plot(interactive.width, interactive.height, Math.sin, {
   scaleX: scale,
   scaleY: scale,
+  originX: 0,
+  originY: interactive.height/2,
   zoomable: false,
-  displayPoint: false
+  displayPoint: false,
+  border: false
 });
-graph.setOrigin(0, interactive.height/2);
-// graph.xAxis.x1 = 0;
-// graph.xAxis.x2 = circle.r*2*Math.PI;
-// interactive.root.style.overflow = 'visible';
-graph.draw();
+interactive.root.style.border = '1px solid #aaaaaa';
 
 let y = graph.staticGroup.line(0,0,0,0);
 y.root.style.stroke = 'red';

@@ -34,7 +34,7 @@ export default class Element {
   update : () => void;
 
   /**
-  * The root element of this element
+  * The root element of this element.
   */
   root : SVGElement;
 
@@ -42,6 +42,11 @@ export default class Element {
   * Style for the root element.
   */
   style: CSSStyleDeclaration;
+
+  /**
+  * Class attribute for the root element.
+  */
+  classList: DOMTokenList;
 
   /**
   * Constructs the elements and adds it into the current controller.
@@ -58,6 +63,7 @@ export default class Element {
 
     // make the root's style declaration available
     this.style = this.root.style;
+    this.classList = this.root.classList;
 
     // add this element to the controller
     Element.controller.add(this);

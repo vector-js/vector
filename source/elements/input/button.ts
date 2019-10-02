@@ -13,6 +13,9 @@ export default class Button extends Input {
   */
   _count : number = 0;
 
+  _x : number;
+  _y : number;
+
   /**
   * The box that represents the area where the user clicks
   */
@@ -28,7 +31,8 @@ export default class Button extends Input {
   */
   constructor( x:number, y:number, str:string ) {
     super();
-
+    this._x = x;
+    this._y = y;
     this.root.setAttribute('transform', `translate(${x},${y})`);
     this.root.classList.add('button');
 
@@ -43,6 +47,14 @@ export default class Button extends Input {
     this.label.x = this.box.x + this.box.width/2;
     this.appendChild(this.label);
 
+  }
+
+  get x() : number {
+    return this._x;
+  }
+
+  get y() : number {
+    return this._y;
   }
 
   /**

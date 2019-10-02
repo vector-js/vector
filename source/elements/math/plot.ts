@@ -100,7 +100,7 @@ export default class Plot extends Group {
   * x -> y. The user is able to drag, zoom-in, and zoom-out on the graph to
   * explore the shape and form of the function.
   */
-  constructor( width = 600, height = 300, fn:(x:number) => number, options:PlotOptions ) {
+  constructor( width :number = 600, height:number = 300, fn:(x:number) => number, options:PlotOptions ) {
     super();
 
     // event variables

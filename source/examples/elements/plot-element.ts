@@ -5,43 +5,35 @@
 */
 
 import {Interactive, getScriptName} from '../../index.js';
-import Plot from '../../elements/math/plot.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.width = 600;
 interactive.height = 300;
-interactive.border = true;
 
 let functionText = 'Math.cos';
 
 // Create a new graph object
-let graph = new Plot(true, 600, 300, 300/Math.PI, 300/Math.PI);
-graph.function = eval(functionText);
-graph.draw();
-graph.setOrigin(0, 150);
-interactive.appendChild(graph);
-
-// graph.originX = 0;
-// graph.originY = interactive.height/2;
-// graph.scale( 2*Math.PI/interactive.width, interactive.width/(2*Math.PI));
+let scaleX = 300/Math.PI;
+let scaleY = 300/Math.PI;
+let plot = interactive.plot(600, 300, Math.cos, {
+  originX: 0,
+  originY: 150,
+  scaleX: scaleX,
+  scaleY: scaleY,
+  zoomable: true
+});
 
 // Function input
 let functionInput = document.createElement('input');
 functionInput.type = 'text';
 functionInput.name = 'function';
 functionInput.value = functionText;
-functionInput.style.width = '584px';
-functionInput.style.fontSize = '16px';
-functionInput.style.border = '1px solid grey';
-functionInput.style.fontFamily = 'monospace';
-functionInput.style.height = '32px';
-functionInput.style.marginBottom = '8px';
-functionInput.style.padding = '0 .5rem';
+functionInput.classList.add('input');
 
 functionInput.onchange = function() {
-  graph.function = eval(functionInput.value);
-  graph.draw();
+  plot.function = eval(functionInput.value);
+  plot.draw();
 };
 
 interactive.container.parentElement.insertBefore(functionInput, interactive.container);
