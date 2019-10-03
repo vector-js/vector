@@ -23,8 +23,7 @@ export default class Input extends Group {
   /**
   * This function is called whenever the state of an input element changes. The
   * default behavior of this function is to update the dependents of this
-  * element. WARNING: changing this function can have un-intented side effects,
-  * but may produce a desirable outcome.
+  * element. WARNING: changing this function can have unintented side effects.
   */
   set onchange( func: () => void ) {
     this._onchange = func;
