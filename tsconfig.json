@@ -77,7 +77,8 @@
   "typedocOptions": {
     "mode": "file",
     "target": "ES6",
-    "out": "hugo/static/api",
+    "out": "docs/api",
+    "name":"Vector.js",
     "includes" : "./source",
     "exclude": ["./source/examples/**/*", "./source/tests/**/*"],
     "theme": "minimal",
