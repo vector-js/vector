@@ -29,9 +29,53 @@ export default class Marker extends Element implements Descriptive, Shape, Struc
   /**
   * Constructs a rectangle element at the position (x,y)
   */
-  constructor() {
-    let group = document.createElementNS( 'http://www.w3.org/2000/svg', 'marker');
-    super(group);
+  constructor( refX:number, refY:number, width:number, height:number ) {
+    let element = document.createElementNS( 'http://www.w3.org/2000/svg', 'marker');
+    element.setAttributeNS(null, 'refX', refX.toString());
+    element.setAttributeNS(null, 'refY', refY.toString());
+    element.setAttributeNS(null, 'markerWidth', width.toString());
+    element.setAttributeNS(null, 'markerHeight', height.toString());
+    super(element);
+  }
+
+  get viewBox():string {
+    return this.getAttribute('viewBox');
+  }
+
+  set viewBox( value:string ) {
+    this.setAttribute('viewBox', value);
+  }
+
+  get refX():number {
+    return this.root.refX.baseVal.value;
+  }
+
+  set refX(value:number) {
+    this.root.refX.baseVal.value = value;
+  }
+
+  get refY():number {
+    return this.root.refY.baseVal.value;
+  }
+
+  set refY(value:number) {
+    this.root.refY.baseVal.value = value;
+  }
+
+  get width():number{
+    return this.root.markerWidth.baseVal.value;
+  }
+
+  set width(value:number){
+    this.root.markerWidth.baseVal.value = value;
+  }
+
+  get height():number{
+    return this.root.markerHeight.baseVal.value;
+  }
+
+  set height(value:number){
+    this.root.markerHeight.baseVal.value = value;
   }
 
   // Descriptive methods

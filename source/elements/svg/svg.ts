@@ -16,6 +16,7 @@ import Title from './title.js';
 import Use from './use.js';
 import Description from './description.js';
 import MetaData from './meta-data.js';
+import Marker from './marker.js';
 
 /**
 * This class represents a svg element.
@@ -163,4 +164,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
     return this.appendChild(new ClipPath());
   }
 
+  marker(refX:number, refY:number, width:number, height:number):Marker {
+    return this.appendChild(new Marker(refX, refY, width, height));
+  }
 }

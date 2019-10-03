@@ -13,6 +13,8 @@ export default class Button extends Input {
   */
   _count : number = 0;
 
+  _active : boolean;
+
   _x : number;
   _y : number;
 
@@ -33,6 +35,7 @@ export default class Button extends Input {
     super();
     this._x = x;
     this._y = y;
+    this._active = false;
     this.root.setAttribute('transform', `translate(${x},${y})`);
     this.root.classList.add('button');
 
@@ -47,14 +50,59 @@ export default class Button extends Input {
     this.label.x = this.box.x + this.box.width/2;
     this.appendChild(this.label);
 
+    let temp = this;
+    this.root.onmousedown = () => {
+      temp.active = !this.active;
+    };
+    this.root.onmouseup = () => {
+      temp.active = !this.active;
+    }
   }
 
+  /**
+  * Returns the top left x position of this button.
+  */
   get x() : number {
     return this._x;
   }
 
+  /**
+  * Sets the top left x position of this button.
+  */
+  set x(value:number) {
+    this._x = value;
+    this.root.setAttribute('transform', `translate(${this._x},${this._y})`);
+  }
+
+  /**
+  * Returns the top left x position of this button.
+  */
   get y() : number {
     return this._y;
+  }
+
+  /**
+  * Sets the top left y position of this button.
+  */
+  set y(value:number) {
+    this._y = value;
+    this.root.setAttribute('transform', `translate(${this._x},${this._y})`);
+  }
+
+  get active() : boolean {
+    return this._active;
+  }
+
+  set active( value:boolean ) {
+    this._active = value;
+    if( this._active ) {
+      this.box.style.fill = '#f8f8f8';
+      this.label.style.fill = '#404040';
+    } else {
+      this.box.style.fill = '';
+      this.label.style.fill = '';
+    }
+    this.onchange();
   }
 
   /**

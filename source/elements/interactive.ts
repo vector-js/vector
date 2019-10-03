@@ -34,6 +34,14 @@ import GeoMap from '../elements/maps/map.js';
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
 
+interface InteractiveOptions {
+	width?:number,
+	height?:number,
+	originX?:number,
+	originY?:number
+
+}
+
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -48,11 +56,6 @@ export default class Interactive extends SVG {
   * The container element for this interactive.
   */
 	container:HTMLElement;
-
-  /**
-  * The SVG document root.
-  */
-  document:SVG;
 
   /**
   * The input groups sits on top of the background group and ensures that
@@ -76,10 +79,10 @@ export default class Interactive extends SVG {
 	private icons:Set<string>;
 
   // internal variables
-  private _width:number = 0;
-  private _height:number = 0;
-  private _originX:number = 0;
-  private _originY:number = 0;
+  private _width:number;
+  private _height:number;
+  private _originX:number;
+  private _originY:number;
 
   /**
   * Constructs a new interactive object and appends it into the DOM. If the
@@ -88,7 +91,7 @@ export default class Interactive extends SVG {
   * the HTML element with the corresponding ID. If no element is found throws an
   * error.
   */
-  constructor( value:string | HTMLElement ) {
+  constructor( value:string | HTMLElement, options:InteractiveOptions = {} ) {
     super();
 
     // If the user passes in a string identifier check to see if such an
@@ -114,10 +117,10 @@ export default class Interactive extends SVG {
 		this.root.appendChild(this.input.root)
 
     // default configuration
-    this._originX = 0;
-    this._originY = 0;
-    this._width = 600;
-    this._height = 300;
+    this._originX = options.originX ? options.originX : 0;
+    this._originY = options.originY ? options.originY : 0;
+    this._width = options.width ? options.width : 600;
+    this._height = options.height ? options.height : 300;
     this.root.setAttribute('width', this._width.toString());
     this.root.setAttribute('height', this._height.toString());
     this.setViewBox( -this._originX, -this._originY, this._width, this._height );

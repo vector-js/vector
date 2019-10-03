@@ -108,6 +108,14 @@ export default class Element {
   }
 
   /**
+  * Inserts the element before the first child within this element.
+  */
+  prependChild<T extends Element>( child:T ) : T {
+    this.root.prepend(child.root);
+    return child;
+  }
+
+  /**
   * Returns true if this element contains the argument element.
   */
   contains( element:Element ) {

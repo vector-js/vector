@@ -145,7 +145,7 @@ export default class Plot extends Group {
     this.internalY = -this.visibleHeight/2;
 
     this.fPath = this.staticGroup.path('');
-    this.fPath.root.setAttribute('vector-effect','non-scaling-stroke');
+    // this.fPath.root.setAttribute('vector-effect','non-scaling-stroke');
     this.fPath.setAttribute('transform', 'scale(1, -1)');
 
     this.setViewBox();
