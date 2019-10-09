@@ -29,7 +29,7 @@ import Graph from '../elements/graph/graph.js';
 import DirectedGraph from '../elements/graph/directed-graph.js';
 
 // map elements
-import GeoMap from '../elements/maps/map.js';
+// import GeoMap from '../elements/maps/map.js';
 
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
@@ -39,7 +39,6 @@ interface InteractiveOptions {
 	height?:number,
 	originX?:number,
 	originY?:number
-
 }
 
 /**
@@ -263,8 +262,9 @@ export default class Interactive extends SVG {
   /**
   * Creates a nested interactive within this interactive
   */
-  interactive( x:number, y:number ) : Interactive {
-    let obj = new Interactive(this.id);
+  interactive( x:number, y:number, options:InteractiveOptions = {} ) : Interactive {
+    let obj = new Interactive(this.id, options);
+		// TODO: standardize this
     obj.root.setAttribute('x', x.toString());
     obj.root.setAttribute('y', y.toString());
     return obj;
@@ -367,13 +367,13 @@ export default class Interactive extends SVG {
     return this.appendChild(new Graph());
   }
 
-  /**
-  * Creates a graph element within this interactive
-  */
-  map(mapName:string,width:number,height:number,externalData: JSON = null) : GeoMap {
-   let map = new GeoMap(this,mapName,width,height, externalData);
-   return map;
-   }
+  // /**
+  // * Creates a graph element within this interactive
+  // */
+  // map(mapName:string,width:number,height:number,externalData: JSON = null) : GeoMap {
+  //  let map = new GeoMap(this,mapName,width,height, externalData);
+  //  return map;
+  //  }
 
   /*
   * Creates a directed graph element within this interactive

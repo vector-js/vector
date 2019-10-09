@@ -6,8 +6,12 @@ import Line from '../../elements/svg/line.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
-interactive.height = 1200;
-interactive.width = 1000;
+let width = 220;
+let scale = width/Math.PI;
+let radius = scale;
+let margin = 2*radius - width/2;
+interactive.height = 2*width + margin;
+interactive.width = width + margin + 2*width;
 // let functions = [Math.cos, Math.sin, Math.tan];
 let functions = [Math.cos, Math.sin];
 
@@ -30,16 +34,14 @@ let angle = new NumberWrapper(0);
 
 let y = 0;
 for(let f of functions) {
-  let scale = 300/Math.PI;
-  let margin = 2*scale - 150 ;
   let circleInteractive = interactive.interactive(0, y); // TODO: check this logic
-  circleInteractive.rectangle(-150,-150, 300, 300);
-  circleInteractive.height = 300;
-  circleInteractive.width = 300;
+  circleInteractive.rectangle(-width/2,-width/2, width, width);
+  circleInteractive.height = width;
+  circleInteractive.width = width;
   circleInteractive.originX = circleInteractive.width/2;
   circleInteractive.originY = circleInteractive.height/2;
   let triangle = circleInteractive.path('');
-  let circle = circleInteractive.circle(0,0,scale);
+  let circle = circleInteractive.circle(0,0,radius);
   let control = circleInteractive.control(circle.r, 0);
   control.constrainTo(circle);
   control.addDependency(angle);
@@ -110,13 +112,15 @@ for(let f of functions) {
 
   circleInteractive.circle(0,0,3).style.fill = '#404040';
 
-
-  let plotInteractive = interactive.interactive(300 + margin, y);
-  let plot = plotInteractive.plot(600, 300, f, {
+  let plotInteractive = interactive.interactive(width + margin, y, {
+    width:2*width,
+    height:width
+  });
+  let plot = plotInteractive.plot(2*width, width, f, {
     scaleX: scale,
     scaleY: scale,
     originX: 0,
-    originY: 150,
+    originY: width/2,
     zoomable: false,
     displayPoint: false,
     border: true
@@ -163,9 +167,8 @@ for(let f of functions) {
       rect2.style.strokeOpacity = '.25';
     }
   }
-  y += 300 + margin;
+  y += width + margin;
 }
-
 
 angle.value = 1;
 

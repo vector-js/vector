@@ -126,6 +126,8 @@ export default class Plot extends Group {
 
     // default values
     this.viewPort = this.svg();
+    this.viewPort.width = this.width;
+    this.viewPort.height = this.height;
     this.viewPort.setAttribute('preserveAspectRatio','none');
 
     // create a static group for non-size-scaling objects

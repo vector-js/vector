@@ -96,7 +96,7 @@ export interface Structural extends Element {
   /**
   * Creates and appends a svg element within this element.
   */
-  svg() : SVG ;
+  svg(x:number, y:number, width:number, height:number) : SVG ;
 
   /**
   * Creates and appends a use element within this element.

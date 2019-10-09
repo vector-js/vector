@@ -98,7 +98,11 @@ export var structuralTests = function() {
     chai.expect(element.root.contains(group.root));
   });
   it('should create and append a svg element', function() {
-    let child = element.svg();
+    let child = element.svg(1,2,3,4);
+    chai.expect(child.x).to.equal(1);
+    chai.expect(child.y).to.equal(2);
+    chai.expect(child.width).to.equal(3);
+    chai.expect(child.height).to.equal(4);
     chai.expect(element.root.contains(child.root));
   });
   it('should create and append a use element', function() {
