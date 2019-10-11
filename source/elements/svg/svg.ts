@@ -1,5 +1,5 @@
 import { Descriptive, Shape, Structural, Typography } from './content-model.js';
-import Element from '../element.js';
+import Element from './element.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
@@ -33,10 +33,10 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
     let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     if( x ) {
-      svg.setAttributeNS(null, 'width', x.toString());
+      svg.setAttributeNS(null, 'x', x.toString());
     }
     if( y ) {
-      svg.setAttributeNS(null, 'width', y.toString());
+      svg.setAttributeNS(null, 'y', y.toString());
     }
     if( width ) {
       svg.setAttributeNS(null, 'width', width.toString());
@@ -68,7 +68,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   */
   get height() {
     // return this.root.height.baseVal.value;
-    return parseInt(this.root.getAttribute('width'));
+    return parseInt(this.root.getAttribute('height'));
   }
 
   /**

@@ -1,9 +1,9 @@
 export default {
   input: 'dist/index.js',
   output: {
-    file: 'dist/index.bundle.js',
+    file: 'vector.js',
     format: 'iife',
-    name: 'Interactive',
+    name: 'Vector',
     globals: {
       Interactive: ''
     }

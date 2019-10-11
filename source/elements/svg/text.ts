@@ -1,4 +1,4 @@
-import Element from '../element.js';
+import Element from './element.js';
 import TSpan from './t-span.js';
 import { Typography } from './content-model.js';
 

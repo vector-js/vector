@@ -3,30 +3,30 @@ import { getURL } from '../util/file.js';
 import { parseSVG } from '../util/svg.js';
 
 // basic elements
-import Element from '../elements/element.js';
-import Input from '../elements/input/input.js';
+import Input from './input/input.js';
 
 // svg elements
-import SVG from '../elements/svg/svg.js';
-import Group from '../elements/svg/group.js';
+import Element from './svg/element.js';
+import SVG from './svg/svg.js';
+import Group from './svg/group.js';
 
 // visual elements
-import Icon from '../elements/visual/icon.js';
+import Icon from './visual/icon.js';
 
 // input elements
-import Button from '../elements/input/button.js';
-import CheckBox from '../elements/input/check-box.js';
-import Control from '../elements/input/control.js';
-import ControlCircle from '../elements/input/control-circle.js';
-import RadioControl from '../elements/input/radio-control.js';
-import Scrubber from '../elements/input/scrubber.js';
-import Slider from '../elements/input/slider.js';
+import Button from './input/button.js';
+import CheckBox from './input/check-box.js';
+import Control from './input/control.js';
+import ControlCircle from './input/control-circle.js';
+import RadioControl from './input/radio-control.js';
+import Scrubber from './input/scrubber.js';
+import Slider, { SliderOptions } from './input/slider.js';
 
 // graph elements
-import Node from '../elements/graph/node.js';
-import Edge from '../elements/graph/edge.js';
-import Graph from '../elements/graph/graph.js';
-import DirectedGraph from '../elements/graph/directed-graph.js';
+import Node from './graph/node.js';
+import Edge from './graph/edge.js';
+import Graph from './graph/graph.js';
+import DirectedGraph from './graph/directed-graph.js';
 
 // map elements
 // import GeoMap from '../elements/maps/map.js';
@@ -287,7 +287,16 @@ export default class Interactive extends SVG {
 	/**
 	* Creates an icon at the position (x,y) with the provided dimensions.
 	*/
-  icon( x:number, y:number, width:number, height:number, str:string ) : Icon {
+  icon( x:number, y:number, width:number, height:number, name:string, options:{
+		baseURL?:string
+	} = {}) : Icon {
+
+		let baseURL : string;
+		if( options.baseURL === undefined ) {
+			baseURL = '/icons/';
+		} else {
+			baseURL = options.baseURL;
+		}
 
 		// check to see if the symbols group has been initialized
 		if( this.symbols === undefined ) {
@@ -301,7 +310,7 @@ export default class Interactive extends SVG {
     this.appendChild(icon);
 
     // check to see if we have loaded this icon before
-		let id = `${this.id}-${str}`
+		let id = `${this.id}-${name}`
     if( !this.icons.has(id) ) {
 
 			// TODO: maybe we should only request one SVG file with that defines many
@@ -309,7 +318,7 @@ export default class Interactive extends SVG {
 			// many network requests for symbols. Or maybe the user could add the
 			// symbols to their web page themselves.
 			let temp = this;
-      getURL(`/icons/${str}.svg`).then(function(response){
+      getURL(`${baseURL}${name}.svg`).then(function(response){
 
         let symbolSVG = parseSVG(response);
 				let symbol = temp.symbols.symbol();
@@ -385,8 +394,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a slider input within this interactive
   */
-  slider(x: number, y: number, width?: number, value?:number) : Slider {
-    return this.appendChild(new Slider(x, y, width, value));
+  slider(x: number, y: number, options:SliderOptions) : Slider {
+    return this.appendChild(new Slider(x, y, options));
   }
 
   /**

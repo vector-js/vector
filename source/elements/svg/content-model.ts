@@ -14,7 +14,7 @@ import Text from './text.js';
 import Title from './title.js';
 import Use from './use.js';
 
-import Element from '../element.js';
+import Element from './element.js';
 
 /**
 * Describes methods for creating descriptive elements.

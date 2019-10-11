@@ -6,7 +6,7 @@ import Line from '../../elements/svg/line.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
-let width = 220;
+let width = 230;
 let scale = width/Math.PI;
 let radius = scale;
 let margin = 2*radius - width/2;

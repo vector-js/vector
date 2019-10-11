@@ -1,5 +1,7 @@
 import Container from '../container.js';
-import { Interactive, Input, Element } from '../../index.js';
+import Interactive from '../../interactive.js';
+import Input from '../../elements/input/input.js';
+import Element from '../../elements/svg/element.js';
 
 describe('Interactive', function () {
 
@@ -207,7 +209,9 @@ describe('Interactive', function () {
       it('should create a slider within the interactive', function() {
         let x = 20;
         let y = 50;
-        let element = interactive.slider(x, y, 60);
+        let element = interactive.slider(x, y, {
+          width:60
+        });
         chai.expect(interactive.contains(element));
       });
       it('should create a scrubber within the interactive', function() {
@@ -230,7 +234,7 @@ describe('Interactive', function () {
         inputs.push(interactive.control(0,0));
         inputs.push(interactive.radioControl(0,0, ['option-1', 'option-2']));
         inputs.push(interactive.scrubber(0,0,100));
-        inputs.push(interactive.slider(0,0));
+        inputs.push(interactive.slider(0,0, {}));
         inputs.forEach((input) => {
           chai.expect(interactive.input.contains(input)).to.be.true;
         });
@@ -255,7 +259,7 @@ describe('Interactive', function () {
         inputs.push(interactive.control(0,0));
         inputs.push(interactive.radioControl(0,0, ['option-1', 'option-2']));
         inputs.push(interactive.scrubber(0,0,100));
-        inputs.push(interactive.slider(0,0));
+        inputs.push(interactive.slider(0,0,{}));
 
         // create some elements after
         elements.push(interactive.circle(10,10,10));
@@ -276,6 +280,16 @@ describe('Interactive', function () {
     });
 
     describe('Custom Elements', function() {
+
+      // TODO: make it up to the user to define where the icon is coming from?
+      // uggh that seems like a security risk
+      let baseURL:string;
+      if( window.origin === 'http://localhost:8080' ) {
+        baseURL = 'http://localhost:8080/resources/icons/';
+      } else {
+        baseURL = '/icons/';
+      }
+
   		describe('Icon', function(){
   			let icons = [
   				'advanced-elements',
@@ -325,7 +339,9 @@ describe('Interactive', function () {
           for( let i = 0; i < icons.length; i++) {
             let c = (i % size);
             let r = Math.floor(i/size);
-            interactive.icon( c*w + m, r*w + m, w - 2*m, w - 2*m, icons[i]);
+            interactive.icon( c*w + m, r*w + m, w - 2*m, w - 2*m, icons[i], {
+              baseURL: baseURL
+            });
           }
   			});
 
@@ -338,7 +354,9 @@ describe('Interactive', function () {
   				let width = interactive.width/size;
   				for (let r = 0; r < size; r++) {
   					for (let c = 0; c < size; c++) {
-  						interactive.icon( c*width + margin, r*width + margin, width - 2*margin, width - 2*margin, icon);
+  						interactive.icon( c*width + margin, r*width + margin, width - 2*margin, width - 2*margin, icon, {
+                baseURL: baseURL
+              });
   					}
   				}
   			});

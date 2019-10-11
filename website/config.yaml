@@ -12,8 +12,5 @@ staticDir:
   - ../dist/
   - ../resources/
 
-permalinks:
-  tutorials: /:title/
-
 params:
   repositoryURL: "https://github.com/vector-js/vector.git"

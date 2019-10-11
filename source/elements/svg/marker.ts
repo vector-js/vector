@@ -1,4 +1,4 @@
-import Element from '../element.js';
+import Element from './element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
 import Circle from './circle.js';

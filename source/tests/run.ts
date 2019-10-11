@@ -6,7 +6,7 @@ import './model/dependency-graph.test.js';
 import './util/math.test.js';
 
 // svg
-import './elements/element.test.js';
+import './elements/svg/element.test.js';
 import './elements/svg/svg.test.js';
 import './elements/svg/group.test.js';
 

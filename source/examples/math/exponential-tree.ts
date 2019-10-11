@@ -1,8 +1,9 @@
 import Interactive from "../../interactive.js";
-import { getScriptName } from "../../index.js";
+import Line from "../../elements/svg/line.js";
+import Circle from "../../elements/svg/circle.js";
+import { SVG, getScriptName } from "../../index.js";
 
-
-class Tree {
+class Tree extends SVG {
 
   // Branching factor
   private _factor:number;
@@ -15,22 +16,30 @@ class Tree {
 
   private static maxLevels:number = 7;
 
-  // position of the root of this tree
-  x:number;
-  y:number;
+  private lines:Line[];
+  private nodes:Circle[];
+  private currentLine:number;
+  private currentNode:number;
 
-  interactive:Interactive;
+  // position of the root of this tree
+  rootX:number;
+  rootY:number;
 
   /**
   *
   */
-  constructor( interactive:Interactive, x:number, y:number) {
-    this.interactive = interactive;
-    this.x = x;
-    this.y = y;
-    this._factor = 3;
-    this._levels = 3;
+  constructor( rootX:number, rootY:number, levels:number, factor:number) {
+    super(0, 5, 740, 300);
+    this.rootX = rootX;
+    this.rootY = rootY;
+    this._factor = factor;
+    this._levels = levels;
     this._leaves =  Math.pow(this.factor, this.levels);
+    // this.setViewBox(-rootX, -rootY, 600, 300);
+    this.lines = [];
+    this.nodes = [];
+    this.currentLine = 0;
+    this.currentNode = 0;
     this.draw();
   }
 
@@ -56,6 +65,57 @@ class Tree {
     return this._leaves;
   }
 
+  clear() {
+    let small = Math.min(this.lines.length, this.nodes.length);
+    let big = Math.max(this.lines.length, this.nodes.length);
+    for( let i = 0; i < small; i++) {
+      this.lines[i].root.remove();
+      this.nodes[i].root.remove();
+    }
+    if ( big === this.lines.length ) {
+      for( let i = small; i < big; i++) {
+        this.lines[i].root.remove();
+      }
+    } else {
+      for( let i = small; i < big; i++) {
+        this.nodes[i].root.remove();
+      }
+    }
+  }
+
+  getNextLine( x1:number, y1:number, x2:number, y2:number) : Line {
+    let line : Line;
+    if( this.currentLine === this.lines.length ) {
+      line = this.line(x1,y1,x2,y2)
+      this.lines.push(line);
+    } else {
+      line = this.lines[this.currentLine];
+      line.x1 = x1;
+      line.y1 = y1;
+      line.x2 = x2;
+      line.y2 = y2;
+    }
+    this.currentLine++;
+    line.root.style.display = '';
+    return line;
+  }
+
+  getNextNode( cx:number, cy:number, r:number) : Circle {
+    let node : Circle;
+    if( this.currentNode === this.nodes.length ) {
+      node = this.circle(cx,cy,r)
+      this.nodes.push(node);
+    } else {
+      node = this.nodes[this.currentNode];
+      node.cx = cx;
+      node.cy = cy;
+      node.r = r;
+    }
+    this.currentNode++;
+    node.root.style.display = '';
+    return node;
+  }
+
   /**
   Draws itself in the view
   */
@@ -66,21 +126,22 @@ class Tree {
     // this.y = canvas.height - 50*(canvas.width/720);
     //
     // let radius = 10*canvas.width/720;
-    this.helper( this.x, this.y, 10);
+    this.helper( 0, 0, 10);
   }
 
   helper( x:number, y:number, initial_radius:number) {
     let prev = [{x:x, y:y}];
+    this.currentLine = 0;
+    this.currentNode = 0;
 
     for (let i = 0; i <= this.levels; i++)  {
-        let distance = i*this.interactive.width/(2*Tree.maxLevels + 1);
+        let distance = i*600/(.75*Tree.maxLevels + 1);
+        // let distance = 200;
         let nodes = Math.pow(this.factor, i);
         let change = -Math.PI/(nodes+1);
         let angle = change;
         // let radius = 10/(this.factor*Math.log(i+1));
-        let radius = initial_radius/Math.log(3*i + nodes);
-        if( this.interactive.width < 720 ) { radius *= 720/this.interactive.width}
-        if (radius > 7) {radius = 7;}
+        // if( this.interactive.width < 720 ) { radius *= 720/this.interactive.width}
         let next = [];
 
         for( let j = 0; j < nodes; j ++)
@@ -92,15 +153,15 @@ class Tree {
             let ox = prev[ index ].x;
             let oy = prev[ index ].y;
 
-            let line = this.interactive.line( ox, oy, nx, ny);
-            let circle = this.interactive.circle(nx, ny, 4);
+            let line = this.getNextLine( ox, oy, nx, ny);
+            let circle = this.getNextNode(nx, ny, 4);
             // let circle = this.interactive.circle(nx, ny, radius);
             if( i == this.levels ) {
               circle.style.fill = 'cornflowerblue';
             } else {
+              // circle.style.fill = '#f8f8f8';
               circle.style.fill = '#404040';
             }
-
 
             next.push({x:nx, y:ny});
 
@@ -108,19 +169,78 @@ class Tree {
         }
         prev = next;
     }
+
+    for( let i = this.currentLine; i < this.lines.length; i++) {
+      this.lines[i].root.style.display = 'none';
+    }
+    for( let i = this.currentNode; i < this.nodes.length; i++) {
+      this.nodes[i].root.style.display = 'none';
+    }
+
+    let bbox = this.root.getBBox();
+    if( this.levels > 1) {
+      this.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);
+    }
   }
 }
 
 let interactive = new Interactive(getScriptName());
-interactive.height = 400;
+interactive.height = 500;
 interactive.width = 740;
 
-let margin = 30;
-let levels = interactive.slider( 150, 300 + margin, 400, 0);
-let branching = interactive.slider( 150, 300 + 2*margin, 400, 0);
-let leaves = interactive.slider(150, 300 + 3*margin, 400, 0);
+let margin = 40;
+let levels = interactive.slider( interactive.width/2 - 125, 300 + 2*margin, {
+  width:250,
+  min:0,
+  max:10,
+  value:2
+});
+let branching = interactive.slider( interactive.width/2 - 125, 300 + 3*margin, {
+  width:250,
+  min:1,
+  max:10,
+  value:3
+});
 
-let tree = new Tree(interactive, interactive.width/2, 300);
+
+let levelsText = interactive.text( 550 + 20, 300 + 1*margin + 4, 'levels');
+let branchingText = interactive.text( 550 + 20, 300 + 2*margin + 4, 'factor');
+let leavesText = interactive.text( 550 + 20, 300 + 3*margin + 4, 'leaves');
+
+let tree = interactive.appendChild(new Tree(300, 300, levels.value, branching.value));
+tree.style.overflow = 'visible';
+tree.addDependency(levels, branching);
+tree.update = function() {
+  let levelsValue = Math.floor(levels.value);
+  let branchingValue = Math.floor(branching.value);
+  if( tree.levels !== levelsValue || tree.factor !== branchingValue ) {
+    tree.levels = levelsValue;
+    tree.factor = branchingValue;
+    if( tree.leaves <= 1024 ) {
+      tree.draw();
+    }
+  }
+};
+tree.draw();
+
+levelsText.addDependency(tree);
+levelsText.update = function() {
+  levelsText.contents = `levels: ${tree.levels.toString()}`;
+};
+levelsText.update();
+
+leavesText.addDependency(tree);
+leavesText.update = function() {
+  leavesText.contents = `leaves: ${tree.leaves.toFixed()}`;
+};
+leavesText.update();
+
+branchingText.addDependency(tree);
+branchingText.update = function() {
+  branchingText.contents = `base: ${tree.factor.toFixed()}`;
+};
+branchingText.update();
+
 
 //
 // function main()
