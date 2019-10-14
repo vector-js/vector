@@ -19,11 +19,13 @@ export default class Edge extends Line {
   constructor(nodeFrom: Node, nodeTo: Node, directed: boolean) {
     let arr = Edge.calculateLinePosition(nodeFrom, nodeTo);
 
+    let arr2 = Edge.calculateLinePositionEllipse(nodeFrom, nodeTo);
     if(directed) {
       super(arr[0], arr[1], arr[2], arr[3]);
     }
     else {
-      super(nodeFrom.cx, nodeFrom.cy, nodeTo.cx, nodeTo.cy);
+      super(nodeFrom.cx,nodeFrom.cy, nodeTo.cx - arr2[0], nodeTo.cy-arr2[1]);
+      console.log(this.root.x1);
     }
     this.directed = directed;
   }
@@ -58,5 +60,26 @@ export default class Edge extends Line {
     let x2Prime = x2 - r2Lx;
 
     return new Array(x1Prime, y1Prime, x2Prime, y2Prime);
+  }
+
+  static calculateLinePositionEllipse(nodeFrom:Node, nodeTo:Node)
+  {
+    let newX = nodeFrom.cx - nodeTo.cx;
+    let newY = nodeFrom.cy - nodeTo.cy;
+
+    let theta = Math.atan(newY / newX);
+    console.log(theta);
+
+    let cosx1 = Math.cos(theta);
+    let siny1 = Math.sin(theta);
+
+    let r2 = (nodeTo.cx*nodeTo.cy) / Math.sqrt(Math.pow(nodeTo.cx, 2) * Math.pow(cosx1, 2) + Math.pow(nodeTo.cy, 2) * Math.pow(siny1, 2))
+    let r1 = (nodeFrom.cx*nodeFrom.cy) / Math.sqrt(nodeFrom.cx * Math.pow(cosx1, 2) + nodeFrom.cy * Math.pow(siny1, 2))
+
+    // let lineX1 = r1 * cosx1
+    console.log(r2);
+
+    return new Array(r2 * cosx1, r2*siny1);
+
   }
 }

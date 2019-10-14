@@ -13,10 +13,12 @@ interactive.height = 400;
 interactive.border = true;
 
 let graph = interactive.graph();
+let leftButton = interactive.icon(50, 350, "animation");
 let nodeCounterMax = 1;
 let nodeCountTo = 0;
 
 let allArrays:number[][] = [];
+
 
 // this HTML input element controls the current tree being drawn
 let input = document.createElement('input');

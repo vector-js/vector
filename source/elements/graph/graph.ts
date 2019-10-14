@@ -9,6 +9,7 @@ export default class Graph extends Group {
 
   nodes: Node[];
 
+
   /**
   * Constructs a graph
   */

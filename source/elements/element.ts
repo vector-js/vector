@@ -34,6 +34,7 @@ export default class Element {
   update : () => void;
 
   /**
+  * TODO:put a warning here.
   * The root element of this element
   */
   root : SVGElement;

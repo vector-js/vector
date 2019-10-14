@@ -4,9 +4,11 @@ import Text from '../svg/text.js';
 import Edge from './edge.js';
 
 //Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
+
 /**
 * A Node is a basic element with a position, radius, and text held within it.
 */
+
 export default class Node extends Group {
 
   nodeName: Text;
