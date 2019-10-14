@@ -30,10 +30,10 @@ npm start
 
 ## Web Site Development
 
-Navigate into the hugo folder
+Navigate into the website folder
 
 ```
-cd hugo
+cd website
 ```
 
 Serve a local version of the site

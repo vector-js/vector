@@ -15,6 +15,7 @@ export interface PlotOptions {
   originX?:number;
   originY?:number;
   border?:boolean;
+  controls?:boolean;
 }
 
 /**
@@ -125,7 +126,7 @@ export default class Plot extends Group {
     }
 
     // default values
-    this.viewPort = this.svg();
+    this.viewPort = this.svg(0, 0, this.width, this.height);
     this.viewPort.setAttribute('preserveAspectRatio','none');
 
     // create a static group for non-size-scaling objects
@@ -214,6 +215,17 @@ export default class Plot extends Group {
       }, {passive:false});
     }
 
+    if( options.controls ) {
+      let zoomIn = this.rectangle( this.width - 48, 16, 30, 30);
+      zoomIn.setAttribute('rx', '3');
+      zoomIn.style.fill = '#f8f8f8';
+      let zoomOut = this.rectangle( this.width - 48, 46, 30, 30);
+      zoomOut.setAttribute('rx', '3');
+      zoomOut.style.fill = '#f8f8f8';
+      let fullscreen = this.circle( this.width - 32, this.height - 32, 16);
+      fullscreen.style.fill = '#f8f8f8';
+    }
+
     // draw the initial state of the graph
     this.draw();
   }
@@ -230,6 +242,14 @@ export default class Plot extends Group {
   */
   get function() : (x:number) => number {
     return this._function;
+  }
+
+  get originX():number {
+    return - this.x;
+  }
+
+  get originY():number {
+    return - this.y;
   }
 
   /**

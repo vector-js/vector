@@ -20,10 +20,19 @@ controls.width = 220;
 controls.border = true;
 controls.root.style.marginLeft = '16px';
 let margin = 32;
-let rx = controls.slider( margin, 40, controls.width - 2*margin, 75);
-let ry = controls.slider( margin, 75,  controls.width - 2*margin, 75);
+let rx = controls.slider( margin, 40, {
+  width:controls.width - 2*margin,
+  value:75
+});
+let ry = controls.slider( margin, 75,{
+  width:controls.width - 2*margin,
+  value:75
+});
 
-let xAxisRotation = controls.slider( margin, 110,  controls.width - 2*margin, 0);
+let xAxisRotation = controls.slider( margin, 110, {
+  width:controls.width - 2*margin,
+  value:0
+});
 xAxisRotation.min = 0;
 xAxisRotation.max = 180;
 let largeArcFlag = controls.checkBox( margin, 160, "large-arc-flag", false);

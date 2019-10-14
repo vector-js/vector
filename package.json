@@ -1,7 +1,28 @@
 {
   "name": "@vector-js/library",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A library for creating interactive vector graphics on the web.",
+  "main": "vector.js",
+  "module": "dist/index.js",
+  "modules.root": "dist",
+  "homepage": "https://vectorjs.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vector-js/vector.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "vector.js",
+    "dist/elements/",
+    "dist/model/",
+    "dist/util/",
+    "dist/index.js",
+    "dist/interactive.js",
+    "css/"
+  ],
+  "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -22,45 +43,10 @@
     "clean": "rm -rf ./dist/ && rm -rf ./docs/",
     "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run rollup && npm run website",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
-    "website": "cd hugo && hugo",
+    "website": "cd website && hugo",
     "watch": "tsc -w",
     "rollup": "rollup --config",
     "start": "http-server .",
     "tutorial": "./getting-started.sh"
-  },
-  "files": [
-    "dist",
-    "css"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vector-js/vector.git"
-  },
-  "keywords": [
-    "svg",
-    "interactive",
-    "visualization",
-    "dom",
-    "vector-graphics",
-    "animation",
-    "vector"
-  ],
-  "contributors": [
-    "Kurt Bruns",
-    "Derek Castillo",
-    "Zach Cutler",
-    "Josh Homer"
-  ],
-  "license": "ISC",
-  "main": "dist/library.bundle.js",
-  "module": "dist/interactive.js",
-  "modules.root": "dist",
-  "bugs": {
-    "url": "https://github.com/vector-js/vector/issues"
-  },
-  "homepage": "https://github.com/vector-js/vector#readme",
-  "directories": {
-    "doc": "docs",
-    "test": "test"
   }
 }

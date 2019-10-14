@@ -1,4 +1,4 @@
-import Element from '../element.js';
+import Element from './element.js';
 
 /**
 * A path element allows for the creation of complicated shapes and curves.

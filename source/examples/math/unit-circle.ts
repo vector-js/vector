@@ -14,7 +14,7 @@ let margin = 20;
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 200 + 18 + 2*Math.PI*radius;
-interactive.height = 218*2 + 18;
+interactive.height = 2*200 + 18;
 
 // Initialize the interactive
 let circleInteractive = interactive.interactive(0, 0);

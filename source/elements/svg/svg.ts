@@ -1,5 +1,5 @@
 import { Descriptive, Shape, Structural, Typography } from './content-model.js';
-import Element from '../element.js';
+import Element from './element.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
@@ -29,9 +29,15 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   /**
   * Constructs a svg element.
   */
-  constructor( width?:number, height?:number ) {
+  constructor( x?:number, y?:number, width?:number, height?:number ) {
     let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    if( x ) {
+      svg.setAttributeNS(null, 'x', x.toString());
+    }
+    if( y ) {
+      svg.setAttributeNS(null, 'y', y.toString());
+    }
     if( width ) {
       svg.setAttributeNS(null, 'width', width.toString());
     }
@@ -62,7 +68,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   */
   get height() {
     // return this.root.height.baseVal.value;
-    return parseInt(this.root.getAttribute('width'));
+    return parseInt(this.root.getAttribute('height'));
   }
 
   /**
@@ -142,8 +148,8 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   group(): Group {
     return this.appendChild(new Group());
   }
-  svg(): SVG {
-    return this.appendChild(new SVG());
+  svg(x:number, y:number, width:number, height:number): SVG {
+    return this.appendChild(new SVG(x,y,width,height));
   }
   symbol(): Symbol {
     return this.appendChild(new Symbol());

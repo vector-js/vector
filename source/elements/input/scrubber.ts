@@ -38,7 +38,10 @@ export default class Scrubber extends Slider {
   *
   */
   constructor( x:number, y:number, width:number = 486) {
-    super(x + 80, y, width - 80, 0);
+    super(x + 80, y, {
+      width:width - 80,
+      value:0
+    });
 
     this.active = false;
     this.loop = false;
@@ -107,8 +110,9 @@ export default class Scrubber extends Slider {
         // TODO: change this.done to true when the control is "scrubbed" to the end
       }
 
+      let stepSize = .002*scrubber.range;
       let step = function( timestamp) {
-        scrubber.value = (scrubber.value + .2);
+        scrubber.value = (scrubber.value + stepSize);
         if( scrubber.value > scrubber.max && !scrubber.loop ) {
           scrubber.value = scrubber.max;
           scrubber.pause();

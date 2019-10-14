@@ -21,7 +21,8 @@ let plot = interactive.plot(600, 300, Math.cos, {
   originY: 150,
   scaleX: scaleX,
   scaleY: scaleY,
-  zoomable: true
+  zoomable: true,
+  controls: true
 });
 
 // Function input
