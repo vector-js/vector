@@ -5,7 +5,7 @@
 * @weight 1
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import Point from '../../elements/math/point.js';
 import { parseSVG } from '../../util/svg.js';
 
@@ -14,7 +14,7 @@ let margin = 20;
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 200 + 18 + 2*Math.PI*radius;
-interactive.height = 218*2 + 18;
+interactive.height = 2*200 + 18;
 
 // Initialize the interactive
 let circleInteractive = interactive.interactive(0, 0);
@@ -53,11 +53,14 @@ chartInteractive.rectangle(0, 0, chartInteractive.width, chartInteractive.height
 
 // chartInteractive.originX = 0;
 // chartInteractive.originY = chartInteractive.height/2;
-let graph = chartInteractive.plot(false);
-graph.function = Math.sin;
-graph.originX = 0;
-graph.originY = chartInteractive.height/2;
-graph.scale( 2*Math.PI/chartInteractive.width, chartInteractive.width/(2*Math.PI));
+let scale = chartInteractive.width/(2*Math.PI);
+let graph = chartInteractive.plot(600, 300, Math.sin, {
+  scaleX: scale,
+  scaleY: scale,
+  zoomable: false,
+  displayPoint: false
+});
+graph.setOrigin(0, chartInteractive.height/2);
 chartInteractive.text( 8, chartInteractive.height/2 - margin, "0");
 chartInteractive.text( chartInteractive.width/2, chartInteractive.height/2 - margin, "π");
 chartInteractive.text( chartInteractive.width - 28, chartInteractive.height/2 - margin, "2π");

@@ -5,7 +5,7 @@ import Path from './path.js';
 import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
 
-import Element from '../element.js';
+import Element from './element.js';
 import { Descriptive, Shape } from './content-model.js';
 import Description from './description.js';
 import MetaData from './meta-data.js';

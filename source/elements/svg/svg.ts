@@ -1,5 +1,5 @@
 import { Descriptive, Shape, Structural, Typography } from './content-model.js';
-import Element from '../element.js';
+import Element from './element.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
@@ -16,6 +16,7 @@ import Title from './title.js';
 import Use from './use.js';
 import Description from './description.js';
 import MetaData from './meta-data.js';
+import Marker from './marker.js';
 
 /**
 * This class represents a svg element.
@@ -28,8 +29,15 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   /**
   * Constructs a svg element.
   */
-  constructor( width?:number, height?:number ) {
+  constructor( x?:number, y?:number, width?:number, height?:number ) {
     let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    if( x ) {
+      svg.setAttributeNS(null, 'x', x.toString());
+    }
+    if( y ) {
+      svg.setAttributeNS(null, 'y', y.toString());
+    }
     if( width ) {
       svg.setAttributeNS(null, 'width', width.toString());
     }
@@ -43,28 +51,48 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   * Return the width of this svg element.
   */
   get width() {
-    return this.root.width.baseVal.value;
+    // return this.root.width.baseVal.value;
+    return parseInt(this.root.getAttribute('width'));
   }
 
   /**
   * Set the width of this svg element.
   */
   set width( value:number ) {
-    this.root.width.baseVal.value = value;
+    // this.root.width.baseVal.value = value;
+    this.root.setAttributeNS(null, 'width', value.toString());
   }
 
   /**
   * Returns the height of this svg element.
   */
   get height() {
-    return this.root.height.baseVal.value;
+    // return this.root.height.baseVal.value;
+    return parseInt(this.root.getAttribute('height'));
   }
 
   /**
   * Sets the height of this svg element to the provided value.
   */
   set height( value:number ) {
-    this.root.height.baseVal.value = value;
+    // this.root.height.baseVal.value = value;
+    this.root.setAttributeNS(null, 'height', value.toString());
+  }
+
+  get x() {
+    return this.root.x.baseVal.value;
+  }
+
+  set x( value:number ) {
+    this.root.x.baseVal.value = value;
+  }
+
+  get y() {
+    return this.root.y.baseVal.value;
+  }
+
+  set y( value:number ) {
+    this.root.y.baseVal.value = value;
   }
 
   get viewBox() : string {
@@ -120,14 +148,14 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   group(): Group {
     return this.appendChild(new Group());
   }
-  svg(): SVG {
-    return this.appendChild(new SVG());
+  svg(x:number, y:number, width:number, height:number): SVG {
+    return this.appendChild(new SVG(x,y,width,height));
   }
   symbol(): Symbol {
     return this.appendChild(new Symbol());
   }
-  use(): Use {
-    return this.appendChild(new Use());
+  use(x:number, y:number, width:number, height:number): Use {
+    return this.appendChild(new Use(x, y, width, height));
   }
 
   // typography elements
@@ -142,4 +170,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
     return this.appendChild(new ClipPath());
   }
 
+  marker(refX:number, refY:number, width:number, height:number):Marker {
+    return this.appendChild(new Marker(refX, refY, width, height));
+  }
 }

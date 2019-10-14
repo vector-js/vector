@@ -5,7 +5,7 @@
 * @tags []
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import Text from '../../elements/svg/text.js';
 import Group from '../../elements/svg/group.js';
 

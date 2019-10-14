@@ -1,4 +1,4 @@
-import Element from '../element.js';
+import Element from './element.js';
 
 /**
 * A circle is a basic shape element with a start and end position.

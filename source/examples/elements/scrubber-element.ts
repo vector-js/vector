@@ -4,7 +4,7 @@
 * @tags [elements, input]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // let test = new Interactive(getScriptName());
 // test.width = 768;

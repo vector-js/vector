@@ -3,7 +3,14 @@ node_modules
 builds
 cache
 types
+*.js.map
+
+# ignore generated files on development branches
 docs
 dist
 api
-*.js.map
+vector.js
+/**/*.d.ts
+examples/**/*.js
+source/**/*.js
+tests/**/*.js

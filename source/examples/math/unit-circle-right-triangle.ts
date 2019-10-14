@@ -6,7 +6,7 @@
 * @author Kurt Bruns
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let id = 'unit-circle-right-triangle';
@@ -26,8 +26,7 @@ control.constrainToCircle( circle.cx, circle.cy, circle.r);
 
 // Create a path
 let path = interactive.path('');
-path.root.style.fill = 'gray';
-path.root.style.fillOpacity = '.3';
+path.root.style.fill = 'rgb(236,236,236)';
 path.update = function() {
   path.d = `M 0 0
             L ${control.x} 0

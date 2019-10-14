@@ -2,21 +2,19 @@
 import { getURL } from '../util/file.js';
 import { parseSVG } from '../util/svg.js';
 // basic elements
-import Element from '../elements/element.js';
-import Input from '../elements/input/input.js';
-// svg elements
-import SVG from '../elements/svg/svg.js';
-import Group from '../elements/svg/group.js';
+import Input from './input/input.js';
+import SVG from './svg/svg.js';
+import Group from './svg/group.js';
 // visual elements
-import Icon from '../elements/visual/icon.js';
+import Icon from './visual/icon.js';
 // input elements
-import Button from '../elements/input/button.js';
-import CheckBox from '../elements/input/check-box.js';
-import Control from '../elements/input/control.js';
-import ControlCircle from '../elements/input/control-circle.js';
-import RadioControl from '../elements/input/radio-control.js';
-import Scrubber from '../elements/input/scrubber.js';
-import Slider from '../elements/input/slider.js';
+import Button from './input/button.js';
+import CheckBox from './input/check-box.js';
+import Control from './input/control.js';
+import ControlCircle from './input/control-circle.js';
+import RadioControl from './input/radio-control.js';
+import Scrubber from './input/scrubber.js';
+import Slider from './input/slider.js';
 // graph elements
 import Node from '../elements/graph/node.js';
 import Edge from '../elements/graph/edge.js';
@@ -24,7 +22,7 @@ import Graph from '../elements/graph/graph.js';
 import DirectedGraph from '../elements/graph/directed-graph.js';
 import FlowGraph from '../elements/graph/flow-graph.js';
 // map elements
-import Map from '../elements/maps/map.js';
+// import GeoMap from '../elements/maps/map.js';
 // math elements
 import Plot from '../elements/math/plot.js';
 /**
@@ -43,13 +41,8 @@ export default class Interactive extends SVG {
     * the HTML element with the corresponding ID. If no element is found throws an
     * error.
     */
-    constructor(value) {
+    constructor(value, options = {}) {
         super();
-        // internal variables
-        this._width = 0;
-        this._height = 0;
-        this._originX = 0;
-        this._originY = 0;
         // If the user passes in a string identifier check to see if such an
         // element exists in the current document.
         if (typeof value == "string") {
@@ -61,19 +54,20 @@ export default class Interactive extends SVG {
         else {
             this.container = value;
         }
-        this.container.classList.add('interactive-container');
         // create and append the root svg element and group elements
         this.container.appendChild(this.root);
         this.root.classList.add('interactive');
+        // Have to create and manually append because overridden append child will
+        // throw an error.
         this.background = new Group();
         this.input = new Group();
         this.root.appendChild(this.background.root);
         this.root.appendChild(this.input.root);
         // default configuration
-        this._originX = 0;
-        this._originY = 0;
-        this._width = 600;
-        this._height = 300;
+        this._originX = options.originX ? options.originX : 0;
+        this._originY = options.originY ? options.originY : 0;
+        this._width = options.width ? options.width : 600;
+        this._height = options.height ? options.height : 300;
         this.root.setAttribute('width', this._width.toString());
         this.root.setAttribute('height', this._height.toString());
         this.setViewBox(-this._originX, -this._originY, this._width, this._height);
@@ -202,8 +196,9 @@ export default class Interactive extends SVG {
     /**
     * Creates a nested interactive within this interactive
     */
-    interactive(x, y) {
-        let obj = new Interactive(this.id);
+    interactive(x, y, options = {}) {
+        let obj = new Interactive(this.id, options);
+        // TODO: standardize this
         obj.root.setAttribute('x', x.toString());
         obj.root.setAttribute('y', y.toString());
         return obj;
@@ -220,40 +215,51 @@ export default class Interactive extends SVG {
     checkBox(x, y, label, value) {
         return this.appendChild(new CheckBox(x, y, label, value));
     }
-    icon(x, y, str) {
-        // create a new icon element
-        let icon = new Icon(x, y);
-        this.appendChild(icon);
-        // check to see if we have loaded the symbols svg, if not load it
-        let id = 'vector-js-symbols';
-        let svg;
-        let svgElement = document.getElementsByClassName(id)[0];
-        if (svgElement === undefined || svgElement === null) {
-            svg = new SVG();
-            svg.style.display = 'none';
-            svg.root.classList.add(id);
-            document.body.appendChild(svg.root);
+    /**
+    * Creates an icon at the position (x,y) with the provided dimensions.
+    */
+    icon(x, y, width, height, name, options = {}) {
+        let baseURL;
+        if (options.baseURL === undefined) {
+            baseURL = '/icons/';
         }
         else {
-            svg = Element.controller.get(svgElement.id);
+            baseURL = options.baseURL;
         }
+        // check to see if the symbols group has been initialized
+        if (this.symbols === undefined) {
+            this.symbols = new Group();
+            this.root.appendChild(this.symbols.root);
+            this.icons = new Set();
+        }
+        // create a new icon element
+        let icon = new Icon(x, y, width, height);
+        this.appendChild(icon);
         // check to see if we have loaded this icon before
-        let symbol = svg.root.querySelector(`#${str}`);
-        if (!symbol) {
-            getURL(`/resources/icons/${str}.svg`).then(function (response) {
-                let symbol = svg.symbol();
-                symbol.root.id = str;
+        let id = `${this.id}-${name}`;
+        if (!this.icons.has(id)) {
+            // TODO: maybe we should only request one SVG file with that defines many
+            // icon symbols. Then add the symbols as needed from, rather than have
+            // many network requests for symbols. Or maybe the user could add the
+            // symbols to their web page themselves.
+            let temp = this;
+            getURL(`${baseURL}${name}.svg`).then(function (response) {
                 let symbolSVG = parseSVG(response);
+                let symbol = temp.symbols.symbol();
+                symbol.root.id = id;
+                symbol.viewBox = symbolSVG.getAttribute('viewBox');
                 while (symbolSVG.childNodes.length > 0) {
                     symbol.root.appendChild(symbolSVG.childNodes[0]);
                 }
-                let use = icon.use();
-                use.setAttribute('href', `#${str}`);
-                icon.appendChild(use);
+                icon.href = `#${id}`;
             }).catch(function (error) {
                 throw error;
             });
         }
+        else {
+            icon.href = `#${id}`;
+        }
+        this.icons.add(id);
         return icon;
     }
     /**
@@ -277,8 +283,8 @@ export default class Interactive extends SVG {
     /**
     * Creates a plot within this interactive at the position (x,y).
     */
-    plot(userEvents = true) {
-        return this.appendChild(new Plot(userEvents));
+    plot(width = 600, height = 300, fn, options) {
+        return this.appendChild(new Plot(width, height, fn, options));
     }
     /**
     * Creates a graph element within this interactive
@@ -292,10 +298,10 @@ export default class Interactive extends SVG {
     /**
     * Creates a graph element within this interactive
     */
-    map(mapName, width, height, externalData = null) {
-        let map = new Map(this, mapName, width, height, externalData);
-        return map;
-    }
+    // map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
+    //  let map = new Map(this,mapName,width,height, externalData);
+    //  return map;
+    //  }
     /*
     * Creates a directed graph element within this interactive
     */
@@ -305,8 +311,8 @@ export default class Interactive extends SVG {
     /**
     * Creates a slider input within this interactive
     */
-    slider(x, y, width, value) {
-        return this.appendChild(new Slider(x, y, width, value));
+    slider(x, y, options) {
+        return this.appendChild(new Slider(x, y, options));
     }
     /**
     * Creates a scrubber with a play and pause button at the position (x,y).

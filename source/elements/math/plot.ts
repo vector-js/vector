@@ -6,12 +6,22 @@ import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
 
+export interface PlotOptions {
+  zoomable?:boolean;
+  displayPoint?:boolean;
+  grid?:boolean;
+  scaleX?:number;
+  scaleY?:number;
+  originX?:number;
+  originY?:number;
+  border?:boolean;
+  controls?:boolean;
+}
+
 /**
 * A plot of the graph of a function.
 */
 export default class Plot extends Group {
-
-  root : SVGGElement;
 
   /**
   * Invisible element for registering events
@@ -19,10 +29,16 @@ export default class Plot extends Group {
   rect : Rectangle;
 
   /**
-  * This group holds the drawn path & axis
+  * This view port is a coordinate system where things are scaled using svg's
+  * internal representatino of scaling.
   */
   viewPort : SVG;
-  viewPortGroup : Group;
+
+  /**
+  * This static group gets translated along witht he viewPort, but elements
+  * retain their original sizing.
+  */
+  staticGroup : Group;
 
   /**
   * Represents the path taken by the function.
@@ -44,12 +60,11 @@ export default class Plot extends Group {
   */
   yAxis : Line;
 
-  // TODO: change all member variables to either SVGElements or our libraries
   // elements
   xRect : Rectangle;
   yRect : Rectangle;
-  x : Text;
-  y : Text;
+  xText : Text;
+  yText : Text;
 
   /**
   * Keeps track of whether a translate is active or not.
@@ -61,106 +76,131 @@ export default class Plot extends Group {
   */
   private _function : (x:number) => number;
 
-  // private member variables
-  private _originX : number;
-  private _originY : number;
-  private _scaleX : number;
-  private _scaleY : number;
-  private _width : number;
-  private _height : number;
-  private _prevX : number;
-  private _prevY : number;
-  private _visibleWidth : number;
-  private _visibleHeight : number;
-  private _totalScale : number;
+  // actual height and width of plot element
+  private x : number;
+  private y : number;
+  private width : number;
+  private height : number;
+
+  // represents the transformation from svg coordinate system to internal
+  private scaleX : number;
+  private scaleY : number;
+
+  // these variables represent the internal coordinate system of the plot
+  private internalX : number;
+  private internalY : number;
+  private visibleWidth : number;
+  private visibleHeight : number;
+
+  // keeps track of the previous mouse position
+  private prevX : number;
+  private prevY : number;
 
   /**
   * Constructs a new graph capable of displaying a function in the form of
   * x -> y. The user is able to drag, zoom-in, and zoom-out on the graph to
   * explore the shape and form of the function.
   */
-  constructor( userEvents = true ) {
+  constructor( width :number = 600, height:number = 300, fn:(x:number) => number, options:PlotOptions ) {
     super();
 
-    // default values
-    this._width = 600;
-    this._height = 300;
-    this._originX = 0;
-    this._originY = 0;
-    this._prevX = 0;
-    this._prevY = 0;
-    this._visibleWidth = this.width;
-    this._visibleHeight = this.height;
-    this._totalScale = 1;
-    this._scaleX = 1;
-    this._scaleY = 1;
+    // event variables
+    this.prevX = 0;
+    this.prevY = 0;
     this.active = false;
+    this._function = fn;
+
+    // calculate the visible dimensions and top-left position of svg coordinates
+    this.x = -width/2;
+    this.y = -height/2;
+    this.width = width;
+    this.height = height;
 
     // creates a transparent rectangle to capture all user events
-    this.rect = new Rectangle(0, 0, this.width, this.height);
+    this.rect = this.rectangle(0, 0, this.width, this.height);
     this.rect.style.fill = 'transparent';
-    this.rect.style.stroke = 'none';
+    if( options.border === undefined || options.border ) {
+      this.rect.style.border = '1px solid #404040';
+    } else {
+      this.rect.style.stroke = 'none';
+    }
 
-    // TODO: change to axis with tick marks and number labels
-    // draw two lines to represent the x-axis and y-axis
-    this.xAxis = new Line( -10000, 0, 10000, 0);
-    this.yAxis = new Line( 0, -10000, 0, 10000 );
+    // default values
+    this.viewPort = this.svg(0, 0, this.width, this.height);
+    this.viewPort.setAttribute('preserveAspectRatio','none');
 
-    // create a path to draw the internal function
+    // create a static group for non-size-scaling objects
+    this.staticGroup = this.group();
+    this.staticGroup.line(-10000, 0, 10000, 0);
+    this.staticGroup.line( 0, -10000, 0, 10000 );
+    this.staticGroup.circle(0, 0, 3).fill = '#404040';
 
-    // a group to hold the path and axis, allows easy transforming of the origin
-    this.viewPort = new SVG();
-    this.viewPortGroup = this.viewPort.group();
-    this.fPath = this.viewPort.path('');
-    this.viewPortGroup.appendChild(this.xAxis);
-    this.viewPortGroup.appendChild(this.yAxis);
+    // initialize the scaling
+    options.scaleX ? this.scaleX = options.scaleX : this.scaleX = 1;
+    options.scaleY ? this.scaleY = options.scaleY : this.scaleY = 1;
 
-    // this.viewPortGroup.setAttribute('transform', 'scale(1,-1)');
+    // calculate the visible dimensions and top-left position of internal coordinates
+    this.visibleWidth = this.width/this.scaleX;
+    this.visibleHeight = this.height/this.scaleY;
+    this.internalX = -this.visibleWidth/2;
+    this.internalY = -this.visibleHeight/2;
 
-    // create a root element to hold everything
-    this.appendChild(this.rect);
-    this.appendChild(this.viewPort);
+    this.fPath = this.staticGroup.path('');
+    // this.fPath.root.setAttribute('vector-effect','non-scaling-stroke');
+    this.fPath.setAttribute('transform', 'scale(1, -1)');
 
-    // translate the origin to its initial position
-    // this.translate( this.originX, this.originY);
+    this.setViewBox();
+
+    if( options.originX != undefined && options.originY != undefined){
+      this.setOrigin(options.originX, options.originY);
+    }
+
+    // draw a grid of rectangles
+    if( options.grid ) {
+      let w = 10;
+      let h = 10;
+      for( let i = -10; i <= 10; i++) {
+        for( let j = -10; j <= 10; j ++) {
+          let x = i*w;
+          let y = j*h;
+          let rect = this.viewPort.rectangle(x, y, w, h);
+          rect.style.stroke = '#777777';
+          rect.root.setAttribute('vector-effect','non-scaling-stroke');
+        }
+      }
+    }
+
+    // store a temp variable for registering events
+    let graph = this;
 
     // Registers event listeners
-    if( userEvents ) {
+    if( options.displayPoint === undefined || options.displayPoint ) {
 
       // create a display circle for showing input and output
-      this.displayCircle = this.viewPort.circle(0,0,4);
+      this.displayCircle = this.staticGroup.circle(0,0,4);
       this.displayCircle.style.fill = 'cornflowerblue';
+      this.displayCircle.setAttribute('transform', 'scale(1, -1)');
 
       this.xRect = this.rectangle(0, 0, 125, 40);
       this.yRect = this.rectangle(120, 0, 125, 40);
       this.xRect.root.style.fill = 'white';
       this.yRect.root.style.fill = 'white';
 
-      this.x = this.text( 15, 20, 'x:0');
-      this.x.root.style.dominantBaseline = 'middle';
-      this.x.root.style.whiteSpace = 'pre';
+      this.xText = this.text( 15, 20, 'x:0');
+      this.xText.root.style.dominantBaseline = 'middle';
+      this.xText.root.style.whiteSpace = 'pre';
 
-      this.y = this.text( 125 + 15, 20, 'y:0');
-      this.y.root.style.dominantBaseline = 'middle';
-      this.y.root.style.whiteSpace = 'pre';
+      this.yText = this.text( 125 + 15, 20, 'y:0');
+      this.yText.root.style.dominantBaseline = 'middle';
+      this.yText.root.style.whiteSpace = 'pre';
 
-      // draw a grid of rectangles
-      // draw rectangles for debugging
-      let w = 25;
-      let h = 25;
-      for( let i = 0; i < 10; i++) {
-        for( let j = 0; j < 10; j ++) {
-          let x = i*w;
-          let y = j*h;
-          this.viewPortGroup.rectangle(x, y, w, h);
-          // rectangle.root.setAttribute('vector-effect','non-scaling-stroke');
-        }
-      }
-
-      let graph = this;
       this.root.addEventListener('mousemove', function( event:MouseEvent) {
         graph.handleMouseMove(event);
       });
+
+    }
+
+    if( options.zoomable === undefined || options.zoomable ) {
       this.root.addEventListener('mousedown', function( event:MouseEvent) {
         graph.handleMouseDown(event);
       });
@@ -174,64 +214,20 @@ export default class Plot extends Group {
         graph.handleMouseWheelEvent(event);
       }, {passive:false});
     }
-  }
 
-  /**
-  * Returns the width of this graph
-  */
-  get width() : number {
-    return this._width;
-  }
+    if( options.controls ) {
+      let zoomIn = this.rectangle( this.width - 48, 16, 30, 30);
+      zoomIn.setAttribute('rx', '3');
+      zoomIn.style.fill = '#f8f8f8';
+      let zoomOut = this.rectangle( this.width - 48, 46, 30, 30);
+      zoomOut.setAttribute('rx', '3');
+      zoomOut.style.fill = '#f8f8f8';
+      let fullscreen = this.circle( this.width - 32, this.height - 32, 16);
+      fullscreen.style.fill = '#f8f8f8';
+    }
 
-  /**
-  * Returns the height of this graph
-  */
-  get height() : number {
-    return this._height;
-  }
-
-  /**
-  * Returns the minimum x value of the view box of this graph relative to the
-  * origin.
-  */
-  get minX() : number {
-    return -this._originX;
-  }
-
-  /**
-  * Returns the minimum y value of the view box of this graph relative to the
-  * origin.
-  */
-  get minY() : number {
-    return -this._originY;
-  }
-
-  /**
-  * Returns the x coordinate of the origin of this graph.
-  */
-  get originX() : number {
-    return this._originX;
-  }
-
-  /**
-  * Sets the x coordinate of the origin of this graph.
-  */
-  set originX( x:number ) {
-    this.translate( x, this._originY);
-  }
-
-  /**
-  * Returns the y coordinate of the origin of this graph.
-  */
-  get originY() : number {
-    return this._originY;
-  }
-
-  /**
-  * Sets the y coordinate of the origin of this graph.
-  */
-  set originY( y:number ) {
-    this.translate( this._originX, y);
+    // draw the initial state of the graph
+    this.draw();
   }
 
   /**
@@ -248,43 +244,51 @@ export default class Plot extends Group {
     return this._function;
   }
 
+  get originX():number {
+    return - this.x;
+  }
+
+  get originY():number {
+    return - this.y;
+  }
+
+  /**
+  * Updates the display circle based on its current cx position, also updates
+  * the display text elements to represent the position of the display circle.
+  */
+  updateDisplayCircle() {
+    // Set the initial display position
+    if( this.displayCircle != undefined ) {
+      let cy = this.call(this.displayCircle.cx, false);
+      if( isNaN(cy)) {
+        this.displayCircle.cy = 0;
+      } else if( isFinite(cy) ){
+        this.displayCircle.cy = cy;
+        this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
+        this.yText.contents = this.format(this.displayCircle.cy/this.scaleY);
+      } else {
+        this.displayCircle.cy = this.height*3;;
+        this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
+        this.yText.contents = cy.toString();
+      }
+    }
+  }
+
   /**
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
-  call( input:number, scaleY = true ) : number {
-    let x =  this._scaleX*(input);
-    let y = (scaleY ? -this._scaleY : 1)*(this._function(x));
-    return y;
-  }
+  call( x:number, normalize = true ) : number {
 
-  /**
-  * Draws the internal function over the interval [startX, endX]. The default
-  * interval is [ minX - width, maxX + width ] so that when a user drags the
-  * graph there is enough drawn so that a translate may be applied instead of
-  * having to call draw again.
-  */
-  draw( startX = this.minX - this.width, endX = this.minX + 2*this.width) {
+    // call and scale the function
+    let y = this.scaleY*this._function(x/this.scaleX);
 
-    // Draw the function
-    let x = startX;
-    let y = this.call(x);
-    if( y >  2*this.height ) { y =  2*this.height; }
-    if( y < -2*this.height ) { y = -2*this.height; }
-    let d = `M ${x} ${y} `;
-
-    // TODO: remove vertical asymptote's by starting jumping to a new spot...
-    // L ... L ... M ... L ... L ...
-    for( x++; x < endX; x++ ){
-      y = this.call(x);
+    // normalize big/small y values
+    if( normalize ) {
       if( y >  2*this.height ) { y =  2*this.height; }
       if( y < -2*this.height ) { y = -2*this.height; }
-      d += `L ${x} ${y.toFixed(1)} `;
     }
-    this.fPath.d = d;
-
-    // Update the dependents if there are any
-    this.updateDependents();
+    return y;
   }
 
   /**
@@ -299,28 +303,49 @@ export default class Plot extends Group {
   }
 
   /**
-  * Handle when a mouse moves over this graph. If a drag event is active then
-  * translates the position of the graph to the new location.
+  * Draws the internal function over the interval [startX, endX]. The default
+  * interval is [ minX - width, maxX + width ] so that when a user drags the
+  * graph there is enough drawn so that a translate may be applied instead of
+  * having to call draw again.
   */
-  handleMouseMove( event:MouseEvent ) {
-    if( this.active ) {
-      let deltaX = event.clientX - this._prevX;
-      let deltaY = event.clientY - this._prevY;
-      this._originX -= deltaX/this._scaleX;
-      this._originY -= deltaY/this._scaleY;
-      this._prevX = event.clientX;
-      this._prevY = event.clientY;
-      this.viewPort.setAttribute('viewBox', `${this._originX} ${this._originY} ${this._visibleWidth} ${this._visibleHeight}`);
-    } else {
-      // this.circle.cx = x;
-      // this.circle.cy = this.call(x);
+  draw( startX = this.x - this.width, endX = this.x + 2*this.width ) {
+
+    this.setViewBox();
+    this.updateDisplayCircle();
+
+    // Start drawing the function
+    let start = false;
+    let x = startX;
+    let y = this.call(x);
+    let d : string = '';
+    let prev : number;
+
+    // If y is valid input start drawing
+    if(!isNaN(y)) {
+      d = `M ${x} ${y} `;
+      prev = y;
+      start = true;
     }
 
-    // let i = this._scaleX*(x);
-    // let o = this.call(x, false);
-    //
-    // this.x.contents = `x:${i < 0 ? '' : ' '}${this.format(i)}`;
-    // this.y.contents = `y:${o < 0 ? '' : ' '}${this.format(o)}`;
+    // Loop through and draw coordiantes of the function path
+    for( x ++; x < endX; x ++ ){
+      let y = this.call(x);
+      if( isNaN(y)) {
+        continue;
+      }
+      // check for vertical asymptotes or if we haven't started drawing
+      else if( Math.abs(prev - y) >= this.height || !start ) {
+        d += `M ${x.toFixed(1)} ${y.toFixed(1)} `;
+        start = true;
+      } else {
+        d += `L ${x.toFixed(1)} ${y.toFixed(1)} `;
+      }
+      prev = y;
+    }
+    this.fPath.d = d;
+
+    // Update the dependents if there are any
+    this.updateDependents();
   }
 
   /**
@@ -328,8 +353,8 @@ export default class Plot extends Group {
   */
   handleMouseDown( event:MouseEvent ) {
     this.active = true;
-    this._prevX = event.clientX;
-    this._prevY = event.clientY;
+    this.prevX = event.clientX;
+    this.prevY = event.clientY;
   }
 
   /**
@@ -337,7 +362,6 @@ export default class Plot extends Group {
   */
   handleMouseUp( _event:MouseEvent ) {
     this.active = false;
-    // this.draw();
   }
 
   /**
@@ -345,6 +369,54 @@ export default class Plot extends Group {
   */
   handleMouseLeave( event:MouseEvent ) {
     this.handleMouseUp(event);
+  }
+
+  /**
+  * Updates the position of the static group and sets the viewbox on the
+  * viewPort element.
+  */
+  setViewBox() {
+    this.staticGroup.setAttribute('transform',`translate(${-this.x}, ${-this.y})`);
+    this.viewPort.setAttribute('viewBox', `${this.internalX} ${this.internalY} ${this.visibleWidth} ${this.visibleHeight}`);
+  }
+
+  /**
+  * This moves the origin of the plot to the location (x,y) relative to the size
+  * of the plot. For example, if the plot is 600 wide and 300 tall, placing the
+  * origin at (100,100) move the origin to the point 100 units in the x
+  * direction and 100 units in the y direction from the top left corner of the
+  * plot.
+  */
+  setOrigin( x:number, y:number ) {
+    this.x = -x;
+    this.y = -y;
+    this.internalX = this.x/this.scaleX;
+    this.internalY = this.y/this.scaleY;
+    this.draw();
+  }
+
+  /**
+  * Handle when a mouse moves over this graph. If a drag event is active then
+  * translates the position of the graph to the new location.
+  */
+  handleMouseMove( event:MouseEvent ) {
+    if( this.active ) {
+      let deltaX = event.clientX - this.prevX;
+      let deltaY = event.clientY - this.prevY;
+      this.x -= deltaX;
+      this.y -= deltaY;
+      this.internalX -= deltaX/this.scaleX;
+      this.internalY -= deltaY/this.scaleY;
+      this.prevX = event.clientX;
+      this.prevY = event.clientY;
+      this.draw();
+    } else {
+      let br = this.rect.root.getBoundingClientRect();
+      if( this.displayCircle != undefined ) {
+        this.displayCircle.cx = event.clientX - br.left + this.x;
+        this.updateDisplayCircle();
+      }
+    }
   }
 
   /**
@@ -361,69 +433,29 @@ export default class Plot extends Group {
     let x = event.clientX - br.left;
     let y = event.clientY - br.top;
 
-    let wheel = event.deltaZ < 0 ? 1 : -1;
+    let wheel = event.deltaY < 0 ? 1 : -1;
     let zoom = Math.exp(wheel*zoomIntensity);
 
-    this._originX -= x/(this._scaleX*zoom) - x/this._scaleX;
-    this._originY -= y/(this._scaleY*zoom) - y/this._scaleY;
-    this._scaleX *= zoom;
-    this._scaleY *= zoom;
-    this._visibleWidth = this.width/this._scaleX;
-    this._visibleHeight = this.width/this._scaleY;
+    // transform the internal coordinate system
+    let deltaX = x/(this.scaleX*zoom) - x/this.scaleX;
+    let deltaY = y/(this.scaleY*zoom) - y/this.scaleY;
+    this.internalX -= deltaX;
+    this.internalY -= deltaY;
+    this.scaleX *= zoom;
+    this.scaleY *= zoom;
+    this.visibleWidth = this.width/this.scaleX;
+    this.visibleHeight = this.height/this.scaleY;
 
-    this.viewPort.setAttribute('viewBox', `${this._originX} ${this._originY} ${this._visibleWidth} ${this._visibleHeight}`);
+    // update the elements in the static (svg) coordinate system
+    this.x = this.internalX*this.scaleX;
+    this.y = this.internalY*this.scaleY;
 
-    // this.draw();
-    // this.circle.cy = this.call(this.circle.cx);
-
-  }
-
-  /**
-  * Scales the x and y axis of this graph.
-  */
-  scale( x:number, y:number, posX?:number, posY?:number) {
-    if(posX)
-    {
-      let initialScale = this._totalScale;
-      //
-      this._scaleX *= x;
-      this._scaleY *= y;
-      this._totalScale *= x;
-
-      let scaleChange = this._totalScale - initialScale;
-
-      let xLength = (posX - this._originX)
-      let yLength = (posY - this._originY)
-
-
-      let offsetX = -(xLength / Math.hypot(xLength, yLength) * scaleChange);
-
-      let offsetY = -(yLength / Math.hypot(xLength, yLength) * scaleChange);
-
-      console.log(this._totalScale);
-      console.log(offsetX);
-      console.log(offsetY);
-
-      this._originX += offsetX;
-      this._originY += offsetY;
-      this.translate(this._originX, this._originY);
-
-      // this.draw();
+    // update the position of the display circle
+    if( this.displayCircle != undefined ) {
+      this.displayCircle.cx = event.clientX - br.left + this.x;
     }
-    else{
-      this._scaleX *= x;
-      this._scaleY *= y;
-      // this.draw();
-    }
-  }
 
-  /**
-  * Translates the origin of this graph to the location (x,y).
-  */
-  translate( x:number, y:number ) {
-    this._originX = x;
-    this._originY = y;
-    this.viewPort.setAttribute('viewBox', `${-x} ${-y} ${this.viewPort.width} ${this.viewPort.height}`);
+    // redraw visual elements
+    this.draw();
   }
-
 }

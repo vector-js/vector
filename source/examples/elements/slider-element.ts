@@ -4,11 +4,14 @@
 * @tags [elements, input]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;
 interactive.root.style.border = "1px solid grey";
-let slider = interactive.slider( 100, 75, 150, 20);
+let slider = interactive.slider( 100, 75, {
+  width:150,
+  value:20
+});

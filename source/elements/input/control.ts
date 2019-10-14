@@ -74,23 +74,9 @@ export default class Control extends Input {
     this.translate(x,y);
 
     // register event handlers
-    let control = this;
-
-    this.root.onmousedown = function( event:MouseEvent) {
-      control.handleMouseDown( event);
-    };
-
-    this.root.ondblclick = function( event:MouseEvent) {
-      // do nothing on double click
-      event.preventDefault();
-    };
-
-    this.handle.root.onmouseout = function( event:MouseEvent ) {
-      control.handleMouseOut( event);
-    }
-
-    // set passive to false so chrome doesn't complain
-    this.handle.root.addEventListener('touchstart', control.handleTouchStart.bind(this), {passive:false});
+    this.root.onmousedown = this.handleMouseDown.bind(this);
+    this.handle.root.onmouseout = this.handleMouseOut.bind(this);
+    this.handle.root.addEventListener('touchstart', this.handleTouchStart.bind(this), {passive:false});
 
     // initialize window event listeners only once
     if( !Control.initalized ) {
@@ -110,6 +96,7 @@ export default class Control extends Input {
   static handleMouseMove( event:MouseEvent ) {
     if( Control.active != null ) {
       Control.handleMoveTo(event.clientX,event.clientY);
+      event.preventDefault();
     }
   }
 
@@ -120,19 +107,24 @@ export default class Control extends Input {
   static handleTouchMove( event:TouchEvent) {
     if( Control.active != null ) {
       Control.handleMoveTo(event.touches[0].clientX, event.touches[0].clientY);
+      event.preventDefault();
     }
   }
 
-  static handleMoveTo( clientX, clientY) {
+  /**
+  * Moves the active control to the new (x,y) position.
+  */
+  static handleMoveTo( clientX: number, clientY: number) {
 
-    let deltaX = clientX - Control.prevX;
-    let deltaY = clientY - Control.prevY;
-    Control.prevX = clientX;
-    Control.prevY = clientY;
-    let x = Control.active.x + deltaX;
-    let y = Control.active.y + deltaY;
+    // let deltaX = clientX - Control.prevX;
+    // let deltaY = clientY - Control.prevY;
+    // Control.prevX = clientX;
+    // Control.prevY = clientY;
+    // let x = Control.active.x + deltaX;
+    // let y = Control.active.y + deltaY;
+    let x = clientX + Control.slopX;
+    let y = clientY + Control.slopY;
     Control.active.translate( x, y);
-    event.preventDefault();
   }
 
   // static handleMoveTo( clientX, clientY) {

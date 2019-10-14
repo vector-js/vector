@@ -3,24 +3,24 @@ import { getURL } from '../util/file.js';
 import { parseSVG } from '../util/svg.js';
 
 // basic elements
-import Element from '../elements/element.js';
-import Input from '../elements/input/input.js';
+import Input from './input/input.js';
 
 // svg elements
-import SVG from '../elements/svg/svg.js';
-import Group from '../elements/svg/group.js';
+import Element from './svg/element.js';
+import SVG from './svg/svg.js';
+import Group from './svg/group.js';
 
 // visual elements
-import Icon from '../elements/visual/icon.js';
+import Icon from './visual/icon.js';
 
 // input elements
-import Button from '../elements/input/button.js';
-import CheckBox from '../elements/input/check-box.js';
-import Control from '../elements/input/control.js';
-import ControlCircle from '../elements/input/control-circle.js';
-import RadioControl from '../elements/input/radio-control.js';
-import Scrubber from '../elements/input/scrubber.js';
-import Slider from '../elements/input/slider.js';
+import Button from './input/button.js';
+import CheckBox from './input/check-box.js';
+import Control from './input/control.js';
+import ControlCircle from './input/control-circle.js';
+import RadioControl from './input/radio-control.js';
+import Scrubber from './input/scrubber.js';
+import Slider, { SliderOptions } from './input/slider.js';
 
 // graph elements
 import Node from '../elements/graph/node.js';
@@ -31,10 +31,17 @@ import FlowGraph from '../elements/graph/flow-graph.js';
 
 
 // map elements
-import Map from '../elements/maps/map.js';
+// import GeoMap from '../elements/maps/map.js';
 
 // math elements
-import Plot from '../elements/math/plot.js';
+import Plot, { PlotOptions } from '../elements/math/plot.js';
+
+interface InteractiveOptions {
+	width?:number,
+	height?:number,
+	originX?:number,
+	originY?:number
+}
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -49,12 +56,7 @@ export default class Interactive extends SVG {
   /**
   * The container element for this interactive.
   */
-  container:HTMLElement;
-
-  /**
-  * The SVG document root.
-  */
-  document:SVG;
+	container:HTMLElement;
 
   /**
   * The input groups sits on top of the background group and ensures that
@@ -67,11 +69,21 @@ export default class Interactive extends SVG {
   */
   background:Group;
 
+	/**
+	* This group contains symbols that can be reused within this interactive.
+	*/
+	private symbols:Group;
+
+	/**
+	* Maps icon names to ids.
+	*/
+	private icons:Set<string>;
+
   // internal variables
-  private _width:number = 0;
-  private _height:number = 0;
-  private _originX:number = 0;
-  private _originY:number = 0;
+  private _width:number;
+  private _height:number;
+  private _originX:number;
+  private _originY:number;
 
   /**
   * Constructs a new interactive object and appends it into the DOM. If the
@@ -80,7 +92,7 @@ export default class Interactive extends SVG {
   * the HTML element with the corresponding ID. If no element is found throws an
   * error.
   */
-  constructor( value:string | HTMLElement ) {
+  constructor( value:string | HTMLElement, options:InteractiveOptions = {} ) {
     super();
 
     // If the user passes in a string identifier check to see if such an
@@ -93,21 +105,23 @@ export default class Interactive extends SVG {
     } else {
       this.container = value;
     }
-    this.container.classList.add('interactive-container');
 
     // create and append the root svg element and group elements
     this.container.appendChild(this.root);
     this.root.classList.add('interactive');
-    this.background = new Group();
-    this.input = new Group();
-    this.root.appendChild(this.background.root);
-    this.root.appendChild(this.input.root);
+
+		// Have to create and manually append because overridden append child will
+		// throw an error.
+		this.background = new Group();
+		this.input = new Group();
+		this.root.appendChild(this.background.root);
+		this.root.appendChild(this.input.root)
 
     // default configuration
-    this._originX = 0;
-    this._originY = 0;
-    this._width = 600;
-    this._height = 300;
+    this._originX = options.originX ? options.originX : 0;
+    this._originY = options.originY ? options.originY : 0;
+    this._width = options.width ? options.width : 600;
+    this._height = options.height ? options.height : 300;
     this.root.setAttribute('width', this._width.toString());
     this.root.setAttribute('height', this._height.toString());
     this.setViewBox( -this._originX, -this._originY, this._width, this._height );
@@ -250,8 +264,9 @@ export default class Interactive extends SVG {
   /**
   * Creates a nested interactive within this interactive
   */
-  interactive( x:number, y:number ) : Interactive {
-    let obj = new Interactive(this.id);
+  interactive( x:number, y:number, options:InteractiveOptions = {} ) : Interactive {
+    let obj = new Interactive(this.id, options);
+		// TODO: standardize this
     obj.root.setAttribute('x', x.toString());
     obj.root.setAttribute('y', y.toString());
     return obj;
@@ -271,46 +286,59 @@ export default class Interactive extends SVG {
     return this.appendChild( new CheckBox(x, y, label, value));
   }
 
-  icon( x:number, y:number, str:string ) : Icon {
+	/**
+	* Creates an icon at the position (x,y) with the provided dimensions.
+	*/
+  icon( x:number, y:number, width:number, height:number, name:string, options:{
+		baseURL?:string
+	} = {}) : Icon {
+
+		let baseURL : string;
+		if( options.baseURL === undefined ) {
+			baseURL = '/icons/';
+		} else {
+			baseURL = options.baseURL;
+		}
+
+		// check to see if the symbols group has been initialized
+		if( this.symbols === undefined ) {
+			this.symbols = new Group();
+			this.root.appendChild(this.symbols.root);
+			this.icons = new Set();
+		}
 
     // create a new icon element
-    let icon = new Icon(x,y);
+    let icon = new Icon(x,y,width,height);
     this.appendChild(icon);
 
-    // check to see if we have loaded the symbols svg, if not load it
-    let id = 'vector-js-symbols';
-    let svg : SVG;
-    let svgElement = document.getElementsByClassName(id)[0] as HTMLElement;
-    if ( svgElement === undefined || svgElement === null ) {
-      svg = new SVG();
-      svg.style.display = 'none';
-      svg.root.classList.add(id)
-      document.body.appendChild(svg.root);
-    } else {
-      svg = Element.controller.get(svgElement.id) as SVG;
-    }
-
     // check to see if we have loaded this icon before
-    let symbol = svg.root.querySelector(`#${str}`);
-    if( !symbol ) {
-      getURL(`/resources/icons/${str}.svg`).then(function(response){
+		let id = `${this.id}-${name}`
+    if( !this.icons.has(id) ) {
 
-        let symbol = svg.symbol();
-        symbol.root.id = str;
+			// TODO: maybe we should only request one SVG file with that defines many
+			// icon symbols. Then add the symbols as needed from, rather than have
+			// many network requests for symbols. Or maybe the user could add the
+			// symbols to their web page themselves.
+			let temp = this;
+      getURL(`${baseURL}${name}.svg`).then(function(response){
+
         let symbolSVG = parseSVG(response);
+				let symbol = temp.symbols.symbol();
+				symbol.root.id = id;
+				symbol.viewBox = symbolSVG.getAttribute('viewBox');
         while (symbolSVG.childNodes.length > 0) {
             symbol.root.appendChild(symbolSVG.childNodes[0]);
         }
-
-        let use = icon.use();
-        use.setAttribute('href',`#${str}`);
-        icon.appendChild(use);
+				icon.href = `#${id}`;
 
       }).catch(function(error){
         throw error;
       });
-    }
+    } else {
+			icon.href = `#${id}`;
+		}
 
+		this.icons.add(id);
     return icon;
 
   }
@@ -339,8 +367,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a plot within this interactive at the position (x,y).
   */
-  plot( userEvents = true ) : Plot {
-    return this.appendChild(new Plot(userEvents));
+  plot(width:number = 600, height:number = 300, fn:(x:number)=>number, options:PlotOptions ) : Plot {
+    return this.appendChild(new Plot(width, height, fn, options));
   }
 
   /**
@@ -357,10 +385,10 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
-   let map = new Map(this,mapName,width,height, externalData);
-   return map;
-   }
+  // map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
+  //  let map = new Map(this,mapName,width,height, externalData);
+  //  return map;
+  //  }
 
   /*
   * Creates a directed graph element within this interactive
@@ -372,8 +400,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a slider input within this interactive
   */
-  slider(x: number, y: number, width?: number, value?:number) : Slider {
-    return this.appendChild(new Slider(x, y, width, value));
+  slider(x: number, y: number, options:SliderOptions) : Slider {
+    return this.appendChild(new Slider(x, y, options));
   }
 
   /**

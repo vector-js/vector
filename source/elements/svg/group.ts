@@ -1,4 +1,4 @@
-import Element from '../element.js';
+import Element from './element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
 import Circle from './circle.js';
@@ -57,16 +57,16 @@ export default class Group extends Element implements Descriptive, Shape, Struct
     return this.appendChild(new Group());
   }
 
-  svg(): SVG {
-    return this.appendChild(new SVG());
+  svg(x:number,y:number,width:number,height:number): SVG {
+    return this.appendChild(new SVG(x,y,width,height));
   }
 
   symbol(): Symbol{
     return this.appendChild(new Symbol());
   }
 
-  use(): Use {
-    return this.appendChild(new Use());
+  use(x:number, y:number, width:number, height:number): Use {
+    return this.appendChild(new Use(x, y, width, height));
   }
 
   // Shape methods

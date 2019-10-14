@@ -1,0 +1,24 @@
+{{ define "body" }}
+{{ partial "hero" . }}
+
+<section class="full-container">
+
+	<link href="/css/mocha.css" rel="stylesheet"/>
+	<script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+	<style media="screen">
+		.test-container {
+			margin: .5rem;
+		}
+		.test-section {
+			height: 100%;
+	    margin: 60px 50px;
+			max-width: 1024px;
+		}
+	</style>
+	<div id="mocha" class="container"></div>
+	<script type="module" src="/tests/setup.js"></script>
+	<script type="module" src="/tests/run.js"></script>
+	<div id="tests" class="test-section"></div>
+</section>
+
+{{ end }}

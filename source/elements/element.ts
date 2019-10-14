@@ -5,7 +5,7 @@ import Controller from './controller.js';
 * identifier, an update function to be defined by the user, and the ability to
 * add dependencies on other elements.
 */
-export default class Element {
+export default class BaseElement {
 
   /**
   * Allows for the events attatched to elements to be disabled.
@@ -34,43 +34,24 @@ export default class Element {
   update : () => void;
 
   /**
-  * TODO:put a warning here.
-  * The root element of this element
-  */
-  root : SVGElement;
-
-  /**
-  * Style for the root element.
-  */
-  style: CSSStyleDeclaration;
-
-  /**
   * Constructs the elements and adds it into the current controller.
   */
-  constructor( root:SVGElement ) {
+  constructor() {
 
     // give this element an unique id
-    this._id = `${this.constructor.name.toLowerCase()}-${Element.count++}`;
-
-    // store the root element and set the id attribute
-    this.root = root;
-    this.root.id = this.id;
-    this.root.classList.add('element');
-
-    // make the root's style declaration available
-    this.style = this.root.style;
+    this._id = `${this.constructor.name.toLowerCase()}-${BaseElement.count++}`;
 
     // add this element to the controller
-    Element.controller.add(this);
+    BaseElement.controller.add(this);
   }
 
   /**
   * Clears the static data structures holding elements and resets the count.
   */
   static clear( disable = false ) {
-    Element.count = 0;
-    Element.controller.clear();
-    Element.disable = disable;
+    BaseElement.count = 0;
+    BaseElement.controller.clear();
+    BaseElement.disable = disable;
   }
 
   /**
@@ -81,48 +62,18 @@ export default class Element {
   }
 
   /**
-  * Sets the provided attribute with the value.
-  */
-  setAttribute( attribute: string, value: string ) {
-    this.root.setAttribute(attribute, value);
-  }
-
-  /**
-  * Returns the value associated with the attribute.
-  */
-  getAttribute( attribute: string ) : string {
-    return this.root.getAttribute(attribute);
-  }
-
-  /**
-  * Appends the element as a child within this element.
-  */
-  appendChild<T extends Element>( child:T ) : T {
-    this.root.appendChild(child.root);
-    return child;
-  }
-
-  /**
-  * Returns true if this element contains the argument element.
-  */
-  contains( element:Element ) {
-    return this.root.contains(element.root);
-  }
-
-  /**
   * Removes this element from the DOM and from the Element controller.
   */
   remove() {
-    Element.controller.remove(this);
-    this.root.remove();
+    BaseElement.controller.remove(this);
   }
 
   /**
   * Declares this element dependent on the provided element(s).
   */
-  addDependency( ... elements: Element[] ) {
+  addDependency( ... elements: BaseElement[] ) {
     for (let element of elements) {
-      Element.controller.dependencyGraph.addDependency( element, this);
+      BaseElement.controller.dependencyGraph.addDependency( element, this);
     }
   }
 
@@ -130,6 +81,6 @@ export default class Element {
   * Updates all of the elements that depend on this element.
   */
   updateDependents() {
-    Element.controller.update(this);
+    BaseElement.controller.update(this);
   }
 }

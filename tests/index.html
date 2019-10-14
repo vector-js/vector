@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+    <link href="/css/library.css" rel="stylesheet"/>
+    <style media="screen">
+      .test-container {
+        float:left;
+        margin:.5rem;
+      }
+    </style>
+</head>
+<body>
+    <div id="mocha"></div>
+    <script type="module" src="/dist/tests/setup.js"></script>
+    <script type="module" src="/dist/tests/run.js"></script>
+		<div id="tests"></div>
+</body>
+</html>

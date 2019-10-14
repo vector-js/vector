@@ -14,7 +14,7 @@ import Text from './text.js';
 import Title from './title.js';
 import Use from './use.js';
 
-import Element from '../element.js';
+import Element from './element.js';
 
 /**
 * Describes methods for creating descriptive elements.
@@ -96,12 +96,12 @@ export interface Structural extends Element {
   /**
   * Creates and appends a svg element within this element.
   */
-  svg() : SVG ;
+  svg(x:number, y:number, width:number, height:number) : SVG ;
 
   /**
   * Creates and appends a use element within this element.
   */
-  use() : Use;
+  use(x:number, y:number, width:number, height:number) : Use;
 
 }
 

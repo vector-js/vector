@@ -4,7 +4,7 @@
 * @tags [math, algorithm, graph]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 import Node from '../../elements/graph/node.js';
 
 let interactive = new Interactive(getScriptName());
@@ -13,7 +13,7 @@ interactive.height = 400;
 interactive.border = true;
 
 let graph = interactive.graph();
-let leftButton = interactive.icon(50, 350, "animation");
+let leftButton = interactive.icon(50, 350, 100, 100, "animation");
 let nodeCounterMax = 1;
 let nodeCountTo = 0;
 

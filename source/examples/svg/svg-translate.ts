@@ -4,7 +4,7 @@
 * @tags [svg]
 */
 
-import Interactive, {getScriptName} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 700;
 interactive.height = 300;
