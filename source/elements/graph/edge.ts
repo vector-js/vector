@@ -6,6 +6,8 @@ import Line from '../svg/line.js';
 /**
 * Creates a line connecting two edges, with an arrow if directed.
 */
+
+
 export default class Edge extends Line {
 
   directed:boolean;
@@ -24,7 +26,7 @@ export default class Edge extends Line {
       super(arr[0], arr[1], arr[2], arr[3]);
     }
     else {
-      super(nodeFrom.cx,nodeFrom.cy, nodeTo.cx - arr2[0], nodeTo.cy-arr2[1]);
+      super(nodeFrom.cx,nodeFrom.cy, nodeTo.cx, nodeTo.cy);
       console.log(this.root.x1);
     }
     this.directed = directed;

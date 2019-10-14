@@ -221,7 +221,7 @@ export default class Interactive extends SVG {
     icon(x, y, width, height, name, options = {}) {
         let baseURL;
         if (options.baseURL === undefined) {
-            baseURL = '/icons/';
+            baseURL = 'resources/icons/';
         }
         else {
             baseURL = options.baseURL;
@@ -289,8 +289,8 @@ export default class Interactive extends SVG {
     /**
     * Creates a graph element within this interactive
     */
-    graph() {
-        return this.appendChild(new Graph());
+    graph(options) {
+        return this.appendChild(new Graph(options));
     }
     flowGraph(str) {
         return this.appendChild(new FlowGraph(str));

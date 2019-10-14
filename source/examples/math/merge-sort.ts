@@ -12,8 +12,10 @@ interactive.width = 704;
 interactive.height = 400;
 interactive.border = true;
 
-let graph = interactive.graph();
-let leftButton = interactive.icon(50, 350, 100, 100, "animation");
+let graph = interactive.graph({directed:false});
+let leftButton = interactive.icon(5, 345, 50, 50, "animation");
+let rightButton = interactive.icon(649, 345, 50, 50, "animation");
+
 let nodeCounterMax = 1;
 let nodeCountTo = 0;
 
@@ -247,6 +249,8 @@ function merge(left: number[], right: number[]): number[]
 
 document.addEventListener('keydown', function(event) {
     if(event.keyCode == 37) {
+      leftButton.setAttribute("stroke", "cornflowerblue")
+      console.log(leftButton);
       nodeCounterMax--;
       inputChange();
     }

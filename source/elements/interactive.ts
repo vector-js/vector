@@ -25,7 +25,7 @@ import Slider, { SliderOptions } from './input/slider.js';
 // graph elements
 import Node from '../elements/graph/node.js';
 import Edge from '../elements/graph/edge.js';
-import Graph from '../elements/graph/graph.js';
+import Graph, {GraphOptions} from '../elements/graph/graph.js';
 import DirectedGraph from '../elements/graph/directed-graph.js';
 import FlowGraph from '../elements/graph/flow-graph.js';
 
@@ -295,7 +295,7 @@ export default class Interactive extends SVG {
 
 		let baseURL : string;
 		if( options.baseURL === undefined ) {
-			baseURL = '/icons/';
+			baseURL = 'resources/icons/';
 		} else {
 			baseURL = options.baseURL;
 		}
@@ -374,11 +374,11 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  graph() : Graph {
-    return this.appendChild(new Graph());
+  graph(options:GraphOptions) : Graph {
+    return this.appendChild(new Graph(options));
   }
 
-  flowGraph(str:string) : Graph {
+  flowGraph(str:string) : DirectedGraph {
     return this.appendChild(new FlowGraph(str));
   }
 
