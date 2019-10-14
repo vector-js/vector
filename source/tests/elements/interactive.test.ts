@@ -1,5 +1,7 @@
 import Container from '../container.js';
 import { Interactive, Input, Element } from '../../index.js';
+import Rectangle from '../../elements/svg/rectangle.js';
+import Circle from '../../elements/svg/circle.js';
 
 describe('Interactive', function () {
 
@@ -38,11 +40,13 @@ describe('Interactive', function () {
 
   describe('Options', function () {
 
-    function drawConfiguration( interactive:Interactive ) {
-      interactive.rectangle(interactive.minX, interactive.minY, interactive.width, interactive.height);
-      interactive.circle(0,0,4).style.fill = '#333333';
+    function drawConfiguration( interactive:Interactive ) : [Circle, Rectangle] {
+      let rectangle = interactive.rectangle(interactive.minX, interactive.minY, interactive.width, interactive.height);
+      let circle = interactive.circle(0,0,4);
+			circle.style.fill = '#333333';
       interactive.line(-1000,0,1000,0);
       interactive.line(0,-1000,0,1000);
+			return [circle, rectangle];
     }
 
     it('default configuration ', function() {
@@ -52,7 +56,11 @@ describe('Interactive', function () {
       chai.expect(interactive.originX).to.equal(0);
       chai.expect(interactive.originY).to.equal(0);
       chai.expect(interactive.viewBox).to.equal('0 0 600 300');
-      drawConfiguration(interactive);
+      let result = drawConfiguration(interactive);
+			let circle = result[0];
+			let rectangle = result[1];
+			console.log(circle.root.getBoundingClientRect());
+
     });
     it('custom width and height ', function() {
       let interactive = new Interactive(container, {
