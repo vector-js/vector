@@ -1,6 +1,7 @@
 import Element from './element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
+import A from './a.js';
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
 import Defs from './definitions.js';
@@ -52,19 +53,15 @@ export default class Group extends Element implements Descriptive, Shape, Struct
   defs(): Defs {
     return this.appendChild(new Defs());
   }
-
   group(): Group {
     return this.appendChild(new Group());
   }
-
   svg(x:number,y:number,width:number,height:number): SVG {
     return this.appendChild(new SVG(x,y,width,height));
   }
-
   symbol(): Symbol{
     return this.appendChild(new Symbol());
   }
-
   use(x:number, y:number, width:number, height:number): Use {
     return this.appendChild(new Use(x, y, width, height));
   }
@@ -92,7 +89,24 @@ export default class Group extends Element implements Descriptive, Shape, Struct
 
   // other methods
 
-  text(x:number, y:number, str:string ){
+	/**
+	* Constructs and appends a text element within this element.
+	*/
+  text(x:number, y:number, str:string ) : Text {
     return this.appendChild(new Text(x, y, str));
   }
+
+	/**
+	* Constructs and appends an 'a' (link) within this element.
+	*/
+	a(href:string) : A {
+		return this.appendChild(new A(href));
+	}
+
+	/**
+	* Constructs and appends a clipPath within this element
+	*/
+	clipPath() : ClipPath {
+		return this.appendChild(new ClipPath());
+	}
 }

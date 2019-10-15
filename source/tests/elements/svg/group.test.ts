@@ -1,4 +1,4 @@
-import { descriptiveTests, shapeTests, structuralTests, typographyTests } from './content-model.test.js';
+import { descriptiveTests, shapeTests, structuralTests, typographyTests, aTest } from './content-model.test.js';
 import Group from '../../../elements/svg/group.js';
 
 describe('Group', function () {
@@ -20,6 +20,9 @@ describe('Group', function () {
     describe('typography', function(){
       typographyTests();
     });
+		describe('\'a\' element', function(){
+			aTest();
+		});
   });
 
 });

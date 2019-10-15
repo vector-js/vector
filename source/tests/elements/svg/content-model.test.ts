@@ -1,4 +1,4 @@
-import { Descriptive, Shape, Structural, Typography } from '../../../elements/svg/content-model.js';
+import { Descriptive, Shape, Structural, Typography, Element } from '../../../elements/svg/content-model.js';
 
 /**
 * Tests that the provided element correctly implements the "descriptive" content
@@ -149,3 +149,18 @@ export var typographyTests = function() {
     chai.expect(tspan1.root.contains(tspan2.root));
   });
 };
+
+export var aTest = function() {
+
+	let element:any = null;
+	beforeEach(function(){
+		element = this.element as any;
+	});
+
+	it('should be able to create and append a \'a\' element', function() {
+		chai.expect(typeof element.a === "function").to.be.true;
+		let a = element.a('example.com') as A;
+		chai.expect(a.constructor.name === 'A').to.be.true;
+
+  });
+}

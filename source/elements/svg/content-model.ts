@@ -16,6 +16,11 @@ import Use from './use.js';
 
 import Element from './element.js';
 
+/*
+* Export the general SVG element
+*/
+export { Element };
+
 /**
 * Describes methods for creating descriptive elements.
 */
@@ -68,7 +73,7 @@ export interface Shape extends Element {
   polygon(points:string) : Polygon;
 
   /**
-  * Constructs and appends a rectangel within this element
+  * Constructs and appends a rectangle within this element
   */
   rectangle(x:number, y:number, width:number, height:number) : Rectangle;
 }
