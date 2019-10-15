@@ -33,6 +33,7 @@ import Map from '../elements/maps/map.js';
 
 // math elements
 import Plot from '../elements/math/plot.js';
+import { GeoJSON } from './maps/geo-json.js';
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -350,8 +351,8 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
-   let map = new Map(this,mapName,width,height, externalData);
+  map(externalData: GeoJSON,width:number,height:number,featureName:string = null) : Map {
+   let map = new Map(this,featureName,width,height,externalData);
    return map;
    }
 

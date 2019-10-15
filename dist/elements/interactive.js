@@ -287,8 +287,8 @@ export default class Interactive extends SVG {
     /**
     * Creates a graph element within this interactive
     */
-    map(mapName, width, height, externalData = null) {
-        let map = new Map(this, mapName, width, height, externalData);
+    map(externalData, width, height, featureName = null) {
+        let map = new Map(this, featureName, width, height, externalData);
         return map;
     }
     /*

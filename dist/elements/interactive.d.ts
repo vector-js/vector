@@ -14,6 +14,7 @@ import Graph from '../elements/graph/graph.js';
 import DirectedGraph from '../elements/graph/directed-graph.js';
 import Map from '../elements/maps/map.js';
 import Plot from '../elements/math/plot.js';
+import { GeoJSON } from './maps/geo-json.js';
 /**
 * This class exposes the high level functionality of our library. Elements can
 * created and related together
@@ -148,7 +149,7 @@ export default class Interactive extends SVG {
     /**
     * Creates a graph element within this interactive
     */
-    map(mapName: string, width: number, height: number, externalData?: JSON): Map;
+    map(externalData: GeoJSON, width: number, height: number, featureName?: string): Map;
     directedGraph(): DirectedGraph;
     /**
     * Creates a slider input within this interactive
