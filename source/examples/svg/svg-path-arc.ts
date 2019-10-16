@@ -22,16 +22,20 @@ controls.root.style.marginLeft = '16px';
 let margin = 32;
 let rx = controls.slider( margin, 40, {
   width:controls.width - 2*margin,
-  value:75
+  value:75,
+  min:1,
+  max:150
 });
 let ry = controls.slider( margin, 75,{
   width:controls.width - 2*margin,
-  value:75
+  value:75,
+  min:1,
+  max:150
 });
-
 let xAxisRotation = controls.slider( margin, 110, {
   width:controls.width - 2*margin,
-  value:0
+  value:0,
+  max:180
 });
 xAxisRotation.min = 0;
 xAxisRotation.max = 180;

@@ -1,10 +1,13 @@
-import Element from './element.js';
+import { GlobalAttributes } from './element.js';
+import Shape, { ShapeAttributes } from './shape.js';
+
+type RectangleAttributes = 'rx' | 'ry';
 
 /**
 * A rectangle is a basic element with a position, width, and height. The
 * position refers to the top left corner of the rectangle
 */
-export default class Rectangle extends Element {
+export default class Rectangle extends Shape {
 
   // make the type of the root to be more specific
   root: SVGRectElement;
@@ -19,6 +22,17 @@ export default class Rectangle extends Element {
     rect.setAttributeNS(null, 'width', width.toString());
     rect.setAttributeNS(null, 'height', height.toString());
     super(rect);
+  }
+
+  // comment inherited from base class
+  setAttribute(name: RectangleAttributes | ShapeAttributes | GlobalAttributes, value: string): Rectangle {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: RectangleAttributes | ShapeAttributes | GlobalAttributes): string {
+    return this.root.getAttribute(name);
   }
 
   /**

@@ -16,8 +16,7 @@ draft: undefined
 * @description This interactive demonstrates the directed graph element.
 * @tags [elements]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 768;
 interactive.height = 150;

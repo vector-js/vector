@@ -1,9 +1,15 @@
-import Element from './element.js';
+import Shape from './shape.js';
 
 /**
 * A circle is a basic shape element with a start and end position.
+*
+* Geometric Properties:
+*   - x1
+*   - y1
+*   - x2
+*   - y2
 */
-export default class Line extends Element {
+export default class Line extends Shape {
 
   // make the type of the root to be more specific
   root: SVGLineElement;

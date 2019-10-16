@@ -1,0 +1,8 @@
+{{ $title := .Title }}
+{{ $heading := urlize $title }}
+{{ $src := (print "/icons/" (print $heading ".svg")) }}
+{{if fileExists (print "static" $src ) }}
+<li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{$title}}">{{ $title }}</a></li>
+{{ else }}
+<li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{$title}}">{{ $title }}</a></li>
+{{end}}

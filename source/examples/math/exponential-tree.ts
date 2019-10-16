@@ -145,9 +145,11 @@ class Tree extends SVG {
   }
 }
 
-let interactive = new Interactive(getScriptName());
-interactive.height = 500;
-interactive.width = 740;
+let interactive = new Interactive(getScriptName(), {
+	width:740,
+	height:500,
+});
+interactive.border = true;
 
 let margin = 40;
 let levels = interactive.slider( interactive.width/2 - 125, 300 + 2*margin, {
@@ -164,6 +166,7 @@ let branching = interactive.slider( interactive.width/2 - 125, 300 + 3*margin, {
 });
 
 let tree = interactive.appendChild(new Tree(300, 300, levels.value, branching.value));
+tree.y = 16;
 tree.style.overflow = 'visible';
 tree.addDependency(levels, branching);
 tree.update = function() {

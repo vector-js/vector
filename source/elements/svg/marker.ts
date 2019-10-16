@@ -1,12 +1,14 @@
-import Element from './element.js';
-import { Structural, Shape, Descriptive } from './content-model.js';
+import Element, { GlobalAttributes } from './element.js';
+import { Structural, Shape } from './content-model.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
 import Defs from './definitions.js';
+import Description from './definitions.js';
 import Ellipse from './ellipse.js';
 import Group from './group.js';
 import Line from './line.js';
+import MetaData from './meta-data.js';
 import Path from './path.js';
 import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
@@ -15,13 +17,11 @@ import SVG from './svg.js';
 import Text from './text.js';
 import Title from './title.js';
 import Use from './use.js';
-import Description from './description.js';
-import MetaData from './meta-data.js';
 
 /**
 * A marker is a shape that can be repeatably drawn on a shape.
 */
-export default class Marker extends Element implements Descriptive, Shape, Structural {
+export default class Marker extends Element implements Shape, Structural {
 
   // make the type of the root to be more specific
   root: SVGMarkerElement;
@@ -30,12 +30,23 @@ export default class Marker extends Element implements Descriptive, Shape, Struc
   * Constructs a rectangle element at the position (x,y)
   */
   constructor( refX:number, refY:number, width:number, height:number ) {
-    let element = document.createElementNS( 'http://www.w3.org/2000/svg', 'marker');
+    let element = document.createElementNS( 'http://www.w3.org/2000/svg', 'marker') as SVGMarkerElement;
     element.setAttributeNS(null, 'refX', refX.toString());
     element.setAttributeNS(null, 'refY', refY.toString());
     element.setAttributeNS(null, 'markerWidth', width.toString());
     element.setAttributeNS(null, 'markerHeight', height.toString());
     super(element);
+  }
+
+  // comment inherited from base class
+  setAttribute(name: 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'markerUnits' | 'markerWidth' | 'markerHeight' | 'orient' | GlobalAttributes, value: string): Element {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'markerUnits' | 'markerWidth' | 'markerHeight' | 'orient' | GlobalAttributes): string {
+    return this.root.getAttribute(name);
   }
 
   get viewBox():string {

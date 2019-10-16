@@ -18,8 +18,6 @@ aside:
 weight: 2
 ---
 
-# SVG Tutorial
-
 This tutorial is intended to give the reader an interactive introduction to using and authoring SVG documents. See the working group's <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for the specification. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>. See also the list of [SVG Elements]({{< relref "./elements/" >}}).
 
 ## Getting Started
@@ -80,6 +78,8 @@ In the example above, the SVG element has two children: a rectangle and circle. 
   <rect x=150 y=25 width=150 height=100 style="fill:#cda9d4; stroke:#333333; stroke-width:1px;"></rect>
   <circle cx=150 cy=75 r=60 style="fill:lightblue; stroke:#333333; stroke-width:1px;"></circle>
 </svg>
+
+## Basic Elements
 
 {{<render "content" "svg/elements">}}
 

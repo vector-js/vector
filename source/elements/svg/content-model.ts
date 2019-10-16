@@ -16,6 +16,8 @@ import Use from './use.js';
 
 import Element from './element.js';
 
+// NOTE: these interfaces only extend the Element object for testing purposes.
+
 /*
 * Export the general SVG element
 */
@@ -113,7 +115,7 @@ export interface Structural extends Element {
 /**
 * Describes methods for creating textual elements.
 */
-export interface Typography extends Element {
+export interface Typography extends Element{
 
   /**
   * Creates and appends a text element within this element.

@@ -1,12 +1,15 @@
 import { Descriptive, Shape, Structural, Typography } from './content-model.js';
-import Element from './element.js';
+import Element, { GlobalAttributes } from './element.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
 import Defs from './definitions.js';
+import Description from './description.js';
 import Ellipse from './ellipse.js';
 import Group from './group.js';
 import Line from './line.js';
+import Marker from './marker.js';
+import MetaData from './meta-data.js';
 import Path from './path.js';
 import Polygon from './polygon.js';
 import Rectangle from './rectangle.js';
@@ -14,12 +17,12 @@ import Symbol from './symbol.js';
 import Text from './text.js';
 import Title from './title.js';
 import Use from './use.js';
-import Description from './description.js';
-import MetaData from './meta-data.js';
-import Marker from './marker.js';
+
+type SVGAttributes = 'viewBox' | 'preserveAspectRatio' | 'transform';
 
 /**
-* This class represents a svg element.
+* This class represents a SVG element. There are four geometric properties x, y,
+* width, and height. The (x,y) properties only affect nested SVG elements.
 */
 export default class SVG extends Element implements Descriptive, Shape, Structural, Typography {
 
@@ -45,6 +48,31 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
       svg.setAttributeNS(null, 'height', height.toString());
     }
     super(svg);
+  }
+
+  /**
+  * Constructs and returns a SVG object within the DOM.  If the provided
+  * argument is an HTMLElement appends the interactive within that element. If
+  * the provided a value is a string, appends the interactive within the HTML
+  * element with the corresponding ID. If no element is found throws an error.
+  */
+  static SVG( idOrElement:string | HTMLElement, x?:number, y?:number, width?:number, height?:number ) : SVG {
+
+    // get the container element
+    let container : HTMLElement;
+    if (typeof idOrElement == "string") {
+      container = document.getElementById(idOrElement);
+      if( container === null || container === undefined ) {
+        throw new Error(`There is no HTML element with the id: ${idOrElement}`);
+      }
+    } else {
+      container = idOrElement;
+    }
+
+    // construct and append the svg
+    let svg = new SVG(x,y,width,height);
+    container.appendChild(svg.root);
+    return svg;
   }
 
   /**
@@ -105,6 +133,17 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 
   setViewBox( x:number, y:number, width:number, height:number ) {
     this.viewBox = `${x} ${y} ${width} ${height}`;
+  }
+
+  // comment inherited from base class
+  setAttribute(name: SVGAttributes | GlobalAttributes, value: string): SVG {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: SVGAttributes | GlobalAttributes): string {
+    return this.root.getAttribute(name);
   }
 
   // descriptive elements

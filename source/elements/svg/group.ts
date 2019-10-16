@@ -1,4 +1,4 @@
-import Element from './element.js';
+import Element, { GlobalAttributes } from './element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
 import A from './a.js';
@@ -18,6 +18,8 @@ import Use from './use.js';
 import Description from './description.js';
 import MetaData from './meta-data.js';
 
+type GroupAttributes = 'clip-path' | 'transform' ;
+
 /**
 * A group is a structural element that allows for elements to be grouped
 * together and have styles and transformations applied to the elements in the
@@ -34,6 +36,17 @@ export default class Group extends Element implements Descriptive, Shape, Struct
   constructor() {
     let group = document.createElementNS( 'http://www.w3.org/2000/svg', 'g');
     super(group);
+  }
+
+  // comment inherited from base class
+  setAttribute(name: GroupAttributes | GlobalAttributes, value: string): Group {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: GroupAttributes | GlobalAttributes): string {
+    return this.root.getAttribute(name);
   }
 
   // Descriptive methods

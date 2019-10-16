@@ -1,9 +1,14 @@
 ---
-description: Interactive SVG ellipse element.
 title: Ellipse
-weight: 3
+description: Interactive SVG ellipse element.
+properties:
+  - name : cx
+    description : The center x position of the ellipse
+  - name : cy
+    description : The center y position of the ellipse
+  - name : rx
+    description : The x radius of the ellipse
+  - name : ry
+    description : The y radius of the ellipse
+shape: true
 ---
-
-This interactive demonstrates the properties of the ellipse element. There are three controls: one that changes the center position of the ellipse, one that controls the length of the x-radius, and another that changes the length of the y-radius.
-
-{{<example "svg-ellipse">}}

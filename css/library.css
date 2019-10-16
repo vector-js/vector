@@ -83,6 +83,10 @@ path.element, line.element, rect.element, ellipse.element, circle.element, polyg
   height: 1rem;
 }
 
+.button text {
+  font-weight: 400;
+}
+
 .button rect {
   fill: #555555;
 }

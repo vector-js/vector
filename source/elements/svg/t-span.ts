@@ -1,4 +1,5 @@
-import Element from './element.js';
+import Element, { GlobalAttributes } from './element.js';
+import { TextAttributes } from './text.js';
 
 /**
 * A tspan element is a text element that allows the user to change the style
@@ -32,6 +33,17 @@ export default class TSpan extends Element {
   */
   set text( str:string ) {
     this.root.innerHTML = str;
+  }
+
+  // comment inherited from base class
+  setAttribute(name: TextAttributes | GlobalAttributes, value: string): TSpan {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: TextAttributes | GlobalAttributes): string {
+    return this.root.getAttribute(name);
   }
 
   /**

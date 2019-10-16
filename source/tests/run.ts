@@ -5,10 +5,12 @@ import './model/dependency-graph.test.js';
 // util
 import './util/math.test.js';
 
-// svg
+// base svg element
 import './elements/svg/element.test.js';
-import './elements/svg/svg.test.js';
+
+// svg
 import './elements/svg/group.test.js';
+import './elements/svg/svg.test.js';
 
 // interactive / custom elements
 import './elements/interactive.test.js';

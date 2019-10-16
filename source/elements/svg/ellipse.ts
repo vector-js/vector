@@ -1,9 +1,15 @@
-import Element from './element.js';
+import Shape from './shape.js';
 
 /**
 * An ellipse is a basic element with a position, x-radius, and y-radius
+*
+* Geometric Properties:
+*   - cx
+*   - cy
+*   - rx
+*   - ry
 */
-export default class Ellipse extends Element {
+export default class Ellipse extends Shape {
 
   // make the type of the root to be more specific
   root: SVGEllipseElement;

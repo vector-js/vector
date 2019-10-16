@@ -1,0 +1,50 @@
+{{ define "resources" }}
+<script type="text/javascript" src="/js/aside.js"></script>
+{{ end }}
+{{ define "body" }}
+{{ partial "hero" . }}
+<section class="aside container">
+  <div class="aside-container">
+    <aside>
+      <a href="#"><h1>{{.Title}}</h1></a>
+        {{ $shapes := where .Pages ".Params.shape" true }}
+        {{ $structural := where .Pages ".Params.structural" true }}
+        {{ $other := .Pages | complement $shapes $structural }}
+        <ul>
+          <li>Geometric</li>
+          {{ range $shapes }}
+            {{ partial "aside-li.html" . }}
+          {{ end }}
+        </ul>
+        <ul>
+          <li>Structural</li>
+          {{ range $structural }}
+            {{ partial "aside-li.html" . }}
+          {{ end }}
+        </ul>
+        <ul>
+          <li>Other</li>
+          {{ range $other }}
+            {{ partial "aside-li.html" . }}
+          {{ end }}
+        </ul>
+    </aside>
+  </div>
+  <main class="medium-container" id="main-content">
+    <h1>{{.Title}}</h1>
+    {{ .Content }}
+    {{ range $shapes }}
+      <a href="{{.Permalink}}"><h2 id="{{ urlize .Title }}">{{.Title}}</h2></a>
+      {{ .Render "content" }}
+    {{ end }}
+    {{ range $structural }}
+      <a href="{{.Permalink}}"><h2 id="{{ urlize .Title }}">{{.Title}}</h2></a>
+      {{ .Render "content" }}
+    {{ end }}
+    {{ range $other }}
+      <a href="{{.Permalink}}"><h2 id="{{ urlize .Title }}">{{.Title}}</h2></a>
+      {{ .Render "content" }}
+    {{ end }}
+  </main>
+</section>
+{{ end }}

@@ -18,8 +18,8 @@ export interface SliderOptions {
 */
 export default class Slider extends Input {
 
-	x : number;
-	y : number;
+  x : number;
+  y : number;
 
   // instance variables
   private _min : number;
@@ -39,8 +39,8 @@ export default class Slider extends Input {
     super();
     let width : number;
     let value : number;
-		this.x = x;
-		this.y = y;
+    this.x = x;
+    this.y = y;
     options.width ? width = options.width : width = 100;
     options.value ? value = options.value : value = 0;
     options.min ? this._min = options.min : this._min = 0;

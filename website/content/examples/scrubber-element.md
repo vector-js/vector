@@ -16,8 +16,7 @@ draft: undefined
 * @description This interactive demonstrates the animation scrubber element.
 * @tags [elements, input]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import { Interactive, getScriptName } from '../../index.js';
 // let test = new Interactive(getScriptName());
 // test.width = 768;
 // test.height = 200;

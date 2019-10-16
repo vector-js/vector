@@ -16,8 +16,7 @@ draft: undefined
 * @description This interactive demonstrates the cubic bezier command for a SVG path element. There are four control points that allow the user to control the shape of the bezier curve that is drawn.
 * @tags [math]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.window = true;
 let l1 = interactive.line(0, 0, 0, 0);

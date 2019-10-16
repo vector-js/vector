@@ -6,7 +6,7 @@
 
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName, download} from '../../index.js';
+import {Interactive, getScriptName, download, Line} from '../../index.js';
 
 // Initialize the interactive
 let margin = 32;

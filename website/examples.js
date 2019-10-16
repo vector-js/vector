@@ -4,14 +4,14 @@ var glob = require('glob'),
 const dirTree = require("directory-tree");
 const flatten = require('tree-flatten');
 const jsonfile = require("jsonfile");
-const tree = dirTree("../dist/examples", { exclude: /\.js.map/ });
+const tree = dirTree("../dist/examples", { exclude: [/\.js.map/, /\.d.ts/] });
 
 const json = flatten(tree, 'children');
 json.forEach(function(element){
   fs.readFile( element.path, 'utf8', (error, data) =>{
 		let ignore = false;
     element.id = element.name.replace('.js', '');
-    element.path = element.path.replace('dist', '');
+    element.path = element.path.replace('../dist', '');
     if( data != undefined ) {
       element.script = data;
       let start = null;

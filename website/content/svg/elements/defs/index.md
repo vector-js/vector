@@ -1,6 +1,7 @@
 ---
 description: An interactive SVG rectangle element.
-title: Defs
+title: Definitions
+structural: true
 ---
 
-The Defs element allows for graphic elements to be defined for repeated use.
+The Defs element allows for graphic elements to be defined for use elsewhere in the document.

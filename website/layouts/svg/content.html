@@ -1,0 +1,26 @@
+<p>{{.Description}}</p>
+{{ $path := (print "/examples/" (print .Section (print "-" (urlize .Title)))) }}
+{{ with $.Site.GetPage $path }}
+<div id="{{ .Params.Id }}" class="vertical-center"></div>
+<script type="module" src="{{.Params.Script}}"></script>
+{{ end }}
+{{ with .Params.Properties }}
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range . }}
+      <tr>
+        <td>{{ index . "name"}}</td>
+        <td>{{ index . "description"}}</td>
+      </tr>
+    {{ end }}
+  </tbody>
+</table>
+{{ end }}
+{{ .Content }}

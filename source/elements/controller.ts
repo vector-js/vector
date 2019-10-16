@@ -1,5 +1,5 @@
 import DependencyGraph from '../model/dependency-graph.js';
-import Element from './element.js';
+import Element from './base-element.js';
 
 /**
 * This controller manages the dependencies between elements.

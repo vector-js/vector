@@ -13,8 +13,10 @@ import Title from './title.js';
 
 export default class ClipPath extends Element implements Descriptive, Shape {
 
+  root:SVGClipPathElement;
+
   constructor() {
-    let clipPath = document.createElementNS( 'http://www.w3.org/2000/svg', 'clipPath');
+    let clipPath = document.createElementNS( 'http://www.w3.org/2000/svg', 'clipPath') as SVGClipPathElement;
     super(clipPath);
   }
 

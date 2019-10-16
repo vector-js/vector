@@ -1,9 +1,13 @@
-import Element from './element.js';
+import Shape from './element.js';
+import Circle from './circle.js';
+import Ellipse from './ellipse.js';
+import Line from './line.js';
+import Rectangle from './rectangle.js';
 
 /**
 * A path element allows for the creation of complicated shapes and curves.
 */
-export default class Path extends Element {
+export default class Path extends Shape {
 
   // make the type of the root to be more specific
   root:SVGPathElement;
@@ -32,16 +36,22 @@ export default class Path extends Element {
   }
 
   /**
-  * Returns the location of the point on the path.
+  * Returns the path representation of the provided shape.
   */
-  getPointAtLength(x:number) : DOMPoint{
-    return this.root.getPointAtLength(x);
-  }
+  static getPath( shape:Shape ) : Path {
 
-  /**
-  * Returns the total length of this path.
-  */
-  getTotalLength() : number {
-    return this.root.getTotalLength();
+    throw Error('Not Implemented');
+
+    if ( this instanceof Circle ) {
+      throw Error('Not Implemented');
+    } else if ( this instanceof Ellipse ) {
+      throw Error('Not Implemented');
+    } else if ( this instanceof Line ) {
+      throw Error('Not Implemented');
+    } else if ( this instanceof Path ) {
+      throw Error('Not Implemented');
+    } else if ( this instanceof Rectangle ) {
+      throw Error('Not Implemented');
+    }
   }
 }

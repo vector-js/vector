@@ -1,14 +1,15 @@
-import Element from './element.js';
+import Shape from './shape.js';
+import Path from './path.js';
 
 /**
 * A circle is a basic geometric element with a position and radius.
 *
-* properties:
+* Geometric Properties:
 *   - cx
 *   - cy
 *   - r
 */
-export default class Circle extends Element {
+export default class Circle extends Shape {
 
   // make the type of the root to be more specific
   root: SVGCircleElement;
@@ -17,7 +18,7 @@ export default class Circle extends Element {
   * Constructs a rectangle element at the position (x,y)
   */
   constructor( cx:number, cy:number, r:number ) {
-    let circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle');
+    let circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle') as SVGCircleElement;
     circle.setAttributeNS(null, 'cx', cx.toString());
     circle.setAttributeNS(null, 'cy', cy.toString());
     circle.setAttributeNS(null, 'r', r.toString());
@@ -64,6 +65,10 @@ export default class Circle extends Element {
   */
   set cy( n:number){
    this.root.cy.baseVal.value = n;
+  }
+
+  getPath() : Path  {
+    throw new Error("Method not implemented.");
   }
 
   /**
