@@ -3,18 +3,40 @@ import SVG from '../../../elements/svg/svg.js';
 import Container from '../../container.js';
 
 describe('SVG', function () {
-
   describe('constructor', function(){
 
     // create a new container before each test function
     let container : HTMLElement;
     beforeEach(function() {
       container = Container.createContainer();
-      container.hidden = true;
+      container.hidden = false;
     });
     it('should construct a new svg object', function(){
       let svg = new SVG();
+			container.appendChild(svg.root);
+			svg.x = 1;
+			svg.y = 2;
+			svg.width = 3;
+			svg.height = 4;
+			chai.expect(svg.x).to.equal(1);
+			chai.expect(svg.y).to.equal(2);
+			chai.expect(svg.width).to.equal(3);
+			chai.expect(svg.height).to.equal(4);
     });
+		it('should construct a new svg object with the provided properties', function(){
+			let svg = new SVG(1, 2);
+			container.appendChild(svg.root);
+			chai.expect(svg.x).to.equal(1);
+			chai.expect(svg.y).to.equal(2);
+		});
+		it('should construct a new svg object with the provided properties', function(){
+			let svg = new SVG(1, 2, 3, 4);
+			container.appendChild(svg.root);
+			chai.expect(svg.x).to.equal(1);
+			chai.expect(svg.y).to.equal(2);
+			chai.expect(svg.width).to.equal(3);
+			chai.expect(svg.height).to.equal(4);
+		});
     it('should create an svg element within the HTML container with the corresponding id', function() {
       let interactive = SVG.SVG( container.id );
       chai.expect(container.contains( interactive.root )).to.be.true;
