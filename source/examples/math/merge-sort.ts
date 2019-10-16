@@ -16,6 +16,8 @@ let graph = interactive.graph({directed:false});
 let leftButton = interactive.icon(5, 345, 50, 50, "animation");
 let rightButton = interactive.icon(649, 345, 50, 50, "animation");
 
+
+
 let nodeCounterMax = 1;
 let nodeCountTo = 0;
 
