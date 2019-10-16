@@ -1,10 +1,9 @@
-import Element from '../element.js';
+import BaseElement from '../base-element.js';
 import Input from './input.js';
 
 import Path from '../svg/path.js';
 import Circle from '../svg/circle.js';
 import Rectangle from '../svg/rectangle.js';
-import Group from '../svg/group.js';
 
 /**
 * A point has an x position and y position
@@ -188,7 +187,7 @@ export default class Control extends Input {
   * handle.
   */
   static handleMouseOver( event:MouseEvent ) {
-    if( Control.active == null && !Element.disable && (event.target as HTMLElement).tagName == 'circle' ){
+    if( Control.active == null && !BaseElement.disable && (event.target as HTMLElement).tagName == 'circle' ){
       (event.target as HTMLElement).classList.add('highlight');
     }
   }
@@ -208,7 +207,7 @@ export default class Control extends Input {
   * the user's click as well as stores which Control the user is clicking.
   */
   handleMouseDown( event:MouseEvent ) {
-    if( !Element.disable ) {
+    if( !BaseElement.disable ) {
       event.preventDefault();
       event.stopPropagation();
       Control.active = this;
@@ -224,7 +223,7 @@ export default class Control extends Input {
   * the user's input as well as stores which Control the user is clicking.
   */
   handleTouchStart( event:TouchEvent ) {
-    if( !Element.disable ) {
+    if( !BaseElement.disable ) {
       Control.active = this;
       Control.slopX = Control.active.x - event.touches[0].clientX;
       Control.slopY = Control.active.y - event.touches[0].clientY;

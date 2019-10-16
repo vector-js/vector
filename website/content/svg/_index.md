@@ -18,11 +18,7 @@ aside:
 weight: 2
 ---
 
-# SVG Tutorial
-
-This tutorial is intended to give the reader an interactive introduction to using and creating SVGs. It is by no mean comprehensive, see the <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for an overview of the specification. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>.
-
-See also: [SVG Elements]({{< relref "./elements/" >}}).
+This tutorial is intended to give the reader an interactive introduction to using and authoring SVG documents. See the working group's <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for the specification. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>. See also the list of [SVG Elements]({{< relref "./elements/" >}}).
 
 ## Getting Started
 
@@ -32,7 +28,7 @@ SVG stands for scalable vector graphic and represents a standard for vector/rast
 <svg></svg>
 {{< /highlight >}}
 
-Elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of attribute="...". The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
+Elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of `name="value"`. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
 
 {{< highlight svg >}}
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
@@ -84,8 +80,6 @@ In the example above, the SVG element has two children: a rectangle and circle. 
 </svg>
 
 ## Basic Elements
-
-In this section some basic visual elements are introduced: the line, ellipse, and rectangle element. See [SVG Elements]({{< relref "/svg/elements" >}}) for a non-comprehensive but useful nonetheless reference of more SVG elements.
 
 {{<render "content" "svg/elements">}}
 

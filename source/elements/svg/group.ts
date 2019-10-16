@@ -1,6 +1,7 @@
-import Element from './element.js';
+import Element, { GlobalAttributes } from './element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
+import A from './a.js';
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
 import Defs from './definitions.js';
@@ -16,6 +17,8 @@ import Title from './title.js';
 import Use from './use.js';
 import Description from './description.js';
 import MetaData from './meta-data.js';
+
+type GroupAttributes = 'clip-path' | 'transform' ;
 
 /**
 * A group is a structural element that allows for elements to be grouped
@@ -35,6 +38,17 @@ export default class Group extends Element implements Descriptive, Shape, Struct
     super(group);
   }
 
+  // comment inherited from base class
+  setAttribute(name: GroupAttributes | GlobalAttributes, value: string): Group {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: GroupAttributes | GlobalAttributes): string {
+    return this.root.getAttribute(name);
+  }
+
   // Descriptive methods
 
   description(): Description {
@@ -52,19 +66,15 @@ export default class Group extends Element implements Descriptive, Shape, Struct
   defs(): Defs {
     return this.appendChild(new Defs());
   }
-
   group(): Group {
     return this.appendChild(new Group());
   }
-
   svg(x:number,y:number,width:number,height:number): SVG {
     return this.appendChild(new SVG(x,y,width,height));
   }
-
   symbol(): Symbol{
     return this.appendChild(new Symbol());
   }
-
   use(x:number, y:number, width:number, height:number): Use {
     return this.appendChild(new Use(x, y, width, height));
   }
@@ -92,7 +102,24 @@ export default class Group extends Element implements Descriptive, Shape, Struct
 
   // other methods
 
-  text(x:number, y:number, str:string ){
+	/**
+	* Constructs and appends a text element within this element.
+	*/
+  text(x:number, y:number, str:string ) : Text {
     return this.appendChild(new Text(x, y, str));
   }
+
+	/**
+	* Constructs and appends an 'a' (link) within this element.
+	*/
+	a(href:string) : A {
+		return this.appendChild(new A(href));
+	}
+
+	/**
+	* Constructs and appends a clipPath within this element
+	*/
+	clipPath() : ClipPath {
+		return this.appendChild(new ClipPath());
+	}
 }

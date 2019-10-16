@@ -5,7 +5,7 @@ id: merge-sort
 script: /examples/math/merge-sort.js
 description: This interactive demonstrates an implementation of the merge sort algorithm using a tree.
 input: undefined
-tags: [math, algorithm]
+tags: [math, algorithm, graph]
 weight: undefined
 draft: undefined
 ---
@@ -14,10 +14,9 @@ draft: undefined
 /**
 * @title Merge Sort Interactive
 * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
-* @tags [math, algorithm]
+* @tags [math, algorithm, graph]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 704;
 interactive.height = 400;
@@ -172,7 +171,7 @@ export function mergeSort(array, level, parent) {
     }
     let mergedArr = merge(mergeLeft, mergeRight);
     if (nodeCountTo < nodeCounterMax) {
-        parent.text = mergedArr.toString();
+        parent.label = mergedArr.toString();
         parent.nodeName.root.setAttribute("opacity", "1");
         nodeCountTo++;
     }

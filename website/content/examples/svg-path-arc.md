@@ -17,8 +17,7 @@ draft: undefined
 * @author Kurt Bruns
 * @tags [svg]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 484;
@@ -31,9 +30,23 @@ controls.width = 220;
 controls.border = true;
 controls.root.style.marginLeft = '16px';
 let margin = 32;
-let rx = controls.slider(margin, 40, controls.width - 2 * margin, 75);
-let ry = controls.slider(margin, 75, controls.width - 2 * margin, 75);
-let xAxisRotation = controls.slider(margin, 110, controls.width - 2 * margin, 0);
+let rx = controls.slider(margin, 40, {
+    width: controls.width - 2 * margin,
+    value: 75,
+    min: 1,
+    max: 150
+});
+let ry = controls.slider(margin, 75, {
+    width: controls.width - 2 * margin,
+    value: 75,
+    min: 1,
+    max: 150
+});
+let xAxisRotation = controls.slider(margin, 110, {
+    width: controls.width - 2 * margin,
+    value: 0,
+    max: 180
+});
 xAxisRotation.min = 0;
 xAxisRotation.max = 180;
 let largeArcFlag = controls.checkBox(margin, 160, "large-arc-flag", false);

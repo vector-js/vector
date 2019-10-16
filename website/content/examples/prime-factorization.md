@@ -18,8 +18,8 @@ draft: undefined
 * @tags [math, graph]
 * @weight 1
 */
-import { getScriptName, nextPrime } from '../../util.js';
-import Interactive from '../../interactive.js';
+import { nextPrime } from '../../util/math.js';
+import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.width = 736;
 interactive.height = 400;

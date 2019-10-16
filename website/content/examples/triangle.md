@@ -17,7 +17,7 @@ draft: undefined
 * @tags [math]
 */
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import Interactive from '../../interactive.js';
+import { Interactive } from '../../index.js';
 // Initialize the interactive
 let id = 'triangle';
 let interactive = new Interactive(id);

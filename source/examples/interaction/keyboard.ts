@@ -14,13 +14,13 @@ interactive.border = true;
 let buffer = '';
 
 let keys =  [['`','1','2','3','4','5','6','7','8','9','0','-','=','Backspace'],
-            ['Tab','q','w','e','r','t','y','u','i','o','p','[',']','\\'],
+            ['tab','q','w','e','r','t','y','u','i','o','p','[',']','\\'],
             ['CapsLock','a','s','d','f','g','h','j','k','l',';','\'','Enter'],
             ['Shift','z','x','c','v','b','n','m',',','.','/','Shift'],
-            ['Control','Alt','Meta',' ','Meta','Alt','ArrowLeft','ArrowUp','ArrowDown','ArrowRight']];
+            ['fn','Control','Alt','Meta',' ','Meta','Alt','ArrowLeft','ArrowUp','ArrowDown','ArrowRight']];
 
 let buttons : Button[] = [];
-let keycodes = {"0":{"Symbol":0,"Shift":")"},"1":{"Symbol":1,"Shift":"!"},"2":{"Symbol":2,"Shift":"@"},"3":{"Symbol":3,"Shift":"#"},"4":{"Symbol":4,"Shift":"$"},"5":{"Symbol":5,"Shift":"%"},"6":{"Symbol":6,"Shift":"^"},"7":{"Symbol":7,"Shift":"&"},"8":{"Symbol":8,"Shift":"*"},"9":{"Symbol":9,"Shift":"("},"a":{"Symbol":"a","Shift":"A"},"b":{"Symbol":"b","Shift":"B"},"c":{"Symbol":"c","Shift":"C"},"d":{"Symbol":"d","Shift":"D"},"e":{"Symbol":"e","Shift":"E"},"f":{"Symbol":"f","Shift":"F"},"g":{"Symbol":"g","Shift":"G"},"h":{"Symbol":"h","Shift":"H"},"i":{"Symbol":"i","Shift":"I"},"j":{"Symbol":"j","Shift":"J"},"k":{"Symbol":"k","Shift":"K"},"l":{"Symbol":"l","Shift":"L"},"m":{"Symbol":"m","Shift":"M"},"n":{"Symbol":"n","Shift":"N"},"o":{"Symbol":"o","Shift":"O"},"p":{"Symbol":"p","Shift":"P"},"q":{"Symbol":"q","Shift":"Q"},"r":{"Symbol":"r","Shift":"R"},"s":{"Symbol":"s","Shift":"S"},"t":{"Symbol":"t","Shift":"T"},"u":{"Symbol":"u","Shift":"U"},"v":{"Symbol":"v","Shift":"V"},"w":{"Symbol":"w","Shift":"W"},"x":{"Symbol":"x","Shift":"X"},"y":{"Symbol":"y","Shift":"Y"},"z":{"Symbol":"z","Shift":"Z"},"`":{"Symbol":"`","Shift":"~"},"-":{"Symbol":"-","Shift":"_"},"=":{"Symbol":"=","Shift":"+"},";":{"Symbol":";","Shift":":"},"'":{"Symbol":"'","Shift":"\""},"[":{"Symbol":"[","Shift":"{"},"]":{"Symbol":"]","Shift":"}"},"\\":{"Symbol":"\\","Shift":"|"},",":{"Symbol":",","Shift":"<"},".":{"Symbol":".","Shift":">"},"/":{"Symbol":"/","Shift":"?"},"Backspace":{"Symbol":"⌫","Shift":""},"Tab":{"Symbol":"  ","Shift":""},"CapsLock":{"Symbol":"CapsLock","Shift":""},"Shift":{"Symbol":"Shift","Shift":""},"Enter":{"Symbol":"Enter","Shift":""},"Control":{"Symbol":"Control","Shift":""},"Alt":{"Symbol":"Alt","Shift":""},"Meta":{"Symbol":"Meta","Shift":""},"ArrowLeft":{"Symbol":"←","Shift":""},"ArrowUp":{"Symbol":"↑","Shift":""},"ArrowDown":{"Symbol":"→","Shift":""},"ArrowRight":{"Symbol":"↓","Shift":""}, " ":{"Symbol":" ","Shift":""}};
+let keycodes = {"0":{"Symbol":0,"Shift":")"},"1":{"Symbol":1,"Shift":"!"},"2":{"Symbol":2,"Shift":"@"},"3":{"Symbol":3,"Shift":"#"},"4":{"Symbol":4,"Shift":"$"},"5":{"Symbol":5,"Shift":"%"},"6":{"Symbol":6,"Shift":"^"},"7":{"Symbol":7,"Shift":"&"},"8":{"Symbol":8,"Shift":"*"},"9":{"Symbol":9,"Shift":"("},"a":{"Symbol":"a","Shift":"A"},"b":{"Symbol":"b","Shift":"B"},"c":{"Symbol":"c","Shift":"C"},"d":{"Symbol":"d","Shift":"D"},"e":{"Symbol":"e","Shift":"E"},"f":{"Symbol":"f","Shift":"F"},"g":{"Symbol":"g","Shift":"G"},"h":{"Symbol":"h","Shift":"H"},"i":{"Symbol":"i","Shift":"I"},"j":{"Symbol":"j","Shift":"J"},"k":{"Symbol":"k","Shift":"K"},"l":{"Symbol":"l","Shift":"L"},"m":{"Symbol":"m","Shift":"M"},"n":{"Symbol":"n","Shift":"N"},"o":{"Symbol":"o","Shift":"O"},"p":{"Symbol":"p","Shift":"P"},"q":{"Symbol":"q","Shift":"Q"},"r":{"Symbol":"r","Shift":"R"},"s":{"Symbol":"s","Shift":"S"},"t":{"Symbol":"t","Shift":"T"},"u":{"Symbol":"u","Shift":"U"},"v":{"Symbol":"v","Shift":"V"},"w":{"Symbol":"w","Shift":"W"},"x":{"Symbol":"x","Shift":"X"},"y":{"Symbol":"y","Shift":"Y"},"z":{"Symbol":"z","Shift":"Z"},"`":{"Symbol":"`","Shift":"~"},"-":{"Symbol":"-","Shift":"_"},"=":{"Symbol":"=","Shift":"+"},";":{"Symbol":";","Shift":":"},"'":{"Symbol":"'","Shift":"\""},"[":{"Symbol":"[","Shift":"{"},"]":{"Symbol":"]","Shift":"}"},"\\":{"Symbol":"\\","Shift":"|"},",":{"Symbol":",","Shift":"<"},".":{"Symbol":".","Shift":">"},"/":{"Symbol":"/","Shift":"?"},"Backspace":{"Symbol":"⌫","Shift":""},"tab":{"Symbol":"  ","Shift":""},"CapsLock":{"Symbol":"⇪","Shift":""},"Shift":{"Symbol":"⇧","Shift":""},"Enter":{"Symbol":"⏎","Shift":""},"Control":{"Symbol":"⌃","Shift":""},"Alt":{"Symbol":"Alt","Shift":""},"Meta":{"Symbol":"⌘","Shift":""},"ArrowLeft":{"Symbol":"←","Shift":""},"ArrowUp":{"Symbol":"↑","Shift":""},"ArrowDown":{"Symbol":"↓","Shift":""},"ArrowRight":{"Symbol":"→","Shift":""}, " ":{"Symbol":" ","Shift":""}};
 
 let buttonMap : Map<string, Button> = new Map();
 
@@ -47,14 +47,18 @@ for( let row = 0; row < keys.length; row++ ) {
         } else {
           button = interactive.button(0,0, keycodes[key] != undefined ? keycodes[key].Symbol : key);
         }
-        width = 88;
+        width = 90;
         break;
-      case 'Tab':
+      case 'tab':
         width = 50;
         button = interactive.button(0,0, keycodes[key] != undefined ? keycodes[key].Symbol : key);
         break;
       case ' ':
-        width = 128;
+        width = 176;
+        button = interactive.button(0,0, keycodes[key] != undefined ? keycodes[key].Symbol : key);
+        break;
+      case 'Meta':
+        width = 50;
         button = interactive.button(0,0, keycodes[key] != undefined ? keycodes[key].Symbol : key);
         break;
       default:
@@ -74,21 +78,33 @@ for( let row = 0; row < keys.length; row++ ) {
     }
     button.x = x;
     button.y = 64 + row*(height + margin)
-    if(button.box.width < width) {
+    if(button.box.width < width ) {
       button.box.width = width;
     }
+
     let bbox = button.root.getBBox();
     x += bbox.width + margin;
     buttons.push(button);
     prev = button;
     buttonMap.set(key, button);
+
+    if (key === "ArrowUp" ) {
+      button.box.height = 16;
+      button.label.root.style.display = 'none';
+    } else if ( key === "ArrowDown") {
+      button.box.height = 16;
+      button.x -= (32 + margin);
+      button.y += 16;
+      button.label.root.style.display = 'none';
+      x -= bbox.width + margin;
+    }
   }
   let right = prev.x;
-  if( right < 614 ) {
-    prev.box.width = 650 - right;
+  if( right < 630 ) {
+    prev.box.width = 630 - right;
   }
 }
-console.log(keycodes["0"], shift, capslock);
+// console.log(keycodes["0"], shift, capslock);
 
 
 let active:Button[] = [];

@@ -1,6 +1,8 @@
-import Element from './element.js';
+import Element, { GlobalAttributes } from './element.js';
 import TSpan from './t-span.js';
 import { Typography } from './content-model.js';
+
+export type TextAttributes = 'baseline-shift' | 'text-anchor' | 'alignment-baseline';
 
 /**
 * Text is a basic element containing string contents
@@ -19,6 +21,17 @@ export default class Text extends Element implements Typography {
     text.setAttributeNS(null, 'y', y.toString());
     if( str != undefined ) { text.innerHTML = str; }
     super(text);
+  }
+
+  // comment inherited from base class
+  setAttribute(name: TextAttributes | GlobalAttributes, value: string): Text {
+    this.root.setAttribute(name,value);
+    return this;
+  }
+
+  // comment inherited from base class
+  getAttribute(name: TextAttributes | GlobalAttributes): string {
+    return this.root.getAttribute(name);
   }
 
   /**

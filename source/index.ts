@@ -1,5 +1,5 @@
 // base element for everything
-import BaseElement from './elements/element.js';
+import BaseElement from './elements/base-element.js';
 
 // base svg element
 import Element from './elements/svg/element.js';
@@ -13,7 +13,6 @@ import Ellipse from './elements/svg/ellipse.js';
 import Group from './elements/svg/group.js';
 import Line from './elements/svg/line.js';
 import Marker from './elements/svg/marker.js';
-import MetaData from './elements/svg/meta-data.js';
 import Path from './elements/svg/path.js';
 import Polygon from './elements/svg/polygon.js';
 import Rectangle from './elements/svg/rectangle.js';
@@ -21,7 +20,6 @@ import SVG from './elements/svg/svg.js';
 import Symbol from './elements/svg/symbol.js';
 import TSpan from './elements/svg/t-span.js';
 import Text from './elements/svg/text.js';
-import Title from './elements/svg/title.js';
 import Use from './elements/svg/use.js';
 
 // input objects
@@ -59,7 +57,6 @@ export {	Button,
 					Interactive,
 					Line,
 					Marker,
-					MetaData,
 					Path,
 					Plot,
 					Polygon,
@@ -71,5 +68,4 @@ export {	Button,
 					Symbol,
 					TSpan,
 					Text,
-					Title,
-					Use};
+					Use };

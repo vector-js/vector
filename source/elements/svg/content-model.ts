@@ -16,6 +16,13 @@ import Use from './use.js';
 
 import Element from './element.js';
 
+// NOTE: these interfaces only extend the Element object for testing purposes.
+
+/*
+* Export the general SVG element
+*/
+export { Element };
+
 /**
 * Describes methods for creating descriptive elements.
 */
@@ -68,7 +75,7 @@ export interface Shape extends Element {
   polygon(points:string) : Polygon;
 
   /**
-  * Constructs and appends a rectangel within this element
+  * Constructs and appends a rectangle within this element
   */
   rectangle(x:number, y:number, width:number, height:number) : Rectangle;
 }
@@ -108,7 +115,7 @@ export interface Structural extends Element {
 /**
 * Describes methods for creating textual elements.
 */
-export interface Typography extends Element {
+export interface Typography extends Element{
 
   /**
   * Creates and appends a text element within this element.

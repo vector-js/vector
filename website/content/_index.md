@@ -178,7 +178,7 @@ window.onkeydown = function( event ) {
 }
 {{< /highlight >}}
 
-{{<example "key-board-input">}}
+{{<example "keyboard">}}
 
 ### Mouse Input
 

@@ -16,8 +16,7 @@ draft: undefined
 * @description This interactive demonstrates the basic properties of the SVG Circle Element.
 * @tags [svg]
 */
-import Interactive from '../../interactive.js';
-import { getScriptName } from '../../util.js';
+import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 704;

@@ -1,4 +1,10 @@
-import BaseElement from '../element.js';
+import BaseElement from '../base-element.js';
+
+/**
+* These global attributes are associated with every SVG element in the DOM.
+* TODO: probably remove transform from this list
+*/
+export type GlobalAttributes = 'id' | 'tabindex' | 'style' | 'class' | 'transform';
 
 /**
 * This class defines the basic shape for all SVG elements within our library.
@@ -20,6 +26,8 @@ export default class Element extends BaseElement {
   */
   classList: DOMTokenList;
 
+  // TODO: tranform object/property?
+
   /**
   * Constructs the elements and adds it into the current controller.
   */
@@ -38,17 +46,21 @@ export default class Element extends BaseElement {
   }
 
   /**
-  * Sets the provided attribute with the value.
+  * Sets the provided attribute with the value. WARNING: Elements are given
+  * a unique id by default. Changing the id may have unintended consequences.
+  * Similarily, the style and class attributes should be accessed through the
+  * properties "style" and "classList".
   */
-  setAttribute( attribute: string, value: string ) {
-    this.root.setAttribute(attribute, value);
+  setAttribute( name: GlobalAttributes, value: string ) : Element {
+    this.root.setAttribute(name,value);
+    return this;
   }
 
   /**
   * Returns the value associated with the attribute.
   */
-  getAttribute( attribute: string ) : string {
-    return this.root.getAttribute(attribute);
+  getAttribute( name: GlobalAttributes ) : string {
+    return this.root.getAttribute(name);
   }
 
   /**
@@ -83,18 +95,18 @@ export default class Element extends BaseElement {
   }
 
   /**
-  * Declares this element dependent on the provided element(s).
+  * Returns the bounding box of this element. Note, this is different from the
+  * getBoundingClientRect method since the bounding box is affected by the
+  * current viewPort.
+  *
+  * If this element's root is not a SVGGRaphics element as is the case for the
+  * marker, title, and more element, then null is returned instead of a DOMRect.
   */
-  addDependency( ... elements: Element[] ) {
-    for (let element of elements) {
-      BaseElement.controller.dependencyGraph.addDependency( element, this);
+  getBoundingBox() : DOMRect {
+    if ( this.root instanceof SVGGraphicsElement ) {
+      return this.root.getBBox();
+    } else {
+      return null;
     }
-  }
-
-  /**
-  * Updates all of the elements that depend on this element.
-  */
-  updateDependents() {
-    BaseElement.controller.update(this);
   }
 }

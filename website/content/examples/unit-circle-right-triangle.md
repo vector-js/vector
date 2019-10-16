@@ -18,7 +18,7 @@ draft: undefined
 * @date June 9, 2019
 * @author Kurt Bruns
 */
-import Interactive from '../../interactive.js';
+import { Interactive } from '../../index.js';
 // Initialize the interactive
 let id = 'unit-circle-right-triangle';
 let interactive = new Interactive(id);
@@ -34,8 +34,7 @@ let control = interactive.control(circle.r * Math.cos(-1), circle.r * Math.sin(-
 control.constrainToCircle(circle.cx, circle.cy, circle.r);
 // Create a path
 let path = interactive.path('');
-path.root.style.fill = 'gray';
-path.root.style.fillOpacity = '.3';
+path.root.style.fill = 'rgb(236,236,236)';
 path.update = function () {
     path.d = `M 0 0
             L ${control.x} 0

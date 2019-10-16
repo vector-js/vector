@@ -1,8 +1,6 @@
 ---
 title: View Box Attribute
 description:
-
-
 ---
 
 

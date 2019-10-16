@@ -5,7 +5,7 @@ import Controller from './controller.js';
 * identifier, an update function to be defined by the user, and the ability to
 * add dependencies on other elements.
 */
-export default class BaseElement {
+export default abstract class BaseElement {
 
   /**
   * Allows for the events attatched to elements to be disabled.

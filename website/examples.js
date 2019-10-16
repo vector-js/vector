@@ -4,13 +4,14 @@ var glob = require('glob'),
 const dirTree = require("directory-tree");
 const flatten = require('tree-flatten');
 const jsonfile = require("jsonfile");
-const tree = dirTree("./dist/examples", { exclude: /\.js.map/ });
+const tree = dirTree("../dist/examples", { exclude: [/\.js.map/, /\.d.ts/] });
 
 const json = flatten(tree, 'children');
 json.forEach(function(element){
   fs.readFile( element.path, 'utf8', (error, data) =>{
+		let ignore = false;
     element.id = element.name.replace('.js', '');
-    element.path = element.path.replace('dist', '');
+    element.path = element.path.replace('../dist', '');
     if( data != undefined ) {
       element.script = data;
       let start = null;
@@ -19,7 +20,6 @@ json.forEach(function(element){
         if( data[i] === '@' ) {
           start = i;
         } else if( data[i] === `\n` && start != null ) {
-
           let type = str.substring(0, str.indexOf(' '));
           let contents = str.substring(str.indexOf(' ') + 1, str.length);
           element[type] = contents;
@@ -50,7 +50,7 @@ ${element.script}
 
 `;
     if( element.type === 'file') {
-      fs.writeFile(`hugo/content/examples/${element.id}.md`, contents, (error) => {
+      fs.writeFile(`./content/examples/${element.id}.md`, contents, (error) => {
         if (error) throw error;
         // console.log(`write hugo/content/examples/${element.id}.md`);
         // console.log(element);
@@ -59,6 +59,6 @@ ${element.script}
   });
 });
 
-jsonfile.writeFile('hugo/data/examples.json', json, function (err) {
+jsonfile.writeFile('./data/examples.json', json, function (err) {
   if (err) console.error(err)
 });

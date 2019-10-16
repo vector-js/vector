@@ -1,10 +1,7 @@
 ---
 description: An interactive SVG rectangle element.
-title: Defs
+title: Definitions
+structural: true
 ---
 
-This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.
-
-<!-- TODO: probably allow for negative attributes to show the most accurate behavior -->
-
-{{<example "svg-rectangle">}}
+The Defs element allows for graphic elements to be defined for use elsewhere in the document.

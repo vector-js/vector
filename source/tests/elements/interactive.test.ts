@@ -1,7 +1,6 @@
 import Container from '../container.js';
-import Interactive from '../../interactive.js';
-import Input from '../../elements/input/input.js';
-import Element from '../../elements/svg/element.js';
+
+import { Interactive, Input, Element } from '../../index.js';
 
 describe('Interactive', function () {
 
@@ -40,11 +39,24 @@ describe('Interactive', function () {
 
   describe('Options', function () {
 
-    function drawConfiguration( interactive:Interactive ) {
-      interactive.rectangle(interactive.minX, interactive.minY, interactive.width, interactive.height);
-      interactive.circle(0,0,4).style.fill = '#333333';
+    function testBoundingBox( interactive:Interactive ) {
+      let rectangle = interactive.rectangle(interactive.minX, interactive.minY, interactive.width, interactive.height);
+      let circle = interactive.circle(0,0,4);
+			circle.style.fill = '#333333';
       interactive.line(-1000,0,1000,0);
       interactive.line(0,-1000,0,1000);
+
+			let b1 = rectangle.root.getBoundingClientRect();
+			let b2 = interactive.root.getBoundingClientRect();
+
+			chai.expect(b1.left).to.equal(b2.left);
+			chai.expect(b1.right).to.equal(b2.right);
+			chai.expect(b1.top).to.equal(b2.top);
+			chai.expect(b1.bottom).to.equal(b2.bottom);
+			chai.expect(b1.width).to.equal(b2.width);
+			chai.expect(b1.height).to.equal(b2.height);
+
+			// TODO: test origin position
     }
 
     it('default configuration ', function() {
@@ -54,7 +66,7 @@ describe('Interactive', function () {
       chai.expect(interactive.originX).to.equal(0);
       chai.expect(interactive.originY).to.equal(0);
       chai.expect(interactive.viewBox).to.equal('0 0 600 300');
-      drawConfiguration(interactive);
+      testBoundingBox(interactive);
     });
     it('custom width and height ', function() {
       let interactive = new Interactive(container, {
@@ -66,7 +78,7 @@ describe('Interactive', function () {
       chai.expect(interactive.originX).to.equal(0);
       chai.expect(interactive.originY).to.equal(0);
       chai.expect(interactive.viewBox).to.equal('0 0 200 100');
-      drawConfiguration(interactive);
+			testBoundingBox(interactive);
     });
     it('custom origin', function() {
       let interactive = new Interactive(container, {
@@ -78,7 +90,7 @@ describe('Interactive', function () {
       chai.expect(interactive.originX).to.equal(300);
       chai.expect(interactive.originY).to.equal(150);
       chai.expect(interactive.viewBox).to.equal('-300 -150 600 300');
-      drawConfiguration(interactive);
+			testBoundingBox(interactive);
     });
     it('custom origin, width, and height', function() {
       let options = {
@@ -93,7 +105,7 @@ describe('Interactive', function () {
       chai.expect(interactive.originX).to.equal(options.originX);
       chai.expect(interactive.originY).to.equal(options.originY);
       chai.expect(interactive.viewBox).to.equal(`${-options.originX} ${-options.originY} ${options.width} ${options.height}`);
-      drawConfiguration(interactive);
+			testBoundingBox(interactive);
     });
   });
 

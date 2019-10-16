@@ -1,7 +1,33 @@
 import { descriptiveTests, shapeTests, structuralTests, typographyTests } from './content-model.test.js';
 import SVG from '../../../elements/svg/svg.js';
+import Container from '../../container.js';
 
 describe('SVG', function () {
+
+  describe('constructor', function(){
+
+    // create a new container before each test function
+    let container : HTMLElement;
+    beforeEach(function() {
+      container = Container.createContainer();
+      container.hidden = true;
+    });
+    it('should construct a new svg object', function(){
+      let svg = new SVG();
+    });
+    it('should create an svg element within the HTML container with the corresponding id', function() {
+      let interactive = SVG.SVG( container.id );
+      chai.expect(container.contains( interactive.root )).to.be.true;
+    });
+    it('should create an svg element within the HTML container', function() {
+      let interactive = SVG.SVG( container );
+      chai.expect(container.contains( interactive.root )).to.be.true;
+    });
+    it('should throw an error when no corresponding id exists', function() {
+      let badID = 'bad-id';
+      chai.expect(()=>{ SVG.SVG(badID) }).to.throw(Error, `There is no HTML element with the id: ${badID}`);
+    });
+  });
 
   describe('content model', function(){
 		let element : SVG;
@@ -40,17 +66,9 @@ describe('SVG', function () {
 
   describe('geometric properties', function(){
 
-    // create a new svg element before each test in this block
-		let section : HTMLElement = document.getElementById('tests');
     let svg : SVG;
     beforeEach(function() {
-      svg = new SVG();
-      svg.width = 100;
-      svg.height = 100;
-      let div = document.createElement('div');
-      div.classList.add('test-container');
-      div.appendChild(svg.root);
-      section.appendChild(div);
+      svg = SVG.SVG(Container.createContainer());
     });
 
     it('test', function(){

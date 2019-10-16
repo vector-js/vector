@@ -12,14 +12,17 @@ export var descriptiveTests = function() {
   });
   it('should create and append a description element', function() {
     let child = element.description();
+    chai.expect(child.root.tagName === 'desc');
     chai.expect(element.root.contains(child.root));
   });
   it('should create and append a metadata element', function() {
     let child = element.metadata();
+    chai.expect(child.root.tagName === 'metaData');
     chai.expect(element.root.contains(child.root));
   });
   it('should create and append a title element', function() {
     let child = element.title();
+    chai.expect(child.root.tagName === 'title');
     chai.expect(element.root.contains(child.root));
   });
 };
@@ -149,3 +152,18 @@ export var typographyTests = function() {
     chai.expect(tspan1.root.contains(tspan2.root));
   });
 };
+
+export var aTest = function() {
+
+	let element:any = null;
+	beforeEach(function(){
+		element = this.element as any;
+	});
+
+	it('should be able to create and append a \'a\' element', function() {
+		chai.expect(typeof element.a === "function").to.be.true;
+		// let a = element.a('example.com') as A;
+		// chai.expect(a.constructor.name === 'A').to.be.true;
+
+  });
+}
