@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="An interactive to demonstrate how the radius of a circle can be used to measure the angle between two rays." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+
+  
+  <h1>Unit Circle Right Triangle <a style="float:right" href="/sandbox/?script=/examples/math/unit-circle-trigonometric-functions.js" class="button">Open in Sandbox</a></h1>
+  <div id="unit-circle-trigonometric-functions"></div>
+  <script type="module" src="/examples/math/unit-circle-trigonometric-functions.js"></script>
+  
+    <h2>Description</h2>
+    <p>An interactive to demonstrate how the radius of a circle can be used to measure the angle between two rays.</p>
+  
+  
+    <h2>Input</h2>
+    <p>undefined</p>
+  
+  <h2>Script</h2>
+  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// /**
+</span><span class="c1">// * @title Unit Circle Right Triangle
+</span><span class="c1">// * @description An interactive to demonstrate how the radius of a circle can be used to measure the angle between two rays.
+</span><span class="c1">// * @tags [math]
+</span><span class="c1">// * @date June 9, 2019
+</span><span class="c1">// * @author Kurt Bruns
+</span><span class="c1">// */
+</span><span class="c1">//
+</span><span class="c1">// import {Interactive, getScriptName} from &#39;../../index.js&#39;;
+</span><span class="c1">//
+</span><span class="c1">// // Initialize the interactive
+</span><span class="c1">// let interactive = new Interactive(getScriptName());
+</span><span class="c1">// interactive.window = true;
+</span><span class="c1">// interactive.width = 600;
+</span><span class="c1">// interactive.height = 600;
+</span><span class="c1">// interactive.originX = interactive.width/2;
+</span><span class="c1">// interactive.originY = 225;
+</span><span class="c1">//
+</span><span class="c1">// // Create a circle
+</span><span class="c1">// let circle = interactive.circle( 0, 0, 125);
+</span><span class="c1">// let line = interactive.line( 0, 0, circle.r, 0);
+</span><span class="c1">// let margin = 0;
+</span><span class="c1">// let yAxis = interactive.line( 0, -(circle.r + margin), 0, circle.r + margin);
+</span><span class="c1">// let xAxis = interactive.line( -(circle.r + margin), 0, circle.r + margin, 0);
+</span><span class="c1">//
+</span><span class="c1">// // Create a control
+</span><span class="c1">// let control = interactive.control( circle.r*Math.cos(-.25*Math.PI), circle.r*Math.sin(-.25*Math.PI));
+</span><span class="c1">// control.constrainToCircle( circle.cx, circle.cy, circle.r);
+</span><span class="c1">//
+</span><span class="c1">// // Create a path
+</span><span class="c1">// let path = interactive.path(&#39;&#39;);
+</span><span class="c1">// path.root.style.fillOpacity = &#39;.3&#39;;
+</span><span class="c1">// path.update = function() {
+</span><span class="c1">//   path.d = `M 0 0
+</span><span class="c1">//             L ${control.x} 0
+</span><span class="c1">//             L ${control.x} ${control.y}
+</span><span class="c1">//             z`;
+</span><span class="c1">// };
+</span><span class="c1">// path.update();
+</span><span class="c1">// path.addDependency(control);
+</span><span class="c1">//
+</span><span class="c1">// function getAngle() : string {
+</span><span class="c1">//   let angle: number;
+</span><span class="c1">//   if( control.y &lt;= 0 ) {
+</span><span class="c1">//     angle = Math.abs(Math.atan2( control.y, control.x));
+</span><span class="c1">//   } else {
+</span><span class="c1">//     angle = Math.PI*2 - Math.atan2( control.y, control.x);
+</span><span class="c1">//   }
+</span><span class="c1">//   return angle.toFixed(2) + &#39; rad&#39;;
+</span><span class="c1">// }
+</span><span class="c1">//
+</span><span class="c1">// let xCoord = -180;
+</span><span class="c1">// let yCoord = 200;
+</span><span class="c1">//
+</span><span class="c1">// // Create text to display the current angle. TODO: add a check-box to change
+</span><span class="c1">// // between radians and degrees
+</span><span class="c1">// let angle = interactive.text( xCoord, yCoord + 0, &#34;test&#34;);
+</span><span class="c1">// angle.root.style.whiteSpace = &#39;pre&#39;;
+</span><span class="c1">// angle.addDependency(control);
+</span><span class="c1">// angle.update = function() {
+</span><span class="c1">//   angle.contents = `θ =  ${getAngle()}`;
+</span><span class="c1">// };
+</span><span class="c1">// angle.update();
+</span><span class="c1">//
+</span><span class="c1">// // Display the x cordinate
+</span><span class="c1">// let x = interactive.text( xCoord, yCoord + 25, &#34;test&#34;);
+</span><span class="c1">// x.root.style.whiteSpace = &#39;pre&#39;;
+</span><span class="c1">// x.addDependency(control);
+</span><span class="c1">// x.update = function() {
+</span><span class="c1">//   x.contents = `x = ${control.x &gt; 0 ? &#39; &#39; : &#39;&#39;}${(control.x/circle.r).toFixed(2)}`;
+</span><span class="c1">// };
+</span><span class="c1">// x.update();
+</span><span class="c1">//
+</span><span class="c1">// let y = interactive.text( xCoord, yCoord + 50, &#34;test&#34;);
+</span><span class="c1">// y.root.style.whiteSpace = &#39;pre&#39;;
+</span><span class="c1">// y.addDependency(control);
+</span><span class="c1">// y.update = function() {
+</span><span class="c1">//   y.contents = `y = ${control.y &lt;= 0 ? &#39; &#39; : &#39;&#39;}${(-control.y/circle.r).toFixed(2)}`;
+</span><span class="c1">// };
+</span><span class="c1">// y.update();
+</span><span class="c1">//
+</span><span class="c1">// let r = interactive.text( xCoord, yCoord + 75, &#34;r =  1&#34;);
+</span><span class="c1">//
+</span><span class="c1">//
+</span><span class="c1">// let cosineCheckBox = interactive.checkBox( 75, 195, &#39;cosine(θ)&#39;, false);
+</span><span class="c1">// let sineCheckBox = interactive.checkBox( 75, 195+ 25, &#39;sine(θ)&#39;, false);
+</span><span class="c1">// let tangentCheckBox = interactive.checkBox( 75, 195+ 50, &#39;tangent(θ)&#39;, false);
+</span><span class="c1">// let secantCheckBox = interactive.checkBox( 75, 195+ 75, &#39;secant(θ)&#39;, false);
+</span><span class="c1">// let cosecantCheckBox = interactive.checkBox( 75, 195+ 100, &#39;cosecant(θ)&#39;, false);
+</span><span class="c1">// let cotangentCheckBox = interactive.checkBox( 75, 195+ 125, &#39;cotangent(θ)&#39;, false);
+</span><span class="c1">//
+</span><span class="c1">// let secant = interactive.line(0, 0, 0, 0);
+</span><span class="c1">// secant.addDependency(control);
+</span><span class="c1">// secant.addDependency(secantCheckBox);
+</span><span class="c1">// secant.update = function() {
+</span><span class="c1">//   this.x2 = circle.r/(control.x/circle.r);
+</span><span class="c1">//   if( secantCheckBox.value ) {
+</span><span class="c1">//     this.root.style.stroke = &#39;red&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;2px&#39;;
+</span><span class="c1">//
+</span><span class="c1">//   } else {
+</span><span class="c1">//     this.root.style.stroke = &#39;&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;&#39;;
+</span><span class="c1">//   }
+</span><span class="c1">// };
+</span><span class="c1">// secant.update();
+</span><span class="c1">//
+</span><span class="c1">// let cosine = interactive.line(0, 0, 0, 0);
+</span><span class="c1">// cosine.addDependency(control);
+</span><span class="c1">// cosine.addDependency(cosineCheckBox);
+</span><span class="c1">// cosine.addDependency(secantCheckBox);
+</span><span class="c1">// cosine.update = function() {
+</span><span class="c1">//   this.x2 = control.x;
+</span><span class="c1">//   this.root.style.strokeOpacity = &#39;1&#39;;
+</span><span class="c1">//   if( secantCheckBox.value ) {
+</span><span class="c1">//     this.root.style.strokeOpacity = &#39;0&#39;;
+</span><span class="c1">//   } else if( cosineCheckBox.value ) {
+</span><span class="c1">//     this.root.style.stroke = &#39;red&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;2px&#39;;
+</span><span class="c1">//   } else {
+</span><span class="c1">//     this.root.style.stroke = &#39;&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;&#39;;
+</span><span class="c1">//   }
+</span><span class="c1">// };
+</span><span class="c1">// cosine.update();
+</span><span class="c1">//
+</span><span class="c1">// let sine = interactive.line(0, 0, 0, 0);
+</span><span class="c1">// sine.addDependency(control);
+</span><span class="c1">// sine.addDependency(sineCheckBox);
+</span><span class="c1">// sine.update = function() {
+</span><span class="c1">//   this.x1 = control.x;
+</span><span class="c1">//   this.x2 = control.x;
+</span><span class="c1">//   this.y2 = control.y;
+</span><span class="c1">//   if( sineCheckBox.value ) {
+</span><span class="c1">//     this.root.style.stroke = &#39;red&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;2px&#39;;
+</span><span class="c1">//   } else {
+</span><span class="c1">//     this.root.style.stroke = &#39;&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;&#39;;
+</span><span class="c1">//   }
+</span><span class="c1">// };
+</span><span class="c1">// sine.update();
+</span><span class="c1">//
+</span><span class="c1">// let tangent = interactive.line(0, 0, 0, 0);
+</span><span class="c1">// tangent.addDependency(control);
+</span><span class="c1">// tangent.addDependency(tangentCheckBox);
+</span><span class="c1">// tangent.update = function() {
+</span><span class="c1">//   this.x1 = control.x;
+</span><span class="c1">//   this.y1 = control.y;
+</span><span class="c1">//   this.x2 = circle.r/(control.x/circle.r);
+</span><span class="c1">//   if( tangentCheckBox.value ) {
+</span><span class="c1">//     this.root.style.stroke = &#39;red&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;2px&#39;;
+</span><span class="c1">//   } else {
+</span><span class="c1">//     this.root.style.stroke = &#39;&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;&#39;;
+</span><span class="c1">//   }
+</span><span class="c1">// };
+</span><span class="c1">// tangent.update();
+</span><span class="c1">//
+</span><span class="c1">// let cotangent = interactive.line(0, 0, 0, 0);
+</span><span class="c1">// cotangent.addDependency(control);
+</span><span class="c1">// cotangent.addDependency(cotangentCheckBox);
+</span><span class="c1">// cotangent.update = function() {
+</span><span class="c1">//   this.y1 = circle.r/(control.y/circle.r);
+</span><span class="c1">//   this.x2 = control.x;
+</span><span class="c1">//   this.y2 = control.y;
+</span><span class="c1">//   if( cotangentCheckBox.value ) {
+</span><span class="c1">//     this.root.style.stroke = &#39;red&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;2px&#39;;
+</span><span class="c1">//   } else {
+</span><span class="c1">//     this.root.style.stroke = &#39;&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;&#39;;
+</span><span class="c1">//   }
+</span><span class="c1">// };
+</span><span class="c1">// cotangent.update();
+</span><span class="c1">//
+</span><span class="c1">// let cosecant = interactive.line(0, 0, 0, 0);
+</span><span class="c1">// cosecant.addDependency(control);
+</span><span class="c1">// cosecant.addDependency(cosecantCheckBox);
+</span><span class="c1">// cosecant.update = function() {
+</span><span class="c1">//   this.y2 = circle.r/(control.y/circle.r);
+</span><span class="c1">//   if( cosecantCheckBox.value ) {
+</span><span class="c1">//     this.root.style.stroke = &#39;red&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;2px&#39;;
+</span><span class="c1">//   } else {
+</span><span class="c1">//     this.root.style.stroke = &#39;&#39;;
+</span><span class="c1">//     this.root.style.strokeWidth = &#39;&#39;;
+</span><span class="c1">//   }
+</span><span class="c1">// };
+</span><span class="c1">// cosecant.update();
+</span><span class="c1">//
+</span><span class="c1">// // Create a point at the origin
+</span><span class="c1">// let point = interactive.circle( 0, 0, 3);
+</span><span class="c1">// point.fill = &#39;black&#39;;
+</span><span class="c1">//# sourceMappingURL=unit-circle-trigonometric-functions.js.map
+</span></code></pre></div>
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="A collection of SVG elements for lookup and reference." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+<script type="text/javascript" src="/js/aside.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<section class="aside container">
+  <div class="aside-container">
+    <aside>
+      <a href="#"><h1>SVG Elements</h1></a>
+        
+        
+        
+        <ul>
+          <li>Geometric</li>
+          
+            
+
+
+
+<li><a class="aside-link" href="#circle"><img src="/icons/circle.svg" alt="Circle">Circle</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#ellipse"><img src="/icons/ellipse.svg" alt="Ellipse">Ellipse</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#line"><img src="/icons/line.svg" alt="Line">Line</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#path"><img src="/icons/path.svg" alt="Path">Path</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#polygon"><img src="/icons/polygon.svg" alt="Polygon">Polygon</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#rectangle"><img src="/icons/rectangle.svg" alt="Rectangle">Rectangle</a></li>
+
+
+          
+        </ul>
+        <ul>
+          <li>Structural</li>
+          
+            
+
+
+
+<li><a class="aside-link" href="#definitions"><img src="/icons/definitions.svg" alt="Definitions">Definitions</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#group"><img src="/icons/group.svg" alt="Group">Group</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#svg"><img src="/icons/svg.svg" alt="SVG">SVG</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#symbol"><img src="/icons/symbol.svg" alt="Symbol">Symbol</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#use"><img src="/icons/use.svg" alt="Use">Use</a></li>
+
+
+          
+        </ul>
+        <ul>
+          <li>Other</li>
+          
+            
+
+
+
+<li><a class="aside-link" href="#a-link"><img src="/icons/a-link.svg" alt="A (Link)">A (Link)</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#clip-path"><img src="/icons/clip-path.svg" alt="Clip Path">Clip Path</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#marker"><img src="/icons/marker.svg" alt="Marker">Marker</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#pattern"><img src="/icons/pattern.svg" alt="Pattern">Pattern</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#style"><img src="/icons/style.svg" alt="Style">Style</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#text"><img src="/icons/text.svg" alt="Text">Text</a></li>
+
+
+          
+            
+
+
+
+<li><a class="aside-link" href="#text-span"><img src="/icons/text-span.svg" alt="Text Span">Text Span</a></li>
+
+
+          
+        </ul>
+    </aside>
+  </div>
+  <main class="medium-container" id="main-content">
+    <h1>SVG Elements</h1>
+    
+    
+      <a href="https://vectorjs.org/svg/elements/circle/"><h2 id="circle">Circle</h2></a>
+      <p>The circle element represents a geometric circle with a position and a radius.</p>
+
+
+<div id="svg-circle" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-circle.js"></script>
+
+
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>cx</td>
+        <td>The center x position of the circle</td>
+      </tr>
+    
+      <tr>
+        <td>cy</td>
+        <td>The center y position of the circle</td>
+      </tr>
+    
+      <tr>
+        <td>r</td>
+        <td>The radius of the circle</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/ellipse/"><h2 id="ellipse">Ellipse</h2></a>
+      <p>Interactive SVG ellipse element.</p>
+
+
+<div id="svg-ellipse" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-ellipse.js"></script>
+
+
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>cx</td>
+        <td>The center x position of the ellipse</td>
+      </tr>
+    
+      <tr>
+        <td>cy</td>
+        <td>The center y position of the ellipse</td>
+      </tr>
+    
+      <tr>
+        <td>rx</td>
+        <td>The x radius of the ellipse</td>
+      </tr>
+    
+      <tr>
+        <td>ry</td>
+        <td>The y radius of the ellipse</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/line/"><h2 id="line">Line</h2></a>
+      <p>An interactive SVG line element.</p>
+
+
+<div id="svg-line" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-line.js"></script>
+
+
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>x1</td>
+        <td>The x component of the starting point of the line</td>
+      </tr>
+    
+      <tr>
+        <td>y1</td>
+        <td>The y component of the starting point of the line</td>
+      </tr>
+    
+      <tr>
+        <td>x2</td>
+        <td>The x component of the ending point of the line</td>
+      </tr>
+    
+      <tr>
+        <td>y2</td>
+        <td>The y component of the ending point of the line</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<p>This interactive demonstrates the properties of the SVG line element.</p>
+
+
+<div id="svg-line" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-line.js"></script>
+
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/path/"><h2 id="path">Path</h2></a>
+      <p>The path element is powerful and complex. The path element has one geometric property which contains a series of points that the path is drawn between.</p>
+
+
+
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>d</td>
+        <td>A series of commands that draw the path.</td>
+      </tr>
+    
+      <tr>
+        <td>pathLength</td>
+        <td>The length of the path.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+
+<p>The path element is notorious for its power and difficulty. The path element has one attribute, the &ldquo;d&rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;...&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<h3 id="commands">Commands</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Syntax</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Move To</td>
+<td><code>M x y</code></td>
+</tr>
+
+<tr>
+<td>Line</td>
+<td><code>L x y</code></td>
+</tr>
+
+<tr>
+<td>Quadratic Bezier</td>
+<td><code>Q x1 y1 x2 y2</code></td>
+</tr>
+
+<tr>
+<td>Cubic Bezier</td>
+<td><code>C x1 y1 x2 y2 x3 y3</code></td>
+</tr>
+
+<tr>
+<td>Arc</td>
+<td><code>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</code></td>
+</tr>
+
+<tr>
+<td>Close</td>
+<td><code>Z</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="path-move-to-command">Path: Move To Command</h4>
+
+<p>Every path starts with a move command which describes where the path starts. A path can have multiple move to commands to start drawing the path elsewhere in the document.</p>
+
+<h4 id="path-line-command">Path: Line Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;L x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>In the path below, the move command &ldquo;M 150 150&rdquo; begins the path at the coordinate (150, 150) and then the line command &ldquo;L 450 50&rdquo; draws a line to the coordinate (450, 50). Note, commands have the option to be absolute, represented with a capital letter, or relative, represented with a lowercase letter.</p>
+
+
+<div id="svg-path-line" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-line.js"></script>
+
+
+
+<h4 id="path-quadratic-bezier-command">Path: Quadratic Bezier Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;M x0 y0 Q x1 y1 x2 y2&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The quadratic bezier curve command draws a curve between two points: the current position of the path and the end point (x2, y2). The shape of the curve is described by the first position in the command (x1, y1). Mathematically the curve is a parameterized polynomial. <a href="https://pomax.github.io/bezierinfo/" target="_blank" rel="noreferrer">More info here</a>.</p>
+
+
+<div id="svg-path-bezier-quadratic" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-bezier-quadratic.js"></script>
+
+
+
+<h4 id="path-cubic-bezier-command">Path: Cubic Bezier Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;M x0 y0 C x1 y1 x2 y2 x3 y3&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The cubic bezier curve command is like the quadratic curve with an additional point to further control the shape of the curve.</p>
+
+
+<div id="svg-path-bezier-cubic" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-bezier-cubic.js"></script>
+
+
+
+<h4 id="path-arc-command">Path: Arc Command</h4>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;M x0 y0 A rx ry x-axis-rotation large-arc-flag sweep-flag x y&#34;</span><span class="nt">&gt;&lt;/path&gt;</span></code></pre></div>
+
+<p>The arc command draws an arc between two points. The syntax of the command is &ldquo;A rx ry x-axis-rotation large-arc-flag sweep-flag x y&rdquo;. The arc is drawn between the current position of the path and the end position (x,y). The numbers rx and ry define the shape of the ellipse which forms the arc. The x-axis rotation number controls what part of the ellipse&rsquo;s arc is being drawn between the points. The large arc flag determines whether to take the shorter arc or longer path between the two points. Finally, the sweep-flag chooses which of the two ellipsis that pass through the two points to draw.</p>
+
+
+<div id="svg-path-arc" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-path-arc.js"></script>
+
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/polygon/"><h2 id="polygon">Polygon</h2></a>
+      <p>A polygon is a basic shape defined by a series of points.</p>
+
+
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/rectangle/"><h2 id="rectangle">Rectangle</h2></a>
+      <p>An interactive SVG rectangle element.</p>
+
+
+<div id="svg-rectangle" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
+
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>x</td>
+        <td>The x-position of the top-left point of the rectangle.</td>
+      </tr>
+    
+      <tr>
+        <td>y</td>
+        <td>The y-position of the top-left point of the rectangle.</td>
+      </tr>
+    
+      <tr>
+        <td>width</td>
+        <td>The width of the rectangle.</td>
+      </tr>
+    
+      <tr>
+        <td>height</td>
+        <td>The height of the rectangle.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<p>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.</p>
+
+
+<div id="svg-rectangle" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-rectangle.js"></script>
+
+
+
+
+    
+    
+      <a href="https://vectorjs.org/svg/elements/defs/"><h2 id="definitions">Definitions</h2></a>
+      <p>An interactive SVG rectangle element.</p>
+
+
+
+<p>The Defs element allows for graphic elements to be defined for use elsewhere in the document.</p>
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/group/"><h2 id="group">Group</h2></a>
+      <p>A group is a structural element, useful for applying styles and transformations to multiple elements at once.</p>
+
+
+
+<!-- TODO: example where either a group is transformed or has a simple style applied to them. -->
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/svg/"><h2 id="svg">SVG</h2></a>
+      <p>The SVG element is the root element of every SVG document. It contains all other elements that make up the graphic. SVG element can be nested within eachother.</p>
+
+
+
+<h3>Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>x</td>
+        <td>The relative x-position of the SVG element. (Only affects nested SVG elements)</td>
+      </tr>
+    
+      <tr>
+        <td>y</td>
+        <td>The relative y-position of the SVG element. (Only affects nested SVG elements)</td>
+      </tr>
+    
+      <tr>
+        <td>width</td>
+        <td>The width of the SVG element.</td>
+      </tr>
+    
+      <tr>
+        <td>height</td>
+        <td>The height of the SVG element.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/symbol/"><h2 id="symbol">Symbol</h2></a>
+      <p></p>
+
+
+
+<p>The symbol element is a non-rendered element that allows for repeated use.</p>
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/use/"><h2 id="use">Use</h2></a>
+      <p></p>
+
+
+
+
+
+    
+    
+      <a href="https://vectorjs.org/svg/elements/a/"><h2 id="a-link">A (Link)</h2></a>
+      <p>The &#39;a&#39; element represents a link. This allows the user to link to different veiw of a SVG document or to hyper-link to another web page.</p>
+
+
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/clip-path/"><h2 id="clip-path">Clip Path</h2></a>
+      <p>An interactive SVG clip path element.</p>
+
+
+<div id="svg-clip-path" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-clip-path.js"></script>
+
+
+<p>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;g</span> <span class="na">clip-path=</span><span class="s">&#34;url(#my-clip-path)&#34;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- grid of rectangles ... --&gt;</span>
+<span class="nt">&lt;/g&gt;</span>
+<span class="nt">&lt;clipPath</span> <span class="na">id=</span><span class="s">&#34;my-clip-path&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&#34;300&#34;</span> <span class="na">cy=</span><span class="s">&#34;150&#34;</span> <span class="na">r=</span><span class="s">&#34;50&#34;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/clipPath&gt;</span></code></pre></div>
+
+<p>Click and drag the clip path below to change the position of the circle that defines the clipping path.</p>
+
+
+<div id="svg-clip-path" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-clip-path.js"></script>
+
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/marker/"><h2 id="marker">Marker</h2></a>
+      <p>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</p>
+
+
+<div id="svg-marker" class="vertical-center"></div>
+<script type="module" src="/examples/svg/svg-marker.js"></script>
+
+
+<p>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</p>
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/pattern/"><h2 id="pattern">Pattern</h2></a>
+      <p></p>
+
+
+
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/style/"><h2 id="style">Style</h2></a>
+      <p></p>
+
+
+
+<p>The style element defines CSS that is applied to elements through a combination of selectors.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="c">/* select an individual element by id */</span>
+  <span class="p">#</span><span class="nn">identifier</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+
+  <span class="c">/* select all elements with the class */</span>
+  <span class="p">.</span><span class="nc">className</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+
+  <span class="c">/* select all elements with the tag name*/</span>
+  <span class="nt">tagName</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></code></pre></div>
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/text/"><h2 id="text">Text</h2></a>
+      <p></p>
+
+
+
+<p>The text element allows user to display text within the SVG document.</p>
+
+
+    
+      <a href="https://vectorjs.org/svg/elements/t-span/"><h2 id="text-span">Text Span</h2></a>
+      <p></p>
+
+
+
+<p>The text span element allows user to define spanning text.</p>
+
+
+    
+  </main>
+</section>
+
+</body>
+</html>

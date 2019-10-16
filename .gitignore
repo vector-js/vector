@@ -6,7 +6,7 @@ types
 *.js.map
 
 # ignore generated files on development branches
-docs
+# docs
 dist
 api
 vector.js

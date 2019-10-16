@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="This interactive demonstrates an implementation of the merge sort algorithm using a tree." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+
+  
+  <h1>Merge Sort Interactive <a style="float:right" href="/sandbox/?script=/examples/math/merge-sort.js" class="button">Open in Sandbox</a></h1>
+  <div id="merge-sort"></div>
+  <script type="module" src="/examples/math/merge-sort.js"></script>
+  
+    <h2>Description</h2>
+    <p>This interactive demonstrates an implementation of the merge sort algorithm using a tree.</p>
+  
+  
+    <h2>Input</h2>
+    <p>undefined</p>
+  
+  <h2>Script</h2>
+  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm">* @title Merge Sort Interactive
+</span><span class="cm">* @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
+</span><span class="cm">* @tags [math, algorithm, graph]
+</span><span class="cm">*/</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">704</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">nodeCounterMax</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">nodeCountTo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">allArrays</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="c1">// this HTML input element controls the current tree being drawn
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;textfield&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="s1">&#39;704px&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;3 2 7 8 9 1 2 3 3 10 1&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;number&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">min</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">max</span> <span class="o">=</span> <span class="s1">&#39;100000&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">getScriptName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;-number-input&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">padding</span> <span class="o">=</span> <span class="s1">&#39;.25rem&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">webkitAppearance</span> <span class="o">=</span> <span class="s1">&#39;textfield&#39;</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontSize</span> <span class="o">=</span> <span class="s1">&#39;14px&#39;</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">);</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">nodeCounterMax</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">inputChange</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="kd">function</span> <span class="nx">inputChange</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/[ ,]+/</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">numArr</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">numArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+    <span class="nx">createArrays</span><span class="p">(</span><span class="nx">numArr</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/**
+</span><span class="cm">* This is a recursive function that draws the prime factorization tree for the
+</span><span class="cm">* input number n.
+</span><span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">createArrays</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">graph</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">allArrays</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">let</span> <span class="nx">rootNode</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="nx">nodeCountTo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">rootNode</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBBox</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">graph</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">interactive</span><span class="p">.</span><span class="nx">setViewBox</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="mi">64</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">height</span> <span class="o">+</span> <span class="mi">64</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">interactive</span><span class="p">.</span><span class="nx">setViewBox</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="mi">16</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">height</span> <span class="o">+</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">addNodeToFit</span><span class="p">(</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">leftOrRight</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">isLeft</span> <span class="o">=</span> <span class="p">(</span><span class="nx">leftOrRight</span> <span class="o">==</span> <span class="s2">&#34;left&#34;</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">otherNodes</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">getNodes</span><span class="p">();</span>
+    <span class="kd">let</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isLeft</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">newNode</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">cx</span> <span class="o">-</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">40</span><span class="p">,</span> <span class="nx">parentNode</span><span class="p">.</span><span class="nx">cy</span> <span class="o">+</span> <span class="mi">64</span><span class="p">,</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nx">overlap</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">otherNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">rect1</span> <span class="o">=</span> <span class="nx">otherNodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+            <span class="kd">let</span> <span class="nx">rect2</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+            <span class="kd">let</span> <span class="nx">currOverlap</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="nx">rect1</span><span class="p">.</span><span class="nx">right</span> <span class="o">&lt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">left</span> <span class="o">||</span>
+                <span class="nx">rect1</span><span class="p">.</span><span class="nx">left</span> <span class="o">&gt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">right</span> <span class="o">||</span>
+                <span class="nx">rect1</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">&lt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">top</span> <span class="o">||</span>
+                <span class="nx">rect1</span><span class="p">.</span><span class="nx">top</span> <span class="o">&gt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">bottom</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">currOverlap</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">otherNodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">moveX</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+                <span class="nx">newNode</span><span class="p">.</span><span class="nx">moveX</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+                <span class="nx">overlap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">newNode</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">cx</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">40</span><span class="p">,</span> <span class="nx">parentNode</span><span class="p">.</span><span class="nx">cy</span> <span class="o">+</span> <span class="mi">64</span><span class="p">,</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nx">overlap</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">otherNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">rect1</span> <span class="o">=</span> <span class="nx">otherNodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+            <span class="kd">let</span> <span class="nx">rect2</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+            <span class="kd">let</span> <span class="nx">currOverlap</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="nx">rect1</span><span class="p">.</span><span class="nx">right</span> <span class="o">&lt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">left</span> <span class="o">||</span>
+                <span class="nx">rect1</span><span class="p">.</span><span class="nx">left</span> <span class="o">&gt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">right</span> <span class="o">||</span>
+                <span class="nx">rect1</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">&lt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">top</span> <span class="o">||</span>
+                <span class="nx">rect1</span><span class="p">.</span><span class="nx">top</span> <span class="o">&gt;</span> <span class="nx">rect2</span><span class="p">.</span><span class="nx">bottom</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">currOverlap</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">otherNodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">moveX</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+                <span class="nx">newNode</span><span class="p">.</span><span class="nx">moveX</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+                <span class="nx">overlap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">newNode</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">const</span> <span class="nx">middle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="err">/ 2);</span>
+    <span class="k">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">middle</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">middle</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">otherNodes</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;ellipse&#34;</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">leafLeft</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">leafRight</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;palegreen&#34;</span><span class="p">;</span>
+        <span class="nx">nodeCountTo</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;opacity&#34;</span><span class="p">,</span> <span class="s2">&#34;.5&#34;</span><span class="p">);</span>
+        <span class="nx">leafLeft</span> <span class="o">=</span> <span class="nx">addNodeToFit</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="s2">&#34;left&#34;</span><span class="p">);</span>
+        <span class="nx">leafLeft</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;#FFFF99&#34;</span><span class="p">;</span>
+        <span class="nx">nodeCountTo</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">left</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">leafLeft</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">mergeLeft</span> <span class="o">=</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">leafLeft</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">leafLeft</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;#FFFF99&#34;</span><span class="p">;</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;palegreen&#34;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">mergeLeft</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">nodeCountTo</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">nodeCountTo</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;opacity&#34;</span><span class="p">,</span> <span class="s2">&#34;.5&#34;</span><span class="p">);</span>
+        <span class="nx">leafRight</span> <span class="o">=</span> <span class="nx">addNodeToFit</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">right</span><span class="p">,</span> <span class="s2">&#34;right&#34;</span><span class="p">);</span>
+        <span class="nx">leafRight</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;#FFFF99&#34;</span><span class="p">;</span>
+        <span class="nx">nodeCountTo</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[];</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">leafLeft</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+        <span class="nx">leafRight</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">mergeRight</span> <span class="o">=</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">right</span><span class="p">,</span> <span class="nx">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">leafRight</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">leafLeft</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;#FFFF99&#34;</span><span class="p">;</span>
+        <span class="nx">leafRight</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;#FFFF99&#34;</span><span class="p">;</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;palegreen&#34;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">mergeRight</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">nodeCountTo</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">nodeCountTo</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">mergedArr</span> <span class="o">=</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">mergeLeft</span><span class="p">,</span> <span class="nx">mergeRight</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">label</span> <span class="o">=</span> <span class="nx">mergedArr</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;opacity&#34;</span><span class="p">,</span> <span class="s2">&#34;1&#34;</span><span class="p">);</span>
+        <span class="nx">nodeCountTo</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeCountTo</span> <span class="o">&lt;</span> <span class="nx">nodeCounterMax</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">leafLeft</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+        <span class="nx">leafRight</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">nodeEllipse</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;rgb(248, 248, 248)&#34;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">mergedArr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">[];</span>
+<span class="p">}</span>
+<span class="cm">/** Merge (conquer) step of mergeSort */</span>
+<span class="kd">function</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">let</span> <span class="nx">lIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">rIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">lIndex</span> <span class="o">+</span> <span class="nx">rIndex</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="nx">lItem</span> <span class="o">=</span> <span class="nx">left</span><span class="p">[</span><span class="nx">lIndex</span><span class="p">];</span>
+        <span class="k">const</span> <span class="nx">rItem</span> <span class="o">=</span> <span class="nx">right</span><span class="p">[</span><span class="nx">rIndex</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">lItem</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">rItem</span><span class="p">);</span>
+            <span class="nx">rIndex</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">rItem</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">lItem</span><span class="p">);</span>
+            <span class="nx">lIndex</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">lItem</span> <span class="o">&lt;</span> <span class="nx">rItem</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">lItem</span><span class="p">);</span>
+            <span class="nx">lIndex</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">rItem</span><span class="p">);</span>
+            <span class="nx">rIndex</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">37</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">nodeCounterMax</span><span class="o">--</span><span class="p">;</span>
+        <span class="nx">inputChange</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">39</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">nodeCounterMax</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">inputChange</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="c1">//# sourceMappingURL=merge-sort.js.map
+</span></code></pre></div>
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="How to add a text label to a control point that moves with the point and displays its position." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive vector graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+<h1>Control With Position</h1>
+
+<p>This tutorial shows the user how to add a text label to a control point. Then the text label will be made to follow the position of the point and show the point&rsquo;s current position. If you haven&rsquo;t gone through <a href="/tutorials/getting-started/">getting started tutorial</a>, do so to get to the starting point.</p>
+
+<h2 id="starting-point">Starting point</h2>
+
+<p>The starting point is an interactive with a control point that can be dragged around.</p>
+
+<p><div id="step-0" class="interactive center"></div>
+<script type="module" src="./step-0.js"></script></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">1</span><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;/interactive.js&#39;</span><span class="p">;</span>
+<span class="ln">2</span>
+<span class="ln">3</span><span class="c1">// Initialize the interactive
+</span><span class="ln">4</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;step-0&#34;</span><span class="p">);</span>
+<span class="ln">5</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="ln">6</span>
+<span class="ln">7</span><span class="c1">// Create a control point at the location (100, 100)
+</span><span class="ln">8</span><span class="c1"></span><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="adding-a-text-label">Adding a Text Label</h2>
+
+<p><div id="step-1" class="interactive center"></div>
+<script type="module" src="./step-1.js"></script></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">10</span><span class="c1">// Create a text element at the location (150,150);
+</span><span class="ln">11</span><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&#34;myText&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="update-contents-and-position-of-text">Update Contents and Position of Text</h2>
+
+<p>Next let&rsquo;s make it so when the control moves as well. Let&rsquo;s also make it so the contents of the text displays the position of the control.</p>
+
+<p><div id="step-2" class="interactive center"></div>
+<script type="module" src="./step-2.js"></script></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">13</span><span class="c1">// Update the text when the control changes
+</span><span class="ln">14</span><span class="c1"></span><span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
+<span class="ln">15</span><span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="ln">16</span>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">15</span><span class="p">;</span>
+<span class="ln">17</span>  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">15</span><span class="p">;</span>
+<span class="ln">18</span>  <span class="k">this</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`(</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+<span class="ln">19</span><span class="p">};</span>
+<span class="ln">20</span><span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</code></pre></div>
+
+<h2 id="onward">Onward</h2>
+
+<p>To learn more follow other tutorials, browse and fork examples, or read the documentation.</p>
+
+<ul>
+<li><a href="/tutorials/">Tutorials</a></li>
+<li><a href="/examples/">Examples</a></li>
+</ul>
+
+</main>
+
+</body>
+</html>
