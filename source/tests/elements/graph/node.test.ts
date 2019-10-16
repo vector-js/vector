@@ -1,5 +1,5 @@
-import Node from '../elements/graph/node.js';
-import Element from '../elements/element.js';
+import Node from '../../../elements/graph/node.js';
+import Element from '../../../elements/svg/element.js';
 
 describe('Node', function () {
   describe('constructor', function () {

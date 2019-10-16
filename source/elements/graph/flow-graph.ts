@@ -1,4 +1,4 @@
-import Element from '../element.js';
+import Element from '../svg/element.js';
 import Node from './node.js';
 import Edge from './edge.js';
 import DirectedGraph from './directed-graph.js';

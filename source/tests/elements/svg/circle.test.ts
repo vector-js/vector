@@ -1,5 +1,5 @@
-import Circle from '../elements/svg/circle.js';
-import Element from '../elements/element.js';
+import Circle from '../../../elements/svg/circle.js';
+import Element from '../../../elements/svg/element.js';
 
 describe('Circle', function () {
   describe('constructor', function () {
