@@ -1,4 +1,6 @@
-import Element, {GlobalAttributes} from './element.js';
+import Element, {CoreAttributes} from './element.js';
+
+type AAttributes = 'href' | 'target' | 'download' | 'rel';
 
 /**
 * A circle is a basic geometric element with a position and radius.
@@ -18,13 +20,13 @@ export default class A extends Element {
   }
 
   // comment inherited from base class
-  setAttribute( name: 'href' | 'target' | 'download' | 'rel' | GlobalAttributes, value:string ) {
+  setAttribute( name: AAttributes | CoreAttributes, value:string ) {
     this.root.setAttribute(name, value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute( name: 'href' | 'target' | 'download' | 'rel' | GlobalAttributes): string {
+  getAttribute( name: AAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 }

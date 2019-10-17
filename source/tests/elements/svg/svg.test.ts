@@ -9,7 +9,7 @@ describe('SVG', function () {
     let container : HTMLElement;
     beforeEach(function() {
       container = Container.createContainer();
-      container.hidden = false;
+      container.hidden = true;
     });
     it('should construct a new svg object', function(){
       let svg = new SVG();
@@ -70,16 +70,23 @@ describe('SVG', function () {
       typographyTests();
     });
 		it('should be able to create an \'a\' element (link)', function(){
-			// let a = element.a();
+			let href = 'example.com';
+			let child = element.a('example.com');
+			chai.expect(child.root.tagName).to.equal('a');
+			chai.expect(child.root.href.baseVal.valueOf).to.equal(href);
 		});
 		it('should be able to create an \'clipPath\' element', function(){
-
+			let child = element.clipPath();
+			chai.expect(child.root.tagName).to.equal('clipPath');
 		});
 		it('should be able to create an \'script\' element', function(){
-
+			let child = element.script();
+			chai.expect(child.root.tagName).to.equal('script');
 		});
 		it('should be able to create an \'style\' element', function(){
-
+			// TODO: conflicts with the current style property
+			// let child = element.style();
+			// chai.expect(child.root.tagName).to.equal('style');
 		});
 		it('should be able to create an \'view\' element', function(){
 			// TODO: The MDN example for the view isn't currently working?
@@ -98,7 +105,6 @@ describe('SVG', function () {
       svg.circle(50, 50, 30);
     });
 
-
     // it('should have an x and y propertiy that specify the top-left corner of where an embedded svg is placed', function(){
     //   let nested = svg.svg()
     //   nested.x = 50;
@@ -114,5 +120,4 @@ describe('SVG', function () {
     //   document.body.appendChild(svg.root);
     // });
   });
-
 });
