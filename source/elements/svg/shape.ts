@@ -1,6 +1,6 @@
 import Element, { CoreAttributes } from './element.js';
 
-export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end';
+export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end' | 'transform';
 
 /**
 * A shape is a basic geometric element.

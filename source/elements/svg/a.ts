@@ -15,7 +15,7 @@ export default class A extends Element {
   */
   constructor( href:string ) {
     let root = document.createElementNS( 'http://www.w3.org/2000/svg', 'a') as SVGAElement;
-    root.setAttributeNS(null, 'href', href.toString());
+    root.setAttributeNS(null, 'href', href);
     super(root);
   }
 

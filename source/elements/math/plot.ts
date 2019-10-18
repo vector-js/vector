@@ -60,6 +60,11 @@ export default class Plot extends Group {
   */
   yAxis : Line;
 
+  /**
+  * A group containing the grid lines
+  */
+  grid: Group;
+
   // elements
   xRect : Rectangle;
   yRect : Rectangle;
@@ -157,16 +162,21 @@ export default class Plot extends Group {
 
     // draw a grid of rectangles
     if( options.grid ) {
-      let w = 10;
-      let h = 10;
+      this.grid = this.viewPort.group();
+      this.grid.classList.add('grid');
+      this.grid.style.opacity = '.4';
       for( let i = -10; i <= 10; i++) {
-        for( let j = -10; j <= 10; j ++) {
-          let x = i*w;
-          let y = j*h;
-          let rect = this.viewPort.rectangle(x, y, w, h);
-          rect.style.stroke = '#777777';
-          rect.root.setAttribute('vector-effect','non-scaling-stroke');
-        }
+        this.grid.line(-2*this.visibleWidth, i, 2*this.visibleWidth, i);
+        this.grid.line(i, -2*this.visibleHeight, i, 2*this.visibleHeight);
+
+        // for( let j = -10; j <= 10; j ++) {
+        //   let x = i*w;
+        //   let y = j*h;
+        //
+        //   let rect = this.viewPort.rectangle(x, y, w, h);
+        //   rect.style.stroke = '#777777';
+        //   rect.root.setAttribute('vector-effect','non-scaling-stroke');
+        // }
       }
     }
 
@@ -328,7 +338,7 @@ export default class Plot extends Group {
     }
 
     // Loop through and draw coordiantes of the function path
-    for( x ++; x < endX; x ++ ){
+    for( x+=1; x < endX; x+=1 ){
       let y = this.call(x);
       if( isNaN(y)) {
         continue;

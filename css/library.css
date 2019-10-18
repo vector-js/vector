@@ -98,3 +98,6 @@ path.element, line.element, rect.element, ellipse.element, circle.element, polyg
 .button text {
   fill: #ffffff;
 }
+.grid line {
+  vector-effect: non-scaling-stroke;
+}
