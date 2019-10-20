@@ -15,7 +15,7 @@ interactive.width = 736;
 interactive.height = 400;
 interactive.border = true;
 
-let graph = interactive.directedGraph();
+let graph = interactive.graph({directed:true});
 
 // this HTML input element controls the current tree being drawn
 let inputContainer = document.createElement('div');

@@ -12,6 +12,8 @@ import './elements/svg/element.test.js';
 import './elements/svg/group.test.js';
 import './elements/svg/svg.test.js';
 import './elements/svg/circle.test.js';
+import './elements/svg/ellipse.test.js';
+
 
 // interactive / custom elements
 import './elements/interactive.test.js';
