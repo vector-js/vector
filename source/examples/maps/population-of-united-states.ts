@@ -17,18 +17,28 @@ let map = interactive.map(data.usData);
 let text = interactive.text(430,25,"");
 let title = interactive.text(270,25,"Population Density of ")
 
-let countries = map.getFeatureElements();
+let states = map.getFeatureElements();
 
-countries.forEach(element => {
+states.forEach(element => {
+    let islands = map.getFeatureElements();
+    
     element.setAttribute("style",`stroke:black;stroke-width:0.15px;fill:${getColor(densityMap[element.getAttribute("name")])};`);
 
     element.addEventListener("mouseenter", function(){
-        element.setAttribute("style",`stroke:black;stroke-width:0.35px;fill:#03dffc;`);
+        islands.forEach(inner => {
+            if(inner.getAttribute("name") == element.getAttribute("name")){
+                inner.setAttribute("style",`stroke:black;stroke-width:0.35px;fill:#03dffc;`);
+            }
+        });
         text.contents = element.getAttribute("name")+': '+densityMap[element.getAttribute("name")];
     });
     element.addEventListener("mouseleave", function(){
+        islands.forEach(inner => {
+            if(inner.getAttribute("name") == element.getAttribute("name")){
+                inner.setAttribute("style",`stroke:black;stroke-width:0.15px;fill:${getColor(densityMap[element.getAttribute("name")])};`);
+            }
+        });
         text.contents = "";
-        element.setAttribute("style",`stroke:black;stroke-width:0.15px;fill:${getColor(densityMap[element.getAttribute("name")])};`);
     });
 });
 
