@@ -4,5 +4,7 @@ import './util/math.test.js';
 import './elements/element.test.js';
 import './elements/svg/svg.test.js';
 import './elements/svg/group.test.js';
+import './elements/svg/rectangle.test.js';
 import './elements/interactive.test.js';
 import './elements/math/plot.test.js';
+import './elements/maps/map.test.js';

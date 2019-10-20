@@ -6,8 +6,10 @@
 import { Interactive, getScriptName } from '../../index.js';
 import * as data from '../../../resources/maps/maps-json.js';
 let interactive = new Interactive(getScriptName());
+interactive.width = 600;
+interactive.height = 300;
 interactive.root.style.border = "1px solid grey";
-let map = interactive.map(data.globalData, 768, 300, "");
+let map = interactive.map(data.globalData, "");
 let inputContainer = document.createElement('div');
 inputContainer.classList.add('input-container');
 let input = document.createElement('input');
@@ -20,8 +22,7 @@ inputContainer.appendChild(input);
 input.addEventListener("keyup", function (event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
-        map.clearPaths();
-        map = interactive.map(data.globalData, 768, 300, input.value);
+        map.draw(input.value);
     }
 });
 //# sourceMappingURL=map-element.js.map

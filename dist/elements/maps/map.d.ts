@@ -1,14 +1,13 @@
-import Interactive from '../interactive.js';
-import Group from "../svg/group.js";
 import { GeoJSON } from "./geo-json.js";
+import SVG from '../svg/svg.js';
 /**
 * Map class for displaying geographic maps of the world and its different parts.
 */
-export default class GeoMap extends Group {
+export default class GeoMap extends SVG {
     featureName: string;
     externalJSON: GeoJSON;
-    interactive: Interactive;
-    constructor(interactive: Interactive, featureName: string, width: number, height: number, externalData: GeoJSON);
+    constructor(featureName: string, width: number, height: number, externalData: GeoJSON);
+    draw(name: string): void;
     /**
      * Clears the interactive of all Map paths.
      */

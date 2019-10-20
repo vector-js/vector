@@ -351,9 +351,12 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  map(externalData: GeoJSON,width:number,height:number,featureName:string = null) : Map {
-   let map = new Map(this,featureName,width,height,externalData);
-   return map;
+  map(externalData: GeoJSON,featureName:string = null) : Map {
+   let map = new Map(featureName,this.width,this.height,externalData);
+   let ret = this.appendChild(map);
+   let bbox = map.root.getBBox();
+   map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
+   return ret;
    }
 
   /*

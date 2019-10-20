@@ -9,10 +9,12 @@ import './util/math.test.js';
 import './elements/element.test.js';
 import './elements/svg/svg.test.js';
 import './elements/svg/group.test.js';
+import './elements/svg/rectangle.test.js';
 
 // interactive / custom elements
 import './elements/interactive.test.js';
 import './elements/math/plot.test.js';
+import './elements/maps/map.test.js'
 
 // Disabled leak checking because google analytics was causing test failures.
 // Possible solution would be to run the tests within an embedded HTML page

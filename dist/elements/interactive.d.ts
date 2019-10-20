@@ -149,7 +149,7 @@ export default class Interactive extends SVG {
     /**
     * Creates a graph element within this interactive
     */
-    map(externalData: GeoJSON, width: number, height: number, featureName?: string): Map;
+    map(externalData: GeoJSON, featureName?: string): Map;
     directedGraph(): DirectedGraph;
     /**
     * Creates a slider input within this interactive
