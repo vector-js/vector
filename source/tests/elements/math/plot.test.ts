@@ -210,7 +210,7 @@ describe('Plot', function () {
       let scaleY = 150/(Math.PI/2);
       interactive.plot(600, 300, f, {
         originX: 300,
-        originY: 300,
+        originY: 150,
         scaleX: scaleX,
         scaleY: scaleY,
         zoomable: true,

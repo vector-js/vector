@@ -27,7 +27,7 @@ export default class Edge extends Line {
     }
     else {
       super(nodeFrom.cx,nodeFrom.cy, nodeTo.cx, nodeTo.cy);
-      console.log(this.root.x1);
+      // console.log(this.root.x1);
     }
     this.directed = directed;
   }
@@ -70,7 +70,7 @@ export default class Edge extends Line {
     let newY = nodeFrom.cy - nodeTo.cy;
 
     let theta = Math.atan(newY / newX);
-    console.log(theta);
+    // console.log(theta);
 
     let cosx1 = Math.cos(theta);
     let siny1 = Math.sin(theta);
@@ -79,7 +79,7 @@ export default class Edge extends Line {
     let r1 = (nodeFrom.cx*nodeFrom.cy) / Math.sqrt(nodeFrom.cx * Math.pow(cosx1, 2) + nodeFrom.cy * Math.pow(siny1, 2))
 
     // let lineX1 = r1 * cosx1
-    console.log(r2);
+    // console.log(r2);
 
     return new Array(r2 * cosx1, r2*siny1);
 

@@ -1,4 +1,4 @@
-import Shape from './element.js';
+import Shape from './shape.js';
 import Circle from './circle.js';
 import Ellipse from './ellipse.js';
 import Line from './line.js';
@@ -10,13 +10,18 @@ import Rectangle from './rectangle.js';
 export default class Path extends Shape {
 
   // make the type of the root to be more specific
-  root:SVGPathElement;
+  // TODO: this crazy type conversion is because typescript is complaining that
+  // the SVGPathElement does not have the right properties to be considered a
+  // SVGGeometryElement, but the specification says that the path elements the
+  // geometric shape... so what gives?
+  root: any|SVGGeometryElement|SVGPathElement;
 
   /**
   * Construct a new path element with a string of commands.
   */
   constructor( d:string ) {
-    let path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path');
+    // TODO: see comment above the type of the root
+    let path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path') as any;
     path.setAttribute('d', d);
     super(path);
   }

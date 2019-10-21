@@ -2,7 +2,7 @@ import {
   descriptiveElements,
   shapeElements,
   structuralElements,
-\  aElement,
+  aElement,
   clipPathElement,
   markerElement,
   scriptElement,
