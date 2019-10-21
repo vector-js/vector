@@ -331,6 +331,34 @@ export default class Control extends Input {
   }
 
   /**
+  * Constrains the movement of this control point to the path of the provided
+  * element.
+  */
+  constrainWithin( element:Path|Circle|Rectangle) {
+
+    this.addDependency(element);
+    if( element instanceof Path ) {
+      throw Error('not implemented');
+    } else if( element instanceof Circle ) {
+      this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
+
+        // Contain the position within the circle
+        if( Math.hypot(newPosition.y - element.cy, newPosition.x - element.cx) > element.r) {
+          // Calculate the angle between the current coordinate and the origin
+          let angle = Math.atan2( newPosition.y - element.cy, newPosition.x - element.cx );
+          let x = element.r*Math.cos(angle) + element.cx;
+          let y = element.r*Math.sin(angle) + element.cy;
+          return {x:x, y:y};
+        } else {
+          return newPosition;
+        }
+      };
+    } else if( element instanceof Rectangle) {
+      throw Error('not implemented');
+    }
+  }
+
+  /**
   * Constrains the control to follow the path of the circle specified by the
   * arguments. TODO: add a method to constrain the control to a path
   */
