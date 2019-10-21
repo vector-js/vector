@@ -13,6 +13,11 @@ import './elements/svg/group.test.js';
 import './elements/svg/svg.test.js';
 import './elements/svg/circle.test.js';
 import './elements/svg/ellipse.test.js';
+import './elements/svg/polygon.test.js';
+import './elements/svg/path.test.js';
+
+import './elements/svg/line.test.js';
+
 
 
 // interactive / custom elements
