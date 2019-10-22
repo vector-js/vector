@@ -31,7 +31,7 @@ export default abstract class Shape extends Element {
   /**
   * Returns the location of the point on the path.
   */
-  getPointAtLength(x:number) : DOMPoint{
+  getPointAtLength(x:number) : DOMPoint {
     return this.root.getPointAtLength(x);
   }
 

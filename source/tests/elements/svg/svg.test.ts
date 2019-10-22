@@ -1,4 +1,4 @@
-import { descriptiveElements, shapeElements, structuralElements, typographyElements, aElement, clipPathElement, viewElement, scriptElement, markerElement, textElement } from './content-model.test.js';
+import { descriptiveElements, shapeElements, structuralElements, aElement, clipPathElement, viewElement, scriptElement, markerElement, textElement } from './content-model.test.js';
 import SVG from '../../../elements/svg/svg.js';
 import Container from '../../container.js';
 

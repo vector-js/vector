@@ -17,6 +17,7 @@ import Path from './elements/svg/path.js';
 import Polygon from './elements/svg/polygon.js';
 import Rectangle from './elements/svg/rectangle.js';
 import SVG from './elements/svg/svg.js';
+import Shape from './elements/svg/shape.js';
 import Symbol from './elements/svg/symbol.js';
 import TSpan from './elements/svg/t-span.js';
 import Text from './elements/svg/text.js';
@@ -63,6 +64,7 @@ export {	Button,
 					RadioControl,
 					Rectangle,
 					Scrubber,
+					Shape,
 					Slider,
 					SVG,
 					Symbol,

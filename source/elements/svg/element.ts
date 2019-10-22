@@ -102,7 +102,7 @@ export default class Element extends BaseElement {
   * If this element's root is not a SVGGRaphics element as is the case for the
   * marker, title, and more element, then null is returned instead of a DOMRect.
   */
-  getBoundingBox() : DOMRect {
+  getBoundingBox() : SVGRect {
     if ( this.root instanceof SVGGraphicsElement ) {
       return this.root.getBBox();
     } else {
