@@ -37,29 +37,7 @@ path.update = function() {
 path.update();
 
 
-
-// let xAxis = interactive.line( -interactive.width/2 + margin, 0, interactive.width/2 - margin, 0);
-// let yAxis = interactive.line( 0, -interactive.height/2 + margin, 0, interactive.height/2 - margin);
-// let rectangle = interactive.rectangle(xAxis.x1, yAxis.y1, xAxis.x2 - xAxis.x1, yAxis.y2 - yAxis.y1);
 point.constrainWithin( border);
-
-// let marker = interactive.marker(10, 5, 10, 10);
-// marker.path('M 0 0 L 10 5 L 0 10 z').style.fill = '#404040';
-// marker.setAttribute('orient', 'auto-start-reverse');
-// xAxis.setAttribute('marker-end', `url(#${marker.id})`);
-// xAxis.setAttribute('marker-start', `url(#${marker.id})`);
-// yAxis.setAttribute('marker-end', `url(#${marker.id})`);
-// yAxis.setAttribute('marker-start', `url(#${marker.id})`);
-
-// let right = interactive.text( xAxis.x2 + 16, xAxis.y2, '0, 2π');
-// right.setAttribute('alignment-baseline','middle');
-// let top = interactive.text( yAxis.x1, yAxis.y1 - 16, 'π/2');
-// top.setAttribute('text-anchor','middle');
-// let left = interactive.text( xAxis.x1 - 20, xAxis.y2, 'π');
-// left.setAttribute('alignment-baseline','middle');
-// let bottom = interactive.text( yAxis.x1, yAxis.y2 + 32, '3π/2');
-// bottom.setAttribute('text-anchor','middle');
-
 
 let group = interactive.group();
 group.style.strokeOpacity = '.2';
@@ -84,7 +62,7 @@ for( let i = 0; i <= 2*Math.PI; i++) {
   label.style.textAnchor = 'middle';
 }
 
-point.translate( 3*radius*Math.cos(1), -3*radius*Math.sin(1));
+point.translate( 3*radius*Math.cos(2), -3*radius*Math.sin(2));
 
 let radiusLine =  interactive.line(0, 0, 0, 0);
 radiusLine.style.stroke = 'cornflowerblue';
