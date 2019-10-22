@@ -5,13 +5,13 @@
 */
 
 import {Interactive, getScriptName} from '../../index.js';
-import * as data from '../../../resources/maps/maps-json.js';
+import * as data from '../../../maps/maps-json.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 600;
 interactive.height = 300;
 interactive.root.style.border = "1px solid grey";
-let map = interactive.map(data.globalData,"");
+let map = interactive.map(data.globalData);
 
 let inputContainer = document.createElement('div');
 inputContainer.classList.add('input-container');

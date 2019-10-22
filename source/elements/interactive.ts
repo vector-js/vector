@@ -29,7 +29,8 @@ import Graph from './graph/graph.js';
 import DirectedGraph from './graph/directed-graph.js';
 
 // map elements
-// import GeoMap from '../elements/maps/map.js';
+import Map from '../elements/maps/map.js';
+import { GeoJSON } from './maps/geo-json.js';
 
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
@@ -40,6 +41,7 @@ interface InteractiveOptions {
 	originX?:number,
 	originY?:number
 }
+
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -376,13 +378,16 @@ export default class Interactive extends SVG {
     return this.appendChild(new Graph());
   }
 
-  // /**
-  // * Creates a graph element within this interactive
-  // */
-  // map(mapName:string,width:number,height:number,externalData: JSON = null) : GeoMap {
-  //  let map = new GeoMap(this,mapName,width,height, externalData);
-  //  return map;
-  //  }
+  /**
+  * Creates a graph element within this interactive
+  */
+  map(externalData: GeoJSON,featureName:string = null) : Map {
+   let map = new Map(featureName,this.width,this.height,externalData);
+   let ret = this.appendChild(map);
+   let bbox = map.root.getBBox();
+   map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
+   return ret;
+   }
 
   /*
   * Creates a directed graph element within this interactive

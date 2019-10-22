@@ -5,9 +5,8 @@
 * @tags [maps]
 * @weight 1
 */
-
-import {Interactive, getScriptName} from '../../index.js';
+import { Interactive, getScriptName } from '../../index.js';
 import * as data from '../../../maps/maps-json.js';
-
 let myInteractive = new Interactive(getScriptName());
 let map = myInteractive.map(data.globalData);
+//# sourceMappingURL=world-map.js.map
