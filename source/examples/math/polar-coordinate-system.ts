@@ -1,12 +1,12 @@
 /**
-* @title Cartesian Coordinate System
-* @description This interactive demonstrates the cartesian coordinate system.
+* @title Polar Coordinate System
+* @description This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin.
 * @tags [math]
 */
 
-// import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName, download, Line, Circle} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
+// Create the constant TAU
 const TAU = 2*Math.PI;
 
 // Initialize the interactive

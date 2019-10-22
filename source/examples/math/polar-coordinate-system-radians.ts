@@ -1,15 +1,13 @@
 /**
-* @title Cartesian Coordinate System
-* @description This interactive demonstrates the cartesian coordinate system.
-* @tags [math]
+* @ignore true
 */
 
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName, download, Line, Circle} from '../../index.js';
+import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
-let margin = 32;
+// let margin = 32;
 let interactive = new Interactive(getScriptName());
 interactive.border = false;
 interactive.originX = interactive.width/2;

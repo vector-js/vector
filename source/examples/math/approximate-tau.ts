@@ -1,3 +1,7 @@
+/**
+* @ignore true
+*/
+
 import {Interactive, getScriptName} from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.height = 400;
