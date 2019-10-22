@@ -16,6 +16,10 @@ export default class GeoMap extends SVG {
     }
     draw(name) {
         this.clearPaths();
+        if (name != "")
+            this.featureName = name;
+        else
+            this.featureName = null;
         this.loadExternalJSON(name);
         let bbox = this.root.getBBox();
         this.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);
@@ -33,7 +37,6 @@ export default class GeoMap extends SVG {
      * Returns an Array HTML Elements that are all of the plotted features.
      */
     getFeatureElements() {
-        //let myDiv = document.getElementById(this.interactive.container.id);
         return Array.from(this.root.children);
     }
     /**
@@ -68,7 +71,6 @@ export default class GeoMap extends SVG {
                         path.setAttribute('transform', 'scale(1,-1)');
                         let startX = json.features[c].geometry.coordinates[k][0][0][0];
                         let startY = json.features[c].geometry.coordinates[k][0][0][1];
-                        // draw the path of the country
                         path.d = `M ${startX} ${startY}  `;
                         for (i = 1; i < json.features[c].geometry.coordinates[k][0].length; i++) {
                             let x = json.features[c].geometry.coordinates[k][0][i][0];
