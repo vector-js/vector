@@ -7,9 +7,11 @@
   <div class="aside-container">
     <aside>
       <a href="#"><h1>{{.Title}}</h1></a>
+        {{ $hidden := where .Pages ".Params.hidden" true }}
         {{ $shapes := where .Pages ".Params.shape" true }}
-        {{ $structural := where .Pages ".Params.structural" true }}
-        {{ $other := .Pages | complement $shapes $structural }}
+        {{ $typography := where .Pages ".Params.typography" true }}
+        {{ $structural := where .Pages ".Params.structural" true | complement $hidden }}
+        {{ $other := .Pages | complement $shapes $structural $typography $hidden }}
         <ul>
           <li>Geometric</li>
           {{ range $shapes }}
@@ -17,14 +19,14 @@
           {{ end }}
         </ul>
         <ul>
-          <li>Structural</li>
-          {{ range $structural }}
+          <li>Typography</li>
+          {{ range $typography }}
             {{ partial "aside-li.html" . }}
           {{ end }}
         </ul>
         <ul>
-          <li>Other</li>
-          {{ range $other }}
+          <li>Structural</li>
+          {{ range $structural }}
             {{ partial "aside-li.html" . }}
           {{ end }}
         </ul>
@@ -37,11 +39,11 @@
       <a href="{{.Permalink}}"><h2 id="{{ urlize .Title }}">{{.Title}}</h2></a>
       {{ .Render "content" }}
     {{ end }}
-    {{ range $structural }}
+    {{ range $typography }}
       <a href="{{.Permalink}}"><h2 id="{{ urlize .Title }}">{{.Title}}</h2></a>
       {{ .Render "content" }}
     {{ end }}
-    {{ range $other }}
+    {{ range $structural }}
       <a href="{{.Permalink}}"><h2 id="{{ urlize .Title }}">{{.Title}}</h2></a>
       {{ .Render "content" }}
     {{ end }}

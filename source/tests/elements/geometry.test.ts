@@ -115,6 +115,19 @@ describe('Geometry', function () {
 							 Z`;
 			element = interactive.path(d);
 		});
+		it('text', function() {
+			element = interactive.text(0,0, 'Typography');
+		});
+		it('text horizontally centered', function() {
+			let text = interactive.text(0,0, 'Typography');
+			text.setAttribute('text-anchor', 'middle');
+			element = text;
+		});
+		it('text vertically centered', function() {
+			let text = interactive.text(0,0, 'Typography');
+			text.setAttribute('alignment-baseline', 'middle');
+			element = text;
+		});
 		it('group', function() {
 			let group = interactive.group();
 			group.circle(-37, -37, 3);

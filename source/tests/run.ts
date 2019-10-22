@@ -16,6 +16,11 @@ import './elements/svg/circle.test.js';
 // interactive / custom elements
 import './elements/interactive.test.js';
 import './elements/geometry.test.js';
+
+// input tests
+import './elements/input/control.test.js';
+
+// plot tests
 import './elements/math/plot.test.js';
 
 // graph
