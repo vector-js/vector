@@ -69,7 +69,7 @@ describe('SVG', function () {
     // filterElement();
     // foreignObject();
     // imageElement();
-    markerElement();
+    // markerElement();
     // maskElement();
     scriptElement();
     // styleElement(); // TODO: this conflicts with current style property

@@ -1,25 +1,26 @@
 /**
 * @title Population of the United States
-* @description Every state of the United States colored by population density.
+* @description Every state of the United States colored by its population relative to the total population of the united states.
 * @input Input the name of the map you want to see, and the size of the map.
 * @tags [maps]
-* @weight 1
+* @weight 3
 */
 
 import {Interactive, getScriptName, Element} from '../../index.js';
 import * as data from './maps-json.js';
 import * as population from './population-data.js';
 
+// create elements
 let interactive = new Interactive(getScriptName(), {
-  width:720,
+  width:760,
   height:400
 });
 let map = interactive.map(data.usData);
+let text = interactive.text(interactive.width/3,32,"");
+text.tspan("Population of ");
+let textPopulation = text.tspan("");
 
-let text = interactive.text(430,25,"");
-let title = interactive.text(270,25,"Population Density of ")
-
-let states = map.getFeatureElements();
+// create a population map of state names -> state populations
 let populationData = population.data;
 let populationMap = new Map();
 for( let i = 0; i < populationData.length; i++) {
@@ -28,48 +29,28 @@ for( let i = 0; i < populationData.length; i++) {
   populationMap.set(state, statePopulation);
 }
 
+// calculate the range in populations for coloring each state
 let minPopulation = populationData[0].Population;
 let maxPopulation = populationData[populationData.length - 1 ].Population;
 let range = maxPopulation - minPopulation;
 
-let test = 0;
-states.forEach(element => {
-    let islands = map.getFeatureElements();
-    let name = element.getAttribute('name');
-    let population = populationMap.get(name);
-    let value = (population - minPopulation) / range;
-    let color = value*255;
-    element.setAttribute('style', `stroke: #3333333; stroke-width:0.15px; fill:rgb(${color} ${color} ${color})`);
+// color and register event listeners for each state
+map.features.forEach(function(feature, name) {
 
-    element.addEventListener("mouseenter", function(){
-        islands.forEach(inner => {
-            if(inner.getAttribute("name") == element.getAttribute("name")){
-                inner.setAttribute("style",`stroke: #3333333; stroke-width:0.15px; fill:cornflowerblue;`);
-            }
-        });
-        text.contents = `${name} : ${population}`;
-    });
+  let population = populationMap.get(name);
+  let value = (population - minPopulation) / range;
+  let color = value*255;
+  feature.style.fill = `rgb(${color} ${color} ${color})`;
 
+  // highlight the state on mouse over
+  feature.root.onmouseover = function(event:MouseEvent) {
+    feature.style.fill = 'cornflowerblue';
+    textPopulation.text = `${name} is ${population}`;
+  };
 
-    element.addEventListener("mouseleave", function(){
-        islands.forEach(inner => {
-            if(inner.getAttribute("name") == element.getAttribute("name")){
-              element.setAttribute('style', `stroke: #3333333; stroke-width:0.15px; fill:rgb(${color} ${color} ${color})`);
-            }
-        });
-        text.contents = "";
-    });
+  // remove highlighting on mouse leave
+  feature.root.onmouseout = function(event:MouseEvent) {
+    feature.style.fill = `rgb(${color} ${color} ${color})`;
+    textPopulation.text = "";
+  };
 });
-
-console.log(test);
-
-function getColor(d) {
-	return d > 1000 ? '#800026' :
-	       d > 500  ? '#BD0026' :
-	       d > 200  ? '#E31A1C' :
-	       d > 100  ? '#FC4E2A' :
-	       d > 50   ? '#FD8D3C' :
-	       d > 20   ? '#FEB24C' :
-	       d > 10   ? '#FED976' :
-	                  '#FFEDA0';
-}

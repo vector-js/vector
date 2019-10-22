@@ -1,5 +1,6 @@
 import { GeoJSON } from "./geo-json.js";
 import SVG from '../svg/svg.js';
+import Group from "../svg/group.js";
 
 /**
 * Map class for displaying geographic maps of the world and its different parts.
@@ -15,6 +16,11 @@ export default class GeoMap extends SVG {
   */
   externalJSON: GeoJSON;
 
+  /**
+  * groups features together
+  */
+  features: Map<string, Group>;
+
   /*
   * mapName: the name of the map you wish to render
   * width: width of the map
@@ -24,7 +30,7 @@ export default class GeoMap extends SVG {
     super();
     this.featureName = featureName;
     this.externalJSON = externalData;
-
+    this.features = new Map();
     this.draw(featureName);
   }
 
@@ -78,20 +84,30 @@ export default class GeoMap extends SVG {
               continue;
             }
           }
+          let name = json.features[c].properties.name;
+          let featuresGroup:Group;
+          if( this.features.has(name)) {
+            featuresGroup = this.features.get(name);
+          } else {
+            featuresGroup = this.group();
+            featuresGroup.style.stroke = '#333333';
+            featuresGroup.style.strokeWidth = '1';
+            featuresGroup.style.fill = '#f8f8f8';
+            this.features.set(name, featuresGroup);
+          }
+          featuresGroup.root.setAttribute('name', name);
+          featuresGroup.classList.add('feature');
+          featuresGroup.setAttribute('transform', 'scale(1,-1)');
+          let path = featuresGroup.path('M 0 0');
+          path.classList.remove('element');
+
+
           if(json.features[c].geometry.coordinates[k].length == 1) {
-            let path = this.path('M 0 0');
-            path.root.classList.add('feature');
-            path.root.classList.remove("default");
-            path.root.setAttribute("name",json.features[c].properties.name);
-            path.style.stroke = '#333333';
-            path.style.fill = 'ffffff';
-            path.style.strokeWidth = '.1px';
-            path.setAttribute('transform', 'scale(1,-1)');
-  
+
             let startX = json.features[c].geometry.coordinates[k][0][0][0];
             let startY = json.features[c].geometry.coordinates[k][0][0][1];
-  
-            path.d = `M ${startX} ${startY}  `;
+
+            path.d = `M ${startX} ${startY} `;
             for(i = 1; i < json.features[c].geometry.coordinates[k][0].length; i++){
               let x = json.features[c].geometry.coordinates[k][0][i][0];
               let y = json.features[c].geometry.coordinates[k][0][i][1];
@@ -99,18 +115,10 @@ export default class GeoMap extends SVG {
             }
           }
           else{
-            let path = this.path('M 0 0');
-            path.root.classList.add('feature');
-            path.root.classList.remove("default");
-            path.root.setAttribute("name",json.features[c].properties.name)
-            path.style.stroke = '#333333';
-            path.style.fill = 'ffffff';
-            path.style.strokeWidth = '.1px';
-            path.setAttribute('transform', 'scale(1,-1)')
-  
+
             let startX = json.features[c].geometry.coordinates[k][0][0];
             let startY = json.features[c].geometry.coordinates[k][0][1];
-  
+
             path.d = `M ${startX} ${startY} `;
             for(i = 1; i < json.features[c].geometry.coordinates[k].length; i++){
               let x = json.features[c].geometry.coordinates[k][i][0];
@@ -122,7 +130,7 @@ export default class GeoMap extends SVG {
       }
     }
     catch(e){
-      throw new Error('There was an error processing the provided GeoJSON.'); 
+      throw new Error('There was an error processing the provided GeoJSON.' + e);
     }
   }
 

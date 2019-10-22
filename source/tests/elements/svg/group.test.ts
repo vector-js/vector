@@ -30,7 +30,7 @@ describe('Group', function () {
     // filterElement();
     // foreignObjectElement();
     // imageElement();
-    markerElement();
+    // markerElement();
     // maskElement();
     scriptElement();
     // styleElement();
