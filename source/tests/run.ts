@@ -11,7 +11,7 @@ import './elements/svg/element.test.js';
 // svg
 import './elements/svg/group.test.js';
 import './elements/svg/svg.test.js';
-import './elements/svg/circle.test.js';
+import './elements/svg/rectangle.test.js';
 
 // interactive / custom elements
 import './elements/interactive.test.js';
@@ -22,6 +22,7 @@ import './elements/input/control.test.js';
 
 // plot tests
 import './elements/math/plot.test.js';
+import './elements/maps/map.test.js'
 
 // graph
 import './elements/graph/node.test.js'

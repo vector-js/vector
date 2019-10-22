@@ -31,7 +31,8 @@ import FlowGraph from '../elements/graph/flow-graph.js';
 
 
 // map elements
-// import GeoMap from '../elements/maps/map.js';
+import Map from '../elements/maps/map.js';
+import { GeoJSON } from './maps/geo-json.js';
 
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
@@ -42,6 +43,7 @@ interface InteractiveOptions {
 	originX?:number,
 	originY?:number
 }
+
 
 /**
 * This class exposes the high level functionality of our library. Elements can
@@ -385,10 +387,13 @@ export default class Interactive extends SVG {
   /**
   * Creates a graph element within this interactive
   */
-  // map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
-  //  let map = new Map(this,mapName,width,height, externalData);
-  //  return map;
-  //  }
+  map(externalData: GeoJSON,featureName:string = null) : Map {
+   let map = new Map(featureName,this.width,this.height,externalData);
+   let ret = this.appendChild(map);
+   let bbox = map.root.getBBox();
+   map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
+   return ret;
+   }
 
   /*
   * Creates a directed graph element within this interactive
