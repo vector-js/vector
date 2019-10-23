@@ -1,3 +1,6 @@
+/*
+* @ignore true
+*/
 
 import {Interactive, getScriptName, download} from '../../index.js';
 import Group from '../../elements/svg/group.js';

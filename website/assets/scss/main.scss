@@ -25,6 +25,11 @@
 @import "components/sandbox";
 @import "components/syntax";
 
+.interactive-container .interactive {
+  display:block;
+  margin:auto;
+}
+
 .video {
   margin-top: 2rem;
   margin-bottom: 1rem;

@@ -19,7 +19,7 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
-interactive.window = true;
+interactive.border = true;
 // Create three control points
 let p1 = interactive.control(200, 100);
 let p2 = interactive.control(400, 200);

@@ -1,5 +1,5 @@
 import { getUrlParams, getURL, loadScript, parseName, download } from '/util/file.js';
-import Element from '/elements/element.js';
+import Element from '/elements/base-element.js';
 
 // variables
 let script;

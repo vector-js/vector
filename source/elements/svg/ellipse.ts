@@ -17,7 +17,7 @@ export default class Ellipse extends Shape {
   /**
   * Constructs a ellipse element at the position (cx,cy) with a rx and ry radius.
   */
-  constructor( cx:number, cy:number, rx:number, ry:number ) {
+  constructor( cx:number, cy:number, rx:number, ry:number) {
     let ellipse = document.createElementNS( 'http://www.w3.org/2000/svg', 'ellipse');
     ellipse.setAttributeNS(null, 'cx', cx.toString());
     ellipse.setAttributeNS(null, 'cy', cy.toString());

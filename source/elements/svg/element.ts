@@ -4,7 +4,7 @@ import BaseElement from '../base-element.js';
 * These global attributes are associated with every SVG element in the DOM.
 * TODO: probably remove transform from this list
 */
-export type GlobalAttributes = 'id' | 'tabindex' | 'style' | 'class' | 'transform';
+export type CoreAttributes = 'id' | 'tabindex' | 'style' | 'class' | 'lang' | 'autofocus' | 'xml:space' | 'transform';
 
 /**
 * This class defines the basic shape for all SVG elements within our library.
@@ -51,7 +51,7 @@ export default class Element extends BaseElement {
   * Similarily, the style and class attributes should be accessed through the
   * properties "style" and "classList".
   */
-  setAttribute( name: GlobalAttributes, value: string ) : Element {
+  setAttribute( name: CoreAttributes, value: string ) : Element {
     this.root.setAttribute(name,value);
     return this;
   }
@@ -59,7 +59,7 @@ export default class Element extends BaseElement {
   /**
   * Returns the value associated with the attribute.
   */
-  getAttribute( name: GlobalAttributes ) : string {
+  getAttribute( name: CoreAttributes ) : string {
     return this.root.getAttribute(name);
   }
 
@@ -99,10 +99,10 @@ export default class Element extends BaseElement {
   * getBoundingClientRect method since the bounding box is affected by the
   * current viewPort.
   *
-  * If this element's root is not a SVGGRaphics element as is the case for the
+  * If this element's root is not a SVGGraphics element as is the case for the
   * marker, title, and more element, then null is returned instead of a DOMRect.
   */
-  getBoundingBox() : DOMRect {
+  getBoundingBox() : SVGRect {
     if ( this.root instanceof SVGGraphicsElement ) {
       return this.root.getBBox();
     } else {

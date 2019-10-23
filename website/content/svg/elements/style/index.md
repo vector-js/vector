@@ -1,6 +1,7 @@
 ---
 title: Style
 description:
+hidden: true
 ---
 
 The style element defines CSS that is applied to elements through a combination of selectors.

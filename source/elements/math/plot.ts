@@ -60,6 +60,11 @@ export default class Plot extends Group {
   */
   yAxis : Line;
 
+  /**
+  * A group containing the grid lines
+  */
+  grid: Group;
+
   // elements
   xRect : Rectangle;
   yRect : Rectangle;
@@ -104,6 +109,19 @@ export default class Plot extends Group {
   constructor( width :number = 600, height:number = 300, fn:(x:number) => number, options:PlotOptions ) {
     super();
 
+    // default configuration options
+    let defaultOptions = {
+      scaleX:1,
+      scaleY:1,
+      grid:true,
+      zoomable:false, // experimental
+      displayPoint:false, // experimental
+      controls:false // experimental
+    };
+
+    // combine the default configuration with the user's configuration
+    let config = { ...defaultOptions, ...options};
+
     // event variables
     this.prevX = 0;
     this.prevY = 0;
@@ -119,7 +137,7 @@ export default class Plot extends Group {
     // creates a transparent rectangle to capture all user events
     this.rect = this.rectangle(0, 0, this.width, this.height);
     this.rect.style.fill = 'transparent';
-    if( options.border === undefined || options.border ) {
+    if( config.border === undefined || config.border ) {
       this.rect.style.border = '1px solid #404040';
     } else {
       this.rect.style.stroke = 'none';
@@ -131,13 +149,13 @@ export default class Plot extends Group {
 
     // create a static group for non-size-scaling objects
     this.staticGroup = this.group();
-    this.staticGroup.line(-10000, 0, 10000, 0);
-    this.staticGroup.line( 0, -10000, 0, 10000 );
+    this.xAxis = this.staticGroup.line(-10000, 0, 10000, 0);
+    this.yAxis = this.staticGroup.line( 0, -10000, 0, 10000);
     this.staticGroup.circle(0, 0, 3).fill = '#404040';
 
     // initialize the scaling
-    options.scaleX ? this.scaleX = options.scaleX : this.scaleX = 1;
-    options.scaleY ? this.scaleY = options.scaleY : this.scaleY = 1;
+    this.scaleX = config.scaleX;
+    this.scaleY = config.scaleY;
 
     // calculate the visible dimensions and top-left position of internal coordinates
     this.visibleWidth = this.width/this.scaleX;
@@ -151,22 +169,24 @@ export default class Plot extends Group {
 
     this.setViewBox();
 
-    if( options.originX != undefined && options.originY != undefined){
-      this.setOrigin(options.originX, options.originY);
+    if( config.originX != undefined && config.originY != undefined){
+      this.setOrigin(config.originX, config.originY);
     }
 
     // draw a grid of rectangles
-    if( options.grid ) {
-      let w = 10;
-      let h = 10;
-      for( let i = -10; i <= 10; i++) {
-        for( let j = -10; j <= 10; j ++) {
-          let x = i*w;
-          let y = j*h;
-          let rect = this.viewPort.rectangle(x, y, w, h);
-          rect.style.stroke = '#777777';
-          rect.root.setAttribute('vector-effect','non-scaling-stroke');
-        }
+    if( config.grid ) {
+      this.grid = this.viewPort.group();
+      this.grid.classList.add('grid');
+      this.grid.style.opacity = '.4';
+
+      // horizontal lines
+      for( let i = Math.floor(this.internalY); i <= this.internalY + this.visibleHeight; i++) {
+        this.grid.line(this.internalX, i, this.internalX + this.visibleWidth, i);
+      }
+
+      // vertical lines
+      for( let i = Math.floor(this.internalX); i <= this.internalX + this.visibleWidth; i++) {
+        this.grid.line(i, this.internalY, i, this.internalY + this.visibleHeight);
       }
     }
 
@@ -174,7 +194,7 @@ export default class Plot extends Group {
     let graph = this;
 
     // Registers event listeners
-    if( options.displayPoint === undefined || options.displayPoint ) {
+    if( config.displayPoint === undefined || config.displayPoint ) {
 
       // create a display circle for showing input and output
       this.displayCircle = this.staticGroup.circle(0,0,4);
@@ -200,7 +220,7 @@ export default class Plot extends Group {
 
     }
 
-    if( options.zoomable === undefined || options.zoomable ) {
+    if( config.zoomable === undefined || config.zoomable ) {
       this.root.addEventListener('mousedown', function( event:MouseEvent) {
         graph.handleMouseDown(event);
       });
@@ -215,7 +235,7 @@ export default class Plot extends Group {
       }, {passive:false});
     }
 
-    if( options.controls ) {
+    if( config.controls ) {
       let zoomIn = this.rectangle( this.width - 48, 16, 30, 30);
       zoomIn.setAttribute('rx', '3');
       zoomIn.style.fill = '#f8f8f8';
@@ -278,15 +298,23 @@ export default class Plot extends Group {
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
-  call( x:number, normalize = true ) : number {
+  call( x:number, trim = false ) : number {
 
     // call and scale the function
     let y = this.scaleY*this._function(x/this.scaleX);
 
     // normalize big/small y values
-    if( normalize ) {
-      if( y >  2*this.height ) { y =  2*this.height; }
-      if( y < -2*this.height ) { y = -2*this.height; }
+    if( trim ) {
+      let margin = 8;
+      let yMax = this.y + this.height + margin;
+      let yMin = this.y - margin;
+      if( -y > yMax ) { y = -yMax; }
+      if( -y < yMin ) { y = -yMin; }
+    } else {
+      let yMax = this.y + 2*this.height;
+      let yMin = this.y - this.height;
+      if( y > yMax ) { y = yMax; }
+      if( y < yMin ) { y = yMin; }
     }
     return y;
   }
@@ -308,7 +336,7 @@ export default class Plot extends Group {
   * graph there is enough drawn so that a translate may be applied instead of
   * having to call draw again.
   */
-  draw( startX = this.x - this.width, endX = this.x + 2*this.width ) {
+  draw( startX = this.x - this.width, endX = this.x + 2*this.width, trim = false ) {
 
     this.setViewBox();
     this.updateDisplayCircle();
@@ -316,7 +344,7 @@ export default class Plot extends Group {
     // Start drawing the function
     let start = false;
     let x = startX;
-    let y = this.call(x);
+    let y = this.call(x, trim);
     let d : string = '';
     let prev : number;
 
@@ -328,9 +356,9 @@ export default class Plot extends Group {
     }
 
     // Loop through and draw coordiantes of the function path
-    for( x ++; x < endX; x ++ ){
-      let y = this.call(x);
-      if( isNaN(y)) {
+    for( x+=1; x < endX; x+=1 ){
+      let y = this.call(x, trim);
+      if(isNaN(y) || !isFinite(y)) {
         continue;
       }
       // check for vertical asymptotes or if we haven't started drawing
@@ -457,5 +485,25 @@ export default class Plot extends Group {
 
     // redraw visual elements
     this.draw();
+  }
+
+  /**
+  *
+  */
+  export() : SVG {
+    let result = new SVG(0, 0, this.width, this.height);
+
+    let margin = 8;
+
+    // trim axis
+    this.xAxis.x1 = this.x;
+    this.xAxis.x2 = this.x + this.width;
+    this.yAxis.y1 = this.y;
+    this.yAxis.y2 = this.y + this.height;
+
+    // draw trimmed version
+    this.draw(this.x - margin, this.x + this.width + margin, true);
+
+    return result;
   }
 }

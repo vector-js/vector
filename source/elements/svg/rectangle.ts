@@ -1,4 +1,4 @@
-import { GlobalAttributes } from './element.js';
+import { CoreAttributes } from './element.js';
 import Shape, { ShapeAttributes } from './shape.js';
 
 type RectangleAttributes = 'rx' | 'ry';
@@ -25,13 +25,13 @@ export default class Rectangle extends Shape {
   }
 
   // comment inherited from base class
-  setAttribute(name: RectangleAttributes | ShapeAttributes | GlobalAttributes, value: string): Rectangle {
+  setAttribute(name: RectangleAttributes | ShapeAttributes | CoreAttributes, value: string): Rectangle {
     this.root.setAttribute(name,value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute(name: RectangleAttributes | ShapeAttributes | GlobalAttributes): string {
+  getAttribute(name: RectangleAttributes | ShapeAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 

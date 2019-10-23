@@ -87,10 +87,10 @@ export default class GeoMap extends SVG {
             path.style.fill = 'ffffff';
             path.style.strokeWidth = '.1px';
             path.setAttribute('transform', 'scale(1,-1)');
-  
+
             let startX = json.features[c].geometry.coordinates[k][0][0][0];
             let startY = json.features[c].geometry.coordinates[k][0][0][1];
-  
+
             path.d = `M ${startX} ${startY}  `;
             for(i = 1; i < json.features[c].geometry.coordinates[k][0].length; i++){
               let x = json.features[c].geometry.coordinates[k][0][i][0];
@@ -107,10 +107,10 @@ export default class GeoMap extends SVG {
             path.style.fill = 'ffffff';
             path.style.strokeWidth = '.1px';
             path.setAttribute('transform', 'scale(1,-1)')
-  
+
             let startX = json.features[c].geometry.coordinates[k][0][0];
             let startY = json.features[c].geometry.coordinates[k][0][1];
-  
+
             path.d = `M ${startX} ${startY} `;
             for(i = 1; i < json.features[c].geometry.coordinates[k].length; i++){
               let x = json.features[c].geometry.coordinates[k][i][0];
@@ -122,7 +122,7 @@ export default class GeoMap extends SVG {
       }
     }
     catch(e){
-      throw new Error('There was an error processing the provided GeoJSON.'); 
+      throw new Error('There was an error processing the provided GeoJSON.');
     }
   }
 

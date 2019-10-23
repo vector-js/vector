@@ -5,7 +5,7 @@
 */
 
 import {Interactive, getScriptName} from '../../index.js';
-import * as data from '../../../maps/maps-json.js';
+import * as data from './maps-json.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 600;

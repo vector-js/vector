@@ -1,6 +1,6 @@
-import Element, { GlobalAttributes } from './element.js';
+import Element, { CoreAttributes } from './element.js';
 
-export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end';
+export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end' | 'transform';
 
 /**
 * A shape is a basic geometric element.
@@ -17,23 +17,21 @@ export default abstract class Shape extends Element {
     super(root);
   }
 
-  /**
-  * what the fuck typescript
-  */
-  setAttribute(name: ShapeAttributes | GlobalAttributes, value: string): Shape {
+	// comment inherited from base class
+  setAttribute(name: ShapeAttributes | CoreAttributes, value: string): Shape {
     this.root.setAttribute(name,value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute(name: ShapeAttributes | GlobalAttributes): string {
+  getAttribute(name: ShapeAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 
   /**
   * Returns the location of the point on the path.
   */
-  getPointAtLength(x:number) : DOMPoint{
+  getPointAtLength(x:number) : DOMPoint {
     return this.root.getPointAtLength(x);
   }
 

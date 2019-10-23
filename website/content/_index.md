@@ -281,10 +281,6 @@ Alternatively, the viewbox of the interactive can be changed
 // TODO: Scaling example
 {{< /highlight >}}
 
-### Zooming and Panning
-
-{{<example "zoom-in-out">}}
-
 ### Transforming
 
 ## Styling

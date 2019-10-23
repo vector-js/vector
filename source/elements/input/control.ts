@@ -323,10 +323,73 @@ export default class Control extends Input {
         return {x:x, y:y};
 
       };
-
-
     } else if( element instanceof Rectangle) {
+      this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
 
+        let x  = newPosition.x;
+        let y = newPosition.y;
+
+        // min and max points
+        let minX = element.x;
+        let minY = element.y;
+        let maxX = element.x + element.width;
+        let maxY = element.y + element.height;
+        let cx = element.x + element.width/2;
+        let cy = element.y + element.height/2;
+
+        // constrain
+        // if( x < minX || (x > minX && x <= cx)) {x = minX;}
+        // if( y < minY || (y > minY && y <= cy)) {y = minY;}
+        // if( x > maxX || (x < maxX && x > cx)) {x = maxX;}
+        // if( y > maxY || (y < maxY && y > cy)) {y = maxY;}
+
+        return {x:x, y:y};
+      };
+    }
+  }
+
+  /**
+  * Constrains the movement of this control point to the path of the provided
+  * element.
+  */
+  constrainWithin( element:Path|Circle|Rectangle) {
+    this.addDependency(element);
+    if( element instanceof Path ) {
+      throw Error('not implemented');
+    } else if( element instanceof Circle ) {
+      this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
+
+        // Contain the position within the circle
+        if( Math.hypot(newPosition.y - element.cy, newPosition.x - element.cx) > element.r) {
+          // Calculate the angle between the current coordinate and the origin
+          let angle = Math.atan2( newPosition.y - element.cy, newPosition.x - element.cx );
+          let x = element.r*Math.cos(angle) + element.cx;
+          let y = element.r*Math.sin(angle) + element.cy;
+          return {x:x, y:y};
+        } else {
+          return newPosition;
+        }
+      };
+    } else if( element instanceof Rectangle) {
+      this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
+
+        let x  = newPosition.x;
+        let y = newPosition.y;
+
+        // min and max points
+        let x1 = element.x;
+        let y1 = element.y;
+        let x2 = element.x + element.width;
+        let y2 = element.y + element.height;
+
+        // constrain
+        if( x < x1) {x = x1;}
+        if( y < y1) {y = y1;}
+        if( x > x2) {x = x2;}
+        if( y > y2) {y = y2;}
+
+        return {x:x, y:y};
+      };
     }
   }
 

@@ -1,4 +1,4 @@
-import Element, { GlobalAttributes } from './element.js';
+import Element, { CoreAttributes } from './element.js';
 import { TextAttributes } from './text.js';
 
 /**
@@ -36,13 +36,13 @@ export default class TSpan extends Element {
   }
 
   // comment inherited from base class
-  setAttribute(name: TextAttributes | GlobalAttributes, value: string): TSpan {
+  setAttribute(name: TextAttributes | CoreAttributes, value: string): TSpan {
     this.root.setAttribute(name,value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute(name: TextAttributes | GlobalAttributes): string {
+  getAttribute(name: TextAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 

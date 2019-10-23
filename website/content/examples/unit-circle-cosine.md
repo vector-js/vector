@@ -3,7 +3,7 @@
 title: Unit Circle Cosine
 id: unit-circle-cosine
 script: /examples/math/unit-circle-cosine.js
-description: undefined
+description: This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine
 input: undefined
 tags: [math]
 weight: undefined
@@ -13,6 +13,7 @@ draft: undefined
 {{< highlight javascript >}}
 /**
 * @title Unit Circle Cosine
+* @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine
 * @tags [math]
 * @date October 9, 2019
 * @author Kurt Bruns
