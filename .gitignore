@@ -7,6 +7,6 @@ types
 
 # ignore generated files on development branches
 # docs
+# api
 dist
-api
 vector.js
