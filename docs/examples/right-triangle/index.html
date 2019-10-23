@@ -61,8 +61,8 @@
 <span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="err">/ 2;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="err">/ 2;</span>
 <span class="p">;</span>
 <span class="c1">// Create two control points
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">80</span><span class="p">);</span>
@@ -88,8 +88,8 @@
 <span class="nx">square</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fillOpacity</span> <span class="o">=</span> <span class="s1">&#39;.3&#39;</span><span class="p">;</span>
 <span class="nx">square</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">);</span>
 <span class="nx">square</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">square</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">square</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="nx">square</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">p2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">square</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">square</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">square</span><span class="p">.</span><span class="nx">width</span> <span class="err">/ 2;</span>
+    <span class="nx">square</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">p2</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">square</span><span class="p">.</span><span class="nx">height</span> <span class="err">/ 2;</span>
 <span class="p">};</span>
 <span class="nx">square</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 <span class="nx">mirrorCircle</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
