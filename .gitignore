@@ -10,7 +10,3 @@ docs
 dist
 api
 vector.js
-/**/*.d.ts
-examples/**/*.js
-source/**/*.js
-tests/**/*.js
