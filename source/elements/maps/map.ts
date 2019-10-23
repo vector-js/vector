@@ -31,28 +31,42 @@ export default class GeoMap extends SVG {
     this.featureName = featureName;
     this.externalJSON = externalData;
     this.features = new Map();
-    this.draw(featureName);
+    this.loadExternalJSON(featureName);
+
+    // this.draw(featureName);
   }
 
   draw(name: string){
-    this.clearPaths();
-    if(name != "")
-      this.featureName = name;
-    else
-      this.featureName = null;
-    this.loadExternalJSON(name);
-    let bbox = this.root.getBBox();
+
+    // this.clearPaths();
+    // this.loadExternalJSON(name);
+
+    let bbox;
+    if( this.features.has(name)) {
+      bbox = this.features.get(name).getBoundingBox();
+    } else {
+      bbox = this.getBoundingBox();
+    }
+
     this.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
+
+    //
+    // this.clearPaths();
+    // if(name != "")
+    //   this.featureName = name;
+    // else
+    //   this.featureName = null;
+    // this.loadExternalJSON(name);
+    // let bbox = this.root.getBBox();
   }
 
   /**
    * Clears the interactive of all Map paths.
    */
   clearPaths(){
-    let t = this.root.getElementsByClassName('feature');
-
-    while(t.length > 0){
-      t[0].remove();
+    for( let key in this.features ) {
+      this.features.get(key).remove();
+      this.features.delete(key);
     }
   }
   /**

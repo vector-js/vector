@@ -9,9 +9,15 @@ import './util/math.test.js';
 import './elements/svg/element.test.js';
 
 // svg
+import './elements/svg/circle.test.js';
+import './elements/svg/ellipse.test.js';
 import './elements/svg/group.test.js';
-import './elements/svg/svg.test.js';
+import './elements/svg/line.test.js';
+import './elements/svg/polygon.test.js';
+import './elements/svg/path.test.js';
 import './elements/svg/rectangle.test.js';
+import './elements/svg/svg.test.js';
+import './elements/svg/text.test.js';
 
 // interactive / custom elements
 import './elements/interactive.test.js';
