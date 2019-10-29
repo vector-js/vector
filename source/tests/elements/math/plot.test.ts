@@ -16,7 +16,7 @@ describe('Plot', function () {
   });
 
   afterEach(function(){
-    plot.export(); // for exporting not testing
+    // plot.export(); // for exporting not testing
   });
 
   describe('User Events', function() {
@@ -51,7 +51,9 @@ describe('Plot', function () {
       let scaleY = 50;
       plot = interactive.plot(600, 300, f, {
         scaleX: scaleX,
-        scaleY: scaleY
+        scaleY: scaleY,
+        displayPoint: true,
+        zoomable: true
       });
 		});
 
@@ -180,7 +182,9 @@ describe('Plot', function () {
         originX: 0,
         originY: 300,
         scaleX: scaleX,
-        scaleY: scaleY
+        scaleY: scaleY,
+        displayPoint: true,
+        zoomable: true
       });
     });
     it('arcsine', function() {
@@ -245,23 +249,160 @@ describe('Plot', function () {
   });
 
   describe('Grid Lines', function(){
+    it('should display grid lines every .1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 101;
+      let scaleY = 101;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every .1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 100;
+      let scaleY = 100;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every .1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 50;
+      let scaleY = 50;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every .1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 99;
+      let scaleY = 99;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every .1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 11;
+      let scaleY = 11;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
     it('should display grid lines every 1 unit', function() {
-      let f = Math.tan;
-      let scaleX = 300/Math.PI;
-      let scaleY = 300/Math.PI;
+      let f = (x:number) => x*x;
+      let scaleX = 10;
+      let scaleY = 10;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 9;
+      let scaleY = 9;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 1 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 5;
+      let scaleY = 5;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 10 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 1.1;
+      let scaleY = 1.1;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 1;
+      let scaleY = 1;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = .9;
+      let scaleY = .9;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = .5;
+      let scaleY = .5;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = .11;
+      let scaleY = .11;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = .10;
+      let scaleY = .10;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = .09;
+      let scaleY = .09;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('should display grid lines every 100 unit', function() {
+      let f = (x:number) => x*x;
+      let scaleX = .05;
+      let scaleY = .05;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY
+      });
+    });
+    it('zooming', function() {
+      let f = (x:number) => x*x;
+      let scaleX = 50;
+      let scaleY = 50;
       plot = interactive.plot(600, 300, f, {
         scaleX: scaleX,
         scaleY: scaleY,
-        originX: 0,
-        originY: 150
+        zoomable: true,
+        displayPoint: true
       });
-      // for( let i = -10; i <= 10; i++) {
-      //   for( let j = -10; j <= 10; j++) {
-      //     let rect = plot.viewPort.rectangle(i,j,1,1);
-      //     rect.root.setAttribute('vector-effect','non-scaling-stroke');
-      //     rect.style.stroke = '#aaaaaa';
-      //   }
-      // }
     });
   });
 });

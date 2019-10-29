@@ -95,6 +95,16 @@ export default class Element extends BaseElement {
   }
 
   /**
+  * Removes all child elements from this element.
+  */
+  clear() {
+    let child;
+    while( child = this.root.firstChild ) {
+      BaseElement.controller.get(child.id).remove();
+    }
+  }
+
+  /**
   * Returns the bounding box of this element. Note, this is different from the
   * getBoundingClientRect method since the bounding box is affected by the
   * current viewPort.
