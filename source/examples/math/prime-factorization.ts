@@ -29,6 +29,11 @@ input.classList.add('input');
 interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
 inputContainer.appendChild(input);
 input.onchange = function() {
+  if( parseInt(input.value) < 2 ) {
+    input.value = '2';
+  } else if ( parseInt(input.value) > 1000000 ) {
+    input.value = '1000000';
+  }
   drawGraph();
 };
 
@@ -68,6 +73,7 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
     // base case
     if( n == p ) {
       let leaf = graph.addNode( x, y, n.toString(), radius, radius);
+      leaf.nodeEllipse.style.stroke = '#1bc075';
       if( prev != null ) {
         graph.addEdge( prev, leaf)
       }
@@ -86,6 +92,7 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
         graph.addEdge( prev, node);
       }
       graph.addEdge( node, leaf);
+      leaf.nodeEllipse.style.stroke = '#1bc075';
 
       // update variables
       n = n/p;
