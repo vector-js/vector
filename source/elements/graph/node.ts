@@ -14,6 +14,7 @@ export default class Node extends Group {
   nodeName: Text;
   nodeEllipse: Ellipse;
   edges: Set<Edge>;
+  children:Node[];
   private _cx:number;
   private _text:string;
   private _cy:number;
@@ -39,6 +40,7 @@ export default class Node extends Group {
    this.nodeName.root.setAttribute("alignment-baseline", "middle");
    this.nodeEllipse = new Ellipse(cx, cy, rx, ry);
    this.nodeEllipse.fill = '#f8f8f8';
+   this.children = [];
 
    this.root.appendChild(this.nodeEllipse.root);
    this.root.appendChild(this.nodeName.root);
@@ -78,6 +80,19 @@ export default class Node extends Group {
   */
   get cy(){
     return this._cy;
+  }
+
+  set cx(cx:number){
+    this._cx = cx;
+    this.nodeEllipse.cx = cx;
+  }
+
+  /**
+  * Getter for cy of this node
+  */
+  set cy(cy:number){
+    this._cy = cy;
+    this.nodeEllipse.cy = cy;
   }
 
   /**
@@ -129,6 +144,9 @@ export default class Node extends Group {
   * Adds an edge to this node.
   */
   addEdge(edge:Edge):void {
+    if(edge.nodeFrom == this){
+      this.children.push(edge.nodeTo);
+    }
     this.edges.add(edge);
   }
 }
