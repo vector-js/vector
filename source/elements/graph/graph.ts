@@ -58,7 +58,7 @@ export default class Graph extends Group {
   */
   addEdge(from: Node, to: Node) : Edge
   {
-    let edge = new Edge(from, to, false);
+    let edge = new Edge(from, to, this.options.directed);
 
     if(this.options.directed){
       edge.root.setAttribute('marker-end', `url(#arrow)`);
@@ -85,5 +85,9 @@ export default class Graph extends Group {
   */
   size():number{
     return this.nodes.length;
+  }
+
+  tidy(){
+    console.log(this.nodes);
   }
 }
