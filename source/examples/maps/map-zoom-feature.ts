@@ -1,6 +1,6 @@
 /**
-* @title Country Selection
-* @description Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn.
+* @title Map Zoom
+* @description Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive.
 * @tags [elements, maps]
 */
 
@@ -9,9 +9,9 @@ import * as data from './maps-json.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.root.style.border = "1px solid grey";
-let map = interactive.map(data.globalData,"",{fill: '#6be88c',
+let map = interactive.map(data.globalData,"",{fill: 'red',
                                               stroke: 'white',
-                                              strokeWidth: 0.3});
+                                              strokeWidth: 0.5});
 
 let inputContainer = document.createElement('div');
 inputContainer.classList.add('input-container');
@@ -23,10 +23,19 @@ input.classList.add('input');
 interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
 inputContainer.appendChild(input);
 
+let prev = "";
 input.addEventListener("keyup", function(event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
-        map.draw(input.value);
-        let t = map.root.getBBox();
+        if(prev != "")
+            map.getPathForFeatureName(prev).style.fill = 'red';
+        if(input.value != ""){
+            prev = input.value;
+            map.setViewBoxToFeature(input.value);
+            map.getPathForFeatureName(input.value).style.fill = 'blue';
+        }
+        else{
+            map.resetViewBox();
+        }
     }
   });

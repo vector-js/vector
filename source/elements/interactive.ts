@@ -21,6 +21,7 @@ import ControlCircle from './input/control-circle.js';
 import RadioControl from './input/radio-control.js';
 import Scrubber from './input/scrubber.js';
 import Slider, { SliderOptions } from './input/slider.js';
+import HoverBox from './input/hover-box.js';
 
 // graph elements
 import Node from './graph/node.js';
@@ -29,7 +30,7 @@ import Graph from './graph/graph.js';
 import DirectedGraph from './graph/directed-graph.js';
 
 // map elements
-import Map from '../elements/maps/map.js';
+import Map, { MapOptions } from '../elements/maps/map.js';
 import { GeoJSON } from './maps/geo-json.js';
 
 // math elements
@@ -378,11 +379,15 @@ export default class Interactive extends SVG {
     return this.appendChild(new Graph());
   }
 
+  hoverBox(str: string) : HoverBox{
+    return this.appendChild(new HoverBox(str));
+  }
+
   /**
   * Creates a graph element within this interactive
   */
-  map(externalData: GeoJSON,featureName:string = null) : Map {
-   let map = new Map(featureName,this.width,this.height,externalData);
+  map(externalData: GeoJSON,featureName:string = null,options: MapOptions = {}) : Map {
+   let map = new Map(featureName,externalData,options);
    let ret = this.appendChild(map);
    let bbox = map.root.getBBox();
    map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
