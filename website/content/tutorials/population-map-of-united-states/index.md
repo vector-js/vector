@@ -5,7 +5,7 @@ image: "/images/population-of-united-states.svg"
 weight: 3
 ---
 
-<div id="hover-state"></div><script type="module" src="../../../../examples/maps/hover-state.js"></script>
+<div id="population-of-united-states"></div><script type="module" src="../../../../examples/maps/population-of-united-states.js"></script>
 
 In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it's population density.
 
