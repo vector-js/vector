@@ -1,6 +1,6 @@
 /**
 * @title State Quiz
-* @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you're correct!
+* @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you're correct! If you want some help, press the '/' key.
 * @tags [elements, maps, games]
 */
 
@@ -46,7 +46,6 @@ let states = map.getAllFeaturePaths();
 let index = getRandomInt(0,states.length);
 let current = states[index];
 current.style.fill = 'cyan';
-input.value = current.root.getAttribute('name');
 
 input.addEventListener("keyup", function(event) {
     // Number 13 is the "Enter" key on the keyboard
@@ -63,7 +62,7 @@ input.addEventListener("keyup", function(event) {
                 index = getRandomInt(0,states.length);
                 current = states[index];
                 current.style.fill = 'cyan';
-                input.value = current.root.getAttribute('name');
+                input.value = '';
             }
         }
         else{
@@ -75,6 +74,10 @@ input.addEventListener("keyup", function(event) {
             current.style.fill = 'cyan';
             input.value = '';
         }
+    }
+    //Number 72 is the key code for the / key
+    if(event.keyCode === 191){
+        input.value = current.root.getAttribute('name');
     }
   });
 
