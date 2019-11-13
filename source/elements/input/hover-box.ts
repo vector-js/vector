@@ -29,7 +29,7 @@ export default class HoverBox extends Input {
 
         this.box = this.rectangle( 0, -16, this.label.length*2 + 16, 32);
         this.box.root.setAttribute('rx', '2px');
-        this.box.fill = 'grey'
+        this.box.fill = 'white';
         this.box.style.fillOpacity = '0.9';
         this.label.x = this.box.x + this.box.width/2;
         this.appendChild(this.label);

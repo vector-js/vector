@@ -1,7 +1,7 @@
 /**
-* @title Vector.js Hello World
-* @description Hi!
-* @tags [game]
+* @title Click Accuracy Game
+* @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out!
+* @tags [elements, games]
 * @weight 1
 */
 import {Interactive, getScriptName, Button} from '../../index.js';
@@ -18,8 +18,6 @@ let gameDone = false;
 let listIntervals = [];
 let circleIntevals = [];
 let hits = [];
-let middle = [];
-let front = [];
 
 let interactive = new Interactive(getScriptName());
 interactive.height = 600;
@@ -115,14 +113,6 @@ function getRandomInt(min, max) {
 
 function createCircle(){
     gameDone = false;
-    // middle.forEach(element => {
-    //     element.remove();
-    //     interactive.appendChild(element);
-    // });
-    // front.forEach(element => {
-    //     element.remove();
-    //     interactive.appendChild(element);
-    // });
 
     let x = getRandomInt(radius,interactive.width-radius);
     let y = getRandomInt(radius,interactive.height-radius);
@@ -137,8 +127,6 @@ function createCircle(){
     ic.style.fill = 'white';
     oc.style.fill = 'yellow';
     oc.style.fillOpacity = '0.1';
-    // middle.push(c);
-    // front.push(ic);
 
     let timer = setIntervalAndStart(function(){
         if(!gameDone){
@@ -160,26 +148,9 @@ function createCircle(){
         c.root.remove();
         ic.root.remove();
         oc.root.remove();
-        //let i;
-        // for(i = 0; i <middle.length;i++){
-        //     if(middle[i] === c){
-        //         middle.splice(i,1);
-        //         console.log("removem")
-        //         break;
-        //     }
-        // }
-        // for(i = 0; i <front.length;i++){
-        //     if(front[i] === ic){
-        //         console.log("removef")
-        //         front.splice(i,1);
-        //         break;
-        //     }
-        // }
         c.classList.add('hit');
         hits.push(c);
         updateRates();
-        // console.log('f: '+front.length);
-        // console.log('m: '+middle.length);
     };
     ic.root.onclick = function(event){
         clearInterval(timer);
@@ -188,29 +159,10 @@ function createCircle(){
         c.root.remove();
         ic.root.remove();
         oc.root.remove();
-        // let i;
-        // for(i = 0; i <middle.length;i++){
-        //     if(middle[i] === c){
-        //         middle.splice(i,1);
-        //         console.log('removem')
-        //         break;
-        //     }
-        // }
-        // for(i = 0; i <front.length;i++){
-        //     if(front[i] === ic){
-        //         console.log("removef")
-        //         front.splice(i,1);
-        //         break;
-        //     }
-        // }
         ic.classList.add('hit');
         hits.push(ic);
         updateRates();
-        // console.log('f: '+front.length);
-        // console.log('m: '+middle.length);
     };
-    // console.log('f: '+front.length);
-    // console.log('m: '+middle.length);
 }
 
 function gameOver(){
@@ -245,6 +197,12 @@ function gameOver(){
 
     interactive.root.getElementById(gameOverText.id).remove();
     interactive.appendChild(gameOverText);
+    interactive.root.getElementById(outerScoreLabel.id).remove();
+    interactive.appendChild(outerScoreLabel);
+    interactive.root.getElementById(outerPointsLabel.id).remove();
+    interactive.appendChild(outerPointsLabel);
+    interactive.root.getElementById(innerPointsLabel.id).remove();
+    interactive.appendChild(innerPointsLabel);
 }
 
 function strike(){

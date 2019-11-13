@@ -73,6 +73,18 @@ export default class GeoMap extends SVG {
   }
 
   /**
+   * remove the feature with the passed in name from the geo map
+   * @param name the name of the feature you want to remove
+   */
+  removeFeature(name: string){
+    if(this.featuresMap.has(name)){
+      let c = this.featuresMap.get(name);
+      c.remove();
+      this.featuresMap.delete(name);
+    }
+  }
+
+  /**
    * Clears the interactive of all Map paths.
    */
   clearPaths(){

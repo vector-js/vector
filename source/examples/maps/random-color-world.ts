@@ -8,7 +8,7 @@ import {Interactive, getScriptName} from '../../index.js';
 import * as data from './maps-json.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.root.style.border = "1px solid grey";
+interactive.width = 768;
 let map = interactive.map(data.globalData);
 
 let countries = map.getAllFeaturePaths();
