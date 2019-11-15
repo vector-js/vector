@@ -2,6 +2,11 @@
 title: Map Module
 description: The basics of how to use our Map module. This tutorial will detail the capabilites, limitations, and functionality of our Map module at a high level.
 image: "/icons/maps.svg"
+video:
+  src: https://player.vimeo.com/video/373481993
+  width: 768
+  height: 516
+layout: video
 weight: 3
 ---
 
