@@ -9,7 +9,7 @@ import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 484;
+interactive.width = 500;
 let path = interactive.path('');
 let start = interactive.control( 100, 120);
 let control = interactive.control( 200, 120);

@@ -8,11 +8,11 @@ import {Interactive, getScriptName} from '../../index.js';
 
 let viewBoxControl = new Interactive(getScriptName());
 viewBoxControl.border = true;
-viewBoxControl.width = 704/2;
+viewBoxControl.width = 736/2;
 
 let viewBox = new Interactive(getScriptName());
 viewBox.border = true;
-viewBox.width = 704/2;
+viewBox.width = 736/2;
 
 let margin = 30;
 for( let i = margin; i < viewBoxControl.width - margin; i += margin) {

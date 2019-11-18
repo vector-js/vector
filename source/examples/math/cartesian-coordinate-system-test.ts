@@ -6,7 +6,7 @@
 
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName, download, Line} from '../../index.js';
+import {Interactive, getScriptName, download} from '../../index.js';
 
 /**
 * A point has an x position and y position
@@ -18,20 +18,22 @@ class Point {
 
 // Initialize the interactive
 let margin = 32;
-let interactive = new Interactive(getScriptName());
+let width = 600;
+let height = 300;
+let interactive = new Interactive(getScriptName(), {
+  width: width + 2*margin,
+  height: height + 2*margin,
+  originX: margin,
+  originY: height + margin
+});
 // interactive.border = true;
-interactive.originX = interactive.width/2 + margin;
-interactive.originY = interactive.height/2 + margin;
-interactive.width += 2*margin;
-interactive.height += 2*margin;
 interactive.style.overflow = 'visible';
 
 // Create three control points
 let point = interactive.control(0,0);
-let xAxis = interactive.line( -interactive.width/2 + margin, 0, interactive.width/2 - margin, 0);
-let yAxis = interactive.line( 0, -interactive.height/2 + margin, 0, interactive.height/2 - margin);
-let rectangle = interactive.rectangle(xAxis.x1, yAxis.y1, xAxis.x2 - xAxis.x1, yAxis.y2 - yAxis.y1);
-point.constrainWithinBox( xAxis.x1, yAxis.y1, xAxis.x2, yAxis.y2);
+let xAxis = interactive.line( 0, 0, width, 0);
+let yAxis = interactive.line( 0, 0, 0, -height);
+point.constrainWithinBox( 0, -height, width, 0);
 let boxConstraint = point.constrain;
 point.constrain = ( o:Point, n:Point) : Point => {
 
@@ -59,13 +61,11 @@ let marker = interactive.marker(10, 5, 10, 10);
 marker.path('M 0 0 L 10 5 L 0 10 z').style.fill = '#404040';
 marker.setAttribute('orient', 'auto-start-reverse');
 xAxis.setAttribute('marker-end', `url(#${marker.id})`);
-xAxis.setAttribute('marker-start', `url(#${marker.id})`);
 yAxis.setAttribute('marker-end', `url(#${marker.id})`);
-yAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
 let xAxisLabel = interactive.text( xAxis.x2 + 16, xAxis.y2, 'x');
 xAxisLabel.setAttribute('alignment-baseline','middle');
-let yAxisLabel = interactive.text( yAxis.x1, yAxis.y1 - 16, 'y');
+let yAxisLabel = interactive.text( yAxis.x1, yAxis.y2 - 16, 'y');
 yAxisLabel.setAttribute('text-anchor','middle');
 
 let xPosition = interactive.line( 0, 0, 0, 0);
@@ -88,29 +88,20 @@ yPosition.update = function(){
 
 let w = 50;
 let h = 50;
-// for( let i = -6; i <= 6; i++) {
-//   for( let j = -3; j <= 3; j ++) {
-//     let x = i*w;
-//     let y = j*h;
-//     let circle = interactive.circle(x,y, 8);
-//     circle.style.opacity = '.1';
-//     circle.style.fill = 'rgb(58	167	87)';
-//   }
-// }
 
-for( let i = -6; i <= 6; i++ ) {
+for( let i = 0; i <= 12; i++ ) {
   let x = i*w;
-  let vertical = interactive.line(x, -150, x, 150);
-  let label = interactive.text( x, 150 + margin, i.toString());
+  let vertical = interactive.line(x, 0, x, -height);
+  let label = interactive.text( x, 25, i.toString());
   label.style.textAnchor = 'middle';
   label.style.alignmentBaseline = 'middle';
   vertical.style.strokeOpacity = '.2';
 }
 
-for( let i = -3; i <= 3; i++ ) {
+for( let i = 0; i <= 6; i++ ) {
   let y = i*h;
-  let horizontal = interactive.line(-300, y, 300, y);
-  let label = interactive.text( -300 - 20, y, i.toString());
+  let horizontal = interactive.line(0, -y, width, -y);
+  let label = interactive.text( -25, -y, i.toString());
   label.style.textAnchor = 'middle';
   label.style.alignmentBaseline = 'middle';
   horizontal.style.strokeOpacity = '.2';

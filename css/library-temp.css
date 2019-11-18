@@ -38,16 +38,15 @@ input.input {
   user-select: none;
 }
 
-
-text.element {
-  fill: #333333;
-  stroke: none;
-}
-
-path.element, line.element, rect.element, ellipse.element, circle.element, polygon.element{
+.interactive path, line, rect, ellipse, circle, polygon {
   stroke:#404040;
   stroke-width:1px;
   fill:none;
+}
+
+.interactive text {
+  fill: #333333;
+  stroke: none;
 }
 
 .control > :first-child {
@@ -86,6 +85,7 @@ path.element, line.element, rect.element, ellipse.element, circle.element, polyg
 .button text {
   fill: #ffffff;
 }
+
 .grid line {
   vector-effect: non-scaling-stroke;
 }

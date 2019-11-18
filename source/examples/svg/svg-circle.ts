@@ -8,7 +8,7 @@ import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 
 let circle = interactive.circle(0,0,0);
 let l1 = interactive.line( 0, 0, 0, 0);

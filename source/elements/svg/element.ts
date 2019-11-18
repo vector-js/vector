@@ -38,7 +38,7 @@ export default class Element extends BaseElement {
     // store the root element and set the id attribute
     this.root = root;
     this.root.id = this.id;
-    this.root.classList.add('element');
+    // this.root.classList.add('element');
 
     // make the root's style declaration available
     this.style = this.root.style;

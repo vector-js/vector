@@ -10,6 +10,6 @@ import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 
 // interactive.marker();

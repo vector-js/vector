@@ -1,6 +1,7 @@
 ---
-date: "2019-02-11T10:48:41-07:00"
+title: Josh
 description: A brief description about this person.
 headshot: headshot.jpg
-title: Josh
 ---
+
+TODO: A brief description about this person.

@@ -5,8 +5,7 @@
 */
 
 
-// import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName, download, Line} from '../../index.js';
+import {Interactive, getScriptName, download} from '../../index.js';
 
 /**
 * A point has an x position and y position
@@ -18,55 +17,50 @@ class Point {
 
 // Initialize the interactive
 let margin = 32;
-let interactive = new Interactive(getScriptName());
-// interactive.border = true;
+let interactive = new Interactive(getScriptName(), {
+  height:100
+});
 interactive.originX = interactive.width/2 + margin;
 interactive.originY = interactive.height/2 + margin;
 interactive.width += 2*margin;
 interactive.height += 2*margin;
-interactive.style.overflow = 'visible';
+// interactive.style.overflow = 'visible';
 
 // Create three control points
 let point = interactive.control(0,0);
 let xAxis = interactive.line( -interactive.width/2 + margin, 0, interactive.width/2 - margin, 0);
-let yAxis = interactive.line( 0, -interactive.height/2 + margin, 0, interactive.height/2 - margin);
-let rectangle = interactive.rectangle(xAxis.x1, yAxis.y1, xAxis.x2 - xAxis.x1, yAxis.y2 - yAxis.y1);
-point.constrainWithinBox( xAxis.x1, yAxis.y1, xAxis.x2, yAxis.y2);
+point.constrainWithinBox( xAxis.x1, 0, xAxis.x2, 0);
 let boxConstraint = point.constrain;
 point.constrain = ( o:Point, n:Point) : Point => {
 
   // first snap to grid
   let x = 50*Math.round(n.x/50);
-  let y = 50*Math.round(n.y/50);
 
   // then constrain within box
-  let p = boxConstraint({x:x, y:y}, {x:x, y:y});
+  let p = boxConstraint({x:x, y:n.x}, {x:x, y:n.y});
 
   return {x:p.x, y:p.y};
 }
 
 let text = interactive.text(150, 150, "myText");
+text.style.textAnchor = 'middle';
+text.style.alignmentBaseline = 'middle';
 text.addDependency(point);
 text.update = function() {
-  this.x = point.x + 15;
-  this.y = point.y - 15;
-  this.contents = `(${point.x/50},${-point.y/50})`;
+  this.x = point.x;
+  this.y = point.y - 32;
+  this.contents = `${point.x/50}`;
 };
 text.update();
-
 
 let marker = interactive.marker(10, 5, 10, 10);
 marker.path('M 0 0 L 10 5 L 0 10 z').style.fill = '#404040';
 marker.setAttribute('orient', 'auto-start-reverse');
 xAxis.setAttribute('marker-end', `url(#${marker.id})`);
 xAxis.setAttribute('marker-start', `url(#${marker.id})`);
-yAxis.setAttribute('marker-end', `url(#${marker.id})`);
-yAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
 let xAxisLabel = interactive.text( xAxis.x2 + 16, xAxis.y2, 'x');
 xAxisLabel.setAttribute('alignment-baseline','middle');
-let yAxisLabel = interactive.text( yAxis.x1, yAxis.y1 - 16, 'y');
-yAxisLabel.setAttribute('text-anchor','middle');
 
 let xPosition = interactive.line( 0, 0, 0, 0);
 xPosition.style.stroke = 'cornflowerblue';
@@ -89,34 +83,21 @@ yPosition.update = function(){
 let w = 50;
 let h = 50;
 // for( let i = -6; i <= 6; i++) {
-//   for( let j = -3; j <= 3; j ++) {
-//     let x = i*w;
-//     let y = j*h;
-//     let circle = interactive.circle(x,y, 8);
-//     circle.style.opacity = '.1';
-//     circle.style.fill = 'rgb(58	167	87)';
-//   }
+//   let x = i*w;
+//   let circle = interactive.circle(x,0, 8);
+//   circle.style.opacity = '.1';
+//   circle.style.fill = 'rgb(58	167	87)';
 // }
 
-for( let i = -6; i <= 6; i++ ) {
+for( let i = -5; i <= 5; i++ ) {
   let x = i*w;
-  let vertical = interactive.line(x, -150, x, 150);
-  let label = interactive.text( x, 150 + margin, i.toString());
-  label.style.textAnchor = 'middle';
-  label.style.alignmentBaseline = 'middle';
-  vertical.style.strokeOpacity = '.2';
+  interactive.line(x, -6, x, 6);
+  let number = interactive.text(x, 32, i.toString());
+  number.style.textAnchor = 'middle';
+  number.style.alignmentBaseline = 'middle';
 }
 
-for( let i = -3; i <= 3; i++ ) {
-  let y = i*h;
-  let horizontal = interactive.line(-300, y, 300, y);
-  let label = interactive.text( -300 - 20, y, i.toString());
-  label.style.textAnchor = 'middle';
-  label.style.alignmentBaseline = 'middle';
-  horizontal.style.strokeOpacity = '.2';
-}
 
 point.translate( 150, -100);
 
-(window as any).download = download;
 interactive.circle(0,0,3).style.fill = '#404040';
