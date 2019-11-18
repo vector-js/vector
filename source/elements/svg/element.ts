@@ -38,7 +38,7 @@ export default class Element extends BaseElement {
     // store the root element and set the id attribute
     this.root = root;
     this.root.id = this.id;
-    this.root.classList.add('element');
+    // this.root.classList.add('element');
 
     // make the root's style declaration available
     this.style = this.root.style;
@@ -92,6 +92,16 @@ export default class Element extends BaseElement {
   remove() {
     BaseElement.controller.remove(this);
     this.root.remove();
+  }
+
+  /**
+  * Removes all child elements from this element.
+  */
+  clear() {
+    let child;
+    while( child = this.root.firstChild ) {
+      BaseElement.controller.get(child.id).remove();
+    }
   }
 
   /**

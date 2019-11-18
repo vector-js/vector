@@ -29,10 +29,11 @@ input.classList.add('input');
 interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
 inputContainer.appendChild(input);
 input.onchange = function() {
-  if( parseInt(input.value) < 2 ) {
+  if (parseInt(input.value) < 2) {
     input.value = '2';
-  } else if ( parseInt(input.value) > 1000000 ) {
-    input.value = '1000000';
+  }
+  else if (parseInt(input.value) > 1000000) {
+      input.value = '1000000';
   }
   drawGraph();
 };

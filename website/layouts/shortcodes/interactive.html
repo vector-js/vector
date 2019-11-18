@@ -1,8 +1,8 @@
 {{ $id := (.Get 0) }}
-{{ $path := (print "/dist/examples/" (print $id ".js")) }}
+{{ $path := (print "/examples/" (print $id ".js")) }}
 {{ if fileExists (print "static" $path ) }}
 <div id="{{ $id }}" class="interactive"></div>
 <script type="module" src="{{ $path }}"></script>
 {{ else }}
-{{ errorf "Failed to find example %q" $id  }}
+	{{ errorf "Failed to find example %q" $id  }}
 {{ end }}

@@ -6,16 +6,102 @@ import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
 
+/**
+* These options control the configuration of a plot object when it is created.
+*/
 export interface PlotOptions {
+
+  /**
+  * When set to true allows the user to zoom in/out and pan using the mouse
+  * scroll event and clicking and dragging. Default value is false.
+  */
   zoomable?:boolean;
+
+  /**
+  * When set to true displays a point representing the output of the function
+  * for the current x-location of the user's mouse.
+  */
   displayPoint?:boolean;
+
+  /**
+  * When set to true displays a grid representing the current scale of the plot
+  */
   grid?:boolean;
+
+  /**
+  * Controls how much the plot is scaled in the x direction.
+  */
   scaleX?:number;
+
+  /**
+  * Controls how much the plot is scaled in the y direction.
+  */
   scaleY?:number;
+
+  /**
+  * Sets the x origin of the internal coordinate system relative to the top left
+  * corner of the plot.
+  */
   originX?:number;
+
+  /**
+  * Sets the y origin of the internal coordinate system relative to the top left
+  * corner of the plot.
+  */
   originY?:number;
   border?:boolean;
   controls?:boolean;
+}
+
+/**
+* Returns the closest power of ten. TODO: replace this with an optimized
+* function that remembers the last closest power of ten and first checks the
+* adjacent powers of ten and then continues.
+*/
+function expTrunc(x:number) {
+
+  // constants so don't have to count zeros
+  const N06 =  1000000;
+  const N05 =   100000;
+  const N04 =    10000;
+  const N03 =     1000;
+  const N02 =      100;
+  const N01 =       10;
+  const N00 =        1;
+  const N_1 =      0.1;
+  const N_2 =     0.01;
+  const N_3 =    0.001;
+  const N_4 =   0.0001;
+  const N_5 =  0.00001;
+  const N_6 = 0.000001;
+
+  if( x >= N06 ) {
+    return N06;
+  } else if ( x > N05) {
+    return N05;
+  } else if ( x > N04) {
+    return N04;
+  } else if ( x > N03) {
+    return N03;
+  } else if ( x > N02) {
+    return N02;
+  } else if ( x > N01) {
+    return N01;
+  } else if ( x > N00) {
+    return N00;
+  } else if ( x > N_1) {
+    return N_1;
+  } else if ( x > N_2) {
+    return N_2;
+  } else if ( x > N_3) {
+    return N_3;
+  } else if ( x > N_4) {
+    return N_4;
+  } else if ( x > N_5) {
+    return N_5;
+  } else if ( x > N_6) {
+    return N_6;
+  }
 }
 
 /**
@@ -110,7 +196,7 @@ export default class Plot extends Group {
     super();
 
     // default configuration options
-    let defaultOptions = {
+    let defaultOptions:PlotOptions = {
       scaleX:1,
       scaleY:1,
       grid:true,
@@ -178,16 +264,7 @@ export default class Plot extends Group {
       this.grid = this.viewPort.group();
       this.grid.classList.add('grid');
       this.grid.style.opacity = '.4';
-
-      // horizontal lines
-      for( let i = Math.floor(this.internalY); i <= this.internalY + this.visibleHeight; i++) {
-        this.grid.line(this.internalX, i, this.internalX + this.visibleWidth, i);
-      }
-
-      // vertical lines
-      for( let i = Math.floor(this.internalX); i <= this.internalX + this.visibleWidth; i++) {
-        this.grid.line(i, this.internalY, i, this.internalY + this.visibleHeight);
-      }
+      this.drawGrid();
     }
 
     // store a temp variable for registering events
@@ -311,10 +388,10 @@ export default class Plot extends Group {
       if( -y > yMax ) { y = -yMax; }
       if( -y < yMin ) { y = -yMin; }
     } else {
-      let yMax = this.y + 2*this.height;
       let yMin = this.y - this.height;
-      if( y > yMax ) { y = yMax; }
-      if( y < yMin ) { y = yMin; }
+      let yMax = this.y + 2*this.height;
+      if( -y > yMax ) { y = -yMax; }
+      if( -y < yMin ) { y = -yMin; }
     }
     return y;
   }
@@ -344,7 +421,7 @@ export default class Plot extends Group {
     // Start drawing the function
     let start = false;
     let x = startX;
-    let y = this.call(x, trim);
+    let y = this.call(x, false);
     let d : string = '';
     let prev : number;
 
@@ -374,6 +451,58 @@ export default class Plot extends Group {
 
     // Update the dependents if there are any
     this.updateDependents();
+  }
+
+  /**
+  *
+  */
+  drawGrid() {
+
+    // clear all the children
+    this.grid.clear();
+
+    // TODO: use a combination of these metrics below to calculate the spacing
+    // between two grid lines. I am guessing the goal is to space grid lines
+    // somewhere between 10 - 50 pixels in the actual coordinate system
+    let pixelsX = 200*this.visibleWidth/this.width;
+    let pixelsY = 200*this.visibleHeight/this.height;
+    let spacingX = expTrunc(pixelsX);
+    let spacingY = expTrunc(pixelsY);
+
+    // TODO: use the static group for this?
+    let minX = this.internalX - this.visibleWidth;
+    let maxX = this.internalX + 2*this.visibleWidth;
+    let minY = this.internalY - this.visibleHeight;
+    let maxY = this.internalX + 2*this.visibleWidth;
+
+    console.log(spacingX, spacingY);
+
+    let x = -10*spacingX;
+    while( x < maxX ) {
+      if( x >= minX ) {
+        this.grid.line(x, minY, x, maxY);
+      }
+      x += spacingX;
+    }
+
+    let y = -10*spacingY;
+    while( y < maxY ) {
+      if( y >= minY ) {
+        this.grid.line(minX, y, maxX, y);
+      }
+      y += spacingY;
+    }
+
+    // // horizontal lines
+    // for( let i = minY; i <= maxY; i += spacingX ) {
+    //   this.grid.line(minX, i, maxX,  i);
+    // }
+    //
+    // // vertical lines
+    // for( let i = minX; i <= maxX; i += spacingY ) {
+    //   this.grid.line( i, minY,  i, maxY);
+    // }
+
   }
 
   /**
@@ -484,6 +613,7 @@ export default class Plot extends Group {
     }
 
     // redraw visual elements
+    this.drawGrid();
     this.draw();
   }
 

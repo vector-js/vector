@@ -7,8 +7,8 @@
   <div class="aside-container">
     <aside>
       <a href="#"><h1>{{.Title}}</h1></a>
+      {{ with .Params.Aside }}
       <ul>
-        {{ with .Params.Aside }}
           {{ range . }}
             {{ $heading := urlize . }}
             {{ $src := (print "/icons/" (print $heading ".svg")) }}
@@ -18,10 +18,26 @@
             <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{.}}">{{ . }}</a></li>
             {{end}}
           {{ end }}
-        {{ else }}
-          {{ errorf "Failed to find aside parameter" }}
-        {{ end }}
       </ul>
+      {{ else }}
+        {{ errorf "Failed to find aside parameter" }}
+      {{ end }}
+      {{ with .Params.Modules }}
+      <ul>
+        <li>Modules</li>
+          {{ range . }}
+            {{ $heading := urlize . }}
+            {{ $src := (print "/icons/" (print $heading ".svg")) }}
+            {{if fileExists (print "static" $src ) }}
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{.}}">{{ . }}</a></li>
+            {{ else }}
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{.}}">{{ . }}</a></li>
+            {{end}}
+          {{ end }}
+      </ul>
+      {{ else }}
+        {{ errorf "Failed to find aside parameter" }}
+      {{ end }}
     </aside>
   </div>
   <main class="medium-container" id="main-content">
