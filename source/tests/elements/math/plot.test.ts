@@ -16,7 +16,7 @@ describe('Plot', function () {
   });
 
   afterEach(function(){
-    // plot.export(); // for exporting not testing
+    plot.export(); // for exporting not testing
   });
 
   describe('User Events', function() {
@@ -94,16 +94,22 @@ describe('Plot', function () {
       let scaleY = 50;
       plot = interactive.plot(600, 300, f, {
         scaleX: scaleX,
-        scaleY: scaleY
+        scaleY: scaleY,
+        originY: 150,
+        originX: 50
       });
 		});
     it('exponential', function() {
-      let f = Math.exp;
+      interactive.width = 700;
+      interactive.height = 700;
+      let f = Math.log;
       let scaleX = 50;
       let scaleY = 50;
-      plot = interactive.plot(600, 300, f, {
+      plot = interactive.plot(700, 700, f, {
         scaleX: scaleX,
-        scaleY: scaleY
+        scaleY: scaleY,
+        originY: 400,
+        originX: 300
       });
     });
     it('floor', function() {

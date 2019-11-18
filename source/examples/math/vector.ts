@@ -36,19 +36,24 @@ yAxisLabel.setAttribute('text-anchor','middle');
 
 let w = 50;
 let h = 50;
-for( let i = -6; i < 6; i++) {
-  for( let j = -3; j < 3; j ++) {
-    let x = i*w;
-    let y = j*h;
-    let rect = interactive.rectangle(x, y, w, h);
-    rect.style.strokeOpacity = '.2';
-    rect.root.setAttribute('vector-effect','non-scaling-stroke');
-    interactive.background.prependChild(rect);
-  }
+for( let i = -5; i <= 5; i++ ) {
+  let x = i*w;
+  let vertical = interactive.line(x, -150, x, 150);
+  vertical.style.strokeOpacity = '.2';
 }
+
+for( let i = -2; i <= 2; i++ ) {
+  let y = i*h;
+  let horizontal = interactive.line(-300, y, 300, y);
+  horizontal.style.strokeOpacity = '.2';
+}
+
 let arrow = interactive.control(150, -100);
 arrow.constrainWithinBox( xAxis.x1, yAxis.y1, xAxis.x2, yAxis.y2);
+arrow.point.style.display = 'none';
 let line = interactive.line(0,0,0,0);
+interactive.input.appendChild(line);
+line.setAttribute('marker-end', `url(#${marker.id})`);
 line.addDependency(  arrow);
 line.update = function() {
   line.x2 = arrow.x;

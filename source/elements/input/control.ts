@@ -337,6 +337,54 @@ export default class Control extends Input {
         let cx = element.x + element.width/2;
         let cy = element.y + element.height/2;
 
+        if( y >= maxY && x >= maxX ) {
+          y = maxY;
+          x = maxX;
+        } else if ( y <= minY && x <= minX ) {
+          y = minY;
+          x = minY;
+        } else if ( y <= minY && x >= maxX ) {
+          y = minY;
+          x = maxX;
+        } else if ( y >= maxY && x <= minX ) {
+          y = maxY;
+          x = minX;
+        } else if( x > minX && x < maxX ){
+          if( y > cy ) {
+            y = maxY;
+          } else {
+            y = minY;
+          }
+        } else {
+          if( x > cx ) {
+            x = maxX;
+          } else {
+            x = minX;
+          }
+        }
+
+
+        //  else if ( y - cy < x - cx ) {
+        //   y = minY;
+        // } else if ( x - cx < y - cy ) {
+        //   x = minX;
+        // }
+
+
+
+        //
+
+        // if( x - cx >= y - cy) {
+        //   x = maxX;
+        // }
+        // if( y - cy < x - cx) {
+        //   y = minY;
+        // }
+
+        // if( x - cx < y - cy) {
+        //   x = minX;
+        // }
+
         // constrain
         // if( x < minX || (x > minX && x <= cx)) {x = minX;}
         // if( y < minY || (y > minY && y <= cy)) {y = minY;}
