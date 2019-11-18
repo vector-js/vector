@@ -7,7 +7,7 @@
 */
 
 import {Interactive, getScriptName} from '../../index.js';
-import * as data from './maps-json.js';
+import {globalData} from './maps-json.js';
 
 let myInteractive = new Interactive(getScriptName());
-let map = myInteractive.map(data.globalData);
+let map = myInteractive.map(globalData);

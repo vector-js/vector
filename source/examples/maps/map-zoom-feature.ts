@@ -1,6 +1,6 @@
 /**
-* @title Map Element
-* @description This interactive demonstrates the interactive world map element.
+* @title Map Zoom
+* @description Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive.
 * @tags [elements, maps]
 */
 
@@ -8,10 +8,10 @@ import {Interactive, getScriptName} from '../../index.js';
 import * as data from './maps-json.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.width = 600;
-interactive.height = 300;
 interactive.root.style.border = "1px solid grey";
-let map = interactive.map(data.globalData,"");
+let map = interactive.map(data.globalData,"",{fill: 'red',
+                                              stroke: 'white',
+                                              strokeWidth: 0.5});
 
 let inputContainer = document.createElement('div');
 inputContainer.classList.add('input-container');
@@ -23,9 +23,19 @@ input.classList.add('input');
 interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
 inputContainer.appendChild(input);
 
+let prev = "";
 input.addEventListener("keyup", function(event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
-        map.draw(input.value);
+        if(prev != "")
+            map.getPathForFeatureName(prev).style.fill = 'red';
+        if(input.value != ""){
+            prev = input.value;
+            map.setViewBoxToFeature(input.value);
+            map.getPathForFeatureName(input.value).style.fill = 'blue';
+        }
+        else{
+            map.resetViewBox();
+        }
     }
   });

@@ -58,8 +58,8 @@
 </span><span class="cm">* @tags [math, graph]
 </span><span class="cm">* @weight 1
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">nextPrime</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/math.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">nextPrime</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/math.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
@@ -123,7 +123,7 @@
             <span class="p">}</span>
             <span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">leaf</span><span class="p">);</span>
             <span class="c1">// update variables
-</span><span class="c1"></span>            <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="err">/ p;</span>
+</span><span class="c1"></span>            <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">/</span> <span class="nx">p</span><span class="p">;</span>
             <span class="nx">x</span> <span class="o">+=</span> <span class="mi">64</span><span class="p">;</span>
             <span class="nx">y</span> <span class="o">+=</span> <span class="mi">64</span><span class="p">;</span>
             <span class="nx">prev</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>

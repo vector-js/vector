@@ -38,16 +38,15 @@ input.input {
   user-select: none;
 }
 
+.plot path, line, rect {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:none;
+}
 
 text.element {
   fill: #333333;
   stroke: none;
-}
-
-path.element, line.element, rect.element, ellipse.element, circle.element, polygon.element{
-  stroke:#404040;
-  stroke-width:1px;
-  fill:none;
 }
 
 .control > :first-child {

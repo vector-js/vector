@@ -10,12 +10,13 @@ let badData = {"type":"FeatureCollection","features":[]};
 describe('GeoMap', function () {
   describe('constructor', function () {
     it('should create a map object with 3 features', function() {
-      let map = new GeoMap("Alabama",100,100,data);
-      chai.expect(map.getFeatureElements().length).to.equal(1);
+      let map = new GeoMap(null,data);
+      chai.expect(map.getHTMLFeatureElements().length).to.equal(3);
+      chai.expect(map.getAllFeaturePaths().length).to.equal(3);
     });
     it('should create elements with successive identifiers', function() {
-      let map1 = new GeoMap("",100,100,data);
-      let map2 = new GeoMap("",200,200,data);
+      let map1 = new GeoMap("",data);
+      let map2 = new GeoMap("",data);
       chai.expect(Element.controller.get(map1.id)).to.equal(map1);
       chai.expect(Element.controller.get(map2.id)).to.equal(map2);
     });
@@ -24,41 +25,47 @@ describe('GeoMap', function () {
   describe('getters/setters', function () {
     it('should get featurename', function() {
       let x = 75;
-      let map = new GeoMap("test",100,101,data);
+      let map = new GeoMap("test",data);
       chai.expect(map.featureName).to.equal("test");
     });
     it('should set, then get new featurename', function() {
         let x = "start";
-        let map = new GeoMap(x,100,101,data);
+        let map = new GeoMap(x,data);
         map.featureName = "end";
         chai.expect(map.featureName).to.equal("end");
     });
 
     it('should get default styling', function() {
-      let map = new GeoMap("Alabama",100,101,data);
-      chai.expect(map.getFeatureElements()[0].getAttribute('style')).to.equal('stroke: rgb(51, 51, 51); fill: rgb(255, 255, 255); stroke-width: 0.1px;');
+      let map = new GeoMap("Alabama",data);
+      chai.expect(map.getPathForFeatureName('Alabama').style.fill).to.equal('white');
+      chai.expect(map.getPathForFeatureName('Alabama').style.stroke).to.equal('black');
+      chai.expect(map.getPathForFeatureName('Alabama').style.strokeWidth).to.equal('0.5');
     });
+  });
 
-  describe('Stress Test', function () {
-        it('should create 3 features', function() {
-            let map = new GeoMap("Alabama,Wyoming,Puerto Rico",100,101,data);
-            chai.expect(map.getFeatureElements().length).to.equal(3);
-        });
-        it('should create and then clear 3 features', function() {
-        let map = new GeoMap("Alabama,Wyoming,Puerto Rico",100,101,data);
+  describe('Helper Functions', function () {
+    it('should return the correct path for feature name', function() {
+      let map = new GeoMap(null,data);
+      chai.expect(map.getPathForFeatureName('Alabama').root.getAttribute('name')).to.equal('Alabama');
+    });
+    it('should create 3 features', function() {
+        let map = new GeoMap("Alabama,Wyoming,Puerto Rico",data);
+        chai.expect(map.getHTMLFeatureElements().length).to.equal(3);
+    });
+    it('should create and then clear 3 features', function() {
+      let map = new GeoMap("Alabama,Wyoming,Puerto Rico",data);
+      map.clearPaths();
+      chai.expect(map.getHTMLFeatureElements().length).to.equal(0);
+    });
+    it('should create 3 features, clear 3 features, create 2 more', function() {
+        let map = new GeoMap("Alabama,Wyoming,Puerto Rico",data);
         map.clearPaths();
-        chai.expect(map.getFeatureElements().length).to.equal(0);
-        });
-        it('should create 3 features, clear 3 features, create 2 more', function() {
-            let map = new GeoMap("Alabama,Wyoming,Puerto Rico",100,101,data);
-            map.clearPaths();
-            map.loadExternalJSON("Alabama,Wyoming");
-            chai.expect(map.getFeatureElements().length).to.equal(2);
-        });
-        it('should handle bad data', function() {
-            let map = new GeoMap("Alabama,Wyoming,Puerto Rico",100,101,badData);
-            chai.expect(map.getFeatureElements().length).to.equal(0);
-        });
+        map.draw("Alabama,Wyoming");
+        chai.expect(map.getHTMLFeatureElements().length).to.equal(2);
+    });
+    it('should handle bad data', function() {
+        let map = new GeoMap("Alabama,Wyoming,Puerto Rico",badData);
+        chai.expect(map.getHTMLFeatureElements().length).to.equal(0);
     });
   });
 });

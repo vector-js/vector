@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.54.0" />
+	<meta name="generator" content="Hugo 0.59.0" />
   <meta charset="utf-8">
   <title>Vector.js</title>
   <meta name="description" content="A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives." />
@@ -45,8 +45,8 @@
   <div class="aside-container">
     <aside>
       <a href="#"><h1>Vector.js</h1></a>
+      
       <ul>
-        
           
             
             
@@ -81,12 +81,6 @@
             
             
             
-            <li><a class="aside-link" href="#maps"><img src="/icons/maps.svg" alt="Maps">Maps</a></li>
-            
-          
-            
-            
-            
             <li><a class="aside-link" href="#coordinates"><img src="/icons/coordinates.svg" alt="Coordinates">Coordinates</a></li>
             
           
@@ -96,8 +90,32 @@
             <li><a class="aside-link" href="#styling"><img src="/icons/styling.svg" alt="Styling">Styling</a></li>
             
           
-        
       </ul>
+      
+      
+      <ul>
+        <li>Modules</li>
+          
+            
+            
+            
+            <li><a class="aside-link" href="#graphs"><img src="/icons/graphs.svg" alt="Graphs">Graphs</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#maps"><img src="/icons/maps.svg" alt="Maps">Maps</a></li>
+            
+          
+            
+            
+            
+            <li><a class="aside-link" href="#plots"><img src="/icons/plots.svg" alt="Plots">Plots</a></li>
+            
+          
+      </ul>
+      
     </aside>
   </div>
   <main class="medium-container" id="main-content">
@@ -129,7 +147,7 @@
 
 <div class="filename">script.js</div>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;https://vectorjs.org/interactive.js&#34;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;https://vectorjs.org/interactive.js&#34;</span><span class="p">;</span>
 
 <span class="c1">// Construct an interactive within the HTML element with the id &#34;my-interactive&#34;
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-interactive&#34;</span><span class="p">);</span>
@@ -162,7 +180,7 @@
 </code></pre></div>
 
 
-<div id="button-element" class="vertical-center"></div>
+<div id="button-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/button-element.js"></script>
 
 
@@ -175,7 +193,7 @@
 </code></pre></div>
 
 
-<div id="check-box-element" class="vertical-center"></div>
+<div id="check-box-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/check-box-element.js"></script>
 
 
@@ -188,7 +206,7 @@
 </code></pre></div>
 
 
-<div id="control-element" class="vertical-center"></div>
+<div id="control-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/control-element.js"></script>
 
 
@@ -205,7 +223,7 @@
 </code></pre></div>
 
 
-<div id="radio-control-element" class="vertical-center"></div>
+<div id="radio-control-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/radio-control-element.js"></script>
 
 
@@ -218,7 +236,7 @@
 </code></pre></div>
 
 
-<div id="scrubber-element" class="vertical-center"></div>
+<div id="scrubber-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/scrubber-element.js"></script>
 
 
@@ -231,7 +249,7 @@
 </code></pre></div>
 
 
-<div id="slider-element" class="vertical-center"></div>
+<div id="slider-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/slider-element.js"></script>
 
 
@@ -246,7 +264,7 @@
 </code></pre></div>
 
 
-<div id="ellipse-element" class="vertical-center"></div>
+<div id="ellipse-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/ellipse-element.js"></script>
 
 
@@ -257,7 +275,7 @@
 </code></pre></div>
 
 
-<div id="line-element" class="vertical-center"></div>
+<div id="line-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/line-element.js"></script>
 
 
@@ -268,7 +286,7 @@
 </code></pre></div>
 
 
-<div id="path-element" class="vertical-center"></div>
+<div id="path-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/path-element.js"></script>
 
 
@@ -279,7 +297,7 @@
 </code></pre></div>
 
 
-<div id="rectangle-element" class="vertical-center"></div>
+<div id="rectangle-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/rectangle-element.js"></script>
 
 
@@ -290,7 +308,7 @@
 </code></pre></div>
 
 
-<div id="text-element" class="vertical-center"></div>
+<div id="text-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/text-element.js"></script>
 
 
@@ -306,16 +324,14 @@
 </code></pre></div>
 
 
-<div id="tspan-element" class="vertical-center"></div>
+<div id="tspan-element" class="vertical-center i-container"></div>
 <script type="module" src="/examples/elements/tspan-element.js"></script>
 
 
 
 <h2 id="interaction">Interaction</h2>
 
-<p>There are two forms of interaction within our system: dependencies and events.</p>
-
-<p>The first form of interaction is dependencies. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p>
+<p>There are two forms of interaction within our system: dependencies and events. The first form of interaction is dependencies - elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p>
 
 <p>The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.</p>
 
@@ -334,7 +350,7 @@
 </code></pre></div>
 
 
-<div id="dependency-function" class="vertical-center"></div>
+<div id="dependency-function" class="vertical-center i-container"></div>
 <script type="module" src="/examples/interaction/dependency-function.js"></script>
 
 
@@ -351,7 +367,7 @@
 </code></pre></div>
 
 
-<div id="keyboard" class="vertical-center"></div>
+<div id="keyboard" class="vertical-center i-container"></div>
 <script type="module" src="/examples/interaction/keyboard.js"></script>
 
 
@@ -372,7 +388,7 @@
 </code></pre></div>
 
 
-<div id="mouse-interaction" class="vertical-center"></div>
+<div id="mouse-interaction" class="vertical-center i-container"></div>
 <script type="module" src="/examples/interaction/mouse-interaction.js"></script>
 
 
@@ -397,76 +413,53 @@
 </code></pre></div>
 
 
-<div id="animate-along-path" class="vertical-center"></div>
+<div id="animate-along-path" class="vertical-center i-container"></div>
 <script type="module" src="/examples/interaction/animate-along-path.js"></script>
 
 
-
-<h2 id="maps">Maps</h2>
-
-<p>Wishful thinking (x,y) to lattitude longitude and vice versa.</p>
-
-<h3 id="world-map">World Map</h3>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">canada</span> <span class="nx">from</span> <span class="s1">&#39;./maps/canada.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">canada</span><span class="p">);</span>
-</code></pre></div>
-
-<p><img src="/images/world-map.svg" class="center" alt="SVG World Map"></p>
-
-
-<div id="map-element" class="vertical-center"></div>
-<script type="module" src="/examples/maps/map-element.js"></script>
-
-
-
-<h3 id="united-states">United States</h3>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;united-states.geojson&#34;</span><span class="p">);</span>
-</code></pre></div>
-
-<p><img src="/images/united-states.svg" class="center" alt="SVG United States Map"></p>
-
-<h3 id="custom-maps">Custom Maps</h3>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span> <span class="nx">getJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;Util.js&#39;</span><span class="p">;</span>
-
-<span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;custom.geojson&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">geoData</span><span class="p">){</span>
-
-<span class="p">});</span>
-</code></pre></div>
 
 <h2 id="coordinates">Coordinates</h2>
 
 <p>The coordinate system of the interactive image follows the SVG standard: the default origin is the top left corner of the image and the positive x direction is to the right and the positive y direction is down. This is visualized by the control point below.</p>
 
-<p>
-  
-<div id="svg-coordinate-system" class="vertical-center"></div>
+
+<div id="svg-coordinate-system" class="vertical-center i-container"></div>
 <script type="module" src="/examples/svg/svg-coordinate-system.js"></script>
 
 
-</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: show changing the origin of the coordinate system
-</span></code></pre></div>
+<h3 id="changing-the-origin">Changing the Origin</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: mathmode -&gt; changes positive direction of the y axis to be up
-</span></code></pre></div>
+<p>The origin of the interactive coordinate system can be moved by changing the <code>.originX</code> or <code>.originY</code> property of an Interactive object. The origin can also be specified when the object is constructed. In the code snippet below the origin is specified to be the point (300,150) relative to the top left corner of the interactive.</p>
 
-<p>Alternatively, the viewbox of the interactive can be changed</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s1">&#39;my-id&#39;</span><span class="p">,{</span>
+  <span class="nx">width</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
+  <span class="nx">height</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+  <span class="nx">originX</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+  <span class="nx">originY</span><span class="o">:</span> <span class="mi">150</span>
+<span class="p">});</span>
+</code></pre></div>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// what happens when the dimensions of the interactive and the viewbox disagree?
-</span></code></pre></div>
+<p>The interactive object created using the above code snippet results in the coordinate system demonstrated below. Note, the y-coordinate is flipped from the cartesian coordinate system.</p>
 
-<h3 id="scaling">Scaling</h3>
+<div id="svg-coordinate-system-moved" class="vertical-center" style="margin-bottom:1.5rem;">
+  <script type="module" src="/examples/svg/svg-coordinate-system-moved.js"></script>
+</div>
 
-<p><img src="/images/cartesian-coordinate-system.svg" class="border center" alt="SVG Coordinate System"></p>
+<h3 id="setting-the-view-box">Setting the View Box</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: Scaling example
-</span></code></pre></div>
+<p>The more general form of setting the origin of the interactive object which is derived from the SVG base class is setting the view box of the SVG element. This is extremely useful, especially when paired with the <code>getBoundingBox</code> method implemented by every SVGGraphics element. The two interactive shown below both contain a grid of rectangles. The interactive on the left contains a rectangle which represents the view box that is being applied to the interactive on the right.</p>
 
-<h3 id="transforming">Transforming</h3>
+
+<div id="svg-view-box" class="vertical-center i-container"></div>
+<script type="module" src="/examples/svg/svg-view-box.js"></script>
+
+
+
+<p>The set view box function takes in a x position, y position, width and height. The (x,y) position represents the top-left-most position of the rectangle, the width and height specify the dimensions of the rectangle.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">interactive</span><span class="p">.</span><span class="nx">setViewBox</span><span class="p">(</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">top</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+</code></pre></div>
 
 <h2 id="styling">Styling</h2>
 
@@ -493,6 +486,94 @@
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: how to load a custom style sheet
 </span></code></pre></div>
+
+<h2 id="graphs">Graphs</h2>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// TODO: graphs introduction &amp; example
+</span></code></pre></div>
+
+
+<div id="prime-factorization" class="vertical-center i-container"></div>
+<script type="module" src="/examples/math/prime-factorization.js"></script>
+
+
+
+<h2 id="maps">Maps</h2>
+
+<p>Wishful thinking (x,y) to lattitude longitude and vice versa.</p>
+
+<h3 id="world-map">World Map</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">canada</span> <span class="nx">from</span> <span class="s1">&#39;./maps/canada.js&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">canada</span><span class="p">);</span>
+</code></pre></div>
+
+<p><img src="/images/world-map.svg" class="center" alt="SVG World Map"></p>
+
+
+<div id="map-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/maps/map-element.js"></script>
+
+
+
+<h3 id="united-states">United States</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;united-states.geojson&#34;</span><span class="p">);</span>
+</code></pre></div>
+
+<p><img src="/images/united-states.svg" class="center" alt="SVG United States Map"></p>
+
+<h3 id="custom-maps">Custom Maps</h3>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">getJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;Util.js&#39;</span><span class="p">;</span>
+
+<span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;custom.geojson&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">geoData</span><span class="p">){</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="plots">Plots</h2>
+
+<p>Plots visualize the output of one or more functions in the cartesian coordinate system. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mi">300</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">originY</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>
+  <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+  <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+  <span class="nx">controls</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="cm">/* experimental */</span>
+  <span class="nx">displayPoint</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="cm">/* experimental */</span>
+  <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span> <span class="cm">/* experimental */</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<div id="cosine" class="vertical-center i-container"></div>
+<script type="module" src="/examples/plots/cosine.js"></script>
+
+
+
+<h3 id="visualize-multiple-functions">Visualize Multiple Functions</h3>
+
+
+<div id="secant" class="vertical-center i-container"></div>
+<script type="module" src="/examples/plots/secant.js"></script>
+
+
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mi">300</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">secant</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="nx">secant</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">originY</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+  <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+  <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+  <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">controls</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+<span class="nx">plot</span><span class="p">.</span><span class="nx">graph</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">);</span>
+</code></pre></div>
 
   </main>
 </section>

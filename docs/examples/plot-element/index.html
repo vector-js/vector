@@ -42,9 +42,9 @@
 <main class="medium-container">
 
   
-  <h1>Plot Element <a style="float:right" href="/sandbox/?script=/examples/elements/plot-element.js" class="button">Open in Sandbox</a></h1>
-  <div id="plot-element" class="interactive-container"></div>
-  <script type="module" src="/examples/elements/plot-element.js"></script>
+  <h1>Plot Element <a style="float:right" href="/sandbox/?script=/examples/plots/cosine.js" class="button">Open in Sandbox</a></h1>
+  <div id="cosine" class="interactive-container"></div>
+  <script type="module" src="/examples/plots/cosine.js"></script>
   
     <h2>Description</h2>
     <p>This interactive demonstrates the plot element</p>
@@ -55,15 +55,15 @@
 </span><span class="cm">* @description This interactive demonstrates the plot element
 </span><span class="cm">* @tags [elements]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="c1">// Initialize the interactive
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">functionText</span> <span class="o">=</span> <span class="s1">&#39;Math.cos&#39;</span><span class="p">;</span>
 <span class="c1">// Create a new graph object
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">scaleX</span> <span class="o">=</span> <span class="mi">300</span> <span class="err">/ Math.PI;</span>
-<span class="kd">let</span> <span class="nx">scaleY</span> <span class="o">=</span> <span class="mi">300</span> <span class="err">/ Math.PI;</span>
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">scaleX</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">scaleY</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">originY</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>

@@ -475,7 +475,7 @@ export default class Plot extends Group {
     let minY = this.internalY - this.visibleHeight;
     let maxY = this.internalX + 2*this.visibleWidth;
 
-    console.log(spacingX, spacingY);
+    // console.log(spacingX, spacingY);
 
     let x = -10*spacingX;
     while( x < maxX ) {

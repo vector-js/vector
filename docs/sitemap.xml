@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://vectorjs.org/tutorials/getting-started/</loc>
+    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/</loc>
     <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
   
@@ -17,11 +22,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/prime-factorization/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/tutorials/</loc>
-    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
   
   <url>
@@ -41,6 +41,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/tutorials/maps/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/tutorials/population-map-of-united-states/</loc>
   </url>
   
@@ -53,22 +57,12 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/team/josh/</loc>
-    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/team/zach/</loc>
-    <lastmod>2019-02-11T10:48:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/team/derek/</loc>
-    <lastmod>2019-02-11T10:48:32-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/references/</loc>
+    <lastmod>2019-02-07T21:34:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/</loc>
     <lastmod>2019-02-07T21:34:52-07:00</lastmod>
   </url>
   
@@ -137,6 +131,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/team/derek/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/directed-graph-element/</loc>
   </url>
   
@@ -162,6 +160,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/svg-clip-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/josh/</loc>
   </url>
   
   <url>
@@ -265,6 +267,26 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/sandbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/style/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/svg/</loc>
   </url>
   
@@ -325,28 +347,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/sandbox/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/slider-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/svg/elements/style/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/svg/elements/symbol/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/team/</loc>
-    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
   </url>
   
   <url>
@@ -406,16 +411,15 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/</loc>
-    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/examples/hello-world/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/svg/viewbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/zach/</loc>
   </url>
   
 </urlset>

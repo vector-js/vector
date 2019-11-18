@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vector.js</title>
@@ -6,7 +6,7 @@
     <description>Recent content on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Feb 2019 12:03:45 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 07 Feb 2019 21:34:52 -0700</lastBuildDate>
     
 	<atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -68,13 +68,22 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
     </item>
     
     <item>
+      <title>Map Module</title>
+      <link>https://vectorjs.org/tutorials/maps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/maps/</guid>
+      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJson which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
+    </item>
+    
+    <item>
       <title>Population Map</title>
       <link>https://vectorjs.org/tutorials/population-map-of-united-states/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/population-map-of-united-states/</guid>
-      <description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed  In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
-// TODO: pull data from google sheets  // Create united states map object via library call  </description>
+      <description>In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it&amp;rsquo;s population density.
+The first step in using our mapping module is always to pull in your GeoJson data.</description>
     </item>
     
     <item>
@@ -94,33 +103,6 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <guid>https://vectorjs.org/tutorials/control-with-position/</guid>
       <description>This tutorial shows the user how to add a text label to a control point. Then the text label will be made to follow the position of the point and show the point&amp;rsquo;s current position. If you haven&amp;rsquo;t gone through getting started tutorial, do so to get to the starting point.
 Starting point The starting point is an interactive with a control point that can be dragged around.</description>
-    </item>
-    
-    <item>
-      <title>Josh</title>
-      <link>https://vectorjs.org/team/josh/</link>
-      <pubDate>Mon, 11 Feb 2019 10:48:41 -0700</pubDate>
-      
-      <guid>https://vectorjs.org/team/josh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Zach</title>
-      <link>https://vectorjs.org/team/zach/</link>
-      <pubDate>Mon, 11 Feb 2019 10:48:38 -0700</pubDate>
-      
-      <guid>https://vectorjs.org/team/zach/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Derek</title>
-      <link>https://vectorjs.org/team/derek/</link>
-      <pubDate>Mon, 11 Feb 2019 10:48:32 -0700</pubDate>
-      
-      <guid>https://vectorjs.org/team/derek/</guid>
-      <description>Bio, links to websites other projects, interests.</description>
     </item>
     
     <item>
@@ -278,6 +260,15 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Derek</title>
+      <link>https://vectorjs.org/team/derek/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/derek/</guid>
+      <description>TODO: A brief description about this person.</description>
+    </item>
+    
+    <item>
       <title>Directed Graph Element</title>
       <link>https://vectorjs.org/examples/directed-graph-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -341,6 +332,15 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Josh</title>
+      <link>https://vectorjs.org/team/josh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/josh/</guid>
+      <description>I am 23 years old and graduating this semester with a degree in Computer Science. Some of my favorite hobbies are video games, puzzles, and running. My academic interests outside of computing include sociology, art, and world religion. My interest in this project comes from creating geographic weather interactives, and seeing how challening it was to use existing tools.</description>
+    </item>
+    
+    <item>
       <title>Keyboard</title>
       <link>https://vectorjs.org/examples/keyboard/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -364,7 +364,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/kurt/</guid>
-      <description></description>
+      <description>I am a senior graduating this december with a computer science degree. In addition to this project I also built a website about math that utilizes this library to create interactive math visuals. I am currently looking for a job where I can continue to learn, meet new people, and develop good software.</description>
     </item>
     
     <item>
@@ -569,6 +569,43 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Scrubber Element</title>
+      <link>https://vectorjs.org/examples/scrubber-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/scrubber-element/</guid>
+      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // let test = new Interactive(getScriptName()); // test.width = 768; // test.height = 200; // test.svg.style.border = &amp;#34;1px solid grey&amp;#34;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Secant</title>
+      <link>https://vectorjs.org/examples/plot-secant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/plot-secant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Slider Element</title>
+      <link>https://vectorjs.org/examples/slider-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/slider-element/</guid>
+      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, value: 20 }); //# sourceMappingURL=slider-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Style</title>
+      <link>https://vectorjs.org/svg/elements/style/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/style/</guid>
+      <description>The style element defines CSS that is applied to elements through a combination of selectors.
+&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
+    </item>
+    
+    <item>
       <title>SVG</title>
       <link>https://vectorjs.org/svg/elements/svg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -692,34 +729,6 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/examples/svg-view-box/</guid>
       <description>/** * @title SVG View Box Attribute * @description This interactive demonstrates how the view box attribute can be applied to a SVG element to change the view port of the image. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let viewBoxControl = new Interactive(getScriptName()); viewBoxControl.border = true; viewBoxControl.width = 704 / 2; let viewBox = new Interactive(getScriptName()); viewBox.border = true; viewBox.width = 704 / 2; let margin = 30; for (let i = margin; i &amp;lt; viewBoxControl.</description>
-    </item>
-    
-    <item>
-      <title>Scrubber Element</title>
-      <link>https://vectorjs.org/examples/scrubber-element/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/scrubber-element/</guid>
-      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // let test = new Interactive(getScriptName()); // test.width = 768; // test.height = 200; // test.svg.style.border = &amp;#34;1px solid grey&amp;#34;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.</description>
-    </item>
-    
-    <item>
-      <title>Slider Element</title>
-      <link>https://vectorjs.org/examples/slider-element/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/slider-element/</guid>
-      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, value: 20 }); //# sourceMappingURL=slider-element.js.map  </description>
-    </item>
-    
-    <item>
-      <title>Style</title>
-      <link>https://vectorjs.org/svg/elements/style/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/svg/elements/style/</guid>
-      <description>The style element defines CSS that is applied to elements through a combination of selectors.
-&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
     </item>
     
     <item>
@@ -864,6 +873,15 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/svg/viewbox/</guid>
       <description>   </description>
+    </item>
+    
+    <item>
+      <title>Zach</title>
+      <link>https://vectorjs.org/team/zach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/zach/</guid>
+      <description>TODO: A brief description about this person.</description>
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vector.js</title>
-  <meta name="description" content="Every state of the United States colored by population density." />
+  <meta name="description" content="Every state of the United States colored by its population relative to the total population of the united states." />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -47,7 +47,7 @@
   <script type="module" src="/examples/maps/population-of-united-states.js"></script>
   
     <h2>Description</h2>
-    <p>Every state of the United States colored by population density.</p>
+    <p>Every state of the United States colored by its population relative to the total population of the united states.</p>
   
   <h2>Script</h2>
   <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
@@ -58,9 +58,9 @@
 </span><span class="cm">* @weight 3
 </span><span class="cm">*/</span>
 
-<span class="k">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">,</span> <span class="nx">Element</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">data</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">population</span> <span class="nx">from</span> <span class="s1">&#39;./population-data.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">,</span> <span class="nx">Element</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">data</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">population</span> <span class="nx">from</span> <span class="s1">&#39;./population-data.js&#39;</span><span class="p">;</span>
 
 <span class="c1">// create elements
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">(),</span> <span class="p">{</span>
@@ -68,7 +68,7 @@
   <span class="nx">height</span><span class="o">:</span><span class="mi">400</span>
 <span class="p">});</span>
 <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">usData</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span><span class="err">/3,32,&#34;&#34;);</span>
+<span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
 <span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s2">&#34;Population of &#34;</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">textPopulation</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
 
@@ -90,7 +90,7 @@
 </span><span class="c1"></span><span class="nx">map</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="kd">let</span> <span class="nx">population</span> <span class="o">=</span> <span class="nx">populationMap</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-  <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">(</span><span class="nx">population</span> <span class="o">-</span> <span class="nx">minPopulation</span><span class="p">)</span> <span class="err">/ range;</span>
+  <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">(</span><span class="nx">population</span> <span class="o">-</span> <span class="nx">minPopulation</span><span class="p">)</span> <span class="o">/</span> <span class="nx">range</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">value</span><span class="o">*</span><span class="mi">255</span><span class="p">;</span>
   <span class="nx">feature</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="sb">`rgb(</span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
 
