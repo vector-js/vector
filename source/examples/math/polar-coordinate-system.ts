@@ -17,6 +17,7 @@ interactive.originX = interactive.width/2;
 interactive.originY = interactive.width/2;
 interactive.height = interactive.width;
 interactive.style.overflow = 'visible';
+interactive.classList.add('default');
 
 // Create three control points
 let point = interactive.control(0,0);

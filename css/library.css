@@ -26,10 +26,6 @@ input.input {
 }
 
 .interactive {
-  /* max-width: 100%; */
-}
-
-.interactive {
   font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial', sans-serif;
   font-weight: normal;
   font-feature-settings: "kern", "liga", "clig", "calt";
@@ -38,15 +34,21 @@ input.input {
   user-select: none;
 }
 
-.plot path, line, rect {
+.default {
   stroke:#404040;
   stroke-width:1px;
   fill:none;
 }
 
-text.element {
+.interactive text, span {
   fill: #333333;
   stroke: none;
+}
+
+.plot path, line, rect {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:none;
 }
 
 .control > :first-child {

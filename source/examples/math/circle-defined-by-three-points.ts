@@ -23,6 +23,8 @@ let c3 = interactive.control( 0, 100);
 
 // Create a circle
 let circle = interactive.circle(0,0,0);
+circle.style.fill = '#f8f8f8';
+circle.style.stroke = '#333333';
 circle.addDependency(c1);
 circle.addDependency(c2);
 circle.addDependency(c3);

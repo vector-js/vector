@@ -3,7 +3,7 @@ import Element, {CoreAttributes} from './element.js';
 type AAttributes = 'href' | 'target' | 'download' | 'rel';
 
 /**
-* A circle is a basic geometric element with a position and radius.
+* A hyper link element.
 */
 export default class A extends Element {
 

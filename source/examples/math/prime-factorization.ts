@@ -88,6 +88,7 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
 
       // draw nodes and edges
       let node = graph.addNode( x, y, n.toString(),radius,radius);
+      node.nodeEllipse.style.stroke = '#333333';
       let leaf = graph.addNode( x - 64, y + 64, p.toString(), radius, radius );
       if( prev ) {
         graph.addEdge( prev, node);

@@ -92,7 +92,10 @@ functions.rectangle(0, 0, functions.width, functions.height).style.strokeWidth =
 // Unit Circle Section
 
 let triangle = circleInteractive.path('');
+triangle.style.stroke = '#333333';
 let circle = circleInteractive.circle(0,0,radius);
+circle.style.fill = 'none';
+circle.style.stroke = '#333333';
 let control = circleInteractive.control(circle.r, 0);
 control.constrainTo(circle);
 control.addDependency(angle);

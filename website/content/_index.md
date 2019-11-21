@@ -305,8 +305,6 @@ let map = interactive.map(canada);
 
 <img src="/images/world-map.svg" class="center" alt="SVG World Map">
 
-{{<example "map-element">}}
-
 ### United States
 
 {{< highlight javascript>}}

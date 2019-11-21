@@ -124,6 +124,7 @@ class Tree extends SVG {
             let circle = this.getNextNode(nx, ny, 4);
             if( i == this.exponent ) {
               circle.style.fill = 'cornflowerblue';
+							circle.style.stroke = '#404040';
             } else {
               circle.style.fill = '#404040';
             }
