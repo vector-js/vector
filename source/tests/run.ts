@@ -33,6 +33,9 @@ import './elements/maps/map.test.js'
 // graph
 import './elements/graph/node.test.js'
 
+// math
+import './math/interactives.test.js';
+
 // Disabled leak checking because google analytics was causing test failures.
 // Possible solution would be to run the tests within an embedded HTML page
 // using the iframe element or something.

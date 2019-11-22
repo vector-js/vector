@@ -36,6 +36,7 @@ import Input from './elements/input/input.js';
 // complex objects
 import Interactive from './elements/interactive.js';
 import Plot from './elements/math/plot.js';
+import Point from './elements/math/point.js';
 
 // export utility functions
 export * from './util/file.js';
@@ -60,6 +61,7 @@ export {	Button,
 					Marker,
 					Path,
 					Plot,
+					Point,
 					Polygon,
 					RadioControl,
 					Rectangle,
