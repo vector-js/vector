@@ -6,50 +6,54 @@
 * @author Kurt Bruns
 */
 
-import {Interactive, getScriptName} from '../../index.js';
+import {Interactive} from '../../index.js';
 
-// Initialize the interactive
-let interactive = new Interactive(getScriptName());
-interactive.border = true;
-interactive.width = 600;
-interactive.height = 300;
-interactive.originX = interactive.width/2;
-interactive.originY = interactive.height/2;;
+export default function main(id:string) {
 
-// Create three control points
-let c1 = interactive.control( -70, -80);
-let c2 = interactive.control( 100, 0);
-let c3 = interactive.control( 0, 100);
+  // Initialize the interactive
+  let interactive = new Interactive(id);
+  interactive.border = true;
+  interactive.width = 600;
+  interactive.height = 300;
+  interactive.originX = interactive.width/2;
+  interactive.originY = interactive.height/2;;
 
-// Create a circle
-let circle = interactive.circle(0,0,0);
-circle.style.fill = '#f8f8f8';
-circle.style.stroke = '#333333';
-circle.addDependency(c1);
-circle.addDependency(c2);
-circle.addDependency(c3);
-circle.update = function() {
+  // Create three control points
+  let c1 = interactive.control( -70, -80);
+  let c2 = interactive.control( 100, 0);
+  let c3 = interactive.control( 0, 100);
 
-  // Solve for general form coefficients
-  let A = c1.x*(c2.y - c3.y) - c1.y*(c2.x - c3.x) + c2.x*c3.y - c3.x*c2.y;
-  let B = (c1.x*c1.x + c1.y*c1.y)*(c3.y - c2.y) + (c2.x*c2.x + c2.y*c2.y)*(c1.y - c3.y) + (c3.x*c3.x + c3.y*c3.y)*(c2.y - c1.y);
-  let C = (c1.x*c1.x + c1.y*c1.y)*(c2.x - c3.x) + (c2.x*c2.x + c2.y*c2.y)*(c3.x - c1.x) + (c3.x*c3.x + c3.y*c3.y)*(c1.x - c2.x);
-  let D = (c1.x*c1.x + c1.y*c1.y)*(c3.x*c2.y - c2.x*c3.y) + (c2.x*c2.x + c2.y*c2.y)*(c1.x*c3.y - c3.x*c1.y) + (c3.x*c3.x + c3.y*c3.y)*(c2.x*c1.y - c1.x*c2.y);
+  // Create a circle
+  let circle = interactive.circle(0,0,0);
+  circle.style.fill = '#f8f8f8';
+  circle.style.stroke = '#333333';
+  circle.addDependency(c1);
+  circle.addDependency(c2);
+  circle.addDependency(c3);
+  circle.update = function() {
 
-  // Calculate center point and radius
-  this.cx = - B/(2*A);
-  this.cy = - C/(2*A);
-  this.r = Math.sqrt((B*B + C*C - 4*A*D)/(4*A*A));
+    // Solve for general form coefficients
+    let A = c1.x*(c2.y - c3.y) - c1.y*(c2.x - c3.x) + c2.x*c3.y - c3.x*c2.y;
+    let B = (c1.x*c1.x + c1.y*c1.y)*(c3.y - c2.y) + (c2.x*c2.x + c2.y*c2.y)*(c1.y - c3.y) + (c3.x*c3.x + c3.y*c3.y)*(c2.y - c1.y);
+    let C = (c1.x*c1.x + c1.y*c1.y)*(c2.x - c3.x) + (c2.x*c2.x + c2.y*c2.y)*(c3.x - c1.x) + (c3.x*c3.x + c3.y*c3.y)*(c1.x - c2.x);
+    let D = (c1.x*c1.x + c1.y*c1.y)*(c3.x*c2.y - c2.x*c3.y) + (c2.x*c2.x + c2.y*c2.y)*(c1.x*c3.y - c3.x*c1.y) + (c3.x*c3.x + c3.y*c3.y)*(c2.x*c1.y - c1.x*c2.y);
 
-};
-circle.update();
+    // Calculate center point and radius
+    this.cx = - B/(2*A);
+    this.cy = - C/(2*A);
+    this.r = Math.sqrt((B*B + C*C - 4*A*D)/(4*A*A));
 
-// Create a display dot at the center of the circle
-let dot = interactive.circle(0,0,3);
-dot.root.style.fill = '#333333';
-dot.addDependency(circle);
-dot.update = function() {
-  this.cx = circle.cx;
-  this.cy = circle.cy;
-};
-dot.update();
+  };
+  circle.update();
+
+  // Create a display dot at the center of the circle
+  let dot = interactive.circle(0,0,3);
+  dot.root.style.fill = '#333333';
+  dot.addDependency(circle);
+  dot.update = function() {
+    this.cx = circle.cx;
+    this.cy = circle.cy;
+  };
+  dot.update();
+
+}

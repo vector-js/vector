@@ -80,12 +80,16 @@ describe('Plot', function () {
       });
     });
 		it('hyperbola', function() {
+      interactive.width = 700;
+      interactive.height = 400;
       let f = (x:number) => { return 1/x; };
-      let scaleX = 50;
-      let scaleY = 50;
-      plot = interactive.plot(600, 300, f, {
+      let scaleX = 100;
+      let scaleY = 100;
+      plot = interactive.plot(600, 400, f, {
         scaleX: scaleX,
-        scaleY: scaleY
+        scaleY: scaleY,
+        originX: 0,
+        originY: 400
       });
 		});
 		it('natural logarithm', function() {
@@ -99,6 +103,17 @@ describe('Plot', function () {
         originX: 50
       });
 		});
+    it('logarithm base 2', function() {
+      let f = (x:number) => { return Math.log(x)/Math.log(2) };
+      let scaleX = 50;
+      let scaleY = 50;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY,
+        originY: 250,
+        originX: 50
+      });
+    });
     it('exponential', function() {
       interactive.width = 700;
       interactive.height = 700;

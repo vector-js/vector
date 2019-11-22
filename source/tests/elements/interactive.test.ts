@@ -320,7 +320,6 @@ describe('Interactive', function () {
   				'getting-started',
   				'github',
   				'graph',
-  				'graphs copy',
   				'graphs',
   				'group',
   				'icon',
