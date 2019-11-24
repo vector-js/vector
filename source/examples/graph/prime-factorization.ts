@@ -36,7 +36,9 @@ function drawGraph(){
   graph.clear();
 
   // redraw the prime factorization tree
-  primeFactors( parseInt(input.value), 0, 0, 0, null);
+  let root = primeFactors( parseInt(input.value), 0, 0, 0, null);
+
+  graph.tidy(root);
 
   let rect = (graph.root as SVGGraphicsElement).getBBox();
 
@@ -59,16 +61,21 @@ drawGraph();
 function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
 
   if( n <= 1 ) {
-    graph.addNode( x, y, n.toString(), radius);
+    graph.addNode( 0, 0, n.toString(), radius);
   }
+
+  let root = undefined;
 
   while( n > 1 ) {
 
     // base case
     if( n == p ) {
-      let leaf = graph.addNode( x, y, n.toString(), radius, radius);
+      let leaf = graph.addNode( 0, 0, n.toString(), radius, radius);
       if( prev != null ) {
         graph.addEdge( prev, leaf)
+      }
+      else{
+        root = leaf;
       }
       return;
     }
@@ -79,8 +86,8 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
     if( n % p == 0 ) {
 
       // draw nodes and edges
-      let node = graph.addNode( x, y, n.toString(),radius,radius);
-      let leaf = graph.addNode( x - 64, y + 64, p.toString(), radius, radius );
+      let node = graph.addNode( 0, 0, n.toString(),radius,radius);
+      let leaf = graph.addNode( 0, 0, p.toString(), radius, radius );
       if( prev ) {
         graph.addEdge( prev, node);
       }
@@ -96,4 +103,5 @@ function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
       p = nextPrime(p);
     }
   }
+  return root;
 }

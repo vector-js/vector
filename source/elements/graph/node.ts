@@ -15,6 +15,8 @@ export default class Node extends Group {
   nodeEllipse: Ellipse;
   edges: Set<Edge>;
   children:Node[];
+  parents:Node[];
+  depth:number;
   private _cx:number;
   private _text:string;
   private _cy:number;
@@ -26,6 +28,8 @@ export default class Node extends Group {
   */
   constructor( cx:number, cy:number, rx:number, ry:number, text:string ) {
    super();
+
+   this.depth = 0;
 
    this._cx = cx;
    this._cy = cy;
@@ -41,6 +45,8 @@ export default class Node extends Group {
    this.nodeEllipse = new Ellipse(cx, cy, rx, ry);
    this.nodeEllipse.fill = '#f8f8f8';
    this.children = [];
+   this.parents = [];
+
 
    this.root.appendChild(this.nodeEllipse.root);
    this.root.appendChild(this.nodeName.root);
@@ -85,6 +91,10 @@ export default class Node extends Group {
   set cx(cx:number){
     this._cx = cx;
     this.nodeEllipse.cx = cx;
+    this.nodeName.x = cx;
+    this.edges.forEach(function(d){
+      d.redraw();
+    })
   }
 
   /**
@@ -93,6 +103,10 @@ export default class Node extends Group {
   set cy(cy:number){
     this._cy = cy;
     this.nodeEllipse.cy = cy;
+    this.nodeName.y = cy;
+    this.edges.forEach(function(d){
+      d.redraw();
+    })
   }
 
   /**
@@ -144,8 +158,14 @@ export default class Node extends Group {
   * Adds an edge to this node.
   */
   addEdge(edge:Edge):void {
-    if(edge.nodeFrom == this){
+    if(edge.nodeFrom == this)
+    {
       this.children.push(edge.nodeTo);
+    }
+    else
+    {
+      this.depth = edge.nodeFrom.depth + 1;
+      this.parents.push(edge.nodeFrom);
     }
     this.edges.add(edge);
   }
