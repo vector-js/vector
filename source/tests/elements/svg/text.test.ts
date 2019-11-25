@@ -61,6 +61,15 @@ describe('Text', function () {
       text.contents = "second";
       chai.expect(text.contents).to.equal("second");
     });
+
+    // TODO: why is this failiing?
+    // it('created text elements should be able to create tspan elements', function() {
+    //   let child = this.element.text(1, 2, ''); // TODO: allow default parameter?
+    //   let tspan = child.tspan('child-tspan');
+    //   chai.expect(tspan.text).to.equal('child-tspan');
+    //   chai.expect(this.element.root.contains(tspan.root));
+    // });
+
     //
     // it('should get proper length', function() {
     //   let textString = "Testing";

@@ -1,5 +1,6 @@
 import Circle from '../../../elements/svg/circle.js';
 import Element from '../../../elements/svg/element.js';
+import { descriptiveElements, clipPathElement, markerElement, scriptElement } from './content-model.test.js';
 
 describe('Circle', function () {
   describe('constructor', function () {
@@ -18,6 +19,22 @@ describe('Circle', function () {
       chai.expect(Element.controller.get(circle2.id)).to.equal(circle2);
     });
   });
+
+  // NOTE: we have chosen to diverge from the SVG specification of the content model for a circle elemnt
+  // describe('content model', function(){
+  //   let element : Circle;
+  //   beforeEach(function() {
+  //     element = new Circle(1,2,3);
+  //     this.element = element;
+  //   });
+  //   // grouped elements
+  //   // descriptiveElements();
+  //   // individual elements
+  //   // clipPathElement();
+  //   // markerElement();
+  //   // scriptElement();
+  //   // styleElement(); // TODO: this conflicts with current style property
+  // });
 
   describe('getters/setters', function () {
 

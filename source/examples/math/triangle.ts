@@ -9,9 +9,8 @@
 import {Interactive, getScriptName} from '../../index.js';
 
 // Initialize the interactive
-let id = 'triangle';
-let interactive = new Interactive(id);
-interactive.window = true;
+let interactive = new Interactive(getScriptName());
+interactive.border = true;
 
 // Create three control points
 let p1 = interactive.control(250,200);

@@ -18,7 +18,7 @@ draft: undefined
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
-interactive.window = true;
+interactive.border = true;
 let l1 = interactive.line(0, 0, 0, 0);
 let l2 = interactive.line(0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';

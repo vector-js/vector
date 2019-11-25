@@ -1,4 +1,4 @@
-import Element, { GlobalAttributes } from './element.js';
+import Element, { CoreAttributes } from './element.js';
 import { Structural, Shape, Descriptive } from './content-model.js';
 
 import A from './a.js';
@@ -39,13 +39,13 @@ export default class Group extends Element implements Descriptive, Shape, Struct
   }
 
   // comment inherited from base class
-  setAttribute(name: GroupAttributes | GlobalAttributes, value: string): Group {
+  setAttribute(name: GroupAttributes | CoreAttributes, value: string): Group {
     this.root.setAttribute(name,value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute(name: GroupAttributes | GlobalAttributes): string {
+  getAttribute(name: GroupAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 

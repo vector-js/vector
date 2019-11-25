@@ -1,3 +1,7 @@
+/**
+* @ignore true
+*/
+
 import {Interactive} from "../../index.js";
 
 export default class ZoomAndPan extends Interactive {

@@ -5,7 +5,7 @@
 {{- range .Pages -}}
 
 <div>
-<a href="{{.Permalink}}"><img src="{{.Permalink}}{{.Params.Headshot}}" class="headshot" width="100px" style="display:block; margin:auto; padding:10px;"></a>
+<a href="{{.Permalink}}"><img src="{{.Permalink}}{{.Params.Headshot}}" class="headshot" width="100px" style="display:block; margin:auto; padding:10px; clip-path: circle(50px at center);"></a>
 <div style="text-align:center"> {{.Title}} </div>
 </div>
 {{- end -}}

@@ -22,7 +22,7 @@ import { PointWhereTwoLinesIntersect } from '../../util/math.js';
 // Initialize the interactive
 let id = 'point-where-two-lines-intersect';
 let interactive = new Interactive(id);
-interactive.window = true;
+interactive.border = true;
 // Create three control points
 let p1 = interactive.control(200, 200);
 let p2 = interactive.control(300, 100);

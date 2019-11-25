@@ -8,9 +8,4 @@ types
 # ignore generated files on development branches
 docs
 dist
-api
 vector.js
-/**/*.d.ts
-examples/**/*.js
-source/**/*.js
-tests/**/*.js

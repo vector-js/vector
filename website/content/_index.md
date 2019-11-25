@@ -3,14 +3,17 @@ title: Vector.js
 description: "A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives."
 blurb: A Javascript library for the creation of interactive graphics.
 aside:
-   - Getting Started
-   - Input
-   - Elements
-   - Interaction
-   - Animation
-   - Maps
-   - Coordinates
-   - Styling
+  - Getting Started
+  - Input
+  - Elements
+  - Interaction
+  - Animation
+  - Coordinates
+  - Styling
+modules:
+  - Graphs
+  - Maps
+  - Plots
 ---
 
 ## Getting Started
@@ -143,9 +146,7 @@ text.tspan('normal again.');
 
 ## Interaction
 
-There are two forms of interaction within our system: dependencies and events.
-
-The first form of interaction is dependencies. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element's state is changed.
+There are two forms of interaction within our system: dependencies and events. The first form of interaction is dependencies - elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element's state is changed.
 
 The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.
 
@@ -217,75 +218,42 @@ circle.animateAlongPath( path, true, SPEED);
 
 {{<example "animate-along-path">}}
 
-## Maps
-
-Wishful thinking (x,y) to lattitude longitude and vice versa.
-
-### World Map
-
-{{< highlight javascript>}}
-import canada from './maps/canada.js';
-let map = interactive.map(canada);
-{{< /highlight >}}
-
-<img src="/images/world-map.svg" class="center" alt="SVG World Map">
-
-{{<example "map-element">}}
-
-### United States
-
-{{< highlight javascript>}}
-let map = interactive.map("united-states.geojson");
-{{< /highlight >}}
-
-<img src="/images/united-states.svg" class="center" alt="SVG United States Map">
-
-### Custom Maps
-
-{{< highlight javascript>}}
-import { getJSON } from 'Util.js';
-
-getJSON('custom.geojson').then(function(geoData){
-
-});
-
-{{< /highlight >}}
-
 ## Coordinates
 
 The coordinate system of the interactive image follows the SVG standard: the default origin is the top left corner of the image and the positive x direction is to the right and the positive y direction is down. This is visualized by the control point below.
 
-<p>
-  {{<example "svg-coordinate-system">}}
-</p>
+{{<example "svg-coordinate-system">}}
+
+### Changing the Origin
+
+The origin of the interactive coordinate system can be moved by changing the `.originX` or `.originY` property of an Interactive object. The origin can also be specified when the object is constructed. In the code snippet below the origin is specified to be the point (300,150) relative to the top left corner of the interactive.
 
 {{< highlight javascript>}}
-// TODO: show changing the origin of the coordinate system
+let interactive = new Interactive('my-id',{
+  width: 600,
+  height: 300,
+  originX: 300,
+  originY: 150
+});
 {{< /highlight >}}
+
+The interactive object created using the above code snippet results in the coordinate system demonstrated below. Note, the y-coordinate is flipped from the cartesian coordinate system.
+
+<div id="svg-coordinate-system-moved" class="vertical-center" style="margin-bottom:1.5rem;">
+  <script type="module" src="/examples/svg/svg-coordinate-system-moved.js"></script>
+</div>
+
+### Setting the View Box
+
+The more general form of setting the origin of the interactive object which is derived from the SVG base class is setting the view box of the SVG element. This is extremely useful, especially when paired with the `getBoundingBox` method implemented by every SVGGraphics element. The two interactive shown below both contain a grid of rectangles. The interactive on the left contains a rectangle which represents the view box that is being applied to the interactive on the right.
+
+{{<example "svg-view-box">}}
+
+The set view box function takes in a x position, y position, width and height. The (x,y) position represents the top-left-most position of the rectangle, the width and height specify the dimensions of the rectangle.
 
 {{< highlight javascript>}}
-// TODO: mathmode -> changes positive direction of the y axis to be up
+interactive.setViewBox( left, top, width, height);
 {{< /highlight >}}
-
-Alternatively, the viewbox of the interactive can be changed
-
-{{< highlight javascript>}}
-// what happens when the dimensions of the interactive and the viewbox disagree?
-{{< /highlight >}}
-
-### Scaling
-
-<img src="/images/cartesian-coordinate-system.svg" class="border center" alt="SVG Coordinate System">
-
-{{< highlight javascript>}}
-// TODO: Scaling example
-{{< /highlight >}}
-
-### Zooming and Panning
-
-{{<example "zoom-in-out">}}
-
-### Transforming
 
 ## Styling
 
@@ -314,4 +282,81 @@ Every element within the library has a root property which is a SVG element. Thi
 
 {{< highlight javascript>}}
 // TODO: how to load a custom style sheet
+{{< /highlight >}}
+
+## Graphs
+
+{{< highlight javascript>}}
+// TODO: graphs introduction & example
+{{< /highlight >}}
+
+{{<example "prime-factorization">}}
+
+## Maps
+
+The Map Module is used to plot geographic data in SVG format. Our library supports <a href="https://geojson.org/" target="_blank" rel="noreferrer">GeoJson</a> which is the most popular data standard for representing geographical data. The SVG path's get grouped by feature, meaning that manipulating the map objects is straight forward. For more information on this, please go to our Map Module Tutorial or take a look at some map examples.
+
+### World Map
+
+{{< highlight javascript>}}
+import {Interactive, getScriptName} from '../../index.js';
+import {globalData} from './maps-json.js';
+
+let myInteractive = new Interactive(getScriptName());
+let map = myInteractive.map(globalData);
+{{< /highlight >}}
+
+{{<example "world-map">}}
+
+### United States
+
+{{< highlight javascript>}}
+import {Interactive, getScriptName} from '../../index.js';
+import {usData} from './maps-json.js';
+
+let myInteractive = new Interactive(getScriptName());
+let map = myInteractive.map(usData);
+{{< /highlight >}}
+
+<img src="/images/united-states.svg" class="center" alt="SVG United States Map">
+
+### Custom Maps
+
+Any data that is in the GeoJson format can be rendered with our library. That means that if you can find the data for it, we can plot it. For more information on how GeoJson works and where to find it, go to the Map Module tutorial.
+
+## Plots
+
+Plots visualize the output of one or more functions in the cartesian coordinate system. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.
+
+{{< highlight javascript>}}
+let scale = 300/Math.PI;
+let plot = interactive.plot(600, 300, Math.cos, {
+  originX: 0,
+  originY: 150,
+  scaleX: scale,
+  scaleY: scale,
+  controls: false, /* experimental */
+  displayPoint: false, /* experimental */
+  zoomable: false /* experimental */
+});
+{{< /highlight >}}
+
+{{<example "plot-element">}}
+
+### Visualize Multiple Functions
+
+{{<example "plot-secant">}}
+
+{{< highlight javascript>}}
+let scale = 300/Math.PI;
+let secant = (x) => { return 1/Math.cos(x) };
+let plot = interactive.plot(600, 600, secant, {
+  originX: 0,
+  originY: 300,
+  scaleX: scale,
+  scaleY: scale,
+  zoomable: false,
+  controls: false
+});
+plot.graph(Math.cos);
 {{< /highlight >}}

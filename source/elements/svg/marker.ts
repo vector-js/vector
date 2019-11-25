@@ -1,4 +1,4 @@
-import Element, { GlobalAttributes } from './element.js';
+import Element, { CoreAttributes } from './element.js';
 import { Structural, Shape } from './content-model.js';
 
 import Circle from './circle.js';
@@ -17,6 +17,8 @@ import SVG from './svg.js';
 import Text from './text.js';
 import Title from './title.js';
 import Use from './use.js';
+
+type MarkerAttributes = 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'markerUnits' | 'markerWidth' | 'markerHeight' | 'orient';
 
 /**
 * A marker is a shape that can be repeatably drawn on a shape.
@@ -39,13 +41,13 @@ export default class Marker extends Element implements Shape, Structural {
   }
 
   // comment inherited from base class
-  setAttribute(name: 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'markerUnits' | 'markerWidth' | 'markerHeight' | 'orient' | GlobalAttributes, value: string): Element {
+  setAttribute(name: MarkerAttributes | CoreAttributes, value: string): Element {
     this.root.setAttribute(name,value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute(name: 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'markerUnits' | 'markerWidth' | 'markerHeight' | 'orient' | GlobalAttributes): string {
+  getAttribute(name: MarkerAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 

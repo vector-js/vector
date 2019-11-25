@@ -56,17 +56,16 @@ export function download( id:string, filename:string ) {
       break;
     }
   }
-  let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
-  style.type = "text/css";
-  let css = "";
-  for( let i = 0; i < styleSheet.rules.length; i++)
-  {
-    let rule = styleSheet.rules[i] as CSSRule;
-    css  += rule.cssText + "\n";
-  }
-
-  style.innerHTML = css;
-  svg.appendChild(style);
+  // let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+  // style.type = "text/css";
+  // let css = "";
+  // for( let i = 0; i < styleSheet.rules.length; i++)
+  // {
+  //   let rule = styleSheet.rules[i] as CSSRule;
+  //   css  += rule.cssText + "\n";
+  // }
+  // style.innerHTML = css;
+  // svg.appendChild(style);
   // console.log(svg.outerHTML);
   // console.log(style);
   // console.log(svg);

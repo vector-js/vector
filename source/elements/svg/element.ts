@@ -4,7 +4,7 @@ import BaseElement from '../base-element.js';
 * These global attributes are associated with every SVG element in the DOM.
 * TODO: probably remove transform from this list
 */
-export type GlobalAttributes = 'id' | 'tabindex' | 'style' | 'class' | 'transform';
+export type CoreAttributes = 'id' | 'tabindex' | 'style' | 'class' | 'lang' | 'autofocus' | 'xml:space' | 'transform';
 
 /**
 * This class defines the basic shape for all SVG elements within our library.
@@ -38,7 +38,7 @@ export default class Element extends BaseElement {
     // store the root element and set the id attribute
     this.root = root;
     this.root.id = this.id;
-    this.root.classList.add('element');
+    this.root.classList.add(this.constructor.name.toLowerCase());
 
     // make the root's style declaration available
     this.style = this.root.style;
@@ -51,7 +51,7 @@ export default class Element extends BaseElement {
   * Similarily, the style and class attributes should be accessed through the
   * properties "style" and "classList".
   */
-  setAttribute( name: GlobalAttributes, value: string ) : Element {
+  setAttribute( name: CoreAttributes, value: string ) : Element {
     this.root.setAttribute(name,value);
     return this;
   }
@@ -59,7 +59,7 @@ export default class Element extends BaseElement {
   /**
   * Returns the value associated with the attribute.
   */
-  getAttribute( name: GlobalAttributes ) : string {
+  getAttribute( name: CoreAttributes ) : string {
     return this.root.getAttribute(name);
   }
 
@@ -95,6 +95,16 @@ export default class Element extends BaseElement {
   }
 
   /**
+  * Removes all child elements from this element.
+  */
+  clear() {
+    let child;
+    while( child = this.root.firstChild ) {
+      BaseElement.controller.get(child.id).remove();
+    }
+  }
+
+  /**
   * Returns the bounding box of this element. Note, this is different from the
   * getBoundingClientRect method since the bounding box is affected by the
   * current viewPort.
@@ -102,7 +112,7 @@ export default class Element extends BaseElement {
   * If this element's root is not a SVGGraphics element as is the case for the
   * marker, title, and more element, then null is returned instead of a DOMRect.
   */
-  getBoundingBox() : DOMRect {
+  getBoundingBox() : SVGRect {
     if ( this.root instanceof SVGGraphicsElement ) {
       return this.root.getBBox();
     } else {

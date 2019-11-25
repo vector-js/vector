@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="Every state of the United States colored by its population relative to the total population of the united states." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+
+  
+  <h1>Population of the United States <a style="float:right" href="/sandbox/?script=/examples/maps/population-of-united-states.js" class="button">Open in Sandbox</a></h1>
+  <div id="population-of-united-states" class="interactive-container"></div>
+  <script type="module" src="/examples/maps/population-of-united-states.js"></script>
+  
+    <h2>Description</h2>
+    <p>Every state of the United States colored by its population relative to the total population of the united states.</p>
+  
+  <h2>Script</h2>
+  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm">* @title Population of the United States
+</span><span class="cm">* @description Every state of the United States colored by population density.
+</span><span class="cm">* @input Input the name of the map you want to see, and the size of the map.
+</span><span class="cm">* @tags [maps]
+</span><span class="cm">* @weight 3
+</span><span class="cm">*/</span>
+
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">,</span> <span class="nx">Element</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">data</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">population</span> <span class="nx">from</span> <span class="s1">&#39;./population-data.js&#39;</span><span class="p">;</span>
+
+<span class="c1">// create elements
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">(),</span> <span class="p">{</span>
+  <span class="nx">width</span><span class="o">:</span><span class="mi">760</span><span class="p">,</span>
+  <span class="nx">height</span><span class="o">:</span><span class="mi">400</span>
+<span class="p">});</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">usData</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s2">&#34;Population of &#34;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">textPopulation</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+
+<span class="c1">// create a population map of state names -&gt; state populations
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">populationData</span> <span class="o">=</span> <span class="nx">population</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">populationMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span> <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">populationData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">populationData</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">State</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">statePopulation</span> <span class="o">=</span> <span class="nx">populationData</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Population</span><span class="p">;</span>
+  <span class="nx">populationMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">statePopulation</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// calculate the range in populations for coloring each state
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">minPopulation</span> <span class="o">=</span> <span class="nx">populationData</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">Population</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">maxPopulation</span> <span class="o">=</span> <span class="nx">populationData</span><span class="p">[</span><span class="nx">populationData</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">].</span><span class="nx">Population</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">range</span> <span class="o">=</span> <span class="nx">maxPopulation</span> <span class="o">-</span> <span class="nx">minPopulation</span><span class="p">;</span>
+
+<span class="c1">// color and register event listeners for each state
+</span><span class="c1"></span><span class="nx">map</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">population</span> <span class="o">=</span> <span class="nx">populationMap</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">(</span><span class="nx">population</span> <span class="o">-</span> <span class="nx">minPopulation</span><span class="p">)</span> <span class="o">/</span> <span class="nx">range</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">value</span><span class="o">*</span><span class="mi">255</span><span class="p">;</span>
+  <span class="nx">feature</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="sb">`rgb(</span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+
+  <span class="c1">// highlight the state on mouse over
+</span><span class="c1"></span>  <span class="nx">feature</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">onmouseover</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">feature</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
+    <span class="nx">textPopulation</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> is </span><span class="si">${</span><span class="nx">population</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="c1">// remove highlighting on mouse leave
+</span><span class="c1"></span>  <span class="nx">feature</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">onmouseout</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">feature</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="sb">`rgb(</span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+    <span class="nx">textPopulation</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+</main>
+
+</body>
+</html>

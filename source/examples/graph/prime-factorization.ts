@@ -1,4 +1,5 @@
 /**
+* @ignore
 * @title Prime Factorization
 * @description This interactive visualizes the prime factorization tree for a given number.
 * @input There is a number input that takes a number less than one-hundred million.
@@ -15,7 +16,7 @@ interactive.width = 736;
 interactive.height = 400;
 interactive.border = true;
 
-let graph = interactive.graph({directed:true});
+let graph = interactive.directedGraph();
 
 // this HTML input element controls the current tree being drawn
 let inputContainer = document.createElement('div');

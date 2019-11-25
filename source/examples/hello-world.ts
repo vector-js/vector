@@ -5,6 +5,6 @@
 */
 
 import Interactive from '../interactive.js';
-let myInteractive = new Interactive('hello-world');
-myInteractive.border = true;
-myInteractive.control(100,100);
+let interactive = new Interactive('hello-world');
+interactive.border = true;
+interactive.control(100,100);

@@ -15,12 +15,13 @@ import ControlCircle from './input/control-circle.js';
 import RadioControl from './input/radio-control.js';
 import Scrubber from './input/scrubber.js';
 import Slider from './input/slider.js';
+import HoverBox from './input/hover-box.js';
 // graph elements
 import Node from '../elements/graph/node.js';
 import Edge from '../elements/graph/edge.js';
 import Graph from '../elements/graph/graph.js';
 // map elements
-// import GeoMap from '../elements/maps/map.js';
+import Map from '../elements/maps/map.js';
 // math elements
 import Plot from '../elements/math/plot.js';
 /**
@@ -289,6 +290,19 @@ export default class Interactive extends SVG {
     */
     graph(options) {
         return this.appendChild(new Graph(options));
+    }
+    hoverBox(str) {
+        return this.appendChild(new HoverBox(str));
+    }
+    /**
+    * Creates a graph element within this interactive
+    */
+    map(externalData, featureName = null, options = {}) {
+        let map = new Map(featureName, externalData, options);
+        let ret = this.appendChild(map);
+        let bbox = map.root.getBBox();
+        map.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);
+        return ret;
     }
     /**
     * Creates a slider input within this interactive

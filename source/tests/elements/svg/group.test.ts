@@ -1,4 +1,14 @@
-import { descriptiveTests, shapeTests, structuralTests, typographyTests, aTest } from './content-model.test.js';
+import {
+  descriptiveElements,
+  shapeElements,
+  structuralElements,
+  aElement,
+  clipPathElement,
+  markerElement,
+  scriptElement,
+  viewElement,
+  textElement} from './content-model.test.js';
+
 import Group from '../../../elements/svg/group.js';
 
 describe('Group', function () {
@@ -8,21 +18,25 @@ describe('Group', function () {
   });
 
   describe('content model', function(){
-    describe('descriptive', function(){
-      descriptiveTests();
-    });
-    describe('shape', function(){
-      shapeTests();
-    });
-    describe('structural', function(){
-      structuralTests();
-    });
-    describe('typography', function(){
-      typographyTests();
-    });
-		describe('\'a\' element', function(){
-			aTest();
-		});
+
+    // grouped elements
+    descriptiveElements();
+    shapeElements();
+    structuralElements();
+
+    // individual elements
+    aElement();
+    clipPathElement();
+    // filterElement();
+    // foreignObjectElement();
+    // imageElement();
+    // markerElement();
+    // maskElement();
+    scriptElement();
+    // styleElement();
+    // switchElement();
+    textElement();
+    viewElement();
   });
 
 });
