@@ -94,3 +94,7 @@ input.input {
 .feature path {
   vector-effect: non-scaling-stroke;
 }
+
+.node {
+  stroke:black;
+}
