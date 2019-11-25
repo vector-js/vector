@@ -130,6 +130,7 @@ export default class Graph extends Group {
         modMap[node.id] = 0;
       }
       else{
+        node.cx = node.parents[0].children[node.parents[0].children.indexOf(node) - 1].cx + min_dist
         modMap[node.id] = node.cx - centerMap[node.id];
       }
     }
@@ -139,7 +140,7 @@ export default class Graph extends Group {
 
 
     //dealing with conflicts, twice.
-    modMap = this.fixConflicts(root, orderedNodes, modMap);
+    // modMap = this.fixConflicts(root, orderedNodes, modMap);
     modMap = this.fixConflicts(root, orderedNodes, modMap);
 
     this.fixOffScreen(root, modMap);
@@ -203,8 +204,8 @@ export default class Graph extends Group {
 
             for(let j = i+1; j < nodePos; j++)
             {
-              node.parents[0].children[j].cx += shift / (nodePos - i+1);
-              modMap[node.parents[0].children[j].id] += shift / (nodePos - i+1);
+              node.parents[0].children[j].cx += shift / (nodePos - i);
+              modMap[node.parents[0].children[j].id] += shift / (nodePos - i);
             }
 
           }

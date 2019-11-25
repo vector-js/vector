@@ -4,8 +4,6 @@ builds
 cache
 types
 *.js.map
-
-# ignore generated files on development branches
 docs
 dist
 vector.js
