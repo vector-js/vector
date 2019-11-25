@@ -22,7 +22,6 @@ export default class Edge extends Line {
     let arr = Edge.calculateLinePosition(nodeFrom, nodeTo);
     let arr2 = Edge.calculateLinePositionEllipse(nodeFrom, nodeTo);
     if(directed && !Number.isNaN(arr[0])) {
-      console.log(arr);
       super(arr[0], arr[1], arr[2], arr[3]);
     }
     else {

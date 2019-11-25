@@ -39,7 +39,6 @@ let graph = interactive.graph({directed:true});
 //   interactive.setViewBox(rect.x-8, rect.y-8, rect.width + 16, rect.height + 16)
 // }
 
-//
 let node1 = graph.addNode(0, 0, "O");
 let node2 = graph.addNode(0, 0, "E");
 let node3 = graph.addNode(0, 0, "F");
