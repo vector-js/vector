@@ -19,8 +19,6 @@ import Slider from './input/slider.js';
 import Node from '../elements/graph/node.js';
 import Edge from '../elements/graph/edge.js';
 import Graph from '../elements/graph/graph.js';
-import DirectedGraph from '../elements/graph/directed-graph.js';
-import FlowGraph from '../elements/graph/flow-graph.js';
 // map elements
 // import GeoMap from '../elements/maps/map.js';
 // math elements
@@ -291,22 +289,6 @@ export default class Interactive extends SVG {
     */
     graph(options) {
         return this.appendChild(new Graph(options));
-    }
-    flowGraph(str) {
-        return this.appendChild(new FlowGraph(str));
-    }
-    /**
-    * Creates a graph element within this interactive
-    */
-    // map(mapName:string,width:number,height:number,externalData: JSON = null) : Map {
-    //  let map = new Map(this,mapName,width,height, externalData);
-    //  return map;
-    //  }
-    /*
-    * Creates a directed graph element within this interactive
-    */
-    directedGraph() {
-        return this.appendChild(new DirectedGraph());
     }
     /**
     * Creates a slider input within this interactive

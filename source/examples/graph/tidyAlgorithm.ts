@@ -80,5 +80,3 @@ graph.addEdge(node10, node14)
 graph.addEdge(node10, node15)
 
 graph.tidy(node1);
-
-}
