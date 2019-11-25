@@ -25,6 +25,19 @@
 @import "components/sandbox";
 @import "components/syntax";
 
+.headshot {
+  clip-path: circle(60px at center);
+}
+
+.i-container {
+  margin-bottom: 1.5rem;
+}
+
+.interactive-container .interactive {
+  display:block;
+  margin:auto;
+}
+
 .video {
   margin-top: 2rem;
   margin-bottom: 1rem;

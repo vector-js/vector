@@ -74,6 +74,7 @@ export default class Circle extends Shape {
   /**
   * Translates the circle to a new position by changing the x and y attributes.
   */
+  //TODO: Change
   translate(x:number, y:number){
    this.root.cx.baseVal.value = this.root.cx.baseVal.value + x;
    this.root.cy.baseVal.value = this.root.cy.baseVal.value + y;

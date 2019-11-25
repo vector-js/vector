@@ -1,5 +1,5 @@
 {{ with $.Site.GetPage (print "/examples/" (.Get 0)) }}
-<div id="{{ .Params.Id }}" class="vertical-center"></div>
+<div id="{{ .Params.Id }}" class="vertical-center i-container"></div>
 <script type="module" src="{{.Params.Script}}"></script>
 {{ else }}
   {{ errorf "Failed to find example %q" (print "/concepts/" (.Get 0)) }}

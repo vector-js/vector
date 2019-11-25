@@ -1,20 +1,31 @@
 import Node from './node.js';
 import Edge from './edge.js';
 import Group from '../svg/group.js';
+import Defs from '../svg/definitions.js';
+
 
 /**
 * A Graph is a complex element containing nodes and undirected edges.
 */
+export interface GraphOptions {
+  directed?:boolean;
+}
+
 export default class Graph extends Group {
-
   nodes: Node[];
-
+  options:GraphOptions;
   /**
   * Constructs a graph
   */
-  constructor() {
+  constructor(options:GraphOptions) {
     super();
     this.nodes = [];
+    this.options = options;
+
+    let defs : Defs = this.defs();
+    defs.root.innerHTML = `<marker id="arrow" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#333333;"></path></marker>`;
+
+    this.appendChild(defs);
   }
 
   /**
@@ -48,6 +59,10 @@ export default class Graph extends Group {
   addEdge(from: Node, to: Node) : Edge
   {
     let edge = new Edge(from, to, false);
+
+    if(this.options.directed){
+      edge.root.setAttribute('marker-end', `url(#arrow)`);
+    }
 
     this.root.prepend(edge.root);
 

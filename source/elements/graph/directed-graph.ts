@@ -72,6 +72,8 @@ export default class DirectedGraph extends Group {
   {
     return this.nodes;
   }
+
+
   /**
   * Returns the size of this graph
   */

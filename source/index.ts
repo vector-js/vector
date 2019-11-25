@@ -17,6 +17,7 @@ import Path from './elements/svg/path.js';
 import Polygon from './elements/svg/polygon.js';
 import Rectangle from './elements/svg/rectangle.js';
 import SVG from './elements/svg/svg.js';
+import Shape from './elements/svg/shape.js';
 import Symbol from './elements/svg/symbol.js';
 import TSpan from './elements/svg/t-span.js';
 import Text from './elements/svg/text.js';
@@ -35,6 +36,7 @@ import Input from './elements/input/input.js';
 // complex objects
 import Interactive from './elements/interactive.js';
 import Plot from './elements/math/plot.js';
+import Point from './elements/math/point.js';
 
 // export utility functions
 export * from './util/file.js';
@@ -59,10 +61,12 @@ export {	Button,
 					Marker,
 					Path,
 					Plot,
+					Point,
 					Polygon,
 					RadioControl,
 					Rectangle,
 					Scrubber,
+					Shape,
 					Slider,
 					SVG,
 					Symbol,

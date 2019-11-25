@@ -1,4 +1,4 @@
-import { descriptiveTests, shapeTests, structuralTests, typographyTests } from './content-model.test.js';
+import { descriptiveElements, shapeElements, structuralElements, aElement, clipPathElement, viewElement, scriptElement, markerElement, textElement } from './content-model.test.js';
 import SVG from '../../../elements/svg/svg.js';
 import Container from '../../container.js';
 
@@ -9,34 +9,34 @@ describe('SVG', function () {
     let container : HTMLElement;
     beforeEach(function() {
       container = Container.createContainer();
-      container.hidden = false;
+      container.hidden = true;
     });
     it('should construct a new svg object', function(){
       let svg = new SVG();
-			container.appendChild(svg.root);
-			svg.x = 1;
-			svg.y = 2;
-			svg.width = 3;
-			svg.height = 4;
-			chai.expect(svg.x).to.equal(1);
-			chai.expect(svg.y).to.equal(2);
-			chai.expect(svg.width).to.equal(3);
-			chai.expect(svg.height).to.equal(4);
+      container.appendChild(svg.root);
+      svg.x = 1;
+      svg.y = 2;
+      svg.width = 3;
+      svg.height = 4;
+      chai.expect(svg.x).to.equal(1);
+      chai.expect(svg.y).to.equal(2);
+      chai.expect(svg.width).to.equal(3);
+      chai.expect(svg.height).to.equal(4);
     });
-		it('should construct a new svg object with the provided properties', function(){
-			let svg = new SVG(1, 2);
-			container.appendChild(svg.root);
-			chai.expect(svg.x).to.equal(1);
-			chai.expect(svg.y).to.equal(2);
-		});
-		it('should construct a new svg object with the provided properties', function(){
-			let svg = new SVG(1, 2, 3, 4);
-			container.appendChild(svg.root);
-			chai.expect(svg.x).to.equal(1);
-			chai.expect(svg.y).to.equal(2);
-			chai.expect(svg.width).to.equal(3);
-			chai.expect(svg.height).to.equal(4);
-		});
+    it('should construct a new svg object with the provided properties', function(){
+      let svg = new SVG(1, 2);
+      container.appendChild(svg.root);
+      chai.expect(svg.x).to.equal(1);
+      chai.expect(svg.y).to.equal(2);
+    });
+    it('should construct a new svg object with the provided properties', function(){
+      let svg = new SVG(1, 2, 3, 4);
+      container.appendChild(svg.root);
+      chai.expect(svg.x).to.equal(1);
+      chai.expect(svg.y).to.equal(2);
+      chai.expect(svg.width).to.equal(3);
+      chai.expect(svg.height).to.equal(4);
+    });
     it('should create an svg element within the HTML container with the corresponding id', function() {
       let interactive = SVG.SVG( container.id );
       chai.expect(container.contains( interactive.root )).to.be.true;
@@ -52,38 +52,30 @@ describe('SVG', function () {
   });
 
   describe('content model', function(){
-		let element : SVG;
+    let element : SVG;
     beforeEach(function() {
-			let element = new SVG();
+      element = new SVG();
       this.element = element;
     });
-    describe('descriptive', function(){
-      descriptiveTests();
-    });
-    describe('shape', function(){
-      shapeTests();
-    });
-    describe('structural', function(){
-      structuralTests();
-    });
-    describe('typography', function(){
-      typographyTests();
-    });
-		it('should be able to create an \'a\' element (link)', function(){
-			// let a = element.a();
-		});
-		it('should be able to create an \'clipPath\' element', function(){
 
-		});
-		it('should be able to create an \'script\' element', function(){
+    // grouped elements
+    descriptiveElements();
+    shapeElements();
+    structuralElements();
 
-		});
-		it('should be able to create an \'style\' element', function(){
-
-		});
-		it('should be able to create an \'view\' element', function(){
-			// TODO: The MDN example for the view isn't currently working?
-		});
+    // individual elements
+    aElement();
+    clipPathElement();
+    // filterElement();
+    // foreignObject();
+    // imageElement();
+    // markerElement();
+    // maskElement();
+    scriptElement();
+    // styleElement(); // TODO: this conflicts with current style property
+    // switchElement();
+    textElement();
+    viewElement();
   });
 
   describe('geometric properties', function(){
@@ -94,10 +86,9 @@ describe('SVG', function () {
     });
 
     it('test', function(){
-			// console.log(this);
+      // console.log(this);
       svg.circle(50, 50, 30);
     });
-
 
     // it('should have an x and y propertiy that specify the top-left corner of where an embedded svg is placed', function(){
     //   let nested = svg.svg()
@@ -114,5 +105,4 @@ describe('SVG', function () {
     //   document.body.appendChild(svg.root);
     // });
   });
-
 });

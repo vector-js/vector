@@ -5,7 +5,7 @@ id: world-map
 script: /examples/maps/world-map.js
 description: Every country in the world displayed in an interactive.
 tags: [maps]
-weight: 1
+weight: 3
 draft: undefined
 ---
 
@@ -23,5 +23,3 @@ import * as data from '../../../maps/maps-json.js';
 
 let myInteractive = new Interactive(getScriptName());
 let map = myInteractive.map(data.globalData);
-
-

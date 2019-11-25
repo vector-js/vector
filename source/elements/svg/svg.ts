@@ -1,5 +1,5 @@
 import { Descriptive, Shape, Structural, Typography } from './content-model.js';
-import Element, { GlobalAttributes } from './element.js';
+import Element, { CoreAttributes } from './element.js';
 
 import Circle from './circle.js';
 import ClipPath from './clip-path.js';
@@ -17,6 +17,8 @@ import Symbol from './symbol.js';
 import Text from './text.js';
 import Title from './title.js';
 import Use from './use.js';
+import A from './a.js';
+import Script from './script.js';
 
 type SVGAttributes = 'viewBox' | 'preserveAspectRatio' | 'transform';
 
@@ -136,13 +138,13 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
   }
 
   // comment inherited from base class
-  setAttribute(name: SVGAttributes | GlobalAttributes, value: string): SVG {
+  setAttribute(name: SVGAttributes | CoreAttributes, value: string): SVG {
     this.root.setAttribute(name,value);
     return this;
   }
 
   // comment inherited from base class
-  getAttribute(name: SVGAttributes | GlobalAttributes): string {
+  getAttribute(name: SVGAttributes | CoreAttributes): string {
     return this.root.getAttribute(name);
   }
 
@@ -205,11 +207,31 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 
   // other elements
 
+	/**
+	* Constructs and appends an 'a' (link) element within this element.
+	*/
+	a( href:string ) : A {
+		return this.appendChild(new A(href));
+	}
+
+	/**
+	* Constructs and appends a 'clipPath' element within this element.
+	*/
   clipPath():ClipPath {
     return this.appendChild(new ClipPath());
   }
 
+	/**
+	* Constructs and appends a 'marker' element within this element.
+	*/
   marker(refX:number, refY:number, width:number, height:number):Marker {
     return this.appendChild(new Marker(refX, refY, width, height));
   }
+
+	/**
+	* Constructs and appends a 'script' element within this element.
+	*/
+	script(): Script {
+		return this.appendChild(new Script());
+	}
 }

@@ -4,9 +4,11 @@ import Text from '../svg/text.js';
 import Edge from './edge.js';
 
 //Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
+
 /**
 * A Node is a basic element with a position, radius, and text held within it.
 */
+
 export default class Node extends Group {
 
   nodeName: Text;
@@ -15,6 +17,8 @@ export default class Node extends Group {
   private _cx:number;
   private _text:string;
   private _cy:number;
+  private _rx:number;
+  private _ry:number;
 
   /**
   * Constructs a Node element at the position (x,y) with radius r containing the string text
@@ -25,6 +29,8 @@ export default class Node extends Group {
    this._cx = cx;
    this._cy = cy;
    this._text = text;
+   this._rx = rx;
+   this._ry = ry;
 
    this.edges = new Set<Edge>();
 
@@ -46,6 +52,21 @@ export default class Node extends Group {
   }
 
   /**
+  * Translates this node and all inner elements by x, y.
+  */
+  translate(x:number, y:number){
+    this.nodeEllipse.cx += x;
+    this.nodeName.x += x;
+
+    this._cx += x;
+
+    this.nodeEllipse.cy += y;
+    this.nodeName.y += y;
+
+    this._cy += y;
+  }
+
+  /**
   * Getter for the cx of this node.
   */
   get cx(){
@@ -53,29 +74,24 @@ export default class Node extends Group {
   }
 
   /**
-  * Moves this nodes cx by the given amount.
-  */
-  moveX(x:number){
-    this.nodeEllipse.cx += x;
-    this.nodeName.x += x;
-
-    this._cx += x;
-  }
-
-  /**
-  * Moves this nodes cy by the given amount.
-  */
-  moveY(y:number){
-    this.nodeEllipse.cy += y;
-    this.nodeName.y += y;
-
-    this._cy += y;
-  }
-  /**
   * Getter for cy of this node
   */
   get cy(){
     return this._cy;
+  }
+
+  /**
+  * Getter for rx of this node
+  */
+  get rx(){
+    return this._rx;
+  }
+
+  /**
+  * Getter for ry of this node
+  */
+  get ry(){
+    return this._ry;
   }
 
   /**
@@ -91,6 +107,22 @@ export default class Node extends Group {
   set label(text:string){
     this.nodeName.contents = text
     this._text = text;
+  }
+
+  /**
+  * Setter for rx of this node
+  */
+  set rx(rx:number){
+    this._rx = rx;
+    this.nodeEllipse.rx = rx;
+  }
+
+  /**
+  * Setter for ry of this node
+  */
+  set ry(ry:number){
+    this._ry = ry;
+    this.nodeEllipse.ry = ry;
   }
 
   /**

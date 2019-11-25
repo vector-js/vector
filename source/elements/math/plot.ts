@@ -6,16 +6,102 @@ import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
 
+/**
+* These options control the configuration of a plot object when it is created.
+*/
 export interface PlotOptions {
+
+  /**
+  * When set to true allows the user to zoom in/out and pan using the mouse
+  * scroll event and clicking and dragging. Default value is false.
+  */
   zoomable?:boolean;
+
+  /**
+  * When set to true displays a point representing the output of the function
+  * for the current x-location of the user's mouse.
+  */
   displayPoint?:boolean;
+
+  /**
+  * When set to true displays a grid representing the current scale of the plot
+  */
   grid?:boolean;
+
+  /**
+  * Controls how much the plot is scaled in the x direction.
+  */
   scaleX?:number;
+
+  /**
+  * Controls how much the plot is scaled in the y direction.
+  */
   scaleY?:number;
+
+  /**
+  * Sets the x origin of the internal coordinate system relative to the top left
+  * corner of the plot.
+  */
   originX?:number;
+
+  /**
+  * Sets the y origin of the internal coordinate system relative to the top left
+  * corner of the plot.
+  */
   originY?:number;
   border?:boolean;
   controls?:boolean;
+}
+
+/**
+* Returns the closest power of ten. TODO: replace this with an optimized
+* function that remembers the last closest power of ten and first checks the
+* adjacent powers of ten and then continues.
+*/
+function expTrunc(x:number) {
+
+  // constants so don't have to count zeros
+  const N06 =  1000000;
+  const N05 =   100000;
+  const N04 =    10000;
+  const N03 =     1000;
+  const N02 =      100;
+  const N01 =       10;
+  const N00 =        1;
+  const N_1 =      0.1;
+  const N_2 =     0.01;
+  const N_3 =    0.001;
+  const N_4 =   0.0001;
+  const N_5 =  0.00001;
+  const N_6 = 0.000001;
+
+  if( x >= N06 ) {
+    return N06;
+  } else if ( x > N05) {
+    return N05;
+  } else if ( x > N04) {
+    return N04;
+  } else if ( x > N03) {
+    return N03;
+  } else if ( x > N02) {
+    return N02;
+  } else if ( x > N01) {
+    return N01;
+  } else if ( x > N00) {
+    return N00;
+  } else if ( x > N_1) {
+    return N_1;
+  } else if ( x > N_2) {
+    return N_2;
+  } else if ( x > N_3) {
+    return N_3;
+  } else if ( x > N_4) {
+    return N_4;
+  } else if ( x > N_5) {
+    return N_5;
+  } else if ( x > N_6) {
+    return N_6;
+  }
 }
 
 /**
@@ -59,6 +145,11 @@ export default class Plot extends Group {
   * A line to represent the y-axis of this graph
   */
   yAxis : Line;
+
+  /**
+  * A group containing the grid lines
+  */
+  grid: Group;
 
   // elements
   xRect : Rectangle;
@@ -104,6 +195,19 @@ export default class Plot extends Group {
   constructor( width :number = 600, height:number = 300, fn:(x:number) => number, options:PlotOptions ) {
     super();
 
+    // default configuration options
+    let defaultOptions:PlotOptions = {
+      scaleX:1,
+      scaleY:1,
+      grid:true,
+      zoomable:false, // experimental
+      displayPoint:false, // experimental
+      controls:false // experimental
+    };
+
+    // combine the default configuration with the user's configuration
+    let config = { ...defaultOptions, ...options};
+
     // event variables
     this.prevX = 0;
     this.prevY = 0;
@@ -119,7 +223,7 @@ export default class Plot extends Group {
     // creates a transparent rectangle to capture all user events
     this.rect = this.rectangle(0, 0, this.width, this.height);
     this.rect.style.fill = 'transparent';
-    if( options.border === undefined || options.border ) {
+    if( config.border === undefined || config.border ) {
       this.rect.style.border = '1px solid #404040';
     } else {
       this.rect.style.stroke = 'none';
@@ -131,13 +235,13 @@ export default class Plot extends Group {
 
     // create a static group for non-size-scaling objects
     this.staticGroup = this.group();
-    this.staticGroup.line(-10000, 0, 10000, 0);
-    this.staticGroup.line( 0, -10000, 0, 10000 );
+    this.xAxis = this.staticGroup.line(-10000, 0, 10000, 0);
+    this.yAxis = this.staticGroup.line( 0, -10000, 0, 10000);
     this.staticGroup.circle(0, 0, 3).fill = '#404040';
 
     // initialize the scaling
-    options.scaleX ? this.scaleX = options.scaleX : this.scaleX = 1;
-    options.scaleY ? this.scaleY = options.scaleY : this.scaleY = 1;
+    this.scaleX = config.scaleX;
+    this.scaleY = config.scaleY;
 
     // calculate the visible dimensions and top-left position of internal coordinates
     this.visibleWidth = this.width/this.scaleX;
@@ -151,30 +255,23 @@ export default class Plot extends Group {
 
     this.setViewBox();
 
-    if( options.originX != undefined && options.originY != undefined){
-      this.setOrigin(options.originX, options.originY);
+    if( config.originX != undefined && config.originY != undefined){
+      this.setOrigin(config.originX, config.originY);
     }
 
     // draw a grid of rectangles
-    if( options.grid ) {
-      let w = 10;
-      let h = 10;
-      for( let i = -10; i <= 10; i++) {
-        for( let j = -10; j <= 10; j ++) {
-          let x = i*w;
-          let y = j*h;
-          let rect = this.viewPort.rectangle(x, y, w, h);
-          rect.style.stroke = '#777777';
-          rect.root.setAttribute('vector-effect','non-scaling-stroke');
-        }
-      }
+    if( config.grid ) {
+      this.grid = this.viewPort.group();
+      this.grid.classList.add('grid');
+      this.grid.style.opacity = '.4';
+      this.drawGrid();
     }
 
     // store a temp variable for registering events
     let graph = this;
 
     // Registers event listeners
-    if( options.displayPoint === undefined || options.displayPoint ) {
+    if( config.displayPoint === undefined || config.displayPoint ) {
 
       // create a display circle for showing input and output
       this.displayCircle = this.staticGroup.circle(0,0,4);
@@ -200,7 +297,7 @@ export default class Plot extends Group {
 
     }
 
-    if( options.zoomable === undefined || options.zoomable ) {
+    if( config.zoomable === undefined || config.zoomable ) {
       this.root.addEventListener('mousedown', function( event:MouseEvent) {
         graph.handleMouseDown(event);
       });
@@ -215,7 +312,7 @@ export default class Plot extends Group {
       }, {passive:false});
     }
 
-    if( options.controls ) {
+    if( config.controls ) {
       let zoomIn = this.rectangle( this.width - 48, 16, 30, 30);
       zoomIn.setAttribute('rx', '3');
       zoomIn.style.fill = '#f8f8f8';
@@ -278,15 +375,23 @@ export default class Plot extends Group {
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
-  call( x:number, normalize = true ) : number {
+  call( x:number, trim = false ) : number {
 
     // call and scale the function
     let y = this.scaleY*this._function(x/this.scaleX);
 
     // normalize big/small y values
-    if( normalize ) {
-      if( y >  2*this.height ) { y =  2*this.height; }
-      if( y < -2*this.height ) { y = -2*this.height; }
+    if( trim ) {
+      let margin = 8;
+      let yMax = this.y + this.height + margin;
+      let yMin = this.y - margin;
+      if( -y > yMax ) { y = -yMax; }
+      if( -y < yMin ) { y = -yMin; }
+    } else {
+      let yMin = this.y - this.height;
+      let yMax = this.y + 2*this.height;
+      if( -y > yMax ) { y = -yMax; }
+      if( -y < yMin ) { y = -yMin; }
     }
     return y;
   }
@@ -308,7 +413,7 @@ export default class Plot extends Group {
   * graph there is enough drawn so that a translate may be applied instead of
   * having to call draw again.
   */
-  draw( startX = this.x - this.width, endX = this.x + 2*this.width ) {
+  draw( startX = this.x - this.width, endX = this.x + 2*this.width, trim = false ) {
 
     this.setViewBox();
     this.updateDisplayCircle();
@@ -316,7 +421,7 @@ export default class Plot extends Group {
     // Start drawing the function
     let start = false;
     let x = startX;
-    let y = this.call(x);
+    let y = this.call(x, false);
     let d : string = '';
     let prev : number;
 
@@ -328,9 +433,9 @@ export default class Plot extends Group {
     }
 
     // Loop through and draw coordiantes of the function path
-    for( x ++; x < endX; x ++ ){
-      let y = this.call(x);
-      if( isNaN(y)) {
+    for( x+=1; x < endX; x+=1 ){
+      let y = this.call(x, trim);
+      if(isNaN(y) || !isFinite(y)) {
         continue;
       }
       // check for vertical asymptotes or if we haven't started drawing
@@ -346,6 +451,58 @@ export default class Plot extends Group {
 
     // Update the dependents if there are any
     this.updateDependents();
+  }
+
+  /**
+  *
+  */
+  drawGrid() {
+
+    // clear all the children
+    this.grid.clear();
+
+    // TODO: use a combination of these metrics below to calculate the spacing
+    // between two grid lines. I am guessing the goal is to space grid lines
+    // somewhere between 10 - 50 pixels in the actual coordinate system
+    let pixelsX = 200*this.visibleWidth/this.width;
+    let pixelsY = 200*this.visibleHeight/this.height;
+    let spacingX = expTrunc(pixelsX);
+    let spacingY = expTrunc(pixelsY);
+
+    // TODO: use the static group for this?
+    let minX = this.internalX - this.visibleWidth;
+    let maxX = this.internalX + 2*this.visibleWidth;
+    let minY = this.internalY - this.visibleHeight;
+    let maxY = this.internalX + 2*this.visibleWidth;
+
+    // console.log(spacingX, spacingY);
+
+    let x = -10*spacingX;
+    while( x < maxX ) {
+      if( x >= minX ) {
+        this.grid.line(x, minY, x, maxY);
+      }
+      x += spacingX;
+    }
+
+    let y = -10*spacingY;
+    while( y < maxY ) {
+      if( y >= minY ) {
+        this.grid.line(minX, y, maxX, y);
+      }
+      y += spacingY;
+    }
+
+    // // horizontal lines
+    // for( let i = minY; i <= maxY; i += spacingX ) {
+    //   this.grid.line(minX, i, maxX,  i);
+    // }
+    //
+    // // vertical lines
+    // for( let i = minX; i <= maxX; i += spacingY ) {
+    //   this.grid.line( i, minY,  i, maxY);
+    // }
+
   }
 
   /**
@@ -456,6 +613,27 @@ export default class Plot extends Group {
     }
 
     // redraw visual elements
+    this.drawGrid();
     this.draw();
+  }
+
+  /**
+  *
+  */
+  export() : SVG {
+    let result = new SVG(0, 0, this.width, this.height);
+
+    let margin = 8;
+
+    // trim axis
+    this.xAxis.x1 = this.x;
+    this.xAxis.x2 = this.x + this.width;
+    this.yAxis.y1 = this.y;
+    this.yAxis.y2 = this.y + this.height;
+
+    // draw trimmed version
+    this.draw(this.x - margin, this.x + this.width + margin, true);
+
+    return result;
   }
 }

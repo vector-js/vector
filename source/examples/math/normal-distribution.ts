@@ -1,7 +1,5 @@
 /**
-* @title Normal Distribution
-* @description This interactive demonstrates the properties of the normal distribution.
-* @tags [math]
+* @ignore true
 */
 
 import {Interactive, getScriptName} from '../../index.js';

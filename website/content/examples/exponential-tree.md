@@ -6,7 +6,7 @@ script: /examples/math/exponential-tree.js
 description: This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree.
 input: undefined
 tags: [math]
-weight: undefined
+weight: 1
 draft: undefined
 ---
 
@@ -17,6 +17,7 @@ draft: undefined
 * @tags [math]
 * @date October 15, 2019
 * @author Kurt Bruns
+* @weight 1
 */
 import Interactive from "../../interactive.js";
 import { SVG, getScriptName } from "../../index.js";
@@ -142,21 +143,21 @@ let levels = interactive.slider(interactive.width / 2 - 125, 300 + 2 * margin, {
     width: 250,
     min: 0,
     max: 4,
-    value: 2
+    value: 3
 });
 let branching = interactive.slider(interactive.width / 2 - 125, 300 + 3 * margin, {
     width: 250,
     min: 1,
     max: 4,
-    value: 3
+    value: 1
 });
-let tree = interactive.appendChild(new Tree(300, 300, levels.value, branching.value));
+let tree = interactive.appendChild(new Tree(300, 300, branching.value, levels.value));
 tree.y = 16;
 tree.style.overflow = 'visible';
 tree.addDependency(levels, branching);
 tree.update = function () {
-    let levelsValue = Math.floor(levels.value);
-    let branchingValue = Math.floor(branching.value);
+    let levelsValue = Math.round(levels.value);
+    let branchingValue = Math.round(branching.value);
     if (tree.exponent !== levelsValue || tree.base !== branchingValue) {
         tree.exponent = levelsValue;
         tree.base = branchingValue;
@@ -165,7 +166,8 @@ tree.update = function () {
         }
     }
 };
-tree.draw();
+tree.update();
+// tree.draw();
 let levelsText = interactive.text(levels.x + levels.width + margin, levels.y, 'exponent');
 let branchingText = interactive.text(branching.x + branching.width + margin, branching.y, 'factor');
 let mathText = interactive.text(interactive.width / 2, branching.y + 3 * margin / 2, '');
