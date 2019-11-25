@@ -59,7 +59,7 @@ drawGraph();
 function primeFactors( n:number, p:number, x:number, y:number, prev:Node ) {
 
   if( n <= 1 ) {
-    graph.addNode( x, y, n.toString(), radius);
+    graph.addNode( x, y, n.toString(), radius, radius);
   }
 
   while( n > 1 ) {
