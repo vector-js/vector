@@ -206,7 +206,7 @@ export default class Graph extends Group {
               node.parents[0].children[j].cx += shift / (nodePos - i+1);
               modMap[node.parents[0].children[j].id] += shift / (nodePos - i+1);
             }
-            
+
           }
         }
       }
