@@ -219,37 +219,35 @@ circle.animateAlongPath( path, true, SPEED);
 
 ## Maps
 
-Wishful thinking (x,y) to lattitude longitude and vice versa.
+The Map Module is used to plot geographic data in SVG format. Our library supports <a href="https://geojson.org/" target="_blank" rel="noreferrer">GeoJson</a> which is the most popular data standard for representing geographical data. The SVG path's get grouped by feature, meaning that manipulating the map objects is straight forward. For more information on this, please go to our Map Module Tutorial or take a look at some map examples.
 
 ### World Map
 
 {{< highlight javascript>}}
-import canada from './maps/canada.js';
-let map = interactive.map(canada);
+import {Interactive, getScriptName} from '../../index.js';
+import {globalData} from './maps-json.js';
+
+let myInteractive = new Interactive(getScriptName());
+let map = myInteractive.map(globalData);
 {{< /highlight >}}
 
-<img src="/images/world-map.svg" class="center" alt="SVG World Map">
-
-{{<example "map-element">}}
+{{<example "world-map">}}
 
 ### United States
 
 {{< highlight javascript>}}
-let map = interactive.map("united-states.geojson");
+import {Interactive, getScriptName} from '../../index.js';
+import {usData} from './maps-json.js';
+
+let myInteractive = new Interactive(getScriptName());
+let map = myInteractive.map(usData);
 {{< /highlight >}}
 
 <img src="/images/united-states.svg" class="center" alt="SVG United States Map">
 
 ### Custom Maps
 
-{{< highlight javascript>}}
-import { getJSON } from 'Util.js';
-
-getJSON('custom.geojson').then(function(geoData){
-
-});
-
-{{< /highlight >}}
+Any data that is in the GeoJson format can be rendered with our library. That means that if you can find the data for it, we can plot it. For more information on how GeoJson works and where to find it, go to the Map Module tutorial.
 
 ## Coordinates
 
