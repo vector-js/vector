@@ -87,7 +87,8 @@ export default function main( id:string, opts:InteractiveOptions ) {
   * Displays the unit circle.
   */
   let circleInteractive = interactive.interactive(0, 0);
-  circleInteractive.rectangle(-width/2,-width/2, width, width);
+  let circleRectangle = circleInteractive.rectangle(-width/2,-width/2, width, width);
+  circleRectangle.classList.add('default');
   circleInteractive.height = width;
   circleInteractive.width = width;
   circleInteractive.originX = circleInteractive.width/2;
@@ -109,7 +110,8 @@ export default function main( id:string, opts:InteractiveOptions ) {
   info.width = width;
   info.height = width;
   // TODO: setting the border to true doesn't work?
-  info.rectangle(0, 0, info.width, info.height).style.strokeWidth = '1';
+  let infoRect = info.rectangle(0, 0, info.width, info.height);
+  infoRect.classList.add('default');
 
   /**
   * Displays the current trigonometric function graphed and
@@ -118,7 +120,9 @@ export default function main( id:string, opts:InteractiveOptions ) {
   let functions = interactive.interactive(width + margin, width + margin);
   functions.width = 2*width;
   functions.height = width;
-  functions.rectangle(0, 0, functions.width, functions.height).style.strokeWidth = '1';
+  let functionsRect = functions.rectangle(0, 0, functions.width, functions.height);
+  functionsRect.classList.add('default');
+
 
   // Unit Circle Section
 
@@ -205,6 +209,7 @@ export default function main( id:string, opts:InteractiveOptions ) {
   };
 
   // draw gridlines
+  circleInteractive.background.classList.add('default');
   for( let i = -3; i <= 3; i++) {
     for( let j = -3; j <= 3; j++) {
       let rect2 = circleInteractive.rectangle(i*circle.r,j*circle.r,circle.r,circle.r);

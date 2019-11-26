@@ -3,10 +3,11 @@
 title: Unit Circle
 id: unit-circle
 script: /examples/math/unit-circle.js
+main: true
 description: This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent.
 input: undefined
 tags: [math]
-weight: 1
+weight: undefined
 draft: undefined
 ---
 
@@ -18,26 +19,12 @@ draft: undefined
 * @date October 9, 2019
 * @author Kurt Bruns
 */
-import { Interactive, getScriptName, BaseElement } from '../../index.js';
+import { Interactive, BaseElement } from '../../index.js';
 import { parseSVG } from '../../util/svg.js';
 /**
-* This main interactive contains the four components: the unit
-* circle, the function graph, the variables, and the
-* trigonometric functions.
-*/
-let interactive = new Interactive(getScriptName());
-let width = 230;
-let scale = width / Math.PI;
-let radius = scale;
-let margin = 2 * radius - width / 2;
-interactive.height = width + margin + width;
-interactive.width = width + margin + 2 * width + 2;
-let f = Math.cos;
-/**
-* This wrapper object is how the circular dependecy between
-* control elements is made more simple. Since all of the
-* elements depend on the current angle when an input is
-* changed then this element is updated and the change is
+* This wrapper object is how the circular dependecy between control elements is
+* made more simple. Since all of the elements depend on the current angle when
+* an input is changed then this element is updated and the change is
 * propegated through the dependency graph.
 */
 class NumberWrapper extends BaseElement {
@@ -53,245 +40,282 @@ class NumberWrapper extends BaseElement {
         this.updateDependents();
     }
 }
-/**
-* This angle is the main element that most of the control
-* points both update and depend on.
-*/
-let angle = new NumberWrapper(0);
-/**
-* Displays the unit circle.
-*/
-let circleInteractive = interactive.interactive(0, 0);
-circleInteractive.rectangle(-width / 2, -width / 2, width, width);
-circleInteractive.height = width;
-circleInteractive.width = width;
-circleInteractive.originX = circleInteractive.width / 2;
-circleInteractive.originY = circleInteractive.height / 2;
-/**
-* Display the graph of the current trigonometric function.
-*/
-let plotInteractive = interactive.interactive(width + margin, 0, {
-    width: 2 * width,
-    height: width
-});
-/**
-* Displays the value of the variables and a button for
-* animating the interactive.
-*/
-let info = interactive.interactive(0, width + margin);
-info.width = width;
-info.height = width;
-// TODO: setting the border to true doesn't work?
-info.rectangle(0, 0, info.width, info.height).style.strokeWidth = '1';
-/**
-* Displays the current trigonometric function graphed and
-* allows the user to toggle between the functions
-*/
-let functions = interactive.interactive(width + margin, width + margin);
-functions.width = 2 * width;
-functions.height = width;
-functions.rectangle(0, 0, functions.width, functions.height).style.strokeWidth = '1';
-// Unit Circle Section
-let triangle = circleInteractive.path('');
-let circle = circleInteractive.circle(0, 0, radius);
-let control = circleInteractive.control(circle.r, 0);
-control.constrainTo(circle);
-control.addDependency(angle);
-control.update = function () {
-    this.x = circle.r * Math.cos(angle.value);
-    this.y = -circle.r * Math.sin(angle.value);
-};
-control.onchange = function () {
-    if (control.y <= 0) {
-        angle.value = Math.abs(Math.atan2(control.y, control.x));
+class UnitCircle {
+    constructor(id, angle, func = Math.cos) {
     }
-    else {
-        angle.value = Math.PI * 2 - Math.atan2(control.y, control.x);
+    set angle(value) {
     }
-};
-triangle.addDependency(control, angle);
-if (f === Math.tan) {
-    triangle.update = function () {
-        triangle.d = `M 0 0
-                  L ${circle.r / Math.cos(angle.value)} 0
-                  L ${control.x} ${control.y}
-                  Z`;
-    };
-}
-else {
-    triangle.update = function () {
-        triangle.d = `M 0 0
-                  L ${control.x} 0
-                  L ${control.x} ${control.y}
-                  Z`;
-    };
-}
-triangle.update();
-// triangle.style.stroke = 'none';
-triangle.style.fill = '#f8f8f8';
-circleInteractive.circle(0, 0, 3).style.fill = '#404040';
-// Graph/Plot Section
-let plot = plotInteractive.plot(2 * width, width, f, {
-    scaleX: scale,
-    scaleY: scale,
-    originX: 0,
-    originY: width / 2,
-    zoomable: false,
-    displayPoint: false,
-    grid: true,
-    border: true
-});
-let line = plot.staticGroup.line(0, 0, 0, 0);
-line.setAttribute('transform', 'scale(1,-1)');
-line.style.stroke = 'cornflowerblue';
-line.style.strokeWidth = '2';
-line.addDependency(angle, plot);
-line.update = function () {
-    line.x1 = scale * angle.value;
-    line.y1 = 0;
-    line.x2 = line.x1;
-    line.y2 = plot.call(line.x1);
-};
-let chartControl = interactive.control(0, 0);
-plot.staticGroup.appendChild(chartControl);
-chartControl.addDependency(angle, plot);
-chartControl.update = function () {
-    chartControl.x = scale * angle.value;
-    chartControl.y = -plot.call(chartControl.x);
-};
-chartControl.update();
-chartControl.constrain = (oldPos, newPos) => {
-    let x = (plotInteractive.width + newPos.x) % plotInteractive.width;
-    let y = -plot.call(x);
-    return { x: x, y: y };
-};
-chartControl.onchange = function () {
-    angle.value = chartControl.x / scale;
-};
-// draw gridlines
-for (let i = -3; i <= 3; i++) {
-    for (let j = -3; j <= 3; j++) {
-        let rect2 = circleInteractive.rectangle(i * circle.r, j * circle.r, circle.r, circle.r);
-        circleInteractive.background.prependChild(rect2);
-        rect2.root.setAttribute('vector-effect', 'non-scaling-stroke');
-        rect2.style.strokeOpacity = '.25';
+    get angle() {
+        return this._angle;
     }
 }
-angle.value = 1;
-// plot.staticGroup.text( 8, -8, '0');
-plot.staticGroup.line(1 * radius * Math.PI / 2, -4, 1 * radius * Math.PI / 2, 4);
-plot.staticGroup.line(1 * radius * Math.PI / 1, -4, 1 * radius * Math.PI / 1, 4);
-plot.staticGroup.line(3 * radius * Math.PI / 2, -4, 3 * radius * Math.PI / 2, 4);
-// plot.staticGroup.line( 4*radius*Math.PI/2, -4, 4*radius*Math.PI/2, 4).style.strokeWidth = '3';
-plot.staticGroup.text(1 * radius * Math.PI - 4, -8, 'π');
-plot.staticGroup.text(2 * radius * Math.PI - 12, -8, 'τ');
-// x-axis labels
-interactive.text(circleInteractive.originX - radius - 4, circleInteractive.height + 20, '-1');
-interactive.text(circleInteractive.originX - 0 - 4, circleInteractive.height + 20, '0');
-interactive.text(circleInteractive.originX + radius - 4, circleInteractive.height + 20, '1');
-// position of plot origin
-let ox = width + margin;
-let oy = width / 2;
-// y-axis labels
-interactive.text(ox - 20, oy + 4, '0');
-interactive.text(ox - 24, oy + radius + 4, '-1');
-interactive.text(ox - 20, oy - radius + 4, '1');
-// bottom x-axis labels
-interactive.circle(ox, oy, 3).style.fill = '#404040';
-interactive.text(ox + 0 * radius - 4, oy + plotInteractive.height / 2 + 22, '0');
-interactive.text(ox + 1 * radius - 4, oy + plotInteractive.height / 2 + 20, '1');
-interactive.text(ox + 2 * radius - 4, oy + plotInteractive.height / 2 + 20, '2');
-interactive.text(ox + 3 * radius - 4, oy + plotInteractive.height / 2 + 20, '3');
-interactive.text(ox + 4 * radius - 4, oy + plotInteractive.height / 2 + 20, '4');
-interactive.text(ox + 5 * radius - 4, oy + plotInteractive.height / 2 + 20, '5');
-interactive.text(ox + 6 * radius - 4, oy + plotInteractive.height / 2 + 20, '6');
-interactive.line(ox + 2 * Math.PI * radius, oy - 4, ox + 2 * Math.PI * radius, oy + 4);
-// Info section
-let x = 20;
-let thetaDisplay = info.text(x, info.height * 1 / 5, "θ = ...");
-let xDisplay = info.text(x, info.height * 2 / 5, "x = ...");
-let yDisplay = info.text(x, info.height * 3 / 5, "y = ...");
-thetaDisplay.addDependency(control);
-thetaDisplay.update = function () {
-    thetaDisplay.contents = `θ = ${getAngle().toFixed(2)}`;
-    // thetaDisplay.contents = `θ = ${getAngle().toFixed(2)} or ${(getAngle()/(2*Math.PI)).toFixed(2)}τ`;
-};
-xDisplay.addDependency(control);
-xDisplay.update = function () {
-    xDisplay.contents = `x = ${(control.x / circle.r).toFixed(2)}`;
-};
-yDisplay.addDependency(control);
-yDisplay.update = function () {
-    yDisplay.contents = `y = ${(-control.y / circle.r).toFixed(2)}`;
-};
-let requestID = 0;
-let animating = false;
-let animate = info.button(3 * x, info.height * 4 / 5, "animate");
-animate.onclick = function () {
-    let step = function (timestamp) {
-        angle.value += .01;
-        angle.value = angle.value % (2 * Math.PI);
-        // chartControl.onchange();
-        requestID = window.requestAnimationFrame(step);
+/**
+* This main interactive contains the four components: the unit circle, the
+* function graph, the variables, and the trigonometric functions.
+*/
+export default function main(id, opts) {
+    /**
+    * Default options for this interactive
+    */
+    let defaultOptions = {
+        angle: 1,
+        func: Math.cos
     };
-    if (animating) {
-        window.cancelAnimationFrame(requestID);
-        animating = false;
+    let interactive = new Interactive(id);
+    let width = 230;
+    let scale = width / Math.PI;
+    let radius = scale;
+    let margin = 2 * radius - width / 2;
+    interactive.height = width + margin + width;
+    interactive.width = width + margin + 2 * width + 2;
+    let f = Math.cos;
+    /**
+    * This angle is the main element that most of the control
+    * points both update and depend on.
+    */
+    let angle = new NumberWrapper(0);
+    /**
+    * Displays the unit circle.
+    */
+    let circleInteractive = interactive.interactive(0, 0);
+    let circleRectangle = circleInteractive.rectangle(-width / 2, -width / 2, width, width);
+    circleRectangle.classList.add('default');
+    circleInteractive.height = width;
+    circleInteractive.width = width;
+    circleInteractive.originX = circleInteractive.width / 2;
+    circleInteractive.originY = circleInteractive.height / 2;
+    /**
+    * Display the graph of the current trigonometric function.
+    */
+    let plotInteractive = interactive.interactive(width + margin, 0, {
+        width: 2 * width,
+        height: width
+    });
+    /**
+    * Displays the value of the variables and a button for
+    * animating the interactive.
+    */
+    let info = interactive.interactive(0, width + margin);
+    info.width = width;
+    info.height = width;
+    // TODO: setting the border to true doesn't work?
+    let infoRect = info.rectangle(0, 0, info.width, info.height);
+    infoRect.classList.add('default');
+    /**
+    * Displays the current trigonometric function graphed and
+    * allows the user to toggle between the functions
+    */
+    let functions = interactive.interactive(width + margin, width + margin);
+    functions.width = 2 * width;
+    functions.height = width;
+    let functionsRect = functions.rectangle(0, 0, functions.width, functions.height);
+    functionsRect.classList.add('default');
+    // Unit Circle Section
+    let triangle = circleInteractive.path('');
+    triangle.style.stroke = '#333333';
+    let circle = circleInteractive.circle(0, 0, radius);
+    circle.style.fill = 'none';
+    circle.style.stroke = '#333333';
+    let control = circleInteractive.control(circle.r, 0);
+    control.constrainTo(circle);
+    control.addDependency(angle);
+    control.update = function () {
+        this.x = circle.r * Math.cos(angle.value);
+        this.y = -circle.r * Math.sin(angle.value);
+    };
+    control.onchange = function () {
+        if (control.y <= 0) {
+            angle.value = Math.abs(Math.atan2(control.y, control.x));
+        }
+        else {
+            angle.value = Math.PI * 2 - Math.atan2(control.y, control.x);
+        }
+    };
+    triangle.addDependency(control, angle);
+    if (f === Math.tan) {
+        triangle.update = function () {
+            triangle.d = `M 0 0
+                    L ${circle.r / Math.cos(angle.value)} 0
+                    L ${control.x} ${control.y}
+                    Z`;
+        };
     }
     else {
-        animating = true;
-        requestID = window.requestAnimationFrame(step);
+        triangle.update = function () {
+            triangle.d = `M 0 0
+                    L ${control.x} 0
+                    L ${control.x} ${control.y}
+                    Z`;
+        };
     }
-};
-// Functions section
-let radio = functions.radioControl(x + 16, functions.height / 2 - 16, ['cos(θ)', 'sin(θ)', 'tan(θ)']);
-radio.style.fontFamily = 'monospace';
-radio.style.fontSize = '18px';
-// TODO: replace with interchangeable functions katex or external SVG
-let group = functions.group();
-group.root.setAttribute('transform', `translate(${3 * radius},${functions.height * 2 / 6})`);
-let cos = cosineSVG();
-let sin = sineSVG();
-let tan = tangentSVG();
-group.root.appendChild(cos);
-group.root.appendChild(sin);
-group.root.appendChild(tan);
-radio.onchange = function () {
-    cos.style.display = 'none';
-    sin.style.display = 'none';
-    tan.style.display = 'none';
-    switch (radio.index) {
-        case 0:
-            cos.style.display = '';
-            plot.function = Math.cos;
-            break;
-        case 1:
-            sin.style.display = '';
-            plot.function = Math.sin;
-            break;
-        case 2:
-            tan.style.display = '';
-            plot.function = Math.tan;
-            break;
+    triangle.update();
+    // triangle.style.stroke = 'none';
+    triangle.style.fill = '#f8f8f8';
+    circleInteractive.circle(0, 0, 3).style.fill = '#404040';
+    // Graph/Plot Section
+    let plot = plotInteractive.plot(2 * width, width, f, {
+        scaleX: scale,
+        scaleY: scale,
+        originX: 0,
+        originY: width / 2,
+        zoomable: false,
+        displayPoint: false,
+        grid: true,
+        border: true
+    });
+    let line = plot.staticGroup.line(0, 0, 0, 0);
+    line.setAttribute('transform', 'scale(1,-1)');
+    line.style.stroke = 'cornflowerblue';
+    line.style.strokeWidth = '2';
+    line.addDependency(angle, plot);
+    line.update = function () {
+        line.x1 = scale * angle.value;
+        line.y1 = 0;
+        line.x2 = line.x1;
+        line.y2 = plot.call(line.x1);
+    };
+    let chartControl = interactive.control(0, 0);
+    plot.staticGroup.appendChild(chartControl);
+    chartControl.addDependency(angle, plot);
+    chartControl.update = function () {
+        chartControl.x = scale * angle.value;
+        chartControl.y = -plot.call(chartControl.x);
+    };
+    chartControl.update();
+    chartControl.constrain = (oldPos, newPos) => {
+        let x = (plotInteractive.width + newPos.x) % plotInteractive.width;
+        let y = -plot.call(x);
+        return { x: x, y: y };
+    };
+    chartControl.onchange = function () {
+        angle.value = chartControl.x / scale;
+    };
+    // draw gridlines
+    circleInteractive.background.classList.add('default');
+    for (let i = -3; i <= 3; i++) {
+        for (let j = -3; j <= 3; j++) {
+            let rect2 = circleInteractive.rectangle(i * circle.r, j * circle.r, circle.r, circle.r);
+            circleInteractive.background.prependChild(rect2);
+            rect2.root.setAttribute('vector-effect', 'non-scaling-stroke');
+            rect2.style.strokeOpacity = '.25';
+        }
     }
-    plot.draw();
-};
-radio.onchange();
-// Set the angle to be one radian
-control.x = circle.r * Math.cos(1);
-control.y = -circle.r * Math.sin(1);
-control.updateDependents();
-// Gets the normalized angle between zero and tau. TODO: Maybe transform the
-// coordinate system so that the positive y-direction is up instead of down.
-// UPDATE: transform = 'scale(1,-1)' applied to the main svg  didn't quite work
-// as expected: the text element was upside down, but maybe that could be
-// reversed? bleh.
-function getAngle() {
-    if (control.y <= 0) {
-        return Math.abs(Math.atan2(control.y, control.x));
-    }
-    else {
-        return Math.PI * 2 - Math.atan2(control.y, control.x);
+    angle.value = 1;
+    // plot.staticGroup.text( 8, -8, '0');
+    plot.staticGroup.line(1 * radius * Math.PI / 2, -4, 1 * radius * Math.PI / 2, 4);
+    plot.staticGroup.line(1 * radius * Math.PI / 1, -4, 1 * radius * Math.PI / 1, 4);
+    plot.staticGroup.line(3 * radius * Math.PI / 2, -4, 3 * radius * Math.PI / 2, 4);
+    // plot.staticGroup.line( 4*radius*Math.PI/2, -4, 4*radius*Math.PI/2, 4).style.strokeWidth = '3';
+    plot.staticGroup.text(1 * radius * Math.PI - 4, -8, 'π');
+    plot.staticGroup.text(2 * radius * Math.PI - 12, -8, 'τ');
+    // x-axis labels
+    interactive.text(circleInteractive.originX - radius - 4, circleInteractive.height + 20, '-1');
+    interactive.text(circleInteractive.originX - 0 - 4, circleInteractive.height + 20, '0');
+    interactive.text(circleInteractive.originX + radius - 4, circleInteractive.height + 20, '1');
+    // position of plot origin
+    let ox = width + margin;
+    let oy = width / 2;
+    // y-axis labels
+    interactive.text(ox - 20, oy + 4, '0');
+    interactive.text(ox - 24, oy + radius + 4, '-1');
+    interactive.text(ox - 20, oy - radius + 4, '1');
+    // bottom x-axis labels
+    interactive.circle(ox, oy, 3).style.fill = '#404040';
+    interactive.text(ox + 0 * radius - 4, oy + plotInteractive.height / 2 + 22, '0');
+    interactive.text(ox + 1 * radius - 4, oy + plotInteractive.height / 2 + 20, '1');
+    interactive.text(ox + 2 * radius - 4, oy + plotInteractive.height / 2 + 20, '2');
+    interactive.text(ox + 3 * radius - 4, oy + plotInteractive.height / 2 + 20, '3');
+    interactive.text(ox + 4 * radius - 4, oy + plotInteractive.height / 2 + 20, '4');
+    interactive.text(ox + 5 * radius - 4, oy + plotInteractive.height / 2 + 20, '5');
+    interactive.text(ox + 6 * radius - 4, oy + plotInteractive.height / 2 + 20, '6');
+    interactive.line(ox + 2 * Math.PI * radius, oy - 4, ox + 2 * Math.PI * radius, oy + 4);
+    // Info section
+    let x = 20;
+    let thetaDisplay = info.text(x, info.height * 1 / 5, "θ = ...");
+    let xDisplay = info.text(x, info.height * 2 / 5, "x = ...");
+    let yDisplay = info.text(x, info.height * 3 / 5, "y = ...");
+    thetaDisplay.addDependency(control);
+    thetaDisplay.update = function () {
+        thetaDisplay.contents = `θ = ${getAngle().toFixed(2)}`;
+        // thetaDisplay.contents = `θ = ${getAngle().toFixed(2)} or ${(getAngle()/(2*Math.PI)).toFixed(2)}τ`;
+    };
+    xDisplay.addDependency(control);
+    xDisplay.update = function () {
+        xDisplay.contents = `x = ${(control.x / circle.r).toFixed(2)}`;
+    };
+    yDisplay.addDependency(control);
+    yDisplay.update = function () {
+        yDisplay.contents = `y = ${(-control.y / circle.r).toFixed(2)}`;
+    };
+    let requestID = 0;
+    let animating = false;
+    let animate = info.button(3 * x, info.height * 4 / 5, "animate");
+    animate.onclick = function () {
+        let step = function (timestamp) {
+            angle.value += .01;
+            angle.value = angle.value % (2 * Math.PI);
+            // chartControl.onchange();
+            requestID = window.requestAnimationFrame(step);
+        };
+        if (animating) {
+            window.cancelAnimationFrame(requestID);
+            animating = false;
+        }
+        else {
+            animating = true;
+            requestID = window.requestAnimationFrame(step);
+        }
+    };
+    // Functions section
+    let radio = functions.radioControl(x + 16, functions.height / 2 - 16, ['cos(θ)', 'sin(θ)', 'tan(θ)']);
+    radio.style.fontFamily = 'monospace';
+    radio.style.fontSize = '18px';
+    // TODO: replace with interchangeable functions katex or external SVG
+    let group = functions.group();
+    group.root.setAttribute('transform', `translate(${3 * radius},${functions.height * 2 / 6})`);
+    let cos = cosineSVG();
+    let sin = sineSVG();
+    let tan = tangentSVG();
+    group.root.appendChild(cos);
+    group.root.appendChild(sin);
+    group.root.appendChild(tan);
+    radio.onchange = function () {
+        cos.style.display = 'none';
+        sin.style.display = 'none';
+        tan.style.display = 'none';
+        switch (radio.index) {
+            case 0:
+                cos.style.display = '';
+                plot.function = Math.cos;
+                break;
+            case 1:
+                sin.style.display = '';
+                plot.function = Math.sin;
+                break;
+            case 2:
+                tan.style.display = '';
+                plot.function = Math.tan;
+                break;
+        }
+        plot.draw();
+    };
+    radio.onchange();
+    // Set the angle to be one radian
+    control.x = circle.r * Math.cos(1);
+    control.y = -circle.r * Math.sin(1);
+    control.updateDependents();
+    // Gets the normalized angle between zero and tau. TODO: Maybe transform the
+    // coordinate system so that the positive y-direction is up instead of down.
+    // UPDATE: transform = 'scale(1,-1)' applied to the main svg  didn't quite work
+    // as expected: the text element was upside down, but maybe that could be
+    // reversed? bleh.
+    function getAngle() {
+        if (control.y <= 0) {
+            return Math.abs(Math.atan2(control.y, control.x));
+        }
+        else {
+            return Math.PI * 2 - Math.atan2(control.y, control.x);
+        }
     }
 }
 function tangentSVG() {
@@ -305,3 +329,4 @@ function sineSVG() {
 }
 //# sourceMappingURL=unit-circle.js.map
 {{</ highlight >}}
+

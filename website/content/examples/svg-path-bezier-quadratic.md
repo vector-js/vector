@@ -3,6 +3,7 @@
 title: SVG Path Quadratic Bezier Curve
 id: svg-path-bezier-quadratic
 script: /examples/svg/svg-path-bezier-quadratic.js
+main: false
 description: This interactive demonstrates the quadratic bezier command for a SVG path element. There are three control points that allow the user to control the shape of the bezier curve that is drawn.
 input: undefined
 tags: [svg]
@@ -21,12 +22,13 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 let l1 = interactive.line(0, 0, 0, 0);
 let l2 = interactive.line(0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
 l2.stroke = 'cornflowerblue';
 let path = interactive.path('');
+path.classList.add('default');
 let c1 = interactive.control(150, 100);
 let c2 = interactive.control(300, 200);
 let c3 = interactive.control(450, 100);

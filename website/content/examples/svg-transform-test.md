@@ -3,6 +3,7 @@
 title: SVG Transform
 id: svg-transform-test
 script: /examples/svg/svg-transform-test.js
+main: false
 description: undefined
 input: undefined
 tags: undefined
@@ -18,7 +19,7 @@ draft: true
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
-interactive.width = 700;
+interactive.width = 736;
 interactive.height = 300;
 interactive.border = true;
 let w = 60;

@@ -3,6 +3,7 @@
 title: Angle Interactive
 id: angle
 script: /examples/math/angle.js
+main: false
 description: An interactive that demonstrates how an angle is defined as the amount of rotation between two rays in two-dimensional space.
 input: undefined
 tags: [math]

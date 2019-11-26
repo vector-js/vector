@@ -3,6 +3,7 @@
 title: SVG Marker
 id: svg-marker
 script: /examples/svg/svg-marker.js
+main: false
 description: This interactive demonstrates the SVG line element and its attributes.
 input: undefined
 tags: [svg]
@@ -21,7 +22,7 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 // interactive.marker();
 //# sourceMappingURL=svg-marker.js.map
 {{</ highlight >}}

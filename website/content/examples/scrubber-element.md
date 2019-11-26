@@ -3,6 +3,7 @@
 title: Scrubber Element
 id: scrubber-element
 script: /examples/elements/scrubber-element.js
+main: false
 description: This interactive demonstrates the animation scrubber element.
 input: undefined
 tags: [elements, input]

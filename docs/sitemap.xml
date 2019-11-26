@@ -13,6 +13,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/click-accuracy-game/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/</loc>
   </url>
   
@@ -21,11 +25,19 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/world-map/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/population-of-united-states/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/prime-factorization/</loc>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/unit-circle/</loc>
+    <loc>https://vectorjs.org/examples/snake-game/</loc>
   </url>
   
   <url>
@@ -37,19 +49,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/world-map/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/tutorials/maps/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/tutorials/population-map-of-united-states/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/population-of-united-states/</loc>
   </url>
   
   <url>
@@ -87,11 +91,31 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/triangle-area-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/arrow-element/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/button-element/</loc>
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-test/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/cartesian-coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/number-line/</loc>
   </url>
   
   <url>
@@ -116,6 +140,14 @@
   
   <url>
     <loc>https://vectorjs.org/examples/control-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/country-selection/</loc>
   </url>
   
   <url>
@@ -203,6 +235,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/map-zoom-feature/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/marker/</loc>
   </url>
   
@@ -247,6 +283,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/project/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/bezier-curve-quadratic/</loc>
   </url>
   
@@ -255,11 +295,19 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/random-color-world/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/rectangle/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/examples/rectangle-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/riemann-sum/</loc>
   </url>
   
   <url>
@@ -279,7 +327,15 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/secant/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/state-quiz/</loc>
   </url>
   
   <url>
@@ -288,6 +344,10 @@
   
   <url>
     <loc>https://vectorjs.org/svg/elements/svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-coordinate-system-moved/</loc>
   </url>
   
   <url>
@@ -328,6 +388,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/svg-rectangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-transform/</loc>
   </url>
   
   <url>
@@ -383,7 +447,39 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/flow-graph-2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/graph-of-cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/graph-of-sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/graph-of-tangent/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/maps-json/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/population-data/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/us-pop-density/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/undirected-graph-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle/</loc>
   </url>
   
   <url>

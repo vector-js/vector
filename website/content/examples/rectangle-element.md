@@ -3,6 +3,7 @@
 title: Rectangle Element
 id: rectangle-element
 script: /examples/elements/rectangle-element.js
+main: false
 description: This interactive demonstrates the rectangle element.
 input: undefined
 tags: [elements]

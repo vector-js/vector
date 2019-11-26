@@ -40,6 +40,12 @@ input.input {
   stroke: none;
 }
 
+.interactive line {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:none;
+}
+
 .default * {
   stroke:#404040;
   stroke-width:1px;
@@ -50,6 +56,7 @@ circle.default,
 ellipse.default,
 line.default,
 path.default,
+polygon.default,
 rect.default {
   stroke:#404040;
   stroke-width:1px;

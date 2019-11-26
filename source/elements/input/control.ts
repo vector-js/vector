@@ -484,11 +484,22 @@ export default class Control extends Input {
     };
   }
 
+
+  constrainWithinRange( minX:number, maxX:number ) {
+    this.constrain = function ( _oldPosition:Point, newPosition:Point) : Point {
+      let x  = newPosition.x;
+      let y = newPosition.y;
+      if( x < minX) {x = minX;}
+      if( x > maxX) {x = maxX;}
+      return {x:x, y:y};
+    };
+  }
+
   /**
   * Constrain this control to only move left and right along its current x
   * position.
   */
-  constrainToX() {
+  constrainToX( minX:number = -Infinity, maxX:number = Infinity) {
     this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
       return {x:newPosition.x, y:oldPosition.y};
     };

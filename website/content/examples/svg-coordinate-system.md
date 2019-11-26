@@ -3,6 +3,7 @@
 title: SVG Coordinate System
 id: svg-coordinate-system
 script: /examples/svg/svg-coordinate-system.js
+main: false
 description: This interactive demonstrates the properties of the SVG coordinate system.
 input: undefined
 tags: [svg]
@@ -20,6 +21,7 @@ draft: undefined
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
+interactive.classList.add('default');
 let margin = 0;
 interactive.width = 692;
 interactive.height = 300;

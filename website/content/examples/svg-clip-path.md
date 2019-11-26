@@ -3,6 +3,7 @@
 title: Interactive SVG Clip Path
 id: svg-clip-path
 script: /examples/svg/svg-clip-path.js
+main: false
 description: This interactive demonstrates how a clip path is applied to another element.
 input: undefined
 tags: [svg]
@@ -20,7 +21,7 @@ import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 interactive.height = 300;
 interactive.originX = 0;
 interactive.originY = 0;
@@ -30,8 +31,9 @@ let counter = 0;
 for (let i = 0; i < interactive.width / size; i++) {
     for (let j = 0; j < interactive.height / size; j++) {
         let rectangle = interactive.rectangle(i * size, j * size, size, size);
+        rectangle.classList.add('default');
         if (counter % 2 == 0) {
-            rectangle.root.style.fill = 'lightgray';
+            rectangle.style.fill = 'lightgray';
         }
         counter++;
     }

@@ -78,6 +78,8 @@ export default function main( id:string ) {
   let rectangle = textGroup.rectangle(0,0, 64, 30);
   rectangle.style.fill = '#f8f8f8';
   rectangle.style.borderRadius = '6px';
+  rectangle.style.stroke = '#333333';
+  rectangle.style.strokeWidth = '1px';
   let text = textGroup.text(18, 20, "myText");
   textGroup.addDependency(point);
   textGroup.update = function() {

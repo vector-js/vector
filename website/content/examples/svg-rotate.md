@@ -3,6 +3,7 @@
 title: SVG Transform Rotate Attribute
 id: svg-rotate
 script: /examples/svg/svg-rotate.js
+main: false
 description: This interactive how the rotate transformation can be applied to a SVG element.
 input: undefined
 tags: [svg]
@@ -18,7 +19,7 @@ draft: undefined
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
-interactive.width = 700;
+interactive.width = 736;
 interactive.height = 300;
 interactive.border = true;
 let w = 50;

@@ -51,6 +51,10 @@ export default class RadioControl extends Input {
       });
   }
 
+  get value() : string {
+    return this.list[this.index].label.contents;
+  }
+
   /*
   * returns the text of the currently selected button
   */

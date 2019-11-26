@@ -3,6 +3,7 @@
 title: Vector.js Hello World
 id: hello-world
 script: /examples/math/hello-world.js
+main: false
 description: Hi!
 input: undefined
 tags: []

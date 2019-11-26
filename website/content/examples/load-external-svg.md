@@ -3,6 +3,7 @@
 title: Load External SVG
 id: load-external-svg
 script: /examples/svg/load-external-svg.js
+main: false
 description: This interactive demonstrates how to load and use an external svg.
 input: undefined
 tags: [svg]

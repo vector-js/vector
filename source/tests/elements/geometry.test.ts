@@ -18,6 +18,7 @@ describe('Geometry', function () {
 	describe('underlying path', function() {
 		it('circle', function() {
 			let circle = interactive.circle( 0, 0, 40);
+			circle.classList.add('default');
 			let length = circle.getTotalLength();
 			for( let i = 0; i < length; i += length/8) {
 				let point = circle.getPointAtLength(i);
@@ -26,6 +27,7 @@ describe('Geometry', function () {
 		});
 		it('rectangle', function() {
 			let element = interactive.rectangle( -40, -40, 80, 80);
+			element.classList.add('default');
 			let length = element.getTotalLength();
 			for( let i = 0; i < length; i += length/8) {
 				let point = element.getPointAtLength(i);
@@ -34,6 +36,7 @@ describe('Geometry', function () {
 		});
 		it('ellipse', function() {
 			let element = interactive.ellipse( 0, 0, 40, 30);
+			element.classList.add('default');
 			let length = element.getTotalLength();
 			for( let i = 0; i < length; i += length/8) {
 				let point = element.getPointAtLength(i);
@@ -42,6 +45,7 @@ describe('Geometry', function () {
 		});
 		it('line', function() {
 			let element = interactive.line( -40, 0, 40, 0);
+			element.classList.add('default');
 			let length = element.getTotalLength();
 			for( let i = 0; i <= length; i += length/4) {
 				let point = element.getPointAtLength(i);
@@ -55,6 +59,7 @@ describe('Geometry', function () {
 										${radius*Math.cos(1*TAU/3)}, ${radius*Math.sin(1*TAU/3)}
 										${radius*Math.cos(2*TAU/3)}, ${radius*Math.sin(2*TAU/3)}`;
 			let element = interactive.polygon(points);
+			element.classList.add('default');
 			let length = element.getTotalLength();
 			for( let i = 0; i < length; i += length/9) {
 				let point = element.getPointAtLength(i);
@@ -69,6 +74,7 @@ describe('Geometry', function () {
 							 L ${radius*Math.cos(2*TAU/3)}, ${radius*Math.sin(2*TAU/3)}
 							 Z`;
 			let element = interactive.path(d);
+			element.classList.add('default');
 			let length = element.getTotalLength();
 			for( let i = 0; i < length; i += length/9) {
 				let point = element.getPointAtLength(i);
@@ -79,6 +85,7 @@ describe('Geometry', function () {
 	describe('bounding box', function() {
 		let element:Element;
 		afterEach(function() {
+			element.classList.add('default');
 			let box = element.getBoundingBox();
 			let rect = interactive.rectangle(box.x, box.y, box.width, box.height);
 			rect.style.fill= 'cornflowerblue';

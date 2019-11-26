@@ -3,6 +3,7 @@
 title: Button Element
 id: button-element
 script: /examples/elements/button-element.js
+main: false
 description: The button element is a user clickable button with some text inside of it.
 input: undefined
 tags: [elements, input]

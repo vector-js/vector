@@ -2468,6 +2468,9 @@ img {
 					<a href="controlcircle.html#constrainwithinbox" class="tsd-kind-icon">constrain<wbr>Within<wbr>Box</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="controlcircle.html#constrainwithinrange" class="tsd-kind-icon">constrain<wbr>Within<wbr>Range</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="controlcircle.html#contains" class="tsd-kind-icon">contains</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -2638,6 +2641,7 @@ img {
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#constraintoy" class="tsd-kind-icon">constrain<wbr>ToY</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#constrainwithin" class="tsd-kind-icon">constrain<wbr>Within</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#constrainwithinbox" class="tsd-kind-icon">constrain<wbr>Within<wbr>Box</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#constrainwithinrange" class="tsd-kind-icon">constrain<wbr>Within<wbr>Range</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#contains" class="tsd-kind-icon">contains</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#defs" class="tsd-kind-icon">defs</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="controlcircle.html#description" class="tsd-kind-icon">description</a></li>
@@ -3249,14 +3253,14 @@ img {
 				<a name="constraintox" class="tsd-anchor"></a>
 				<h3>constrain<wbr>ToX</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">constrain<wbr>ToX<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<li class="tsd-signature tsd-kind-icon">constrain<wbr>ToX<span class="tsd-signature-symbol">(</span>minX<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, maxX<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="control.html">Control</a>.<a href="control.html#constraintox">constrainToX</a></p>
 							<ul>
-								<li>Defined in elements/input/control.ts:491</li>
+								<li>Defined in elements/input/control.ts:502</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3265,6 +3269,15 @@ img {
 								position.</p>
 							</div>
 						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> minX: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-Infinity</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> maxX: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;Infinity</span></h5>
+							</li>
+						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
@@ -3280,7 +3293,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="control.html">Control</a>.<a href="control.html#constraintoy">constrainToY</a></p>
 							<ul>
-								<li>Defined in elements/input/control.ts:501</li>
+								<li>Defined in elements/input/control.ts:512</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3357,6 +3370,33 @@ img {
 							</li>
 							<li>
 								<h5>y2: <span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="constrainwithinrange" class="tsd-anchor"></a>
+				<h3>constrain<wbr>Within<wbr>Range</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">constrain<wbr>Within<wbr>Range<span class="tsd-signature-symbol">(</span>minX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="control.html">Control</a>.<a href="control.html#constrainwithinrange">constrainWithinRange</a></p>
+							<ul>
+								<li>Defined in elements/input/control.ts:488</li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>minX: <span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>maxX: <span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

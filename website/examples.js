@@ -16,6 +16,9 @@ json.forEach(function(element){
       element.script = data;
       let start = null;
       let str = '';
+
+      element["main"] = data.includes("export default");
+
       for( let i = 0; i < data.length; i++ ) {
         if( data[i] === '@' ) {
           start = i;
@@ -40,6 +43,7 @@ json.forEach(function(element){
 title: ${element.title}
 id: ${element.id}
 script: ${element.path}
+main: ${element.main}
 description: ${element.description}
 input: ${element.input}
 tags: ${element.tags}

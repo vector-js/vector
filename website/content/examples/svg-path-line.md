@@ -3,6 +3,7 @@
 title: SVG Path Element Line Command
 id: svg-path-line
 script: /examples/svg/svg-path-line.js
+main: false
 description: This interactive demonstrates the line command for the SVG path element. There are two controls that allow the user to control the start and end points of the line. There is also a checkbox that allows the user to toggle between relative and absolute commands
 input: undefined
 tags: [svg]
@@ -21,8 +22,9 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 let path = interactive.path('');
+path.classList.add('default');
 let start = interactive.control(150, 150);
 let end = interactive.control(450, 50);
 let toggle = interactive.checkBox(360, 270, "absolute / relative", false);

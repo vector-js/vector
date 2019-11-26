@@ -3,6 +3,7 @@
 title: SVG Line
 id: svg-line
 script: /examples/svg/svg-line.js
+main: false
 description: This interactive demonstrates the SVG line element and its attributes.
 input: undefined
 tags: [svg]
@@ -21,8 +22,9 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 let line = interactive.line(0, 0, 0, 0);
+line.classList.add('default');
 let c1 = interactive.control(150, 200);
 let c2 = interactive.control(450, 100);
 let text = interactive.text(25, 275, "");

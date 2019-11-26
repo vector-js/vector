@@ -22,12 +22,39 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
     </item>
     
     <item>
+      <title>Click Accuracy Game</title>
+      <link>https://vectorjs.org/examples/click-accuracy-game/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
+      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [elements, games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
+    </item>
+    
+    <item>
       <title>Exponents and Trees</title>
       <link>https://vectorjs.org/examples/exponential-tree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/exponential-tree/</guid>
-      <description>/** * @title Exponents and Trees * @description This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree. * @tags [math] * @date October 15, 2019 * @author Kurt Bruns * @weight 1 */ import Interactive from &amp;#34;../../interactive.js&amp;#34;; import { SVG, getScriptName } from &amp;#34;.</description>
+      <description>/** * @title Exponents and Trees * @description This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree. * @tags [math] * @date October 15, 2019 * @author Kurt Bruns * @weight 1 */ import Interactive from &amp;#34;../../interactive.js&amp;#34;; import { SVG } from &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Interactive World Map</title>
+      <link>https://vectorjs.org/examples/world-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/world-map/</guid>
+      <description>/** * @title Interactive World Map * @description Every country in the world displayed in an interactive. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { globalData } from &amp;#39;./maps-json.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); let map = myInteractive.map(globalData); //# sourceMappingURL=world-map.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Population of the United States</title>
+      <link>https://vectorjs.org/examples/population-of-united-states/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/population-of-united-states/</guid>
+      <description>/** * @title Population of the United States * @description Every state of the United States colored by population density. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; import { usDensityMap as densityMap } from &amp;#39;./us-pop-density.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -36,16 +63,16 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/prime-factorization/</guid>
-      <description>/** * @ignore * @title Prime Factorization * @description This interactive visualizes the prime factorization tree for a given number. * @input There is a number input that takes a number less than one-hundred million. * @tags [math, graph] * @weight 1 */ import { nextPrime } from &amp;#39;../../util/math.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 400; interactive.border = true; let graph = interactive.</description>
+      <description>/** * @ignore * @title Prime Factorization * @description This interactive visualizes the prime factorization tree for a given number. * @input There is a number input that takes a number less than one-hundred million. * @tags [math, graph] * @weight 1 */ import { nextPrime } from &amp;#39;../../util/math.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let interactive = new Interactive(id); interactive.width = 736; interactive.height = 400; interactive.</description>
     </item>
     
     <item>
-      <title>Unit Circle</title>
-      <link>https://vectorjs.org/examples/unit-circle/</link>
+      <title>Snake Game</title>
+      <link>https://vectorjs.org/examples/snake-game/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://vectorjs.org/examples/unit-circle/</guid>
-      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent. * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive, getScriptName, BaseElement } from &amp;#39;../../index.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; /** * This main interactive contains the four components: the unit * circle, the function graph, the variables, and the * trigonometric functions.</description>
+      <guid>https://vectorjs.org/examples/snake-game/</guid>
+      <description>/** * @title Snake Game * @description Traditional Snake Game where you try to collect the yellow blocks without leaving the map or hitting yourself. Use WASD or Arrow keys to move. * @tags [elements, games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; /** * dp is the size of the squares of the snake. THE WIDTH AND HEIGHT OF * THE INTERACTIVE MUST BE MULTIPLES OF DP */ let dp = 40; let horizontal = true; let vertical = false; let direction = &amp;#39;r&amp;#39;; let score = 0; let interval = 0; let snake = []; let point; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -56,15 +83,6 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
       <guid>https://vectorjs.org/tutorials/custom-element/</guid>
       <description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
 import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements  // associated with this custom element.</description>
-    </item>
-    
-    <item>
-      <title>Interactive World Map</title>
-      <link>https://vectorjs.org/examples/world-map/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/world-map/</guid>
-      <description>/** * @title Interactive World Map * @description Every country in the world displayed in an interactive. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import {Interactive, getScriptName} from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;../../../maps/maps-json.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); let map = myInteractive.map(data.globalData);  </description>
     </item>
     
     <item>
@@ -84,15 +102,6 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       <guid>https://vectorjs.org/tutorials/population-map-of-united-states/</guid>
       <description>In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it&amp;rsquo;s population density.
 The first step in using our mapping module is always to pull in your GeoJson data.</description>
-    </item>
-    
-    <item>
-      <title>Population of the United States</title>
-      <link>https://vectorjs.org/examples/population-of-united-states/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/population-of-united-states/</guid>
-      <description>/** * @title Population of the United States * @description Every state of the United States colored by population density. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 3 */ import {Interactive, getScriptName, Element} from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; import * as population from &amp;#39;./population-data.js&amp;#39;; // create elements let interactive = new Interactive(getScriptName(), { width:760, height:400 }); let map = interactive.</description>
     </item>
     
     <item>
@@ -147,7 +156,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/animate-along-path/</guid>
-      <description>/** * @title Animate Along Path * @description This interactive demonstrates how a element can be animated along a path. * @tags [animation] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 225; interactive.border = true; //Hard coded in the string for the path. Obviously, fix this later. let pathString = &amp;#34;M417.73,36.71v10.4h-8.5V36.71h8.5l27.49,17.83a30.28,30.28,0,0,0-4,.71,20.62,20.62,0,0,0-6.2,2.6,14.38,14.38,0,0,0-4.5,4.55,11.56,11.56,0,0,0-.6,1.09,11.56,11.56,0,0,1,.6-1.09,14.38,14.38,0,0,1,4.5-4.55,20.62,20.62,0,0,1,6.2-2.6,30.28,30.28,0,0,1,4-.71c.94-.09,1.88-.14,2.81-.14a40.87,40.87,0,0,1,8.1.75,18.78,18.78,0,0,1,6.55,2.6,13.4,13.4,0,0,1,4.55,5,19.05,19.05,0,0,1,2,7.85h-8.5a8.14,8.14,0,0,0-4.1-6.8,12.56,12.56,0,0,0-3.75-1.45,19.32,19.32,0,0,0-4.15-.45,25.26,25.26,0,0,0-3.85.3,13,13,0,0,0-3.55,1,7.19,7.19,0,0,0-2.6,2,5,5,0,0,0-1,3.25,4.8,4.8,0,0,0,1.55,3.65,12.22,12.22,0,0,0,4,2.4,34.61,34.61,0,0,0,5.4,1.6q3,.64,6,1.35a63.83,63.83,0,0,1,6.25,1.7,20.58,20.58,0,0,1,5.4,2.65,12.91,12.91,0,0,1,3.8,4.15,12.16,12.16,0,0,1,1.45,6.2,14.42,14.42,0,0,1-1.95,7.8,15.24,15.24,0,0,1-5.1,5,21.27,21.27,0,0,1-7.1,2.65,42,42,0,0,1-7.85.75,36.35,36.35,0,0,1-8.2-.9,20.05,20.05,0,0,1-6.9-3,15.1,15.1,0,0,1-4.8-5.4,18.65,18.65,0,0,1-2-8.15h8.5a9.59,9.59,0,0,0,1.3,4.75,9.07,9.07,0,0,0,3.15,3.1,14,14,0,0,0,4.4,1.65,25.44,25.44,0,0,0,5,.5,31.2,31.2,0,0,0,4.2-.3,15.46,15.46,0,0,0,4-1.1,7.63,7.63,0,0,0,3.05-2.35,6.26,6.26,0,0,0,1.2-4,5.65,5.65,0,0,0-2.5-5,21.4,21.4,0,0,0-6.25-2.75q-3.75-1-8.15-1.9a42.84,42.84,0,0,1-8.15-2.4,16.82,16.82,0,0,1-6.25-4.35q-2.5-2.81-2.5-7.8a13,13,0,0,1,1.15-5.61L417.73,55.6h-8.5v0h8.5v58.2q0,6.9-3.35,10T405.33,127a22.44,22.44,0,0,1-4.3-.4v-7.3l.85.15a5.9,5.9,0,0,0,.75,0h1.8c1.87,0,3.13-.52,3.8-1.55s1-2.89,1-5.55v-6.35l-15.3-9.85v11.1h-11.1V96.2h11.1l15.3,9.85V70.94L383.72,54.39h0q-6.9-.19-11.4,2.8a23.05,23.05,0,0,0-7.6,9.3h-.2V55.6h-8v0h8V66.5h.2a23.05,23.05,0,0,1,7.6-9.3q4.5-3,11.4-2.8v9a24.11,24.11,0,0,0-8.7,1.4,13.71,13.71,0,0,0-5.8,4.1,17.08,17.08,0,0,0-3.2,6.55,35.23,35.23,0,0,0-1,8.85v23h-8.5V71.61L336.15,58.48h0a23.68,23.68,0,0,0-3.57-2,26.32,26.32,0,0,0-25.21,2,25.9,25.9,0,0,1,3.56-2,29,29,0,0,1,21.65,0,23.68,23.68,0,0,1,3.57,2,22,22,0,0,1,4.28,3.77,23.9,23.9,0,0,1,4.8,8.6,34.33,34.33,0,0,1,1.6,10.65q0,1.13-.06,2.22l-9.15-5.94a31,31,0,0,1,.21,3.68,25.5,25.5,0,0,1-1.25,8.35,17.28,17.28,0,0,1-3.45,6.1A14.71,14.71,0,0,1,328,99.66a15.67,15.67,0,0,1-12.5,0,14.89,14.89,0,0,1-5.15-3.75,17.59,17.59,0,0,1-3.45-6.1,28.51,28.51,0,0,1,0-16.7A18.31,18.31,0,0,1,310.33,67a14.91,14.91,0,0,1,5.15-3.8,15.67,15.67,0,0,1,12.5,0,14.72,14.72,0,0,1,5.15,3.8,18,18,0,0,1,3.45,6.15,22.81,22.81,0,0,1,1,4.67l9.15,5.94c0,.07,0,.14,0,.21a32.67,32.67,0,0,1-1.53,8.17,25.58,25.58,0,0,1-2,4.59,23.4,23.4,0,0,1-2.8,4,22.24,22.24,0,0,1-7.85,5.7,29.61,29.61,0,0,1-21.65,0,22.25,22.25,0,0,1-7.9-5.7,24.24,24.24,0,0,1-4.8-8.55,34.17,34.17,0,0,1-1.6-10.6,34.63,34.63,0,0,1,1.6-10.65,24.2,24.2,0,0,1,4.8-8.6,21.89,21.89,0,0,1,4.34-3.8L279.73,40.1h-8.5V55.6h-8.8v7.5h8.8v0h-8.8V55.6h8.8V40.1h8.5V55.6H290v7.5h-10.3V95.2a9.58,9.58,0,0,0,.25,2.4,2.51,2.51,0,0,0,.95,1.4,4.26,4.26,0,0,0,1.95.65,28.47,28.47,0,0,0,3.25.15H290v7.5h-6.5a30.55,30.55,0,0,1-5.65-.45,8.35,8.35,0,0,1-3.8-1.65,7.11,7.11,0,0,1-2.15-3.4,19.89,19.89,0,0,1-.7-5.8V80.65L258.14,72.2a20.62,20.62,0,0,0-2.4-8,18,18,0,0,0-4.85-5.55,20.12,20.12,0,0,0-6.8-3.25,31.28,31.28,0,0,0-8.25-1.05,25,25,0,0,0-10.7,2.15,21.26,21.26,0,0,0-7.65,5.9,24.72,24.72,0,0,0-4.25,7.84,24.72,24.72,0,0,1,4.25-7.84,21.26,21.26,0,0,1,7.65-5.9,25,25,0,0,1,10.7-2.15,31.28,31.28,0,0,1,8.25,1.05,20.12,20.12,0,0,1,6.8,3.25,18,18,0,0,1,4.85,5.55,20.62,20.62,0,0,1,2.4,8h-8.8a11.9,11.9,0,0,0-12.8-10.3,15.86,15.86,0,0,0-7.7,1.7,13.61,13.61,0,0,0-5,4.5,18.79,18.79,0,0,0-2.65,6.45,34.73,34.73,0,0,0-.8,7.55,28.61,28.61,0,0,0,.85,7,18.62,18.62,0,0,0,2.65,6.05,13.37,13.37,0,0,0,4.7,4.25,14,14,0,0,0,6.9,1.6q6.3,0,9.85-3.3a15,15,0,0,0,4.35-9.3h8.7Q257,98,251.29,103.2t-15.65,5.2a27,27,0,0,1-10.45-1.9,20.26,20.26,0,0,1-7.6-5.4,23.2,23.2,0,0,1-4.6-8.35,34.6,34.6,0,0,1-1.55-10.65,37.94,37.94,0,0,1,1.5-10.85q.13-.48.3-1h0L196.81,59.72a23.35,23.35,0,0,0-3.29-2.47,21.2,21.2,0,0,0-11.45-2.85,23.58,23.58,0,0,0-9.75,2,23,23,0,0,0-7.7,5.6,25.42,25.42,0,0,0-4.53,7.2,25.42,25.42,0,0,1,4.53-7.2,23,23,0,0,1,7.7-5.6,23.58,23.58,0,0,1,9.75-2,21.2,21.2,0,0,1,11.45,2.85,23.35,23.35,0,0,1,3.29,2.47,22.14,22.14,0,0,1,4,4.78,28.46,28.46,0,0,1,3.8,9.6,41.42,41.42,0,0,1,.88,8.16q0,.88,0,1.74H182.91l-11.63-7.54h-4.54a17.46,17.46,0,0,1,1.3-5.65,15.11,15.11,0,0,1,3-4.65A13.74,13.74,0,0,1,175.59,63a14.89,14.89,0,0,1,5.95-1.15A14.68,14.68,0,0,1,187.39,63a14.85,14.85,0,0,1,4.6,3.1,14.62,14.62,0,0,1,3.1,4.65,17.73,17.73,0,0,1,1.35,5.7H171.28L182.91,84H166.77a20.69,20.69,0,0,0,.8,6.45,14.71,14.71,0,0,0,2.9,5.4,14.35,14.35,0,0,0,5.1,3.75,17.67,17.67,0,0,0,7.3,1.4,14.69,14.69,0,0,0,8.85-2.5,12.08,12.08,0,0,0,4.55-7.6h8.4q-1.69,8.7-7.5,13.1t-14.6,4.4a26.65,26.65,0,0,1-10.75-2,21.21,21.21,0,0,1-7.65-5.6,24,24,0,0,1-4.65-8.6,41.86,41.86,0,0,1-1.75-10.9,31.14,31.14,0,0,1,1.8-10.8c.17-.44.34-.87.52-1.3h0L108.77,35.9l20.4,61.9h.2L150,35.9h9.9l-25.4,71.4h-10.8L98.57,35.9h10.2&amp;#34;; let control = interactive.control(0, 0); let scrubber = interactive.scrubber(100, 175, 468); let path = interactive.</description>
+      <description>/** * @title Animate Along Path * @description This interactive demonstrates how a element can be animated along a path. * @tags [animation] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 225; interactive.border = true; // Hard coded in the string for the path. Obviously, fix this later. let pathString = &amp;#34;M417.73,36.71v10.4h-8.5V36.71h8.5l27.49,17.83a30.28,30.28,0,0,0-4,.71,20.62,20.62,0,0,0-6.2,2.6,14.38,14.38,0,0,0-4.5,4.55,11.56,11.56,0,0,0-.6,1.09,11.56,11.56,0,0,1,.6-1.09,14.38,14.38,0,0,1,4.5-4.55,20.62,20.62,0,0,1,6.2-2.6,30.28,30.28,0,0,1,4-.71c.94-.09,1.88-.14,2.81-.14a40.87,40.87,0,0,1,8.1.75,18.78,18.78,0,0,1,6.55,2.6,13.4,13.4,0,0,1,4.55,5,19.05,19.05,0,0,1,2,7.85h-8.5a8.14,8.14,0,0,0-4.1-6.8,12.56,12.56,0,0,0-3.75-1.45,19.32,19.32,0,0,0-4.15-.45,25.26,25.26,0,0,0-3.85.3,13,13,0,0,0-3.55,1,7.19,7.19,0,0,0-2.6,2,5,5,0,0,0-1,3.25,4.8,4.8,0,0,0,1.55,3.65,12.22,12.22,0,0,0,4,2.4,34.61,34.61,0,0,0,5.4,1.6q3,.64,6,1.35a63.83,63.83,0,0,1,6.25,1.7,20.58,20.58,0,0,1,5.4,2.65,12.91,12.91,0,0,1,3.8,4.15,12.16,12.16,0,0,1,1.45,6.2,14.42,14.42,0,0,1-1.95,7.8,15.24,15.24,0,0,1-5.1,5,21.27,21.27,0,0,1-7.1,2.65,42,42,0,0,1-7.85.75,36.35,36.35,0,0,1-8.2-.9,20.05,20.05,0,0,1-6.9-3,15.1,15.1,0,0,1-4.8-5.4,18.65,18.65,0,0,1-2-8.15h8.5a9.59,9.59,0,0,0,1.3,4.75,9.07,9.07,0,0,0,3.15,3.1,14,14,0,0,0,4.4,1.65,25.44,25.44,0,0,0,5,.5,31.2,31.2,0,0,0,4.2-.3,15.46,15.46,0,0,0,4-1.1,7.63,7.63,0,0,0,3.05-2.35,6.26,6.26,0,0,0,1.2-4,5.65,5.65,0,0,0-2.5-5,21.4,21.4,0,0,0-6.25-2.75q-3.75-1-8.15-1.9a42.84,42.84,0,0,1-8.15-2.4,16.82,16.82,0,0,1-6.25-4.35q-2.5-2.81-2.5-7.8a13,13,0,0,1,1.15-5.61L417.73,55.6h-8.5v0h8.5v58.2q0,6.9-3.35,10T405.33,127a22.44,22.44,0,0,1-4.3-.4v-7.3l.85.15a5.9,5.9,0,0,0,.75,0h1.8c1.87,0,3.13-.52,3.8-1.55s1-2.89,1-5.55v-6.35l-15.3-9.85v11.1h-11.1V96.2h11.1l15.3,9.85V70.94L383.72,54.39h0q-6.9-.19-11.4,2.8a23.05,23.05,0,0,0-7.6,9.3h-.2V55.6h-8v0h8V66.5h.2a23.05,23.05,0,0,1,7.6-9.3q4.5-3,11.4-2.8v9a24.11,24.11,0,0,0-8.7,1.4,13.71,13.71,0,0,0-5.8,4.1,17.08,17.08,0,0,0-3.2,6.55,35.23,35.23,0,0,0-1,8.85v23h-8.5V71.61L336.15,58.48h0a23.68,23.68,0,0,0-3.57-2,26.32,26.32,0,0,0-25.21,2,25.9,25.9,0,0,1,3.56-2,29,29,0,0,1,21.65,0,23.68,23.68,0,0,1,3.57,2,22,22,0,0,1,4.28,3.77,23.9,23.9,0,0,1,4.8,8.6,34.33,34.33,0,0,1,1.6,10.65q0,1.13-.06,2.22l-9.15-5.94a31,31,0,0,1,.21,3.68,25.5,25.5,0,0,1-1.25,8.35,17.28,17.28,0,0,1-3.45,6.1A14.71,14.71,0,0,1,328,99.66a15.67,15.67,0,0,1-12.5,0,14.89,14.89,0,0,1-5.15-3.75,17.59,17.59,0,0,1-3.45-6.1,28.51,28.51,0,0,1,0-16.7A18.31,18.31,0,0,1,310.33,67a14.91,14.91,0,0,1,5.15-3.8,15.67,15.67,0,0,1,12.5,0,14.72,14.72,0,0,1,5.15,3.8,18,18,0,0,1,3.45,6.15,22.81,22.81,0,0,1,1,4.67l9.15,5.94c0,.07,0,.14,0,.21a32.67,32.67,0,0,1-1.53,8.17,25.58,25.58,0,0,1-2,4.59,23.4,23.4,0,0,1-2.8,4,22.24,22.24,0,0,1-7.85,5.7,29.61,29.61,0,0,1-21.65,0,22.25,22.25,0,0,1-7.9-5.7,24.24,24.24,0,0,1-4.8-8.55,34.17,34.17,0,0,1-1.6-10.6,34.63,34.63,0,0,1,1.6-10.65,24.2,24.2,0,0,1,4.8-8.6,21.89,21.89,0,0,1,4.34-3.8L279.73,40.1h-8.5V55.6h-8.8v7.5h8.8v0h-8.8V55.6h8.8V40.1h8.5V55.6H290v7.5h-10.3V95.2a9.58,9.58,0,0,0,.25,2.4,2.51,2.51,0,0,0,.95,1.4,4.26,4.26,0,0,0,1.95.65,28.47,28.47,0,0,0,3.25.15H290v7.5h-6.5a30.55,30.55,0,0,1-5.65-.45,8.35,8.35,0,0,1-3.8-1.65,7.11,7.11,0,0,1-2.15-3.4,19.89,19.89,0,0,1-.7-5.8V80.65L258.14,72.2a20.62,20.62,0,0,0-2.4-8,18,18,0,0,0-4.85-5.55,20.12,20.12,0,0,0-6.8-3.25,31.28,31.28,0,0,0-8.25-1.05,25,25,0,0,0-10.7,2.15,21.26,21.26,0,0,0-7.65,5.9,24.72,24.72,0,0,0-4.25,7.84,24.72,24.72,0,0,1,4.25-7.84,21.26,21.26,0,0,1,7.65-5.9,25,25,0,0,1,10.7-2.15,31.28,31.28,0,0,1,8.25,1.05,20.12,20.12,0,0,1,6.8,3.25,18,18,0,0,1,4.85,5.55,20.62,20.62,0,0,1,2.4,8h-8.8a11.9,11.9,0,0,0-12.8-10.3,15.86,15.86,0,0,0-7.7,1.7,13.61,13.61,0,0,0-5,4.5,18.79,18.79,0,0,0-2.65,6.45,34.73,34.73,0,0,0-.8,7.55,28.61,28.61,0,0,0,.85,7,18.62,18.62,0,0,0,2.65,6.05,13.37,13.37,0,0,0,4.7,4.25,14,14,0,0,0,6.9,1.6q6.3,0,9.85-3.3a15,15,0,0,0,4.35-9.3h8.7Q257,98,251.29,103.2t-15.65,5.2a27,27,0,0,1-10.45-1.9,20.26,20.26,0,0,1-7.6-5.4,23.2,23.2,0,0,1-4.6-8.35,34.6,34.6,0,0,1-1.55-10.65,37.94,37.94,0,0,1,1.5-10.85q.13-.48.3-1h0L196.81,59.72a23.35,23.35,0,0,0-3.29-2.47,21.2,21.2,0,0,0-11.45-2.85,23.58,23.58,0,0,0-9.75,2,23,23,0,0,0-7.7,5.6,25.42,25.42,0,0,0-4.53,7.2,25.42,25.42,0,0,1,4.53-7.2,23,23,0,0,1,7.7-5.6,23.58,23.58,0,0,1,9.75-2,21.2,21.2,0,0,1,11.45,2.85,23.35,23.35,0,0,1,3.29,2.47,22.14,22.14,0,0,1,4,4.78,28.46,28.46,0,0,1,3.8,9.6,41.42,41.42,0,0,1,.88,8.16q0,.88,0,1.74H182.91l-11.63-7.54h-4.54a17.46,17.46,0,0,1,1.3-5.65,15.11,15.11,0,0,1,3-4.65A13.74,13.74,0,0,1,175.59,63a14.89,14.89,0,0,1,5.95-1.15A14.68,14.68,0,0,1,187.39,63a14.85,14.85,0,0,1,4.6,3.1,14.62,14.62,0,0,1,3.1,4.65,17.73,17.73,0,0,1,1.35,5.7H171.28L182.91,84H166.77a20.69,20.69,0,0,0,.8,6.45,14.71,14.71,0,0,0,2.9,5.4,14.35,14.35,0,0,0,5.1,3.75,17.67,17.67,0,0,0,7.3,1.4,14.69,14.69,0,0,0,8.85-2.5,12.08,12.08,0,0,0,4.55-7.6h8.4q-1.69,8.7-7.5,13.1t-14.6,4.4a26.65,26.65,0,0,1-10.75-2,21.21,21.21,0,0,1-7.65-5.6,24,24,0,0,1-4.65-8.6,41.86,41.86,0,0,1-1.75-10.9,31.14,31.14,0,0,1,1.8-10.8c.17-.44.34-.87.52-1.3h0L108.77,35.9l20.4,61.9h.2L150,35.9h9.9l-25.4,71.4h-10.8L98.57,35.9h10.2&amp;#34;; let control = interactive.control(0, 0); let scrubber = interactive.</description>
     </item>
     
     <item>
@@ -157,6 +166,24 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/examples/area-between-two-vectors/</guid>
       <description>/** * @title Area Between Two Vectors * @description This interactive demonstrates the area formed between two vectors. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create a control let c0 = interactive.control(-180, 50); let c1 = interactive.control(-20, -60); let c2 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Area Between Two Vectors</title>
+      <link>https://vectorjs.org/examples/triangle-area-between-two-vectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/triangle-area-between-two-vectors/</guid>
+      <description>/** * @title Area Between Two Vectors * @description This interactive demonstrates the area formed between two vectors. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create a control let c0 = interactive.control(-180, 50); let c1 = interactive.control(-20, -60); let c2 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Arrow Element</title>
+      <link>https://vectorjs.org/examples/arrow-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/arrow-element/</guid>
+      <description>/** * @title Arrow Element * @description This interactive demonstrates the path element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; // let arrow = interactive.arrow() //# sourceMappingURL=arrow-element.js.map  </description>
     </item>
     
     <item>
@@ -170,11 +197,38 @@ Starting point The starting point is an interactive with a control point that ca
     
     <item>
       <title>Cartesian Coordinate System</title>
+      <link>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</guid>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); // interactive.border = true;  interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System</title>
+      <link>https://vectorjs.org/examples/cartesian-coordinate-system-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cartesian-coordinate-system-test/</guid>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let width = 600; let height = 300; let interactive = new Interactive(getScriptName(), { width: width + 2 * margin, height: height + 2 * margin, originX: margin, originY: height + margin }); // interactive.</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System</title>
       <link>https://vectorjs.org/examples/cartesian-coordinate-system/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/cartesian-coordinate-system/</guid>
-      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); // interactive.border = true; interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.height += 2 * margin; interactive.</description>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); // interactive.border = true;  interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System</title>
+      <link>https://vectorjs.org/examples/number-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/number-line/</guid>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName(), { height: 100 }); interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.</description>
     </item>
     
     <item>
@@ -201,7 +255,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/circle-defined-by-three-points/</guid>
-      <description>/** * @title Circle Defined By Three Points * @description An interactive that demonstrates how a circle can be uniquely described by thee points. * @tags [math] * @date July 8, 2019 * @author Kurt Bruns */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create three control points let c1 = interactive.</description>
+      <description>/** * @title Circle Defined By Three Points * @description An interactive that demonstrates how a circle can be uniquely described by thee points. * @tags [math] * @date July 8, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.</description>
     </item>
     
     <item>
@@ -230,6 +284,24 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/examples/control-element/</guid>
       <description>/** * @title Control Element * @description This interactive demonstrates a draggable point. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.control(100, 75); //# sourceMappingURL=control-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Cosine Plot</title>
+      <link>https://vectorjs.org/examples/cosine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cosine/</guid>
+      <description>/** * @title Cosine Plot * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; // Create a new graph object let scale = 300 / Math.PI; interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); //# sourceMappingURL=cosine.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Country Selection</title>
+      <link>https://vectorjs.org/examples/country-selection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/country-selection/</guid>
+      <description>/** * @title Country Selection * @description Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;#6be88c&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.3 }); let inputContainer = document.</description>
     </item>
     
     <item>
@@ -319,7 +391,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-circle/</guid>
-      <description>/** * @title Interactive SVG Circle * @description This interactive demonstrates the basic properties of the SVG Circle Element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 704; let circle = interactive.circle(0, 0, 0); let l1 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; let text = interactive.text(25, 275, &amp;#34;&amp;#34;); let centerControl = interactive.control(300, 150); let radiusControl = interactive.</description>
+      <description>/** * @title Interactive SVG Circle * @description This interactive demonstrates the basic properties of the SVG Circle Element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let circle = interactive.circle(0, 0, 0); let l1 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; let text = interactive.text(25, 275, &amp;#34;&amp;#34;); let centerControl = interactive.control(300, 150); let radiusControl = interactive.</description>
     </item>
     
     <item>
@@ -328,7 +400,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-clip-path/</guid>
-      <description>/** * @title Interactive SVG Clip Path * @description This interactive demonstrates how a clip path is applied to another element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 704; interactive.height = 300; interactive.originX = 0; interactive.originY = 0; // Draw a grid of squares let size = 30; let counter = 0; for (let i = 0; i &amp;lt; interactive.</description>
+      <description>/** * @title Interactive SVG Clip Path * @description This interactive demonstrates how a clip path is applied to another element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; interactive.height = 300; interactive.originX = 0; interactive.originY = 0; // Draw a grid of squares let size = 30; let counter = 0; for (let i = 0; i &amp;lt; interactive.</description>
     </item>
     
     <item>
@@ -423,6 +495,15 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Map Zoom</title>
+      <link>https://vectorjs.org/examples/map-zoom-feature/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/map-zoom-feature/</guid>
+      <description>/** * @title Map Zoom * @description Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;red&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.5 }); let inputContainer = document.</description>
+    </item>
+    
+    <item>
       <title>Marker</title>
       <link>https://vectorjs.org/svg/elements/marker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -437,7 +518,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/merge-sort/</guid>
-      <description>/** * @title Merge Sort Interactive * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree. * @tags [math, algorithm, graph] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 704; interactive.height = 400; interactive.border = true; let graph = interactive.graph({ directed: false }); // let leftButton = interactive.icon(5, 345, 50, 50, &amp;#34;animation&amp;#34;); // let rightButton = interactive.icon(649, 345, 50, 50, &amp;#34;animation&amp;#34;); let nodeCounterMax = 1; let nodeCountTo = 0; let allArrays = []; // this HTML input element controls the current tree being drawn let input = document.</description>
+      <description>/** * @title Merge Sort Interactive * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree. * @tags [algorithm, graph] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 704; interactive.height = 400; interactive.border = true; let graph = interactive.graph({ directed: false }); // let leftButton = interactive.icon(5, 345, 50, 50, &amp;#34;animation&amp;#34;); // let rightButton = interactive.icon(649, 345, 50, 50, &amp;#34;animation&amp;#34;); let nodeCounterMax = 1; let nodeCountTo = 0; let allArrays = []; // this HTML input element controls the current tree being drawn let input = document.</description>
     </item>
     
     <item>
@@ -446,7 +527,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/mouse-interaction/</guid>
-      <description>/** * @title Mouse Input * @description This interactive demonstrates how mouse input can be used to add interactivity. * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position. * @tags [input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control = interactive.control(100, 100); control.</description>
+      <description>/** * @title Mouse Input * @description This interactive demonstrates how mouse input can be used to add interactivity. * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position. * @tags [input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 200; interactive.border = true; let control = interactive.control(100, 100); control.</description>
     </item>
     
     <item>
@@ -501,7 +582,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/polar-coordinate-system/</guid>
-      <description>/** * @title Polar Coordinate System * @description This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Create the constant TAU const TAU = 2 * Math.PI; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); interactive.</description>
+      <description>/** * @title Polar Coordinate System * @description This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin. * @tags [math] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Create the constant TAU  const TAU = 2 * Math.PI; // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); interactive.</description>
     </item>
     
     <item>
@@ -523,12 +604,22 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Project Overview</title>
+      <link>https://vectorjs.org/project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/project/</guid>
+      <description>This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah.
+Abstract Vector.js is an open source Javascript library for creating interactive vector graphics. The library uses existing web standards: HTML, SVG, CSS, and geoJSON making it easy to use with existing tools and libraries. The target audience for the library is technical users who want to create &amp;ldquo;interactive&amp;rdquo; content for the web.</description>
+    </item>
+    
+    <item>
       <title>Quadratic Bezier Curve</title>
       <link>https://vectorjs.org/examples/bezier-curve-quadratic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/bezier-curve-quadratic/</guid>
-      <description>/** * @title Quadratic Bezier Curve * @description This interactive demonstrates a quadratic bezier curve. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; l2.stroke = &amp;#39;cornflowerblue&amp;#39;; let path = interactive.path(&amp;#39;&amp;#39;); let c1 = interactive.control(150, 100); let c2 = interactive.control(300, 200); let c3 = interactive.</description>
+      <description>/** * @title Quadratic Bezier Curve * @description This interactive demonstrates a quadratic bezier curve. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; l2.stroke = &amp;#39;cornflowerblue&amp;#39;; let path = interactive.path(&amp;#39;&amp;#39;); path.classList.add(&amp;#39;default&amp;#39;); let c1 = interactive.control(150, 100); let c2 = interactive.control(300, 200); let c3 = interactive.</description>
     </item>
     
     <item>
@@ -538,6 +629,15 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/examples/radio-control-element/</guid>
       <description>/** * @title Radio Control Element * @description This interactive demonstrates the radio control element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let radio = interactive.radioControl(100, 50, [&amp;#34;red&amp;#34;, &amp;#34;green&amp;#34;, &amp;#34;blue&amp;#34;]); // let ellipse = interactive.ellipse(400,75,50,50); // ellipse.addDependency(radio); // ellipse.update = function(){ // ellipse.style.fill = radio.getCurrentValue(); // } // ellipse.update(); //# sourceMappingURL=radio-control-element.</description>
+    </item>
+    
+    <item>
+      <title>Random Colored Countires</title>
+      <link>https://vectorjs.org/examples/random-color-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/random-color-world/</guid>
+      <description>/** * @title Random Colored Countires * @description Randomly colors the countries in the world. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; let map = interactive.map(data.globalData); let countries = map.getAllFeaturePaths(); countries.forEach(element =&amp;gt; { element.style.fill = getRandomColor(); }); function getRandomColor() { var letters = &amp;#39;0123456789ABCDEF&amp;#39;; var color = &amp;#39;#&amp;#39;; for (var i = 0; i &amp;lt; 6; i++) { color += letters[Math.</description>
     </item>
     
     <item>
@@ -560,12 +660,21 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Riemann Sum</title>
+      <link>https://vectorjs.org/examples/riemann-sum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/riemann-sum/</guid>
+      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @main true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let n = 8; let scale = 100; let method = &amp;#39;left&amp;#39;; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
+    </item>
+    
+    <item>
       <title>Right Triangle</title>
       <link>https://vectorjs.org/examples/right-triangle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/right-triangle/</guid>
-      <description>/** * @title Right Triangle * @description This interactive demonstrates the properties of a right triangle. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.window = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create two control points let p1 = interactive.control(100, -80); let p2 = interactive.control(-100, 80); let group = interactive.</description>
+      <description>/** * @title Right Triangle * @description This interactive demonstrates the properties of a right triangle. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create two control points let p1 = interactive.control(100, -80); let p2 = interactive.control(-100, 80); let group = interactive.</description>
     </item>
     
     <item>
@@ -587,12 +696,30 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Secant Plot</title>
+      <link>https://vectorjs.org/examples/secant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/secant/</guid>
+      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 600; // Create a new graph object let scale = 300 / Math.PI; let secant = (x) =&amp;gt; { return 1 / Math.cos(x); }; interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); //# sourceMappingURL=secant.</description>
+    </item>
+    
+    <item>
       <title>Slider Element</title>
       <link>https://vectorjs.org/examples/slider-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/slider-element/</guid>
-      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, value: 20 }); //# sourceMappingURL=slider-element.js.map  </description>
+      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, }); //# sourceMappingURL=slider-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>State Quiz</title>
+      <link>https://vectorjs.org/examples/state-quiz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/state-quiz/</guid>
+      <description>/** * @title State Quiz * @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you&amp;#39;re correct! If you want some help, press the &amp;#39;/&amp;#39; key. * @tags [elements, maps, games] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let correctCounter = 0; let incorrectCounter = 0; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -616,11 +743,20 @@ Starting point The starting point is an interactive with a control point that ca
     
     <item>
       <title>SVG Coordinate System</title>
+      <link>https://vectorjs.org/examples/svg-coordinate-system-moved/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-coordinate-system-moved/</guid>
+      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let width = 736; let height = 300; let interactive = new Interactive(getScriptName()); let margin = 0; interactive.width = width + 2 * margin; interactive.height = height + 2 * margin; interactive.originX = interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Coordinate System</title>
       <link>https://vectorjs.org/examples/svg-coordinate-system/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-coordinate-system/</guid>
-      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); let margin = 0; interactive.width = 692; interactive.height = 300; interactive.originX = margin; interactive.originY = margin; interactive.root.style.overflow = &amp;#39;visible&amp;#39;; interactive.root.style.marginLeft = &amp;#39;6px&amp;#39;; let rectangle = interactive.rectangle(0, 0, interactive.</description>
+      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.classList.add(&amp;#39;default&amp;#39;); let margin = 0; interactive.width = 692; interactive.height = 300; interactive.originX = margin; interactive.originY = margin; interactive.root.style.overflow = &amp;#39;visible&amp;#39;; interactive.root.style.marginLeft = &amp;#39;6px&amp;#39;; let rectangle = interactive.rectangle(0, 0, interactive.</description>
     </item>
     
     <item>
@@ -629,7 +765,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-ellipse/</guid>
-      <description>/** * @title SVG Ellipse Element * @description This interactive demonstrates the SVG ellipse element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 704; let ellipse = interactive.ellipse(0, 0, 0, 0); let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); l1.</description>
+      <description>/** * @title SVG Ellipse Element * @description This interactive demonstrates the SVG ellipse element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let ellipse = interactive.ellipse(0, 0, 0, 0); ellipse.classList.add(&amp;#39;default&amp;#39;); let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); l1.</description>
     </item>
     
     <item>
@@ -638,7 +774,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-line/</guid>
-      <description>/** * @title SVG Line * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 704; let line = interactive.line(0, 0, 0, 0); let c1 = interactive.control(150, 200); let c2 = interactive.control(450, 100); let text = interactive.text(25, 275, &amp;#34;&amp;#34;); line.</description>
+      <description>/** * @title SVG Line * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let line = interactive.line(0, 0, 0, 0); line.classList.add(&amp;#39;default&amp;#39;); let c1 = interactive.control(150, 200); let c2 = interactive.control(450, 100); let text = interactive.text(25, 275, &amp;#34;&amp;#34;); line.</description>
     </item>
     
     <item>
@@ -647,7 +783,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-marker/</guid>
-      <description>/** * @title SVG Marker * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 704; // interactive.marker(); //# sourceMappingURL=svg-marker.js.map  </description>
+      <description>/** * @title SVG Marker * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; // interactive.marker(); //# sourceMappingURL=svg-marker.js.map  </description>
     </item>
     
     <item>
@@ -656,7 +792,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-path-arc/</guid>
-      <description>/** * @title SVG Path Arc Command * @description This interactive demonstrates the Path Element&amp;#39;s Arc command. At a high level the command draws an arc using the shape of an ellipse between two points. * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 484; let path = interactive.path(&amp;#39;&amp;#39;); let start = interactive.control(100, 120); let control = interactive.</description>
+      <description>/** * @title SVG Path Arc Command * @description This interactive demonstrates the Path Element&amp;#39;s Arc command. At a high level the command draws an arc using the shape of an ellipse between two points. * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 500; let path = interactive.path(&amp;#39;&amp;#39;); path.classList.add(&amp;#39;default&amp;#39;); let start = interactive.control(100, 120); let control = interactive.</description>
     </item>
     
     <item>
@@ -692,7 +828,16 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-rectangle/</guid>
-      <description>/** * @title SVG Rectangle Element * @description This interactive demonstrates the SVG rectangle element and its attributes. * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 704; let rect = interactive.rectangle(0, 0, 0, 0); let c1 = interactive.control(150, 100); let c2 = interactive.control(450, 200); let text = interactive.text(25, 275, &amp;#34;&amp;#34;); c2.update = function () { this.</description>
+      <description>/** * @title SVG Rectangle Element * @description This interactive demonstrates the SVG rectangle element and its attributes. * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let rect = interactive.rectangle(0, 0, 0, 0); rect.classList.add(&amp;#39;default&amp;#39;); let c1 = interactive.control(150, 100); let c2 = interactive.control(450, 200); let text = interactive.text(25, 275, &amp;#34;&amp;#34;); c2.update = function () { this.</description>
+    </item>
+    
+    <item>
+      <title>SVG Transform Attribute</title>
+      <link>https://vectorjs.org/examples/svg-transform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-transform/</guid>
+      <description>/** * @title SVG Transform Attribute * @description This interactive demonstrates how the transform attribute can be used to transform SVG elements * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 60; interactive.originX = 75; interactive.originY = 75; let translateGroup = interactive.group(); let scaleGroup = interactive.group(); let rotateGroup = interactive.group(); let group = interactive.</description>
     </item>
     
     <item>
@@ -701,7 +846,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-rotate/</guid>
-      <description>/** * @title SVG Transform Rotate Attribute * @description This interactive how the rotate transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 700; interactive.height = 300; interactive.border = true; let w = 50; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; let group = interactive.group(); let r1 = interactive.rectangle(0, 0, w, w); let r2 = interactive.</description>
+      <description>/** * @title SVG Transform Rotate Attribute * @description This interactive how the rotate transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 50; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; let group = interactive.group(); let r1 = interactive.rectangle(0, 0, w, w); let r2 = interactive.</description>
     </item>
     
     <item>
@@ -710,7 +855,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-scale/</guid>
-      <description>/** * @title SVG Transform Scale Attribute * @description This interactive how the scale transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 700; interactive.height = 300; interactive.border = true; let w = 60; interactive.originX = 75; interactive.originY = 75; let group = interactive.group(); let r1 = interactive.rectangle(0, 0, w, w); let r2 = interactive.</description>
+      <description>/** * @title SVG Transform Scale Attribute * @description This interactive how the scale transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 60; interactive.originX = 75; interactive.originY = 75; let group = interactive.group(); let r1 = interactive.rectangle(0, 0, w, w); let r2 = interactive.</description>
     </item>
     
     <item>
@@ -719,7 +864,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-translate/</guid>
-      <description>/** * @title SVG Transform Translate Attribute * @description This interactive how the translate transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 700; interactive.height = 300; interactive.border = true; let w = 50; interactive.originX = interactive.width / 2 - w; interactive.originY = interactive.height / 2 - w; let group = interactive.group(); let r1 = interactive.</description>
+      <description>/** * @title SVG Transform Translate Attribute * @description This interactive how the translate transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 50; interactive.originX = interactive.width / 2 - w; interactive.originY = interactive.height / 2 - w; let group = interactive.group(); let r1 = interactive.</description>
     </item>
     
     <item>
@@ -728,7 +873,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-view-box/</guid>
-      <description>/** * @title SVG View Box Attribute * @description This interactive demonstrates how the view box attribute can be applied to a SVG element to change the view port of the image. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let viewBoxControl = new Interactive(getScriptName()); viewBoxControl.border = true; viewBoxControl.width = 704 / 2; let viewBox = new Interactive(getScriptName()); viewBox.border = true; viewBox.width = 704 / 2; let margin = 30; for (let i = margin; i &amp;lt; viewBoxControl.</description>
+      <description>/** * @title SVG View Box Attribute * @description This interactive demonstrates how the view box attribute can be applied to a SVG element to change the view port of the image. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let viewBoxControl = new Interactive(getScriptName()); viewBoxControl.border = true; viewBoxControl.width = 736 / 2; let viewBox = new Interactive(getScriptName()); viewBox.border = true; viewBox.width = 736 / 2; let margin = 30; for (let i = margin; i &amp;lt; viewBoxControl.</description>
     </item>
     
     <item>
@@ -782,7 +927,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/triangle/</guid>
-      <description>/** * @title Triangle * @description This interactive demonstrates an angle formed by three points. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let id = &amp;#39;triangle&amp;#39;; let interactive = new Interactive(id); interactive.window = true; // Create three control points let p1 = interactive.control(250, 200); let p2 = interactive.control(300, 100); let p3 = interactive.control(350, 200); // Draw three lines between them addLineBetweenPoints(p1, p2); addLineBetweenPoints(p2, p3); addLineBetweenPoints(p3, p1); // Draws a line between two points function addLineBetweenPoints(point1, point2) { let line = interactive.</description>
+      <description>/** * @title Triangle * @description This interactive demonstrates an angle formed by three points. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; // Create three control points let p1 = interactive.control(250, 200); let p2 = interactive.control(300, 100); let p3 = interactive.control(350, 200); // Draw three lines between them addLineBetweenPoints(p1, p2); addLineBetweenPoints(p2, p3); addLineBetweenPoints(p3, p1); // Draws a line between two points function addLineBetweenPoints(point1, point2) { let line = interactive.</description>
     </item>
     
     <item>
@@ -804,6 +949,69 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/flow-graph-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/flow-graph-2/</guid>
+      <description>import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import DependencyGraph from &amp;#34;../../model/dependency-graph.js&amp;#34;; let interactive = new Interactive(getScriptName()); let dg = new DependencyGraph(); dg.add(&amp;#39;a&amp;#39;); dg.add(&amp;#39;b&amp;#39;); dg.add(&amp;#39;c&amp;#39;); dg.addDependency(&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;); // dg.addDependency(&amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;); dg.addDependency(&amp;#39;a&amp;#39;, &amp;#39;c&amp;#39;); console.log(dg.toString()); let flowGraph = interactive.flowGraph(dg.toString()); let rect = flowGraph.root.getBBox(); interactive.setViewBox(rect.x - 8, rect.y - 8, rect.width + 16, rect.height + 16); //# sourceMappingURL=flow-graph-2.js.map  </description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/graph-of-cosine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/graph-of-cosine/</guid>
+      <description>import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); //# sourceMappingURL=graph-of-cosine.js.map  </description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/graph-of-sine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/graph-of-sine/</guid>
+      <description>import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.plot(600, 300, Math.sin, { originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); //# sourceMappingURL=graph-of-sine.js.map  </description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/graph-of-tangent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/graph-of-tangent/</guid>
+      <description>import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName(), { height: 600 }); interactive.plot(600, 600, Math.tan, { originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); //# sourceMappingURL=graph-of-tangent.js.map  </description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/maps-json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/maps-json/</guid>
+      <description>/** * Creating an object in js that is just the json of the usMap */ export let usData = { &amp;#34;type&amp;#34;: &amp;#34;FeatureCollection&amp;#34;, &amp;#34;features&amp;#34;: [ { &amp;#34;type&amp;#34;: &amp;#34;Feature&amp;#34;, &amp;#34;id&amp;#34;: &amp;#34;01&amp;#34;, &amp;#34;properties&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;Alabama&amp;#34;, &amp;#34;density&amp;#34;: 94.65 }, &amp;#34;geometry&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;Polygon&amp;#34;, &amp;#34;coordinates&amp;#34;: [[[-87.359296, 35.00118], [-85.606675, 34.984749], [-85.431413, 34.124869], [-85.184951, 32.859696], [-85.069935, 32.580372], [-84.960397, 32.421541], [-85.004212, 32.322956], [-84.889196, 32.262709], [-85.058981, 32.13674], [-85.053504, 32.01077], [-85.141136, 31.840985], [-85.042551, 31.539753], [-85.113751, 31.27686], [-85.004212, 31.003013], [-85.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/population-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/population-data/</guid>
+      <description>/** * Export estimated state population. * https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population */ export let data = [ { &amp;#34;Rank&amp;#34;: 1, &amp;#34;State&amp;#34;: &amp;#34;California&amp;#34;, &amp;#34;Population&amp;#34;: 39557045 }, { &amp;#34;Rank&amp;#34;: 2, &amp;#34;State&amp;#34;: &amp;#34;Texas&amp;#34;, &amp;#34;Population&amp;#34;: 28701845 }, { &amp;#34;Rank&amp;#34;: 3, &amp;#34;State&amp;#34;: &amp;#34;Florida&amp;#34;, &amp;#34;Population&amp;#34;: 21299325 }, { &amp;#34;Rank&amp;#34;: 4, &amp;#34;State&amp;#34;: &amp;#34;New York&amp;#34;, &amp;#34;Population&amp;#34;: 19542209 }, { &amp;#34;Rank&amp;#34;: 5, &amp;#34;State&amp;#34;: &amp;#34;Pennsylvania&amp;#34;, &amp;#34;Population&amp;#34;: 12807060 }, { &amp;#34;Rank&amp;#34;: 6, &amp;#34;State&amp;#34;: &amp;#34;Illinois&amp;#34;, &amp;#34;Population&amp;#34;: 12741080 }, { &amp;#34;Rank&amp;#34;: 7, &amp;#34;State&amp;#34;: &amp;#34;Ohio&amp;#34;, &amp;#34;Population&amp;#34;: 11689442 }, { &amp;#34;Rank&amp;#34;: 8, &amp;#34;State&amp;#34;: &amp;#34;Georgia&amp;#34;, &amp;#34;Population&amp;#34;: 10519475 }, { &amp;#34;Rank&amp;#34;: 9, &amp;#34;State&amp;#34;: &amp;#34;North Carolina&amp;#34;, &amp;#34;Population&amp;#34;: 10383620 }, { &amp;#34;Rank&amp;#34;: 10, &amp;#34;State&amp;#34;: &amp;#34;Michigan&amp;#34;, &amp;#34;Population&amp;#34;: 9995915 }, { &amp;#34;Rank&amp;#34;: 11, &amp;#34;State&amp;#34;: &amp;#34;New Jersey&amp;#34;, &amp;#34;Population&amp;#34;: 8908520 }, { &amp;#34;Rank&amp;#34;: 12, &amp;#34;State&amp;#34;: &amp;#34;Virginia&amp;#34;, &amp;#34;Population&amp;#34;: 8517685 }, { &amp;#34;Rank&amp;#34;: 13, &amp;#34;State&amp;#34;: &amp;#34;Washington&amp;#34;, &amp;#34;Population&amp;#34;: 7535591 }, { &amp;#34;Rank&amp;#34;: 14, &amp;#34;State&amp;#34;: &amp;#34;Arizona&amp;#34;, &amp;#34;Population&amp;#34;: 7171646 }, { &amp;#34;Rank&amp;#34;: 15, &amp;#34;State&amp;#34;: &amp;#34;Massachusetts&amp;#34;, &amp;#34;Population&amp;#34;: 6902149 }, { &amp;#34;Rank&amp;#34;: 16, &amp;#34;State&amp;#34;: &amp;#34;Tennessee&amp;#34;, &amp;#34;Population&amp;#34;: 6770010 }, { &amp;#34;Rank&amp;#34;: 17, &amp;#34;State&amp;#34;: &amp;#34;Indiana&amp;#34;, &amp;#34;Population&amp;#34;: 6691878 }, { &amp;#34;Rank&amp;#34;: 18, &amp;#34;State&amp;#34;: &amp;#34;Missouri&amp;#34;, &amp;#34;Population&amp;#34;: 6126452 }, { &amp;#34;Rank&amp;#34;: 19, &amp;#34;State&amp;#34;: &amp;#34;Maryland&amp;#34;, &amp;#34;Population&amp;#34;: 6042718 }, { &amp;#34;Rank&amp;#34;: 20, &amp;#34;State&amp;#34;: &amp;#34;Wisconsin&amp;#34;, &amp;#34;Population&amp;#34;: 5813568 }, { &amp;#34;Rank&amp;#34;: 21, &amp;#34;State&amp;#34;: &amp;#34;Colorado&amp;#34;, &amp;#34;Population&amp;#34;: 5695564 }, { &amp;#34;Rank&amp;#34;: 22, &amp;#34;State&amp;#34;: &amp;#34;Minnesota&amp;#34;, &amp;#34;Population&amp;#34;: 5611179 }, { &amp;#34;Rank&amp;#34;: 23, &amp;#34;State&amp;#34;: &amp;#34;South Carolina&amp;#34;, &amp;#34;Population&amp;#34;: 5084127 }, { &amp;#34;Rank&amp;#34;: 24, &amp;#34;State&amp;#34;: &amp;#34;Alabama&amp;#34;, &amp;#34;Population&amp;#34;: 4887871 }, { &amp;#34;Rank&amp;#34;: 25, &amp;#34;State&amp;#34;: &amp;#34;Louisiana&amp;#34;, &amp;#34;Population&amp;#34;: 4659978 }, { &amp;#34;Rank&amp;#34;: 26, &amp;#34;State&amp;#34;: &amp;#34;Kentucky&amp;#34;, &amp;#34;Population&amp;#34;: 4468402 }, { &amp;#34;Rank&amp;#34;: 27, &amp;#34;State&amp;#34;: &amp;#34;Oregon&amp;#34;, &amp;#34;Population&amp;#34;: 4190713 }, { &amp;#34;Rank&amp;#34;: 28, &amp;#34;State&amp;#34;: &amp;#34;Oklahoma&amp;#34;, &amp;#34;Population&amp;#34;: 3943079 }, { &amp;#34;Rank&amp;#34;: 29, &amp;#34;State&amp;#34;: &amp;#34;Connecticut&amp;#34;, &amp;#34;Population&amp;#34;: 3572665 }, { &amp;#34;Rank&amp;#34;: 30, &amp;#34;State&amp;#34;: &amp;#34;Puerto Rico&amp;#34;, &amp;#34;Population&amp;#34;: 3195153 }, { &amp;#34;Rank&amp;#34;: 31, &amp;#34;State&amp;#34;: &amp;#34;Utah&amp;#34;, &amp;#34;Population&amp;#34;: 3161105 }, { &amp;#34;Rank&amp;#34;: 32, &amp;#34;State&amp;#34;: &amp;#34;Iowa&amp;#34;, &amp;#34;Population&amp;#34;: 3156145 }, { &amp;#34;Rank&amp;#34;: 33, &amp;#34;State&amp;#34;: &amp;#34;Nevada&amp;#34;, &amp;#34;Population&amp;#34;: 3034392 }, { &amp;#34;Rank&amp;#34;: 34, &amp;#34;State&amp;#34;: &amp;#34;Arkansas&amp;#34;, &amp;#34;Population&amp;#34;: 3013825 }, { &amp;#34;Rank&amp;#34;: 35, &amp;#34;State&amp;#34;: &amp;#34;Mississippi&amp;#34;, &amp;#34;Population&amp;#34;: 2986530 }, { &amp;#34;Rank&amp;#34;: 36, &amp;#34;State&amp;#34;: &amp;#34;Kansas&amp;#34;, &amp;#34;Population&amp;#34;: 2911505 }, { &amp;#34;Rank&amp;#34;: 37, &amp;#34;State&amp;#34;: &amp;#34;New Mexico&amp;#34;, &amp;#34;Population&amp;#34;: 2095428 }, { &amp;#34;Rank&amp;#34;: 38, &amp;#34;State&amp;#34;: &amp;#34;Nebraska&amp;#34;, &amp;#34;Population&amp;#34;: 1929268 }, { &amp;#34;Rank&amp;#34;: 39, &amp;#34;State&amp;#34;: &amp;#34;West Virginia&amp;#34;, &amp;#34;Population&amp;#34;: 1805832 }, { &amp;#34;Rank&amp;#34;: 40, &amp;#34;State&amp;#34;: &amp;#34;Idaho&amp;#34;, &amp;#34;Population&amp;#34;: 1754208 }, { &amp;#34;Rank&amp;#34;: 41, &amp;#34;State&amp;#34;: &amp;#34;Hawaii&amp;#34;, &amp;#34;Population&amp;#34;: 1420491 }, { &amp;#34;Rank&amp;#34;: 42, &amp;#34;State&amp;#34;: &amp;#34;New Hampshire&amp;#34;, &amp;#34;Population&amp;#34;: 1356458 }, { &amp;#34;Rank&amp;#34;: 43, &amp;#34;State&amp;#34;: &amp;#34;Maine&amp;#34;, &amp;#34;Population&amp;#34;: 1338404 }, { &amp;#34;Rank&amp;#34;: 44, &amp;#34;State&amp;#34;: &amp;#34;Montana&amp;#34;, &amp;#34;Population&amp;#34;: 1062305 }, { &amp;#34;Rank&amp;#34;: 45, &amp;#34;State&amp;#34;: &amp;#34;Rhode Island&amp;#34;, &amp;#34;Population&amp;#34;: 1057315 }, { &amp;#34;Rank&amp;#34;: 46, &amp;#34;State&amp;#34;: &amp;#34;Delaware&amp;#34;, &amp;#34;Population&amp;#34;: 967171 }, { &amp;#34;Rank&amp;#34;: 47, &amp;#34;State&amp;#34;: &amp;#34;South Dakota&amp;#34;, &amp;#34;Population&amp;#34;: 882235 }, { &amp;#34;Rank&amp;#34;: 48, &amp;#34;State&amp;#34;: &amp;#34;North Dakota&amp;#34;, &amp;#34;Population&amp;#34;: 760077 }, { &amp;#34;Rank&amp;#34;: 49, &amp;#34;State&amp;#34;: &amp;#34;Alaska&amp;#34;, &amp;#34;Population&amp;#34;: 737438 }, { &amp;#34;Rank&amp;#34;: 50, &amp;#34;State&amp;#34;: &amp;#34;District of Columbia&amp;#34;, &amp;#34;Population&amp;#34;: 702455 }, { &amp;#34;Rank&amp;#34;: 51, &amp;#34;State&amp;#34;: &amp;#34;Vermont&amp;#34;, &amp;#34;Population&amp;#34;: 626299 }, { &amp;#34;Rank&amp;#34;: 52, &amp;#34;State&amp;#34;: &amp;#34;Wyoming&amp;#34;, &amp;#34;Population&amp;#34;: 577737 } ]; //# sourceMappingURL=population-data.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/us-pop-density/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/us-pop-density/</guid>
+      <description>export let usDensityMap = { &amp;#34;Alabama&amp;#34;: 94.65, &amp;#34;Alaska&amp;#34;: 1.264, &amp;#34;Arizona&amp;#34;: 57.05, &amp;#34;Arkansas&amp;#34;: 56.43, &amp;#34;California&amp;#34;: 241.7, &amp;#34;Colorado&amp;#34;: 49.33, &amp;#34;Connecticut&amp;#34;: 739.1, &amp;#34;Delaware&amp;#34;: 464.3, &amp;#34;District of Columbia&amp;#34;: 10065, &amp;#34;Florida&amp;#34;: 353.4, &amp;#34;Georgia&amp;#34;: 169.5, &amp;#34;Hawaii&amp;#34;: 214.1, &amp;#34;Idaho&amp;#34;: 19.15, &amp;#34;Illinois&amp;#34;: 231.5, &amp;#34;Indiana&amp;#34;: 181.7, &amp;#34;Iowa&amp;#34;: 54.81, &amp;#34;Kansas&amp;#34;: 35.09, &amp;#34;Kentucky&amp;#34;: 110, &amp;#34;Louisiana&amp;#34;: 105, &amp;#34;Maine&amp;#34;: 43.04, &amp;#34;Maryland&amp;#34;: 596.3, &amp;#34;Massachusetts&amp;#34;: 840.2, &amp;#34;Michigan&amp;#34;: 173.9, &amp;#34;Minnesota&amp;#34;: 67.14, &amp;#34;Mississippi&amp;#34;: 63.5, &amp;#34;Missouri&amp;#34;: 87.26, &amp;#34;Montana&amp;#34;: 6.858, &amp;#34;Nebraska&amp;#34;: 23.97, &amp;#34;Nevada&amp;#34;: 24.8, &amp;#34;New Hampshire&amp;#34;: 147, &amp;#34;New Jersey&amp;#34;: 1189, &amp;#34;New Mexico&amp;#34;: 17.</description>
+    </item>
+    
+    <item>
       <title>Undirected Graph Element</title>
       <link>https://vectorjs.org/examples/undirected-graph-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -813,12 +1021,21 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Unit Circle</title>
+      <link>https://vectorjs.org/examples/unit-circle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle/</guid>
+      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent. * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive, BaseElement } from &amp;#39;../../index.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; /** * This wrapper object is how the circular dependecy between control elements is * made more simple. Since all of the elements depend on the current angle when * an input is changed then this element is updated and the change is * propegated through the dependency graph.</description>
+    </item>
+    
+    <item>
       <title>Unit Circle Angle</title>
       <link>https://vectorjs.org/examples/unit-circle-angle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle-angle/</guid>
-      <description>/** * @title Unit Circle Angle * @description An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let id = &amp;#39;unit-circle-angle&amp;#39;; let interactive = new Interactive(id); interactive.window = false; interactive.width = 320; interactive.height = 340; interactive.</description>
+      <description>/** * @title Unit Circle Angle * @description An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.window = false; interactive.width = 320; interactive.</description>
     </item>
     
     <item>
@@ -827,7 +1044,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle-cosine/</guid>
-      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let width = 230; let scale = width / Math.PI; let radius = scale; let margin = 2 * radius - width / 2; interactive.</description>
+      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
     </item>
     
     <item>
@@ -836,7 +1053,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle-right-triangle/</guid>
-      <description>/** * @title Unit Circle Right Triangle * @description This interactive demonstrates how a point along the circumference of the unit circle forms a right triangle with the adjacent side corresponding to the x-position of the point and the opposite side corresonding to the y-position of the point. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let id = &amp;#39;unit-circle-right-triangle&amp;#39;; let interactive = new Interactive(id); interactive.</description>
+      <description>/** * @title Unit Circle Right Triangle * @description This interactive demonstrates how a point along the circumference of the unit circle forms a right triangle with the adjacent side corresponding to the x-position of the point and the opposite side corresonding to the y-position of the point. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.</description>
     </item>
     
     <item>
@@ -845,7 +1062,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle-sine/</guid>
-      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let width = 230; let scale = width / Math.PI; let radius = scale; let margin = 2 * radius - width / 2; interactive.</description>
+      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
     </item>
     
     <item>

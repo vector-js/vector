@@ -43,8 +43,14 @@
 
   
   <h1>Unit Circle Angle <a style="float:right" href="/sandbox/?script=/examples/math/unit-circle-angle.js" class="button">Open in Sandbox</a></h1>
-  <div id="unit-circle-angle" class="interactive-container"></div>
-  <script type="module" src="/examples/math/unit-circle-angle.js"></script>
+  
+
+<div id="df93e03f84770891c5cc5766fdf49d1d" class="vertical-center i-container"></div>
+<script type="module">
+  import main from "\/examples\/math\/unit-circle-angle.js";
+  main("df93e03f84770891c5cc5766fdf49d1d");
+</script>
+
   
     <h2>Description</h2>
     <p>An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system.</p>
@@ -58,69 +64,71 @@
 </span><span class="cm">* @author Kurt Bruns
 </span><span class="cm">*/</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="c1">// Initialize the interactive
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="s1">&#39;unit-circle-angle&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">320</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">340</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="mi">125</span><span class="p">;</span>
-<span class="c1">// Create a circle
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="c1">// Create a control
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
-<span class="nx">control</span><span class="p">.</span><span class="nx">constrainToCircle</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">cx</span><span class="p">,</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">cy</span><span class="p">,</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span><span class="p">);</span>
-<span class="c1">// Create a path
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-<span class="nx">path</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;rgb(236,236,236)&#39;</span><span class="p">;</span>
-<span class="nx">path</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">flag</span> <span class="o">=</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="nx">path</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="sb">`M 0 0
-</span><span class="sb">            L </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span><span class="si">}</span><span class="sb"> 0
-</span><span class="sb">            L </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> 0
-</span><span class="sb">            A </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> 0 </span><span class="si">${</span><span class="nx">flag</span><span class="si">}</span><span class="sb"> 0 </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb">
-</span><span class="sb">            L </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">
-</span><span class="sb">            z`</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="nx">path</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
-<span class="nx">path</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
-<span class="c1">// Create a point at the origin
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-<span class="nx">point</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
-<span class="c1">// Create a checkbox to toggle between displaying radians and degrees
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">degrees</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">checkBox</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&#34;degrees&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-<span class="c1">// Gets the normalized angle between zero and tau. TODO: Maybe transform the
-</span><span class="c1">// coordinate system so that the positive y-direction is up instead of down.
-</span><span class="c1">// UPDATE: transform = &#39;scale(1,-1)&#39; applied to the main svg  didn&#39;t quite work
-</span><span class="c1">// as expected: the text element was upside down, but maybe that could be
-</span><span class="c1">// reversed? bleh.
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">getAngle</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">angle</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="p">));</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Initialize the interactive
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">320</span><span class="p">;</span>
+    <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">340</span><span class="p">;</span>
+    <span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="mi">125</span><span class="p">;</span>
+    <span class="c1">// Create a circle
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
+    <span class="c1">// Create a control
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    <span class="nx">control</span><span class="p">.</span><span class="nx">constrainToCircle</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">cx</span><span class="p">,</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">cy</span><span class="p">,</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span><span class="p">);</span>
+    <span class="c1">// Create a path
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="nx">path</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
+    <span class="nx">path</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;rgb(236,236,236)&#39;</span><span class="p">;</span>
+    <span class="nx">path</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">flag</span> <span class="o">=</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="sb">`M 0 0
+</span><span class="sb">              L </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span><span class="si">}</span><span class="sb"> 0
+</span><span class="sb">              L </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> 0
+</span><span class="sb">              A </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> 0 </span><span class="si">${</span><span class="nx">flag</span><span class="si">}</span><span class="sb"> 0 </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">/</span> <span class="mi">3</span><span class="si">}</span><span class="sb">
+</span><span class="sb">              L </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">
+</span><span class="sb">              z`</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">path</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="nx">path</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
+    <span class="c1">// Create a point at the origin
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="nx">point</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
+    <span class="c1">// Create a checkbox to toggle between displaying radians and degrees
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">degrees</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">checkBox</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&#34;degrees&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="c1">// Gets the normalized angle between zero and tau. TODO: Maybe transform the
+</span><span class="c1"></span>    <span class="c1">// coordinate system so that the positive y-direction is up instead of down.
+</span><span class="c1"></span>    <span class="c1">// UPDATE: transform = &#39;scale(1,-1)&#39; applied to the main svg  didn&#39;t quite work
+</span><span class="c1"></span>    <span class="c1">// as expected: the text element was upside down, but maybe that could be
+</span><span class="c1"></span>    <span class="c1">// reversed? bleh.
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">getAngle</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">angle</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">degrees</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span><span class="nx">angle</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;°&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">angle</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; rad&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">degrees</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="nx">angle</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;°&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">angle</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; rad&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="c1">// Create text to display the current angle. TODO: add a check-box to change
+</span><span class="c1"></span>    <span class="c1">// between radians and degrees
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&#34;test&#34;</span><span class="p">);</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">text</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`angle = </span><span class="si">${</span><span class="nx">getAngle</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">degrees</span><span class="p">);</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="o">-</span><span class="nx">text</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">textLength</span><span class="p">.</span><span class="nx">baseVal</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">// Create text to display the current angle. TODO: add a check-box to change
-</span><span class="c1">// between radians and degrees
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&#34;test&#34;</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">text</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`angle = </span><span class="si">${</span><span class="nx">getAngle</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">degrees</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="o">-</span><span class="nx">text</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">textLength</span><span class="p">.</span><span class="nx">baseVal</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kr">export</span> <span class="p">{</span> <span class="nx">interactive</span><span class="p">,</span> <span class="nx">control</span> <span class="p">};</span>
 <span class="c1">//# sourceMappingURL=unit-circle-angle.js.map
 </span></code></pre></div>
 
