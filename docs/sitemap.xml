@@ -41,6 +41,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/tidy-algorithm/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/tutorials/graphs/</loc>
     <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
@@ -113,10 +117,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/button-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-test/</loc>
   </url>
   
   <url>
@@ -457,22 +457,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/degrees/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/flow-graph-2/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/graph-of-cosine/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/graph-of-sine/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/graph-of-tangent/</loc>
   </url>
   
   <url>
