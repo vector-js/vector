@@ -10,6 +10,7 @@ import {Interactive, getScriptName} from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
+interactive.classList.add('default');
 
 interactive.originX = interactive.width/2;
 interactive.originY = interactive.height/2;;
