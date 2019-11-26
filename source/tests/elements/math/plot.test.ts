@@ -19,9 +19,14 @@ describe('Plot', function () {
     plot.export(); // for exporting not testing
   });
 
-  describe('User Events', function() {
-    it('should create a plot without zoom & pan events', function(){
+  describe('General', function() {
+    it('should place the plot at the position (100, 100)', function(){
+      interactive.width = 700;
+      interactive.height = 400;
+      // interactive.rectangle(0,0,interactive.width,interactive.height);
       plot = interactive.plot(600, 300, Math.sin, {
+        x: 50,
+        y: 50,
         originX: 0,
         originY: 150,
         scaleX: 300/Math.PI,
@@ -29,22 +34,38 @@ describe('Plot', function () {
         zoomable: false,
         grid:true
       });
-    });
-    it('should create a plot without a display point', function(){
-      plot = interactive.plot(600, 300, Math.sin, {
-        originX: 0,
-        originY: 150,
-        scaleX: 300/Math.PI,
-        scaleY: 300/Math.PI,
-        displayPoint: false,
-        zoomable: false,
-        grid:true
-      });
+
+      let group = interactive.group();
+      group.style.fontFamily = 'KaTeX_Main';
+      group.style.fontSize = '22px';
+      let title = group.text(interactive.width/2, 25, 'sin(');
+      let span = title.tspan('x');
+      span.setAttribute('text-anchor', 'middle');
+      span.setAttribute('alignment-baseline', 'middle');
+      span.style.fontFamily = 'KaTeX_Math';
+      title.contents += ')';
+      title.setAttribute('alignment-baseline', 'middle');
+      title.setAttribute('text-anchor', 'middle');
+
+
+      let xPoints = plot.getXLabelPoints();
+      let yPoints = plot.getYLabelPoints();
+      for( let p of xPoints) {
+        let point = plot.internalToAbsolute(p);
+        let text = group.text( point.x + 50, 50 + 300 + 25, `${p.x}`);
+        text.setAttribute('alignment-baseline', 'middle');
+        text.setAttribute('text-anchor', 'middle');
+      }
+      for( let p of yPoints) {
+        let point = plot.internalToAbsolute(p);
+        let text = group.text( point.x + 50 - 25, point.y + 50, `${p.y}`);
+        text.setAttribute('alignment-baseline', 'middle');
+        text.setAttribute('text-anchor', 'middle');
+      }
     });
   });
 
   describe('Functions', function () {
-
 		it('linear', function() {
       let f = (x:number) => { return x; };
       let scaleX = 50;
@@ -52,8 +73,6 @@ describe('Plot', function () {
       plot = interactive.plot(600, 300, f, {
         scaleX: scaleX,
         scaleY: scaleY,
-        displayPoint: true,
-        zoomable: true
       });
 		});
 
@@ -105,6 +124,17 @@ describe('Plot', function () {
 		});
     it('logarithm base 2', function() {
       let f = (x:number) => { return Math.log(x)/Math.log(2) };
+      let scaleX = 50;
+      let scaleY = 50;
+      plot = interactive.plot(600, 300, f, {
+        scaleX: scaleX,
+        scaleY: scaleY,
+        originY: 250,
+        originX: 50
+      });
+    });
+    it('logarithm base 3', function() {
+      let f = (x:number) => { return Math.log(x)/Math.log(3) };
       let scaleX = 50;
       let scaleY = 50;
       plot = interactive.plot(600, 300, f, {
@@ -204,8 +234,8 @@ describe('Plot', function () {
         originY: 300,
         scaleX: scaleX,
         scaleY: scaleY,
-        displayPoint: true,
-        zoomable: true
+        // displayPoint: true,
+        // zoomable: true
       });
     });
     it('arcsine', function() {
@@ -414,7 +444,9 @@ describe('Plot', function () {
         scaleY: scaleY
       });
     });
-    it('zooming', function() {
+  });
+  describe('Experimental', function(){
+    it('gridline zooming', function() {
       let f = (x:number) => x*x;
       let scaleX = 50;
       let scaleY = 50;
@@ -423,6 +455,27 @@ describe('Plot', function () {
         scaleY: scaleY,
         zoomable: true,
         displayPoint: true
+      });
+    });
+    it('should create a plot without zoom & pan events', function(){
+      plot = interactive.plot(600, 300, Math.sin, {
+        originX: 0,
+        originY: 150,
+        scaleX: 300/Math.PI,
+        scaleY: 300/Math.PI,
+        zoomable: false,
+        grid:true
+      });
+    });
+    it('should create a plot without a display point', function(){
+      plot = interactive.plot(600, 300, Math.sin, {
+        originX: 0,
+        originY: 150,
+        scaleX: 300/Math.PI,
+        scaleY: 300/Math.PI,
+        displayPoint: false,
+        zoomable: false,
+        grid:true
       });
     });
   });

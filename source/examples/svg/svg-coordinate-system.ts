@@ -9,6 +9,7 @@
 import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
+interactive.classList.add('default');
 let margin = 0;
 interactive.width = 692;
 interactive.height = 300;

@@ -20,8 +20,9 @@ let counter = 0;
 for (let i = 0; i < interactive.width/size; i++) {
   for (let j = 0; j < interactive.height/size; j++) {
       let rectangle = interactive.rectangle( i*size, j*size, size, size);
+      rectangle.classList.add('default');
       if( counter % 2 == 0 ) {
-        rectangle.root.style.fill = 'lightgray';
+        rectangle.style.fill = 'lightgray';
       }
       counter++;
   }

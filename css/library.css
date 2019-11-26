@@ -34,18 +34,31 @@ input.input {
   user-select: none;
 }
 
-.default {
+.interactive text,
+.interactive span {
+  fill: #333333;
+  stroke: none;
+}
+
+.default * {
   stroke:#404040;
   stroke-width:1px;
   fill:none;
 }
 
-.interactive text, span {
-  fill: #333333;
-  stroke: none;
+circle.default,
+ellipse.default,
+line.default,
+path.default,
+rect.default {
+  stroke:#404040;
+  stroke-width:1px;
+  fill:none;
 }
 
-.plot path, line, rect {
+.plot path,
+.plot line,
+.plot rect {
   stroke:#404040;
   stroke-width:1px;
   fill:none;
@@ -65,6 +78,17 @@ input.input {
 
 .control > .highlight {
   opacity:1;
+}
+
+.checkbox rect {
+  fill:#f2f2f2;
+  stroke:#333333;
+  stroke-width:1px;
+}
+
+.slider line {
+  stroke:#333333;
+  stroke-width:1px;
 }
 
 .icon {

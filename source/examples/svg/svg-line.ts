@@ -13,6 +13,8 @@ interactive.border = true;
 interactive.width = 736;
 
 let line = interactive.line( 0, 0, 0, 0);
+line.classList.add('default');
+
 let c1 = interactive.control( 150, 200);
 let c2 = interactive.control( 450, 100);
 let text = interactive.text( 25, 275, "");
