@@ -276,21 +276,11 @@ rectangle.style.strokeWidth = '1px';
 
 Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript. The style sheet for the library can be found in the <a href="/Library.css">Library.css</a> file. Typically, elements have an associated class that gives them their default look and feel.
 
-{{< highlight javascript>}}
-// element.style ...
-{{< /highlight >}}
-
-{{< highlight javascript>}}
-// TODO: how to load a custom style sheet
-{{< /highlight >}}
-
 ## Graphs
 
-{{< highlight javascript>}}
-// TODO: graphs introduction & example
-{{< /highlight >}}
+The graphing module is used to display basic graphs in the form of node link diagrams. Both directed and undirected graphs are supported. The module allows for the creations of individual nodes which can be connected via edges. Additionally, the graphing module supports the Reingold-Tilford “tidy” layout for automatically drawing trees. 
 
-{{<example "prime-factorization">}}
+{{<example "tidy-algorithm">}}
 
 ## Maps
 
