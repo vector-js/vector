@@ -4,6 +4,7 @@ title: Radio Control Element
 id: radio-control-element
 script: /examples/elements/radio-control-element.js
 main: false
+ignore: false
 description: This interactive demonstrates the radio control element.
 input: undefined
 tags: [elements, input]

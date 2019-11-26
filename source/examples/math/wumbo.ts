@@ -2,6 +2,7 @@
 * @title Vector.js Hello World
 * @description Hi!
 * @tags []
+* @ignore true
 */
 
 import Interactive from '../../interactive.js';

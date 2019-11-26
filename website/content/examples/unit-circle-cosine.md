@@ -4,6 +4,7 @@ title: Unit Circle Cosine
 id: unit-circle-cosine
 script: /examples/math/unit-circle-cosine.js
 main: true
+ignore: false
 description: This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine
 input: undefined
 tags: [math]

@@ -4,6 +4,7 @@ title: Unit Circle Sine
 id: unit-circle-sine
 script: /examples/math/unit-circle-sine.js
 main: true
+ignore: false
 description: This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine
 input: undefined
 tags: [math]

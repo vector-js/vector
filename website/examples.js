@@ -25,9 +25,6 @@ json.forEach(function(element){
         } else if( data[i] === `\n` && start != null ) {
           let type = str.substring(0, str.indexOf(' '));
           let contents = str.substring(str.indexOf(' ') + 1, str.length);
-          if( type === 'ignore' ) {
-            ignore = true;
-          }
           element[type] = contents;
           str = '';
           start = null;
@@ -44,6 +41,7 @@ title: ${element.title}
 id: ${element.id}
 script: ${element.path}
 main: ${element.main}
+ignore: ${element.ignore ? true : false}
 description: ${element.description}
 input: ${element.input}
 tags: ${element.tags}
@@ -56,7 +54,7 @@ ${element.script}
 {{</ highlight >}}
 
 `;
-    if( element.type === 'file' && !ignore) {
+    if( element.type === 'file') {
       fs.writeFile(`./content/examples/${element.id}.md`, contents, (error) => {
         if (error) throw error;
         // console.log(`write hugo/content/examples/${element.id}.md`);

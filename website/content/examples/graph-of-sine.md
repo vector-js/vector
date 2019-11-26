@@ -4,6 +4,7 @@ title: undefined
 id: graph-of-sine
 script: /examples/math/graph-of-sine.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

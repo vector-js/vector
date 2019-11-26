@@ -4,6 +4,7 @@ title: Interactive World Map
 id: world-map
 script: /examples/maps/world-map.js
 main: false
+ignore: false
 description: Every country in the world displayed in an interactive.
 input: Input the name of the map you want to see, and the size of the map.
 tags: [maps]

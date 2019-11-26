@@ -4,6 +4,7 @@ title: Right Triangle
 id: right-triangle
 script: /examples/math/right-triangle.js
 main: false
+ignore: false
 description: This interactive demonstrates the properties of a right triangle.
 input: undefined
 tags: [math]

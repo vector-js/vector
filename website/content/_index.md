@@ -345,8 +345,6 @@ let plot = interactive.plot(600, 300, Math.cos, {
 
 ### Visualize Multiple Functions
 
-{{<example "plot-secant">}}
-
 {{< highlight javascript>}}
 let scale = 300/Math.PI;
 let secant = (x) => { return 1/Math.cos(x) };

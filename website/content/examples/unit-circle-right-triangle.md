@@ -4,6 +4,7 @@ title: Unit Circle Right Triangle
 id: unit-circle-right-triangle
 script: /examples/math/unit-circle-right-triangle.js
 main: true
+ignore: false
 description: This interactive demonstrates how a point along the circumference of the unit circle forms a right triangle with the adjacent side corresponding to the x-position of the point and the opposite side corresonding to the y-position of the point.
 input: undefined
 tags: [math]

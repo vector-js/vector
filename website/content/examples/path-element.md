@@ -4,6 +4,7 @@ title: Path Element
 id: path-element
 script: /examples/elements/path-element.js
 main: false
+ignore: false
 description: This interactive demonstrates the path element.
 input: undefined
 tags: [elements]

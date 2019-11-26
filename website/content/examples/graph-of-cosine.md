@@ -4,6 +4,7 @@ title: undefined
 id: graph-of-cosine
 script: /examples/math/graph-of-cosine.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

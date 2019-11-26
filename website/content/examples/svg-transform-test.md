@@ -4,6 +4,7 @@ title: SVG Transform
 id: svg-transform-test
 script: /examples/svg/svg-transform-test.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

@@ -4,6 +4,7 @@ title: Secant Plot
 id: secant
 script: /examples/plots/secant.js
 main: false
+ignore: true
 description: This interactive demonstrates the plot element
 input: undefined
 tags: [elements]
@@ -16,6 +17,7 @@ draft: undefined
 * @title Secant Plot
 * @description This interactive demonstrates the plot element
 * @tags [elements]
+* @ignore true
 */
 import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive

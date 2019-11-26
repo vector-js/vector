@@ -4,6 +4,7 @@ title: undefined
 id: graph-of-tangent
 script: /examples/math/graph-of-tangent.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

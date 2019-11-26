@@ -4,6 +4,7 @@ title: Checkbox Element
 id: check-box-element
 script: /examples/elements/check-box-element.js
 main: false
+ignore: false
 description: This interactive demonstrates the checkbox element.
 input: undefined
 tags: [elements, input]

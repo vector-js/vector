@@ -63,7 +63,7 @@
   </div>
   <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
   {{ range .Pages }}
-    {{ .Render "card" }}
+    {{ if eq .Params.Ignore false }}{{ .Render "card" }}{{ end }}  
   {{ end }}
   </div>
   </section>

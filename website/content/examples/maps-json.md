@@ -4,6 +4,7 @@ title: undefined
 id: maps-json
 script: /examples/maps/maps-json.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

@@ -4,6 +4,7 @@ title: SVG Rectangle Element
 id: svg-rectangle
 script: /examples/svg/svg-rectangle.js
 main: false
+ignore: false
 description: This interactive demonstrates the SVG rectangle element and its attributes.
 input: undefined
 tags: [svg]

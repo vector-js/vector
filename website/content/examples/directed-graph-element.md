@@ -4,6 +4,7 @@ title: Directed Graph Element
 id: directed-graph-element
 script: /examples/elements/directed-graph-element.js
 main: false
+ignore: false
 description: This interactive demonstrates the directed graph element.
 input: undefined
 tags: [elements]

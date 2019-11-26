@@ -4,6 +4,7 @@ title: undefined
 id: flow-graph-2
 script: /examples/graph/flow-graph-2.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

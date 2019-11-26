@@ -4,6 +4,7 @@ title: Polar Coordinate System
 id: polar-coordinate-system
 script: /examples/math/polar-coordinate-system.js
 main: true
+ignore: false
 description: This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin.
 input: undefined
 tags: [math]

@@ -4,6 +4,7 @@ title: Arrow Element
 id: arrow-element
 script: /examples/elements/arrow-element.js
 main: false
+ignore: true
 description: This interactive demonstrates the path element.
 input: undefined
 tags: [elements]
@@ -16,6 +17,7 @@ draft: undefined
 * @title Arrow Element
 * @description This interactive demonstrates the path element.
 * @tags [elements]
+* @ignore true
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());

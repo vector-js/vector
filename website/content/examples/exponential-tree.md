@@ -4,6 +4,7 @@ title: Exponents and Trees
 id: exponential-tree
 script: /examples/math/exponential-tree.js
 main: true
+ignore: false
 description: This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree.
 input: undefined
 tags: [math]

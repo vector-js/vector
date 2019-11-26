@@ -4,6 +4,7 @@ title: undefined
 id: us-pop-density
 script: /examples/maps/us-pop-density.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

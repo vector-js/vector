@@ -1,5 +1,5 @@
 /**
-* @title Cartesian Coordinate System
+* @title Number Line
 * @description This interactive demonstrates the cartesian coordinate system.
 * @tags [math]
 */

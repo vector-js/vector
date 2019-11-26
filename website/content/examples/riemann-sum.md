@@ -4,10 +4,11 @@ title: Riemann Sum
 id: riemann-sum
 script: /examples/math/riemann-sum.js
 main: true
+ignore: false
 description: This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations.
 input: undefined
 tags: [math]
-weight: undefined
+weight: 2
 draft: undefined
 ---
 
@@ -16,7 +17,7 @@ draft: undefined
 * @title Riemann Sum
 * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations.
 * @tags [math]
-* @main true
+* @weight 2
 */
 import { Interactive } from '../../index.js';
 export default function main(id) {

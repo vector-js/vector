@@ -4,6 +4,7 @@ title: Cosine Plot
 id: cosine
 script: /examples/plots/cosine.js
 main: false
+ignore: true
 description: This interactive demonstrates the plot element
 input: undefined
 tags: [elements]
@@ -16,6 +17,7 @@ draft: undefined
 * @title Cosine Plot
 * @description This interactive demonstrates the plot element
 * @tags [elements]
+* @ignore true
 */
 import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive

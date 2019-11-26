@@ -4,6 +4,7 @@ title: Trigonometric Functions
 id: trigonometric-functions
 script: /examples/math/trigonometric-functions.js
 main: false
+ignore: false
 description: This interactive shows the connection between the three trigonometric functions and the unit circle.
 input: undefined
 tags: [math]

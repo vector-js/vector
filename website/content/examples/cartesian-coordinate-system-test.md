@@ -4,6 +4,7 @@ title: Cartesian Coordinate System
 id: cartesian-coordinate-system-test
 script: /examples/math/cartesian-coordinate-system-test.js
 main: false
+ignore: false
 description: This interactive demonstrates the cartesian coordinate system.
 input: undefined
 tags: [math]

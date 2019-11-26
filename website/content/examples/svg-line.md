@@ -4,6 +4,7 @@ title: SVG Line
 id: svg-line
 script: /examples/svg/svg-line.js
 main: false
+ignore: false
 description: This interactive demonstrates the SVG line element and its attributes.
 input: undefined
 tags: [svg]

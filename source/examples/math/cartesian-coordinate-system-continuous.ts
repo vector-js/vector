@@ -1,7 +1,8 @@
 /**
-* @title Cartesian Coordinate System
+* @title Cartesian Coordinate System (Continuous)
 * @description This interactive demonstrates the cartesian coordinate system.
 * @tags [math]
+* @ignore true
 */
 
 

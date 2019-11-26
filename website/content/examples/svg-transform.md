@@ -4,6 +4,7 @@ title: SVG Transform Attribute
 id: svg-transform
 script: /examples/svg/svg-transform.js
 main: false
+ignore: false
 description: This interactive demonstrates how the transform attribute can be used to transform SVG elements
 input: undefined
 tags: [svg]

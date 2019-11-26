@@ -4,6 +4,7 @@ title: Area Between Two Vectors
 id: triangle-area-between-two-vectors
 script: /examples/math/triangle-area-between-two-vectors.js
 main: false
+ignore: false
 description: This interactive demonstrates the area formed between two vectors.
 input: undefined
 tags: [math]

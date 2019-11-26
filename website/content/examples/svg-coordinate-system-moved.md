@@ -4,6 +4,7 @@ title: SVG Coordinate System
 id: svg-coordinate-system-moved
 script: /examples/svg/svg-coordinate-system-moved.js
 main: false
+ignore: true
 description: This interactive demonstrates the properties of the SVG coordinate system.
 input: undefined
 tags: [svg]
@@ -18,6 +19,7 @@ draft: undefined
 * @date July 11, 2019
 * @author Kurt Bruns
 * @tags [svg]
+* @ignore true
 */
 import { Interactive, getScriptName } from '../../index.js';
 let width = 736;

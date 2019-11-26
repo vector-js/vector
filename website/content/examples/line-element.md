@@ -4,6 +4,7 @@ title: Line Element
 id: line-element
 script: /examples/elements/line-element.js
 main: false
+ignore: false
 description: This interactive demonstrates the ellipse element.
 input: undefined
 tags: [elements]

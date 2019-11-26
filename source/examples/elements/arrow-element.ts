@@ -2,6 +2,7 @@
 * @title Arrow Element
 * @description This interactive demonstrates the path element.
 * @tags [elements]
+* @ignore true
 */
 
 import {Interactive, getScriptName} from '../../index.js';

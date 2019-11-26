@@ -4,6 +4,7 @@ title: Quadratic Bezier Curve
 id: bezier-curve-quadratic
 script: /examples/math/bezier-curve-quadratic.js
 main: false
+ignore: false
 description: This interactive demonstrates a quadratic bezier curve.
 input: undefined
 tags: [math]

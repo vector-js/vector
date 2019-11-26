@@ -4,6 +4,7 @@ title: Unit Circle Angle
 id: unit-circle-angle
 script: /examples/math/unit-circle-angle.js
 main: true
+ignore: false
 description: An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system.
 input: undefined
 tags: [math]

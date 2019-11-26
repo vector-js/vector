@@ -4,6 +4,7 @@ title: Plot Element
 id: plot-element
 script: /examples/elements/plot-element.js
 main: false
+ignore: false
 description: This interactive demonstrates the plot element
 input: undefined
 tags: [elements]

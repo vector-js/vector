@@ -4,6 +4,7 @@ title: Random Colored Countires
 id: random-color-world
 script: /examples/maps/random-color-world.js
 main: false
+ignore: false
 description: Randomly colors the countries in the world.
 input: undefined
 tags: [elements, maps]

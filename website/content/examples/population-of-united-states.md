@@ -4,6 +4,7 @@ title: Population of the United States
 id: population-of-united-states
 script: /examples/maps/population-of-united-states.js
 main: false
+ignore: false
 description: Every state of the United States colored by population density.
 input: Input the name of the map you want to see, and the size of the map.
 tags: [maps]

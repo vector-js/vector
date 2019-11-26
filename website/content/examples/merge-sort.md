@@ -4,6 +4,7 @@ title: Merge Sort Interactive
 id: merge-sort
 script: /examples/graph/merge-sort.js
 main: false
+ignore: false
 description: This interactive demonstrates an implementation of the merge sort algorithm using a tree.
 input: undefined
 tags: [algorithm, graph]

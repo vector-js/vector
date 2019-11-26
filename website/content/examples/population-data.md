@@ -4,6 +4,7 @@ title: undefined
 id: population-data
 script: /examples/maps/population-data.js
 main: false
+ignore: false
 description: undefined
 input: undefined
 tags: undefined

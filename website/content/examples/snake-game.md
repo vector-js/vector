@@ -4,6 +4,7 @@ title: Snake Game
 id: snake-game
 script: /examples/interaction/snake-game.js
 main: false
+ignore: false
 description: Traditional Snake Game where you try to collect the yellow blocks without leaving the map or hitting yourself. Use WASD or Arrow keys to move.
 input: undefined
 tags: [elements, games]
