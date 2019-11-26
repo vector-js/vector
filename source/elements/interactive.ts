@@ -27,8 +27,7 @@ import HoverBox from './input/hover-box.js';
 import Node from '../elements/graph/node.js';
 import Edge from '../elements/graph/edge.js';
 import Graph, {GraphOptions} from '../elements/graph/graph.js';
-import DirectedGraph from '../elements/graph/directed-graph.js';
-import FlowGraph from '../elements/graph/flow-graph.js';
+
 
 
 // map elements
@@ -381,10 +380,6 @@ export default class Interactive extends SVG {
     return this.appendChild(new Graph(options));
   }
 
-  flowGraph(str:string) : DirectedGraph {
-    return this.appendChild(new FlowGraph(str));
-  }
-
   hoverBox(str: string) : HoverBox{
     return this.appendChild(new HoverBox(str));
   }
@@ -399,13 +394,6 @@ export default class Interactive extends SVG {
    map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
    return ret;
    }
-
-  /*
-  * Creates a directed graph element within this interactive
-  */
-  directedGraph() : DirectedGraph {
-    return this.appendChild(new DirectedGraph());
-  }
 
   /**
   * Creates a slider input within this interactive

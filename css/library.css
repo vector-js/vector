@@ -125,3 +125,7 @@ rect.default {
 .feature path {
   vector-effect: non-scaling-stroke;
 }
+
+.node {
+  stroke:black;
+}

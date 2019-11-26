@@ -17,6 +17,14 @@ import './elements/svg/polygon.test.js';
 import './elements/svg/path.test.js';
 import './elements/svg/rectangle.test.js';
 import './elements/svg/svg.test.js';
+import './elements/svg/circle.test.js';
+import './elements/svg/ellipse.test.js';
+import './elements/svg/polygon.test.js';
+import './elements/svg/path.test.js';
+import './elements/svg/text.test.js';
+import './elements/svg/line.test.js';
+
+
 import './elements/svg/text.test.js';
 
 // interactive / custom elements
@@ -30,11 +38,11 @@ import './elements/input/control.test.js';
 import './elements/math/plot.test.js';
 import './elements/maps/map.test.js'
 
-// graph
-import './elements/graph/node.test.js'
-
 // math
 import './math/interactives.test.js';
+
+// graph
+import './elements/graph/node.test.js'
 
 // Disabled leak checking because google analytics was causing test failures.
 // Possible solution would be to run the tests within an embedded HTML page

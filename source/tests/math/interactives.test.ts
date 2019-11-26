@@ -7,7 +7,6 @@ import degrees from '../../examples/math/degrees.js';
 import exponentialTree from '../../examples/math/exponential-tree.js';
 import polarCoordinateSystem from '../../examples/math/polar-coordinate-system.js';
 import polarCoordinateSystemRadians from '../../examples/math/polar-coordinate-system-radians.js';
-import primeFactorization from '../../examples/math/prime-factorization.js';
 import radians from '../../examples/math/radians.js';
 import riemannSum from '../../examples/math/riemann-sum.js';
 import unitCircle from '../../examples/math/unit-circle.js';
@@ -36,9 +35,6 @@ describe('Math Interactives', function () {
     });
     it('degrees', function() {
       degrees(container.id);
-    });
-    it('prime factorization', function() {
-      primeFactorization(container.id);
     });
     it('exponents logarithms and trees', function() {
       exponentialTree(container.id);

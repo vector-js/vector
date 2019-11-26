@@ -546,31 +546,39 @@
 
 <h2 id="maps">Maps</h2>
 
-<p>Wishful thinking (x,y) to lattitude longitude and vice versa.</p>
+<p>The Map Module is used to plot geographic data in SVG format. Our library supports <a href="https://geojson.org/" target="_blank" rel="noreferrer">GeoJson</a> which is the most popular data standard for representing geographical data. The SVG path&rsquo;s get grouped by feature, meaning that manipulating the map objects is straight forward. For more information on this, please go to our Map Module Tutorial or take a look at some map examples.</p>
 
 <h3 id="world-map">World Map</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">canada</span> <span class="nx">from</span> <span class="s1">&#39;./maps/canada.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">canada</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">globalData</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">globalData</span><span class="p">);</span>
 </code></pre></div>
 
-<p><img src="/images/world-map.svg" class="center" alt="SVG World Map"></p>
+
+
+<div id="world-map" class="vertical-center i-container"></div>
+<script type="module" src="/examples/maps/world-map.js"></script>
+
+
+
 
 <h3 id="united-states">United States</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s2">&#34;united-states.geojson&#34;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">usData</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">usData</span><span class="p">);</span>
 </code></pre></div>
 
 <p><img src="/images/united-states.svg" class="center" alt="SVG United States Map"></p>
 
 <h3 id="custom-maps">Custom Maps</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">getJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;Util.js&#39;</span><span class="p">;</span>
-
-<span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;custom.geojson&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">geoData</span><span class="p">){</span>
-
-<span class="p">});</span>
-</code></pre></div>
+<p>Any data that is in the GeoJson format can be rendered with our library. That means that if you can find the data for it, we can plot it. For more information on how GeoJson works and where to find it, go to the Map Module tutorial.</p>
 
 <h2 id="plots">Plots</h2>
 
