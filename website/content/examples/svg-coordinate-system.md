@@ -22,7 +22,6 @@ draft: undefined
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
-interactive.classList.add('default');
 let margin = 0;
 interactive.width = 692;
 interactive.height = 300;
@@ -31,7 +30,7 @@ interactive.originY = margin;
 interactive.root.style.overflow = 'visible';
 interactive.root.style.marginLeft = '6px';
 let rectangle = interactive.rectangle(0, 0, interactive.width - 2 * margin, interactive.height - 2 * margin);
-rectangle.style.fill = '#f8f8f8';
+rectangle.classList.add('default');
 // let rect = interactive.rectangle( 0, 0, interactive.width - 2*margin, interactive.height - 2*margin );
 // rect.root.style.stroke = 'cornflowerblue';
 let xAxis = interactive.line(0, 0, interactive.width - 2 * margin, 0);

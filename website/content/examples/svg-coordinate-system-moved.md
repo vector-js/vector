@@ -33,6 +33,7 @@ interactive.originY = interactive.height / 2;
 interactive.root.style.overflow = 'visible';
 interactive.root.style.marginLeft = '6px';
 let rectangle = interactive.rectangle(-width / 2, -height / 2, width, height);
+rectangle.classList.add('default');
 rectangle.style.fill = '#f8f8f8';
 // rect.root.style.stroke = 'cornflowerblue';
 let xAxis = interactive.line(-width / 2, 0, width / 2, 0);

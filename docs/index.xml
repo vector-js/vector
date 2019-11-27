@@ -85,7 +85,7 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
     </item>
     
     <item>
-      <title>Graphs</title>
+      <title>Graphs Tutorial</title>
       <link>https://vectorjs.org/tutorials/graphs/</link>
       <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
       
@@ -101,7 +101,7 @@ let graph = interactive.graph({directed:true});  When creating a node, you can s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/riemann-sum/</guid>
-      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let n = 8; let scale = 100; let method = &amp;#39;left&amp;#39;; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
+      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let n = 7; let scale = 100; let method = &amp;#39;left&amp;#39;; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
     </item>
     
     <item>
@@ -121,6 +121,15 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
       
       <guid>https://vectorjs.org/tutorials/maps/</guid>
       <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJson which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
+    </item>
+    
+    <item>
+      <title>Plot Tutorial</title>
+      <link>https://vectorjs.org/tutorials/plots/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/plots/</guid>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
     </item>
     
     <item>
@@ -598,11 +607,20 @@ Starting point The starting point is an interactive with a control point that ca
     
     <item>
       <title>Plot Element</title>
+      <link>https://vectorjs.org/examples/plot-element-experimental/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/plot-element-experimental/</guid>
+      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; let functionText = &amp;#39;Math.cos&amp;#39;; // Create a new graph object let scaleX = 300 / Math.PI; let scaleY = 300 / Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scaleX, scaleY: scaleY, zoomable: true, controls: true }); // Function input let functionInput = document.</description>
+    </item>
+    
+    <item>
+      <title>Plot Element</title>
       <link>https://vectorjs.org/examples/plot-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/plot-element/</guid>
-      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; let functionText = &amp;#39;Math.cos&amp;#39;; // Create a new graph object let scaleX = 300 / Math.PI; let scaleY = 300 / Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scaleX, scaleY: scaleY, zoomable: true, controls: true }); // Function input let functionInput = document.</description>
+      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; let plot = interactive.plot(600, 300, Math.sin, { x: 50, y: 50, originX: 0, originY: 150, scaleX: 300 / Math.</description>
     </item>
     
     <item>
@@ -712,7 +730,7 @@ Abstract Vector.js is an open source Javascript library for creating interactive
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/secant/</guid>
-      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 600; // Create a new graph object let scale = 300 / Math.PI; let secant = (x) =&amp;gt; { return 1 / Math.cos(x); }; interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); //# sourceMappingURL=secant.</description>
+      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let secant = (x) =&amp;gt; { return 1 / Math.cos(x); }; interactive.</description>
     </item>
     
     <item>
@@ -767,7 +785,7 @@ Abstract Vector.js is an open source Javascript library for creating interactive
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-coordinate-system/</guid>
-      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.classList.add(&amp;#39;default&amp;#39;); let margin = 0; interactive.width = 692; interactive.height = 300; interactive.originX = margin; interactive.originY = margin; interactive.root.style.overflow = &amp;#39;visible&amp;#39;; interactive.root.style.marginLeft = &amp;#39;6px&amp;#39;; let rectangle = interactive.rectangle(0, 0, interactive.</description>
+      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); let margin = 0; interactive.width = 692; interactive.height = 300; interactive.originX = margin; interactive.originY = margin; interactive.root.style.overflow = &amp;#39;visible&amp;#39;; interactive.root.style.marginLeft = &amp;#39;6px&amp;#39;; let rectangle = interactive.rectangle(0, 0, interactive.</description>
     </item>
     
     <item>
@@ -979,15 +997,6 @@ Abstract Vector.js is an open source Javascript library for creating interactive
     
     <item>
       <title>undefined</title>
-      <link>https://vectorjs.org/examples/maps-json/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/maps-json/</guid>
-      <description>/** * Creating an object in js that is just the json of the usMap */ export let usData = { &amp;#34;type&amp;#34;: &amp;#34;FeatureCollection&amp;#34;, &amp;#34;features&amp;#34;: [ { &amp;#34;type&amp;#34;: &amp;#34;Feature&amp;#34;, &amp;#34;id&amp;#34;: &amp;#34;01&amp;#34;, &amp;#34;properties&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;Alabama&amp;#34;, &amp;#34;density&amp;#34;: 94.65 }, &amp;#34;geometry&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;Polygon&amp;#34;, &amp;#34;coordinates&amp;#34;: [[[-87.359296, 35.00118], [-85.606675, 34.984749], [-85.431413, 34.124869], [-85.184951, 32.859696], [-85.069935, 32.580372], [-84.960397, 32.421541], [-85.004212, 32.322956], [-84.889196, 32.262709], [-85.058981, 32.13674], [-85.053504, 32.01077], [-85.141136, 31.840985], [-85.042551, 31.539753], [-85.113751, 31.27686], [-85.004212, 31.003013], [-85.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
       <link>https://vectorjs.org/examples/modular-arithmetic-number-line/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1033,20 +1042,20 @@ Abstract Vector.js is an open source Javascript library for creating interactive
     
     <item>
       <title>undefined</title>
-      <link>https://vectorjs.org/examples/population-data/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/population-data/</guid>
-      <description>/** * Export estimated state population. * https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population */ export let data = [ { &amp;#34;Rank&amp;#34;: 1, &amp;#34;State&amp;#34;: &amp;#34;California&amp;#34;, &amp;#34;Population&amp;#34;: 39557045 }, { &amp;#34;Rank&amp;#34;: 2, &amp;#34;State&amp;#34;: &amp;#34;Texas&amp;#34;, &amp;#34;Population&amp;#34;: 28701845 }, { &amp;#34;Rank&amp;#34;: 3, &amp;#34;State&amp;#34;: &amp;#34;Florida&amp;#34;, &amp;#34;Population&amp;#34;: 21299325 }, { &amp;#34;Rank&amp;#34;: 4, &amp;#34;State&amp;#34;: &amp;#34;New York&amp;#34;, &amp;#34;Population&amp;#34;: 19542209 }, { &amp;#34;Rank&amp;#34;: 5, &amp;#34;State&amp;#34;: &amp;#34;Pennsylvania&amp;#34;, &amp;#34;Population&amp;#34;: 12807060 }, { &amp;#34;Rank&amp;#34;: 6, &amp;#34;State&amp;#34;: &amp;#34;Illinois&amp;#34;, &amp;#34;Population&amp;#34;: 12741080 }, { &amp;#34;Rank&amp;#34;: 7, &amp;#34;State&amp;#34;: &amp;#34;Ohio&amp;#34;, &amp;#34;Population&amp;#34;: 11689442 }, { &amp;#34;Rank&amp;#34;: 8, &amp;#34;State&amp;#34;: &amp;#34;Georgia&amp;#34;, &amp;#34;Population&amp;#34;: 10519475 }, { &amp;#34;Rank&amp;#34;: 9, &amp;#34;State&amp;#34;: &amp;#34;North Carolina&amp;#34;, &amp;#34;Population&amp;#34;: 10383620 }, { &amp;#34;Rank&amp;#34;: 10, &amp;#34;State&amp;#34;: &amp;#34;Michigan&amp;#34;, &amp;#34;Population&amp;#34;: 9995915 }, { &amp;#34;Rank&amp;#34;: 11, &amp;#34;State&amp;#34;: &amp;#34;New Jersey&amp;#34;, &amp;#34;Population&amp;#34;: 8908520 }, { &amp;#34;Rank&amp;#34;: 12, &amp;#34;State&amp;#34;: &amp;#34;Virginia&amp;#34;, &amp;#34;Population&amp;#34;: 8517685 }, { &amp;#34;Rank&amp;#34;: 13, &amp;#34;State&amp;#34;: &amp;#34;Washington&amp;#34;, &amp;#34;Population&amp;#34;: 7535591 }, { &amp;#34;Rank&amp;#34;: 14, &amp;#34;State&amp;#34;: &amp;#34;Arizona&amp;#34;, &amp;#34;Population&amp;#34;: 7171646 }, { &amp;#34;Rank&amp;#34;: 15, &amp;#34;State&amp;#34;: &amp;#34;Massachusetts&amp;#34;, &amp;#34;Population&amp;#34;: 6902149 }, { &amp;#34;Rank&amp;#34;: 16, &amp;#34;State&amp;#34;: &amp;#34;Tennessee&amp;#34;, &amp;#34;Population&amp;#34;: 6770010 }, { &amp;#34;Rank&amp;#34;: 17, &amp;#34;State&amp;#34;: &amp;#34;Indiana&amp;#34;, &amp;#34;Population&amp;#34;: 6691878 }, { &amp;#34;Rank&amp;#34;: 18, &amp;#34;State&amp;#34;: &amp;#34;Missouri&amp;#34;, &amp;#34;Population&amp;#34;: 6126452 }, { &amp;#34;Rank&amp;#34;: 19, &amp;#34;State&amp;#34;: &amp;#34;Maryland&amp;#34;, &amp;#34;Population&amp;#34;: 6042718 }, { &amp;#34;Rank&amp;#34;: 20, &amp;#34;State&amp;#34;: &amp;#34;Wisconsin&amp;#34;, &amp;#34;Population&amp;#34;: 5813568 }, { &amp;#34;Rank&amp;#34;: 21, &amp;#34;State&amp;#34;: &amp;#34;Colorado&amp;#34;, &amp;#34;Population&amp;#34;: 5695564 }, { &amp;#34;Rank&amp;#34;: 22, &amp;#34;State&amp;#34;: &amp;#34;Minnesota&amp;#34;, &amp;#34;Population&amp;#34;: 5611179 }, { &amp;#34;Rank&amp;#34;: 23, &amp;#34;State&amp;#34;: &amp;#34;South Carolina&amp;#34;, &amp;#34;Population&amp;#34;: 5084127 }, { &amp;#34;Rank&amp;#34;: 24, &amp;#34;State&amp;#34;: &amp;#34;Alabama&amp;#34;, &amp;#34;Population&amp;#34;: 4887871 }, { &amp;#34;Rank&amp;#34;: 25, &amp;#34;State&amp;#34;: &amp;#34;Louisiana&amp;#34;, &amp;#34;Population&amp;#34;: 4659978 }, { &amp;#34;Rank&amp;#34;: 26, &amp;#34;State&amp;#34;: &amp;#34;Kentucky&amp;#34;, &amp;#34;Population&amp;#34;: 4468402 }, { &amp;#34;Rank&amp;#34;: 27, &amp;#34;State&amp;#34;: &amp;#34;Oregon&amp;#34;, &amp;#34;Population&amp;#34;: 4190713 }, { &amp;#34;Rank&amp;#34;: 28, &amp;#34;State&amp;#34;: &amp;#34;Oklahoma&amp;#34;, &amp;#34;Population&amp;#34;: 3943079 }, { &amp;#34;Rank&amp;#34;: 29, &amp;#34;State&amp;#34;: &amp;#34;Connecticut&amp;#34;, &amp;#34;Population&amp;#34;: 3572665 }, { &amp;#34;Rank&amp;#34;: 30, &amp;#34;State&amp;#34;: &amp;#34;Puerto Rico&amp;#34;, &amp;#34;Population&amp;#34;: 3195153 }, { &amp;#34;Rank&amp;#34;: 31, &amp;#34;State&amp;#34;: &amp;#34;Utah&amp;#34;, &amp;#34;Population&amp;#34;: 3161105 }, { &amp;#34;Rank&amp;#34;: 32, &amp;#34;State&amp;#34;: &amp;#34;Iowa&amp;#34;, &amp;#34;Population&amp;#34;: 3156145 }, { &amp;#34;Rank&amp;#34;: 33, &amp;#34;State&amp;#34;: &amp;#34;Nevada&amp;#34;, &amp;#34;Population&amp;#34;: 3034392 }, { &amp;#34;Rank&amp;#34;: 34, &amp;#34;State&amp;#34;: &amp;#34;Arkansas&amp;#34;, &amp;#34;Population&amp;#34;: 3013825 }, { &amp;#34;Rank&amp;#34;: 35, &amp;#34;State&amp;#34;: &amp;#34;Mississippi&amp;#34;, &amp;#34;Population&amp;#34;: 2986530 }, { &amp;#34;Rank&amp;#34;: 36, &amp;#34;State&amp;#34;: &amp;#34;Kansas&amp;#34;, &amp;#34;Population&amp;#34;: 2911505 }, { &amp;#34;Rank&amp;#34;: 37, &amp;#34;State&amp;#34;: &amp;#34;New Mexico&amp;#34;, &amp;#34;Population&amp;#34;: 2095428 }, { &amp;#34;Rank&amp;#34;: 38, &amp;#34;State&amp;#34;: &amp;#34;Nebraska&amp;#34;, &amp;#34;Population&amp;#34;: 1929268 }, { &amp;#34;Rank&amp;#34;: 39, &amp;#34;State&amp;#34;: &amp;#34;West Virginia&amp;#34;, &amp;#34;Population&amp;#34;: 1805832 }, { &amp;#34;Rank&amp;#34;: 40, &amp;#34;State&amp;#34;: &amp;#34;Idaho&amp;#34;, &amp;#34;Population&amp;#34;: 1754208 }, { &amp;#34;Rank&amp;#34;: 41, &amp;#34;State&amp;#34;: &amp;#34;Hawaii&amp;#34;, &amp;#34;Population&amp;#34;: 1420491 }, { &amp;#34;Rank&amp;#34;: 42, &amp;#34;State&amp;#34;: &amp;#34;New Hampshire&amp;#34;, &amp;#34;Population&amp;#34;: 1356458 }, { &amp;#34;Rank&amp;#34;: 43, &amp;#34;State&amp;#34;: &amp;#34;Maine&amp;#34;, &amp;#34;Population&amp;#34;: 1338404 }, { &amp;#34;Rank&amp;#34;: 44, &amp;#34;State&amp;#34;: &amp;#34;Montana&amp;#34;, &amp;#34;Population&amp;#34;: 1062305 }, { &amp;#34;Rank&amp;#34;: 45, &amp;#34;State&amp;#34;: &amp;#34;Rhode Island&amp;#34;, &amp;#34;Population&amp;#34;: 1057315 }, { &amp;#34;Rank&amp;#34;: 46, &amp;#34;State&amp;#34;: &amp;#34;Delaware&amp;#34;, &amp;#34;Population&amp;#34;: 967171 }, { &amp;#34;Rank&amp;#34;: 47, &amp;#34;State&amp;#34;: &amp;#34;South Dakota&amp;#34;, &amp;#34;Population&amp;#34;: 882235 }, { &amp;#34;Rank&amp;#34;: 48, &amp;#34;State&amp;#34;: &amp;#34;North Dakota&amp;#34;, &amp;#34;Population&amp;#34;: 760077 }, { &amp;#34;Rank&amp;#34;: 49, &amp;#34;State&amp;#34;: &amp;#34;Alaska&amp;#34;, &amp;#34;Population&amp;#34;: 737438 }, { &amp;#34;Rank&amp;#34;: 50, &amp;#34;State&amp;#34;: &amp;#34;District of Columbia&amp;#34;, &amp;#34;Population&amp;#34;: 702455 }, { &amp;#34;Rank&amp;#34;: 51, &amp;#34;State&amp;#34;: &amp;#34;Vermont&amp;#34;, &amp;#34;Population&amp;#34;: 626299 }, { &amp;#34;Rank&amp;#34;: 52, &amp;#34;State&amp;#34;: &amp;#34;Wyoming&amp;#34;, &amp;#34;Population&amp;#34;: 577737 } ]; //# sourceMappingURL=population-data.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
       <link>https://vectorjs.org/examples/radians/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/radians/</guid>
       <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.control(0, 0); let radius = 45; let n = 3; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/sine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/sine/</guid>
+      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(600, 300, Math.sin, { x: 50, y: 50, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); let group = interactive.</description>
     </item>
     
     <item>
@@ -1065,15 +1074,6 @@ Abstract Vector.js is an open source Javascript library for creating interactive
       
       <guid>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</guid>
       <description>/** * @ignore true */ // // import {Interactive, getScriptName} from &amp;#39;../../index.js&amp;#39;; // // // Initialize the interactive // let interactive = new Interactive(getScriptName()); // interactive.window = true; // interactive.width = 600; // interactive.height = 600; // interactive.originX = interactive.width/2; // interactive.originY = 225; // // // Create a circle // let circle = interactive.circle( 0, 0, 125); // let line = interactive.line( 0, 0, circle.r, 0); // let margin = 0; // let yAxis = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/us-pop-density/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/us-pop-density/</guid>
-      <description>export let usDensityMap = { &amp;#34;Alabama&amp;#34;: 94.65, &amp;#34;Alaska&amp;#34;: 1.264, &amp;#34;Arizona&amp;#34;: 57.05, &amp;#34;Arkansas&amp;#34;: 56.43, &amp;#34;California&amp;#34;: 241.7, &amp;#34;Colorado&amp;#34;: 49.33, &amp;#34;Connecticut&amp;#34;: 739.1, &amp;#34;Delaware&amp;#34;: 464.3, &amp;#34;District of Columbia&amp;#34;: 10065, &amp;#34;Florida&amp;#34;: 353.4, &amp;#34;Georgia&amp;#34;: 169.5, &amp;#34;Hawaii&amp;#34;: 214.1, &amp;#34;Idaho&amp;#34;: 19.15, &amp;#34;Illinois&amp;#34;: 231.5, &amp;#34;Indiana&amp;#34;: 181.7, &amp;#34;Iowa&amp;#34;: 54.81, &amp;#34;Kansas&amp;#34;: 35.09, &amp;#34;Kentucky&amp;#34;: 110, &amp;#34;Louisiana&amp;#34;: 105, &amp;#34;Maine&amp;#34;: 43.04, &amp;#34;Maryland&amp;#34;: 596.3, &amp;#34;Massachusetts&amp;#34;: 840.2, &amp;#34;Michigan&amp;#34;: 173.9, &amp;#34;Minnesota&amp;#34;: 67.14, &amp;#34;Mississippi&amp;#34;: 63.5, &amp;#34;Missouri&amp;#34;: 87.26, &amp;#34;Montana&amp;#34;: 6.858, &amp;#34;Nebraska&amp;#34;: 23.97, &amp;#34;Nevada&amp;#34;: 24.8, &amp;#34;New Hampshire&amp;#34;: 147, &amp;#34;New Jersey&amp;#34;: 1189, &amp;#34;New Mexico&amp;#34;: 17.</description>
     </item>
     
     <item>

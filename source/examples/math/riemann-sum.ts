@@ -9,7 +9,7 @@ import { Interactive, Point } from '../../index.js';
 
 export default function main( id:string ) {
 
-  let n = 8;
+  let n = 7;
   let scale = 100;
   let method = 'left';
   let interactive = new Interactive(id);
@@ -81,7 +81,7 @@ export default function main( id:string ) {
   control2.translate(500, 0);
 
   path.addDependency(control1, control2, slider, radio);
-  path.style.fill = '#f8f8f8';
+  path.style.fill = '#dadada';
   path.style.fillOpacity = '.5';
   path.update = function() {
     let start = control1.x < control2.x ? control1 : control2;
@@ -123,6 +123,5 @@ export default function main( id:string ) {
 
   }
   path.update();
-
 
 }

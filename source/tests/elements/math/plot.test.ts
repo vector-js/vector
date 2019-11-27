@@ -20,7 +20,7 @@ describe('Plot', function () {
   });
 
   describe('General', function() {
-    it('should place the plot at the position (100, 100)', function(){
+    it('plot labels and title', function() {
       interactive.width = 700;
       interactive.height = 400;
       // interactive.rectangle(0,0,interactive.width,interactive.height);
@@ -46,7 +46,6 @@ describe('Plot', function () {
       title.contents += ')';
       title.setAttribute('alignment-baseline', 'middle');
       title.setAttribute('text-anchor', 'middle');
-
 
       let xPoints = plot.getXLabelPoints();
       let yPoints = plot.getYLabelPoints();

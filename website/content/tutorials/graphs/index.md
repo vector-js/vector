@@ -1,13 +1,13 @@
 ---
-title: Graphs
+title: Graphs Tutorial
 description: Basic usage and documentation for the interactive svg library. Explains how to build a simple interactive and embed it in the browser.
-image: /images/getting-started-tutorial.svg
+image: /images/tidy.svg
 video:
   src: https://player.vimeo.com/video/360629850
   width: 768
   height: 516
 date: "2019-02-05T12:03:45-07:00"
-layout: video
+# layout: video
 weight: 2
 ---
 
