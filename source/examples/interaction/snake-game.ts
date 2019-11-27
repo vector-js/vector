@@ -144,7 +144,6 @@ function startGame(){
 function positionIsOutOfBounds(x,y): Boolean{
     if((x > interactive.width - dp || x < 0) || (y > interactive.height - dp || y < 0)){
         gameOver();
-        console.log('w:'+interactive.width+' h:'+interactive.height+' x:'+x+' y:'+y);
         return true;
     }
     return false;
