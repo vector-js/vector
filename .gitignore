@@ -4,6 +4,6 @@ builds
 cache
 types
 *.js.map
-# docs
-# dist
+docs
+dist
 vector.js
