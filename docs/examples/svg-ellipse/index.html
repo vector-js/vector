@@ -43,8 +43,10 @@
 
   
   <h1>SVG Ellipse Element <a style="float:right" href="/sandbox/?script=/examples/svg/svg-ellipse.js" class="button">Open in Sandbox</a></h1>
-  <div id="svg-ellipse" class="interactive-container"></div>
-  <script type="module" src="/examples/svg/svg-ellipse.js"></script>
+  
+<div id="svg-ellipse" class="vertical-center i-container"></div>
+<script type="module" src="/examples/svg/svg-ellipse.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive demonstrates the SVG ellipse element and its attributes.</p>
@@ -57,11 +59,12 @@
 </span><span class="cm">* @author Kurt Bruns
 </span><span class="cm">* @tags [svg]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">704</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">ellipse</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">ellipse</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">ellipse</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">l1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">l2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="nx">l1</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>

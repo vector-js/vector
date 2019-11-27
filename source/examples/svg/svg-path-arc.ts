@@ -11,6 +11,7 @@ let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 500;
 let path = interactive.path('');
+path.classList.add('default');
 let start = interactive.control( 100, 120);
 let control = interactive.control( 200, 120);
 let text = interactive.text( 25, 275, "");
@@ -86,6 +87,7 @@ text.addDependency(path);
 // the group instead of for each individual path
 
 let path1 = interactive.path('');
+path1.classList.add('default');
 path1.addDependency(start);
 path1.addDependency(control);
 path1.addDependency(rx);
@@ -104,6 +106,7 @@ path1.update = function() {
 };
 path1.update();
 let path2 = interactive.path('');
+path2.classList.add('default');
 path2.addDependency(start);
 path2.addDependency(control);
 path2.addDependency(rx);
@@ -122,6 +125,7 @@ path2.update = function() {
 };
 path2.update();
 let path3 = interactive.path('');
+path3.classList.add('default');
 path3.addDependency(start);
 path3.addDependency(control);
 path3.addDependency(rx);
@@ -140,6 +144,7 @@ path3.update = function() {
 };
 path3.update();
 let path4 = interactive.path('');
+path4.classList.add('default');
 path4.addDependency(start);
 path4.addDependency(control);
 path4.addDependency(rx);

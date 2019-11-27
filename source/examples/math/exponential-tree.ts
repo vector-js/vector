@@ -9,7 +9,7 @@
 import Interactive from "../../interactive.js";
 import Line from "../../elements/svg/line.js";
 import Circle from "../../elements/svg/circle.js";
-import { SVG, getScriptName } from "../../index.js";
+import { SVG } from "../../index.js";
 
 class Tree extends SVG {
 
@@ -124,6 +124,7 @@ class Tree extends SVG {
             let circle = this.getNextNode(nx, ny, 4);
             if( i == this.exponent ) {
               circle.style.fill = 'cornflowerblue';
+							circle.style.stroke = '#404040';
             } else {
               circle.style.fill = '#404040';
             }
@@ -146,76 +147,80 @@ class Tree extends SVG {
   }
 }
 
-let interactive = new Interactive(getScriptName(), {
-	width:740,
-	height:500,
-});
-interactive.border = true;
+export default function main( id:string ) {
 
-let margin = 40;
-let levels = interactive.slider( interactive.width/2 - 125, 300 + 2*margin, {
-  width:250,
-  min:0,
-  max:4,
-  value:3
-});
-let branching = interactive.slider( interactive.width/2 - 125, 300 + 3*margin, {
-  width:250,
-  min:1,
-  max:4,
-  value:1
-});
+	let interactive = new Interactive(id, {
+		width:740,
+		height:500,
+	});
+	interactive.border = true;
 
-let tree = interactive.appendChild(new Tree(300, 300, branching.value, levels.value ));
-tree.y = 16;
-tree.style.overflow = 'visible';
-tree.addDependency(levels, branching);
-tree.update = function() {
-  let levelsValue = Math.round(levels.value);
-  let branchingValue = Math.round(branching.value);
-  if( tree.exponent !== levelsValue || tree.base !== branchingValue ) {
-    tree.exponent = levelsValue;
-    tree.base = branchingValue;
-    if( tree.leaves <= 1024 ) {
-      tree.draw();
-    }
-  }
-};
-tree.update();
-// tree.draw();
+	let margin = 40;
+	let levels = interactive.slider( interactive.width/2 - 125, 300 + 2*margin, {
+	  width:250,
+	  min:0,
+	  max:4,
+	  value:3
+	});
+	let branching = interactive.slider( interactive.width/2 - 125, 300 + 3*margin, {
+	  width:250,
+	  min:1,
+	  max:4,
+	  value:1
+	});
 
-let levelsText = interactive.text( levels.x + levels.width + margin, levels.y, 'exponent');
-let branchingText = interactive.text( branching.x + branching.width + margin, branching.y, 'factor');
-let mathText = interactive.text( interactive.width/2, branching.y + 3*margin/2, '');
-mathText.setAttribute('text-anchor', 'middle');
-let base = mathText.tspan(tree.base.toString());
-let exponent = mathText.tspan(tree.exponent.toString());
-mathText.tspan('= ');
-let leaves = mathText.tspan(tree.leaves.toString());
-exponent.setAttribute('baseline-shift','super');
+	let tree = interactive.appendChild(new Tree(300, 300, branching.value, levels.value ));
+	tree.y = 16;
+	tree.style.overflow = 'visible';
+	tree.addDependency(levels, branching);
+	tree.update = function() {
+	  let levelsValue = Math.round(levels.value);
+	  let branchingValue = Math.round(branching.value);
+	  if( tree.exponent !== levelsValue || tree.base !== branchingValue ) {
+	    tree.exponent = levelsValue;
+	    tree.base = branchingValue;
+	    if( tree.leaves <= 1024 ) {
+	      tree.draw();
+	    }
+	  }
+	};
+	tree.update();
+	// tree.draw();
 
-levelsText.addDependency(tree);
-levelsText.update = function() {
-  levelsText.contents = `exponent: ${tree.exponent.toString()}`;
-};
-levelsText.update();
+	let levelsText = interactive.text( levels.x + levels.width + margin, levels.y, 'exponent');
+	let branchingText = interactive.text( branching.x + branching.width + margin, branching.y, 'factor');
+	let mathText = interactive.text( interactive.width/2, branching.y + 3*margin/2, '');
+	mathText.setAttribute('text-anchor', 'middle');
+	let base = mathText.tspan(tree.base.toString());
+	let exponent = mathText.tspan(tree.exponent.toString());
+	mathText.tspan('= ');
+	let leaves = mathText.tspan(tree.leaves.toString());
+	exponent.setAttribute('baseline-shift','super');
 
-branchingText.addDependency(tree);
-branchingText.update = function() {
-  branchingText.contents = `base: ${tree.base.toFixed()}`;
-};
-branchingText.update();
+	levelsText.addDependency(tree);
+	levelsText.update = function() {
+	  levelsText.contents = `exponent: ${tree.exponent.toString()}`;
+	};
+	levelsText.update();
+
+	branchingText.addDependency(tree);
+	branchingText.update = function() {
+	  branchingText.contents = `base: ${tree.base.toFixed()}`;
+	};
+	branchingText.update();
 
 
-base.addDependency(tree);
-base.update = () => {
-	base.text = tree.base.toString();
-};
-exponent.addDependency(tree);
-exponent.update = () => {
-	exponent.text = tree.exponent.toString();
-}
-leaves.addDependency(tree);
-leaves.update = () => {
-	leaves.text = tree.leaves.toString();
+	base.addDependency(tree);
+	base.update = () => {
+		base.text = tree.base.toString();
+	};
+	exponent.addDependency(tree);
+	exponent.update = () => {
+		exponent.text = tree.exponent.toString();
+	}
+	leaves.addDependency(tree);
+	leaves.update = () => {
+		leaves.text = tree.leaves.toString();
+	}
+
 }

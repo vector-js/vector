@@ -1,8 +1,10 @@
 <div style='display:grid; grid-template-columns: 240px 240px 240px;'>
     {{- range .Pages -}}
-    <div class='summary'>
-        <img src='{{.Permalink}}{{.Params.thumbnail}}'>
-        <div style='text-align:center;'><a href={{.Permalink}}>{{.Title}}</a></div>
-    </div>
+      {{ if eq .Params.Ignore false }}
+        <div class='summary'>
+            <img src='{{.Permalink}}{{.Params.thumbnail}}'>
+            <div style='text-align:center;'><a href={{.Permalink}}>{{.Title}}</a></div>
+        </div>
+      {{ end }}
     {{- end -}}
 </div>

@@ -17,6 +17,13 @@ import './elements/svg/polygon.test.js';
 import './elements/svg/path.test.js';
 import './elements/svg/rectangle.test.js';
 import './elements/svg/svg.test.js';
+import './elements/svg/circle.test.js';
+import './elements/svg/ellipse.test.js';
+import './elements/svg/polygon.test.js';
+import './elements/svg/path.test.js';
+import './elements/svg/text.test.js';
+import './elements/svg/line.test.js';
+
 import './elements/svg/text.test.js';
 
 // interactive / custom elements
@@ -29,6 +36,9 @@ import './elements/input/control.test.js';
 // plot tests
 import './elements/math/plot.test.js';
 import './elements/maps/map.test.js'
+
+// math
+import './math/interactives.test.js';
 
 // graph
 import './elements/graph/node.test.js'

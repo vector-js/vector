@@ -274,91 +274,52 @@ rectangle.style.strokeWidth = '1px';
 
 ### Custom Styling
 
-Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript. The style sheet for the library can be found in the <a href="/Library.css">Library.css</a> file. Typically, elements have an associated class that gives them their default look and feel.
+Every element within the library has a root property which is a SVG element. This root element contains zero or more child elements all of which can have custom styling applied to them through CSS selectors or Javascript. The style sheet for the library can be found in the <a href="/library.css">library.css</a> file. Typically, elements have an associated class that gives them their default look and feel.
+
+## Modules
+
+As of now, the library has three modules that provide the ability to create complex elements with a suitable level of abstraction. Each module utilizes the core functionality of the library in their implementation.
+
+### Graphs
+
+The graphing module is used to display basic graphs in the form of node link diagrams. Both directed and undirected graphs are supported. The module allows for the creations of individual nodes which can be connected via edges. Additionally, the graphing module supports the Reingold-Tilford “tidy” layout for automatically drawing trees.
+
+{{<example "tidy-algorithm">}}
+
+### Maps
+
+The Map Module is used to plot geographic data in SVG format. Our library supports <a href="https://geojson.org/" target="_blank" rel="noreferrer">GeoJson</a> which is the most popular data standard for representing geographical data. The SVG path's get grouped by feature, meaning that manipulating the map objects is straight forward. For more information on this, please go to our Map Module Tutorial or take a look at some map examples.
+
+#### Interactive World Map
 
 {{< highlight javascript>}}
-// element.style ...
+import {Interactive, getScriptName} from '../../index.js';
+import {globalData} from './maps-json.js';
+
+let myInteractive = new Interactive(getScriptName());
+let map = myInteractive.map(globalData);
 {{< /highlight >}}
 
-{{< highlight javascript>}}
-// TODO: how to load a custom style sheet
-{{< /highlight >}}
+{{<example "world-map">}}
 
-## Graphs
+#### United States
 
 {{< highlight javascript>}}
-// TODO: graphs introduction & example
-{{< /highlight >}}
+import {Interactive, getScriptName} from '../../index.js';
+import {usData} from './maps-json.js';
 
-{{<example "prime-factorization">}}
-
-## Maps
-
-Wishful thinking (x,y) to lattitude longitude and vice versa.
-
-### World Map
-
-{{< highlight javascript>}}
-import canada from './maps/canada.js';
-let map = interactive.map(canada);
-{{< /highlight >}}
-
-<img src="/images/world-map.svg" class="center" alt="SVG World Map">
-
-{{<example "map-element">}}
-
-### United States
-
-{{< highlight javascript>}}
-let map = interactive.map("united-states.geojson");
+let myInteractive = new Interactive(getScriptName());
+let map = myInteractive.map(usData);
 {{< /highlight >}}
 
 <img src="/images/united-states.svg" class="center" alt="SVG United States Map">
 
-### Custom Maps
+#### Custom Maps
 
-{{< highlight javascript>}}
-import { getJSON } from 'Util.js';
+Any data that is in the GeoJson format can be rendered with our library. That means that if you can find the data for it, we can plot it. For more information on how GeoJson works and where to find it, go to the Map Module tutorial.
 
-getJSON('custom.geojson').then(function(geoData){
-
-});
-
-{{< /highlight >}}
-
-## Plots
+### Plots
 
 Plots visualize the output of one or more functions in the cartesian coordinate system. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.
 
-{{< highlight javascript>}}
-let scale = 300/Math.PI;
-let plot = interactive.plot(600, 300, Math.cos, {
-  originX: 0,
-  originY: 150,
-  scaleX: scale,
-  scaleY: scale,
-  controls: false, /* experimental */
-  displayPoint: false, /* experimental */
-  zoomable: false /* experimental */
-});
-{{< /highlight >}}
-
 {{<example "plot-element">}}
-
-### Visualize Multiple Functions
-
-{{<example "plot-secant">}}
-
-{{< highlight javascript>}}
-let scale = 300/Math.PI;
-let secant = (x) => { return 1/Math.cos(x) };
-let plot = interactive.plot(600, 600, secant, {
-  originX: 0,
-  originY: 300,
-  scaleX: scale,
-  scaleY: scale,
-  zoomable: false,
-  controls: false
-});
-plot.graph(Math.cos);
-{{< /highlight >}}

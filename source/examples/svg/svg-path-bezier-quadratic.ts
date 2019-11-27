@@ -17,6 +17,7 @@ let l2 = interactive.line( 0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
 l2.stroke = 'cornflowerblue';
 let path = interactive.path('');
+path.classList.add('default');
 let c1 = interactive.control( 150, 100);
 let c2 = interactive.control( 300, 200);
 let c3 = interactive.control( 450, 100);

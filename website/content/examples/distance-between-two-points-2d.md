@@ -3,6 +3,8 @@
 title: Distance Between Two Points 2D
 id: distance-between-two-points-2d
 script: /examples/math/distance-between-two-points-2d.js
+main: false
+ignore: true
 description: This interactive demonstrates how to calculate the distance between two points in two dimensions.
 input: undefined
 tags: [math]
@@ -15,8 +17,7 @@ draft: undefined
 * @title Distance Between Two Points 2D
 * @description This interactive demonstrates how to calculate the distance between two points in two dimensions.
 * @tags [math]
-* @date July 8, 2019
-* @author Kurt Bruns
+* @ignore true
 */
 import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive

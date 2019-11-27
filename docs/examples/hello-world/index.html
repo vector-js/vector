@@ -42,9 +42,11 @@
 <main class="medium-container">
 
   
-  <h1>Vector.js Hello World <a style="float:right" href="/sandbox/?script=/examples/math/hello-world.js" class="button">Open in Sandbox</a></h1>
-  <div id="hello-world" class="interactive-container"></div>
-  <script type="module" src="/examples/math/hello-world.js"></script>
+  <h1>Vector.js Hello World <a style="float:right" href="/sandbox/?script=/examples/hello-world.js" class="button">Open in Sandbox</a></h1>
+  
+<div id="hello-world" class="vertical-center i-container"></div>
+<script type="module" src="/examples/hello-world.js"></script>
+
   
     <h2>Description</h2>
     <p>Hi!</p>
@@ -54,11 +56,12 @@
 </span><span class="cm">* @title Vector.js Hello World
 </span><span class="cm">* @description Hi!
 </span><span class="cm">* @tags []
+</span><span class="cm">* @ignore true
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../../interactive.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s1">&#39;hello-world&#39;</span><span class="p">);</span>
-<span class="nx">myInteractive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="nx">myInteractive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;../interactive.js&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s1">&#39;hello-world&#39;</span><span class="p">);</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="c1">//# sourceMappingURL=hello-world.js.map
 </span></code></pre></div>
 

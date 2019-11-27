@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on Vector.js</title>
@@ -22,6 +22,17 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
     </item>
     
     <item>
+      <title>Graphs Tutorial</title>
+      <link>https://vectorjs.org/tutorials/graphs/</link>
+      <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/graphs/</guid>
+      <description>The graph module is used to visualize simple graphs in the form of a node-link diagram. Both directed and undirected graphs are supported. The Reingold-Tilford “Tidy” layout for drawing trees is also supported.
+To create a graph, first create an interactive object (link). Then create a graph object as shown below. When doing so, you will specify whether or not it is a directed edge.
+let graph = interactive.graph({directed:true});  When creating a node, you can specify position, label, x radius and y radius of the node, which is shown as an ellipse.</description>
+    </item>
+    
+    <item>
       <title>Custom Element</title>
       <link>https://vectorjs.org/tutorials/custom-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -32,13 +43,31 @@ import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the E
     </item>
     
     <item>
+      <title>Map Module</title>
+      <link>https://vectorjs.org/tutorials/maps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/maps/</guid>
+      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJson which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
+    </item>
+    
+    <item>
+      <title>Plot Tutorial</title>
+      <link>https://vectorjs.org/tutorials/plots/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/plots/</guid>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
+    </item>
+    
+    <item>
       <title>Population Map</title>
       <link>https://vectorjs.org/tutorials/population-map-of-united-states/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/population-map-of-united-states/</guid>
-      <description>// Step 1: load in map // Step 2: highlight states based on population // Step 3: click on a state and have the name of the state displayed  In this tutorial we will create an interactive map of the United States shown above. Each state will be colored with respect to its percentage of the total population of the country.
-// TODO: pull data from google sheets  // Create united states map object via library call  </description>
+      <description>In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it&amp;rsquo;s population density.
+The first step in using our mapping module is always to pull in your GeoJson data.</description>
     </item>
     
     <item>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+<h1>Project Overview</h1>
+
+<p>This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah.</p>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>Vector.js is an open source Javascript library for creating interactive vector graphics. The library uses existing web standards: HTML, SVG, CSS, and geoJSON making it easy to use with existing tools and libraries. The target audience for the library is technical users who want to create &ldquo;interactive&rdquo; content for the web. An interactive is a vector based image that changes on user input to display additional information, visualize a concept, or more generally, provides the end-user with an engaging experience.</p>
+
+<p>The library component of our software system is composed of elements. Each element is defined as a Javascript object and corresponds to a SVG component accessed through the &ldquo;root&rdquo; property. These elements are intended to be &ldquo;wrappers&rdquo; that expose the right amount of functionality for our users - enough to be easy to use and useful, but not overly complex and cumbersome. This distinction is in part motivated by the lengthy amount of time it takes to create something like an interactive SVG map with the existing tools.</p>
+
+<p>The website component of our software system will host the library and provide the following: an overview of the project, documentation, examples, tutorials, and a sandbox editor. The website is critical to the approachability and usability factor of our software system. The content is geared towards increasing the usability of our library and specifically decreasing the time cost associated with creating an interactive. For example, we plan to provide a sandbox editor that can open and run examples for the user all in one place. This allows the user to find something that is close to what they hope to do and modify it.</p>
+
+<h2 id="technologies">Technologies</h2>
+
+<ul>
+<li>Web APIs (DOM)</li>
+<li>SVG Specificiation</li>
+<li>Typescript</li>
+<li>Mocha</li>
+<li>Hugo</li>
+<li>Github Pages</li>
+</ul>
+
+<h2 id="library">Library</h2>
+
+<p>The library is implemented around the SVG specification.</p>
+
+<h3 id="basic-elements">Basic Elements</h3>
+
+<p>Our library has basic visual elements that are used to create the graphics. All elements contain a root SVGElement that contains the visual part of the element. Basic element root’s correspond directly to the visual aspect of the element, more complicated elements often contain many SVGElements that describe the graphic.</p>
+
+<p>
+
+<div id="ellipse-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/elements/ellipse-element.js"></script>
+
+
+
+
+
+<div id="path-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/elements/path-element.js"></script>
+
+
+
+
+
+<div id="rectangle-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/elements/rectangle-element.js"></script>
+
+
+</p>
+
+<h3 id="input-elements">Input Elements</h3>
+
+<p>Input elements and mouse interaction are the primary way that end-users of the library interact with the visual. Each input element is part of the SVG ecosystem and surface controls to the user.</p>
+
+<p>
+
+<div id="control-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/elements/control-element.js"></script>
+
+
+
+
+
+<div id="radio-control-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/elements/radio-control-element.js"></script>
+
+
+
+
+
+<div id="scrubber-element" class="vertical-center i-container"></div>
+<script type="module" src="/examples/elements/scrubber-element.js"></script>
+
+
+</p>
+
+<h2 id="modules">Modules</h2>
+
+<p>There are three main modules of our library: maps, graph structures, and function plots. Each demonstrates how the core library can be leveraged to implement more complex and sophisticated interactive visuals.</p>
+
+<h3 id="maps">Maps</h3>
+
+
+
+<div id="world-map" class="vertical-center i-container"></div>
+<script type="module" src="/examples/maps/world-map.js"></script>
+
+
+
+
+<h3 id="graphs">Graphs</h3>
+
+<h3 id="plots">Plots</h3>
+
+
+
+
+<div id="426b4efc09a17eb168e5c076b6736609" class="vertical-center i-container"></div>
+<script type="module">
+  import main from "\/examples\/elements\/plot-element.js";
+  main("426b4efc09a17eb168e5c076b6736609");
+</script>
+
+
+
+
+<h2 id="website">Website</h2>
+
+<ul>
+<li>Documentation</li>
+<li>Examples</li>
+<li>Tutorials</li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<h2 id="features">Features</h2>
+
+</main>
+
+</body>
+</html>

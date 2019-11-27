@@ -4,6 +4,7 @@
 * @date July 11, 2019
 * @author Kurt Bruns
 * @tags [svg]
+* @ignore true
 */
 
 import {Interactive, getScriptName} from '../../index.js';
@@ -20,6 +21,7 @@ interactive.root.style.overflow = 'visible';
 interactive.root.style.marginLeft = '6px';
 
 let rectangle = interactive.rectangle( -width/2, -height/2, width, height);
+rectangle.classList.add('default');
 rectangle.style.fill = '#f8f8f8';
 
 // rect.root.style.stroke = 'cornflowerblue';

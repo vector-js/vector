@@ -43,8 +43,10 @@
 
   
   <h1>Load External SVG <a style="float:right" href="/sandbox/?script=/examples/svg/load-external-svg.js" class="button">Open in Sandbox</a></h1>
-  <div id="load-external-svg" class="interactive-container"></div>
-  <script type="module" src="/examples/svg/load-external-svg.js"></script>
+  
+<div id="load-external-svg" class="vertical-center i-container"></div>
+<script type="module" src="/examples/svg/load-external-svg.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive demonstrates how to load and use an external svg.</p>
@@ -55,9 +57,9 @@
 </span><span class="cm">* @description This interactive demonstrates how to load and use an external svg.
 </span><span class="cm">* @tags [svg]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">getURL</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/file.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">parseSVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/svg.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">getURL</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/file.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">parseSVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/svg.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="c1">// let svg = myInteractive.loadSVG(&#39;/resources/maps/united-states.svg&#39;);
 </span><span class="c1">// svg.then(function(data){

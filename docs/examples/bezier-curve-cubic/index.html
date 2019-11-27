@@ -43,8 +43,10 @@
 
   
   <h1>Cubic Bezier Curve <a style="float:right" href="/sandbox/?script=/examples/math/bezier-curve-cubic.js" class="button">Open in Sandbox</a></h1>
-  <div id="bezier-curve-cubic" class="interactive-container"></div>
-  <script type="module" src="/examples/math/bezier-curve-cubic.js"></script>
+  
+<div id="bezier-curve-cubic" class="vertical-center i-container"></div>
+<script type="module" src="/examples/math/bezier-curve-cubic.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive demonstrates the cubic bezier command for a SVG path element. There are four control points that allow the user to control the shape of the bezier curve that is drawn.</p>
@@ -55,7 +57,7 @@
 </span><span class="cm">* @description This interactive demonstrates the cubic bezier command for a SVG path element. There are four control points that allow the user to control the shape of the bezier curve that is drawn.
 </span><span class="cm">* @tags [math]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">l1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
@@ -65,6 +67,7 @@
 <span class="nx">l2</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
 <span class="nx">l3</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">c1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">c2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">c3</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>

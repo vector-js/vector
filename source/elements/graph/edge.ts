@@ -20,16 +20,23 @@ export default class Edge extends Line {
   */
   constructor(nodeFrom: Node, nodeTo: Node, directed: boolean) {
     let arr = Edge.calculateLinePosition(nodeFrom, nodeTo);
-
     let arr2 = Edge.calculateLinePositionEllipse(nodeFrom, nodeTo);
-    if(directed) {
+    if(directed && !Number.isNaN(arr[0])) {
       super(arr[0], arr[1], arr[2], arr[3]);
     }
     else {
       super(nodeFrom.cx,nodeFrom.cy, nodeTo.cx, nodeTo.cy);
-      // console.log(this.root.x1);
     }
     this.directed = directed;
+    this.nodeFrom = nodeFrom;
+    this.nodeTo = nodeTo;
+  }
+
+  redraw(){
+    this.x1 = this.nodeFrom.cx;
+    this.y1 = this.nodeFrom.cy;
+    this.x2 = this.nodeTo.cx;
+    this.y2 = this.nodeTo.cy;
   }
 
   /**

@@ -54,9 +54,9 @@ export default class CheckBox extends Input {
   */
   set value( value:boolean ) {
     if( this._value = value ) {
-      this.box.root.style.fill = '#404040';
+      this.box.style.fill = '#404040';
     } else {
-      this.box.root.style.fill = '#f2f2f2';
+      this.box.style.fill = '';
     }
     this.onchange();
   }

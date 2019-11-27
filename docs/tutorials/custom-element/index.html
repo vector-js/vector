@@ -42,11 +42,11 @@
 <main class="medium-container">
 <h1>Custom Element</h1><p>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the <a href="/svg/">SVG Tutorial</a>). It also gets into how Vector.js is implemented.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Element</span> <span class="nx">from</span> <span class="s1">&#39;../elements/Element.js&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Element</span> <span class="nx">from</span> <span class="s1">&#39;../elements/Element.js&#39;</span><span class="p">;</span>
 
 <span class="c1">// Extending the Element class guarantees that the custom element exists within
 </span><span class="c1">// the interactive ecosystem.
-</span><span class="c1"></span><span class="k">export</span> <span class="k">default</span> <span class="k">class</span> <span class="nx">CustomElement</span> <span class="k">extends</span> <span class="nx">Element</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">CustomElement</span> <span class="kr">extends</span> <span class="nx">Element</span> <span class="p">{</span>
 
   <span class="c1">// The root property is an SVG element that contains all of the SVG elements
 </span><span class="c1"></span>  <span class="c1">// associated with this custom element.
@@ -54,7 +54,7 @@
 
   <span class="c1">// Constructs an instance of this custom element
 </span><span class="c1"></span>  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">();</span>
+    <span class="kr">super</span><span class="p">();</span>
 
     <span class="k">this</span><span class="p">.</span><span class="nx">root</span> <span class="o">=</span> <span class="nx">SVG</span><span class="p">.</span><span class="nx">Group</span><span class="p">();</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;custom-element&#39;</span><span class="p">);</span>

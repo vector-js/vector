@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SVG Elements on Vector.js</title>
@@ -123,15 +123,6 @@
     </item>
     
     <item>
-      <title>SVG</title>
-      <link>https://vectorjs.org/svg/elements/svg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/svg/elements/svg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Style</title>
       <link>https://vectorjs.org/svg/elements/style/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -139,6 +130,15 @@
       <guid>https://vectorjs.org/svg/elements/style/</guid>
       <description>The style element defines CSS that is applied to elements through a combination of selectors.
 &amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>SVG</title>
+      <link>https://vectorjs.org/svg/elements/svg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/svg/</guid>
+      <description></description>
     </item>
     
     <item>

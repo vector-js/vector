@@ -3,6 +3,8 @@
 title: Text Span Element
 id: tspan-element
 script: /examples/elements/tspan-element.js
+main: false
+ignore: false
 description: This interactive demonstrates the text span element.
 input: undefined
 tags: [elements]

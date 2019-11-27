@@ -7,7 +7,7 @@
 
 import {Interactive, getScriptName} from '../../index.js';
 let interactive = new Interactive(getScriptName());
-interactive.width = 768;
+interactive.width = 736;
 interactive.height = 200;
 interactive.border = true;
 
@@ -39,6 +39,8 @@ yline.update = function() {
 let opacity = 1;
 let circle = interactive.circle( 0, 0, 3);
 circle.root.style.display = 'none';
+circle.style.fill = 'none';
+circle.style.stroke = '#333333';
 interactive.root.onclick = function( event ) {
   opacity = 1;
   circle.r = 1;
@@ -56,7 +58,7 @@ function step(timestamp) {
 
   circle.r += 1;
   circle.root.style.opacity = opacity.toString();
-  opacity -= .02;
+  opacity -= .01;
 
   if (opacity > 0 ) {
     // set up the next animation frame

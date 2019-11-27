@@ -3,6 +3,8 @@
 title: SVG View Box Attribute
 id: svg-view-box
 script: /examples/svg/svg-view-box.js
+main: false
+ignore: false
 description: This interactive demonstrates how the view box attribute can be applied to a SVG element to change the view port of the image.
 input: undefined
 tags: [svg]
@@ -19,10 +21,10 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let viewBoxControl = new Interactive(getScriptName());
 viewBoxControl.border = true;
-viewBoxControl.width = 704 / 2;
+viewBoxControl.width = 736 / 2;
 let viewBox = new Interactive(getScriptName());
 viewBox.border = true;
-viewBox.width = 704 / 2;
+viewBox.width = 736 / 2;
 let margin = 30;
 for (let i = margin; i < viewBoxControl.width - margin; i += margin) {
     for (let j = margin; j < viewBoxControl.height - margin; j += margin) {
@@ -30,6 +32,8 @@ for (let i = margin; i < viewBoxControl.width - margin; i += margin) {
         let r2 = viewBox.rectangle(i, j, 10, 10);
         let red = Math.floor(255 * i / (viewBoxControl.width - margin));
         let green = Math.floor(255 * j / (viewBoxControl.height - margin));
+        r1.classList.add('default');
+        r2.classList.add('default');
         r1.style.fill = `rgb(${red}, ${green}, 255)`;
         r2.style.fill = `rgb(${red}, ${green}, 255)`;
         r1.style.opacity = '.7';
@@ -37,7 +41,7 @@ for (let i = margin; i < viewBoxControl.width - margin; i += margin) {
     }
 }
 let rect = viewBoxControl.rectangle(0, 0, 0, 0);
-rect.root.style.strokeWidth = '1.5px';
+rect.classList.add('default');
 let c1 = viewBoxControl.control(110, 110);
 let c2 = viewBoxControl.control(110 + 90, 110 + 90 * viewBox.height / viewBox.width);
 c2.update = function () {

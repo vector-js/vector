@@ -37,8 +37,9 @@ function initialize() {
     script = params.get('script');
     container = document.getElementById("interactive-container");
     id = parseName(script);
-    let text = loadScript( script, container).then(function(response){
+    let text = getURL( script).then(function(response){
       editor.setValue(response, 1);
+      run();
     });
   } else {
     console.log('no url parameter script.');
@@ -79,7 +80,11 @@ function run() {
     div.id = id;
     let script = document.createElement('script');
     script.type = 'module';
-    script.innerHTML = editor.getValue();
+    let contents = editor.getValue();
+    script.innerHTML = contents;
+    if( contents.includes('export default') ) {
+      script.innerHTML += `\nmain("${id}");`;
+    }
     container.appendChild(div);
     container.appendChild(script);
   }

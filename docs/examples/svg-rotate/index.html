@@ -43,8 +43,10 @@
 
   
   <h1>SVG Transform Rotate Attribute <a style="float:right" href="/sandbox/?script=/examples/svg/svg-rotate.js" class="button">Open in Sandbox</a></h1>
-  <div id="svg-rotate" class="interactive-container"></div>
-  <script type="module" src="/examples/svg/svg-rotate.js"></script>
+  
+<div id="svg-rotate" class="vertical-center i-container"></div>
+<script type="module" src="/examples/svg/svg-rotate.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive how the rotate transformation can be applied to a SVG element.</p>
@@ -55,14 +57,14 @@
 </span><span class="cm">* @description This interactive how the rotate transformation can be applied to a SVG element.
 </span><span class="cm">* @tags [svg]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="err">/ 2;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="err">/ 2;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originX</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">originY</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">group</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">r1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">w</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">r2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">w</span><span class="p">);</span>
@@ -99,7 +101,7 @@
     <span class="k">else</span> <span class="p">{</span>
         <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">360</span> <span class="o">-</span> <span class="nx">angle</span> <span class="o">*</span> <span class="mi">180</span> <span class="err">/ Math.PI).toFixed(1);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">360</span> <span class="o">-</span> <span class="nx">angle</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">//# sourceMappingURL=svg-rotate.js.map
 </span></code></pre></div>

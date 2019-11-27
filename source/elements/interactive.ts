@@ -21,17 +21,17 @@ import ControlCircle from './input/control-circle.js';
 import RadioControl from './input/radio-control.js';
 import Scrubber from './input/scrubber.js';
 import Slider, { SliderOptions } from './input/slider.js';
+import HoverBox from './input/hover-box.js';
 
 // graph elements
 import Node from '../elements/graph/node.js';
 import Edge from '../elements/graph/edge.js';
 import Graph, {GraphOptions} from '../elements/graph/graph.js';
-import DirectedGraph from '../elements/graph/directed-graph.js';
-import FlowGraph from '../elements/graph/flow-graph.js';
+
 
 
 // map elements
-import Map from '../elements/maps/map.js';
+import Map, { MapOptions } from '../elements/maps/map.js';
 import { GeoJSON } from './maps/geo-json.js';
 
 // math elements
@@ -380,27 +380,20 @@ export default class Interactive extends SVG {
     return this.appendChild(new Graph(options));
   }
 
-  flowGraph(str:string) : DirectedGraph {
-    return this.appendChild(new FlowGraph(str));
+  hoverBox(str: string) : HoverBox{
+    return this.appendChild(new HoverBox(str));
   }
 
   /**
   * Creates a graph element within this interactive
   */
-  map(externalData: GeoJSON,featureName:string = null) : Map {
-   let map = new Map(featureName,this.width,this.height,externalData);
+  map(externalData: GeoJSON,featureName:string = null,options: MapOptions = {}) : Map {
+   let map = new Map(featureName,externalData,options);
    let ret = this.appendChild(map);
    let bbox = map.root.getBBox();
    map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
    return ret;
    }
-
-  /*
-  * Creates a directed graph element within this interactive
-  */
-  directedGraph() : DirectedGraph {
-    return this.appendChild(new DirectedGraph());
-  }
 
   /**
   * Creates a slider input within this interactive

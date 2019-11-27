@@ -5,6 +5,7 @@ import Path from '../svg/path.js';
 import Rectangle from '../svg/rectangle.js';
 import SVG from '../svg/svg.js';
 import Text from '../svg/text.js';
+import Point from '../math/point.js';
 
 /**
 * These options control the configuration of a plot object when it is created.
@@ -49,6 +50,17 @@ export interface PlotOptions {
   * corner of the plot.
   */
   originY?:number;
+
+  /**
+  * Sets the left-most x-position of the plot area
+  */
+  x?:number;
+
+  /**
+  * Sets the top-most y-position of the plot area
+  */
+  y?:number;
+
   border?:boolean;
   controls?:boolean;
 }
@@ -168,10 +180,10 @@ export default class Plot extends Group {
   private _function : (x:number) => number;
 
   // actual height and width of plot element
-  private x : number;
-  private y : number;
-  private width : number;
-  private height : number;
+  private _x : number;
+  private _y : number;
+  private _width : number;
+  private _height : number;
 
   // represents the transformation from svg coordinate system to internal
   private scaleX : number;
@@ -197,6 +209,8 @@ export default class Plot extends Group {
 
     // default configuration options
     let defaultOptions:PlotOptions = {
+      x:0,
+      y:0,
       scaleX:1,
       scaleY:1,
       grid:true,
@@ -215,13 +229,20 @@ export default class Plot extends Group {
     this._function = fn;
 
     // calculate the visible dimensions and top-left position of svg coordinates
-    this.x = -width/2;
-    this.y = -height/2;
-    this.width = width;
-    this.height = height;
+    this._x = -width/2;
+    this._y = -height/2;
+    this._width = width;
+    this._height = height;
+
+    this.setAttribute('transform', `translate(${config.x}, ${config.y})`);
+
+    // create a clipping path rectangle to trim overflowing visual elements
+    let clipPath = this.clipPath();
+    clipPath.rectangle(0,0,this._width, this._height);
+    this.setAttribute('clip-path', `url(#${clipPath.id})`);
 
     // creates a transparent rectangle to capture all user events
-    this.rect = this.rectangle(0, 0, this.width, this.height);
+    this.rect = this.rectangle(0, 0, this._width, this._height);
     this.rect.style.fill = 'transparent';
     if( config.border === undefined || config.border ) {
       this.rect.style.border = '1px solid #404040';
@@ -230,7 +251,7 @@ export default class Plot extends Group {
     }
 
     // default values
-    this.viewPort = this.svg(0, 0, this.width, this.height);
+    this.viewPort = this.svg(0, 0, this._width, this._height);
     this.viewPort.setAttribute('preserveAspectRatio','none');
 
     // create a static group for non-size-scaling objects
@@ -244,8 +265,8 @@ export default class Plot extends Group {
     this.scaleY = config.scaleY;
 
     // calculate the visible dimensions and top-left position of internal coordinates
-    this.visibleWidth = this.width/this.scaleX;
-    this.visibleHeight = this.height/this.scaleY;
+    this.visibleWidth = this._width/this.scaleX;
+    this.visibleHeight = this._height/this.scaleY;
     this.internalX = -this.visibleWidth/2;
     this.internalY = -this.visibleHeight/2;
 
@@ -313,13 +334,13 @@ export default class Plot extends Group {
     }
 
     if( config.controls ) {
-      let zoomIn = this.rectangle( this.width - 48, 16, 30, 30);
+      let zoomIn = this.rectangle( this._width - 48, 16, 30, 30);
       zoomIn.setAttribute('rx', '3');
       zoomIn.style.fill = '#f8f8f8';
-      let zoomOut = this.rectangle( this.width - 48, 46, 30, 30);
+      let zoomOut = this.rectangle( this._width - 48, 46, 30, 30);
       zoomOut.setAttribute('rx', '3');
       zoomOut.style.fill = '#f8f8f8';
-      let fullscreen = this.circle( this.width - 32, this.height - 32, 16);
+      let fullscreen = this.circle( this._width - 32, this._height - 32, 16);
       fullscreen.style.fill = '#f8f8f8';
     }
 
@@ -342,12 +363,36 @@ export default class Plot extends Group {
   }
 
   get originX():number {
-    return - this.x;
+    return - this._x;
   }
 
   get originY():number {
-    return - this.y;
+    return - this._y;
   }
+
+  // get x():number {
+  //   return this._x;
+  // }
+  //
+  // set x(value:number) {
+  //   this._x = value;
+  // }
+  //
+  // get y():number {
+  //   return this._y;
+  // }
+  //
+  // set y(value:number) {
+  //   this._y = value;
+  // }
+  //
+  // get width():number {
+  //   return this._width;
+  // }
+  //
+  // get height():number {
+  //   return this._height;
+  // }
 
   /**
   * Updates the display circle based on its current cx position, also updates
@@ -364,7 +409,7 @@ export default class Plot extends Group {
         this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
         this.yText.contents = this.format(this.displayCircle.cy/this.scaleY);
       } else {
-        this.displayCircle.cy = this.height*3;;
+        this.displayCircle.cy = this._height*3;
         this.xText.contents = this.format(this.displayCircle.cx/this.scaleX);
         this.yText.contents = cy.toString();
       }
@@ -383,13 +428,13 @@ export default class Plot extends Group {
     // normalize big/small y values
     if( trim ) {
       let margin = 8;
-      let yMax = this.y + this.height + margin;
-      let yMin = this.y - margin;
+      let yMax = this._y + this._height + margin;
+      let yMin = this._y - margin;
       if( -y > yMax ) { y = -yMax; }
       if( -y < yMin ) { y = -yMin; }
     } else {
-      let yMin = this.y - this.height;
-      let yMax = this.y + 2*this.height;
+      let yMin = this._y - this._height;
+      let yMax = this._y + 2*this._height;
       if( -y > yMax ) { y = -yMax; }
       if( -y < yMin ) { y = -yMin; }
     }
@@ -413,7 +458,7 @@ export default class Plot extends Group {
   * graph there is enough drawn so that a translate may be applied instead of
   * having to call draw again.
   */
-  draw( startX = this.x - this.width, endX = this.x + 2*this.width, trim = false ) {
+  draw( startX = this._x - this._width, endX = this._x + 2*this._width, trim = false ) {
 
     this.setViewBox();
     this.updateDisplayCircle();
@@ -439,7 +484,7 @@ export default class Plot extends Group {
         continue;
       }
       // check for vertical asymptotes or if we haven't started drawing
-      else if( Math.abs(prev - y) >= this.height || !start ) {
+      else if( Math.abs(prev - y) >= this._height || !start ) {
         d += `M ${x.toFixed(1)} ${y.toFixed(1)} `;
         start = true;
       } else {
@@ -464,18 +509,21 @@ export default class Plot extends Group {
     // TODO: use a combination of these metrics below to calculate the spacing
     // between two grid lines. I am guessing the goal is to space grid lines
     // somewhere between 10 - 50 pixels in the actual coordinate system
-    let pixelsX = 200*this.visibleWidth/this.width;
-    let pixelsY = 200*this.visibleHeight/this.height;
+    let pixelsX = 200*this.visibleWidth/this._width;
+    let pixelsY = 200*this.visibleHeight/this._height;
     let spacingX = expTrunc(pixelsX);
     let spacingY = expTrunc(pixelsY);
 
     // TODO: use the static group for this?
-    let minX = this.internalX - this.visibleWidth;
-    let maxX = this.internalX + 2*this.visibleWidth;
-    let minY = this.internalY - this.visibleHeight;
-    let maxY = this.internalX + 2*this.visibleWidth;
+    // let minX = this.internalX - this.visibleWidth;
+    // let maxX = this.internalX + 2*this.visibleWidth;
+    // let minY = this.internalY - this.visibleHeight;
+    // let maxY = this.internalY + 2*this.visibleHeight;
 
-    console.log(spacingX, spacingY);
+    let minX = this.internalX;
+    let maxX = this.internalX + this.visibleWidth;
+    let minY = this.internalY;
+    let maxY = this.internalY + this.visibleHeight;
 
     let x = -10*spacingX;
     while( x < maxX ) {
@@ -503,6 +551,66 @@ export default class Plot extends Group {
     //   this.grid.line( i, minY,  i, maxY);
     // }
 
+  }
+
+  internalToAbsolute( point:Point ) : Point {
+    let x = point.x*this.scaleX + this.originX;
+    let y = point.y*this.scaleY - this.originY;
+    return {x:x, y:-y};
+  }
+
+  /**
+  *
+  */
+  getXLabelPoints() : Point[]{
+
+    let labels = [];
+
+    let pixelsX = 200*this.visibleWidth/this._width;
+    let spacingX = expTrunc(pixelsX);
+
+    // TODO: use the static group for this?
+    let minX = this.internalX;
+    let maxX = this.internalX + this.visibleWidth;
+    let minY = this.internalY;
+
+    let x = -10*spacingX;
+    while( x < maxX ) {
+      if( x >= minX ) {
+        labels.push({x:x , y:minY});
+      }
+      x += spacingX;
+    }
+
+    return labels;
+  }
+
+
+  /**
+  *
+  */
+  getYLabelPoints() : Point[]{
+
+    let labels = [];
+
+    let pixelsY = 200*this.visibleHeight/this._height;
+    let spacingY = expTrunc(pixelsY);
+
+    // TODO: use the static group for this?
+    let minX = this.internalX;
+    let maxX = this.internalX + this.visibleWidth;
+    let minY = this.internalY;
+    let maxY = this.internalY + this.visibleHeight;
+
+    let y = -10*spacingY;
+    while( y < maxY ) {
+      if( y >= minY ) {
+        labels.push({x:minX , y:y});
+      }
+      y += spacingY;
+    }
+
+    return labels;
   }
 
   /**
@@ -533,7 +641,7 @@ export default class Plot extends Group {
   * viewPort element.
   */
   setViewBox() {
-    this.staticGroup.setAttribute('transform',`translate(${-this.x}, ${-this.y})`);
+    this.staticGroup.setAttribute('transform',`translate(${-this._x}, ${-this._y})`);
     this.viewPort.setAttribute('viewBox', `${this.internalX} ${this.internalY} ${this.visibleWidth} ${this.visibleHeight}`);
   }
 
@@ -545,10 +653,10 @@ export default class Plot extends Group {
   * plot.
   */
   setOrigin( x:number, y:number ) {
-    this.x = -x;
-    this.y = -y;
-    this.internalX = this.x/this.scaleX;
-    this.internalY = this.y/this.scaleY;
+    this._x = -x;
+    this._y = -y;
+    this.internalX = this._x/this.scaleX;
+    this.internalY = this._y/this.scaleY;
     this.draw();
   }
 
@@ -560,8 +668,8 @@ export default class Plot extends Group {
     if( this.active ) {
       let deltaX = event.clientX - this.prevX;
       let deltaY = event.clientY - this.prevY;
-      this.x -= deltaX;
-      this.y -= deltaY;
+      this._x -= deltaX;
+      this._y -= deltaY;
       this.internalX -= deltaX/this.scaleX;
       this.internalY -= deltaY/this.scaleY;
       this.prevX = event.clientX;
@@ -570,7 +678,7 @@ export default class Plot extends Group {
     } else {
       let br = this.rect.root.getBoundingClientRect();
       if( this.displayCircle != undefined ) {
-        this.displayCircle.cx = event.clientX - br.left + this.x;
+        this.displayCircle.cx = event.clientX - br.left + this._x;
         this.updateDisplayCircle();
       }
     }
@@ -600,16 +708,16 @@ export default class Plot extends Group {
     this.internalY -= deltaY;
     this.scaleX *= zoom;
     this.scaleY *= zoom;
-    this.visibleWidth = this.width/this.scaleX;
-    this.visibleHeight = this.height/this.scaleY;
+    this.visibleWidth = this._width/this.scaleX;
+    this.visibleHeight = this._height/this.scaleY;
 
     // update the elements in the static (svg) coordinate system
-    this.x = this.internalX*this.scaleX;
-    this.y = this.internalY*this.scaleY;
+    this._x = this.internalX*this.scaleX;
+    this._y = this.internalY*this.scaleY;
 
     // update the position of the display circle
     if( this.displayCircle != undefined ) {
-      this.displayCircle.cx = event.clientX - br.left + this.x;
+      this.displayCircle.cx = event.clientX - br.left + this._x;
     }
 
     // redraw visual elements
@@ -621,18 +729,18 @@ export default class Plot extends Group {
   *
   */
   export() : SVG {
-    let result = new SVG(0, 0, this.width, this.height);
+    let result = new SVG(0, 0, this._width, this._height);
 
     let margin = 8;
 
     // trim axis
-    this.xAxis.x1 = this.x;
-    this.xAxis.x2 = this.x + this.width;
-    this.yAxis.y1 = this.y;
-    this.yAxis.y2 = this.y + this.height;
+    this.xAxis.x1 = this._x;
+    this.xAxis.x2 = this._x + this._width;
+    this.yAxis.y1 = this._y;
+    this.yAxis.y2 = this._y + this._height;
 
     // draw trimmed version
-    this.draw(this.x - margin, this.x + this.width + margin, true);
+    this.draw(this._x - margin, this._x + this._width + margin, true);
 
     return result;
   }

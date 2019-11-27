@@ -1,10 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://vectorjs.org/tutorials/getting-started/</loc>
     <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/</loc>
+    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/click-accuracy-game/</loc>
   </url>
   
   <url>
@@ -16,16 +25,32 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/world-map/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/population-of-united-states/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/prime-factorization/</loc>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/tutorials/</loc>
+    <loc>https://vectorjs.org/examples/snake-game/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/tidy-algorithm/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/graphs/</loc>
     <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/unit-circle/</loc>
+    <loc>https://vectorjs.org/examples/riemann-sum/</loc>
   </url>
   
   <url>
@@ -37,7 +62,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/world-map/</loc>
+    <loc>https://vectorjs.org/tutorials/maps/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/plots/</loc>
   </url>
   
   <url>
@@ -45,30 +74,16 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/population-of-united-states/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/tutorials/control-with-position/</loc>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/team/josh/</loc>
-    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/team/zach/</loc>
-    <lastmod>2019-02-11T10:48:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/team/derek/</loc>
-    <lastmod>2019-02-11T10:48:32-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/references/</loc>
+    <lastmod>2019-02-07T21:34:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/</loc>
     <lastmod>2019-02-07T21:34:52-07:00</lastmod>
   </url>
   
@@ -85,6 +100,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/animate-along-path-vector/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/animate-along-path/</loc>
   </url>
   
@@ -93,11 +112,27 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/triangle-area-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/arrow-element/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/button-element/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/examples/cartesian-coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-first-quadrant/</loc>
   </url>
   
   <url>
@@ -125,6 +160,14 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/country-selection/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/bezier-curve-cubic/</loc>
   </url>
   
@@ -134,6 +177,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/dependency-function/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/derek/</loc>
   </url>
   
   <url>
@@ -157,11 +204,19 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/coordinate-system/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/svg-circle/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/examples/svg-clip-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/josh/</loc>
   </url>
   
   <url>
@@ -197,7 +252,7 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/map-element/</loc>
+    <loc>https://vectorjs.org/examples/map-zoom-feature/</loc>
   </url>
   
   <url>
@@ -213,6 +268,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/number-line/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/path/</loc>
   </url>
   
@@ -222,6 +281,10 @@
   
   <url>
     <loc>https://vectorjs.org/svg/elements/pattern/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-element-experimental/</loc>
   </url>
   
   <url>
@@ -237,11 +300,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/polar-coordinate-system-radians/</loc>
+    <loc>https://vectorjs.org/svg/elements/polygon/</loc>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/svg/elements/polygon/</loc>
+    <loc>https://vectorjs.org/project/</loc>
   </url>
   
   <url>
@@ -250,6 +313,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/radio-control-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/random-color-world/</loc>
   </url>
   
   <url>
@@ -265,7 +332,39 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/sandbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/state-quiz/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/style/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-coordinate-system-moved/</loc>
   </url>
   
   <url>
@@ -309,6 +408,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/svg-transform/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/svg-rotate/</loc>
   </url>
   
@@ -325,28 +428,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/sandbox/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/slider-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/svg/elements/style/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/svg/elements/symbol/</loc>
   </url>
   
   <url>
     <loc>https://vectorjs.org/team/</loc>
-    <lastmod>2019-02-11T10:48:41-07:00</lastmod>
   </url>
   
   <url>
@@ -378,7 +464,63 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/approximate-tau/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/degrees/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/modular-arithmetic-number-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/normal-distribution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-degrees/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-pi/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-radians/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/radians/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/trig-functions-temp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/vector/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-pan/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/undirected-graph-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle/</loc>
   </url>
   
   <url>
@@ -387,6 +529,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/unit-circle-cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/angle-fixed/</loc>
   </url>
   
   <url>
@@ -406,16 +552,27 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/</loc>
-    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/examples/hello-world/</loc>
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/wumbo/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/viewbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/zach/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-pan-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-in-out/</loc>
   </url>
   
 </urlset>

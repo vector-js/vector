@@ -3,6 +3,8 @@
 title: Undirected Graph Element
 id: undirected-graph-element
 script: /examples/elements/undirected-graph-element.js
+main: false
+ignore: false
 description: This interactive demonstrates the undirected graph element.
 input: undefined
 tags: [elements]

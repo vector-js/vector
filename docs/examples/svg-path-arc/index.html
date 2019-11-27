@@ -43,8 +43,10 @@
 
   
   <h1>SVG Path Arc Command <a style="float:right" href="/sandbox/?script=/examples/svg/svg-path-arc.js" class="button">Open in Sandbox</a></h1>
-  <div id="svg-path-arc" class="interactive-container"></div>
-  <script type="module" src="/examples/svg/svg-path-arc.js"></script>
+  
+<div id="svg-path-arc" class="vertical-center i-container"></div>
+<script type="module" src="/examples/svg/svg-path-arc.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive demonstrates the Path Element&#39;s Arc command. At a high level the command draws an arc using the shape of an ellipse between two points.</p>
@@ -56,11 +58,12 @@
 </span><span class="cm">* @author Kurt Bruns
 </span><span class="cm">* @tags [svg]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">484</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">275</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">);</span>
@@ -131,6 +134,7 @@
 </span><span class="c1">// for the flags. TODO: move the paths into a group and change the opacity of
 </span><span class="c1">// the group instead of for each individual path
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">path1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path1</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="nx">path1</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">start</span><span class="p">);</span>
 <span class="nx">path1</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
 <span class="nx">path1</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">rx</span><span class="p">);</span>
@@ -149,6 +153,7 @@
 <span class="p">};</span>
 <span class="nx">path1</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">path2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path2</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="nx">path2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">start</span><span class="p">);</span>
 <span class="nx">path2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
 <span class="nx">path2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">rx</span><span class="p">);</span>
@@ -167,6 +172,7 @@
 <span class="p">};</span>
 <span class="nx">path2</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">path3</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path3</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="nx">path3</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">start</span><span class="p">);</span>
 <span class="nx">path3</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
 <span class="nx">path3</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">rx</span><span class="p">);</span>
@@ -185,6 +191,7 @@
 <span class="p">};</span>
 <span class="nx">path3</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">path4</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">path4</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
 <span class="nx">path4</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">start</span><span class="p">);</span>
 <span class="nx">path4</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
 <span class="nx">path4</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">rx</span><span class="p">);</span>

@@ -4,6 +4,7 @@
 * @date May 3, 2019
 * @author Kurt Bruns
 * @tags [svg]
+* @ignore true
 */
 
 import {Interactive, getScriptName} from '../../index.js';

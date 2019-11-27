@@ -43,8 +43,10 @@
 
   
   <h1>Interactive World Map <a style="float:right" href="/sandbox/?script=/examples/maps/world-map.js" class="button">Open in Sandbox</a></h1>
-  <div id="world-map" class="interactive-container"></div>
-  <script type="module" src="/examples/maps/world-map.js"></script>
+  
+<div id="world-map" class="vertical-center i-container"></div>
+<script type="module" src="/examples/maps/world-map.js"></script>
+
   
     <h2>Description</h2>
     <p>Every country in the world displayed in an interactive.</p>
@@ -57,13 +59,12 @@
 </span><span class="cm">* @tags [maps]
 </span><span class="cm">* @weight 1
 </span><span class="cm">*/</span>
-
-<span class="k">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">data</span> <span class="nx">from</span> <span class="s1">&#39;../../../maps/maps-json.js&#39;</span><span class="p">;</span>
-
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">globalData</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">globalData</span><span class="p">);</span>
-</code></pre></div>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">globalData</span><span class="p">);</span>
+<span class="c1">//# sourceMappingURL=world-map.js.map
+</span></code></pre></div>
 
 
 </main>

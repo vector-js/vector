@@ -13,6 +13,7 @@
         <button class="muted-button">maps</button>
         <button class="muted-button">math</button>
         <button class="muted-button">svg</button>
+        <button class="muted-button">games</button>
       </div>
     <script type="module">
       let buttons = document.querySelector('#tag-buttons');
@@ -63,7 +64,7 @@
   </div>
   <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
   {{ range .Pages }}
-    {{ .Render "card" }}
+    {{ if eq .Params.Ignore false }}{{ .Render "card" }}{{ end }}  
   {{ end }}
   </div>
   </section>

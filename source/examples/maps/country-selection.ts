@@ -1,6 +1,6 @@
 /**
-* @title Map Element
-* @description This interactive demonstrates the interactive world map element.
+* @title Country Selection
+* @description Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn.
 * @tags [elements, maps]
 */
 
@@ -8,10 +8,10 @@ import {Interactive, getScriptName} from '../../index.js';
 import * as data from './maps-json.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.width = 600;
-interactive.height = 300;
 interactive.root.style.border = "1px solid grey";
-let map = interactive.map(data.globalData);
+let map = interactive.map(data.globalData,"",{fill: '#6be88c',
+                                              stroke: 'white',
+                                              strokeWidth: 0.3});
 
 let inputContainer = document.createElement('div');
 inputContainer.classList.add('input-container');
@@ -27,5 +27,6 @@ input.addEventListener("keyup", function(event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
         map.draw(input.value);
+        let t = map.root.getBBox();
     }
   });

@@ -18,7 +18,7 @@ interactive.root.style.overflow = 'visible';
 interactive.root.style.marginLeft = '6px';
 
 let rectangle = interactive.rectangle(0,0, interactive.width - 2*margin, interactive.height - 2*margin);
-rectangle.style.fill = '#f8f8f8';
+rectangle.classList.add('default');
 
 // let rect = interactive.rectangle( 0, 0, interactive.width - 2*margin, interactive.height - 2*margin );
 // rect.root.style.stroke = 'cornflowerblue';

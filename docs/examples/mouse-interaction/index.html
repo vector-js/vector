@@ -43,8 +43,10 @@
 
   
   <h1>Mouse Input <a style="float:right" href="/sandbox/?script=/examples/interaction/mouse-interaction.js" class="button">Open in Sandbox</a></h1>
-  <div id="mouse-interaction" class="interactive-container"></div>
-  <script type="module" src="/examples/interaction/mouse-interaction.js"></script>
+  
+<div id="mouse-interaction" class="vertical-center i-container"></div>
+<script type="module" src="/examples/interaction/mouse-interaction.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive demonstrates how mouse input can be used to add interactivity.</p>
@@ -56,9 +58,9 @@
 </span><span class="cm">* @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position.
 </span><span class="cm">* @tags [input]
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
@@ -84,6 +86,8 @@
 <span class="kd">let</span> <span class="nx">opacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 <span class="nx">circle</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;#333333&#39;</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">opacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -98,7 +102,7 @@
 </span><span class="c1"></span><span class="kd">function</span> <span class="nx">step</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="nx">circle</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
-    <span class="nx">opacity</span> <span class="o">-=</span> <span class="mf">.02</span><span class="p">;</span>
+    <span class="nx">opacity</span> <span class="o">-=</span> <span class="mf">.01</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">opacity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// set up the next animation frame
 </span><span class="c1"></span>        <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">step</span><span class="p">);</span>

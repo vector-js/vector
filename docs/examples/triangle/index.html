@@ -43,8 +43,10 @@
 
   
   <h1>Triangle <a style="float:right" href="/sandbox/?script=/examples/math/triangle.js" class="button">Open in Sandbox</a></h1>
-  <div id="triangle" class="interactive-container"></div>
-  <script type="module" src="/examples/math/triangle.js"></script>
+  
+<div id="triangle" class="vertical-center i-container"></div>
+<script type="module" src="/examples/math/triangle.js"></script>
+
   
     <h2>Description</h2>
     <p>This interactive demonstrates an angle formed by three points.</p>
@@ -56,11 +58,10 @@
 </span><span class="cm">* @tags [math]
 </span><span class="cm">*/</span>
 <span class="c1">// import Interactive from &#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&#39;;
-</span><span class="c1"></span><span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="c1">// Initialize the interactive
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="s1">&#39;triangle&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nb">window</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="c1">// Create three control points
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
