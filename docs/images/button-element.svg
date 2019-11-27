@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="interactive-30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 171 97" style="enable-background:new 0 0 171 97;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#555555;stroke:#404040;}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'HelveticaNeue';}
+	.st3{font-size:12px;}
+</style>
+<path id="rectangle-33" class="st0" d="M34.5,32.5h102c1.1,0,2,0.9,2,2v28c0,1.1-0.9,2-2,2h-102c-1.1,0-2-0.9-2-2v-28
+	C32.5,33.4,33.4,32.5,34.5,32.5z"/>
+<text id="text-32" transform="matrix(1 0 0 1 57.6203 52.7559)" class="st1 st2 st3">My Button</text>
+</svg>

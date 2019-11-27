@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vector.js</title>
+    <link>https://vectorjs.org/</link>
+    <description>Recent content on Vector.js</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Feb 2019 21:34:52 -0700</lastBuildDate>
+    
+	<atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://vectorjs.org/tutorials/getting-started/</link>
+      <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/getting-started/</guid>
+      <description>Welcome! To use this library, download the getting-started.tgz tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, has an element with an unique id, and includes the script file.
+index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.org/library.css&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;my-interactive&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;script.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &amp;ldquo;my-interactive&amp;rdquo;, and then constructs a control point which can be dragged around.</description>
+    </item>
+    
+    <item>
+      <title>Click Accuracy Game</title>
+      <link>https://vectorjs.org/examples/click-accuracy-game/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
+      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [elements, games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Exponents and Trees</title>
+      <link>https://vectorjs.org/examples/exponential-tree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/exponential-tree/</guid>
+      <description>/** * @title Exponents and Trees * @description This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree. * @tags [math] * @date October 15, 2019 * @author Kurt Bruns * @weight 1 */ import Interactive from &amp;#34;../../interactive.js&amp;#34;; import { SVG } from &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Interactive World Map</title>
+      <link>https://vectorjs.org/examples/world-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/world-map/</guid>
+      <description>/** * @title Interactive World Map * @description Every country in the world displayed in an interactive. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { globalData } from &amp;#39;./maps-json.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); let map = myInteractive.map(globalData); //# sourceMappingURL=world-map.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Mouse Path Game</title>
+      <link>https://vectorjs.org/examples/mouse-path-game/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/mouse-path-game/</guid>
+      <description>import {Interactive, getScriptName, Button} from &amp;#39;../../index.js&amp;#39;; var startTime = new Date().getTime(); let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.height = 736; interactive.width = 736; interactive.border = true; interactive.root.addEventListener(&amp;#39;mousemove&amp;#39;, e =&amp;gt; { mX = e.clientX - interactive.root.getBoundingClientRect().left; mY = e.clientY - interactive.root.getBoundingClientRect().top; }); let scoreLabel = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Population Density of the United States</title>
+      <link>https://vectorjs.org/examples/population-of-united-states/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/population-of-united-states/</guid>
+      <description>/** * @title Population Density of the United States * @description Every state of the United States colored by population density. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; import { usDensityMap as densityMap } from &amp;#39;./us-pop-density.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Prime Factorization</title>
+      <link>https://vectorjs.org/examples/prime-factorization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/prime-factorization/</guid>
+      <description>/** * @title Prime Factorization * @description This interactive visualizes the prime factorization tree for a given number. * @input There is a number input that takes a number less than one-hundred million. * @tags [math, graph] * @weight 1 */ import { nextPrime } from &amp;#39;../../util/math.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let interactive = new Interactive(id); interactive.width = 736; interactive.height = 400; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Snake Game</title>
+      <link>https://vectorjs.org/examples/snake-game/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/snake-game/</guid>
+      <description>/** * @title Snake Game * @description Traditional Snake Game where you try to collect the yellow blocks without leaving the map or hitting yourself. Use WASD or Arrow keys to move. * @tags [elements, games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; /** * dp is the size of the squares of the snake. THE WIDTH AND HEIGHT OF * THE INTERACTIVE MUST BE MULTIPLES OF DP */ let dp = 40; let horizontal = true; let vertical = false; let direction = &amp;#39;r&amp;#39;; let score = 0; let interval = 0; let snake = []; let point; let interactive = new Interactive(getScriptName()); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Tidy Algorithm</title>
+      <link>https://vectorjs.org/examples/tidy-algorithm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/tidy-algorithm/</guid>
+      <description>/** * @title Tidy Algorithm * @description TODO * @input There is a number input that takes a number less than one-hundred million. * @tags [graph, tree] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 400; interactive.border = true; let graph = interactive.graph({ directed: true }); // let root = graph.addNode(0, 0 &amp;#34;root&amp;#34;) // for(let i = 0; i &amp;lt; 10; i++){ // let parent = graph.</description>
+    </item>
+    
+    <item>
+      <title>Graphs Tutorial</title>
+      <link>https://vectorjs.org/tutorials/graphs/</link>
+      <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/graphs/</guid>
+      <description>The graph module is used to visualize simple graphs in the form of a node-link diagram. Both directed and undirected graphs are supported. The Reingold-Tilford “Tidy” layout for drawing trees is also supported.
+To create a graph, first create an interactive object (link). Then create a graph object as shown below. When doing so, you will specify whether or not it is a directed edge.
+let graph = interactive.graph({directed:true});  When creating a node, you can specify position, label, x radius and y radius of the node, which is shown as an ellipse.</description>
+    </item>
+    
+    <item>
+      <title>Riemann Sum</title>
+      <link>https://vectorjs.org/examples/riemann-sum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/riemann-sum/</guid>
+      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let n = 7; let scale = 100; let method = &amp;#39;left&amp;#39;; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Custom Element</title>
+      <link>https://vectorjs.org/tutorials/custom-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/custom-element/</guid>
+      <description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
+import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements  // associated with this custom element.</description>
+    </item>
+    
+    <item>
+      <title>Map Module</title>
+      <link>https://vectorjs.org/tutorials/maps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/maps/</guid>
+      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJson which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
+    </item>
+    
+    <item>
+      <title>Plot Tutorial</title>
+      <link>https://vectorjs.org/tutorials/plots/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/plots/</guid>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
+    </item>
+    
+    <item>
+      <title>Population Map</title>
+      <link>https://vectorjs.org/tutorials/population-map-of-united-states/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/population-map-of-united-states/</guid>
+      <description>In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it&amp;rsquo;s population density.
+The first step in using our mapping module is always to pull in your GeoJson data.</description>
+    </item>
+    
+    <item>
+      <title>Control With Position</title>
+      <link>https://vectorjs.org/tutorials/control-with-position/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/control-with-position/</guid>
+      <description>This tutorial shows the user how to add a text label to a control point. Then the text label will be made to follow the position of the point and show the point&amp;rsquo;s current position. If you haven&amp;rsquo;t gone through getting started tutorial, do so to get to the starting point.
+Starting point The starting point is an interactive with a control point that can be dragged around.</description>
+    </item>
+    
+    <item>
+      <title>Reference</title>
+      <link>https://vectorjs.org/references/</link>
+      <pubDate>Thu, 07 Feb 2019 21:34:52 -0700</pubDate>
+      
+      <guid>https://vectorjs.org/references/</guid>
+      <description>  MBTA Visual Guitar Visual 2016 Election Forecast Hip Hop Vocabulary Explained Visually Google Doodles - Muybridge Bezier Info SVG Path Editor? House Hunting SVG Summit Quad Tree R Tree  Google  Google Charts Google Calculator and Web Search Utility Google Fidget Spinner  Five Thirty Eight  Five Thirty Eight Five Thirty Eight - Data Five Thirty Eight - Github Five Thirty Eight - d3 PreProcessing Five Thirty Eight - d3 PreProcessing Choropleth Example Five Thirty Eight - d3 PreProcessing Axes Example  d3  d3 d3 Bar Chart d3 Choropleth d3 animation + bezier  Other Tools  Processing ECharts SigmaJS Desmos High Charts Data Wrapper  </description>
+    </item>
+    
+    <item>
+      <title>A (Link)</title>
+      <link>https://vectorjs.org/svg/elements/a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Angle Between Two Vectors</title>
+      <link>https://vectorjs.org/examples/angle-between-two-vectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/angle-between-two-vectors/</guid>
+      <description>/** * @title Angle Between Two Vectors * @description This interactive demonstrates the angle formed between two vectors. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create a circle let circle = interactive.circle(0, 0, 100); circle.</description>
+    </item>
+    
+    <item>
+      <title>Angle Interactive</title>
+      <link>https://vectorjs.org/examples/angle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/angle/</guid>
+      <description>/** * @title Angle Interactive * @description An interactive that demonstrates how an angle is defined as the amount of rotation between two rays in two-dimensional space. * @tags [math] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create a circle let circle = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Animate Along Path</title>
+      <link>https://vectorjs.org/examples/animate-along-path-vector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/animate-along-path-vector/</guid>
+      <description>/** * @title Animate Along Path * @description This interactive demonstrates how a element can be animated along a path. * @tags [animation] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 225; interactive.border = true; // Hard coded in the string for the path. Obviously, fix this later. let pathString = &amp;#34;M417.73,36.71v10.4h-8.5V36.71h8.5l27.49,17.83a30.28,30.28,0,0,0-4,.71,20.62,20.62,0,0,0-6.2,2.6,14.38,14.38,0,0,0-4.5,4.55,11.56,11.56,0,0,0-.6,1.09,11.56,11.56,0,0,1,.6-1.09,14.38,14.38,0,0,1,4.5-4.55,20.62,20.62,0,0,1,6.2-2.6,30.28,30.28,0,0,1,4-.71c.94-.09,1.88-.14,2.81-.14a40.87,40.87,0,0,1,8.1.75,18.78,18.78,0,0,1,6.55,2.6,13.4,13.4,0,0,1,4.55,5,19.05,19.05,0,0,1,2,7.85h-8.5a8.14,8.14,0,0,0-4.1-6.8,12.56,12.56,0,0,0-3.75-1.45,19.32,19.32,0,0,0-4.15-.45,25.26,25.26,0,0,0-3.85.3,13,13,0,0,0-3.55,1,7.19,7.19,0,0,0-2.6,2,5,5,0,0,0-1,3.25,4.8,4.8,0,0,0,1.55,3.65,12.22,12.22,0,0,0,4,2.4,34.61,34.61,0,0,0,5.4,1.6q3,.64,6,1.35a63.83,63.83,0,0,1,6.25,1.7,20.58,20.58,0,0,1,5.4,2.65,12.91,12.91,0,0,1,3.8,4.15,12.16,12.16,0,0,1,1.45,6.2,14.42,14.42,0,0,1-1.95,7.8,15.24,15.24,0,0,1-5.1,5,21.27,21.27,0,0,1-7.1,2.65,42,42,0,0,1-7.85.75,36.35,36.35,0,0,1-8.2-.9,20.05,20.05,0,0,1-6.9-3,15.1,15.1,0,0,1-4.8-5.4,18.65,18.65,0,0,1-2-8.15h8.5a9.59,9.59,0,0,0,1.3,4.75,9.07,9.07,0,0,0,3.15,3.1,14,14,0,0,0,4.4,1.65,25.44,25.44,0,0,0,5,.5,31.2,31.2,0,0,0,4.2-.3,15.46,15.46,0,0,0,4-1.1,7.63,7.63,0,0,0,3.05-2.35,6.26,6.26,0,0,0,1.2-4,5.65,5.65,0,0,0-2.5-5,21.4,21.4,0,0,0-6.25-2.75q-3.75-1-8.15-1.9a42.84,42.84,0,0,1-8.15-2.4,16.82,16.82,0,0,1-6.25-4.35q-2.5-2.81-2.5-7.8a13,13,0,0,1,1.15-5.61L417.73,55.6h-8.5v0h8.5v58.2q0,6.9-3.35,10T405.33,127a22.44,22.44,0,0,1-4.3-.4v-7.3l.85.15a5.9,5.9,0,0,0,.75,0h1.8c1.87,0,3.13-.52,3.8-1.55s1-2.89,1-5.55v-6.35l-15.3-9.85v11.1h-11.1V96.2h11.1l15.3,9.85V70.94L383.72,54.39h0q-6.9-.19-11.4,2.8a23.05,23.05,0,0,0-7.6,9.3h-.2V55.6h-8v0h8V66.5h.2a23.05,23.05,0,0,1,7.6-9.3q4.5-3,11.4-2.8v9a24.11,24.11,0,0,0-8.7,1.4,13.71,13.71,0,0,0-5.8,4.1,17.08,17.08,0,0,0-3.2,6.55,35.23,35.23,0,0,0-1,8.85v23h-8.5V71.61L336.15,58.48h0a23.68,23.68,0,0,0-3.57-2,26.32,26.32,0,0,0-25.21,2,25.9,25.9,0,0,1,3.56-2,29,29,0,0,1,21.65,0,23.68,23.68,0,0,1,3.57,2,22,22,0,0,1,4.28,3.77,23.9,23.9,0,0,1,4.8,8.6,34.33,34.33,0,0,1,1.6,10.65q0,1.13-.06,2.22l-9.15-5.94a31,31,0,0,1,.21,3.68,25.5,25.5,0,0,1-1.25,8.35,17.28,17.28,0,0,1-3.45,6.1A14.71,14.71,0,0,1,328,99.66a15.67,15.67,0,0,1-12.5,0,14.89,14.89,0,0,1-5.15-3.75,17.59,17.59,0,0,1-3.45-6.1,28.51,28.51,0,0,1,0-16.7A18.31,18.31,0,0,1,310.33,67a14.91,14.91,0,0,1,5.15-3.8,15.67,15.67,0,0,1,12.5,0,14.72,14.72,0,0,1,5.15,3.8,18,18,0,0,1,3.45,6.15,22.81,22.81,0,0,1,1,4.67l9.15,5.94c0,.07,0,.14,0,.21a32.67,32.67,0,0,1-1.53,8.17,25.58,25.58,0,0,1-2,4.59,23.4,23.4,0,0,1-2.8,4,22.24,22.24,0,0,1-7.85,5.7,29.61,29.61,0,0,1-21.65,0,22.25,22.25,0,0,1-7.9-5.7,24.24,24.24,0,0,1-4.8-8.55,34.17,34.17,0,0,1-1.6-10.6,34.63,34.63,0,0,1,1.6-10.65,24.2,24.2,0,0,1,4.8-8.6,21.89,21.89,0,0,1,4.34-3.8L279.73,40.1h-8.5V55.6h-8.8v7.5h8.8v0h-8.8V55.6h8.8V40.1h8.5V55.6H290v7.5h-10.3V95.2a9.58,9.58,0,0,0,.25,2.4,2.51,2.51,0,0,0,.95,1.4,4.26,4.26,0,0,0,1.95.65,28.47,28.47,0,0,0,3.25.15H290v7.5h-6.5a30.55,30.55,0,0,1-5.65-.45,8.35,8.35,0,0,1-3.8-1.65,7.11,7.11,0,0,1-2.15-3.4,19.89,19.89,0,0,1-.7-5.8V80.65L258.14,72.2a20.62,20.62,0,0,0-2.4-8,18,18,0,0,0-4.85-5.55,20.12,20.12,0,0,0-6.8-3.25,31.28,31.28,0,0,0-8.25-1.05,25,25,0,0,0-10.7,2.15,21.26,21.26,0,0,0-7.65,5.9,24.72,24.72,0,0,0-4.25,7.84,24.72,24.72,0,0,1,4.25-7.84,21.26,21.26,0,0,1,7.65-5.9,25,25,0,0,1,10.7-2.15,31.28,31.28,0,0,1,8.25,1.05,20.12,20.12,0,0,1,6.8,3.25,18,18,0,0,1,4.85,5.55,20.62,20.62,0,0,1,2.4,8h-8.8a11.9,11.9,0,0,0-12.8-10.3,15.86,15.86,0,0,0-7.7,1.7,13.61,13.61,0,0,0-5,4.5,18.79,18.79,0,0,0-2.65,6.45,34.73,34.73,0,0,0-.8,7.55,28.61,28.61,0,0,0,.85,7,18.62,18.62,0,0,0,2.65,6.05,13.37,13.37,0,0,0,4.7,4.25,14,14,0,0,0,6.9,1.6q6.3,0,9.85-3.3a15,15,0,0,0,4.35-9.3h8.7Q257,98,251.29,103.2t-15.65,5.2a27,27,0,0,1-10.45-1.9,20.26,20.26,0,0,1-7.6-5.4,23.2,23.2,0,0,1-4.6-8.35,34.6,34.6,0,0,1-1.55-10.65,37.94,37.94,0,0,1,1.5-10.85q.13-.48.3-1h0L196.81,59.72a23.35,23.35,0,0,0-3.29-2.47,21.2,21.2,0,0,0-11.45-2.85,23.58,23.58,0,0,0-9.75,2,23,23,0,0,0-7.7,5.6,25.42,25.42,0,0,0-4.53,7.2,25.42,25.42,0,0,1,4.53-7.2,23,23,0,0,1,7.7-5.6,23.58,23.58,0,0,1,9.75-2,21.2,21.2,0,0,1,11.45,2.85,23.35,23.35,0,0,1,3.29,2.47,22.14,22.14,0,0,1,4,4.78,28.46,28.46,0,0,1,3.8,9.6,41.42,41.42,0,0,1,.88,8.16q0,.88,0,1.74H182.91l-11.63-7.54h-4.54a17.46,17.46,0,0,1,1.3-5.65,15.11,15.11,0,0,1,3-4.65A13.74,13.74,0,0,1,175.59,63a14.89,14.89,0,0,1,5.95-1.15A14.68,14.68,0,0,1,187.39,63a14.85,14.85,0,0,1,4.6,3.1,14.62,14.62,0,0,1,3.1,4.65,17.73,17.73,0,0,1,1.35,5.7H171.28L182.91,84H166.77a20.69,20.69,0,0,0,.8,6.45,14.71,14.71,0,0,0,2.9,5.4,14.35,14.35,0,0,0,5.1,3.75,17.67,17.67,0,0,0,7.3,1.4,14.69,14.69,0,0,0,8.85-2.5,12.08,12.08,0,0,0,4.55-7.6h8.4q-1.69,8.7-7.5,13.1t-14.6,4.4a26.65,26.65,0,0,1-10.75-2,21.21,21.21,0,0,1-7.65-5.6,24,24,0,0,1-4.65-8.6,41.86,41.86,0,0,1-1.75-10.9,31.14,31.14,0,0,1,1.8-10.8c.17-.44.34-.87.52-1.3h0L108.77,35.9l20.4,61.9h.2L150,35.9h9.9l-25.4,71.4h-10.8L98.57,35.9h10.2&amp;#34;; let control = interactive.control(0, 0); let scrubber = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Animate Along Path</title>
+      <link>https://vectorjs.org/examples/animate-along-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/animate-along-path/</guid>
+      <description>/** * @title Animate Along Path * @description This interactive demonstrates how a element can be animated along a path. * @tags [animation] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 225; interactive.border = true; let circle = interactive.circle(interactive.width / 2, interactive.height / 3, 50); circle.classList.add(&amp;#39;default&amp;#39;); let displayCircle = interactive.circle(0, 0, 6); displayCircle.style.fill = &amp;#39;#333333&amp;#39;; let scrubber = interactive.scrubber(100, 175, 468); let pathLength = circle.</description>
+    </item>
+    
+    <item>
+      <title>Area Between Two Vectors</title>
+      <link>https://vectorjs.org/examples/area-between-two-vectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/area-between-two-vectors/</guid>
+      <description>/** * @title Area Between Two Vectors * @description This interactive demonstrates the area formed between two vectors. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.classList.add(&amp;#39;default&amp;#39;); interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create a control let c0 = interactive.control(-180, 50); let c1 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Area Between Two Vectors</title>
+      <link>https://vectorjs.org/examples/triangle-area-between-two-vectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/triangle-area-between-two-vectors/</guid>
+      <description>/** * @title Area Between Two Vectors * @description This interactive demonstrates the area formed between two vectors. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create a control let c0 = interactive.control(-180, 50); let c1 = interactive.control(-20, -60); let c2 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Arrow Element</title>
+      <link>https://vectorjs.org/examples/arrow-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/arrow-element/</guid>
+      <description>/** * @title Arrow Element * @description This interactive demonstrates the path element. * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; // let arrow = interactive.arrow() //# sourceMappingURL=arrow-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Button Element</title>
+      <link>https://vectorjs.org/examples/button-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/button-element/</guid>
+      <description>/** * @title Button Element * @description The button element is a user clickable button with some text inside of it. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let button = interactive.button(100, 75, &amp;#34;My Button&amp;#34;); // interactive.button( 250, 75, &amp;#34;a&amp;#34;); // interactive.button( 400, 75, &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;); //# sourceMappingURL=button-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System</title>
+      <link>https://vectorjs.org/examples/cartesian-coordinate-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cartesian-coordinate-system/</guid>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); // interactive.border = true;  interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System (Continuous)</title>
+      <link>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</guid>
+      <description>/** * @title Cartesian Coordinate System (Continuous) * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); // interactive.border = true;  interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System First Quadrant</title>
+      <link>https://vectorjs.org/examples/cartesian-coordinate-system-first-quadrant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cartesian-coordinate-system-first-quadrant/</guid>
+      <description>/** * @title Cartesian Coordinate System First Quadrant * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let width = 600; let height = 300; let interactive = new Interactive(getScriptName(), { width: width + 2 * margin, height: height + 2 * margin, originX: margin, originY: height + margin }); // interactive.</description>
+    </item>
+    
+    <item>
+      <title>Checkbox Element</title>
+      <link>https://vectorjs.org/examples/check-box-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/check-box-element/</guid>
+      <description>/** * @title Checkbox Element * @description This interactive demonstrates the checkbox element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let checkBox = interactive.checkBox(100, 75, &amp;#34;My Checkbox&amp;#34;, false); //# sourceMappingURL=check-box-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Circle</title>
+      <link>https://vectorjs.org/svg/elements/circle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/circle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circle Defined By Three Points</title>
+      <link>https://vectorjs.org/examples/circle-defined-by-three-points/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/circle-defined-by-three-points/</guid>
+      <description>/** * @title Circle Defined By Three Points * @description An interactive that demonstrates how a circle can be uniquely described by thee points. * @tags [math] * @date July 8, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Clip Path</title>
+      <link>https://vectorjs.org/svg/elements/clip-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/clip-path/</guid>
+      <description>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.
+&amp;lt;g clip-path=&amp;#34;url(#my-clip-path)&amp;#34;&amp;gt; &amp;lt;!-- grid of rectangles ... --&amp;gt; &amp;lt;/g&amp;gt; &amp;lt;clipPath id=&amp;#34;my-clip-path&amp;#34;&amp;gt; &amp;lt;circle cx=&amp;#34;300&amp;#34; cy=&amp;#34;150&amp;#34; r=&amp;#34;50&amp;#34;&amp;gt;&amp;lt;/circle&amp;gt; &amp;lt;/clipPath&amp;gt; Click and drag the clip path below to change the position of the circle that defines the clipping path.</description>
+    </item>
+    
+    <item>
+      <title>Control Circle Element</title>
+      <link>https://vectorjs.org/examples/control-circle-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/control-circle-element/</guid>
+      <description>/** * @title Control Circle Element * @description This interactive demonstrates a draggable circle. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.controlCircle(100, 75); //# sourceMappingURL=control-circle-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Control Element</title>
+      <link>https://vectorjs.org/examples/control-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/control-element/</guid>
+      <description>/** * @title Control Element * @description This interactive demonstrates a draggable point. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.control(100, 75); //# sourceMappingURL=control-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Cosine Plot</title>
+      <link>https://vectorjs.org/examples/cosine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cosine/</guid>
+      <description>/** * @title Cosine Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; // Create a new graph object let scale = 300 / Math.PI; interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); //# sourceMappingURL=cosine.</description>
+    </item>
+    
+    <item>
+      <title>Country Selection</title>
+      <link>https://vectorjs.org/examples/country-selection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/country-selection/</guid>
+      <description>/** * @title Country Selection * @description Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;#6be88c&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.3 }); let inputContainer = document.</description>
+    </item>
+    
+    <item>
+      <title>Cubic Bezier Curve</title>
+      <link>https://vectorjs.org/examples/bezier-curve-cubic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/bezier-curve-cubic/</guid>
+      <description>/** * @title Cubic Bezier Curve * @description This interactive demonstrates the cubic bezier command for a SVG path element. There are four control points that allow the user to control the shape of the bezier curve that is drawn. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); let l3 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Definitions</title>
+      <link>https://vectorjs.org/svg/elements/defs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/defs/</guid>
+      <description>The Defs element allows for graphic elements to be defined for use elsewhere in the document.</description>
+    </item>
+    
+    <item>
+      <title>Dependency Relation</title>
+      <link>https://vectorjs.org/examples/dependency-function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/dependency-function/</guid>
+      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; //# sourceMappingURL=dependency-function.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Derek</title>
+      <link>https://vectorjs.org/team/derek/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/derek/</guid>
+      <description>TODO: A brief description about this person.</description>
+    </item>
+    
+    <item>
+      <title>Directed Graph Element</title>
+      <link>https://vectorjs.org/examples/directed-graph-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/directed-graph-element/</guid>
+      <description>/** * @title Directed Graph Element * @description This interactive demonstrates the directed graph element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph({ directed: true }); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=directed-graph-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Distance Between Two Points 2D</title>
+      <link>https://vectorjs.org/examples/distance-between-two-points-2d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/distance-between-two-points-2d/</guid>
+      <description>/** * @title Distance Between Two Points 2D * @description This interactive demonstrates how to calculate the distance between two points in two dimensions. * @tags [math] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.window = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create two control points let p1 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Ellipse</title>
+      <link>https://vectorjs.org/svg/elements/ellipse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/ellipse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ellipse Element</title>
+      <link>https://vectorjs.org/examples/ellipse-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/ellipse-element/</guid>
+      <description>/** * @title Ellipse Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let ellipse = interactive.ellipse(100, 75, 80, 40); //# sourceMappingURL=ellipse-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Group</title>
+      <link>https://vectorjs.org/svg/elements/group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/group/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Interactive Coordinate System</title>
+      <link>https://vectorjs.org/examples/coordinate-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/coordinate-system/</guid>
+      <description>/** * @ignore true * @title Interactive Coordinate System * @description This interactive demonstrates the coordinate system of the Vector.js library. * @tags [] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.window = true; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; // Create three control points let point = interactive.control(0, 0); let xAxis = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Interactive SVG Circle</title>
+      <link>https://vectorjs.org/examples/svg-circle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-circle/</guid>
+      <description>/** * @title Interactive SVG Circle * @description This interactive demonstrates the basic properties of the SVG Circle Element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let circle = interactive.circle(0, 0, 0); let l1 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; let text = interactive.text(25, 275, &amp;#34;&amp;#34;); let centerControl = interactive.control(300, 150); let radiusControl = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Interactive SVG Clip Path</title>
+      <link>https://vectorjs.org/examples/svg-clip-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-clip-path/</guid>
+      <description>/** * @title Interactive SVG Clip Path * @description This interactive demonstrates how a clip path is applied to another element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; interactive.height = 300; interactive.originX = 0; interactive.originY = 0; // Draw a grid of squares let size = 30; let counter = 0; for (let i = 0; i &amp;lt; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Josh</title>
+      <link>https://vectorjs.org/team/josh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/josh/</guid>
+      <description>I am 23 years old and graduating this semester with a degree in Computer Science. Some of my favorite hobbies are video games, puzzles, and running. My academic interests outside of computing include sociology, art, and world religion. My interest in this project comes from creating geographic weather interactives, and seeing how challening it was to use existing tools.</description>
+    </item>
+    
+    <item>
+      <title>Keyboard</title>
+      <link>https://vectorjs.org/examples/keyboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/keyboard/</guid>
+      <description>/** * @title Keyboard * @description This interactive demonstrates how key board input can be used to add interactivity. * @tags [input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 300; interactive.border = true; let buffer = &amp;#39;&amp;#39;; let keys = [[&amp;#39;`&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;3&amp;#39;, &amp;#39;4&amp;#39;, &amp;#39;5&amp;#39;, &amp;#39;6&amp;#39;, &amp;#39;7&amp;#39;, &amp;#39;8&amp;#39;, &amp;#39;9&amp;#39;, &amp;#39;0&amp;#39;, &amp;#39;-&amp;#39;, &amp;#39;=&amp;#39;, &amp;#39;Backspace&amp;#39;], [&amp;#39;tab&amp;#39;, &amp;#39;q&amp;#39;, &amp;#39;w&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;t&amp;#39;, &amp;#39;y&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;[&amp;#39;, &amp;#39;]&amp;#39;, &amp;#39;\\&amp;#39;], [&amp;#39;CapsLock&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;s&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;f&amp;#39;, &amp;#39;g&amp;#39;, &amp;#39;h&amp;#39;, &amp;#39;j&amp;#39;, &amp;#39;k&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;;&amp;#39;, &amp;#39;\&amp;#39;&amp;#39;, &amp;#39;Enter&amp;#39;], [&amp;#39;Shift&amp;#39;, &amp;#39;z&amp;#39;, &amp;#39;x&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;v&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;n&amp;#39;, &amp;#39;m&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>Keyboard Input</title>
+      <link>https://vectorjs.org/examples/key-board-input/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/key-board-input/</guid>
+      <description>/** * @title Keyboard Input * @description This interactive demonstrates how key board input can be used to add interactivity. * @tags [input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let keys = []; let textKeys = []; for (let i = 0; i &amp;lt; 5; i++) { let x = i * 100 + 25; let y = 75 - 32; let rectangle = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Kurt</title>
+      <link>https://vectorjs.org/team/kurt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/kurt/</guid>
+      <description>I am a senior graduating this december with a computer science degree. In addition to this project I also built a website about math that utilizes this library to create interactive math visuals. I am currently looking for a job where I can continue to learn, meet new people, and develop good software.</description>
+    </item>
+    
+    <item>
+      <title>Line</title>
+      <link>https://vectorjs.org/svg/elements/line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/line/</guid>
+      <description>This interactive demonstrates the properties of the SVG line element.
+  </description>
+    </item>
+    
+    <item>
+      <title>Line Defined by Two Points</title>
+      <link>https://vectorjs.org/examples/line-defined-by-two-points/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/line-defined-by-two-points/</guid>
+      <description>/** * @title Line Defined by Two Points * @description This interactive demonstrates how a line is uniquely defined by two points. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; // Create three control points let p1 = interactive.control(200, 100); let p2 = interactive.control(400, 200); addLineBetweenPoints(p1, p2); // Draws a line between two points function addLineBetweenPoints(point1, point2) { let line = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Line Element</title>
+      <link>https://vectorjs.org/examples/line-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/line-element/</guid>
+      <description>/** * @title Line Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.line(50, 25, 150, 125); //# sourceMappingURL=line-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Load External Data</title>
+      <link>https://vectorjs.org/tutorials/load-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/tutorials/load-data/</guid>
+      <description>getJSON(&amp;#39;https://example.com/path/to/data.json&amp;#39;).then(function(response){ console.log(&amp;#34;Here is the response&amp;#34;, response); }, function(error) { console.log(&amp;#34;Something went wrong&amp;#34;, error); });  References: JavaScript Promises: an Introduction</description>
+    </item>
+    
+    <item>
+      <title>Load External SVG</title>
+      <link>https://vectorjs.org/examples/load-external-svg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/load-external-svg/</guid>
+      <description>/** * @title Load External SVG * @description This interactive demonstrates how to load and use an external svg. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { getURL } from &amp;#39;../../util/file.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); // let svg = myInteractive.loadSVG(&amp;#39;/resources/maps/united-states.svg&amp;#39;); // svg.then(function(data){ // console.log(data.root); // let bbox = (data.root.firstElementChild as SVGGraphicsElement).getBBox(); // myInteractive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height); // }) getURL(&amp;#39;/resources/maps/united-states.</description>
+    </item>
+    
+    <item>
+      <title>Map Zoom</title>
+      <link>https://vectorjs.org/examples/map-zoom-feature/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/map-zoom-feature/</guid>
+      <description>/** * @title Map Zoom * @description Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;red&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.5 }); let inputContainer = document.</description>
+    </item>
+    
+    <item>
+      <title>Marker</title>
+      <link>https://vectorjs.org/svg/elements/marker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/marker/</guid>
+      <description>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</description>
+    </item>
+    
+    <item>
+      <title>Merge Sort Interactive</title>
+      <link>https://vectorjs.org/examples/merge-sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/merge-sort/</guid>
+      <description>/** * @title Merge Sort Interactive * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree. * @tags [algorithm, graph] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 704; interactive.height = 400; interactive.border = true; let graph = interactive.graph({ directed: false }); // let leftButton = interactive.icon(5, 345, 50, 50, &amp;#34;animation&amp;#34;); // let rightButton = interactive.icon(649, 345, 50, 50, &amp;#34;animation&amp;#34;); let nodeCounterMax = 1; let nodeCountTo = 0; let allArrays = []; // this HTML input element controls the current tree being drawn let input = document.</description>
+    </item>
+    
+    <item>
+      <title>Mouse Input</title>
+      <link>https://vectorjs.org/examples/mouse-interaction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/mouse-interaction/</guid>
+      <description>/** * @title Mouse Input * @description This interactive demonstrates how mouse input can be used to add interactivity. * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position. * @tags [input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 200; interactive.border = true; let control = interactive.control(100, 100); control.</description>
+    </item>
+    
+    <item>
+      <title>Number Line</title>
+      <link>https://vectorjs.org/examples/number-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/number-line/</guid>
+      <description>/** * @title Number Line * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName(), { height: 100 }); interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Path</title>
+      <link>https://vectorjs.org/svg/elements/path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/path/</guid>
+      <description>The path element is notorious for its power and difficulty. The path element has one attribute, the &amp;ldquo;d&amp;rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.
+&amp;lt;path d=&amp;#34;...&amp;#34;&amp;gt;&amp;lt;/path&amp;gt; Commands    Name Syntax     Move To M x y   Line L x y   Quadratic Bezier Q x1 y1 x2 y2   Cubic Bezier C x1 y1 x2 y2 x3 y3   Arc A rx ry x-axis-rotation large-arc-flag sweep-flag x y   Close Z    Path: Move To Command Every path starts with a move command which describes where the path starts.</description>
+    </item>
+    
+    <item>
+      <title>Path Element</title>
+      <link>https://vectorjs.org/examples/path-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/path-element/</guid>
+      <description>/** * @title Path Element * @description This interactive demonstrates the path element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;); //# sourceMappingURL=path-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Pattern</title>
+      <link>https://vectorjs.org/svg/elements/pattern/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plot Element</title>
+      <link>https://vectorjs.org/examples/plot-element-experimental/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/plot-element-experimental/</guid>
+      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; let functionText = &amp;#39;Math.cos&amp;#39;; // Create a new graph object let scaleX = 300 / Math.PI; let scaleY = 300 / Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scaleX, scaleY: scaleY, zoomable: true, controls: true }); // Function input let functionInput = document.</description>
+    </item>
+    
+    <item>
+      <title>Plot Element</title>
+      <link>https://vectorjs.org/examples/plot-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/plot-element/</guid>
+      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; let plot = interactive.plot(600, 300, Math.sin, { x: 50, y: 50, originX: 0, originY: 150, scaleX: 300 / Math.</description>
+    </item>
+    
+    <item>
+      <title>Point Where Two Lines Intersect</title>
+      <link>https://vectorjs.org/examples/point-where-two-lines-intersect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/point-where-two-lines-intersect/</guid>
+      <description>/** * @title Point Where Two Lines Intersect * @description This interactive demonstrates the point where two lines intersect. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; import { PointWhereTwoLinesIntersect } from &amp;#39;../../util/math.js&amp;#39;; // Initialize the interactive let id = &amp;#39;point-where-two-lines-intersect&amp;#39;; let interactive = new Interactive(id); interactive.border = true; // Create three control points let p1 = interactive.control(200, 200); let p2 = interactive.control(300, 100); let p3 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Polar Coordinate System</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system/</guid>
+      <description>/** * @title Polar Coordinate System * @description This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin. * @tags [math] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Create the constant TAU  const TAU = 2 * Math.PI; // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Polygon</title>
+      <link>https://vectorjs.org/svg/elements/polygon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/polygon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Overview</title>
+      <link>https://vectorjs.org/project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/project/</guid>
+      <description>This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah.
+Abstract Vector.js is an open source Javascript library for creating interactive vector graphics. The library uses existing web standards: HTML, SVG, CSS, and geoJSON making it easy to use with existing tools and libraries. The target audience for the library is technical users who want to create &amp;ldquo;interactive&amp;rdquo; content for the web.</description>
+    </item>
+    
+    <item>
+      <title>Quadratic Bezier Curve</title>
+      <link>https://vectorjs.org/examples/bezier-curve-quadratic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/bezier-curve-quadratic/</guid>
+      <description>/** * @title Quadratic Bezier Curve * @description This interactive demonstrates a quadratic bezier curve. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; l2.stroke = &amp;#39;cornflowerblue&amp;#39;; let path = interactive.path(&amp;#39;&amp;#39;); path.classList.add(&amp;#39;default&amp;#39;); let c1 = interactive.control(150, 100); let c2 = interactive.control(300, 200); let c3 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Radio Control Element</title>
+      <link>https://vectorjs.org/examples/radio-control-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/radio-control-element/</guid>
+      <description>/** * @title Radio Control Element * @description This interactive demonstrates the radio control element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let radio = interactive.radioControl(100, 50, [&amp;#34;red&amp;#34;, &amp;#34;green&amp;#34;, &amp;#34;blue&amp;#34;]); // let ellipse = interactive.ellipse(400,75,50,50); // ellipse.addDependency(radio); // ellipse.update = function(){ // ellipse.style.fill = radio.getCurrentValue(); // } // ellipse.update(); //# sourceMappingURL=radio-control-element.</description>
+    </item>
+    
+    <item>
+      <title>Random Colored Countires</title>
+      <link>https://vectorjs.org/examples/random-color-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/random-color-world/</guid>
+      <description>/** * @title Random Colored Countires * @description Randomly colors the countries in the world. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; let map = interactive.map(data.globalData); let countries = map.getAllFeaturePaths(); countries.forEach(element =&amp;gt; { element.style.fill = getRandomColor(); }); function getRandomColor() { var letters = &amp;#39;0123456789ABCDEF&amp;#39;; var color = &amp;#39;#&amp;#39;; for (var i = 0; i &amp;lt; 6; i++) { color += letters[Math.</description>
+    </item>
+    
+    <item>
+      <title>Rectangle</title>
+      <link>https://vectorjs.org/svg/elements/rectangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/rectangle/</guid>
+      <description>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.
+  </description>
+    </item>
+    
+    <item>
+      <title>Rectangle Element</title>
+      <link>https://vectorjs.org/examples/rectangle-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/rectangle-element/</guid>
+      <description>/** * @title Rectangle Element * @description This interactive demonstrates the rectangle element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.rectangle(50, 50, 100, 50); //# sourceMappingURL=rectangle-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Right Triangle</title>
+      <link>https://vectorjs.org/examples/right-triangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/right-triangle/</guid>
+      <description>/** * @title Right Triangle * @description This interactive demonstrates the properties of a right triangle. * @tags [math] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create two control points let p1 = interactive.control(100, -80); let p2 = interactive.control(-100, 80); let group = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Scrubber Element</title>
+      <link>https://vectorjs.org/examples/scrubber-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/scrubber-element/</guid>
+      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // let test = new Interactive(getScriptName()); // test.width = 768; // test.height = 200; // test.svg.style.border = &amp;#34;1px solid grey&amp;#34;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Secant</title>
+      <link>https://vectorjs.org/examples/plot-secant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/plot-secant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Secant Plot</title>
+      <link>https://vectorjs.org/examples/secant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/secant/</guid>
+      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let secant = (x) =&amp;gt; { return 1 / Math.cos(x); }; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Slider Element</title>
+      <link>https://vectorjs.org/examples/slider-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/slider-element/</guid>
+      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, }); //# sourceMappingURL=slider-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>State Quiz</title>
+      <link>https://vectorjs.org/examples/state-quiz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/state-quiz/</guid>
+      <description>/** * @title State Quiz * @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you&amp;#39;re correct! If you want some help, press the &amp;#39;/&amp;#39; key. * @tags [elements, maps, games] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let correctCounter = 0; let incorrectCounter = 0; let interactive = new Interactive(getScriptName()); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Style</title>
+      <link>https://vectorjs.org/svg/elements/style/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/style/</guid>
+      <description>The style element defines CSS that is applied to elements through a combination of selectors.
+&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>SVG</title>
+      <link>https://vectorjs.org/svg/elements/svg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/svg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVG Coordinate System</title>
+      <link>https://vectorjs.org/examples/svg-coordinate-system-moved/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-coordinate-system-moved/</guid>
+      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let width = 736; let height = 300; let interactive = new Interactive(getScriptName()); let margin = 0; interactive.width = width + 2 * margin; interactive.height = height + 2 * margin; interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Coordinate System</title>
+      <link>https://vectorjs.org/examples/svg-coordinate-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-coordinate-system/</guid>
+      <description>/** * @title SVG Coordinate System * @description This interactive demonstrates the properties of the SVG coordinate system. * @date July 11, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); let margin = 0; interactive.width = 692; interactive.height = 300; interactive.originX = margin; interactive.originY = margin; interactive.root.style.overflow = &amp;#39;visible&amp;#39;; interactive.root.style.marginLeft = &amp;#39;6px&amp;#39;; let rectangle = interactive.rectangle(0, 0, interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Ellipse Element</title>
+      <link>https://vectorjs.org/examples/svg-ellipse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-ellipse/</guid>
+      <description>/** * @title SVG Ellipse Element * @description This interactive demonstrates the SVG ellipse element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let ellipse = interactive.ellipse(0, 0, 0, 0); ellipse.classList.add(&amp;#39;default&amp;#39;); let l1 = interactive.line(0, 0, 0, 0); let l2 = interactive.line(0, 0, 0, 0); l1.</description>
+    </item>
+    
+    <item>
+      <title>SVG Line</title>
+      <link>https://vectorjs.org/examples/svg-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-line/</guid>
+      <description>/** * @title SVG Line * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let line = interactive.line(0, 0, 0, 0); line.classList.add(&amp;#39;default&amp;#39;); let c1 = interactive.control(150, 200); let c2 = interactive.control(450, 100); let text = interactive.text(25, 275, &amp;#34;&amp;#34;); line.</description>
+    </item>
+    
+    <item>
+      <title>SVG Marker</title>
+      <link>https://vectorjs.org/examples/svg-marker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-marker/</guid>
+      <description>/** * @title SVG Marker * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; // interactive.marker(); //# sourceMappingURL=svg-marker.js.map  </description>
+    </item>
+    
+    <item>
+      <title>SVG Path Arc Command</title>
+      <link>https://vectorjs.org/examples/svg-path-arc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-path-arc/</guid>
+      <description>/** * @title SVG Path Arc Command * @description This interactive demonstrates the Path Element&amp;#39;s Arc command. At a high level the command draws an arc using the shape of an ellipse between two points. * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 500; let path = interactive.path(&amp;#39;&amp;#39;); path.classList.add(&amp;#39;default&amp;#39;); let start = interactive.control(100, 120); let control = interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Path Cubic Bezier Curve</title>
+      <link>https://vectorjs.org/examples/svg-path-bezier-cubic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-path-bezier-cubic/</guid>
+      <description>/** * @title SVG Path Cubic Bezier Curve * @description This interactive demonstrates the cubic bezier command for a SVG path element. There are four control points that allow the user to control the shape of the bezier curve that is drawn. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Path Element Line Command</title>
+      <link>https://vectorjs.org/examples/svg-path-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-path-line/</guid>
+      <description>/** * @title SVG Path Element Line Command * @description This interactive demonstrates the line command for the SVG path element. There are two controls that allow the user to control the start and end points of the line. There is also a checkbox that allows the user to toggle between relative and absolute commands * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>SVG Path Quadratic Bezier Curve</title>
+      <link>https://vectorjs.org/examples/svg-path-bezier-quadratic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-path-bezier-quadratic/</guid>
+      <description>/** * @title SVG Path Quadratic Bezier Curve * @description This interactive demonstrates the quadratic bezier command for a SVG path element. There are three control points that allow the user to control the shape of the bezier curve that is drawn. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Rectangle Element</title>
+      <link>https://vectorjs.org/examples/svg-rectangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-rectangle/</guid>
+      <description>/** * @title SVG Rectangle Element * @description This interactive demonstrates the SVG rectangle element and its attributes. * @author Kurt Bruns * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let rect = interactive.rectangle(0, 0, 0, 0); rect.classList.add(&amp;#39;default&amp;#39;); let c1 = interactive.control(150, 100); let c2 = interactive.control(450, 200); let text = interactive.text(25, 275, &amp;#34;&amp;#34;); c2.update = function () { this.</description>
+    </item>
+    
+    <item>
+      <title>SVG Transform Attribute</title>
+      <link>https://vectorjs.org/examples/svg-transform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-transform/</guid>
+      <description>/** * @title SVG Transform Attribute * @description This interactive demonstrates how the transform attribute can be used to transform SVG elements * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 60; interactive.originX = 75; interactive.originY = 75; let translateGroup = interactive.group(); let scaleGroup = interactive.group(); let rotateGroup = interactive.group(); let group = interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Transform Rotate Attribute</title>
+      <link>https://vectorjs.org/examples/svg-rotate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-rotate/</guid>
+      <description>/** * @title SVG Transform Rotate Attribute * @description This interactive how the rotate transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 50; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; let group = interactive.group(); let r1 = interactive.rectangle(0, 0, w, w); let r2 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Transform Scale Attribute</title>
+      <link>https://vectorjs.org/examples/svg-scale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-scale/</guid>
+      <description>/** * @title SVG Transform Scale Attribute * @description This interactive how the scale transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 60; interactive.originX = 75; interactive.originY = 75; let group = interactive.group(); let r1 = interactive.rectangle(0, 0, w, w); let r2 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG Transform Translate Attribute</title>
+      <link>https://vectorjs.org/examples/svg-translate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-translate/</guid>
+      <description>/** * @title SVG Transform Translate Attribute * @description This interactive how the translate transformation can be applied to a SVG element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 300; interactive.border = true; let w = 50; interactive.originX = interactive.width / 2 - w; interactive.originY = interactive.height / 2 - w; let group = interactive.group(); let r1 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>SVG View Box Attribute</title>
+      <link>https://vectorjs.org/examples/svg-view-box/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/svg-view-box/</guid>
+      <description>/** * @title SVG View Box Attribute * @description This interactive demonstrates how the view box attribute can be applied to a SVG element to change the view port of the image. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let viewBoxControl = new Interactive(getScriptName()); viewBoxControl.border = true; viewBoxControl.width = 736 / 2; let viewBox = new Interactive(getScriptName()); viewBox.border = true; viewBox.width = 736 / 2; let margin = 30; for (let i = margin; i &amp;lt; viewBoxControl.</description>
+    </item>
+    
+    <item>
+      <title>Symbol</title>
+      <link>https://vectorjs.org/svg/elements/symbol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/symbol/</guid>
+      <description>The symbol element is a non-rendered element that allows for repeated use.</description>
+    </item>
+    
+    <item>
+      <title>Text</title>
+      <link>https://vectorjs.org/svg/elements/text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/text/</guid>
+      <description>The text element allows user to display text within the SVG document.</description>
+    </item>
+    
+    <item>
+      <title>Text Element</title>
+      <link>https://vectorjs.org/examples/text-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/text-element/</guid>
+      <description>/** * @title Text Element * @description This interactive demonstrates the text element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.text(50, 75, &amp;#34;My Text&amp;#34;); //# sourceMappingURL=text-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Text Span</title>
+      <link>https://vectorjs.org/svg/elements/t-span/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/t-span/</guid>
+      <description>The text span element allows user to define spanning text.</description>
+    </item>
+    
+    <item>
+      <title>Text Span Element</title>
+      <link>https://vectorjs.org/examples/tspan-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/tspan-element/</guid>
+      <description>/** * @title Text Span Element * @description This interactive demonstrates the text span element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.style.border = &amp;#34;1px solid grey&amp;#34;; // Pose the question interactive.text(50, 55, &amp;#34;Would you like more coffee?&amp;#34;); // Generic Answer let responseString = &amp;#39;Coffee, you think I want more coffee? Boy do I need more coffee.</description>
+    </item>
+    
+    <item>
+      <title>Triangle</title>
+      <link>https://vectorjs.org/examples/triangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/triangle/</guid>
+      <description>/** * @title Triangle * @description This interactive demonstrates an angle formed by three points. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; // Create three control points let p1 = interactive.control(250, 200); let p2 = interactive.control(300, 100); let p3 = interactive.control(350, 200); // Draw three lines between them addLineBetweenPoints(p1, p2); addLineBetweenPoints(p2, p3); addLineBetweenPoints(p3, p1); // Draws a line between two points function addLineBetweenPoints(point1, point2) { let line = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Triangle Law of Sines</title>
+      <link>https://vectorjs.org/examples/triangle-law-of-sines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/triangle-law-of-sines/</guid>
+      <description>/** * @title Triangle Law of Sines * @description This interactive demonstrates the relationship between two angles within a triangle. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; import { PointWhereTwoLinesIntersect } from &amp;#39;../../util/math.js&amp;#39;; // Initialize the interactive let id = &amp;#39;triangle-law-of-sines&amp;#39;; let interactive = new Interactive(id); interactive.window = true; // Create three control points let p1 = interactive.control(300, 75); let p2 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Trigonometric Functions</title>
+      <link>https://vectorjs.org/examples/trigonometric-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/trigonometric-functions/</guid>
+      <description>/** * @title Trigonometric Functions * @description This interactive shows the connection between the three trigonometric functions and the unit circle. * @tags [math] */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let width = 230; let scale = width / Math.PI; let radius = scale; let margin = 2 * radius - width / 2; // let functions = [Math.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/approximate-tau/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/approximate-tau/</guid>
+      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.height = 400; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2 - 30; let circle = interactive.circle(0, 0, 75); circle.style.stroke = &amp;#39;#0366EE&amp;#39;; let insidePolygon = interactive.path(&amp;#39;&amp;#39;); let outsidePolygon = interactive.path(&amp;#39;&amp;#39;); let slider = interactive.slider(-100, 170, { width: 200, min: 3, max: 16, step: 1 }); insidePolygon.addDependency(slider); // insidePolygon.style.fill = &amp;#39;#f8f8f8&amp;#39;; insidePolygon.update = function () { let n = Math.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/degrees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/degrees/</guid>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/modular-arithmetic-number-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/modular-arithmetic-number-line/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = 0; interactive.originY = interactive.height / 2; ; let margin = 30; let input = interactive.control(margin + 163, 0); let n = interactive.control(margin + 100, margin); let line = interactive.line(interactive.minX + margin, 0, interactive.maxX - margin, 0); let mod = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/normal-distribution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/normal-distribution/</guid>
+      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; interactive.border = true; // Create a new graph object let s = 100; let u = 300; let f = (x) =&amp;gt; { return 1 / (s * Math.sqrt(2 * Math.PI)) * Math.pow(Math.E, -(x - u) * (x - u) / (2 * s * s)); }; let graph = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system-degrees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system-degrees/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; // Initialize the interactive // let margin = 32; let interactive = new Interactive(getScriptName()); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system-pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system-pi/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system-radians/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system-radians/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; interactive.classList.add(&amp;#39;default&amp;#39;); // Create three control points  let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/radians/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/radians/</guid>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.control(0, 0); let radius = 45; let n = 3; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/sine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/sine/</guid>
+      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(600, 300, Math.sin, { x: 50, y: 50, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); let group = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/trig-functions-temp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/trig-functions-temp/</guid>
+      <description>/* * @ignore true */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let scale = 300 / Math.PI; let margin = 2 * scale - 150; interactive.height = 2 * 300 + margin; interactive.width = 300 + margin + 600; // let functions = [Math.cos, Math.sin, Math.tan]; let functions = [Math.cos, Math.sin]; class NumberWrapper extends Group { constructor(value) { super(); this.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</guid>
+      <description>/** * @ignore true */ // // import {Interactive, getScriptName} from &amp;#39;../../index.js&amp;#39;; // // // Initialize the interactive // let interactive = new Interactive(getScriptName()); // interactive.window = true; // interactive.width = 600; // interactive.height = 600; // interactive.originX = interactive.width/2; // interactive.originY = 225; // // // Create a circle // let circle = interactive.circle( 0, 0, 125); // let line = interactive.line( 0, 0, circle.r, 0); // let margin = 0; // let yAxis = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/vector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/vector/</guid>
+      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); // interactive.border = true; interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.height += 2 * margin; // interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let xAxis = interactive.line(-interactive.width / 2 + margin, 0, interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/zoom-pan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/zoom-pan/</guid>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#34;../../index.js&amp;#34;; export default class ZoomAndPan extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.root.getBoundingClientRect(); this.width = width; this.height = height; // initialize variables  this.zoomIntensity = .02; this.scale = 1; this.originx = 0; this.originy = 0; this.visibleWidth = this.width; this.visibleHeight = this.height; this.active = false; this.prevX = 0; this.</description>
+    </item>
+    
+    <item>
+      <title>Undirected Graph Element</title>
+      <link>https://vectorjs.org/examples/undirected-graph-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/undirected-graph-element/</guid>
+      <description>/** * @title Undirected Graph Element * @description This interactive demonstrates the undirected graph element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph({ directed: false }); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=undirected-graph-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Unit Circle</title>
+      <link>https://vectorjs.org/examples/unit-circle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle/</guid>
+      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent. * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive, BaseElement } from &amp;#39;../../index.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; /** * This wrapper object is how the circular dependecy between control elements is * made more simple. Since all of the elements depend on the current angle when * an input is changed then this element is updated and the change is * propegated through the dependency graph.</description>
+    </item>
+    
+    <item>
+      <title>Unit Circle Angle</title>
+      <link>https://vectorjs.org/examples/unit-circle-angle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle-angle/</guid>
+      <description>/** * @title Unit Circle Angle * @description An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.window = false; interactive.width = 320; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Unit Circle Cosine</title>
+      <link>https://vectorjs.org/examples/unit-circle-cosine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle-cosine/</guid>
+      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
+    </item>
+    
+    <item>
+      <title>Unit Circle Fixed Angle</title>
+      <link>https://vectorjs.org/examples/angle-fixed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/angle-fixed/</guid>
+      <description>/** * @title Unit Circle Fixed Angle * @description An interactive to demonstrate how the radius of a circle can be used to measure the angle between two rays. * @tags [math] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let id = &amp;#39;unit-circle-angle&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.window = false; interactive.width = 320; interactive.height = 340; interactive.originX = interactive.width / 2; interactive.</description>
+    </item>
+    
+    <item>
+      <title>Unit Circle Right Triangle</title>
+      <link>https://vectorjs.org/examples/unit-circle-right-triangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle-right-triangle/</guid>
+      <description>/** * @title Unit Circle Right Triangle * @description This interactive demonstrates how a point along the circumference of the unit circle forms a right triangle with the adjacent side corresponding to the x-position of the point and the opposite side corresonding to the y-position of the point. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Unit Circle Sine</title>
+      <link>https://vectorjs.org/examples/unit-circle-sine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle-sine/</guid>
+      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
+    </item>
+    
+    <item>
+      <title>Use</title>
+      <link>https://vectorjs.org/svg/elements/use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/use/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vector.js Hello World</title>
+      <link>https://vectorjs.org/examples/hello-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/hello-world/</guid>
+      <description>/** * @title Vector.js Hello World * @description Hi! * @tags [] * @ignore true */ import Interactive from &amp;#39;../interactive.js&amp;#39;; let interactive = new Interactive(&amp;#39;hello-world&amp;#39;); interactive.border = true; interactive.control(100, 100); //# sourceMappingURL=hello-world.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Vector.js Hello World</title>
+      <link>https://vectorjs.org/examples/wumbo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/wumbo/</guid>
+      <description>/** * @title Vector.js Hello World * @description Hi! * @tags [] * @ignore true */ import Interactive from &amp;#39;../../interactive.js&amp;#39;; let myInteractive = new Interactive(&amp;#39;hello-world&amp;#39;); myInteractive.border = true; myInteractive.control(100, 100); //# sourceMappingURL=wumbo.js.map  </description>
+    </item>
+    
+    <item>
+      <title>View Box Attribute</title>
+      <link>https://vectorjs.org/svg/viewbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/viewbox/</guid>
+      <description>   </description>
+    </item>
+    
+    <item>
+      <title>Zach</title>
+      <link>https://vectorjs.org/team/zach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/team/zach/</guid>
+      <description>TODO: A brief description about this person.</description>
+    </item>
+    
+    <item>
+      <title>Zoom and Pan Element</title>
+      <link>https://vectorjs.org/examples/zoom-pan-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/zoom-pan-element/</guid>
+      <description>/** * @ignore true * @title Zoom and Pan Element * @description * @tags [elements, maps] */ import Interactive from &amp;#39;./zoom-pan.js&amp;#39;; import { getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName(), 600, 600); // draw rectangles for debugging let w = 25; let h = 25; for (let i = 0; i &amp;lt; 10; i++) { for (let j = 0; j &amp;lt; 10; j++) { let x = i * w; let y = j * h; let rect = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Zoom and Pan Interactive</title>
+      <link>https://vectorjs.org/examples/zoom-in-out/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/zoom-in-out/</guid>
+      <description>/** * @ignore true * @title Zoom and Pan Interactive * @description This interactive demonstrates how to zoom in and out on a specific point. * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position. * @tags [] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import Text from &amp;#39;../../elements/svg/text.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; class Zoomable extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.</description>
+    </item>
+    
+  </channel>
+</rss>

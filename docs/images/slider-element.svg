@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="interactive-26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 300 150" style="enable-background:new 0 0 300 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#404040;stroke-width:1.5;stroke-linecap:round;}
+	.st1{fill:#0366EE;}
+	.st2{fill-opacity:0;}
+</style>
+<g>
+	<g id="slider-27">
+		<line id="line-28" class="st0" x1="75" y1="75" x2="225" y2="75"/>
+		<g id="controlcircle-29" transform="translate( 130, 75)">
+			<circle class="st1" cx="-25" cy="0" r="8.5"/>
+			<circle class="st2" cx="-25" cy="0" r="8.8"/>
+		</g>
+	</g>
+</g>
+</svg>

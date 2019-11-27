@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="The basics of how to use our Map module. This tutorial will detail the capabilites, limitations, and functionality of our Map module at a high level." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+
+  <div class="video">
+    <iframe title="vimeo-player" src="https://player.vimeo.com/video/373481993" width="768" height="516" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <h1>Map Module</h1>
+  <p><div id="random-color-world"></div><script type="module" src="../../../../examples/maps/random-color-world.js"></script></p>
+
+<p>The Map Module is used to plot geographic data in SVG format. Our library supports <a href="https://geojson.org/" target="_blank" rel="noreferrer">GeoJson</a> which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at <a href="https://vectorjs.org/examples/maps/maps-json.js" target="_blank" rel="noreferrer">GeoJson for every country and United States</a>. Some helpful websites for editing and collecting GeoJson are: <a href="http://geojson.io/" target="_blank" rel="noreferrer">geojson.io</a>, <a href="https://geojson-maps.ash.ms/" target="_blank" rel="noreferrer">geojson-maps</a>.</p>
+
+<p>Just like every other element in our library, to create a map you must first create an Interactive object (<a href="https://vectorjs.org/tutorials/getting-started/" target="_blank" rel="noreferrer">more information on this</a>).</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">map</span><span class="p">(</span><span class="nx">externalData</span><span class="o">:</span> <span class="nx">GeoJSON</span><span class="p">,</span><span class="nx">featureName</span><span class="o">:</span><span class="nx">string</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span><span class="nx">options</span><span class="o">:</span> <span class="nx">MapOptions</span> <span class="o">=</span> <span class="p">{})</span>
+</code></pre></div>
+
+<p>Then you call the map method on that object, and pass in the GeoJson that you want plotted. The other two parameters are optional. The second paramter is featureName. If you only want to plot one specific feature from the data, then pass in that name and only that feature will be rendered. The last parameter is the options parameter. Here you can set some styling on all feature at the time the map is created. For more exact details see our API.</p>
+
+<p>We recommend going to our examples page, and using the maps filter to see some examples of just exactly how our maps work.</p>
+
+<p>We have a variety of helper methods that let you manipulate the paths, viewboxes, and elements of the Map. We do not currently support any form of 3D maps, or projections.</p>
+
+
+</main>
+
+</body>
+</html>
