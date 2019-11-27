@@ -123,7 +123,7 @@ function createCircle() {
     c.style.fill = 'red';
     ic.style.fill = 'white';
     oc.style.fill = 'yellow';
-    oc.style.fillOpacity = '0.1';
+    oc.style.fillOpacity = '0.3';
     let timer = setIntervalAndStart(function () {
         if (!gameDone) {
             oc.r -= 1;

@@ -49,12 +49,12 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
     </item>
     
     <item>
-      <title>Population of the United States</title>
+      <title>Population Density of the United States</title>
       <link>https://vectorjs.org/examples/population-of-united-states/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/population-of-united-states/</guid>
-      <description>/** * @title Population of the United States * @description Every state of the United States colored by population density. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; import { usDensityMap as densityMap } from &amp;#39;./us-pop-density.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.</description>
+      <description>/** * @title Population Density of the United States * @description Every state of the United States colored by population density. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; import { usDensityMap as densityMap } from &amp;#39;./us-pop-density.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -357,7 +357,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/dependency-function/</guid>
-      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; // console.log(control2.update); export default interactive; export { control1, control2 }; //# sourceMappingURL=dependency-function.</description>
+      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; //# sourceMappingURL=dependency-function.js.map  </description>
     </item>
     
     <item>

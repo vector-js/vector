@@ -24,7 +24,6 @@ import './elements/svg/path.test.js';
 import './elements/svg/text.test.js';
 import './elements/svg/line.test.js';
 
-
 import './elements/svg/text.test.js';
 
 // interactive / custom elements
