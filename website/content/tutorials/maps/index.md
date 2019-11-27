@@ -1,7 +1,7 @@
 ---
 title: Map Module
 description: The basics of how to use our Map module. This tutorial will detail the capabilites, limitations, and functionality of our Map module at a high level.
-image: "/icons/maps.svg"
+image: "/images/world-map.svg"
 video:
   src: https://player.vimeo.com/video/373481993
   width: 768
@@ -16,7 +16,7 @@ The Map Module is used to plot geographic data in SVG format. Our library suppor
 
 
 
-Just like every other element in our library, to create a map you must first create an Interactive object (<a href="https://vectorjs.org/tutorials/getting-started/" target="_blank" rel="noreferrer">more information on this</a>). 
+Just like every other element in our library, to create a map you must first create an Interactive object (<a href="https://vectorjs.org/tutorials/getting-started/" target="_blank" rel="noreferrer">more information on this</a>).
 
 {{< highlight javascript>}}
 map(externalData: GeoJSON,featureName:string = null,options: MapOptions = {})
@@ -26,4 +26,4 @@ Then you call the map method on that object, and pass in the GeoJson that you wa
 
 We recommend going to our examples page, and using the maps filter to see some examples of just exactly how our maps work.
 
-We have a variety of helper methods that let you manipulate the paths, viewboxes, and elements of the Map. We do not currently support any form of 3D maps, or projections. 
+We have a variety of helper methods that let you manipulate the paths, viewboxes, and elements of the Map. We do not currently support any form of 3D maps, or projections.

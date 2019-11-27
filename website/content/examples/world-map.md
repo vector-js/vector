@@ -26,4 +26,3 @@ let myInteractive = new Interactive(getScriptName());
 let map = myInteractive.map(globalData);
 //# sourceMappingURL=world-map.js.map
 {{</ highlight >}}
-

@@ -3,7 +3,7 @@
 title: Secant Plot
 id: secant
 script: /examples/plots/secant.js
-main: false
+main: true
 ignore: true
 description: This interactive demonstrates the plot element
 input: undefined
@@ -19,22 +19,37 @@ draft: undefined
 * @tags [elements]
 * @ignore true
 */
-import { Interactive, getScriptName } from '../../index.js';
-// Initialize the interactive
-let interactive = new Interactive(getScriptName());
-interactive.width = 600;
-interactive.height = 600;
-// Create a new graph object
-let scale = 300 / Math.PI;
-let secant = (x) => { return 1 / Math.cos(x); };
-interactive.plot(600, 600, secant, {
-    originX: 0,
-    originY: 300,
-    scaleX: scale,
-    scaleY: scale,
-    zoomable: false,
-    controls: false
-});
+import { Interactive } from '../../index.js';
+export default function main(idOrElement) {
+    // Initialize the interactive
+    let interactive = new Interactive(idOrElement);
+    interactive.width = 700;
+    interactive.height = 700;
+    // Create a new graph object
+    let scale = 300 / Math.PI;
+    let secant = (x) => { return 1 / Math.cos(x); };
+    interactive.plot(600, 600, secant, {
+        x: 50,
+        y: 50,
+        originX: 0,
+        originY: 300,
+        scaleX: scale,
+        scaleY: scale,
+        zoomable: false,
+        controls: false
+    });
+    interactive.plot(600, 600, Math.cos, {
+        x: 50,
+        y: 50,
+        originX: 0,
+        originY: 300,
+        scaleX: scale,
+        scaleY: scale,
+        zoomable: false,
+        controls: false,
+        grid: false
+    });
+}
 //# sourceMappingURL=secant.js.map
 {{</ highlight >}}
 

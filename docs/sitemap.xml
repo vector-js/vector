@@ -66,6 +66,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/tutorials/plots/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/tutorials/population-map-of-united-states/</loc>
   </url>
   
@@ -280,6 +284,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/plot-element-experimental/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/plot-element/</loc>
   </url>
   
@@ -460,10 +468,6 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/maps-json/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/examples/modular-arithmetic-number-line/</loc>
   </url>
   
@@ -484,11 +488,11 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/population-data/</loc>
+    <loc>https://vectorjs.org/examples/radians/</loc>
   </url>
   
   <url>
-    <loc>https://vectorjs.org/examples/radians/</loc>
+    <loc>https://vectorjs.org/examples/sine/</loc>
   </url>
   
   <url>
@@ -497,10 +501,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/us-pop-density/</loc>
   </url>
   
   <url>

@@ -1,7 +1,5 @@
 /**
-* @title Plot Element
-* @description This interactive demonstrates the plot element
-* @tags [elements]
+*
 */
 
 import {Interactive} from '../../index.js';
@@ -14,6 +12,7 @@ export default function main( id:string ) {
 	let interactive = new Interactive(id);
 	interactive.width = 700;
 	interactive.height = 400;
+	// interactive.rectangle(0,0,interactive.width,interactive.height);
 	let plot = interactive.plot(600, 300, Math.sin, {
 		x: 50,
 		y: 50,
