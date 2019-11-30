@@ -156,7 +156,7 @@ export default class Interactive extends SVG {
     /**
     * Creates a plot within this interactive at the position (x,y).
     */
-    plot(width: number, height: number, fn: (x: number) => number, options: PlotOptions): Plot;
+    plot(fn: (x: number) => number, options: PlotOptions): Plot;
     /**
     * Creates a graph element within this interactive
     */

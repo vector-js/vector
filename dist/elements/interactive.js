@@ -282,8 +282,8 @@ export default class Interactive extends SVG {
     /**
     * Creates a plot within this interactive at the position (x,y).
     */
-    plot(width = 600, height = 300, fn, options) {
-        return this.appendChild(new Plot(width, height, fn, options));
+    plot(fn, options) {
+        return this.appendChild(new Plot(fn, options));
     }
     /**
     * Creates a graph element within this interactive
