@@ -1,12 +1,12 @@
 /**
 * @title Mouse Path Game
-* @description Stay inside the bounds with your cursor for as long as possible! When the timer hits 0 the game is over.
+* @description Stay inside the bounds of the outlined circle with your cursor for as long as possible! When the timer hits 0 the game is over.
 * @tags [elements, games]
 * @weight 1
 */
 import {Interactive, getScriptName, Button} from '../../index.js';
 
-var startTime = new Date().getTime();
+var startTime;
 let interval = 0;
 let distance = 1;
 let xDiff = distance;
@@ -50,42 +50,58 @@ control.onchange = function() {
 control.root.setAttribute('visibility','hidden');
 
 let radius = 40;
-let circle = interactive.circle(300,200, radius);
-circle.fill = percentageToColor(0);
+let circle;
 
-circle.addDependency(control);
-circle.update = function() {
-    circle.cx = control.x;
-    circle.cy = control.y;
-}
-
-let circles = [ circle ];
+let circles = [];
 let d = 10;
 let n = 25;
-for( let i = 1; i < n; i++) {
-    let prev = circles[ circles.length - 1 ];
-    let circle = interactive.circle(x,y, radius);
-    circle.fill = percentageToColor((i+(n/360))*0.01);
-    circle.update = function() {
-        if( Math.hypot( circle.cy - prev.cy, circle.cx - prev.cx ) >= d-1) {
-            let angle = Math.atan2( circle.cy - prev.cy, circle.cx - prev.cx );
-            circle.cx = prev.cx + (d-.5)*Math.cos(angle);
-            circle.cy = prev.cy + (d-.5)*Math.sin(angle);
-        }
-    }
-    circle.addDependency(prev);
-    circles.push(circle);
-}
 
+/**
+ * starts the game
+ */
 function startGame(){
+    startTime = new Date().getTime();
     score = 250;
     window.requestAnimationFrame(step);
     interval = startTimer(updateDiffs);
     restartButton.root.setAttribute('visibility','hidden');
     gameOverText.root.setAttribute('visibility','hidden');
+
+    //reset circles
+    while(circles.length > 0){
+        circles[0].remove();
+        circles.shift();
+    }
+    control.translate(300,200);
+    circle = interactive.circle(300,200, radius);
+    circle.fill = percentageToColor(0);
+
+    circle.addDependency(control);
+    circle.update = function() {
+        circle.cx = control.x;
+        circle.cy = control.y;
+    }
+
+    circles = [ circle ];
+    for( let i = 1; i < n; i++) {
+        let prev = circles[ circles.length - 1 ];
+        let circle = interactive.circle(x,y, radius);
+        circle.fill = percentageToColor((i+(n/360))*0.01);
+        circle.update = function() {
+            if( Math.hypot( circle.cy - prev.cy, circle.cx - prev.cx ) >= d-1) {
+                let angle = Math.atan2( circle.cy - prev.cy, circle.cx - prev.cx );
+                circle.cx = prev.cx + (d-.5)*Math.cos(angle);
+                circle.cy = prev.cy + (d-.5)*Math.sin(angle);
+            }
+        }
+        circle.addDependency(prev);
+        circles.push(circle);
+    }
 }
 
-
+/**
+ * animation cycle
+ */
 var start = null;
 function step(timestamp) {
     // initialize start time
@@ -100,7 +116,12 @@ function step(timestamp) {
         score++;
     }
     else{
-        score -= 5;
+        if(score > 1500){
+            score -= 10;
+        }
+        else{
+            score -= 5;
+        }
     }
     pointsLabel.contents = score.toString();
     if(score > 0)
@@ -122,7 +143,9 @@ function step(timestamp) {
         restartButton.label.contents = 'Restart';
     }
 }
-
+/**
+ * Makes the game harder as time goes on.
+ */
 function updateDiffs(){
     let m1 = getRandomInt(0,2);
     if(m1 == 0){
@@ -139,7 +162,9 @@ function updateDiffs(){
     xDiff = Math.sign(xDiff)*distance;
     yDiff = Math.sign(yDiff)*distance;
 }
-
+/**
+ * Moves the cursor path
+ */
 function movePath(){
     if((control.x >= interactive.width-50)||(control.x <= 0+50)||
         (control.y >= interactive.height - 50) || (control.y <= 0+50)){
@@ -178,7 +203,12 @@ function movePath(){
 function startTimer(fn: Function){
     return window.setInterval(fn, 2000);
 }
-
+/**
+ * Takes in a percentage, and converts that to a color on the HSL scale
+ * @param percentage percentage of the color scale you want
+ * @param maxHue maximum hue value
+ * @param minHue minimum hue value
+ */
 function percentageToColor(percentage, maxHue = 360, minHue = 0) {
     const hue = percentage * (maxHue - minHue) + minHue;
     return `hsl(${hue}, 100%, 50%)`;
