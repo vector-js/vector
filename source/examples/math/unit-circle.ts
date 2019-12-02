@@ -168,11 +168,15 @@ export default function main( id:string, opts:InteractiveOptions ) {
 
   // Graph/Plot Section
 
-  let plot = plotInteractive.plot(2*width, width, f, {
+  let plot = plotInteractive.plot(f, {
     scaleX: scale,
     scaleY: scale,
     originX: 0,
     originY: width/2,
+    width: 2*width,
+    height: width,
+    margin: 0,
+    labels: false,
     zoomable: false,
     displayPoint: false,
     grid: true,

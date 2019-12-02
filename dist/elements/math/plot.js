@@ -80,6 +80,8 @@ export default class Plot extends SVG {
             scaleX: 1,
             scaleY: 1,
             grid: true,
+            labels: true,
+            border: true,
             zoomable: false,
             displayPoint: false,
             controls: false // experimental
@@ -100,7 +102,7 @@ export default class Plot extends SVG {
         // creates a transparent rectangle to capture all user events
         this.rect = this.rectangle(config.margin, config.margin, this._width, this._height);
         this.rect.style.fill = 'transparent';
-        if (config.border === undefined || config.border) {
+        if (config.border) {
             this.rect.style.border = '1px solid #404040';
         }
         else {
@@ -190,35 +192,37 @@ export default class Plot extends SVG {
         }
         // draw the initial state of the graph
         this.draw();
-        // draw the labels
-        let group = this.group();
-        group.style.fontFamily = 'KaTeX_Main';
-        group.style.fontSize = '22px';
-        // draw the title
-        let title;
-        if (config.title instanceof Text) {
-            title = group.appendChild(config.title);
-            title.x = this.width / 2;
-            title.y = 25;
-        }
-        else {
-            title = group.text(this.width / 2, 25, config.title);
-        }
-        title.setAttribute('alignment-baseline', 'middle');
-        title.setAttribute('text-anchor', 'middle');
-        let xPoints = this.getXLabelPoints();
-        let yPoints = this.getYLabelPoints();
-        for (let p of xPoints) {
-            let point = this.internalToAbsolute(p);
-            let text = group.text(point.x + config.margin, config.margin + this._height + config.margin / 2, `${p.x}`);
-            text.setAttribute('alignment-baseline', 'middle');
-            text.setAttribute('text-anchor', 'middle');
-        }
-        for (let p of yPoints) {
-            let point = this.internalToAbsolute(p);
-            let text = group.text(point.x + config.margin / 2, point.y + config.margin, `${p.y}`);
-            text.setAttribute('alignment-baseline', 'middle');
-            text.setAttribute('text-anchor', 'middle');
+        if (config.labels) {
+            // draw the labels
+            let group = this.group();
+            group.style.fontFamily = 'KaTeX_Main';
+            group.style.fontSize = '22px';
+            // draw the title
+            let title;
+            if (config.title instanceof Text) {
+                title = group.appendChild(config.title);
+                title.x = this.width / 2;
+                title.y = 25;
+            }
+            else {
+                title = group.text(this.width / 2, 25, config.title);
+            }
+            title.setAttribute('alignment-baseline', 'middle');
+            title.setAttribute('text-anchor', 'middle');
+            let xPoints = this.getXLabelPoints();
+            let yPoints = this.getYLabelPoints();
+            for (let p of xPoints) {
+                let point = this.internalToAbsolute(p);
+                let text = group.text(point.x + config.margin, config.margin + this._height + config.margin / 2, `${p.x}`);
+                text.setAttribute('alignment-baseline', 'middle');
+                text.setAttribute('text-anchor', 'middle');
+            }
+            for (let p of yPoints) {
+                let point = this.internalToAbsolute(p);
+                let text = group.text(point.x + config.margin / 2, point.y + config.margin, `${p.y}`);
+                text.setAttribute('alignment-baseline', 'middle');
+                text.setAttribute('text-anchor', 'middle');
+            }
         }
     }
     /**

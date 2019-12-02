@@ -114,13 +114,18 @@ export default function main(id) {
         width: 2 * width,
         height: width
     });
-    let plot = plotInteractive.plot(2 * width, width, f, {
+    let plot = plotInteractive.plot(f, {
         scaleX: scale,
         scaleY: scale,
         originX: 0,
         originY: width / 2,
+        width: 2 * width,
+        height: width,
+        margin: 0,
+        labels: false,
         zoomable: false,
         displayPoint: false,
+        grid: true,
         border: true
     });
     let line = plot.staticGroup.line(0, 0, 0, 0);
@@ -158,14 +163,6 @@ export default function main(id) {
             circleInteractive.background.prependChild(rect2);
             rect2.root.setAttribute('vector-effect', 'non-scaling-stroke');
             rect2.style.strokeOpacity = '.25';
-        }
-    }
-    for (let i = 0; i <= 7; i++) {
-        for (let j = -2; j <= 2; j++) {
-            let rect1 = plot.viewPort.rectangle(i, j, 1, 1);
-            rect1.classList.add('default');
-            rect1.root.setAttribute('vector-effect', 'non-scaling-stroke');
-            rect1.style.strokeOpacity = '.25';
         }
     }
     angle.value = 1;

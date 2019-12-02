@@ -36,6 +36,7 @@ export default function main( id:string ) {
     width: 700,
     height: 400,
     margin: 0,
+    labels: false,
     scaleX : scale,
     scaleY : scale,
     originX : 0,

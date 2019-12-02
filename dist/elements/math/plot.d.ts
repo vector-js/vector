@@ -39,6 +39,10 @@ export interface PlotOptions {
     */
     grid?: boolean;
     /**
+    * If true displays axis labels.
+    */
+    labels?: boolean;
+    /**
     * Controls how much the plot is scaled in the x direction.
     */
     scaleX?: number;
