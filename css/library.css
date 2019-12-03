@@ -87,6 +87,7 @@ input.input {
 .button text {
   fill: #ffffff;
 }
+
 .grid line {
   vector-effect: non-scaling-stroke;
 }
@@ -95,6 +96,6 @@ input.input {
   vector-effect: non-scaling-stroke;
 }
 
-.node {
-  stroke:black;
+.node circle{
+  stroke: #333333;
 }
