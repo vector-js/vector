@@ -49,6 +49,11 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/tutorials/graphs/</loc>
+    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/riemann-sum/</loc>
   </url>
   
@@ -58,10 +63,6 @@
   
   <url>
     <loc>https://vectorjs.org/tutorials/custom-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/tutorials/graphs/</loc>
   </url>
   
   <url>
