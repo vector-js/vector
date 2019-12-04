@@ -99,3 +99,7 @@ input.input {
 .node circle{
   stroke: #333333;
 }
+
+.node ellipse{
+  stroke: #333333;
+}
