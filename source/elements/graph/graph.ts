@@ -111,7 +111,7 @@ export default class Graph extends Group {
       }
     }
 
-    console.log(centerMap);
+    // console.log(centerMap);
 
     for(let node of orderedNodes){
       // console.log(node.label);
@@ -185,7 +185,7 @@ export default class Graph extends Group {
             if(shift != 0){
               nodeShifted = true;
             }
-            console.log(shift);
+            // console.log(shift);
             node.cx += shift;
             modMap[node.id] += shift;
 

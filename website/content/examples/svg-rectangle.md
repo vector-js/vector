@@ -3,6 +3,8 @@
 title: SVG Rectangle Element
 id: svg-rectangle
 script: /examples/svg/svg-rectangle.js
+main: false
+ignore: false
 description: This interactive demonstrates the SVG rectangle element and its attributes.
 input: undefined
 tags: [svg]
@@ -20,8 +22,9 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 let rect = interactive.rectangle(0, 0, 0, 0);
+rect.classList.add('default');
 let c1 = interactive.control(150, 100);
 let c2 = interactive.control(450, 200);
 let text = interactive.text(25, 275, "");

@@ -3,6 +3,8 @@
 title: Control Element
 id: control-element
 script: /examples/elements/control-element.js
+main: false
+ignore: false
 description: This interactive demonstrates a draggable point.
 input: undefined
 tags: [elements, input]

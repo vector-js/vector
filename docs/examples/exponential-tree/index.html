@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+<main class="medium-container">
+
+  
+  <h1>Exponents and Trees <a style="float:right" href="/sandbox/?script=/examples/math/exponential-tree.js" class="button">Open in Sandbox</a></h1>
+  
+
+<div id="b702e75a59b7f87c50afb522963a21d3" class="vertical-center i-container"></div>
+<script type="module">
+  import main from "/examples/math/exponential-tree.js";
+  main("b702e75a59b7f87c50afb522963a21d3");
+</script>
+
+  
+    <h2>Description</h2>
+    <p>This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree.</p>
+  
+  <h2>Script</h2>
+  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm">* @title Exponents and Trees
+</span><span class="cm">* @description This interactive demonstrates how the exponent operator can be visualized with a tree. The base of the expression is represented by the branching factor of the tree, and the exponent is represented by the levels in the tree.
+</span><span class="cm">* @tags [math]
+</span><span class="cm">* @date October 15, 2019
+</span><span class="cm">* @author Kurt Bruns
+</span><span class="cm">* @weight 1
+</span><span class="cm">*/</span>
+<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;../../interactive.js&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../../index.js&#34;</span><span class="p">;</span>
+<span class="k">class</span> <span class="nx">Tree</span> <span class="k">extends</span> <span class="nx">SVG</span> <span class="p">{</span>
+    <span class="cm">/**
+</span><span class="cm">    *
+</span><span class="cm">    */</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">rootX</span><span class="p">,</span> <span class="nx">rootY</span><span class="p">,</span> <span class="nx">base</span><span class="p">,</span> <span class="nx">exponent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">740</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">rootX</span> <span class="o">=</span> <span class="nx">rootX</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">rootY</span> <span class="o">=</span> <span class="nx">rootY</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="nx">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">exponent</span> <span class="o">=</span> <span class="nx">exponent</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">lines</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentLine</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentNode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">get</span> <span class="nx">leaves</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">exponent</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">clear</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">small</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nx">big</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">small</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">big</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">small</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">big</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">small</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">big</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">getNextLine</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">line</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentLine</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">line</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">line</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">line</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currentLine</span><span class="p">];</span>
+            <span class="nx">line</span><span class="p">.</span><span class="nx">x1</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">;</span>
+            <span class="nx">line</span><span class="p">.</span><span class="nx">y1</span> <span class="o">=</span> <span class="nx">y1</span><span class="p">;</span>
+            <span class="nx">line</span><span class="p">.</span><span class="nx">x2</span> <span class="o">=</span> <span class="nx">x2</span><span class="p">;</span>
+            <span class="nx">line</span><span class="p">.</span><span class="nx">y2</span> <span class="o">=</span> <span class="nx">y2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentLine</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">line</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">line</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">getNextNode</span><span class="p">(</span><span class="nx">cx</span><span class="p">,</span> <span class="nx">cy</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">node</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentNode</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">node</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="nx">cx</span><span class="p">,</span> <span class="nx">cy</span><span class="p">,</span> <span class="nx">r</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">node</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currentNode</span><span class="p">];</span>
+            <span class="nx">node</span><span class="p">.</span><span class="nx">cx</span> <span class="o">=</span> <span class="nx">cx</span><span class="p">;</span>
+            <span class="nx">node</span><span class="p">.</span><span class="nx">cy</span> <span class="o">=</span> <span class="nx">cy</span><span class="p">;</span>
+            <span class="nx">node</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">r</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentNode</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">node</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">draw</span><span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">prev</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">y</span> <span class="p">}];</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentLine</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentNode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">exponent</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">distance</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">600</span> <span class="o">/</span> <span class="p">(</span><span class="mf">.75</span> <span class="o">*</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">maxLevels</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="kd">let</span> <span class="nx">nodes</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+            <span class="kd">let</span> <span class="nx">change</span> <span class="o">=</span> <span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="p">(</span><span class="nx">nodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="kd">let</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nx">change</span><span class="p">;</span>
+            <span class="kd">let</span> <span class="nx">next</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">nodes</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nx">nx</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">distance</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
+                <span class="kd">let</span> <span class="nx">ny</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">distance</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
+                <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">j</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">);</span>
+                <span class="kd">let</span> <span class="nx">ox</span> <span class="o">=</span> <span class="nx">prev</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">x</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">oy</span> <span class="o">=</span> <span class="nx">prev</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">y</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getNextLine</span><span class="p">(</span><span class="nx">ox</span><span class="p">,</span> <span class="nx">oy</span><span class="p">,</span> <span class="nx">nx</span><span class="p">,</span> <span class="nx">ny</span><span class="p">);</span>
+                <span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getNextNode</span><span class="p">(</span><span class="nx">nx</span><span class="p">,</span> <span class="nx">ny</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">exponent</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">circle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
+                    <span class="nx">circle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;#404040&#39;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">circle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#404040&#39;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="nx">next</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">nx</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">ny</span> <span class="p">});</span>
+                <span class="nx">angle</span> <span class="o">+=</span> <span class="nx">change</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">prev</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentLine</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentNode</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kd">let</span> <span class="nx">bbox</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBBox</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">exponent</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">setViewBox</span><span class="p">(</span><span class="nx">bbox</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">Tree</span><span class="p">.</span><span class="nx">maxLevels</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">740</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="p">});</span>
+    <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">levels</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">slider</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">300</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">margin</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">250</span><span class="p">,</span>
+        <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">max</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span>
+    <span class="p">});</span>
+    <span class="kd">let</span> <span class="nx">branching</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">slider</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">300</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="nx">margin</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">250</span><span class="p">,</span>
+        <span class="nx">min</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">max</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">});</span>
+    <span class="kd">let</span> <span class="nx">tree</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="k">new</span> <span class="nx">Tree</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="nx">branching</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="nx">levels</span><span class="p">.</span><span class="nx">value</span><span class="p">));</span>
+    <span class="nx">tree</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+    <span class="nx">tree</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">overflow</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
+    <span class="nx">tree</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">levels</span><span class="p">,</span> <span class="nx">branching</span><span class="p">);</span>
+    <span class="nx">tree</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">levelsValue</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">levels</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nx">branchingValue</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">branching</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">exponent</span> <span class="o">!==</span> <span class="nx">levelsValue</span> <span class="o">||</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">base</span> <span class="o">!==</span> <span class="nx">branchingValue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">tree</span><span class="p">.</span><span class="nx">exponent</span> <span class="o">=</span> <span class="nx">levelsValue</span><span class="p">;</span>
+            <span class="nx">tree</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="nx">branchingValue</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">leaves</span> <span class="o">&lt;=</span> <span class="mi">1024</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">tree</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">tree</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="c1">// tree.draw();
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">levelsText</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">levels</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">levels</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">,</span> <span class="nx">levels</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="s1">&#39;exponent&#39;</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">branchingText</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">branching</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">branching</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">,</span> <span class="nx">branching</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="s1">&#39;factor&#39;</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">mathText</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">branching</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="nx">margin</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="nx">mathText</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;text-anchor&#39;</span><span class="p">,</span> <span class="s1">&#39;middle&#39;</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">base</span> <span class="o">=</span> <span class="nx">mathText</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="kd">let</span> <span class="nx">exponent</span> <span class="o">=</span> <span class="nx">mathText</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">exponent</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">mathText</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s1">&#39;= &#39;</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">leaves</span> <span class="o">=</span> <span class="nx">mathText</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">leaves</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">exponent</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;baseline-shift&#39;</span><span class="p">,</span> <span class="s1">&#39;super&#39;</span><span class="p">);</span>
+    <span class="nx">levelsText</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+    <span class="nx">levelsText</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">levelsText</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`exponent: </span><span class="si">${</span><span class="nx">tree</span><span class="p">.</span><span class="nx">exponent</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">levelsText</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="nx">branchingText</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+    <span class="nx">branchingText</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">branchingText</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`base: </span><span class="si">${</span><span class="nx">tree</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">branchingText</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="nx">base</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+    <span class="nx">base</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">base</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="p">};</span>
+    <span class="nx">exponent</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+    <span class="nx">exponent</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">exponent</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">exponent</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="p">};</span>
+    <span class="nx">leaves</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+    <span class="nx">leaves</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">leaves</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">leaves</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+<span class="c1">//# sourceMappingURL=exponential-tree.js.map
+</span></code></pre></div>
+
+
+</main>
+
+</body>
+</html>

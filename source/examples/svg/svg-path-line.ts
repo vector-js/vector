@@ -13,6 +13,7 @@ interactive.border = true;
 interactive.width = 736;
 
 let path = interactive.path('');
+path.classList.add('default');
 let start = interactive.control( 150, 150);
 let end = interactive.control( 450, 50);
 let toggle = interactive.checkBox( 360, 270, "absolute / relative", false);

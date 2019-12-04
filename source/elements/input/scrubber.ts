@@ -50,6 +50,8 @@ export default class Scrubber extends Slider {
     let circleRadius = 16;
     let playCircle = this.circle(0, 0, circleRadius);
     playCircle.style.fill = '#eeeeee';
+    playCircle.style.stroke = '#333333';
+    playCircle.style.strokeWidth = '1px';
 
     let radius = 8;
     let playTriangle = this.path(` M ${radius} ${0}
@@ -65,6 +67,8 @@ export default class Scrubber extends Slider {
 
     let pauseCircle = this.circle(0, 0, circleRadius);
     pauseCircle.style.fill = '#eeeeee';
+    pauseCircle.style.stroke = '#333333';
+    pauseCircle.style.strokeWidth = '1px';
 
     // TODO: style the lines with rounded end points
     let pauseLines = this.path(` M ${-3.5} ${-5}

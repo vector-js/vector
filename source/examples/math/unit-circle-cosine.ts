@@ -41,7 +41,7 @@ export default function main(id:string) {
   let angle = new NumberWrapper(0);
 
   let circleInteractive = interactive.interactive(0, 0); // TODO: check this logic
-  circleInteractive.rectangle(-width/2,-width/2, width, width);
+  circleInteractive.rectangle(-width/2,-width/2, width, width).classList.add('default');
   circleInteractive.height = width;
   circleInteractive.width = width;
   circleInteractive.originX = circleInteractive.width/2;
@@ -124,13 +124,18 @@ export default function main(id:string) {
     width:2*width,
     height:width
   });
-  let plot = plotInteractive.plot(2*width, width, f, {
+  let plot = plotInteractive.plot(f, {
     scaleX: scale,
     scaleY: scale,
     originX: 0,
     originY: width/2,
+    width: 2*width,
+    height: width,
+    margin: 0,
+    labels: false,
     zoomable: false,
     displayPoint: false,
+    grid: true,
     border: true
   });
 
@@ -167,16 +172,10 @@ export default function main(id:string) {
   for( let i = -3; i <= 3; i++) {
     for( let j = -3; j <= 3; j++) {
       let rect2 = circleInteractive.rectangle(i*circle.r,j*circle.r,circle.r,circle.r);
+      rect2.classList.add('default');
       circleInteractive.background.prependChild(rect2);
       rect2.root.setAttribute('vector-effect','non-scaling-stroke');
       rect2.style.strokeOpacity = '.25';
-    }
-  }
-  for( let i = 0; i <= 7; i++) {
-    for( let j = -2; j <= 2; j++) {
-      let rect1 = plot.viewPort.rectangle(i,j,1,1);
-      rect1.root.setAttribute('vector-effect','non-scaling-stroke');
-      rect1.style.strokeOpacity = '.25';
     }
   }
 

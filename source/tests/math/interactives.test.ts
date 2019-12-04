@@ -15,8 +15,6 @@ import unitCircleCosine from '../../examples/math/unit-circle-cosine.js';
 import unitCircleRightTriangle from '../../examples/math/unit-circle-right-triangle.js';
 import unitCircleSine from '../../examples/math/unit-circle-sine.js';
 
-import { download } from '../../index.js';
-
 describe('Math Interactives', function () {
 
   // create a new container before each test function

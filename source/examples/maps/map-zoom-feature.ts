@@ -29,7 +29,7 @@ input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
         if(prev != "")
             map.getPathForFeatureName(prev).style.fill = 'red';
-        if(input.value != ""){
+        if(input.value != "" && map.getPathForFeatureName(input.value)){
             prev = input.value;
             map.setViewBoxToFeature(input.value);
             map.getPathForFeatureName(input.value).style.fill = 'blue';

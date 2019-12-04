@@ -12,6 +12,8 @@ interactive.border = true;
 interactive.width = 736;
 
 let rect = interactive.rectangle(0,0,0,0);
+rect.classList.add('default');
+
 let c1 = interactive.control( 150, 100);
 let c2 = interactive.control( 450, 200);
 let text = interactive.text( 25, 275, "");

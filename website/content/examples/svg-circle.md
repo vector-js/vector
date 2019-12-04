@@ -3,6 +3,8 @@
 title: Interactive SVG Circle
 id: svg-circle
 script: /examples/svg/svg-circle.js
+main: true
+ignore: false
 description: This interactive demonstrates the basic properties of the SVG Circle Element.
 input: undefined
 tags: [svg]
@@ -19,7 +21,7 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 let circle = interactive.circle(0, 0, 0);
 let l1 = interactive.line(0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';

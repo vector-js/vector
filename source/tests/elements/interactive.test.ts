@@ -41,6 +41,7 @@ describe('Interactive', function () {
 
     function testBoundingBox( interactive:Interactive ) {
       let rectangle = interactive.rectangle(interactive.minX, interactive.minY, interactive.width, interactive.height);
+      rectangle.classList.add('default');
       let circle = interactive.circle(0,0,4);
 			circle.style.fill = '#333333';
       interactive.line(-1000,0,1000,0);
@@ -126,6 +127,8 @@ describe('Interactive', function () {
         let cy = 51;
         let r = 30;
         let circle = interactive.circle(cx, cy, r);
+        circle.classList.add('default');
+
         chai.expect(circle.cx).to.equal(cx);
         chai.expect(circle.cy).to.equal(cy);
         chai.expect(circle.r ).to.equal(r);
@@ -137,6 +140,8 @@ describe('Interactive', function () {
         let rx = 30;
         let ry = 20;
         let ellipse = interactive.ellipse(cx, cy, rx, ry);
+        ellipse.classList.add('default');
+
         chai.expect(ellipse.cx).to.equal(cx);
         chai.expect(ellipse.cy).to.equal(cy);
         chai.expect(ellipse.rx).to.equal(rx);
@@ -150,6 +155,8 @@ describe('Interactive', function () {
         let x2 = 70;
         let y2 = 71;
         let line = interactive.line(x1, y1, x2, y2);
+        line.classList.add('default');
+
         chai.expect(line.x1).to.equal(x1);
         chai.expect(line.y1).to.equal(y1);
         chai.expect(line.x2).to.equal(x2);
@@ -159,11 +166,13 @@ describe('Interactive', function () {
 
       it('should create a path within the interactive', function() {
         let path = interactive.path(`M 20 50 l 50 30 l 0 -30 l -50 -30 z`);
+        path.classList.add('default');
         chai.expect(interactive.contains(path));
       });
 
       it('should create a polygon within the interactive', function() {
         let path = interactive.polygon(`50,30 70,70 30,70`);
+        path.classList.add('default');
         chai.expect(interactive.contains(path));
       });
 
@@ -173,6 +182,8 @@ describe('Interactive', function () {
         let w = 60;
         let h = 40;
         let rect = interactive.rectangle(x, y, w, h);
+        rect.classList.add('default');
+
         chai.expect(rect.x).to.equal(x);
         chai.expect(rect.y).to.equal(y);
         chai.expect(rect.width).to.equal(w);

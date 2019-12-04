@@ -25,6 +25,7 @@ export default function main(id:string) {
   let xAxis = interactive.line( -interactive.width/2 + margin, 0, interactive.width/2 - margin, 0);
   let yAxis = interactive.line( 0, -interactive.height/2 + margin, 0, interactive.height/2 - margin);
   let rectangle = interactive.rectangle(xAxis.x1, yAxis.y1, xAxis.x2 - xAxis.x1, yAxis.y2 - yAxis.y1);
+  rectangle.classList.add('default');
   point.constrainWithinBox( xAxis.x1, yAxis.y1, xAxis.x2, yAxis.y2);
   let boxConstraint = point.constrain;
   point.constrain = ( o:Point, n:Point) : Point => {

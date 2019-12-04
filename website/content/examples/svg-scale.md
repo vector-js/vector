@@ -3,6 +3,8 @@
 title: SVG Transform Scale Attribute
 id: svg-scale
 script: /examples/svg/svg-scale.js
+main: false
+ignore: false
 description: This interactive how the scale transformation can be applied to a SVG element.
 input: undefined
 tags: [svg]
@@ -18,7 +20,7 @@ draft: undefined
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
-interactive.width = 700;
+interactive.width = 736;
 interactive.height = 300;
 interactive.border = true;
 let w = 60;

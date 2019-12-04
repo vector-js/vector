@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/getting-started/</loc>
+    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/</loc>
+    <lastmod>2019-02-05T12:03:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/click-accuracy-game/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/exponential-tree/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/world-map/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/mouse-path-game/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/population-of-united-states/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/prime-factorization/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/snake-game/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/tidy-algorithm/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/riemann-sum/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/custom-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/graphs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/maps/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/plots/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/population-map-of-united-states/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/control-with-position/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/references/</loc>
+    <lastmod>2019-02-07T21:34:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/</loc>
+    <lastmod>2019-02-07T21:34:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/a/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/angle-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/angle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/animate-along-path-vector/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/animate-along-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/area-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/triangle-area-between-two-vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/arrow-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/button-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-first-quadrant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/check-box-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/circle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/circle-defined-by-three-points/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/clip-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/control-circle-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/control-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/country-selection/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/bezier-curve-cubic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/defs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/dependency-function/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/derek/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/directed-graph-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/distance-between-two-points-2d/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/ellipse/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/ellipse-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/group/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-circle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-clip-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/josh/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/keyboard/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/key-board-input/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/kurt/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/line-defined-by-two-points/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/line-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tutorials/load-data/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/load-external-svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/map-zoom-feature/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/marker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/merge-sort/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/mouse-interaction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/number-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/path-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/pattern/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-element-experimental/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/point-where-two-lines-intersect/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/polygon/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/project/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/bezier-curve-quadratic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/radio-control-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/random-color-world/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/rectangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/rectangle-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/right-triangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/svg/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-coordinate-system-moved/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-coordinate-system/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-ellipse/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-marker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-arc/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-bezier-cubic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-path-bezier-quadratic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-rectangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-transform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-rotate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-scale/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-translate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/svg-view-box/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/sandbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/state-quiz/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/style/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/symbol/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/text/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/text-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/t-span/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/tspan-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/triangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/triangle-law-of-sines/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/undirected-graph-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-angle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-cosine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/angle-fixed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-right-triangle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/use/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/hello-world/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/wumbo/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/viewbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/team/zach/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-pan-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-in-out/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/approximate-tau/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/degrees/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/modular-arithmetic-number-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/normal-distribution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-degrees/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-pi/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-radians/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/radians/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/trig-functions-temp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/vector/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-pan/</loc>
+  </url>
+  
+</urlset>

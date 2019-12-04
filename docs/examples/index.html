@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Vector.js</title>
+  <meta name="description" content="This page contains a gallery of examples of the Vector.js library." />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon' href='/favicon.png"/>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+
+<link href="/scss/main.css" rel="stylesheet" media="screen">
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106670688-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106670688-3');
+</script>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/library.css">
+</head>
+<body>
+<header class="text-center">
+	<div class="small-container">
+    <a href="/"><h1>Vector.js</h1></a>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+    <p>
+      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
+			<a href="/examples/"><button class="muted-button">Examples</button></a>
+    </p>
+	</div>
+</header>
+
+
+  <section class="full-container" style="max-width:1200px; margin:2rem auto;">
+
+  <div class="full-container" style="width:1200px;">
+    <h2>Examples</h2>
+    <p>This page contains a gallery of examples of the Vector.js library.</p>
+      <div id="tag-buttons">
+        <button class="muted-button">elements</button>
+        <button class="muted-button">input</button>
+        <button class="muted-button">graph</button>
+        <button class="muted-button">maps</button>
+        <button class="muted-button">math</button>
+        <button class="muted-button">svg</button>
+        <button class="muted-button">games</button>
+      </div>
+    <script type="module">
+      let buttons = document.querySelector('#tag-buttons');
+      let selected = new Set();
+
+      /**
+      * Displays the union of the selected tags. If nothing is selected displays
+      * everything.
+      */
+      function display() {
+
+        // console.log(selected);
+        if( selected.size  == 0 ){
+
+          // display everything
+          document.querySelectorAll('.card').forEach((example) => {
+            example.style.display = '';
+          });
+        } else {
+
+          // hide everthing
+          document.querySelectorAll('.card').forEach((example) => {
+            example.style.display = 'none';
+          });
+
+          let query = '.' + Array.from(selected).join(', .');
+          let examples = document.querySelectorAll(query);
+          examples.forEach((example) => {
+            example.style.display = '';
+          });
+        }
+        // document.querySelectorAll( `.${}`)
+      }
+
+      buttons.querySelectorAll('button').forEach((button) => {
+        let tag = button.innerText;
+        button.onclick = function( event) {
+          if( selected.has(tag)) {
+            selected.delete(tag);
+          } else {
+            selected.add(tag);
+          }
+          button.classList.toggle('selected');
+          display();
+        };
+      });
+    </script>
+  </div>
+  <div class="grid" style="grid-template-columns:33.33% 33.33% 33.33%;">
+  
+    <div class="card elements games">
+  <a href="/examples/click-accuracy-game/">
+    <h2>Click Accuracy Game</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/click-accuracy-game.svg" alt="Click Accuracy Game">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/exponential-tree/">
+    <h2>Exponents and Trees</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/exponential-tree.svg" alt="Exponents and Trees">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card maps">
+  <a href="/examples/world-map/">
+    <h2>Interactive World Map</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/world-map.svg" alt="Interactive World Map">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements games">
+  <a href="/examples/mouse-path-game/">
+    <h2>Mouse Path Game</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/mouse-path-game.svg" alt="Mouse Path Game">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card maps">
+  <a href="/examples/population-of-united-states/">
+    <h2>Population Density of the United States</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/population-of-united-states.svg" alt="Population Density of the United States">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math graph">
+  <a href="/examples/prime-factorization/">
+    <h2>Prime Factorization</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/prime-factorization.svg" alt="Prime Factorization">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements games">
+  <a href="/examples/snake-game/">
+    <h2>Snake Game</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/snake-game.svg" alt="Snake Game">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card graph tree">
+  <a href="/examples/tidy-algorithm/">
+    <h2>Tidy Algorithm</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/tidy-algorithm.svg" alt="Tidy Algorithm">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/riemann-sum/">
+    <h2>Riemann Sum</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/riemann-sum.svg" alt="Riemann Sum">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+      
+  
+    <div class="card animation">
+  <a href="/examples/animate-along-path-vector/">
+    <h2>Animate Along Path</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/animate-along-path-vector.svg" alt="Animate Along Path">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card animation">
+  <a href="/examples/animate-along-path/">
+    <h2>Animate Along Path</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/animate-along-path.svg" alt="Animate Along Path">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card math">
+  <a href="/examples/triangle-area-between-two-vectors/">
+    <h2>Area Between Two Vectors</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/triangle-area-between-two-vectors.svg" alt="Area Between Two Vectors">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card elements input">
+  <a href="/examples/button-element/">
+    <h2>Button Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/button-element.svg" alt="Button Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/cartesian-coordinate-system/">
+    <h2>Cartesian Coordinate System</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/cartesian-coordinate-system.svg" alt="Cartesian Coordinate System">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+      
+  
+    <div class="card elements input">
+  <a href="/examples/check-box-element/">
+    <h2>Checkbox Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/check-box-element.svg" alt="Checkbox Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/circle-defined-by-three-points/">
+    <h2>Circle Defined By Three Points</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/circle-defined-by-three-points.svg" alt="Circle Defined By Three Points">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements input">
+  <a href="/examples/control-circle-element/">
+    <h2>Control Circle Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/control-circle-element.svg" alt="Control Circle Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements input">
+  <a href="/examples/control-element/">
+    <h2>Control Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/control-element.svg" alt="Control Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card elements maps">
+  <a href="/examples/country-selection/">
+    <h2>Country Selection</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/country-selection.svg" alt="Country Selection">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/bezier-curve-cubic/">
+    <h2>Cubic Bezier Curve</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/bezier-curve-cubic.svg" alt="Cubic Bezier Curve">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card ">
+  <a href="/examples/dependency-function/">
+    <h2>Dependency Relation</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/place-holder.svg" alt="Place holder">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/directed-graph-element/">
+    <h2>Directed Graph Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/directed-graph-element.svg" alt="Directed Graph Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card elements">
+  <a href="/examples/ellipse-element/">
+    <h2>Ellipse Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/ellipse-element.svg" alt="Ellipse Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card svg">
+  <a href="/examples/svg-circle/">
+    <h2>Interactive SVG Circle</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-circle.svg" alt="Interactive SVG Circle">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-clip-path/">
+    <h2>Interactive SVG Clip Path</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-clip-path.svg" alt="Interactive SVG Clip Path">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card input">
+  <a href="/examples/keyboard/">
+    <h2>Keyboard</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/keyboard.svg" alt="Keyboard">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card input">
+  <a href="/examples/key-board-input/">
+    <h2>Keyboard Input</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/key-board-input.svg" alt="Keyboard Input">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/line-defined-by-two-points/">
+    <h2>Line Defined by Two Points</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/line-defined-by-two-points.svg" alt="Line Defined by Two Points">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/line-element/">
+    <h2>Line Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/line-element.svg" alt="Line Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/load-external-svg/">
+    <h2>Load External SVG</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/place-holder.svg" alt="Place holder">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements maps">
+  <a href="/examples/map-zoom-feature/">
+    <h2>Map Zoom</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/map-zoom-feature.svg" alt="Map Zoom">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card algorithm graph">
+  <a href="/examples/merge-sort/">
+    <h2>Merge Sort Interactive</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/merge-sort.svg" alt="Merge Sort Interactive">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card input">
+  <a href="/examples/mouse-interaction/">
+    <h2>Mouse Input</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/mouse-interaction.svg" alt="Mouse Input">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/number-line/">
+    <h2>Number Line</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/number-line.svg" alt="Number Line">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/path-element/">
+    <h2>Path Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/path-element.svg" alt="Path Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card elements">
+  <a href="/examples/plot-element/">
+    <h2>Plot Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/plot-element.svg" alt="Plot Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/point-where-two-lines-intersect/">
+    <h2>Point Where Two Lines Intersect</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/point-where-two-lines-intersect.svg" alt="Point Where Two Lines Intersect">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/polar-coordinate-system/">
+    <h2>Polar Coordinate System</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/polar-coordinate-system.svg" alt="Polar Coordinate System">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/bezier-curve-quadratic/">
+    <h2>Quadratic Bezier Curve</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/bezier-curve-quadratic.svg" alt="Quadratic Bezier Curve">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements input">
+  <a href="/examples/radio-control-element/">
+    <h2>Radio Control Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/radio-control-element.svg" alt="Radio Control Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements maps">
+  <a href="/examples/random-color-world/">
+    <h2>Random Colored Countires</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/random-color-world.svg" alt="Random Colored Countires">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/rectangle-element/">
+    <h2>Rectangle Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/rectangle-element.svg" alt="Rectangle Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/right-triangle/">
+    <h2>Right Triangle</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/right-triangle.svg" alt="Right Triangle">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card svg">
+  <a href="/examples/svg-coordinate-system/">
+    <h2>SVG Coordinate System</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-coordinate-system.svg" alt="SVG Coordinate System">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-ellipse/">
+    <h2>SVG Ellipse Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-ellipse.svg" alt="SVG Ellipse Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-line/">
+    <h2>SVG Line</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-line.svg" alt="SVG Line">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card svg">
+  <a href="/examples/svg-path-arc/">
+    <h2>SVG Path Arc Command</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-path-arc.svg" alt="SVG Path Arc Command">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-path-bezier-cubic/">
+    <h2>SVG Path Cubic Bezier Curve</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-path-bezier-cubic.svg" alt="SVG Path Cubic Bezier Curve">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-path-line/">
+    <h2>SVG Path Element Line Command</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-path-line.svg" alt="SVG Path Element Line Command">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-path-bezier-quadratic/">
+    <h2>SVG Path Quadratic Bezier Curve</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-path-bezier-quadratic.svg" alt="SVG Path Quadratic Bezier Curve">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-rectangle/">
+    <h2>SVG Rectangle Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-rectangle.svg" alt="SVG Rectangle Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-transform/">
+    <h2>SVG Transform Attribute</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-transform.svg" alt="SVG Transform Attribute">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-rotate/">
+    <h2>SVG Transform Rotate Attribute</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-rotate.svg" alt="SVG Transform Rotate Attribute">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-scale/">
+    <h2>SVG Transform Scale Attribute</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-scale.svg" alt="SVG Transform Scale Attribute">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-translate/">
+    <h2>SVG Transform Translate Attribute</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-translate.svg" alt="SVG Transform Translate Attribute">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card svg">
+  <a href="/examples/svg-view-box/">
+    <h2>SVG View Box Attribute</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/svg-view-box.svg" alt="SVG View Box Attribute">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements input">
+  <a href="/examples/scrubber-element/">
+    <h2>Scrubber Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/scrubber-element.svg" alt="Scrubber Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+      
+  
+    <div class="card elements input">
+  <a href="/examples/slider-element/">
+    <h2>Slider Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/slider-element.svg" alt="Slider Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements maps games">
+  <a href="/examples/state-quiz/">
+    <h2>State Quiz</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/state-quiz.svg" alt="State Quiz">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/text-element/">
+    <h2>Text Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/text-element.svg" alt="Text Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/tspan-element/">
+    <h2>Text Span Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/tspan-element.svg" alt="Text Span Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/triangle/">
+    <h2>Triangle</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/triangle.svg" alt="Triangle">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/triangle-law-of-sines/">
+    <h2>Triangle Law of Sines</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/triangle-law-of-sines.svg" alt="Triangle Law of Sines">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/trigonometric-functions/">
+    <h2>Trigonometric Functions</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/trigonometric-functions.svg" alt="Trigonometric Functions">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card elements">
+  <a href="/examples/undirected-graph-element/">
+    <h2>Undirected Graph Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/undirected-graph-element.svg" alt="Undirected Graph Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/unit-circle/">
+    <h2>Unit Circle</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle.svg" alt="Unit Circle">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/unit-circle-angle/">
+    <h2>Unit Circle Angle</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle-angle.svg" alt="Unit Circle Angle">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/unit-circle-cosine/">
+    <h2>Unit Circle Cosine</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle-cosine.svg" alt="Unit Circle Cosine">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+    <div class="card math">
+  <a href="/examples/unit-circle-right-triangle/">
+    <h2>Unit Circle Right Triangle</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle-right-triangle.svg" alt="Unit Circle Right Triangle">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card math">
+  <a href="/examples/unit-circle-sine/">
+    <h2>Unit Circle Sine</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/unit-circle-sine.svg" alt="Unit Circle Sine">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <div class="card 117 110 100 101 102 105 110 101 100">
+  <a href="/examples/sine/">
+    <h2>undefined</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/sine.svg" alt="undefined">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+  </div>
+  </section>
+  <div style="min-height:400px">
+  </div>
+
+  
+
+
+</body>
+</html>

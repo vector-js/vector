@@ -13,6 +13,7 @@ interactive.border = true;
 interactive.width = 736;
 
 let ellipse = interactive.ellipse(0,0,0,0);
+ellipse.classList.add('default');
 let l1 = interactive.line( 0, 0, 0, 0);
 let l2 = interactive.line( 0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';

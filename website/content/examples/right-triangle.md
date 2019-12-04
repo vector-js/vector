@@ -3,6 +3,8 @@
 title: Right Triangle
 id: right-triangle
 script: /examples/math/right-triangle.js
+main: false
+ignore: false
 description: This interactive demonstrates the properties of a right triangle.
 input: undefined
 tags: [math]
@@ -19,7 +21,7 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive
 let interactive = new Interactive(getScriptName());
-interactive.window = true;
+interactive.border = true;
 interactive.width = 600;
 interactive.height = 300;
 interactive.originX = interactive.width / 2;

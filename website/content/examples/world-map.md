@@ -3,9 +3,12 @@
 title: Interactive World Map
 id: world-map
 script: /examples/maps/world-map.js
+main: false
+ignore: false
 description: Every country in the world displayed in an interactive.
+input: Input the name of the map you want to see, and the size of the map.
 tags: [maps]
-weight: 3
+weight: 1
 draft: undefined
 ---
 
@@ -17,9 +20,9 @@ draft: undefined
 * @tags [maps]
 * @weight 1
 */
-
-import {Interactive, getScriptName} from '../../index.js';
-import * as data from '../../../maps/maps-json.js';
-
+import { Interactive, getScriptName } from '../../index.js';
+import { globalData } from './maps-json.js';
 let myInteractive = new Interactive(getScriptName());
-let map = myInteractive.map(data.globalData);
+let map = myInteractive.map(globalData);
+//# sourceMappingURL=world-map.js.map
+{{</ highlight >}}

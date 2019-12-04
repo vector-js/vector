@@ -3,6 +3,8 @@
 title: Control Circle Element
 id: control-circle-element
 script: /examples/elements/control-circle-element.js
+main: false
+ignore: false
 description: This interactive demonstrates a draggable circle.
 input: undefined
 tags: [elements, input]

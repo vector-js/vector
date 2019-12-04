@@ -3,6 +3,8 @@
 title: SVG Ellipse Element
 id: svg-ellipse
 script: /examples/svg/svg-ellipse.js
+main: false
+ignore: false
 description: This interactive demonstrates the SVG ellipse element and its attributes.
 input: undefined
 tags: [svg]
@@ -21,8 +23,9 @@ draft: undefined
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
 interactive.border = true;
-interactive.width = 704;
+interactive.width = 736;
 let ellipse = interactive.ellipse(0, 0, 0, 0);
+ellipse.classList.add('default');
 let l1 = interactive.line(0, 0, 0, 0);
 let l2 = interactive.line(0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';

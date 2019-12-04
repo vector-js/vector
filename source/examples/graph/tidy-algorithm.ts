@@ -1,14 +1,12 @@
 /**
-* @title Prime Factorization
-* @description This interactive visualizes the prime factorization tree for a given number.
+* @title Tidy Algorithm
+* @description TODO
 * @input There is a number input that takes a number less than one-hundred million.
-* @tags [math, graph]
+* @tags [graph, tree]
 * @weight 1
 */
 
-import { nextPrime } from '../../util/math.js';
 import {Interactive, getScriptName} from '../../index.js';
-import Node from '../../elements/graph/node.js';
 
 let interactive = new Interactive(getScriptName());
 interactive.width = 736;

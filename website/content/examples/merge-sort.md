@@ -3,6 +3,8 @@
 title: Merge Sort Interactive
 id: merge-sort
 script: /examples/graph/merge-sort.js
+main: false
+ignore: false
 description: This interactive demonstrates an implementation of the merge sort algorithm using a tree.
 input: undefined
 tags: [algorithm, graph]
@@ -14,7 +16,7 @@ draft: undefined
 /**
 * @title Merge Sort Interactive
 * @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
-* @tags [math, algorithm, graph]
+* @tags [algorithm, graph]
 */
 import { Interactive, getScriptName } from '../../index.js';
 let interactive = new Interactive(getScriptName());
@@ -226,3 +228,4 @@ document.addEventListener('keydown', function (event) {
 });
 //# sourceMappingURL=merge-sort.js.map
 {{</ highlight >}}
+

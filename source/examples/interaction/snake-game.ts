@@ -112,13 +112,17 @@ function startGame(){
     snake.push(interactive.rectangle(dp,0,dp,dp));
     snake.push(interactive.rectangle(dp*2,0,dp,dp));
     snake[0].style.fill = 'blue';
+    snake[0].style.stroke = 'black';
     snake[1].style.fill = 'white';
+    snake[1].style.stroke = 'black';
     snake[2].style.fill = 'red';
+    snake[2].style.stroke = 'black';
 
     pointsLabel.style.fill = 'black';
     scoreLabel.style.fill = 'black';
     point = interactive.rectangle(400,dp,dp,dp);
     point.style.fill = '#ffd000';
+    point.style.stroke = 'black';
     point.style.strokeWidth = 5;
 
     background.style.fill = '#92cf55';
@@ -140,7 +144,6 @@ function startGame(){
 function positionIsOutOfBounds(x,y): Boolean{
     if((x > interactive.width - dp || x < 0) || (y > interactive.height - dp || y < 0)){
         gameOver();
-        console.log('w:'+interactive.width+' h:'+interactive.height+' x:'+x+' y:'+y);
         return true;
     }
     return false;
@@ -173,6 +176,8 @@ function moveSnake(d){
         snake.push(interactive.rectangle(head.x-dp,head.y,dp,dp));
     }
     snake.shift();
+    snake[0].style.stroke = 'black';
+    snake[snake.length-1].style.stroke = 'black';
     interactive.root.getElementById(tail.id).remove();
 }
 

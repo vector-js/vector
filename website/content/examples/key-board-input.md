@@ -3,6 +3,8 @@
 title: Keyboard Input
 id: key-board-input
 script: /examples/interaction/key-board-input.js
+main: false
+ignore: false
 description: This interactive demonstrates how key board input can be used to add interactivity.
 input: undefined
 tags: [input]

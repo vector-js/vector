@@ -3,6 +3,8 @@
 title: Triangle
 id: triangle
 script: /examples/math/triangle.js
+main: false
+ignore: false
 description: This interactive demonstrates an angle formed by three points.
 input: undefined
 tags: [math]
@@ -17,11 +19,10 @@ draft: undefined
 * @tags [math]
 */
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import { Interactive } from '../../index.js';
+import { Interactive, getScriptName } from '../../index.js';
 // Initialize the interactive
-let id = 'triangle';
-let interactive = new Interactive(id);
-interactive.window = true;
+let interactive = new Interactive(getScriptName());
+interactive.border = true;
 // Create three control points
 let p1 = interactive.control(250, 200);
 let p2 = interactive.control(300, 100);
