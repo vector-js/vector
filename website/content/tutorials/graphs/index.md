@@ -1,7 +1,10 @@
 ---
-title: Graph Module
-description: 
-weight: 3
+title: Graphs Tutorial
+description: Basic usage and documentation for the interactive svg library. Explains how to build a simple interactive and embed it in the browser.
+image: /images/tidy.svg
+date: "2019-02-05T12:03:45-07:00"
+# layout: video
+weight: 2
 ---
 
 The graph module is used to visualize simple graphs in the form of a node-link diagram. Both directed and undirected graphs are supported. The Reingold-Tilford “Tidy” layout for drawing trees is also supported.
