@@ -118,6 +118,7 @@ rect.default {
 .button text {
   fill: #ffffff;
 }
+
 .grid line {
   vector-effect: non-scaling-stroke;
 }
@@ -126,6 +127,10 @@ rect.default {
   vector-effect: non-scaling-stroke;
 }
 
-.node {
-  stroke:black;
+.node circle{
+  stroke: #333333;
+}
+
+.node ellipse{
+  stroke: #333333;
 }

@@ -13,7 +13,7 @@ let functionText = 'Math.cos';
 // Create a new graph object
 let scaleX = 300 / Math.PI;
 let scaleY = 300 / Math.PI;
-let plot = interactive.plot(600, 300, Math.cos, {
+let plot = interactive.plot(Math.cos, {
     originX: 0,
     originY: 150,
     scaleX: scaleX,

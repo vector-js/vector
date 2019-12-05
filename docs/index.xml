@@ -54,7 +54,7 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/mouse-path-game/</guid>
-      <description>import {Interactive, getScriptName, Button} from &amp;#39;../../index.js&amp;#39;; var startTime = new Date().getTime(); let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.height = 736; interactive.width = 736; interactive.border = true; interactive.root.addEventListener(&amp;#39;mousemove&amp;#39;, e =&amp;gt; { mX = e.clientX - interactive.root.getBoundingClientRect().left; mY = e.clientY - interactive.root.getBoundingClientRect().top; }); let scoreLabel = interactive.</description>
+      <description>import {Interactive, getScriptName, Button} from &amp;#39;../../index.js&amp;#39;; var startTime; let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.height = 736; interactive.width = 736; interactive.border = true; interactive.root.addEventListener(&amp;#39;mousemove&amp;#39;, e =&amp;gt; { mX = e.clientX - interactive.root.getBoundingClientRect().left; mY = e.clientY - interactive.root.getBoundingClientRect().top; }); let scoreLabel = interactive.text(10,25,&amp;#34;Time: &amp;#34;); scoreLabel.</description>
     </item>
     
     <item>
@@ -384,7 +384,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/derek/</guid>
-      <description>TODO: A brief description about this person.</description>
+      <description>I am an undergraduate senior working on a computer science bachelor’s degree. Outside of school, I’m passionate about music, running, and the outdoors. My experience being both a student and teaching assistant in programming has made me appreciate the value in tools that are powerful and still easy to learn. My motivation for this project has been to be a part of creating such a tool that helps others to learn and enjoy writing code.</description>
     </item>
     
     <item>
@@ -657,16 +657,6 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/svg/elements/polygon/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Project Overview</title>
-      <link>https://vectorjs.org/project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/project/</guid>
-      <description>This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah.
-Abstract Vector.js is an open source Javascript library for creating interactive vector graphics. The library uses existing web standards: HTML, SVG, CSS, and geoJSON making it easy to use with existing tools and libraries. The target audience for the library is technical users who want to create &amp;ldquo;interactive&amp;rdquo; content for the web.</description>
     </item>
     
     <item>
@@ -1217,7 +1207,7 @@ Abstract Vector.js is an open source Javascript library for creating interactive
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/zach/</guid>
-      <description>TODO: A brief description about this person.</description>
+      <description>I am a senior in the combined BS/MS computer science program and will graduate in Spring 2021. I am currently interested in research opportunities and hope to continue my education after graduating by participating in a PhD program. I am especially interested in data visualization and am a part of the Visualization Design Lab here at Utah.</description>
     </item>
     
     <item>

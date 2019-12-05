@@ -10,3 +10,4 @@ interactive.width = 768;
 interactive.height = 150;
 interactive.root.style.border = "1px solid grey";
 let ellipse = interactive.ellipse( 100, 75, 80, 40);
+ellipse.classList.add('default');

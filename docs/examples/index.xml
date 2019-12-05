@@ -43,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/mouse-path-game/</guid>
-      <description>import {Interactive, getScriptName, Button} from &amp;#39;../../index.js&amp;#39;; var startTime = new Date().getTime(); let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.height = 736; interactive.width = 736; interactive.border = true; interactive.root.addEventListener(&amp;#39;mousemove&amp;#39;, e =&amp;gt; { mX = e.clientX - interactive.root.getBoundingClientRect().left; mY = e.clientY - interactive.root.getBoundingClientRect().top; }); let scoreLabel = interactive.</description>
+      <description>import {Interactive, getScriptName, Button} from &amp;#39;../../index.js&amp;#39;; var startTime; let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.height = 736; interactive.width = 736; interactive.border = true; interactive.root.addEventListener(&amp;#39;mousemove&amp;#39;, e =&amp;gt; { mX = e.clientX - interactive.root.getBoundingClientRect().left; mY = e.clientY - interactive.root.getBoundingClientRect().top; }); let scoreLabel = interactive.text(10,25,&amp;#34;Time: &amp;#34;); scoreLabel.</description>
     </item>
     
     <item>

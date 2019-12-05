@@ -1,5 +1,5 @@
-import Group from '../svg/group.js';
 import SVG from '../svg/svg.js';
+import Text from '../svg/text.js';
 /**
 * Returns the closest power of ten. TODO: replace this with an optimized
 * function that remembers the last closest power of ten and first checks the
@@ -23,96 +23,102 @@ function expTrunc(x) {
     if (x >= N06) {
         return N06;
     }
-    else if (x > N05) {
+    else if (x >= N05) {
         return N05;
     }
-    else if (x > N04) {
+    else if (x >= N04) {
         return N04;
     }
-    else if (x > N03) {
+    else if (x >= N03) {
         return N03;
     }
-    else if (x > N02) {
+    else if (x >= N02) {
         return N02;
     }
-    else if (x > N01) {
+    else if (x >= N01) {
         return N01;
     }
-    else if (x > N00) {
+    else if (x >= N00) {
         return N00;
     }
-    else if (x > N_1) {
+    else if (x >= N_1) {
         return N_1;
     }
-    else if (x > N_2) {
+    else if (x >= N_2) {
         return N_2;
     }
-    else if (x > N_3) {
+    else if (x >= N_3) {
         return N_3;
     }
-    else if (x > N_4) {
+    else if (x >= N_4) {
         return N_4;
     }
-    else if (x > N_5) {
+    else if (x >= N_5) {
         return N_5;
     }
-    else if (x > N_6) {
+    else if (x >= N_6) {
         return N_6;
     }
 }
 /**
 * A plot of the graph of a function.
 */
-export default class Plot extends Group {
+export default class Plot extends SVG {
     /**
     * Constructs a new graph capable of displaying a function in the form of
     * x -> y. The user is able to drag, zoom-in, and zoom-out on the graph to
     * explore the shape and form of the function.
     */
-    constructor(width = 600, height = 300, fn, options) {
-        super();
+    constructor(fn, options) {
         // default configuration options
         let defaultOptions = {
             x: 0,
             y: 0,
+            width: 700,
+            height: 400,
+            margin: 50,
             scaleX: 1,
             scaleY: 1,
             grid: true,
+            labels: true,
+            border: true,
             zoomable: false,
             displayPoint: false,
             controls: false // experimental
         };
         // combine the default configuration with the user's configuration
         let config = { ...defaultOptions, ...options };
+        super(config.x, config.y, config.width, config.height);
         // event variables
         this.prevX = 0;
         this.prevY = 0;
         this.active = false;
         this._function = fn;
-        // calculate the visible dimensions and top-left position of svg coordinates
-        this._x = -width / 2;
-        this._y = -height / 2;
-        this._width = width;
-        this._height = height;
-        this.setAttribute('transform', `translate(${config.x}, ${config.y})`);
-        // create a clipping path rectangle to trim overflowing visual elements
-        let clipPath = this.clipPath();
-        clipPath.rectangle(0, 0, this._width, this._height);
-        this.setAttribute('clip-path', `url(#${clipPath.id})`);
+        // calculate the visible dimensions and top-left position of internal plot area coordinates
+        this._width = config.width - 2 * config.margin;
+        this._height = config.height - 2 * config.margin;
+        this._x = -this._width / 2;
+        this._y = -this._height / 2;
         // creates a transparent rectangle to capture all user events
-        this.rect = this.rectangle(0, 0, this._width, this._height);
+        this.rect = this.rectangle(config.margin, config.margin, this._width, this._height);
         this.rect.style.fill = 'transparent';
-        if (config.border === undefined || config.border) {
+        if (config.border) {
             this.rect.style.border = '1px solid #404040';
         }
         else {
             this.rect.style.stroke = 'none';
         }
+        // create a clipping path rectangle to trim overflowing visual elements
+        let clipPath = this.clipPath();
+        clipPath.rectangle(0, 0, this._width, this._height);
+        this.clipGroup = this.group();
+        this.clipGroup.setAttribute('clip-path', `url(#${clipPath.id})`);
+        this.clipGroup.setAttribute('transform', `translate(${config.margin}, ${config.margin})`);
         // default values
-        this.viewPort = this.svg(0, 0, this._width, this._height);
+        this.viewPort = this.clipGroup.svg(0, 0, this._width, this._height);
         this.viewPort.setAttribute('preserveAspectRatio', 'none');
         // create a static group for non-size-scaling objects
-        this.staticGroup = this.group();
+        this.staticGroup = this.clipGroup.group();
         this.xAxis = this.staticGroup.line(-10000, 0, 10000, 0);
         this.yAxis = this.staticGroup.line(0, -10000, 0, 10000);
         this.staticGroup.circle(0, 0, 3).fill = '#404040';
@@ -186,6 +192,38 @@ export default class Plot extends Group {
         }
         // draw the initial state of the graph
         this.draw();
+        if (config.labels) {
+            // draw the labels
+            let group = this.group();
+            group.style.fontFamily = 'KaTeX_Main';
+            group.style.fontSize = '22px';
+            // draw the title
+            let title;
+            if (config.title instanceof Text) {
+                title = group.appendChild(config.title);
+                title.x = this.width / 2;
+                title.y = 25;
+            }
+            else {
+                title = group.text(this.width / 2, 25, config.title);
+            }
+            title.setAttribute('alignment-baseline', 'middle');
+            title.setAttribute('text-anchor', 'middle');
+            let xPoints = this.getXLabelPoints();
+            let yPoints = this.getYLabelPoints();
+            for (let p of xPoints) {
+                let point = this.internalToAbsolute(p);
+                let text = group.text(point.x + config.margin, config.margin + this._height + config.margin / 2, `${p.x}`);
+                text.setAttribute('alignment-baseline', 'middle');
+                text.setAttribute('text-anchor', 'middle');
+            }
+            for (let p of yPoints) {
+                let point = this.internalToAbsolute(p);
+                let text = group.text(point.x + config.margin / 2, point.y + config.margin, `${p.y}`);
+                text.setAttribute('alignment-baseline', 'middle');
+                text.setAttribute('text-anchor', 'middle');
+            }
+        }
     }
     /**
     * Sets the internal function to the provided function
@@ -205,29 +243,6 @@ export default class Plot extends Group {
     get originY() {
         return -this._y;
     }
-    // get x():number {
-    //   return this._x;
-    // }
-    //
-    // set x(value:number) {
-    //   this._x = value;
-    // }
-    //
-    // get y():number {
-    //   return this._y;
-    // }
-    //
-    // set y(value:number) {
-    //   this._y = value;
-    // }
-    //
-    // get width():number {
-    //   return this._width;
-    // }
-    //
-    // get height():number {
-    //   return this._height;
-    // }
     /**
     * Updates the display circle based on its current cx position, also updates
     * the display text elements to represent the position of the display circle.
@@ -343,8 +358,8 @@ export default class Plot extends Group {
         // TODO: use a combination of these metrics below to calculate the spacing
         // between two grid lines. I am guessing the goal is to space grid lines
         // somewhere between 10 - 50 pixels in the actual coordinate system
-        let pixelsX = 200 * this.visibleWidth / this._width;
-        let pixelsY = 200 * this.visibleHeight / this._height;
+        let pixelsX = 100 * this.visibleWidth / this._width;
+        let pixelsY = 100 * this.visibleHeight / this._height;
         let spacingX = expTrunc(pixelsX);
         let spacingY = expTrunc(pixelsY);
         // TODO: use the static group for this?
@@ -356,29 +371,16 @@ export default class Plot extends Group {
         let maxX = this.internalX + this.visibleWidth;
         let minY = this.internalY;
         let maxY = this.internalY + this.visibleHeight;
-        let x = -10 * spacingX;
+        let x = spacingX * Math.floor(minX / spacingX);
         while (x < maxX) {
-            if (x >= minX) {
-                this.grid.line(x, minY, x, maxY);
-            }
+            this.grid.line(x, minY, x, maxY);
             x += spacingX;
         }
-        let y = -10 * spacingY;
-        while (y < maxY) {
-            if (y >= minY) {
-                this.grid.line(minX, y, maxX, y);
-            }
-            y += spacingY;
+        let y = spacingY * Math.floor(maxY / spacingY);
+        while (y > minY) {
+            this.grid.line(minX, y, maxX, y);
+            y -= spacingY;
         }
-        // // horizontal lines
-        // for( let i = minY; i <= maxY; i += spacingX ) {
-        //   this.grid.line(minX, i, maxX,  i);
-        // }
-        //
-        // // vertical lines
-        // for( let i = minX; i <= maxX; i += spacingY ) {
-        //   this.grid.line( i, minY,  i, maxY);
-        // }
     }
     internalToAbsolute(point) {
         let x = point.x * this.scaleX + this.originX;
@@ -390,17 +392,15 @@ export default class Plot extends Group {
     */
     getXLabelPoints() {
         let labels = [];
-        let pixelsX = 200 * this.visibleWidth / this._width;
+        let pixelsX = 250 * this.visibleWidth / this._width;
         let spacingX = expTrunc(pixelsX);
         // TODO: use the static group for this?
         let minX = this.internalX;
         let maxX = this.internalX + this.visibleWidth;
         let minY = this.internalY;
-        let x = -10 * spacingX;
-        while (x < maxX) {
-            if (x >= minX) {
-                labels.push({ x: x, y: minY });
-            }
+        let x = spacingX * Math.ceil(minX / spacingX);
+        while (x <= maxX) {
+            labels.push({ x: x, y: minY });
             x += spacingX;
         }
         return labels;
@@ -410,19 +410,16 @@ export default class Plot extends Group {
     */
     getYLabelPoints() {
         let labels = [];
-        let pixelsY = 200 * this.visibleHeight / this._height;
+        let pixelsY = 250 * this.visibleHeight / this._height;
         let spacingY = expTrunc(pixelsY);
         // TODO: use the static group for this?
         let minX = this.internalX;
-        let maxX = this.internalX + this.visibleWidth;
         let minY = this.internalY;
         let maxY = this.internalY + this.visibleHeight;
-        let y = -10 * spacingY;
-        while (y < maxY) {
-            if (y >= minY) {
-                labels.push({ x: minX, y: y });
-            }
-            y += spacingY;
+        let y = spacingY * Math.floor(maxY / spacingY);
+        while (y >= minY) {
+            labels.push({ x: minX, y: -y });
+            y -= spacingY;
         }
         return labels;
     }

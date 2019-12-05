@@ -17,7 +17,9 @@ export default function main( idOrElement:string|HTMLElement ){
   // Create a new graph object
   let scale = 300/Math.PI;
 
-  let plot2 = interactive.plot(600,600, Math.cos, {
+  let plot2 = interactive.plot(Math.cos, {
+    width:600,
+    height: 600,
     x: 50,
     y: 50,
     originX: 0,
@@ -31,7 +33,9 @@ export default function main( idOrElement:string|HTMLElement ){
   plot2.fPath.style.stroke = '#1bc075';
 
   let secant = (x) => { return 1/Math.cos(x) };
-  let plot = interactive.plot(600, 600, secant, {
+  let plot = interactive.plot(secant, {
+    width:600,
+    height: 600,
     x: 50,
     y: 50,
     originX: 0,

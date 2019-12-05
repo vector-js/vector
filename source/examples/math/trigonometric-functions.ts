@@ -122,7 +122,9 @@ for(let f of functions) {
     width:2*width,
     height:width
   });
-  let plot = plotInteractive.plot(2*width, width, f, {
+  let plot = plotInteractive.plot(f, {
+    width: 2*width,
+    height: width,
     scaleX: scale,
     scaleY: scale,
     originX: 0,

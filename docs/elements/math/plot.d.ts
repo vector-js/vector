@@ -11,19 +11,37 @@ import Point from '../math/point.js';
 */
 export interface PlotOptions {
     /**
-    * When set to true allows the user to zoom in/out and pan using the mouse
-    * scroll event and clicking and dragging. Default value is false.
+    * The left-most x-position of the plot area
     */
-    zoomable?: boolean;
+    x?: number;
     /**
-    * When set to true displays a point representing the output of the function
-    * for the current x-location of the user's mouse.
+    * The top-most y-position of the plot area
     */
-    displayPoint?: boolean;
+    y?: number;
+    /**
+    * The width of the chart
+    */
+    width?: number;
+    /**
+    * The height of the chart.
+    */
+    height?: number;
+    /**
+    * Margin
+    */
+    margin?: number;
+    /**
+    * Set the plot title.
+    */
+    title?: string | Text;
     /**
     * When set to true displays a grid representing the current scale of the plot
     */
     grid?: boolean;
+    /**
+    * If true displays axis labels.
+    */
+    labels?: boolean;
     /**
     * Controls how much the plot is scaled in the x direction.
     */
@@ -42,25 +60,34 @@ export interface PlotOptions {
     * corner of the plot.
     */
     originY?: number;
-    /**
-    * Sets the left-most x-position of the plot area
-    */
-    x?: number;
-    /**
-    * Sets the top-most y-position of the plot area
-    */
-    y?: number;
     border?: boolean;
+    /**
+    * Toggle whether the plot has controls. Full screen, zoom in, zoom out buttons.
+    */
     controls?: boolean;
+    /**
+    * When set to true allows the user to zoom in/out and pan using the mouse
+    * scroll event and clicking and dragging. Default value is false.
+    */
+    zoomable?: boolean;
+    /**
+    * When set to true displays a point representing the output of the function
+    * for the current x-location of the user's mouse.
+    */
+    displayPoint?: boolean;
 }
 /**
 * A plot of the graph of a function.
 */
-export default class Plot extends Group {
+export default class Plot extends SVG {
     /**
     * Invisible element for registering events
     */
     rect: Rectangle;
+    /**
+    *
+    */
+    clipGroup: Group;
     /**
     * This view port is a coordinate system where things are scaled using svg's
     * internal representatino of scaling.
@@ -120,7 +147,7 @@ export default class Plot extends Group {
     * x -> y. The user is able to drag, zoom-in, and zoom-out on the graph to
     * explore the shape and form of the function.
     */
-    constructor(width: number, height: number, fn: (x: number) => number, options: PlotOptions);
+    constructor(fn: (x: number) => number, options: PlotOptions);
     /**
     * Sets the internal function to the provided function
     */

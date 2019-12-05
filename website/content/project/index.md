@@ -1,6 +1,7 @@
 ---
 title: Project Overview
 description: This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah.
+draft: true
 ---
 
 This project was developed as a capstone project for a group of seniors studying computer science at the Uniersity of Utah.

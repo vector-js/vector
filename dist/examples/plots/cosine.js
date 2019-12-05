@@ -11,7 +11,7 @@ interactive.width = 600;
 interactive.height = 300;
 // Create a new graph object
 let scale = 300 / Math.PI;
-interactive.plot(600, 300, Math.cos, {
+interactive.plot(Math.cos, {
     originX: 0,
     originY: 150,
     scaleX: scale,

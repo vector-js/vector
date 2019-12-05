@@ -2393,6 +2393,15 @@ img {
 					<a href="plotoptions.html#grid" class="tsd-kind-icon">grid</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="plotoptions.html#height" class="tsd-kind-icon">height</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="plotoptions.html#labels" class="tsd-kind-icon">labels</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="plotoptions.html#margin" class="tsd-kind-icon">margin</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="plotoptions.html#originx" class="tsd-kind-icon">originX</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -2403,6 +2412,12 @@ img {
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="plotoptions.html#scaley" class="tsd-kind-icon">scaleY</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="plotoptions.html#title" class="tsd-kind-icon">title</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="plotoptions.html#width" class="tsd-kind-icon">width</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="plotoptions.html#x" class="tsd-kind-icon">x</a>
@@ -2445,10 +2460,15 @@ img {
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#controls" class="tsd-kind-icon">controls</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#displaypoint" class="tsd-kind-icon">display<wbr>Point</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#grid" class="tsd-kind-icon">grid</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#height" class="tsd-kind-icon">height</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#labels" class="tsd-kind-icon">labels</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#margin" class="tsd-kind-icon">margin</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#originx" class="tsd-kind-icon">originX</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#originy" class="tsd-kind-icon">originY</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#scalex" class="tsd-kind-icon">scaleX</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#scaley" class="tsd-kind-icon">scaleY</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#title" class="tsd-kind-icon">title</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#width" class="tsd-kind-icon">width</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#x" class="tsd-kind-icon">x</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#y" class="tsd-kind-icon">y</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="plotoptions.html#zoomable" class="tsd-kind-icon">zoomable</a></li>
@@ -2465,7 +2485,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">border<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:64</li>
+						<li>Defined in elements/math/plot.ts:78</li>
 					</ul>
 				</aside>
 			</section>
@@ -2475,9 +2495,14 @@ img {
 				<div class="tsd-signature tsd-kind-icon">controls<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:65</li>
+						<li>Defined in elements/math/plot.ts:85</li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Toggle whether the plot has controls. Full screen, zoom in, zoom out buttons.</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="displaypoint" class="tsd-anchor"></a>
@@ -2485,7 +2510,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">display<wbr>Point<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:25</li>
+						<li>Defined in elements/math/plot.ts:97</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2501,7 +2526,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">grid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:30</li>
+						<li>Defined in elements/math/plot.ts:48</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2511,12 +2536,57 @@ img {
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="height" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
+				<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in elements/math/plot.ts:33</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The height of the chart.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="labels" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> labels</h3>
+				<div class="tsd-signature tsd-kind-icon">labels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in elements/math/plot.ts:53</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>If true displays axis labels.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="margin" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin</h3>
+				<div class="tsd-signature tsd-kind-icon">margin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in elements/math/plot.ts:38</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Margin</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="originx" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagOptional">Optional</span> originX</h3>
 				<div class="tsd-signature tsd-kind-icon">originX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:46</li>
+						<li>Defined in elements/math/plot.ts:69</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2532,7 +2602,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">originY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:52</li>
+						<li>Defined in elements/math/plot.ts:75</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2548,7 +2618,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">scaleX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:35</li>
+						<li>Defined in elements/math/plot.ts:58</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2563,7 +2633,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">scaleY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:40</li>
+						<li>Defined in elements/math/plot.ts:63</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2573,17 +2643,47 @@ img {
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="title" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> title</h3>
+				<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/text.html" class="tsd-signature-type">Text</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in elements/math/plot.ts:43</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Set the plot title.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="width" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
+				<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in elements/math/plot.ts:28</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The width of the chart</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="x" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagOptional">Optional</span> x</h3>
 				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:57</li>
+						<li>Defined in elements/math/plot.ts:18</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Sets the left-most x-position of the plot area</p>
+						<p>The left-most x-position of the plot area</p>
 					</div>
 				</div>
 			</section>
@@ -2593,12 +2693,12 @@ img {
 				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:62</li>
+						<li>Defined in elements/math/plot.ts:23</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Sets the top-most y-position of the plot area</p>
+						<p>The top-most y-position of the plot area</p>
 					</div>
 				</div>
 			</section>
@@ -2608,7 +2708,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">zoomable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/math/plot.ts:19</li>
+						<li>Defined in elements/math/plot.ts:91</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
