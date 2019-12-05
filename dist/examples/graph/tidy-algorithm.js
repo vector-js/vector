@@ -10,9 +10,10 @@ let interactive = new Interactive(getScriptName());
 interactive.width = 736;
 interactive.height = 400;
 interactive.border = true;
-let graph = interactive.graph({ directed: true });
+let graph = interactive.graph({ directed: false });
+//
 // let root = graph.addNode(0, 0 "root")
-// for(let i = 0; i < 10; i++){
+// for(let i = 0; i < 5; i++){
 //   let parent = graph.addNode(0, 0, i);
 //   graph.addEdge(root, parent);
 //   for(let j = 0; j < 5; j++){
@@ -22,7 +23,7 @@ let graph = interactive.graph({ directed: true });
 // }
 //
 // graph.tidy(root);
-//
+// //
 // let rect = (graph.root as SVGGraphicsElement).getBBox();
 //
 // if(graph.size() == 1)

@@ -122,7 +122,14 @@ export default class Graph extends Group {
         for (let node of orderedNodes) {
             let leftSiblings = (node.parents[0] != undefined && node.parents[0].children[0] !== node);
             if (leftSiblings) {
+                let currPos = -1;
                 for (let i = 0; i < node.parents[0].children.length; i++) {
+                    if (node.parents[0].children[i] === node) {
+                        currPos = i;
+                        break;
+                    }
+                }
+                for (let i = currPos - 1; i >= 0; i--) {
                     if (node.parents[0].children[i] === node) {
                         break;
                     }
@@ -156,9 +163,9 @@ export default class Graph extends Group {
                 }
             }
         }
-        if (nodeShifted) {
-            modMap = this.fixConflicts(root, orderedNodes, modMap);
-        }
+        // if(nodeShifted){
+        //   modMap = this.fixConflicts(root, orderedNodes, modMap)
+        // }
         return modMap;
     }
     shiftChildrenByMod(node, mod, modMap) {
