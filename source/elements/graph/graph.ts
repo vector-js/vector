@@ -170,7 +170,16 @@ export default class Graph extends Group {
 
       if(leftSiblings)
       {
+        let currPos = -1;
         for(let i = 0; i < node.parents[0].children.length; i++)
+        {
+          if(node.parents[0].children[i] === node){
+            currPos = i;
+            break;
+          }
+        }
+
+        for(let i = currPos - 1; i >= 0; i--)
         {
           if(node.parents[0].children[i] === node){break;}
           else{
@@ -207,15 +216,14 @@ export default class Graph extends Group {
               node.parents[0].children[j].cx += shift / (nodePos - i);
               modMap[node.parents[0].children[j].id] += shift / (nodePos - i);
             }
-
           }
         }
       }
     }
 
-    if(nodeShifted){
-      modMap = this.fixConflicts(root, orderedNodes, modMap)
-    }
+    // if(nodeShifted){
+    //   modMap = this.fixConflicts(root, orderedNodes, modMap)
+    // }
 
     return modMap;
   }
