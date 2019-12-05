@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
-      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [elements, games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
+      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/mouse-path-game/</guid>
-      <description>import {Interactive, getScriptName, Button} from &amp;#39;../../index.js&amp;#39;; var startTime; let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.height = 736; interactive.width = 736; interactive.border = true; interactive.root.addEventListener(&amp;#39;mousemove&amp;#39;, e =&amp;gt; { mX = e.clientX - interactive.root.getBoundingClientRect().left; mY = e.clientY - interactive.root.getBoundingClientRect().top; }); let scoreLabel = interactive.text(10,25,&amp;#34;Time: &amp;#34;); scoreLabel.</description>
+      <description>/** * @title Mouse Path Game * @description Stay inside the bounds of the outlined circle with your cursor for as long as possible! When the timer hits 0 the game is over. * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; var startTime; let interval = 0; let distance = 1; let xDiff = distance; let yDiff = distance; let mX = 0; let mY = 0; let score = 250; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -70,7 +70,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/snake-game/</guid>
-      <description>/** * @title Snake Game * @description Traditional Snake Game where you try to collect the yellow blocks without leaving the map or hitting yourself. Use WASD or Arrow keys to move. * @tags [elements, games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; /** * dp is the size of the squares of the snake. THE WIDTH AND HEIGHT OF * THE INTERACTIVE MUST BE MULTIPLES OF DP */ let dp = 40; let horizontal = true; let vertical = false; let direction = &amp;#39;r&amp;#39;; let score = 0; let interval = 0; let snake = []; let point; let interactive = new Interactive(getScriptName()); interactive.</description>
+      <description>/** * @title Snake Game * @description Traditional Snake Game where you try to collect the yellow blocks without leaving the map or hitting yourself. Use WASD or Arrow keys to move. * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; /** * dp is the size of the squares of the snake. THE WIDTH AND HEIGHT OF * THE INTERACTIVE MUST BE MULTIPLES OF DP */ let dp = 40; let horizontal = true; let vertical = false; let direction = &amp;#39;r&amp;#39;; let score = 0; let interval = 0; let snake = []; let point; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -83,12 +83,21 @@
     </item>
     
     <item>
+      <title>Unit Circle</title>
+      <link>https://vectorjs.org/examples/unit-circle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle/</guid>
+      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent. * @tags [math] * @date October 9, 2019 * @author Kurt Bruns * @weight 1 */ import { Interactive, BaseElement } from &amp;#39;../../index.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; /** * This wrapper object is how the circular dependecy between control elements is * made more simple.</description>
+    </item>
+    
+    <item>
       <title>Riemann Sum</title>
       <link>https://vectorjs.org/examples/riemann-sum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/riemann-sum/</guid>
-      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { let n = 7; let scale = 100; let method = &amp;#39;left&amp;#39;; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
+      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // default configuration  let n = 7; let scale = 100; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
     </item>
     
     <item>
@@ -165,6 +174,15 @@
     
     <item>
       <title>Cartesian Coordinate System</title>
+      <link>https://vectorjs.org/examples/cartesian-coordinate-system-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/cartesian-coordinate-system-test/</guid>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let width = 600; let height = 300; let interactive = new Interactive(getScriptName(), { width: width + 2 * margin, height: height + 2 * margin, originX: margin, originY: height + margin }); // interactive.</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Coordinate System</title>
       <link>https://vectorjs.org/examples/cartesian-coordinate-system/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -232,7 +250,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/cosine/</guid>
-      <description>/** * @title Cosine Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; // Create a new graph object let scale = 300 / Math.PI; interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); //# sourceMappingURL=cosine.</description>
+      <description>/** * @title Cosine Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; // Create a new graph object let scale = 300 / Math.PI; interactive.plot(Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); //# sourceMappingURL=cosine.</description>
     </item>
     
     <item>
@@ -241,7 +259,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/country-selection/</guid>
-      <description>/** * @title Country Selection * @description Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;#6be88c&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.3 }); let inputContainer = document.</description>
+      <description>/** * @title Country Selection * @description Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn. * @tags [maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;#6be88c&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.3 }); let inputContainer = document.</description>
     </item>
     
     <item>
@@ -259,7 +277,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/dependency-function/</guid>
-      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; //# sourceMappingURL=dependency-function.js.map  </description>
+      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; //# sourceMappingURL=dependency-function.js.map  </description>
     </item>
     
     <item>
@@ -286,7 +304,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/ellipse-element/</guid>
-      <description>/** * @title Ellipse Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let ellipse = interactive.ellipse(100, 75, 80, 40); //# sourceMappingURL=ellipse-element.js.map  </description>
+      <description>/** * @title Ellipse Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let ellipse = interactive.ellipse(100, 75, 80, 40); ellipse.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=ellipse-element.js.map  </description>
     </item>
     
     <item>
@@ -304,7 +322,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-circle/</guid>
-      <description>/** * @title Interactive SVG Circle * @description This interactive demonstrates the basic properties of the SVG Circle Element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let circle = interactive.circle(0, 0, 0); let l1 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; let text = interactive.text(25, 275, &amp;#34;&amp;#34;); let centerControl = interactive.control(300, 150); let radiusControl = interactive.</description>
+      <description>/** * @title Interactive SVG Circle * @description This interactive demonstrates the basic properties of the SVG Circle Element. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; let circle = interactive.circle(0, 0, 0); circle.classList.add(&amp;#39;default&amp;#39;); let l1 = interactive.line(0, 0, 0, 0); l1.stroke = &amp;#39;cornflowerblue&amp;#39;; let text = interactive.text(25, 275, &amp;#34;&amp;#34;); let centerControl = interactive.control(300, 150); let radiusControl = interactive.</description>
     </item>
     
     <item>
@@ -358,7 +376,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/load-external-svg/</guid>
-      <description>/** * @title Load External SVG * @description This interactive demonstrates how to load and use an external svg. * @tags [svg] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { getURL } from &amp;#39;../../util/file.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); // let svg = myInteractive.loadSVG(&amp;#39;/resources/maps/united-states.svg&amp;#39;); // svg.then(function(data){ // console.log(data.root); // let bbox = (data.root.firstElementChild as SVGGraphicsElement).getBBox(); // myInteractive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height); // }) getURL(&amp;#39;/resources/maps/united-states.</description>
+      <description>/** * @title Load External SVG * @description This interactive demonstrates how to load and use an external svg. * @tags [svg, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { getURL } from &amp;#39;../../util/file.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; let map = getURL(&amp;#39;/maps/united-states.svg&amp;#39;); let data = getURL(&amp;#39;/maps/us-population-data.json&amp;#39;); Promise.all([map, data]).then(function (response) { let myInteractive = new Interactive(getScriptName(), { width: 736, height: 400 }); let svg = myInteractive.background.root.appendChild(parseSVG(response[0])); let bbox = svg.</description>
     </item>
     
     <item>
@@ -367,7 +385,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/map-zoom-feature/</guid>
-      <description>/** * @title Map Zoom * @description Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;red&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.5 }); let inputContainer = document.</description>
+      <description>/** * @title Map Zoom * @description Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive. * @tags [maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let map = interactive.map(data.globalData, &amp;#34;&amp;#34;, { fill: &amp;#39;red&amp;#39;, stroke: &amp;#39;white&amp;#39;, strokeWidth: 0.5 }); let inputContainer = document.</description>
     </item>
     
     <item>
@@ -403,7 +421,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/path-element/</guid>
-      <description>/** * @title Path Element * @description This interactive demonstrates the path element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;); //# sourceMappingURL=path-element.js.map  </description>
+      <description>/** * @title Path Element * @description This interactive demonstrates the path element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let path = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;); path.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=path-element.js.map  </description>
     </item>
     
     <item>
@@ -412,7 +430,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/plot-element-experimental/</guid>
-      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; let functionText = &amp;#39;Math.cos&amp;#39;; // Create a new graph object let scaleX = 300 / Math.PI; let scaleY = 300 / Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scaleX, scaleY: scaleY, zoomable: true, controls: true }); // Function input let functionInput = document.</description>
+      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; let functionText = &amp;#39;Math.cos&amp;#39;; // Create a new graph object let scaleX = 300 / Math.PI; let scaleY = 300 / Math.PI; let plot = interactive.plot(Math.cos, { originX: 0, originY: 150, scaleX: scaleX, scaleY: scaleY, zoomable: true, controls: true }); // Function input let functionInput = document.</description>
     </item>
     
     <item>
@@ -421,7 +439,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/plot-element/</guid>
-      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; let plot = interactive.plot(600, 300, Math.sin, { x: 50, y: 50, originX: 0, originY: 150, scaleX: 300 / Math.</description>
+      <description>/** * @title Plot Element * @description This interactive demonstrates the plot element * @tags [elements] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; let scale = 300 / Math.PI; interactive.plot(Math.sin, { title: &amp;#34;Sine Function&amp;#34;, originX: 0, originY: 150, scaleX: scale, scaleY: scale, }); } //# sourceMappingURL=plot-element.</description>
     </item>
     
     <item>
@@ -466,7 +484,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/random-color-world/</guid>
-      <description>/** * @title Random Colored Countires * @description Randomly colors the countries in the world. * @tags [elements, maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; let map = interactive.map(data.globalData); let countries = map.getAllFeaturePaths(); countries.forEach(element =&amp;gt; { element.style.fill = getRandomColor(); }); function getRandomColor() { var letters = &amp;#39;0123456789ABCDEF&amp;#39;; var color = &amp;#39;#&amp;#39;; for (var i = 0; i &amp;lt; 6; i++) { color += letters[Math.</description>
+      <description>/** * @title Random Colored Countires * @description Randomly colors the countries in the world. * @tags [maps] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; let map = interactive.map(data.globalData); let countries = map.getAllFeaturePaths(); countries.forEach(element =&amp;gt; { element.style.fill = getRandomColor(); }); function getRandomColor() { var letters = &amp;#39;0123456789ABCDEF&amp;#39;; var color = &amp;#39;#&amp;#39;; for (var i = 0; i &amp;lt; 6; i++) { color += letters[Math.</description>
     </item>
     
     <item>
@@ -475,7 +493,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/rectangle-element/</guid>
-      <description>/** * @title Rectangle Element * @description This interactive demonstrates the rectangle element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.rectangle(50, 50, 100, 50); //# sourceMappingURL=rectangle-element.js.map  </description>
+      <description>/** * @title Rectangle Element * @description This interactive demonstrates the rectangle element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let rectangle = interactive.rectangle(50, 50, 100, 50); rectangle.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=rectangle-element.js.map  </description>
     </item>
     
     <item>
@@ -511,7 +529,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/secant/</guid>
-      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let secant = (x) =&amp;gt; { return 1 / Math.cos(x); }; interactive.</description>
+      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let plot2 = interactive.plot(Math.cos, { width: 700, height: 700, originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false, grid: false, labels: false }); plot2.</description>
     </item>
     
     <item>
@@ -529,7 +547,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/state-quiz/</guid>
-      <description>/** * @title State Quiz * @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you&amp;#39;re correct! If you want some help, press the &amp;#39;/&amp;#39; key. * @tags [elements, maps, games] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let correctCounter = 0; let incorrectCounter = 0; let interactive = new Interactive(getScriptName()); interactive.</description>
+      <description>/** * @title State Quiz * @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you&amp;#39;re correct! If you want some help, press the &amp;#39;/&amp;#39; key. * @tags [maps, games] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let correctCounter = 0; let incorrectCounter = 0; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -709,7 +727,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/trigonometric-functions/</guid>
-      <description>/** * @title Trigonometric Functions * @description This interactive shows the connection between the three trigonometric functions and the unit circle. * @tags [math] */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let width = 230; let scale = width / Math.PI; let radius = scale; let margin = 2 * radius - width / 2; // let functions = [Math.</description>
+      <description>/** * @title Trigonometric Functions * @description This interactive shows the connection between the three trigonometric functions and the unit circle. * @tags [math] * @ignore true */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let width = 230; let scale = width / Math.PI; let radius = scale; let margin = 2 * radius - width / 2; // let functions = [Math.</description>
     </item>
     
     <item>
@@ -790,7 +808,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/sine/</guid>
-      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(600, 300, Math.sin, { x: 50, y: 50, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); let group = interactive.</description>
+      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(Math.sin, { title: &amp;#34;Sine Function&amp;#34;, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); } //# sourceMappingURL=sine.</description>
     </item>
     
     <item>
@@ -839,15 +857,6 @@
     </item>
     
     <item>
-      <title>Unit Circle</title>
-      <link>https://vectorjs.org/examples/unit-circle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle/</guid>
-      <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent. * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive, BaseElement } from &amp;#39;../../index.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; /** * This wrapper object is how the circular dependecy between control elements is * made more simple. Since all of the elements depend on the current angle when * an input is changed then this element is updated and the change is * propegated through the dependency graph.</description>
-    </item>
-    
-    <item>
       <title>Unit Circle Angle</title>
       <link>https://vectorjs.org/examples/unit-circle-angle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -862,7 +871,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle-cosine/</guid>
-      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
+      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
     </item>
     
     <item>
@@ -889,7 +898,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/unit-circle-sine/</guid>
-      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
+      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
     </item>
     
     <item>

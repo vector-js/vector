@@ -2425,6 +2425,9 @@ img {
 				<li class=" tsd-kind-accessor tsd-parent-kind-class">
 					<a href="button.html#active" class="tsd-kind-icon">active</a>
 				</li>
+				<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+					<a href="button.html#count-1" class="tsd-kind-icon">count</a>
+				</li>
 				<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 					<a href="button.html#id" class="tsd-kind-icon">id</a>
 				</li>
@@ -2590,6 +2593,7 @@ img {
 						<h3>Accessors</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="button.html#active" class="tsd-kind-icon">active</a></li>
+							<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="button.html#count-1" class="tsd-kind-icon">count</a></li>
 							<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="button.html#id" class="tsd-kind-icon">id</a></li>
 							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="button.html#onchange" class="tsd-kind-icon">onchange</a></li>
 							<li class="tsd-kind-set-signature tsd-parent-kind-class"><a href="button.html#onclick" class="tsd-kind-icon">onclick</a></li>
@@ -2646,7 +2650,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Overrides <a href="input.html">Input</a>.<a href="input.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in elements/input/button.ts:29</li>
+								<li>Defined in elements/input/button.ts:33</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2679,9 +2683,14 @@ img {
 				<div class="tsd-signature tsd-kind-icon">_active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:16</li>
+						<li>Defined in elements/input/button.ts:19</li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>True if the button is active</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="_count" class="tsd-anchor"></a>
@@ -2704,7 +2713,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">_x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:18</li>
+						<li>Defined in elements/input/button.ts:22</li>
 					</ul>
 				</aside>
 			</section>
@@ -2714,7 +2723,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">_y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:19</li>
+						<li>Defined in elements/input/button.ts:23</li>
 					</ul>
 				</aside>
 			</section>
@@ -2724,7 +2733,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">box<span class="tsd-signature-symbol">:</span> <a href="rectangle.html" class="tsd-signature-type">Rectangle</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:24</li>
+						<li>Defined in elements/input/button.ts:28</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2756,7 +2765,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <a href="text.html" class="tsd-signature-type">Text</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:29</li>
+						<li>Defined in elements/input/button.ts:33</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2888,10 +2897,33 @@ img {
 				<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:92</li>
-						<li>Defined in elements/input/button.ts:96</li>
+						<li>Defined in elements/input/button.ts:107</li>
+						<li>Defined in elements/input/button.ts:115</li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns true if the button is actively being pressed.
+							Allows the user to synthetically &quot;press&quot; the button and put it into an
+						active state.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+				<a name="count-1" class="tsd-anchor"></a>
+				<h3>count</h3>
+				<div class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in elements/input/button.ts:100</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns how many times this button has been pressed. Count does not
+						increment until the button has been released.</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 				<a name="id" class="tsd-anchor"></a>
@@ -2935,7 +2967,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">onclick<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:111</li>
+						<li>Defined in elements/input/button.ts:138</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2950,8 +2982,8 @@ img {
 				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:65</li>
-						<li>Defined in elements/input/button.ts:72</li>
+						<li>Defined in elements/input/button.ts:69</li>
+						<li>Defined in elements/input/button.ts:76</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2967,8 +2999,8 @@ img {
 				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> </div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in elements/input/button.ts:80</li>
-						<li>Defined in elements/input/button.ts:87</li>
+						<li>Defined in elements/input/button.ts:84</li>
+						<li>Defined in elements/input/button.ts:91</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

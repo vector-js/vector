@@ -49,6 +49,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/unit-circle/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/tutorials/graphs/</loc>
     <lastmod>2019-02-05T12:03:45-07:00</lastmod>
   </url>
@@ -59,10 +63,6 @@
   
   <url>
     <loc>https://vectorjs.org/svg/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/tutorials/custom-element/</loc>
   </url>
   
   <url>
@@ -125,6 +125,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/button-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/cartesian-coordinate-system-test/</loc>
   </url>
   
   <url>
@@ -245,10 +249,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/line-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/tutorials/load-data/</loc>
   </url>
   
   <url>
@@ -517,10 +517,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/undirected-graph-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/unit-circle/</loc>
   </url>
   
   <url>

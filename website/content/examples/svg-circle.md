@@ -23,6 +23,7 @@ let interactive = new Interactive(getScriptName());
 interactive.border = true;
 interactive.width = 736;
 let circle = interactive.circle(0, 0, 0);
+circle.classList.add('default');
 let l1 = interactive.line(0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
 let text = interactive.text(25, 275, "");

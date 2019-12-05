@@ -61,7 +61,7 @@
 </span><span class="cm">* @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine
 </span><span class="cm">* @tags [math]
 </span><span class="cm">* @date October 9, 2019
-</span><span class="cm">* @author Kurt Bruns
+</span><span class="cm">* @ignore true
 </span><span class="cm">*/</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Group</span> <span class="nx">from</span> <span class="s1">&#39;../../elements/svg/group.js&#39;</span><span class="p">;</span>
@@ -172,13 +172,18 @@
         <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">,</span>
         <span class="nx">height</span><span class="o">:</span> <span class="nx">width</span>
     <span class="p">});</span>
-    <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">plotInteractive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">f</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">plotInteractive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="p">{</span>
         <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
         <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
         <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="nx">originY</span><span class="o">:</span> <span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="nx">width</span><span class="p">,</span>
+        <span class="nx">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">labels</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="nx">displayPoint</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">grid</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">border</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">});</span>
     <span class="kd">let</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">plot</span><span class="p">.</span><span class="nx">staticGroup</span><span class="p">.</span><span class="nx">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
@@ -216,14 +221,6 @@
             <span class="nx">circleInteractive</span><span class="p">.</span><span class="nx">background</span><span class="p">.</span><span class="nx">prependChild</span><span class="p">(</span><span class="nx">rect2</span><span class="p">);</span>
             <span class="nx">rect2</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;vector-effect&#39;</span><span class="p">,</span> <span class="s1">&#39;non-scaling-stroke&#39;</span><span class="p">);</span>
             <span class="nx">rect2</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">strokeOpacity</span> <span class="o">=</span> <span class="s1">&#39;.25&#39;</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nx">rect1</span> <span class="o">=</span> <span class="nx">plot</span><span class="p">.</span><span class="nx">viewPort</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-            <span class="nx">rect1</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
-            <span class="nx">rect1</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;vector-effect&#39;</span><span class="p">,</span> <span class="s1">&#39;non-scaling-stroke&#39;</span><span class="p">);</span>
-            <span class="nx">rect1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">strokeOpacity</span> <span class="o">=</span> <span class="s1">&#39;.25&#39;</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="nx">angle</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>

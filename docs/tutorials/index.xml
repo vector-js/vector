@@ -17,8 +17,8 @@
       <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
       
       <guid>https://vectorjs.org/tutorials/getting-started/</guid>
-      <description>Welcome! To use this library, download the getting-started.tgz tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, has an element with an unique id, and includes the script file.
-index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.org/library.css&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;my-interactive&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;script.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &amp;ldquo;my-interactive&amp;rdquo;, and then constructs a control point which can be dragged around.</description>
+      <description>Welcome! To use this library, download the getting-started.tgz tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
+index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.</description>
     </item>
     
     <item>
@@ -30,16 +30,6 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
       <description>The graph module is used to visualize simple graphs in the form of a node-link diagram. Both directed and undirected graphs are supported. The Reingold-Tilford “Tidy” layout for drawing trees is also supported.
 To create a graph, first create an interactive object (link). Then create a graph object as shown below. When doing so, you will specify whether or not it is a directed edge.
 let graph = interactive.graph({directed:true});  When creating a node, you can specify position, label, x radius and y radius of the node, which is shown as an ellipse.</description>
-    </item>
-    
-    <item>
-      <title>Custom Element</title>
-      <link>https://vectorjs.org/tutorials/custom-element/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/tutorials/custom-element/</guid>
-      <description>Creating a custom element is an advanced topic that requires some understanding of the SVG specification (see the SVG Tutorial). It also gets into how Vector.js is implemented.
-import Element from &amp;#39;../elements/Element.js&amp;#39;; // Extending the Element class guarantees that the custom element exists within // the interactive ecosystem. export default class CustomElement extends Element { // The root property is an SVG element that contains all of the SVG elements  // associated with this custom element.</description>
     </item>
     
     <item>
@@ -76,17 +66,10 @@ The first step in using our mapping module is always to pull in your GeoJson dat
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/control-with-position/</guid>
-      <description>This tutorial shows the user how to add a text label to a control point. Then the text label will be made to follow the position of the point and show the point&amp;rsquo;s current position. If you haven&amp;rsquo;t gone through getting started tutorial, do so to get to the starting point.
-Starting point The starting point is an interactive with a control point that can be dragged around.</description>
-    </item>
-    
-    <item>
-      <title>Load External Data</title>
-      <link>https://vectorjs.org/tutorials/load-data/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/tutorials/load-data/</guid>
-      <description>getJSON(&amp;#39;https://example.com/path/to/data.json&amp;#39;).then(function(response){ console.log(&amp;#34;Here is the response&amp;#34;, response); }, function(error) { console.log(&amp;#34;Something went wrong&amp;#34;, error); });  References: JavaScript Promises: an Introduction</description>
+      <description>This tutorial demonstrates how to add a text label to a control point and then make the label follow and display the position of the point using reactive programming syntax. We assume you have gone through the getting started tutorial to get to the starting point.
+Starting point The starting point is an interactive with a control point that can be dragged around.
+ 
+1import Interactive from &amp;#39;/interactive.js&amp;#39;; 2 3// Initialize the interactive 4let interactive = new Interactive(&amp;#34;step-0&amp;#34;); 5interactive.</description>
     </item>
     
   </channel>

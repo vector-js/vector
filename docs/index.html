@@ -126,7 +126,7 @@
 
 
 
-  <p>Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, has an element with an unique id, and includes the script file.</p>
+  <p>Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.</p>
 
 <div class="filename">index.html</div>
 
@@ -143,7 +143,7 @@
   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
 
-<p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then constructs a control point which can be dragged around. It also prints out the control and interactive to the console to play around with.</p>
+<p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then creates a control point which can be dragged around. It also prints out the control and interactive objects to the console to play around with.</p>
 
 <div class="filename">script.js</div>
 
@@ -160,9 +160,9 @@
 </span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">myInteractive</span><span class="p">);</span>
 </code></pre></div>
 
-<p>To view the interactive, serve the folder containing the two files using a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p>
+<p>To view the interactive, serve the folder containing the two files using a web server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p>
 
-<p><img src="/images/getting-started.svg" alt=""></p>
+<p><img src="/images/getting-started.svg" alt="End point of getting started."></p>
 
 
 
@@ -337,7 +337,7 @@
 
 <h3 id="tspan">TSpan</h3>
 
-<p>A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bolded.</p>
+<p>A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bold to emphasize a part of the sentence.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="nx">text</span><span class="p">.</span><span class="nx">tspan</span><span class="p">(</span><span class="s1">&#39;normal. &#39;</span><span class="p">);</span>
@@ -355,11 +355,11 @@
 
 <h2 id="interaction">Interaction</h2>
 
-<p>There are two forms of interaction within our system: dependencies and events. The first form of interaction is dependencies - elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p>
+<p>There are two forms of handling interaction within our software system. The first form is reactive programming. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element&rsquo;s state is changed.</p>
 
-<p>The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.</p>
+<p>The second, more tradditional, form of handling interaction is event driven programming. Event handler properties are surfaced in elements where it seemed useful. Otherwise, access to all of the event handlers is available throught the root SVGElement and the native web APIs.</p>
 
-<h3 id="dependency-functions">Dependency Functions</h3>
+<h3 id="reactive-programming">Reactive Programming</h3>
 
 <p>All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the &ldquo;addDependency&rdquo; function and then defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, an element should only use the data of the elements it has declared itself dependent on.</p>
 
@@ -381,7 +381,30 @@
 
 
 
-<h3 id="keyboard-input">Keyboard Input</h3>
+<p>An example of how this approach can be used to generate complicated interactives is given by the Riemann Sum example below. In this example, there are a fair number more elements that have been related together using the reactive approach.</p>
+
+
+
+
+<div id="e9c9f68ee4131dac32dff9a0a981e76a" class="vertical-center i-container"></div>
+<script type="module">
+  import main from "\/examples\/math\/riemann-sum.js";
+  main("e9c9f68ee4131dac32dff9a0a981e76a");
+</script>
+
+
+
+
+<p>To visualize what is happening, the elements that are related together are highlighted and labeled in blue. Then the dependency graph on the right shows the user defined depencies represented as arrows. For example, the dependency between the control point the control point “control1” (B) and the text “label” (E), is represented as B → E in the graph.</p>
+
+<div class="flex-row container">
+  <img src="/images/riemann-sum-highlighted.svg" alt="Rieman Sum Highlighted" width="50%">
+  <img src="/images/riemann-sum-dependency-graph.svg" alt="Rieman Sum Dependency Graph" width="50%">
+</div>
+
+<h3 id="event-handling">Event Handling</h3>
+
+<h4 id="keyboard-input">Keyboard Input</h4>
 
 <p>Key board input can be used to change the state of an interactive as well as control different elements within the interactive. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.</p>
 
@@ -400,19 +423,25 @@
 
 
 
-<h3 id="mouse-input">Mouse Input</h3>
+<h4 id="mouse-input">Mouse Input</h4>
 
 <p>Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse&rsquo;s position, when the users clicks the interactive, etc.</p>
 
-<!-- TODO: add mouse into the depdency eco-system? -->
+<!-- TODO: add mouse into the depedency eco-system? -->
 
 <!-- TODO: show velocity vector of mouse? -->
 
 <!-- TODO: count mouse leave, mouse enter? -->
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">interactive</span><span class="p">.</span><span class="nx">mouse</span> <span class="o">?</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">?</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">?</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// register a mouse click handler
+</span><span class="c1"></span><span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">onmouseclick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="c1">// register a mouse move handlers
+</span><span class="c1"></span><span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
 </code></pre></div>
 
 
@@ -425,11 +454,9 @@
 
 <h2 id="animation">Animation</h2>
 
-<p>While animation isn&rsquo;t the main focus the library, some basic animations are supported.</p>
+<p>While animation isn&rsquo;t the main focus the library, some basic animations can be achieved using some built in elements like the scrubber element, and the native web API <code>requestAnimationFrame</code>.</p>
 
-<h3 id="transitions">Transitions?</h3>
-
-<h3 id="time-line">Time Line</h3>
+<h3 id="time-line-animation">Time Line Animation</h3>
 
 <p>Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and &ldquo;scrub&rdquo; to different parts of the animation.</p>
 
@@ -554,24 +581,23 @@
 
 
 
-<h4 id="united-states">United States</h4>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">usData</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">usData</span><span class="p">);</span>
-</code></pre></div>
-
-<p><img src="/images/united-states.svg" class="center" alt="SVG United States Map"></p>
-
 <h4 id="custom-maps">Custom Maps</h4>
 
 <p>Any data that is in the GeoJson format can be rendered with our library. That means that if you can find the data for it, we can plot it. For more information on how GeoJson works and where to find it, go to the Map Module tutorial.</p>
 
 <h3 id="plots">Plots</h3>
 
-<p>Plots visualize the output of one or more functions in the cartesian coordinate system. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.</p>
+<p>Plots visualize the output of one or more functions in the Cartesian Coordinate System. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mi">300</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+<span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Sine Function&#34;</span><span class="p">,</span>
+  <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">originY</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>
+  <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+  <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
 
 
 

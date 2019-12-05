@@ -1,7 +1,7 @@
 /**
 * @title Mouse Path Game
 * @description Stay inside the bounds of the outlined circle with your cursor for as long as possible! When the timer hits 0 the game is over.
-* @tags [elements, games]
+* @tags [games]
 * @weight 1
 */
 import { Interactive, getScriptName } from '../../index.js';

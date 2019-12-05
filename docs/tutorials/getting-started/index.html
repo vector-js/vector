@@ -45,7 +45,7 @@
     <iframe title="vimeo-player" src="https://player.vimeo.com/video/360629850" width="768" height="516" frameborder="0" allowfullscreen></iframe>
   </div>
   <h1>Getting Started</h1>
-  <p>Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, has an element with an unique id, and includes the script file.</p>
+  <p>Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.</p>
 
 <div class="filename">index.html</div>
 
@@ -62,7 +62,7 @@
   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
 
-<p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then constructs a control point which can be dragged around. It also prints out the control and interactive to the console to play around with.</p>
+<p>The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id &ldquo;my-interactive&rdquo;, and then creates a control point which can be dragged around. It also prints out the control and interactive objects to the console to play around with.</p>
 
 <div class="filename">script.js</div>
 
@@ -79,9 +79,9 @@
 </span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">myInteractive</span><span class="p">);</span>
 </code></pre></div>
 
-<p>To view the interactive, serve the folder containing the two files using a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p>
+<p>To view the interactive, serve the folder containing the two files using a web server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:</p>
 
-<p><img src="/images/getting-started.svg" alt=""></p>
+<p><img src="/images/getting-started.svg" alt="End point of getting started."></p>
 
 
 </main>

@@ -21,9 +21,9 @@ draft: undefined
 */
 import { Interactive } from '../../index.js';
 export default function main(id) {
+    // default configuration
     let n = 7;
     let scale = 100;
-    let method = 'left';
     let interactive = new Interactive(id);
     interactive.height = 500;
     interactive.width = 736;
@@ -39,9 +39,13 @@ export default function main(id) {
     rect.style.strokeWidth = '1px';
     interactive.input.appendChild(rect);
     let radio = interactive.radioControl(60, 50, ['left', 'right', 'trapezoid']);
-    let plot = interactive.plot(700, 400, (x) => { return Math.cos(x) + x / 3 + .5; }, {
+    let plot = interactive.plot((x) => { return Math.cos(x) + x / 3 + .5; }, {
         x: 16,
         y: 0,
+        width: 700,
+        height: 400,
+        margin: 0,
+        labels: false,
         scaleX: scale,
         scaleY: scale,
         originX: 0,

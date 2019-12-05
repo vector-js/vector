@@ -56,6 +56,7 @@
 </span><span class="cm">* @title Trigonometric Functions
 </span><span class="cm">* @description This interactive shows the connection between the three trigonometric functions and the unit circle.
 </span><span class="cm">* @tags [math]
+</span><span class="cm">* @ignore true
 </span><span class="cm">*/</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">,</span> <span class="nx">download</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Group</span> <span class="nx">from</span> <span class="s1">&#39;../../elements/svg/group.js&#39;</span><span class="p">;</span>
@@ -166,7 +167,9 @@
         <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">,</span>
         <span class="nx">height</span><span class="o">:</span> <span class="nx">width</span>
     <span class="p">});</span>
-    <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">plotInteractive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">f</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">plotInteractive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="nx">width</span><span class="p">,</span>
         <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
         <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
         <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>

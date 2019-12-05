@@ -19,6 +19,7 @@ draft: undefined
 * @tags [math]
 * @date October 9, 2019
 * @author Kurt Bruns
+* @weight 1
 */
 import { Interactive, BaseElement } from '../../index.js';
 import { parseSVG } from '../../util/svg.js';
@@ -154,11 +155,15 @@ export default function main(id, opts) {
     triangle.style.fill = '#f8f8f8';
     circleInteractive.circle(0, 0, 3).style.fill = '#404040';
     // Graph/Plot Section
-    let plot = plotInteractive.plot(2 * width, width, f, {
+    let plot = plotInteractive.plot(f, {
         scaleX: scale,
         scaleY: scale,
         originX: 0,
         originY: width / 2,
+        width: 2 * width,
+        height: width,
+        margin: 0,
+        labels: false,
         zoomable: false,
         displayPoint: false,
         grid: true,

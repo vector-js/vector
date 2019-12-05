@@ -1,10 +1,13 @@
 import Slider from './slider.js';
+/**
+* A scubber element has
+*/
 export default class Scrubber extends Slider {
     // TODO: When the scrubber control is grabbed, active should be set to false and the animation cycle should be stopped.
     // TODO: Reset done variable when the control is changed
     // TODO: Show darker line of progress
     /**
-    *
+    * Constructs a new scrubber element at the (x,y) position.
     */
     constructor(x, y, width = 486) {
         super(x + 80, y, {

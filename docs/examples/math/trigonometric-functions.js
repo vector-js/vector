@@ -2,6 +2,7 @@
 * @title Trigonometric Functions
 * @description This interactive shows the connection between the three trigonometric functions and the unit circle.
 * @tags [math]
+* @ignore true
 */
 import { Interactive, getScriptName, download } from '../../index.js';
 import Group from '../../elements/svg/group.js';

@@ -1,7 +1,7 @@
 /**
 * @title Click Accuracy Game
 * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out!
-* @tags [elements, games]
+* @tags [games]
 * @weight 1
 */
 import { Interactive, getScriptName } from '../../index.js';
