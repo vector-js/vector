@@ -1,6 +1,9 @@
 import Slider from './slider.js';
 import Group from '../svg/group.js';
 
+/**
+* A scubber element has
+*/
 export default class Scrubber extends Slider {
 
   /**
@@ -35,9 +38,10 @@ export default class Scrubber extends Slider {
   // TODO: Show darker line of progress
 
   /**
-  *
+  * Constructs a new scrubber element at the (x,y) position.
   */
   constructor( x:number, y:number, width:number = 486) {
+
     super(x + 80, y, {
       width:width - 80,
       value:0

@@ -7,7 +7,7 @@ main: false
 ignore: false
 description: Type in the names of the countries you want to zoom in on and press enter. This interactive is case-sensitive.
 input: undefined
-tags: [elements, maps]
+tags: [maps]
 weight: undefined
 draft: undefined
 ---

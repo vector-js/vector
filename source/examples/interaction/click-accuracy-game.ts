@@ -1,7 +1,7 @@
 /**
 * @title Click Accuracy Game
 * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out!
-* @tags [elements, games]
+* @tags [games]
 * @weight 1
 */
 import {Interactive, getScriptName, Button} from '../../index.js';
@@ -116,7 +116,7 @@ function createCircle(){
 
     let x = getRandomInt(radius,interactive.width-radius);
     let y = getRandomInt(radius,interactive.height-radius);
-   
+
     let oc = interactive.circle(x,y,radius*3);
     let c = interactive.circle(x,y,radius);
     let ic = interactive.circle(x,y,radius/3);

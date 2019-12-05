@@ -1,5 +1,8 @@
 import Slider from './slider.js';
 import Group from '../svg/group.js';
+/**
+* A scubber element has
+*/
 export default class Scrubber extends Slider {
     /**
     * Represents weather the scrubber is active and animating.
@@ -23,7 +26,7 @@ export default class Scrubber extends Slider {
     pauseButton: Group;
     requestID: number;
     /**
-    *
+    * Constructs a new scrubber element at the (x,y) position.
     */
     constructor(x: number, y: number, width?: number);
     play(): void;

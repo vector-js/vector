@@ -5,7 +5,7 @@ image: "/images/control-with-position.svg"
 weight: 10
 ---
 
-This tutorial shows the user how to add a text label to a control point. Then the text label will be made to follow the position of the point and show the point's current position. If you haven't gone through [getting started tutorial]({{<relref "/tutorials/getting-started">}}), do so to get to the starting point.
+This tutorial demonstrates how to add a text label to a control point and then make the label follow and display the position of the point using reactive programming syntax. We assume you have gone through the [getting started tutorial]({{<relref "/tutorials/getting-started">}}) to get to the starting point.
 
 ## Starting point
 
@@ -27,6 +27,8 @@ let control = interactive.control( 100, 100);
 
 ## Adding a Text Label
 
+Next we are going to create a text element at a random position within the interactive.
+
 <div id="step-1" class="interactive center"></div>
 <script type="module" src="./step-1.js"></script>
 
@@ -35,9 +37,20 @@ let control = interactive.control( 100, 100);
 let text = interactive.text(150, 150, "myText");
 {{< /highlight >}}
 
-## Update Contents and Position of Text
+## Declaring a Dependency
 
-Next let's make it so when the control moves as well. Let's also make it so the contents of the text displays the position of the control.
+Then we are going to declare a dependency so that when the state of the control point changes, our text element's update function will be called.
+
+{{< highlight javascript "linenos=inline,linenostart=14">}}
+text.addDependency(control);
+text.update = function() {
+  // update the text element when the control changes
+}
+{{< /highlight >}}
+
+## Update Function
+
+Let's make it so the text element's position follows the position of the control point and the contents of the text displays the position of the point.
 
 <div id="step-2" class="interactive center"></div>
 <script type="module" src="./step-2.js"></script>
@@ -46,16 +59,17 @@ Next let's make it so when the control moves as well. Let's also make it so the 
 // Update the text when the control changes
 text.addDependency(control);
 text.update = function() {
+
+  // update the position of the text element
   this.x = control.x + 15;
   this.y = control.y - 15;
+
+  // update the contents to be the position of the point
   this.contents = `(${control.x},${control.y})`;
 };
 text.update();
 {{< /highlight >}}
 
-## Onward
+<h2>Onward</h2>
 
-To learn more follow other tutorials, browse and fork examples, or read the documentation.
-
-- [Tutorials](/tutorials/)
-- [Examples](/examples/)
+To learn more follow other [tutorials]({{<ref "tutorials">}}), browse and fork [examples]({{<ref "examples">}}), or read the [documentation](/api/).

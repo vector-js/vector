@@ -4,7 +4,7 @@ title: Dependency Relation
 id: dependency-function
 script: /examples/interaction/dependency-function.js
 main: false
-ignore: false
+ignore: true
 description: This interactive demonstrates how two elements can be made dependent on eachother.
 input: undefined
 tags: []

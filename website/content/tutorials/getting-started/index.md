@@ -9,9 +9,10 @@ video:
 date: "2019-02-05T12:03:45-07:00"
 layout: video
 weight: 1
+next-tutorial: control-with-position
 ---
 
-Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library's style sheet, has an element with an unique id, and includes the script file.
+Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library's style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
 
 <div class="filename">index.html</div>
 
@@ -30,7 +31,7 @@ Welcome! To use this library, download the <a href="/getting-started.tgz" downlo
 </html>
 {{< /highlight >}}
 
-The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id "my-interactive", and then constructs a control point which can be dragged around. It also prints out the control and interactive to the console to play around with.
+The script file imports the Interactive class from the website, constructs an interactive within the HTML element with the id "my-interactive", and then creates a control point which can be dragged around. It also prints out the control and interactive objects to the console to play around with.
 
 <div class="filename">script.js</div>
 
@@ -48,6 +49,7 @@ let control = myInteractive.control(100, 100);
 console.log( control, myInteractive);
 {{< /highlight >}}
 
-To view the interactive, serve the folder containing the two files using a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:
+To view the interactive, serve the folder containing the two files using a web server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:
 
-<img src="/images/getting-started.svg" alt="">
+<img src="/images/getting-started.svg" alt="End point of getting started.">
+

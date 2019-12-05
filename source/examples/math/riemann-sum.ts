@@ -9,9 +9,10 @@ import { Interactive, Point } from '../../index.js';
 
 export default function main( id:string ) {
 
+  // default configuration
   let n = 7;
   let scale = 100;
-  let method = 'left';
+
   let interactive = new Interactive(id);
   interactive.height = 500;
   interactive.width = 736;

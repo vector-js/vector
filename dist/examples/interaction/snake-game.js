@@ -1,7 +1,7 @@
 /**
 * @title Snake Game
 * @description Traditional Snake Game where you try to collect the yellow blocks without leaving the map or hitting yourself. Use WASD or Arrow keys to move.
-* @tags [elements, games]
+* @tags [games]
 * @weight 1
 */
 import { Interactive, getScriptName } from '../../index.js';

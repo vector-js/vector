@@ -6,17 +6,18 @@
 import { Interactive, getScriptName } from '../../index.js';
 import { getURL } from '../../util/file.js';
 import { parseSVG } from '../../util/svg.js';
-let myInteractive = new Interactive(getScriptName());
-// let svg = myInteractive.loadSVG('/resources/maps/united-states.svg');
-// svg.then(function(data){
-//   console.log(data.root);
-//   let bbox = (data.root.firstElementChild as SVGGraphicsElement).getBBox();
-//   myInteractive.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
-// })
-getURL('/resources/maps/united-states.svg').then(function (response) {
-    let svg = myInteractive.background.root.appendChild(parseSVG(response));
+let map = getURL('/maps/united-states.svg');
+let data = getURL('/maps/us-population-data.json');
+Promise.all([map, data]).then(function (response) {
+    let myInteractive = new Interactive(getScriptName());
+    let svg = myInteractive.background.root.appendChild(parseSVG(response[0]));
     let bbox = svg.getBBox();
     myInteractive.setViewBox(bbox.x, bbox.y, bbox.width, bbox.height);
+    let json = JSON.parse(response[1]);
+    for (let i = 0; i < json.data.length; i++) {
+        console.log(json.data[i]);
+        // console.log(svg.querySelector())
+    }
 }).catch(function (error) {
     throw error;
 });

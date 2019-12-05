@@ -7,7 +7,7 @@ main: false
 ignore: false
 description: Type in the names of the countries seperated by commas into the text box. When you hit enter they will be drawn.
 input: undefined
-tags: [elements, maps]
+tags: [maps]
 weight: undefined
 draft: undefined
 ---

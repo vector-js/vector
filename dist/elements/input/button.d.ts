@@ -9,6 +9,9 @@ export default class Button extends Input {
     * The state of the checkbox
     */
     _count: number;
+    /**
+    * True if the button is active
+    */
     _active: boolean;
     _x: number;
     _y: number;
@@ -38,6 +41,18 @@ export default class Button extends Input {
     * Sets the top left y position of this button.
     */
     y: number;
+    /**
+    * Returns how many times this button has been pressed. Count does not
+    * increment until the button has been released.
+    */
+    readonly count: number;
+    /**
+    * Returns true if the button is actively being pressed.
+    */
+    /**
+    * Allows the user to synthetically "press" the button and put it into an
+    * active state.
+    */
     active: boolean;
     /**
     * Fires when the user clicks the left button on the button.

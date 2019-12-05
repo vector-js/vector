@@ -7,7 +7,7 @@ main: false
 ignore: false
 description: Randomly colors the countries in the world.
 input: undefined
-tags: [elements, maps]
+tags: [maps]
 weight: undefined
 draft: undefined
 ---

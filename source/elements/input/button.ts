@@ -13,8 +13,12 @@ export default class Button extends Input {
   */
   _count : number = 0;
 
+  /**
+  * True if the button is active
+  */
   _active : boolean;
 
+  // position of the button
   _x : number;
   _y : number;
 
@@ -89,14 +93,37 @@ export default class Button extends Input {
     this.root.setAttribute('transform', `translate(${this._x},${this._y})`);
   }
 
+  /**
+  * Returns how many times this button has been pressed. Count does not
+  * increment until the button has been released.
+  */
+  get count() : number {
+    return this._count;
+  }
+
+  /**
+  * Returns true if the button is actively being pressed.
+  */
   get active() : boolean {
     return this._active;
   }
 
+  /**
+  * Allows the user to synthetically "press" the button and put it into an
+  * active state.
+  */
   set active( value:boolean ) {
+
+    // if transitioning from an active to inactive state count the state change
+    if( this.active && !value ) {
+      this._count++;
+    }
+
     this._active = value;
     if( this._active ) {
       this.box.style.fill = '#f8f8f8';
+      this.box.style.stroke = '#333333';
+      this.box.style.strokeWidth = '1px';
       this.label.style.fill = '#404040';
     } else {
       this.box.style.fill = '';
@@ -110,7 +137,6 @@ export default class Button extends Input {
   */
   set onclick( handler : (event: MouseEvent) => void ) {
     this.root.onclick = handler;
-    this._count++;
     this.onchange();
   }
 }

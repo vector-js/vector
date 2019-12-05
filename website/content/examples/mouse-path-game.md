@@ -7,7 +7,7 @@ main: false
 ignore: false
 description: Stay inside the bounds of the outlined circle with your cursor for as long as possible! When the timer hits 0 the game is over.
 input: undefined
-tags: [elements, games]
+tags: [games]
 weight: 1
 draft: undefined
 ---

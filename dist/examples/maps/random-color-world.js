@@ -1,7 +1,7 @@
 /**
 * @title Random Colored Countires
 * @description Randomly colors the countries in the world.
-* @tags [elements, maps]
+* @tags [maps]
 */
 import { Interactive, getScriptName } from '../../index.js';
 import * as data from './maps-json.js';

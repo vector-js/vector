@@ -133,7 +133,7 @@ let text = interactive.text( 50, 75, "My Text");
 
 ### TSpan
 
-A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bolded.
+A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bold to emphasize a part of the sentence.
 
 {{< highlight javascript>}}
 let text = interactive.text( 50, 75, '');
@@ -146,11 +146,11 @@ text.tspan('normal again.');
 
 ## Interaction
 
-There are two forms of interaction within our system: dependencies and events. The first form of interaction is dependencies - elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element's state is changed.
+There are two forms of handling interaction within our software system. The first form is reactive programming. Elements can be related together using dependency functions, similar to how cells are related together in a spreadsheet application. These dependencies are explicit and give dependents access to the data of the elements they rely on. These dependencies also define how the interactive should update elements and in what order the update should happen when an element's state is changed.
 
-The second, more tradditional, form of interaction is events. Events are typically utilized with input elements and the main interactive object. Events follow a design pattern common to the web - a user event happens and then the corresponding event handler is called.
+The second, more tradditional, form of handling interaction is event driven programming. Event handler properties are surfaced in elements where it seemed useful. Otherwise, access to all of the event handlers is available throught the root SVGElement and the native web APIs.
 
-### Dependency Functions
+### Reactive Programming
 
 All elements contain the ability to define dependencies to other elements. An element declares what it is dependent on using the "addDependency" function and then defines an update function which describes how the element should update itself. Circular dependencies will cause an exception. By convention, an element should only use the data of the elements it has declared itself dependent on.
 
@@ -167,7 +167,20 @@ control2.update = function(){
 
 {{<example "dependency-function">}}
 
-### Keyboard Input
+An example of how this approach can be used to generate complicated interactives is given by the Riemann Sum example below. In this example, there are a fair number more elements that have been related together using the reactive approach.
+
+{{<example "riemann-sum">}}
+
+To visualize what is happening, the elements that are related together are highlighted and labeled in blue. Then the dependency graph on the right shows the user defined depencies represented as arrows. For example, the dependency between the control point the control point “control1” (B) and the text “label” (E), is represented as B → E in the graph.
+
+<div class="flex-row container">
+  <img src="/images/riemann-sum-highlighted.svg" alt="Rieman Sum Highlighted" width="50%">
+  <img src="/images/riemann-sum-dependency-graph.svg" alt="Rieman Sum Dependency Graph" width="50%">
+</div>
+
+### Event Handling
+
+#### Keyboard Input
 
 Key board input can be used to change the state of an interactive as well as control different elements within the interactive. The example below highlights the numbers one through five with the corresponding key on the keyboard when pressed.
 
@@ -181,29 +194,33 @@ window.onkeydown = function( event ) {
 
 {{<example "keyboard">}}
 
-### Mouse Input
+#### Mouse Input
 
 Mouse input can be used to change the state of an interactive. Mouse input consists of the mouse's position, when the users clicks the interactive, etc.
 
-<!-- TODO: add mouse into the depdency eco-system? -->
+<!-- TODO: add mouse into the depedency eco-system? -->
 <!-- TODO: show velocity vector of mouse? -->
 <!-- TODO: count mouse leave, mouse enter? -->
 
 {{< highlight javascript>}}
-interactive.mouse ?
-interactive.onclick ?
-interactive.onmousemove ?
+// register a mouse click handler
+interactive.root.onmouseclick = (event) => {
+  // ...
+}
+
+// register a mouse move handlers
+interactive.root.onmousemove = (event) => {
+  // ...
+}
 {{< /highlight >}}
 
 {{<example "mouse-interaction">}}
 
 ## Animation
 
-While animation isn't the main focus the library, some basic animations are supported.
+While animation isn't the main focus the library, some basic animations can be achieved using some built in elements like the scrubber element, and the native web API `requestAnimationFrame`.
 
-### Transitions?
-
-### Time Line
+### Time Line Animation
 
 Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and "scrub" to different parts of the animation.
 
@@ -302,24 +319,25 @@ let map = myInteractive.map(globalData);
 
 {{<example "world-map">}}
 
-#### United States
-
-{{< highlight javascript>}}
-import {Interactive, getScriptName} from '../../index.js';
-import {usData} from './maps-json.js';
-
-let myInteractive = new Interactive(getScriptName());
-let map = myInteractive.map(usData);
-{{< /highlight >}}
-
-<img src="/images/united-states.svg" class="center" alt="SVG United States Map">
-
 #### Custom Maps
 
 Any data that is in the GeoJson format can be rendered with our library. That means that if you can find the data for it, we can plot it. For more information on how GeoJson works and where to find it, go to the Map Module tutorial.
 
 ### Plots
 
-Plots visualize the output of one or more functions in the cartesian coordinate system. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.
+Plots visualize the output of one or more functions in the Cartesian Coordinate System. To construct a plot, the user provides the dimensions of the plot and the function to be plotted.
+
+{{< highlight javascript>}}
+let scale = 300/Math.PI;
+interactive.plot(Math.sin, {
+  title: "Sine Function",
+  originX: 0,
+  originY: 150,
+  scaleX: scale,
+  scaleY: scale,
+});
+{{< /highlight >}}
 
 {{<example "plot-element">}}
+
+

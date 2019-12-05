@@ -4,6 +4,7 @@
 * @tags [math]
 * @date October 9, 2019
 * @author Kurt Bruns
+* @weight 1
 */
 
 import {Interactive, BaseElement, Point } from '../../index.js';

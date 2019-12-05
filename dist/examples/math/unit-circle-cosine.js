@@ -3,7 +3,7 @@
 * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine
 * @tags [math]
 * @date October 9, 2019
-* @author Kurt Bruns
+* @ignore true
 */
 import { Interactive } from '../../index.js';
 import Group from '../../elements/svg/group.js';

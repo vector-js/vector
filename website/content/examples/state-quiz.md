@@ -7,7 +7,7 @@ main: false
 ignore: false
 description: Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you're correct! If you want some help, press the '/' key.
 input: undefined
-tags: [elements, maps, games]
+tags: [maps, games]
 weight: undefined
 draft: undefined
 ---
