@@ -29,6 +29,7 @@ import CheckBox from './elements/input/check-box.js';
 import ControlCircle from './elements/input/control-circle.js';
 import Control from './elements/input/control.js';
 import RadioControl from './elements/input/radio-control.js';
+import DropdownControl from './elements/input/dropdown-control.js';
 import Scrubber from './elements/input/scrubber.js';
 import Slider from './elements/input/slider.js';
 import Input from './elements/input/input.js';
@@ -64,6 +65,7 @@ export {	Button,
 					Point,
 					Polygon,
 					RadioControl,
+					DropdownControl,
 					Rectangle,
 					Scrubber,
 					Shape,
