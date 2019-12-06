@@ -166,7 +166,7 @@ export default function main( id:string ) {
 	  width:250,
 	  min:1,
 	  max:4,
-	  value:1
+	  value:2
 	});
 
 	let tree = interactive.appendChild(new Tree(300, 300, branching.value, levels.value ));
@@ -185,7 +185,7 @@ export default function main( id:string ) {
 	  }
 	};
 	tree.update();
-	// tree.draw();
+	tree.draw();
 
 	let levelsText = interactive.text( levels.x + levels.width + margin, levels.y, 'exponent');
 	let branchingText = interactive.text( branching.x + branching.width + margin, branching.y, 'factor');

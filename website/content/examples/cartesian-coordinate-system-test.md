@@ -17,6 +17,7 @@ draft: undefined
 * @title Cartesian Coordinate System
 * @description This interactive demonstrates the cartesian coordinate system.
 * @tags [math]
+* @ignore true
 */
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import { Interactive, getScriptName, download } from '../../index.js';

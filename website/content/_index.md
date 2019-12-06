@@ -57,6 +57,16 @@ let control = interactive.control( 150, 75);
 <!-- TODO: drop down -->
 <!-- TODO: input box -->
 
+### Dropdown Input
+
+The drop down allows users to select from a variety of options.
+
+{{< highlight javascript>}}
+interactive.dropdownControl(20, 60, ["red", "green", "blue"], 0);
+{{< /highlight >}}
+
+{{<example "dropdown-control-element">}}
+
 ### Radio Control
 
 The radio control elements allows the user to select from a list of options. Only one option can be selected at a time.

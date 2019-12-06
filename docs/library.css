@@ -134,3 +134,36 @@ rect.default {
 .node ellipse{
   stroke: #333333;
 }
+
+.dropdown-control-button rect {
+  fill: #DAD9DC;
+  stroke-width:1;
+  stroke: black;
+}
+
+.dropdown-control-button:hover rect,
+.dropdown-control-button:hover path {
+  fill: #C7C1C1;
+}
+
+.dropdown-control-curr-selection-box rect {
+  fill: white;
+  stroke-width:1;
+  stroke: black;
+}
+
+.dropdown-control-curr-selection-box:hover rect,
+.dropdown-control-button:hover text {
+  fill: #C7C1C1;
+}
+
+.dropdown-control-menu-option rect {
+  fill: white;
+  stroke-width:1;
+  stroke: black;
+}
+
+.dropdown-control-menu-option:hover rect,
+.dropdown-control-button:hover text {
+  fill: #C7C1C1;
+}

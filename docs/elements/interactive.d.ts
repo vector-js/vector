@@ -6,6 +6,7 @@ import Button from './input/button.js';
 import CheckBox from './input/check-box.js';
 import Control from './input/control.js';
 import RadioControl from './input/radio-control.js';
+import DropdownControl from './input/dropdown-control.js';
 import Scrubber from './input/scrubber.js';
 import Slider, { SliderOptions } from './input/slider.js';
 import HoverBox from './input/hover-box.js';
@@ -145,6 +146,10 @@ export default class Interactive extends SVG {
     * Creates a checkbox input at the position (x,y) within this interactive.
     */
     radioControl(x: number, y: number, labels: string[], index?: number): RadioControl;
+    /**
+    * Creates a dropdown input at the position (x,y) within this interactive.
+    */
+    dropdownControl(x: number, y: number, optionLabels: string[], defaultIndex: number): DropdownControl;
     /**
     * Creates a control point within this interactive at the position (x,y).
     */

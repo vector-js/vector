@@ -74,12 +74,21 @@
     </item>
     
     <item>
+      <title>Square Root</title>
+      <link>https://vectorjs.org/examples/square-root/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/square-root/</guid>
+      <description>/** * @title Square Root * @description This interactive visualizes the growth rate of x versus the growth rate of the square root of x. * @tags [math] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 550; interactive.height = 550; interactive.originX = 75; interactive.originY = 325; let unit = 50; let border = interactive.rectangle(-interactive.originX, -interactive.originY, interactive.width, interactive.height); border.style.strokeWidth = &amp;#39;2&amp;#39;; // create x axis interactive.</description>
+    </item>
+    
+    <item>
       <title>Tidy Algorithm</title>
       <link>https://vectorjs.org/examples/tidy-algorithm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/tidy-algorithm/</guid>
-      <description>/** * @title Tidy Algorithm * @description TODO * @input There is a number input that takes a number less than one-hundred million. * @tags [graph, tree] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 400; interactive.border = true; let graph = interactive.graph({ directed: true }); // let root = graph.addNode(0, 0 &amp;#34;root&amp;#34;) // for(let i = 0; i &amp;lt; 10; i++){ // let parent = graph.</description>
+      <description>/** * @title Tidy Algorithm * @description Simple example of using the graph.tidy() function to draw a tree. * @input None * @tags [graph, tree] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 400; interactive.border = true; let graph = interactive.graph({ directed: false }); //Secondary example, creates a larger tree. Comment out this code and comment everything //below it in order to switch examples.</description>
     </item>
     
     <item>
@@ -133,7 +142,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/animate-along-path/</guid>
-      <description>/** * @title Animate Along Path * @description This interactive demonstrates how a element can be animated along a path. * @tags [animation] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 225; interactive.border = true; let circle = interactive.circle(interactive.width / 2, interactive.height / 3, 50); circle.classList.add(&amp;#39;default&amp;#39;); let displayCircle = interactive.circle(0, 0, 6); displayCircle.style.fill = &amp;#39;#333333&amp;#39;; let scrubber = interactive.scrubber(100, 175, 468); let pathLength = circle.</description>
+      <description>/** * @title Animate Along Path * @description This interactive demonstrates how a element can be animated along a path. * @tags [animation] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 736; interactive.height = 225; interactive.border = true; let circle = interactive.circle(interactive.width / 2, interactive.height / 3, 50); circle.classList.add(&amp;#39;default&amp;#39;); let displayCircle = interactive.circle(0, 0, 6); displayCircle.style.fill = &amp;#39;#333333&amp;#39;; let scrubber = interactive.scrubber(100, 175, {}); let pathLength = circle.</description>
     </item>
     
     <item>
@@ -178,7 +187,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/cartesian-coordinate-system-test/</guid>
-      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let width = 600; let height = 300; let interactive = new Interactive(getScriptName(), { width: width + 2 * margin, height: height + 2 * margin, originX: margin, originY: height + margin }); // interactive.</description>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; /** * A point has an x position and y position */ class Point { } // Initialize the interactive let margin = 32; let width = 600; let height = 300; let interactive = new Interactive(getScriptName(), { width: width + 2 * margin, height: height + 2 * margin, originX: margin, originY: height + margin }); // interactive.</description>
     </item>
     
     <item>
@@ -296,6 +305,15 @@
       
       <guid>https://vectorjs.org/examples/distance-between-two-points-2d/</guid>
       <description>/** * @title Distance Between Two Points 2D * @description This interactive demonstrates how to calculate the distance between two points in two dimensions. * @tags [math] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.window = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; ; // Create two control points let p1 = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Dropdown Control Element</title>
+      <link>https://vectorjs.org/examples/dropdown-control-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/dropdown-control-element/</guid>
+      <description>/** * @title Dropdown Control Element * @description This interactive demonstrates the dropdown control element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 500; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let dropdown = interactive.dropdownControl(20, 60, [&amp;#34;20 px&amp;#34;, &amp;#34;50 px&amp;#34;, &amp;#34;100 px&amp;#34;, &amp;#34;150 px&amp;#34;, &amp;#34;200 px&amp;#34;], 0); let ellipse = interactive.ellipse(400, 250, 100, 100); ellipse.style.fill = &amp;#34;purple&amp;#34;; ellipse.addDependency(dropdown); ellipse.</description>
     </item>
     
     <item>
@@ -511,7 +529,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/scrubber-element/</guid>
-      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // let test = new Interactive(getScriptName()); // test.width = 768; // test.height = 200; // test.svg.style.border = &amp;#34;1px solid grey&amp;#34;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.</description>
+      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.scrubber(100, 75, {}); scrubber.width = interactive.root.getBoundingClientRect().width - 300; window.addEventListener(&amp;#39;resize&amp;#39;, () =&amp;gt; { let value = scrubber.value; scrubber.width = interactive.</description>
     </item>
     
     <item>

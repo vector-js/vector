@@ -6,7 +6,7 @@ script: /examples/graph/tidy-algorithm.js
 main: false
 ignore: false
 description: Simple example of using the graph.tidy() function to draw a tree.
-input: None.
+input: None
 tags: [graph, tree]
 weight: 1
 draft: undefined
@@ -15,8 +15,8 @@ draft: undefined
 {{< highlight javascript >}}
 /**
 * @title Tidy Algorithm
-* @description TODO
-* @input There is a number input that takes a number less than one-hundred million.
+* @description Simple example of using the graph.tidy() function to draw a tree.
+* @input None
 * @tags [graph, tree]
 * @weight 1
 */
@@ -25,9 +25,11 @@ let interactive = new Interactive(getScriptName());
 interactive.width = 736;
 interactive.height = 400;
 interactive.border = true;
-let graph = interactive.graph({ directed: true });
-// let root = graph.addNode(0, 0 "root")
-// for(let i = 0; i < 10; i++){
+let graph = interactive.graph({ directed: false });
+//Secondary example, creates a larger tree. Comment out this code and comment everything
+//below it in order to switch examples.
+// let root = graph.addNode(0, 0, "root")
+// for(let i = 0; i < 5; i++){
 //   let parent = graph.addNode(0, 0, i);
 //   graph.addEdge(root, parent);
 //   for(let j = 0; j < 5; j++){
@@ -37,8 +39,8 @@ let graph = interactive.graph({ directed: true });
 // }
 //
 // graph.tidy(root);
-//
-// let rect = (graph.root as SVGGraphicsElement).getBBox();
+// //
+// let rect = (graph.root).getBBox();
 //
 // if(graph.size() == 1)
 // {
@@ -79,3 +81,4 @@ graph.addEdge(node10, node15);
 graph.tidy(node1);
 //# sourceMappingURL=tidy-algorithm.js.map
 {{</ highlight >}}
+

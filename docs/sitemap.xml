@@ -45,6 +45,10 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/examples/square-root/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/examples/tidy-algorithm/</loc>
   </url>
   
@@ -197,6 +201,10 @@
   
   <url>
     <loc>https://vectorjs.org/examples/distance-between-two-points-2d/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/dropdown-control-element/</loc>
   </url>
   
   <url>

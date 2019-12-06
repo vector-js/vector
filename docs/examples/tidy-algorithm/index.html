@@ -54,8 +54,8 @@
   <h2>Script</h2>
   <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
 </span><span class="cm">* @title Tidy Algorithm
-</span><span class="cm">* @description TODO
-</span><span class="cm">* @input There is a number input that takes a number less than one-hundred million.
+</span><span class="cm">* @description Simple example of using the graph.tidy() function to draw a tree.
+</span><span class="cm">* @input None
 </span><span class="cm">* @tags [graph, tree]
 </span><span class="cm">* @weight 1
 </span><span class="cm">*/</span>
@@ -64,9 +64,11 @@
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span> <span class="nx">directed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-<span class="c1">// let root = graph.addNode(0, 0 &#34;root&#34;)
-</span><span class="c1">// for(let i = 0; i &lt; 10; i++){
+<span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span> <span class="nx">directed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+<span class="c1">//Secondary example, creates a larger tree. Comment out this code and comment everything
+</span><span class="c1">//below it in order to switch examples.
+</span><span class="c1">// let root = graph.addNode(0, 0, &#34;root&#34;)
+</span><span class="c1">// for(let i = 0; i &lt; 5; i++){
 </span><span class="c1">//   let parent = graph.addNode(0, 0, i);
 </span><span class="c1">//   graph.addEdge(root, parent);
 </span><span class="c1">//   for(let j = 0; j &lt; 5; j++){
@@ -76,8 +78,8 @@
 </span><span class="c1">// }
 </span><span class="c1">//
 </span><span class="c1">// graph.tidy(root);
-</span><span class="c1">//
-</span><span class="c1">// let rect = (graph.root as SVGGraphicsElement).getBBox();
+</span><span class="c1">// //
+</span><span class="c1">// let rect = (graph.root).getBBox();
 </span><span class="c1">//
 </span><span class="c1">// if(graph.size() == 1)
 </span><span class="c1">// {

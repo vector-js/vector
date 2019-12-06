@@ -26,6 +26,7 @@ import CheckBox from './elements/input/check-box.js';
 import ControlCircle from './elements/input/control-circle.js';
 import Control from './elements/input/control.js';
 import RadioControl from './elements/input/radio-control.js';
+import DropdownControl from './elements/input/dropdown-control.js';
 import Scrubber from './elements/input/scrubber.js';
 import Slider from './elements/input/slider.js';
 import Input from './elements/input/input.js';
@@ -37,5 +38,5 @@ import Point from './elements/math/point.js';
 export * from './util/file.js';
 export * from './util/math.js';
 // export objects
-export { Button, BaseElement, Circle, CheckBox, ClipPath, ControlCircle, Control, Definitions, Description, Element, Ellipse, Group, Input, Interactive, Line, Marker, Path, Plot, Point, Polygon, RadioControl, Rectangle, Scrubber, Shape, Slider, SVG, Symbol, TSpan, Text, Use };
+export { Button, BaseElement, Circle, CheckBox, ClipPath, ControlCircle, Control, Definitions, Description, Element, Ellipse, Group, Input, Interactive, Line, Marker, Path, Plot, Point, Polygon, RadioControl, DropdownControl, Rectangle, Scrubber, Shape, Slider, SVG, Symbol, TSpan, Text, Use };
 //# sourceMappingURL=index.js.map

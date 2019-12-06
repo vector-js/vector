@@ -58,36 +58,20 @@
 </span><span class="cm">* @tags [elements, input]
 </span><span class="cm">*/</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="c1">// let test = new Interactive(getScriptName());
-</span><span class="c1">// test.width = 768;
-</span><span class="c1">// test.height = 200;
-</span><span class="c1">// test.svg.style.border = &#34;1px solid grey&#34;;
-</span><span class="c1">// Initialize the interactive
+<span class="c1">// Initialize the interactive
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&#34;1px solid grey&#34;</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">borderRadius</span> <span class="o">=</span> <span class="s2">&#34;4px&#34;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">468</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="p">{});</span>
 <span class="nx">scrubber</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span> <span class="o">-</span> <span class="mi">300</span><span class="p">;</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
     <span class="nx">scrubber</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span> <span class="o">-</span> <span class="mi">300</span><span class="p">;</span>
     <span class="nx">scrubber</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
 <span class="p">});</span>
-<span class="c1">//
-</span><span class="c1">// interactive.height = 50;
-</span><span class="c1">// interactive.root.style.border = &#34;1px solid grey&#34;;
-</span><span class="c1">// interactive.root.style.borderRadius = &#34;4px&#34;;
-</span><span class="c1">// let scrubber = interactive.scrubber( 25, 25, 100);
-</span><span class="c1">// scrubber.width = interactive.root.getBoundingClientRect().width - 128;
-</span><span class="c1">//
-</span><span class="c1">// window.addEventListener(&#39;resize&#39;, () =&gt; {
-</span><span class="c1">//   let value = scrubber.value;
-</span><span class="c1">//   scrubber.width = interactive.root.getBoundingClientRect().width - 128;
-</span><span class="c1">//   scrubber.value = value;
-</span><span class="c1">// });
-</span><span class="c1">//# sourceMappingURL=scrubber-element.js.map
+<span class="c1">//# sourceMappingURL=scrubber-element.js.map
 </span></code></pre></div>
 
 

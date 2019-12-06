@@ -27,7 +27,7 @@ let circle = interactive.circle(interactive.width / 2, interactive.height / 3, 5
 circle.classList.add('default');
 let displayCircle = interactive.circle(0, 0, 6);
 displayCircle.style.fill = '#333333';
-let scrubber = interactive.scrubber(100, 175, 468);
+let scrubber = interactive.scrubber(100, 175, {});
 let pathLength = circle.getTotalLength();
 function animate() {
     let currentPosition = scrubber.value / (scrubber.max - scrubber.min);

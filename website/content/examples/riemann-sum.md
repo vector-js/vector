@@ -27,7 +27,7 @@ export default function main(id) {
     let interactive = new Interactive(id);
     interactive.height = 500;
     interactive.width = 736;
-    let slider = interactive.slider(24, 475, {
+    let slider = interactive.scrubber(24, 475, {
         min: 1,
         max: 100,
         value: n,

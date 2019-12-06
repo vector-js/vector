@@ -53,8 +53,6 @@ export default class Scrubber extends Slider {
     // make room for the play & pause button
     config.width = config.width - 80;
 
-    console.log(config, 'HI!');
-
     super(x + 80, y, config);
 
     this.active = false;
