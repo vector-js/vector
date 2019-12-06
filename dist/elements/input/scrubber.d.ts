@@ -1,4 +1,5 @@
 import Slider from './slider.js';
+import { SliderOptions } from './slider.js';
 import Group from '../svg/group.js';
 /**
 * A scubber element has
@@ -28,7 +29,7 @@ export default class Scrubber extends Slider {
     /**
     * Constructs a new scrubber element at the (x,y) position.
     */
-    constructor(x: number, y: number, width?: number);
+    constructor(x: number, y: number, options: SliderOptions);
     play(): void;
     pause(): void;
 }

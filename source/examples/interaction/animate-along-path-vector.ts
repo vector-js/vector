@@ -16,57 +16,15 @@ let pathString = "M417.73,36.71v10.4h-8.5V36.71h8.5l27.49,17.83a30.28,30.28,0,0,
 
 let control = interactive.control(0, 0);
 
-let scrubber = interactive.scrubber(100, 175, 468);
+let scrubber = interactive.scrubber(100, 175, {});
 
 let path = interactive.path(pathString)
 path.style.fill = 'none';
 path.style.stroke = '#333333';
 
-//Need these to automate the process, do not if you are using scrubber
-
-// var counter = 0;
-//
-// var direction = true;
-
 var pathLength = path.root.getTotalLength();
 
-//This will draw the path. Have not figure out how to integreate it with the scrubber yet
-
-// let pathRoot = path.root.getPathSegAtLength();
-//
-// pathRoot.style.transition = pathRoot.style.webkitTransition =
-//   'none';
-// // Set up the starting positions
-// pathRoot.style.strokeDasharray = pathLength + ' ' + pathLength;
-// pathRoot.style.strokeDashoffset = '' + pathLength;
-// // Trigger a layout so styles are calculated & the browser
-// // picks up the starting position before animating
-// pathRoot.getBoundingClientRect();
-// // Define our transition
-// pathRoot.style.transition = pathRoot.style.webkitTransition =
-//   'stroke-dashoffset 2s ease-in-out';
-// // Go!
-// pathRoot.style.strokeDashoffset = '0';
-//
 function moveControl() {
-
-  //Need this to automate the process, do not if you are using scrubber
-
-	// if (counter >= 1) {
-  //
-	// 	direction = false;
-	// } else if (counter < 0) {
-  //
-	// 	direction = true;
-	// }
-  //
-	// if (direction) {
-	// 	counter += 0.001;
-	// } else {
-	// 	counter -= 0.001;
-	// }
-
-
 
   let currentPosition = scrubber.value / (scrubber.max - scrubber.min)
 

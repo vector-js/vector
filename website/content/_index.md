@@ -224,15 +224,6 @@ While animation isn't the main focus the library, some basic animations can be a
 
 Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and "scrub" to different parts of the animation.
 
-<!-- TODO: temporarily stop the update when the scrubber element is grabbed -->
-<!-- TODO: when the scrubber is "scrubbed" to the end, set the flag to true so the next time the user clicks the play button the animation restarts. -->
-
-{{< highlight javascript>}}
-let circle = interactive.circle( 75, 75, 20);
-let path = interactive.path("...");
-circle.animateAlongPath( path, true, SPEED);
-{{< /highlight >}}
-
 {{<example "animate-along-path">}}
 
 ## Coordinates
@@ -339,5 +330,3 @@ interactive.plot(Math.sin, {
 {{< /highlight >}}
 
 {{<example "plot-element">}}
-
-

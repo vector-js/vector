@@ -173,7 +173,7 @@ export default class Interactive extends SVG {
     /**
     * Creates a scrubber with a play and pause button at the position (x,y).
     */
-    scrubber(x: number, y: number, width: number): Scrubber;
+    scrubber(x: number, y: number, options: SliderOptions): Scrubber;
     /**
     * Creates a node within this interactive.
     */

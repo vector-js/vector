@@ -60,7 +60,7 @@ export default class Slider extends Input {
     * Sets the value currently represented by this slider.
     */
     set value(n) {
-        this._control.x = this._line.x1 + n / this.range * (this.width);
+        this._control.x = this._line.x1 + (n - this._min) / this.range * (this.width);
     }
     set step(value) {
         let line = this._line;

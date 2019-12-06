@@ -36,6 +36,8 @@ export default class Slider extends Input {
   * is placed at this location.
   */
   constructor( x:number, y:number, options:SliderOptions) {
+
+
     super();
     let width : number;
     let value : number;
@@ -93,7 +95,7 @@ export default class Slider extends Input {
   * Sets the value currently represented by this slider.
   */
   set value( n:number ) {
-    this._control.x = this._line.x1 + n/this.range * (this.width);
+    this._control.x = this._line.x1 + (n - this._min)/this.range * (this.width);
   }
 
   set step( value:number ) {

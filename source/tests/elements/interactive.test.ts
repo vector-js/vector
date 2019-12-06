@@ -241,7 +241,7 @@ describe('Interactive', function () {
         let x = 30;
         let y = 50;
         interactive.width = 217;
-        let element = interactive.scrubber(x, y, 160);
+        let element = interactive.scrubber(x, y, { width:160 });
         chai.expect(interactive.contains(element));
       });
 
@@ -256,7 +256,7 @@ describe('Interactive', function () {
         inputs.push(interactive.checkBox(5,6, 'my-checkbox', false));
         inputs.push(interactive.control(0,0));
         inputs.push(interactive.radioControl(0,0, ['option-1', 'option-2']));
-        inputs.push(interactive.scrubber(0,0,100));
+        inputs.push(interactive.scrubber(0,0, { width:100 }));
         inputs.push(interactive.slider(0,0, {}));
         inputs.forEach((input) => {
           chai.expect(interactive.input.contains(input)).to.be.true;
@@ -281,7 +281,7 @@ describe('Interactive', function () {
         inputs.push(interactive.checkBox(5,6, 'my-checkbox', false));
         inputs.push(interactive.control(0,0));
         inputs.push(interactive.radioControl(0,0, ['option-1', 'option-2']));
-        inputs.push(interactive.scrubber(0,0,100));
+        inputs.push(interactive.scrubber(0,0, {width: 100}));
         inputs.push(interactive.slider(0,0,{}));
 
         // create some elements after

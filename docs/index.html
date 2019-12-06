@@ -460,15 +460,6 @@
 
 <p>Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and &ldquo;scrub&rdquo; to different parts of the animation.</p>
 
-<!-- TODO: temporarily stop the update when the scrubber element is grabbed -->
-
-<!-- TODO: when the scrubber is "scrubbed" to the end, set the flag to true so the next time the user clicks the play button the animation restarts. -->
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">);</span>
-<span class="nx">circle</span><span class="p">.</span><span class="nx">animateAlongPath</span><span class="p">(</span> <span class="nx">path</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">SPEED</span><span class="p">);</span>
-</code></pre></div>
-
 
 
 <div id="animate-along-path" class="vertical-center i-container"></div>

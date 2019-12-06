@@ -9,11 +9,16 @@ export default class Scrubber extends Slider {
     /**
     * Constructs a new scrubber element at the (x,y) position.
     */
-    constructor(x, y, width = 486) {
-        super(x + 80, y, {
-            width: width - 80,
-            value: 0
-        });
+    constructor(x, y, options) {
+        let defaultOptions = {
+            width: 486
+        };
+        // combine the default configuration with the user's configuration
+        let config = { ...defaultOptions, ...options };
+        // make room for the play & pause button
+        config.width = config.width - 80;
+        console.log(config, 'HI!');
+        super(x + 80, y, config);
         this.active = false;
         this.loop = false;
         this.done = false;
@@ -75,7 +80,7 @@ export default class Scrubber extends Slider {
                 this.done = false;
                 // TODO: change this.done to true when the control is "scrubbed" to the end
             }
-            let stepSize = .002 * scrubber.range;
+            let stepSize = .0025 * scrubber.range;
             let step = function (timestamp) {
                 scrubber.value = (scrubber.value + stepSize);
                 if (scrubber.value > scrubber.max && !scrubber.loop) {
@@ -83,9 +88,11 @@ export default class Scrubber extends Slider {
                     scrubber.pause();
                     // TODO: change play icon to reset icon
                     scrubber.done = true;
+                    scrubber.onchange();
                 }
                 else {
                     scrubber.value = scrubber.value % scrubber.max;
+                    scrubber.onchange();
                     scrubber.requestID = window.requestAnimationFrame(step);
                 }
             };
