@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.55.4" />
+	<meta name="generator" content="Hugo 0.59.0" />
   <meta charset="utf-8">
   <title>Vector.js</title>
   <meta name="description" content="A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives." />
@@ -147,7 +147,7 @@
 
 <div class="filename">script.js</div>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;https://vectorjs.org/interactive.js&#34;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;https://vectorjs.org/interactive.js&#34;</span><span class="p">;</span>
 
 <span class="c1">// Construct an interactive within the HTML element with the id &#34;my-interactive&#34;
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;my-interactive&#34;</span><span class="p">);</span>
@@ -388,7 +388,7 @@
 
 <div id="e9c9f68ee4131dac32dff9a0a981e76a" class="vertical-center i-container"></div>
 <script type="module">
-  import main from "/examples/math/riemann-sum.js";
+  import main from "\/examples\/math\/riemann-sum.js";
   main("e9c9f68ee4131dac32dff9a0a981e76a");
 </script>
 
@@ -566,8 +566,8 @@
 
 <h4 id="interactive-world-map">Interactive World Map</h4>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">globalData</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">globalData</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">myInteractive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">myInteractive</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">globalData</span><span class="p">);</span>
@@ -604,7 +604,7 @@
 
 <div id="426b4efc09a17eb168e5c076b6736609" class="vertical-center i-container"></div>
 <script type="module">
-  import main from "/examples/elements/plot-element.js";
+  import main from "\/examples\/elements\/plot-element.js";
   main("426b4efc09a17eb168e5c076b6736609");
 </script>
 

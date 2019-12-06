@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -332,6 +332,34 @@
   </url>
   
   <url>
+    <loc>https://vectorjs.org/sandbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/plot-secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/secant/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/slider-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/state-quiz/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/svg/elements/style/</loc>
+  </url>
+  
+  <url>
     <loc>https://vectorjs.org/svg/elements/svg/</loc>
   </url>
   
@@ -400,34 +428,6 @@
   </url>
   
   <url>
-    <loc>https://vectorjs.org/sandbox/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/scrubber-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/plot-secant/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/secant/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/slider-element/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/state-quiz/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/svg/elements/style/</loc>
-  </url>
-  
-  <url>
     <loc>https://vectorjs.org/svg/elements/symbol/</loc>
   </url>
   
@@ -461,6 +461,58 @@
   
   <url>
     <loc>https://vectorjs.org/examples/trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/approximate-tau/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/degrees/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/modular-arithmetic-number-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/normal-distribution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-degrees/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-pi/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/polar-coordinate-system-radians/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/radians/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/sine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/trig-functions-temp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/vector/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vectorjs.org/examples/zoom-pan/</loc>
   </url>
   
   <url>
@@ -517,58 +569,6 @@
   
   <url>
     <loc>https://vectorjs.org/examples/zoom-in-out/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/approximate-tau/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/degrees/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/modular-arithmetic-number-line/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/normal-distribution/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/polar-coordinate-system-degrees/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/polar-coordinate-system-pi/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/polar-coordinate-system-radians/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/radians/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/sine/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/trig-functions-temp/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/vector/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vectorjs.org/examples/zoom-pan/</loc>
   </url>
   
 </urlset>

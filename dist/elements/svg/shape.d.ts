@@ -1,4 +1,7 @@
 import Element, { CoreAttributes } from './element.js';
+/**
+* Attributes associated with geometric SVG elements.
+*/
 export declare type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end' | 'transform';
 /**
 * A shape is a basic geometric element.

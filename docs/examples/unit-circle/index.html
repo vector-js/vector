@@ -47,7 +47,7 @@
 
 <div id="ce3f957085197d1b9ccf7a9b151b6f7d" class="vertical-center i-container"></div>
 <script type="module">
-  import main from "/examples/math/unit-circle.js";
+  import main from "\/examples\/math\/unit-circle.js";
   main("ce3f957085197d1b9ccf7a9b151b6f7d");
 </script>
 
@@ -64,17 +64,17 @@
 </span><span class="cm">* @author Kurt Bruns
 </span><span class="cm">* @weight 1
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">BaseElement</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">parseSVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/svg.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">BaseElement</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">parseSVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/svg.js&#39;</span><span class="p">;</span>
 <span class="cm">/**
 </span><span class="cm">* This wrapper object is how the circular dependecy between control elements is
 </span><span class="cm">* made more simple. Since all of the elements depend on the current angle when
 </span><span class="cm">* an input is changed then this element is updated and the change is
 </span><span class="cm">* propegated through the dependency graph.
 </span><span class="cm">*/</span>
-<span class="k">class</span> <span class="nx">NumberWrapper</span> <span class="k">extends</span> <span class="nx">BaseElement</span> <span class="p">{</span>
+<span class="kr">class</span> <span class="nx">NumberWrapper</span> <span class="kr">extends</span> <span class="nx">BaseElement</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">();</span>
+        <span class="kr">super</span><span class="p">();</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">_value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">get</span> <span class="nx">value</span><span class="p">()</span> <span class="p">{</span>
@@ -85,7 +85,7 @@
         <span class="k">this</span><span class="p">.</span><span class="nx">updateDependents</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">class</span> <span class="nx">UnitCircle</span> <span class="p">{</span>
+<span class="kr">class</span> <span class="nx">UnitCircle</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">angle</span><span class="p">,</span> <span class="nx">func</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">}</span>
     <span class="nx">set</span> <span class="nx">angle</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
@@ -98,7 +98,7 @@
 </span><span class="cm">* This main interactive contains the four components: the unit circle, the
 </span><span class="cm">* function graph, the variables, and the trigonometric functions.
 </span><span class="cm">*/</span>
-<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
     <span class="cm">/**
 </span><span class="cm">    * Default options for this interactive
 </span><span class="cm">    */</span>

@@ -58,7 +58,7 @@
 </span><span class="cm">* @tags [games]
 </span><span class="cm">* @weight 1
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">startTime</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interval</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">distance</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -249,7 +249,7 @@
 </span><span class="cm"> * @param minHue minimum hue value
 </span><span class="cm"> */</span>
 <span class="kd">function</span> <span class="nx">percentageToColor</span><span class="p">(</span><span class="nx">percentage</span><span class="p">,</span> <span class="nx">maxHue</span> <span class="o">=</span> <span class="mi">360</span><span class="p">,</span> <span class="nx">minHue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">const</span> <span class="nx">hue</span> <span class="o">=</span> <span class="nx">percentage</span> <span class="o">*</span> <span class="p">(</span><span class="nx">maxHue</span> <span class="o">-</span> <span class="nx">minHue</span><span class="p">)</span> <span class="o">+</span> <span class="nx">minHue</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">hue</span> <span class="o">=</span> <span class="nx">percentage</span> <span class="o">*</span> <span class="p">(</span><span class="nx">maxHue</span> <span class="o">-</span> <span class="nx">minHue</span><span class="p">)</span> <span class="o">+</span> <span class="nx">minHue</span><span class="p">;</span>
     <span class="k">return</span> <span class="sb">`hsl(</span><span class="si">${</span><span class="nx">hue</span><span class="si">}</span><span class="sb">, 100%, 50%)`</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c1">//# sourceMappingURL=mouse-path-game.js.map

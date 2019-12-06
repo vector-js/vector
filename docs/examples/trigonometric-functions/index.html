@@ -58,8 +58,8 @@
 </span><span class="cm">* @tags [math]
 </span><span class="cm">* @ignore true
 </span><span class="cm">*/</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">,</span> <span class="nx">download</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">Group</span> <span class="nx">from</span> <span class="s1">&#39;../../elements/svg/group.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">,</span> <span class="nx">download</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Group</span> <span class="nx">from</span> <span class="s1">&#39;../../elements/svg/group.js&#39;</span><span class="p">;</span>
 <span class="c1">// Initialize the interactive
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="kd">let</span> <span class="nx">width</span> <span class="o">=</span> <span class="mi">230</span><span class="p">;</span>
@@ -70,9 +70,9 @@
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">functions</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">];</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">functions</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="nx">width</span> <span class="o">+</span> <span class="p">(</span><span class="nx">functions</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nx">margin</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">+</span> <span class="nx">margin</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">width</span><span class="p">;</span>
-<span class="k">class</span> <span class="nx">NumberWrapper</span> <span class="k">extends</span> <span class="nx">Group</span> <span class="p">{</span>
+<span class="kr">class</span> <span class="nx">NumberWrapper</span> <span class="kr">extends</span> <span class="nx">Group</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">();</span>
+        <span class="kr">super</span><span class="p">();</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">_value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">get</span> <span class="nx">value</span><span class="p">()</span> <span class="p">{</span>

@@ -1,7 +1,6 @@
 import BaseElement from '../base-element.js';
 /**
 * These global attributes are associated with every SVG element in the DOM.
-* TODO: probably remove transform from this list
 */
 export declare type CoreAttributes = 'id' | 'tabindex' | 'style' | 'class' | 'lang' | 'autofocus' | 'xml:space' | 'transform';
 /**

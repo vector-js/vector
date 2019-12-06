@@ -44,7 +44,6 @@ export function getScriptName(trimExtension = true) {
 */
 export function download(id, filename) {
     let svg = document.getElementById(id).firstChild;
-    console.log(id);
     let styleSheet = null;
     for (let i = 0; i < document.styleSheets.length; i++) {
         // TODO: there is a better way to do this
@@ -53,21 +52,19 @@ export function download(id, filename) {
             break;
         }
     }
-    // let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
-    // style.type = "text/css";
-    // let css = "";
-    // for( let i = 0; i < styleSheet.rules.length; i++)
-    // {
-    //   let rule = styleSheet.rules[i] as CSSRule;
-    //   css  += rule.cssText + "\n";
-    // }
-    // style.innerHTML = css;
-    // svg.appendChild(style);
-    // console.log(svg.outerHTML);
-    // console.log(style);
-    // console.log(svg);
-    let data = svg.outerHTML.replace("&gt;", ">").replace("&lt;", "<");
+    let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+    style.type = "text/css";
+    let css = "";
+    for (let i = 0; i < styleSheet.rules.length; i++) {
+        let rule = styleSheet.rules[i];
+        css += rule.cssText + "\n";
+    }
+    style.innerHTML = css;
+    svg.appendChild(style);
+    // best piece of code i have written in 2019
+    let data = svg.outerHTML.replace('&gt;', '>').replace('&gt;', '>').replace('&gt;', '>');
     saveSVG(filename, data);
+    style.remove();
 }
 export function saveSVG(filename, data) {
     let blob = new Blob([data], { type: 'image/svg+xml' });

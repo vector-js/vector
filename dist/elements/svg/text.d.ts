@@ -1,6 +1,9 @@
 import Element, { CoreAttributes } from './element.js';
 import TSpan from './t-span.js';
 import { Typography } from './content-model.js';
+/**
+* These attributes control the text position.
+*/
 export declare type TextAttributes = 'baseline-shift' | 'text-anchor' | 'alignment-baseline';
 /**
 * Text is a basic element containing string contents
