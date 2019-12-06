@@ -5,8 +5,8 @@ id: tidy-algorithm
 script: /examples/graph/tidy-algorithm.js
 main: false
 ignore: false
-description: TODO
-input: There is a number input that takes a number less than one-hundred million.
+description: Simple example of using the graph.tidy() function to draw a tree.
+input: None.
 tags: [graph, tree]
 weight: 1
 draft: undefined
@@ -79,4 +79,3 @@ graph.addEdge(node10, node15);
 graph.tidy(node1);
 //# sourceMappingURL=tidy-algorithm.js.map
 {{</ highlight >}}
-

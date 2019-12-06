@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vector.js</title>
@@ -137,7 +137,7 @@ let graph = interactive.graph({directed:true});  When creating a node, you can s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/plots/</guid>
-      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;/examples/elements/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
     </item>
     
     <item>
@@ -716,61 +716,6 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
-      <title>Scrubber Element</title>
-      <link>https://vectorjs.org/examples/scrubber-element/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/scrubber-element/</guid>
-      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // let test = new Interactive(getScriptName()); // test.width = 768; // test.height = 200; // test.svg.style.border = &amp;#34;1px solid grey&amp;#34;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.</description>
-    </item>
-    
-    <item>
-      <title>Secant</title>
-      <link>https://vectorjs.org/examples/plot-secant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/plot-secant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Secant Plot</title>
-      <link>https://vectorjs.org/examples/secant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/secant/</guid>
-      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let plot2 = interactive.plot(Math.cos, { width: 700, height: 700, originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false, grid: false, labels: false }); plot2.</description>
-    </item>
-    
-    <item>
-      <title>Slider Element</title>
-      <link>https://vectorjs.org/examples/slider-element/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/slider-element/</guid>
-      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, }); //# sourceMappingURL=slider-element.js.map  </description>
-    </item>
-    
-    <item>
-      <title>State Quiz</title>
-      <link>https://vectorjs.org/examples/state-quiz/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/state-quiz/</guid>
-      <description>/** * @title State Quiz * @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you&amp;#39;re correct! If you want some help, press the &amp;#39;/&amp;#39; key. * @tags [maps, games] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let correctCounter = 0; let incorrectCounter = 0; let interactive = new Interactive(getScriptName()); interactive.</description>
-    </item>
-    
-    <item>
-      <title>Style</title>
-      <link>https://vectorjs.org/svg/elements/style/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/svg/elements/style/</guid>
-      <description>The style element defines CSS that is applied to elements through a combination of selectors.
-&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
-    </item>
-    
-    <item>
       <title>SVG</title>
       <link>https://vectorjs.org/svg/elements/svg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -915,6 +860,61 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Scrubber Element</title>
+      <link>https://vectorjs.org/examples/scrubber-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/scrubber-element/</guid>
+      <description>/** * @title Scrubber Element * @description This interactive demonstrates the animation scrubber element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // let test = new Interactive(getScriptName()); // test.width = 768; // test.height = 200; // test.svg.style.border = &amp;#34;1px solid grey&amp;#34;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; interactive.root.style.borderRadius = &amp;#34;4px&amp;#34;; let scrubber = interactive.</description>
+    </item>
+    
+    <item>
+      <title>Secant</title>
+      <link>https://vectorjs.org/examples/plot-secant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/plot-secant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Secant Plot</title>
+      <link>https://vectorjs.org/examples/secant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/secant/</guid>
+      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let plot2 = interactive.plot(Math.cos, { width: 700, height: 700, originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false, grid: false, labels: false }); plot2.</description>
+    </item>
+    
+    <item>
+      <title>Slider Element</title>
+      <link>https://vectorjs.org/examples/slider-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/slider-element/</guid>
+      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, }); //# sourceMappingURL=slider-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>State Quiz</title>
+      <link>https://vectorjs.org/examples/state-quiz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/state-quiz/</guid>
+      <description>/** * @title State Quiz * @description Quiz on the names of all United States. Type the name of the highlighted state into the text box and press enter to see if you&amp;#39;re correct! If you want some help, press the &amp;#39;/&amp;#39; key. * @tags [maps, games] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import * as data from &amp;#39;./maps-json.js&amp;#39;; let correctCounter = 0; let incorrectCounter = 0; let interactive = new Interactive(getScriptName()); interactive.</description>
+    </item>
+    
+    <item>
+      <title>Style</title>
+      <link>https://vectorjs.org/svg/elements/style/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/style/</guid>
+      <description>The style element defines CSS that is applied to elements through a combination of selectors.
+&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
+    </item>
+    
+    <item>
       <title>Symbol</title>
       <link>https://vectorjs.org/svg/elements/symbol/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -984,123 +984,6 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/examples/trigonometric-functions/</guid>
       <description>/** * @title Trigonometric Functions * @description This interactive shows the connection between the three trigonometric functions and the unit circle. * @tags [math] * @ignore true */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let width = 230; let scale = width / Math.PI; let radius = scale; let margin = 2 * radius - width / 2; // let functions = [Math.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/approximate-tau/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/approximate-tau/</guid>
-      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.height = 400; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2 - 30; let circle = interactive.circle(0, 0, 75); circle.style.stroke = &amp;#39;#0366EE&amp;#39;; let insidePolygon = interactive.path(&amp;#39;&amp;#39;); let outsidePolygon = interactive.path(&amp;#39;&amp;#39;); let slider = interactive.slider(-100, 170, { width: 200, min: 3, max: 16, step: 1 }); insidePolygon.addDependency(slider); // insidePolygon.style.fill = &amp;#39;#f8f8f8&amp;#39;; insidePolygon.update = function () { let n = Math.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/degrees/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/degrees/</guid>
-      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/modular-arithmetic-number-line/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/modular-arithmetic-number-line/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = 0; interactive.originY = interactive.height / 2; ; let margin = 30; let input = interactive.control(margin + 163, 0); let n = interactive.control(margin + 100, margin); let line = interactive.line(interactive.minX + margin, 0, interactive.maxX - margin, 0); let mod = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/normal-distribution/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/normal-distribution/</guid>
-      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; interactive.border = true; // Create a new graph object let s = 100; let u = 300; let f = (x) =&amp;gt; { return 1 / (s * Math.sqrt(2 * Math.PI)) * Math.pow(Math.E, -(x - u) * (x - u) / (2 * s * s)); }; let graph = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/polar-coordinate-system-degrees/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/polar-coordinate-system-degrees/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; // Initialize the interactive // let margin = 32; let interactive = new Interactive(getScriptName()); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/polar-coordinate-system-pi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/polar-coordinate-system-pi/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/polar-coordinate-system-radians/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/polar-coordinate-system-radians/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; interactive.classList.add(&amp;#39;default&amp;#39;); // Create three control points  let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/radians/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/radians/</guid>
-      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.control(0, 0); let radius = 45; let n = 3; let border = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/sine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/sine/</guid>
-      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(Math.sin, { title: &amp;#34;Sine Function&amp;#34;, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); } //# sourceMappingURL=sine.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/trig-functions-temp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/trig-functions-temp/</guid>
-      <description>/* * @ignore true */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let scale = 300 / Math.PI; let margin = 2 * scale - 150; interactive.height = 2 * 300 + margin; interactive.width = 300 + margin + 600; // let functions = [Math.cos, Math.sin, Math.tan]; let functions = [Math.cos, Math.sin]; class NumberWrapper extends Group { constructor(value) { super(); this.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</guid>
-      <description>/** * @ignore true */ // // import {Interactive, getScriptName} from &amp;#39;../../index.js&amp;#39;; // // // Initialize the interactive // let interactive = new Interactive(getScriptName()); // interactive.window = true; // interactive.width = 600; // interactive.height = 600; // interactive.originX = interactive.width/2; // interactive.originY = 225; // // // Create a circle // let circle = interactive.circle( 0, 0, 125); // let line = interactive.line( 0, 0, circle.r, 0); // let margin = 0; // let yAxis = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/vector/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/vector/</guid>
-      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); // interactive.border = true; interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.height += 2 * margin; // interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let xAxis = interactive.line(-interactive.width / 2 + margin, 0, interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
-      <link>https://vectorjs.org/examples/zoom-pan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/zoom-pan/</guid>
-      <description>/** * @ignore true */ import { Interactive } from &amp;#34;../../index.js&amp;#34;; export default class ZoomAndPan extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.root.getBoundingClientRect(); this.width = width; this.height = height; // initialize variables  this.zoomIntensity = .02; this.scale = 1; this.originx = 0; this.originy = 0; this.visibleWidth = this.width; this.visibleHeight = this.height; this.active = false; this.prevX = 0; this.</description>
     </item>
     
     <item>
@@ -1218,6 +1101,123 @@ Starting point The starting point is an interactive with a control point that ca
       
       <guid>https://vectorjs.org/examples/zoom-in-out/</guid>
       <description>/** * @ignore true * @title Zoom and Pan Interactive * @description This interactive demonstrates how to zoom in and out on a specific point. * @input The input to this interactive is the scroll wheel of the mouse, the mouse click, and the mouse position. * @tags [] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import Text from &amp;#39;../../elements/svg/text.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; class Zoomable extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/approximate-tau/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/approximate-tau/</guid>
+      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.height = 400; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2 - 30; let circle = interactive.circle(0, 0, 75); circle.style.stroke = &amp;#39;#0366EE&amp;#39;; let insidePolygon = interactive.path(&amp;#39;&amp;#39;); let outsidePolygon = interactive.path(&amp;#39;&amp;#39;); let slider = interactive.slider(-100, 170, { width: 200, min: 3, max: 16, step: 1 }); insidePolygon.addDependency(slider); // insidePolygon.style.fill = &amp;#39;#f8f8f8&amp;#39;; insidePolygon.update = function () { let n = Math.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/degrees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/degrees/</guid>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/modular-arithmetic-number-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/modular-arithmetic-number-line/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = 0; interactive.originY = interactive.height / 2; ; let margin = 30; let input = interactive.control(margin + 163, 0); let n = interactive.control(margin + 100, margin); let line = interactive.line(interactive.minX + margin, 0, interactive.maxX - margin, 0); let mod = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/normal-distribution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/normal-distribution/</guid>
+      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 600; interactive.height = 300; interactive.border = true; // Create a new graph object let s = 100; let u = 300; let f = (x) =&amp;gt; { return 1 / (s * Math.sqrt(2 * Math.PI)) * Math.pow(Math.E, -(x - u) * (x - u) / (2 * s * s)); }; let graph = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system-degrees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system-degrees/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; // Initialize the interactive // let margin = 32; let interactive = new Interactive(getScriptName()); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system-pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system-pi/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/polar-coordinate-system-radians/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/polar-coordinate-system-radians/</guid>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; interactive.classList.add(&amp;#39;default&amp;#39;); // Create three control points  let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/radians/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/radians/</guid>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.control(0, 0); let radius = 45; let n = 3; let border = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/sine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/sine/</guid>
+      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(Math.sin, { title: &amp;#34;Sine Function&amp;#34;, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); } //# sourceMappingURL=sine.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/trig-functions-temp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/trig-functions-temp/</guid>
+      <description>/* * @ignore true */ import { Interactive, getScriptName, download } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); let scale = 300 / Math.PI; let margin = 2 * scale - 150; interactive.height = 2 * 300 + margin; interactive.width = 300 + margin + 600; // let functions = [Math.cos, Math.sin, Math.tan]; let functions = [Math.cos, Math.sin]; class NumberWrapper extends Group { constructor(value) { super(); this.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/unit-circle-trigonometric-functions/</guid>
+      <description>/** * @ignore true */ // // import {Interactive, getScriptName} from &amp;#39;../../index.js&amp;#39;; // // // Initialize the interactive // let interactive = new Interactive(getScriptName()); // interactive.window = true; // interactive.width = 600; // interactive.height = 600; // interactive.originX = interactive.width/2; // interactive.originY = 225; // // // Create a circle // let circle = interactive.circle( 0, 0, 125); // let line = interactive.line( 0, 0, circle.r, 0); // let margin = 0; // let yAxis = interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/vector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/vector/</guid>
+      <description>/** * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let margin = 32; let interactive = new Interactive(getScriptName()); // interactive.border = true; interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.height += 2 * margin; // interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let xAxis = interactive.line(-interactive.width / 2 + margin, 0, interactive.</description>
+    </item>
+    
+    <item>
+      <title>undefined</title>
+      <link>https://vectorjs.org/examples/zoom-pan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/zoom-pan/</guid>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#34;../../index.js&amp;#34;; export default class ZoomAndPan extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.root.getBoundingClientRect(); this.width = width; this.height = height; // initialize variables  this.zoomIntensity = .02; this.scale = 1; this.originx = 0; this.originy = 0; this.visibleWidth = this.width; this.visibleHeight = this.height; this.active = false; this.prevX = 0; this.</description>
     </item>
     
   </channel>

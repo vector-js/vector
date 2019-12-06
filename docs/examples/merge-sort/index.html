@@ -57,7 +57,7 @@
 </span><span class="cm">* @description This interactive demonstrates an implementation of the merge sort algorithm using a tree.
 </span><span class="cm">* @tags [algorithm, graph]
 </span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">704</span><span class="p">;</span>
 <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
@@ -152,13 +152,13 @@
     <span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">newNode</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">newNode</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="kr">export</span> <span class="kd">function</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="kr">const</span> <span class="nx">middle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="kr">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">middle</span><span class="p">);</span>
-    <span class="kr">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">middle</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">middle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">middle</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">middle</span><span class="p">);</span>
     <span class="kd">let</span> <span class="nx">otherNodes</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;ellipse&#34;</span><span class="p">);</span>
     <span class="kd">let</span> <span class="nx">leafLeft</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">leafRight</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
@@ -228,12 +228,12 @@
 <span class="p">}</span>
 <span class="cm">/** Merge (conquer) step of mergeSort */</span>
 <span class="kd">function</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
     <span class="kd">let</span> <span class="nx">lIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">rIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nx">lIndex</span> <span class="o">+</span> <span class="nx">rIndex</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">lItem</span> <span class="o">=</span> <span class="nx">left</span><span class="p">[</span><span class="nx">lIndex</span><span class="p">];</span>
-        <span class="kr">const</span> <span class="nx">rItem</span> <span class="o">=</span> <span class="nx">right</span><span class="p">[</span><span class="nx">rIndex</span><span class="p">];</span>
+        <span class="k">const</span> <span class="nx">lItem</span> <span class="o">=</span> <span class="nx">left</span><span class="p">[</span><span class="nx">lIndex</span><span class="p">];</span>
+        <span class="k">const</span> <span class="nx">rItem</span> <span class="o">=</span> <span class="nx">right</span><span class="p">[</span><span class="nx">rIndex</span><span class="p">];</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">lItem</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">rItem</span><span class="p">);</span>
             <span class="nx">rIndex</span><span class="o">++</span><span class="p">;</span>

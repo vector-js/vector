@@ -47,7 +47,7 @@
 
 <div id="b702e75a59b7f87c50afb522963a21d3" class="vertical-center i-container"></div>
 <script type="module">
-  import main from "\/examples\/math\/exponential-tree.js";
+  import main from "/examples/math/exponential-tree.js";
   main("b702e75a59b7f87c50afb522963a21d3");
 </script>
 
@@ -64,14 +64,14 @@
 </span><span class="cm">* @author Kurt Bruns
 </span><span class="cm">* @weight 1
 </span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;../../interactive.js&#34;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">SVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../../index.js&#34;</span><span class="p">;</span>
-<span class="kr">class</span> <span class="nx">Tree</span> <span class="kr">extends</span> <span class="nx">SVG</span> <span class="p">{</span>
+<span class="k">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s2">&#34;../../interactive.js&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../../index.js&#34;</span><span class="p">;</span>
+<span class="k">class</span> <span class="nx">Tree</span> <span class="k">extends</span> <span class="nx">SVG</span> <span class="p">{</span>
     <span class="cm">/**
 </span><span class="cm">    *
 </span><span class="cm">    */</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">rootX</span><span class="p">,</span> <span class="nx">rootY</span><span class="p">,</span> <span class="nx">base</span><span class="p">,</span> <span class="nx">exponent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kr">super</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">740</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">super</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">740</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">rootX</span> <span class="o">=</span> <span class="nx">rootX</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">rootY</span> <span class="o">=</span> <span class="nx">rootY</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="nx">base</span><span class="p">;</span>
@@ -179,7 +179,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="nx">Tree</span><span class="p">.</span><span class="nx">maxLevels</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span>
         <span class="nx">width</span><span class="o">:</span> <span class="mi">740</span><span class="p">,</span>
         <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>

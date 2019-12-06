@@ -1,7 +1,7 @@
 /**
 * @title Tidy Algorithm
-* @description TODO
-* @input There is a number input that takes a number less than one-hundred million.
+* @description Simple example of using the graph.tidy() function to draw a tree.
+* @input None
 * @tags [graph, tree]
 * @weight 1
 */

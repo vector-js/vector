@@ -46,9 +46,9 @@
 
 <p>The first step in using our mapping module is always to pull in your GeoJson data. For more information on this step, see our API or the Map Module tutorial. We also want to import our Interactive object, as well as the data that contains the states population density.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">data</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">usDensityMap</span> <span class="nx">as</span> <span class="nx">densityMap</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./map-element-two-data.js&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">data</span> <span class="nx">from</span> <span class="s1">&#39;./maps-json.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">usDensityMap</span> <span class="nx">as</span> <span class="nx">densityMap</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./map-element-two-data.js&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Now that we have the imports out of the way, we can start coding. Just like in other modules, we need to create an Interactive object that has the ID of the HTML element you want it to live in. And for this example we are doing a map of the united states, so we pass that GeoJson to the Map constructor. At this time we can also make our hover box. The interesting part here is the setBounds method, which makes sure the hover box doesnt go off the screen.</p>

@@ -57,9 +57,9 @@
 </span><span class="cm">* @description This interactive demonstrates how to load and use an external svg.
 </span><span class="cm">* @tags [svg, maps]
 </span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">getURL</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/file.js&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">parseSVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/svg.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getURL</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/file.js&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">parseSVG</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../util/svg.js&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">getURL</span><span class="p">(</span><span class="s1">&#39;/maps/united-states.svg&#39;</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">getURL</span><span class="p">(</span><span class="s1">&#39;/maps/us-population-data.json&#39;</span><span class="p">);</span>
 <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">map</span><span class="p">,</span> <span class="nx">data</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>

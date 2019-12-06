@@ -57,20 +57,22 @@
       let buttons = document.querySelector('#tag-buttons');
       let selected = new Set();
 
-      
-
+      /**
+      * Displays the union of the selected tags. If nothing is selected displays
+      * everything.
+      */
       function display() {
 
-        
+        // console.log(selected);
         if( selected.size  == 0 ){
 
-          
+          // display everything
           document.querySelectorAll('.card').forEach((example) => {
             example.style.display = '';
           });
         } else {
 
-          
+          // hide everthing
           document.querySelectorAll('.card').forEach((example) => {
             example.style.display = 'none';
           });
@@ -81,7 +83,7 @@
             example.style.display = '';
           });
         }
-        
+        // document.querySelectorAll( `.${}`)
       }
 
       buttons.querySelectorAll('button').forEach((button) => {
@@ -683,49 +685,6 @@
 </div>
   
   
-    <div class="card elements input">
-  <a href="/examples/scrubber-element/">
-    <h2>Scrubber Element</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/scrubber-element.svg" alt="Scrubber Element">
-    </div>
-    
-  </a>
-</div>
-  
-  
-      
-  
-      
-  
-    <div class="card elements input">
-  <a href="/examples/slider-element/">
-    <h2>Slider Element</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/slider-element.svg" alt="Slider Element">
-    </div>
-    
-  </a>
-</div>
-  
-  
-    <div class="card maps games">
-  <a href="/examples/state-quiz/">
-    <h2>State Quiz</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/state-quiz.svg" alt="State Quiz">
-    </div>
-    
-  </a>
-</div>
-  
-  
       
   
     <div class="card svg">
@@ -899,6 +858,49 @@
 </div>
   
   
+    <div class="card elements input">
+  <a href="/examples/scrubber-element/">
+    <h2>Scrubber Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/scrubber-element.svg" alt="Scrubber Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+      
+  
+      
+  
+    <div class="card elements input">
+  <a href="/examples/slider-element/">
+    <h2>Slider Element</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/slider-element.svg" alt="Slider Element">
+    </div>
+    
+  </a>
+</div>
+  
+  
+    <div class="card maps games">
+  <a href="/examples/state-quiz/">
+    <h2>State Quiz</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/state-quiz.svg" alt="State Quiz">
+    </div>
+    
+  </a>
+</div>
+  
+  
     <div class="card elements">
   <a href="/examples/text-element/">
     <h2>Text Element</h2>
@@ -953,43 +955,6 @@
   
       
   
-      
-  
-      
-  
-      
-  
-      
-  
-      
-  
-      
-  
-      
-  
-      
-  
-    <div class="card 117 110 100 101 102 105 110 101 100">
-  <a href="/examples/sine/">
-    <h2>undefined</h2>
-    
-    
-    <div class="vertical-center">
-      <img src="/images/sine.svg" alt="undefined">
-    </div>
-    
-  </a>
-</div>
-  
-  
-      
-  
-      
-  
-      
-  
-      
-  
     <div class="card elements">
   <a href="/examples/undirected-graph-element/">
     <h2>Undirected Graph Element</h2>
@@ -1034,6 +999,43 @@
   
   
       
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <div class="card 117 110 100 101 102 105 110 101 100">
+  <a href="/examples/sine/">
+    <h2>undefined</h2>
+    
+    
+    <div class="vertical-center">
+      <img src="/images/sine.svg" alt="undefined">
+    </div>
+    
+  </a>
+</div>
+  
   
       
   

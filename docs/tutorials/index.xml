@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on Vector.js</title>
@@ -47,7 +47,7 @@ let graph = interactive.graph({directed:true});  When creating a node, you can s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/plots/</guid>
-      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;/examples/elements/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
     </item>
     
     <item>
