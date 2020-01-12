@@ -55,3 +55,10 @@ export function PointWhereTwoLinesIntersect( p1:Point, p2:Point, p3:Point, p4:Po
   }
   return {x:x, y:y};
 }
+
+/**
+*
+*/
+export function trapezoidalWave( ) {
+
+}

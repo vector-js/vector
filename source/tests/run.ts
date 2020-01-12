@@ -40,6 +40,10 @@ import './elements/maps/map.test.js'
 // math
 import './math/interactives.test.js';
 
+// article interactives
+import './articles/color.test.js';
+import './articles/waves.test.js';
+
 // graph
 import './elements/graph/node.test.js'
 

@@ -50,4 +50,9 @@ export function PointWhereTwoLinesIntersect(p1, p2, p3, p4) {
     }
     return { x: x, y: y };
 }
+/**
+*
+*/
+export function trapezoidalWave() {
+}
 //# sourceMappingURL=math.js.map

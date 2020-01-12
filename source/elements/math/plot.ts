@@ -413,13 +413,13 @@ export default class Plot extends SVG {
       let yPoints = this.getYLabelPoints();
       for( let p of xPoints) {
         let point = this.internalToAbsolute(p);
-        let text = group.text( point.x + config.margin, config.margin + this._height + config.margin/2, `${p.x}`);
+        let text = group.text( point.x + config.margin, config.margin + this._height + config.margin/2, `${p.x.toFixed(1)}`);
         text.setAttribute('alignment-baseline', 'middle');
         text.setAttribute('text-anchor', 'middle');
       }
       for( let p of yPoints) {
         let point = this.internalToAbsolute(p);
-        let text = group.text( point.x + config.margin/2, point.y + config.margin, `${p.y}`);
+        let text = group.text( point.x + config.margin/2, point.y + config.margin, `${p.y.toFixed(1)}`);
         text.setAttribute('alignment-baseline', 'middle');
         text.setAttribute('text-anchor', 'middle');
       }

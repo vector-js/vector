@@ -12,3 +12,7 @@ export declare function isPrime(n: number): boolean;
 * points p1 and p2. The second line is defined by the points p3 and p4.
 */
 export declare function PointWhereTwoLinesIntersect(p1: Point, p2: Point, p3: Point, p4: Point): Point;
+/**
+*
+*/
+export declare function trapezoidalWave(): void;
