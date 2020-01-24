@@ -40,7 +40,7 @@ export default function main( id:string ) {
   });
 
   let radius = 250;
-  let n = 18;
+  let n = 32;
 
   let group = interactive.group();
   // group.setAttribute('transform', 'translate(250, 500)');
@@ -74,11 +74,14 @@ export default function main( id:string ) {
     // let rectangleGroup = group.group();
     // rectangleGroup.setAttribute('transform', `rotate(${angle*360/(TAU)})`);
     let id = 2*circle.r/n;
-    for( let i = id; i <= circle.r; i += id) {
+    for( let i = 0; i <= circle.r; i += id) {
       let a = i/circle.r;
       let r1 = ((1 - a)*255) + (a*r);
       let g1 = ((1 - a)*255) + (a*g);
       let b1 = ((1 - a)*255) + (a*b);
+      // let r1 = 0;
+      // let g1 = 0;
+      // let b1 = 0;
       let path = group.path(`M ${i*x} ${i*y} L ${i*x2} ${i*y2} L ${(i + id)*x2} ${(i + id)*y2} L ${(i + id)*x} ${(i + id)*y} Z`);
       path.style.fill = `rgb( ${r1}, ${g1}, ${b1})`;
       path.style.stroke = `rgb( ${r1}, ${g1}, ${b1})`;

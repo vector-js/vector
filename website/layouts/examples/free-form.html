@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ $params := (print "?script=" .Params.Script) }}
+  <h1>{{.Params.Title}} <a style="float:right" href="/sandbox/{{ $params }}" class="button">Open in Sandbox</a></h1>
+  {{ partial "interactive" . }}
+  {{ .Content }}
+{{ end }}

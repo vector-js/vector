@@ -21,6 +21,7 @@ interface InteractiveOptions {
     height?: number;
     originX?: number;
     originY?: number;
+    border?: boolean;
 }
 /**
 * This class exposes the high level functionality of our library. Elements can

@@ -30,6 +30,7 @@ input.input {
   font-weight: normal;
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-size: 1rem;
+  box-sizing: content-box;
   -webkit-font-smoothing: antialiased;
   user-select: none;
 }
