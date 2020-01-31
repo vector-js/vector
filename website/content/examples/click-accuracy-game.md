@@ -8,7 +8,7 @@ ignore: false
 description: Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out!
 input: undefined
 tags: [games]
-weight: 1
+weight: 2
 draft: undefined
 ---
 
@@ -220,4 +220,3 @@ function setIntervalAndStart(fn, tm) {
 }
 //# sourceMappingURL=click-accuracy-game.js.map
 {{</ highlight >}}
-

@@ -76,9 +76,9 @@ export default function main( id:string ) {
       let x2 = Math.cos(angle + TAU*d/2);
       let y2 = Math.sin(angle + TAU*d/2);
 
-      let r = trapezoidalWave(-2/6)(a)*255;
-      let b = trapezoidalWave( 2/6)(a)*255;
+      let r = trapezoidalWave(-1/3)(a)*255;
       let g = trapezoidalWave( 0/6)(a)*255;
+      let b = trapezoidalWave( 1/3)(a)*255;
 
       let path = group.path(`M ${(circle.r - width)*x} ${(circle.r - width)*y} L ${(circle.r - width)*x2} ${(circle.r - width)*y2} L ${circle.r*x2} ${circle.r*y2} L ${circle.r*x} ${circle.r*y} Z`);
       path.style.fill = `rgb(${r}, ${g}, ${b})`

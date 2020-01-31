@@ -51,8 +51,36 @@ export function PointWhereTwoLinesIntersect(p1, p2, p3, p4) {
     return { x: x, y: y };
 }
 /**
+* This function generates a particular trapezoidal wave function. The wave starts
+* at 0 and linearly increases to the amplitude of the wave in 1/6 the period. It
+* stays at the amplitude for 1/3 the period, then decreases linearly to 0 in 1/6
+* the period where it stays at 0 for the remaind period of 1/3.
 *
+* t - shifts the wave forwards or backwards (TODO: shifted too far right causes
+* a bug where the waveform doesn't appear when it should)
+* a - is the amplitude of the wave
+* λ - is the period of the wave
 */
-export function trapezoidalWave() {
+export function trapezoidalWave(t, a = 1, λ = 1) {
+    return (x) => {
+        x = Math.abs(x);
+        // normalize x to always be in the range from 0 to λ
+        x = (x - t) % λ;
+        if (x < 0) {
+            return 0;
+        }
+        else if (x < λ * 1 / 6) {
+            return a * 6 * x / λ;
+        }
+        else if (x <= λ * 1 / 2) {
+            return a;
+        }
+        else if (x < λ * 2 / 3) {
+            return a * 4 - a * 6 * x / λ;
+        }
+        else {
+            return 0;
+        }
+    };
 }
 //# sourceMappingURL=math.js.map
