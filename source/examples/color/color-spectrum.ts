@@ -6,33 +6,31 @@
 */
 
 import {Interactive} from '../../index.js';
-import {TAU} from '../../util/constants.js';
 import {trapezoidalWave} from '../../util/math.js';
 
+let defaultConfig = {
+  n:6,
+  width: 720,
+  height: 100
+};
 
 /**
 * Constructs a 600 by 600 interactive demonstrating the color wheel.
 */
-export default function main( id:string ) {
+export default function main( id:string, config:any = defaultConfig) {
+
+  // accept user options over default configuration
+  config = { ...defaultConfig, ...config};
 
   let interactive = new Interactive(id, {
-    width:600,
-    height:150
+    width:config.width,
+    height:config.height
   });
   let r = trapezoidalWave(-1/3, 1, 1);
   let g = trapezoidalWave( 0/3, 1, 1);
   let b = trapezoidalWave( 1/3, 1, 1);
 
-
-  let slider = interactive.slider(25, 125, {
-    min: 6,
-    max: 32,
-    value: 6,
-    width: interactive.width - 50,
-  });
-
   let group = interactive.group();
-  group.addDependency(slider);
   group.update = function() {
 
     // Clear the current state of the color wheel
@@ -41,7 +39,7 @@ export default function main( id:string ) {
     }
 
     // Redraw the color spectrum
-    let n = Math.floor(slider.value);
+    let n = Math.floor(config.n);
     let width = interactive.width/n;
     let height = 100;
     for( let i = 0; i < n; i ++){

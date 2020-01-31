@@ -7,4 +7,4 @@
 /**
 * Constructs a 600 by 600 interactive demonstrating the color wheel.
 */
-export default function main(id: string): void;
+export default function main(id: string, config?: any): void;

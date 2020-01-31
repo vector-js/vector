@@ -36,9 +36,9 @@ function trapezoidalWave(t) {
 */
 export default function main(id) {
     let interactive = new Interactive(id, {
-        width: 600,
+        width: 720,
         height: 600,
-        originX: 300,
+        originX: 360,
         originY: 300
     });
     let radius = 250;
