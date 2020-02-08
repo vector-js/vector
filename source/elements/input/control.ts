@@ -59,6 +59,8 @@ export default class Control extends Input {
     // create the svg components
     this.point = this.circle(0,0, Control.pointRadius);
     this.handle = this.circle(0,0, Control.handleRadius);
+    this.point.classList.add('point');
+    this.handle.classList.add('handle');
     this.root.classList.add('control');
 
     // initialize instance variables

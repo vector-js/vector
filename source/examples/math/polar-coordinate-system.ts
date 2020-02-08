@@ -25,7 +25,7 @@ export default function main( id:string ) {
   // Create three control points
   let point = interactive.control(0,0);
   let radius = 50;
-  let n = 5;
+  let n = 4;
   let border = interactive.circle(0,0,n*radius);
 
   // Create a path
@@ -45,8 +45,8 @@ export default function main( id:string ) {
 
 
 
-  let xAxis = interactive.line( -interactive.width/2 + margin, 0, interactive.width/2 - margin, 0);
-  let yAxis = interactive.line( 0, -interactive.height/2 + margin, 0, interactive.height/2 - margin);
+  let xAxis = interactive.line( -border.r - margin, 0, border.r + margin, 0);
+  let yAxis = interactive.line( 0, -border.r - margin, 0, border.r + margin);
   // let rectangle = interactive.rectangle(xAxis.x1, yAxis.y1, xAxis.x2 - xAxis.x1, yAxis.y2 - yAxis.y1);
   point.constrainWithin( border);
 

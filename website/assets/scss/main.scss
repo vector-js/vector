@@ -25,6 +25,21 @@
 @import "components/sandbox";
 @import "components/syntax";
 
+.header-link  {
+  text-decoration: none;
+  color:$font-color;
+}
+
+.header-link:hover {
+  color:$font-color;
+  cursor:pointer;
+}
+
+.header-link::after {
+  padding-left: .5rem;
+  content: url(/images/link.svg);
+}
+
 .headshot {
   clip-path: circle(60px at center);
 }

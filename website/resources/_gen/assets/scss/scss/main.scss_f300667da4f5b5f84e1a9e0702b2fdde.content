@@ -590,7 +590,7 @@ section.documentation main {
   padding: 0 1rem; }
 
 header {
-  padding: 3rem 0px;
+  padding: 1.5rem 0px;
   border-bottom: 1px solid #dddddd; }
 
 section.aside {
@@ -1128,6 +1128,18 @@ footer {
 /* TextWhitespace */
 .chroma .w {
   color: #bbbbbb; }
+
+.header-link {
+  text-decoration: none;
+  color: #404040; }
+
+.header-link:hover {
+  color: #404040;
+  cursor: pointer; }
+
+.header-link::after {
+  padding-left: .5rem;
+  content: url(/images/link.svg); }
 
 .headshot {
   clip-path: circle(60px at center); }

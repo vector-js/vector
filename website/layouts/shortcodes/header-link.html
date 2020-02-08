@@ -1,0 +1,8 @@
+{{ $path := (.Get 0) }}
+{{ $header := (.Get 1) }}
+{{ $context := . }}
+{{ with $.Site.GetPage $path}}
+    <a href="{{ relref $context $path }}" class="header-link">{{ with $header }}{{.}}{{else}}{{.Title}}{{end}}</a>
+{{ else  }}
+  {{ errorf "Failed to find page %q" $path }}
+{{ end }}

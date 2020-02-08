@@ -12,7 +12,7 @@ weight: 1
 next-tutorial: control-with-position
 ---
 
-Welcome! To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library's style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
+To use this library, download the <a href="/getting-started.tgz" download>getting-started.tgz</a> tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library's style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
 
 <div class="filename">index.html</div>
 
@@ -52,4 +52,3 @@ console.log( control, myInteractive);
 To view the interactive, serve the folder containing the two files using a web server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en" target="_blank" rel="noopener">Web Server for Chrome</a> or your tool of choice. The result is a simple interactive with a draggable control point:
 
 <img src="/images/getting-started.svg" alt="End point of getting started.">
-

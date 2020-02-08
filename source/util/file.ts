@@ -44,7 +44,7 @@ export function getScriptName( trimExtension = true ) : string {
 /**
 * Downloads the current drawing as an svg file.
 */
-export function download( id:string, filename:string ) {
+export function download( id:string, filename:String ) {
 
   let svg = document.getElementById(id).firstChild;
   let styleSheet = null;
@@ -67,8 +67,7 @@ export function download( id:string, filename:string ) {
   svg.appendChild(style);
 
   // best piece of code i have written in 2019
-  let data = (svg as HTMLElement).outerHTML.replace( '&gt;', '>').replace( '&gt;', '>').replace( '&gt;', '>');
-  saveSVG( filename, data);
+  saveSVG( filename, (svg as HTMLElement).outerHTML);
   style.remove();
 }
 

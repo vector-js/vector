@@ -39,6 +39,7 @@ import './elements/maps/map.test.js'
 
 // math
 import './math/interactives.test.js';
+import './math/modular-arithmetic-wheel.script.js';
 
 // article interactives
 import './articles/color.test.js';

@@ -16,7 +16,7 @@ export default function main(id) {
     // Create three control points
     let point = interactive.control(0, 0);
     let radius = 50;
-    let n = 5;
+    let n = 4;
     let border = interactive.circle(0, 0, n * radius);
     // Create a path
     let path = interactive.path('');

@@ -3,9 +3,10 @@ title: Vector.js
 description: "A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives."
 blurb: A Javascript library for the creation of interactive graphics.
 aside:
+  - About
   - Getting Started
-  - Input
   - Elements
+  - Input
   - Interaction
   - Animation
   - Coordinates
@@ -16,9 +17,74 @@ modules:
   - Plots
 ---
 
+## About
+
+Welcome! Vector.js is a Javascript library for creating interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS and has no dependencies.
+
 ## Getting Started
 
 {{<render "content" "/tutorials/getting-started">}}
+
+## {{<header-link "/elements" "Elements">}}
+
+The library has basic visual and structural elements for creating graphics. The basic elements correspond to the elements of the Scalable Vector Graphics Specification. More complicated elements use one or more basic elements internally. Every element contains a root <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGElement" target="_blank">SVGElement</a> attribute which gives access SVGElement Web API.
+
+### Ellipse
+
+{{< highlight javascript>}}
+let ellipse = interactive.ellipse( 100, 75, 80, 40);
+{{< /highlight >}}
+
+{{<example "ellipse-element">}}
+
+### Line
+
+{{< highlight javascript>}}
+let line = interactive.line( 50, 25, 150, 125);
+{{< /highlight >}}
+
+{{<example "line-element">}}
+
+### Path
+
+{{< highlight javascript>}}
+let line = interactive.path("M 50 50 Q 100 150 150 50");
+{{< /highlight >}}
+
+{{<example "path-element">}}
+
+### Rectangle
+
+{{< highlight javascript>}}
+let rectangle = interactive.rectangle( 50, 50, 100, 50);
+{{< /highlight >}}
+
+{{<example "rectangle-element">}}
+
+### Text
+
+{{< highlight javascript>}}
+let text = interactive.text( 50, 75, "My Text");
+{{< /highlight >}}
+
+{{<example "text-element">}}
+
+### TSpan
+
+A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bold to emphasize a part of the sentence.
+
+{{< highlight javascript>}}
+let text = interactive.text( 50, 75, '');
+text.tspan('normal. ');
+text.tspan('bold. ').style.fontWeight = '600';
+text.tspan('normal again.');
+{{< /highlight >}}
+
+{{<example "tspan-element">}}
+
+### Group
+
+The group element is a structural element for grouping other elements together. This is useful for applying styles, transformations, and other such things to multiple elements at once.
 
 ## Input
 
@@ -96,63 +162,6 @@ let slider = interactive.slider( 75, 75, 150, 20);
 {{< /highlight >}}
 
 {{<example "slider-element">}}
-
-## Elements
-
-Our library has basic visual elements that are used to create the graphics. All elements contain a root SVGElement that contains the visual part of the element. Basic element root's correspond directly to the visual aspect of the element, more complicated elements often contain many SVGElements that describe the graphic.
-
-### Ellipse
-
-{{< highlight javascript>}}
-let ellipse = interactive.ellipse( 100, 75, 80, 40);
-{{< /highlight >}}
-
-{{<example "ellipse-element">}}
-
-### Line
-
-{{< highlight javascript>}}
-let line = interactive.line( 50, 25, 150, 125);
-{{< /highlight >}}
-
-{{<example "line-element">}}
-
-### Path
-
-{{< highlight javascript>}}
-let line = interactive.path("M 50 50 Q 100 150 150 50");
-{{< /highlight >}}
-
-{{<example "path-element">}}
-
-### Rectangle
-
-{{< highlight javascript>}}
-let rectangle = interactive.rectangle( 50, 50, 100, 50);
-{{< /highlight >}}
-
-{{<example "rectangle-element">}}
-
-### Text
-
-{{< highlight javascript>}}
-let text = interactive.text( 50, 75, "My Text");
-{{< /highlight >}}
-
-{{<example "text-element">}}
-
-### TSpan
-
-A text span element allows for text to be styled and positioned differently within a body of text. In the example below, a word is randomly selected to be bold to emphasize a part of the sentence.
-
-{{< highlight javascript>}}
-let text = interactive.text( 50, 75, '');
-text.tspan('normal. ');
-text.tspan('bold. ').style.fontWeight = '600';
-text.tspan('normal again.');
-{{< /highlight >}}
-
-{{<example "tspan-element">}}
 
 ## Interaction
 

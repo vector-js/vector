@@ -9,7 +9,7 @@ export declare function getScriptName(trimExtension?: boolean): string;
 /**
 * Downloads the current drawing as an svg file.
 */
-export declare function download(id: string, filename: string): void;
+export declare function download(id: string, filename: String): void;
 export declare function saveSVG(filename: any, data: any): void;
 /**
 * Returns a promise containing the response object.
