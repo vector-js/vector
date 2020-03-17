@@ -8,8 +8,9 @@
 import {Interactive, getScriptName} from '../../index.js';
 import { PointWhereTwoLinesIntersect } from '../../util/math.js';
 
+export default function main(id:string, ) {
+
 // Initialize the interactive
-let id = 'point-where-two-lines-intersect';
 let interactive = new Interactive(id);
 interactive.border = true;
 
@@ -54,4 +55,7 @@ function addLineBetweenPoints( point1, point2) {
   };
   line.update();
   return line;
+}
+
+
 }

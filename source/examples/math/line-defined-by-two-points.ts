@@ -4,10 +4,12 @@
 * @tags [math]
 */
 
-import {Interactive, getScriptName} from '../../index.js';
+import {Interactive} from '../../index.js';
+
+export default function main(id:string) {
 
 // Initialize the interactive
-let interactive = new Interactive(getScriptName());
+let interactive = new Interactive(id);
 interactive.border = true;
 
 // Create three control points
@@ -58,3 +60,6 @@ text2.update = function() {
 };
 text2.addDependency(p2);
 text2.update();
+
+
+}

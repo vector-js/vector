@@ -7,8 +7,10 @@
 
 import {Interactive, getScriptName} from '../../index.js';
 
+export default function main(id:string) {
+
 // Initialize the interactive
-let interactive = new Interactive(getScriptName());
+let interactive = new Interactive(id);
 interactive.border = true;
 interactive.width = 600;
 interactive.height = 300;
@@ -146,4 +148,4 @@ text.addDependency(c2);
 text.update();
 text.root.style.dominantBaseline = 'middle';
 
-export { interactive, c1 };
+}

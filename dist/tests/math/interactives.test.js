@@ -5,8 +5,6 @@ import circleDefinedByThreePoints from '../../examples/math/circle-defined-by-th
 import degrees from '../../examples/math/degrees.js';
 import exponentialTree from '../../examples/math/exponential-tree.js';
 import modularArithmeticWheel from '../../examples/math/modular-arithmetic-wheel.js';
-import modularArithmeticWheelBig from '../../examples/math/modular-arithmetic-wheel-big.js';
-import modularArithmeticWheelNew from '../../examples/math/modular-arithmetic-wheel-new.js';
 import polarCoordinateSystem from '../../examples/math/polar-coordinate-system.js';
 import polarCoordinateSystemRadians from '../../examples/math/polar-coordinate-system-radians.js';
 import primeFactorizationTree from '../../examples/math/prime-factorization.js';
@@ -23,9 +21,23 @@ describe('Math Interactives', function () {
     beforeEach(function () {
         container = Container.createContainer();
     });
+    describe('Modular Arithmetic Interactive', function () {
+        it('default configuration', function () {
+            modularArithmeticWheel(container.id);
+        });
+        it('without slider', function () {
+            modularArithmeticWheel(container.id);
+        });
+        it('with set highlighting', function () {
+            modularArithmeticWheel(container.id);
+        });
+    });
     describe('Modular Arithmetic', function () {
+        it('modular arithmetic wheel default', function () {
+            modularArithmeticWheel(container.id);
+        });
         it('modular arithmetic wheel new', function () {
-            modularArithmeticWheelNew(container.id, {
+            modularArithmeticWheel(container.id, {
                 rotations: 7,
                 width: 900,
                 height: 900,
@@ -37,17 +49,6 @@ describe('Math Interactives', function () {
         });
         it('modular arithmetic wheel', function () {
             modularArithmeticWheel(container.id);
-        });
-        it('modular arithmetic wheel view box', function () {
-            modularArithmeticWheelBig(container.id, {
-                rotations: 10,
-                modulo: 3,
-                width: 900,
-                height: 900,
-                max: 12,
-                radius: 60,
-                spacing: .25
-            });
         });
         it('modular arithmetic wheel', function () {
             modularArithmeticWheel(container.id, {

@@ -96,6 +96,10 @@ export default class DropdownControl extends Input {
       this.root.id = this.id;
     }
 
+    get value() {
+      return this.optionLabels[this.currentIndex];
+    }
+
 
     /**
     *  Updates the expanded view of menu options.

@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>Examples</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script nomodule defer src="/website/static/katex/katex.js"></script>
+    <link rel="stylesheet" href="/website/static/katex/katex.css">
   </head>
-  <body>
+  <body style="max-width:500px">
 
     <style>
     body {
@@ -18,7 +20,62 @@
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="/css/library.css">
 
+
+    <div id="number-wheel-factors"></div>
     <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-highlight-factors-of.js";
+      main("number-wheel-factors");
+    </script>
+
+    <div id="number-wheel"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel.js";
+      main("number-wheel");
+    </script>
+
+    <div id="number-wheel-no-sliders"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-without-slider.js";
+      main("number-wheel-no-sliders");
+    </script>
+
+    <div id="number-wheel-big" class="container"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-big.js";
+      main("number-wheel-big");
+    </script>
+
+    <div id="number-wheel-factors-of-2" class="container"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-highlight-factors-of-2.js";
+      main("number-wheel-factors-of-2");
+    </script>
+
+    <div id="number-wheel-factors-of-3" class="container"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-highlight-factors-of-3.js";
+      main("number-wheel-factors-of-3");
+    </script>
+
+    <div id="number-wheel-factors-of-4" class="container"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-highlight-factors-of-4.js";
+      main("number-wheel-factors-of-4");
+    </script>
+
+    <div id="number-wheel-factors-of-5" class="container"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-highlight-factors-of-5.js";
+      main("number-wheel-factors-of-5");
+    </script>
+
+    <div id="number-wheel-primes" class="container"></div>
+    <script type="module">
+      import main from "/dist/examples/math/modular-arithmetic-wheel-highlight-primes.js";
+      main("number-wheel-primes");
+    </script>
+
+    <!-- <script type="module">
       import { getUrlParams, getURL, loadScript, download } from './dist/util/file.js';
       let params = getUrlParams(window.location.search);
 
@@ -37,7 +94,7 @@
           download(id, `${name}.svg`);
         }
       }
-    </script>
+    </script> -->
 
   </body>
 </html>

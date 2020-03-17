@@ -22,13 +22,13 @@ This tutorial is intended to give the reader an interactive introduction to usin
 
 ## Getting Started
 
-SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the "svg" tag, which forms the root of the docuement, looks like:
+SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the "svg" tag which forms the root of the document looks like:
 
 {{< highlight svg >}}
 <svg></svg>
 {{< /highlight >}}
 
-Elements have attributes that describe additional details about the element. Attributes are defined in the opening tag in the form of `name="value"`. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
+Elements have attributes that describe additional details about the element. Attributes are defined within the opening tag and have a name and string value. For example, if we have a attribute named data which is associated with the string "123" this would look like: `data="123"`. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
 
 {{< highlight svg >}}
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
@@ -81,7 +81,7 @@ In the example above, the SVG element has two children: a rectangle and circle. 
 
 ## Basic Elements
 
-{{<render "content" "svg/elements">}}
+The basic visual elements such as the line, ellipse, rectangle, etc and structural elements such as the svg element and group element form the look and feel of the final image.
 
 ### Line Element
 
@@ -94,6 +94,10 @@ In the example above, the SVG element has two children: a rectangle and circle. 
 ### Rectangle Element
 
 {{<render "content" "svg/elements/rectangle">}}
+
+## Group Element
+
+A group is a structural element, useful for applying styles and transformations to multiple elements at once. This element and others are discussed in more detail later in this tutorial.
 
 ## Path Element
 

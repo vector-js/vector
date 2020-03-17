@@ -8,8 +8,10 @@
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import {Interactive, getScriptName} from '../../index.js';
 
+export default function main( id:string ) {
+
 // Initialize the interactive
-let interactive = new Interactive(getScriptName());
+let interactive = new Interactive(id);
 interactive.border = true;
 interactive.classList.add('default');
 
@@ -78,3 +80,6 @@ c2.update = function() {
   this.x += c0.dx;
   this.y += c0.dy;
 };
+
+
+}

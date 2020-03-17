@@ -1,6 +1,6 @@
 ---
 title: Path
-description: The path element is powerful and complex. The path element has one geometric property which contains a series of points that the path is drawn between.
+description: The path element is powerful and complex and deserves its own section. The path's shape is described by a series of commands and points. The command describes how the points should be used to draw the path.
 properties:
   - name : d
     description : A series of commands that draw the path.

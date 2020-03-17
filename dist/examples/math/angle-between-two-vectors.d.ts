@@ -4,7 +4,4 @@
 * @tags [math]
 * @ignore true
 */
-import { Interactive } from '../../index.js';
-declare let interactive: Interactive;
-declare let c1: import("../../index.js").Control;
-export { interactive, c1 };
+export default function main(id: string): void;

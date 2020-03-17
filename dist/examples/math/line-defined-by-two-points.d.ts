@@ -3,4 +3,4 @@
 * @description This interactive demonstrates how a line is uniquely defined by two points.
 * @tags [math]
 */
-export {};
+export default function main(id: string): void;
