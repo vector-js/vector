@@ -18,7 +18,8 @@ let defaultConfig = {
     fontSize: 20,
     modulusSlider: true,
     rotationSlider: false,
-    highlight: null
+    highlight: null,
+    dropDown: false
 };
 /**
 * Exposes a function that creates a number wheel within the provided id. The
@@ -98,67 +99,69 @@ export default function main(id, config = defaultConfig) {
     katex.render(`\\text{Modulus }${m}`, titleDiv, {
         displayMode: true,
     });
-    let selectContainer = document.createElement('div');
-    selectContainer.style.width = `${config.width}px`;
-    selectContainer.style.display = 'block';
-    selectContainer.style.margin = 'auto';
-    parent.parentNode.insertBefore(selectContainer, parent.nextSibling);
-    // let label = document.createElement('label');
-    // label.setAttribute("for", `highlighting-${id}`);
-    // label.innerText = "Highlight:";
-    // selectContainer.appendChild(label);
-    let select = document.createElement("select");
-    select.name = 'highlight';
-    select.id = `highlighting-${id}`;
-    select.style.webkitAppearance = 'none';
-    select.style.borderRadius = '4px';
-    select.style.border = '1px solid #dedede';
-    select.style.padding = '.75rem';
-    select.style.outline = 'none';
-    select.style.fontSize = '1rem';
-    select.style.marginBottom = '.5rem';
-    select.style.width = '100%';
-    select.style.maxWidth = '500px';
-    select.style.background = 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAYAAAA/33wPAAAAvklEQ…gSmvxFFMdxoOs6lliWBXEcuzokXRbRoJRyvqqqQvye+QDMDz1D6yuj9wAAAABJRU5ErkJggg==) right center no-repeat;';
-    selectContainer.appendChild(select);
-    function addOption(selectElement, str) {
-        let option = document.createElement("option");
-        option.innerText = str;
-        option.value = str;
-        selectElement.appendChild(option);
-        return option;
-    }
-    addOption(select, "None").selected = true;
-    addOption(select, "Factors of 2");
-    addOption(select, "Factors of 3");
-    addOption(select, "Factors of 4");
-    addOption(select, "Factors of 5");
-    addOption(select, "Prime Numbers");
-    // default highlight function
-    let fn = (n) => {
-        return false;
-    };
-    select.onchange = () => {
-        switch (select.value) {
-            case "Factors of 2":
-                fn = isMultipleOf(2);
-                break;
-            case "Factors of 3":
-                fn = isMultipleOf(3);
-                break;
-            case "Factors of 4":
-                fn = isMultipleOf(4);
-                break;
-            case "Factors of 5":
-                fn = isMultipleOf(5);
-                break;
-            case "Prime Numbers":
-                fn = isPrime;
-                break;
+    if (config.dropDown) {
+        let selectContainer = document.createElement('div');
+        selectContainer.style.width = `${config.width}px`;
+        selectContainer.style.display = 'block';
+        selectContainer.style.margin = 'auto';
+        parent.parentNode.insertBefore(selectContainer, parent.nextSibling);
+        // let label = document.createElement('label');
+        // label.setAttribute("for", `highlighting-${id}`);
+        // label.innerText = "Highlight:";
+        // selectContainer.appendChild(label);
+        let select = document.createElement("select");
+        select.name = 'highlight';
+        select.id = `highlighting-${id}`;
+        select.style.webkitAppearance = 'none';
+        select.style.borderRadius = '4px';
+        select.style.border = '1px solid #dedede';
+        select.style.padding = '.75rem';
+        select.style.outline = 'none';
+        select.style.fontSize = '1rem';
+        select.style.marginBottom = '.5rem';
+        select.style.width = '100%';
+        select.style.maxWidth = '500px';
+        select.style.background = 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAYAAAA/33wPAAAAvklEQ…gSmvxFFMdxoOs6lliWBXEcuzokXRbRoJRyvqqqQvye+QDMDz1D6yuj9wAAAABJRU5ErkJggg==) right center no-repeat;';
+        selectContainer.appendChild(select);
+        function addOption(selectElement, str) {
+            let option = document.createElement("option");
+            option.innerText = str;
+            option.value = str;
+            selectElement.appendChild(option);
+            return option;
         }
-        numberWheel.highlight(fn);
-        numberWheel.draw(m, r, true);
-    };
+        addOption(select, "None").selected = true;
+        addOption(select, "Factors of 2");
+        addOption(select, "Factors of 3");
+        addOption(select, "Factors of 4");
+        addOption(select, "Factors of 5");
+        addOption(select, "Prime Numbers");
+        // default highlight function
+        let fn = (n) => {
+            return false;
+        };
+        select.onchange = () => {
+            switch (select.value) {
+                case "Factors of 2":
+                    fn = isMultipleOf(2);
+                    break;
+                case "Factors of 3":
+                    fn = isMultipleOf(3);
+                    break;
+                case "Factors of 4":
+                    fn = isMultipleOf(4);
+                    break;
+                case "Factors of 5":
+                    fn = isMultipleOf(5);
+                    break;
+                case "Prime Numbers":
+                    fn = isPrime;
+                    break;
+            }
+            numberWheel.draw(m, r, true);
+            numberWheel.highlight(fn);
+        };
+    }
 }
 /**
 * A number wheel is a visual representation of the set of integers that spirals
@@ -313,6 +316,17 @@ class NumberWheel {
     * is passed as an argument to this function.
     */
     highlight(fn) {
+        for (let i = 0; i < this._modulus * this._rotations; i++) {
+            let section = this._sections[i];
+            if (fn(section.num)) {
+                section.fill = `cornflowerblue`;
+            }
+            else {
+                section.fill = Section.defaultColor;
+            }
+            section.applyFill(); // TODO: change this
+        }
+        this._highlight = fn;
     }
 }
 function isMultipleOf(x) {

@@ -2,8 +2,11 @@
 * @ignore true
 */
 
-import {Interactive, getScriptName} from '../../index.js';
-let interactive = new Interactive(getScriptName());
+import {Interactive} from '../../index.js';
+
+export default function main(id:string) {
+  let interactive = new Interactive(id);
+  interactive.classList.add('default');
 interactive.height = 400;
 interactive.originX = interactive.width/2;
 interactive.originY = interactive.height/2 - 30;
@@ -54,3 +57,5 @@ text.update = function() {
 };
 text.style.textAnchor = 'middle';
 text.update();
+
+}

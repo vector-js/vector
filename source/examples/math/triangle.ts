@@ -6,10 +6,12 @@
 
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName} from '../../index.js';
+import {Interactive} from '../../index.js';
+
+export default function main( id:string ) {
 
 // Initialize the interactive
-let interactive = new Interactive(getScriptName());
+let interactive = new Interactive(id);
 interactive.border = true;
 
 // Create three control points
@@ -35,4 +37,6 @@ function addLineBetweenPoints( point1, point2) {
   };
   line.update();
   return line;
+}
+
 }

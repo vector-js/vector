@@ -3,4 +3,4 @@
 * @description This interactive demonstrates an angle formed by three points.
 * @tags [math]
 */
-export {};
+export default function main(id: string): void;

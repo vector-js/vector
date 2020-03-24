@@ -1,21 +1,22 @@
 /**
-* @title Angle Between Two Vectors
-* @description This interactive demonstrates the angle formed between two vectors.
+* @title Angle Between Two Vectors Interactive
+* @description An interactive that demonstrates how an angle is defined as the amount of rotation between two rays in two-dimensional space.
 * @tags [math]
 * @ignore true
 */
-// import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
 import { Interactive } from '../../index.js';
 export default function main(id) {
     // Initialize the interactive
     let interactive = new Interactive(id);
     interactive.border = true;
+    interactive.width = 600;
+    interactive.height = 300;
     interactive.originX = interactive.width / 2;
     interactive.originY = interactive.height / 2;
     ;
     // Create a circle
     let circle = interactive.circle(0, 0, 100);
-    circle.root.style.stroke = 'none';
+    circle.style.display = 'none';
     // Create a control
     let c0 = interactive.control(0, 0);
     let c1 = interactive.control(circle.r * Math.cos(0), circle.r * Math.sin(0));
@@ -25,6 +26,7 @@ export default function main(id) {
     // Create a path
     let path = interactive.path('');
     path.root.style.fill = 'rgb(236,236,236)';
+    path.style.stroke = '#333333';
     path.update = function () {
         let a1 = Math.atan2(c1.y - c0.y, c1.x - c0.x);
         let a2 = Math.atan2(c2.y - c0.y, c2.x - c0.x);
@@ -36,11 +38,11 @@ export default function main(id) {
         let x2 = r * Math.cos(a2) + c0.x;
         let y2 = r * Math.sin(a2) + c0.y;
         path.d = `M ${c0.x} ${c0.y}
-              L ${c1.x} ${c1.y}
-              L ${x1} ${y1}
-              A ${r} ${r} 0 ${+largeArcFlag} 0 ${x2} ${y2}
-              L ${c2.x} ${c2.y}
-              z`;
+            L ${c1.x} ${c1.y}
+            L ${x1} ${y1}
+            A ${r} ${r} 0 ${+largeArcFlag} 0 ${x2} ${y2}
+            L ${c2.x} ${c2.y}
+            z`;
     };
     path.update();
     path.addDependency(c0);
@@ -53,9 +55,9 @@ export default function main(id) {
         let r = 8;
         let angle = Math.atan2(c1.y - c0.y, c1.x - c0.x);
         this.d = `M ${c1.x + r * Math.cos(angle)} ${c1.y + r * Math.sin(angle)}
-    L ${c1.x + r * Math.cos(angle - 2 * Math.PI / 3)} ${c1.y + r * Math.sin(angle - 2 * Math.PI / 3)}
-    L ${c1.x + r * Math.cos(angle + 2 * Math.PI / 3)} ${c1.y + r * Math.sin(angle + 2 * Math.PI / 3)}
-              Z`;
+  L ${c1.x + r * Math.cos(angle - 2 * Math.PI / 3)} ${c1.y + r * Math.sin(angle - 2 * Math.PI / 3)}
+  L ${c1.x + r * Math.cos(angle + 2 * Math.PI / 3)} ${c1.y + r * Math.sin(angle + 2 * Math.PI / 3)}
+            Z`;
     };
     arrow1.root.style.fill = '#0366EE';
     arrow1.root.style.stroke = 'none';
@@ -67,9 +69,9 @@ export default function main(id) {
         let r = 8;
         let angle = Math.atan2(c2.y - c0.y, c2.x - c0.x);
         this.d = `M ${c2.x + r * Math.cos(angle)} ${c2.y + r * Math.sin(angle)}
-    L ${c2.x + r * Math.cos(angle - 2 * Math.PI / 3)} ${c2.y + r * Math.sin(angle - 2 * Math.PI / 3)}
-    L ${c2.x + r * Math.cos(angle + 2 * Math.PI / 3)} ${c2.y + r * Math.sin(angle + 2 * Math.PI / 3)}
-              Z`;
+  L ${c2.x + r * Math.cos(angle - 2 * Math.PI / 3)} ${c2.y + r * Math.sin(angle - 2 * Math.PI / 3)}
+  L ${c2.x + r * Math.cos(angle + 2 * Math.PI / 3)} ${c2.y + r * Math.sin(angle + 2 * Math.PI / 3)}
+            Z`;
     };
     arrow2.root.style.fill = '#0366EE';
     arrow2.root.style.stroke = 'none';

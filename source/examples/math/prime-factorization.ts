@@ -30,6 +30,7 @@ export default function main( id:string ) : HTMLInputElement {
   interactive.container.parentElement.insertBefore(inputContainer, interactive.container);
   inputContainer.appendChild(input);
   inputContainer.style.width = '736px';
+  inputContainer.style.maxWidth = '100%';
   input.onchange = function() {
     if (parseInt(input.value) < 2) {
       input.value = '2';

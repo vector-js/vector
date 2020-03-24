@@ -16,7 +16,7 @@ export default function main(id) {
     ;
     // Create a circle
     let circle = interactive.circle(0, 0, 100);
-    circle.root.style.stroke = 'none';
+    circle.style.display = 'none';
     // Create a control
     let c0 = interactive.control(0, 0);
     let c1 = interactive.control(circle.r * Math.cos(0), circle.r * Math.sin(0));
@@ -26,6 +26,7 @@ export default function main(id) {
     // Create a path
     let path = interactive.path('');
     path.root.style.fill = 'rgb(236,236,236)';
+    path.style.stroke = '#333333';
     path.update = function () {
         let a1 = Math.atan2(c1.y - c0.y, c1.x - c0.x);
         let a2 = Math.atan2(c2.y - c0.y, c2.x - c0.x);

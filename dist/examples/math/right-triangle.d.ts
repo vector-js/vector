@@ -3,4 +3,4 @@
 * @description This interactive demonstrates the properties of a right triangle.
 * @tags [math]
 */
-export {};
+export default function main(id: string): void;

@@ -3,4 +3,4 @@
 * @description This interactive demonstrates the relationship between two angles within a triangle.
 * @tags [math]
 */
-export {};
+export default function main(id: string): void;

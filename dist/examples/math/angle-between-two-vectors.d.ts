@@ -1,6 +1,6 @@
 /**
-* @title Angle Between Two Vectors
-* @description This interactive demonstrates the angle formed between two vectors.
+* @title Angle Between Two Vectors Interactive
+* @description An interactive that demonstrates how an angle is defined as the amount of rotation between two rays in two-dimensional space.
 * @tags [math]
 * @ignore true
 */

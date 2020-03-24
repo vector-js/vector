@@ -5,12 +5,14 @@
 */
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, getScriptName} from '../../index.js';
+import {Interactive } from '../../index.js';
 import { PointWhereTwoLinesIntersect } from '../../util/math.js';
 
+export default function main(id:string) {
+
 // Initialize the interactive
-let id = 'triangle-law-of-sines';
 let interactive = new Interactive(id);
+interactive.classList.add('default');
 interactive.window = true;
 
 // Create three control points
@@ -97,4 +99,7 @@ function addLabelToControl( control, label ) {
     this.y = control.y + 15;
   };
   text.update();
+}
+
+
 }
