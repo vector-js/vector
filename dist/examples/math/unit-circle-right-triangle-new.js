@@ -8,22 +8,20 @@
 import { Interactive } from '../../index.js';
 import katex from '/katex/katex.module.js';
 export default function main(id) {
-    let margin = 25;
-    let radius = 100;
     // Initialize the interactive
     let interactive = new Interactive(id);
     interactive.window = false;
-    interactive.width = radius * 2 + 4 * margin;
-    interactive.height = radius * 2 + 3 * margin;
+    interactive.width = 250;
+    interactive.height = 250;
     interactive.originX = interactive.width / 2;
-    interactive.originY = interactive.height / 2 + margin / 2;
+    interactive.originY = interactive.height / 2;
     interactive.root.style.overflow = 'visible';
     interactive.classList.add('center');
     // Create a circle
-    let circle = interactive.circle(0, 0, radius);
+    let circle = interactive.circle(0, 0, 100);
     circle.classList.add('default');
-    let xAxis = interactive.line(-(radius + margin), 0, radius + margin, 0);
-    let yAxis = interactive.line(0, -(radius + margin), 0, radius + margin);
+    let xAxis = interactive.line(-interactive.width / 2, 0, interactive.width / 2, 0);
+    let yAxis = interactive.line(0, -interactive.height / 2, 0, interactive.height / 2);
     let marker = interactive.marker(10, 5, 10, 10);
     marker.path('M 0 0 L 10 5 L 0 10 z').style.fill = '#404040';
     marker.setAttribute('orient', 'auto-start-reverse');
@@ -31,11 +29,11 @@ export default function main(id) {
     xAxis.setAttribute('marker-start', `url(#${marker.id})`);
     yAxis.setAttribute('marker-end', `url(#${marker.id})`);
     yAxis.setAttribute('marker-start', `url(#${marker.id})`);
-    let xAxisLabel = interactive.text(xAxis.x2 + margin / 3, xAxis.y2, 'x');
+    let xAxisLabel = interactive.text(xAxis.x2 + 16, xAxis.y2, 'x');
     xAxisLabel.setAttribute('alignment-baseline', 'middle');
     xAxisLabel.style.fontFamily = 'KaTeX_Math';
     xAxisLabel.style.fontSize = '22px';
-    let yAxisLabel = interactive.text(yAxis.x1, yAxis.y1 - margin / 2, 'y');
+    let yAxisLabel = interactive.text(yAxis.x1, yAxis.y1 - 16, 'y');
     yAxisLabel.setAttribute('text-anchor', 'middle');
     yAxisLabel.style.fontFamily = 'KaTeX_Math';
     yAxisLabel.style.fontSize = '22px';
@@ -68,4 +66,4 @@ export default function main(id) {
     let point = interactive.circle(0, 0, 3);
     point.fill = 'black';
 }
-//# sourceMappingURL=unit-circle-right-triangle.js.map
+//# sourceMappingURL=unit-circle-right-triangle-new.js.map

@@ -7,24 +7,55 @@
 */
 
 import {Interactive} from '../../index.js';
+import katex from '/katex/katex.module.js';
 
 export default function main(id) {
+
+  let margin = 25;
+  let radius = 100;
 
   // Initialize the interactive
   let interactive = new Interactive(id);
   interactive.window = false;
-  interactive.width = 320;
-  interactive.height = 320;
+  interactive.width = radius*2 + 4*margin;
+  interactive.height = radius*2 + 3*margin;
   interactive.originX = interactive.width/2;
-  interactive.originY = 125;
+  interactive.originY = interactive.height/2 + margin/2;
+  interactive.root.style.overflow = 'visible';
+  interactive.classList.add('center');
 
   // Create a circle
-  let circle = interactive.circle( 0, 0, 100);
+  let circle = interactive.circle( 0, 0, radius);
   circle.classList.add('default');
+
+  let xAxis = interactive.line( -(radius + margin), 0, radius + margin, 0);
+  let yAxis = interactive.line( 0, -(radius + margin), 0, radius + margin);
+  let marker = interactive.marker(10, 5, 10, 10);
+  marker.path('M 0 0 L 10 5 L 0 10 z').style.fill = '#404040';
+  marker.setAttribute('orient', 'auto-start-reverse');
+  xAxis.setAttribute('marker-end', `url(#${marker.id})`);
+  xAxis.setAttribute('marker-start', `url(#${marker.id})`);
+  yAxis.setAttribute('marker-end', `url(#${marker.id})`);
+  yAxis.setAttribute('marker-start', `url(#${marker.id})`);
+
+  let xAxisLabel = interactive.text( xAxis.x2 + margin/3, xAxis.y2, 'x');
+  xAxisLabel.setAttribute('alignment-baseline','middle');
+  xAxisLabel.style.fontFamily = 'KaTeX_Math';
+  xAxisLabel.style.fontSize = '22px';
+  let yAxisLabel = interactive.text( yAxis.x1, yAxis.y1 - margin/2, 'y');
+  yAxisLabel.setAttribute('text-anchor','middle');
+  yAxisLabel.style.fontFamily = 'KaTeX_Math';
+  yAxisLabel.style.fontSize = '22px';
 
   // Create a control
   let control = interactive.control( circle.r*Math.cos(-1), circle.r*Math.sin(-1));
   control.constrainToCircle( circle.cx, circle.cy, circle.r);
+
+  let xComponent = document.createElement('div');
+  document.getElementById(id).appendChild(xComponent);
+
+  let yComponent = document.createElement('div');
+  document.getElementById(id).appendChild(yComponent);
 
   // Create a path
   let path = interactive.path('');
@@ -35,6 +66,14 @@ export default function main(id) {
               L ${control.x} 0
               L ${control.x} ${control.y}
               z`;
+
+    katex.render(`x = ${(control.x/circle.r).toFixed(2)}`, xComponent, {
+      displayMode: true,
+    });
+
+    katex.render(`y = ${(-control.y/circle.r).toFixed(2)}`, yComponent, {
+      displayMode: true,
+    });
   };
   path.update();
   path.addDependency(control);
@@ -42,24 +81,4 @@ export default function main(id) {
   // Create a point at the origin
   let point = interactive.circle( 0, 0, 3);
   point.fill = 'black';
-
-  // Display the x cordinate
-  let x = interactive.text( 0, 135, "test");
-  x.root.style.whiteSpace = 'pre';
-  x.addDependency(control);
-  x.update = function() {
-    x.contents = `<tspan>x = ${control.x > 0 ? ' ' : ''}${(control.x/circle.r).toFixed(2)}</tspan>`;
-  };
-  x.update();
-  x.x = -x.root.textLength.baseVal.value/2;
-
-  let y = interactive.text( 0, 165, "test");
-  y.root.style.whiteSpace = 'pre';
-  y.addDependency(control);
-  y.update = function() {
-    y.contents = `y = ${control.y <= 0 ? ' ' : ''}${(-control.y/circle.r).toFixed(2)}`;
-  };
-  y.update();
-  y.x = -y.root.textLength.baseVal.value/2;
-
 }

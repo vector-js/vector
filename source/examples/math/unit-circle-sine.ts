@@ -10,8 +10,13 @@ import {Interactive} from '../../index.js';
 import Group from '../../elements/svg/group.js';
 import Point from '../../elements/math/point.js';
 import Line from '../../elements/svg/line.js';
+import katex from '/katex/katex.module.js';
 
 export default function main(id:string) {
+
+  // Create Katex component
+  let functionDisplay = document.createElement('div');
+  document.getElementById(id).appendChild(functionDisplay);
 
   // Initialize the interactive
   let interactive = new Interactive(id);
@@ -149,6 +154,9 @@ export default function main(id:string) {
     line.y1 = 0;
     line.x2 = line.x1;
     line.y2 = plot.call(line.x1);
+    katex.render(`\\sin (${angle.value.toFixed(2)}) = ${Math.sin(angle.value).toFixed(2)}`, functionDisplay, {
+      displayMode: true,
+    });
   };
 
   let chartControl = interactive.control(0,0);

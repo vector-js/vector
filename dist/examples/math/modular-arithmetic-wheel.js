@@ -374,12 +374,12 @@ Section.highlightColor = `ffeea8`;
 Section.fontSize = '20px';
 function render(container, n, m) {
     if (n === null) {
-        katex.render(`x\\mod ${m}`, container, {
+        katex.render(`x\\bmod ${m}`, container, {
             displayMode: true,
         });
     }
     else {
-        katex.render(`${n}\\mod ${m} = ${n % m}`, container, {
+        katex.render(`${n}\\bmod ${m} = ${n % m}`, container, {
             displayMode: true,
         });
     }
