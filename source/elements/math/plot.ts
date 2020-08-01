@@ -406,7 +406,7 @@ export default class Plot extends SVG {
       } else {
         title = group.text( this.width/2, 25, config.title);
       }
-      title.setAttribute('alignment-baseline', 'middle');
+      title.setAttribute('dominant-baseline', 'middle');
       title.setAttribute('text-anchor', 'middle');
 
       let xPoints = this.getXLabelPoints();
@@ -414,13 +414,13 @@ export default class Plot extends SVG {
       for( let p of xPoints) {
         let point = this.internalToAbsolute(p);
         let text = group.text( point.x + config.margin, config.margin + this._height + config.margin/2, `${p.x.toFixed(1)}`);
-        text.setAttribute('alignment-baseline', 'middle');
+        text.setAttribute('dominant-baseline', 'middle');
         text.setAttribute('text-anchor', 'middle');
       }
       for( let p of yPoints) {
         let point = this.internalToAbsolute(p);
         let text = group.text( point.x + config.margin/2, point.y + config.margin, `${p.y.toFixed(1)}`);
-        text.setAttribute('alignment-baseline', 'middle');
+        text.setAttribute('dominant-baseline', 'middle');
         text.setAttribute('text-anchor', 'middle');
       }
     }

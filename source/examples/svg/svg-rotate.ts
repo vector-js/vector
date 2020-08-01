@@ -37,7 +37,7 @@ rotateText.addDependency(control);
 rotateText.update = function() {
   rotateText.contents = `rotate(${getAngle()})`;
 };
-rotateText.root.setAttribute('alignment-baseline', 'middle');
+rotateText.root.setAttribute('dominant-baseline', 'middle');
 rotateText.root.setAttribute('text-anchor', 'middle');
 rotateText.update();
 

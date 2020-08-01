@@ -35,7 +35,7 @@ export default class CheckBox extends Input {
     this.box = new Rectangle( -6.5, -6.5, 13, 13);
     this.box.root.setAttribute('rx', '2px');
     this.label = new Text( 18, 1, text);
-    this.label.root.setAttribute('alignment-baseline','middle');
+    this.label.root.setAttribute('dominant-baseline', 'middle');
     this.root.appendChild(this.box.root);
     this.root.appendChild(this.label.root);
 

@@ -45,7 +45,7 @@ export default class Button extends Input {
 
     // Create a text element
     this.label = new Text( 0, 1, str);
-    this.label.root.setAttribute('alignment-baseline','middle');
+    this.label.root.setAttribute('dominant-baseline', 'middle');
     this.label.root.style.textAnchor = 'middle';
 
     // TODO: why is this.text.root.textLength returning zero?

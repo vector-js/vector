@@ -56,7 +56,7 @@ export default class DropdownControl extends Input {
       this.currSelection.root.classList.add('dropdown-control-curr-selection-box');
 
       this.currSelectionText = new Text(0, 1, this.optionLabels[this.currentIndex]);
-      this.currSelectionText.root.setAttribute('alignment-baseline','middle');
+      this.currSelectionText.root.setAttribute('dominant-baseline', 'middle');
       this.currSelectionText.style.textAnchor = 'middle';
 
       this.currSelectionBox = new Rectangle(0, -16, this.textWidth*3+16, 32);
@@ -112,7 +112,7 @@ export default class DropdownControl extends Input {
       currSelection.root.classList.add('dropdown-control-menu-option');
 
       let currSelectionText = new Text(0, 1, this.optionLabels[this.currentIndex]);
-      currSelectionText.root.setAttribute('alignment-baseline','middle');
+      currSelectionText.root.setAttribute('dominant-baseline', 'middle');
       currSelectionText.style.textAnchor = 'middle';
 
       let currSelectionBox = new Rectangle(0, -16, this.textWidth*3+16, 32);
@@ -133,7 +133,7 @@ export default class DropdownControl extends Input {
         menuOption.root.classList.add('dropdown-control-menu-option');
 
         let optionText = new Text(0, 1 + rectY, label);
-        optionText.root.setAttribute('alignment-baseline','middle');
+        optionText.root.setAttribute('dominant-baseline', 'middle');
         optionText.style.textAnchor = 'middle';
 
         let optionBox = new Rectangle(0, -16 + rectY, this.textWidth*3+16, 32);

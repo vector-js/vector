@@ -52,11 +52,11 @@ yAxis.setAttribute('marker-end', `url(#${marker.id})`);
 yAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
 let right = interactive.text( xAxis.x2 + 16, xAxis.y2, '0, 2π');
-right.setAttribute('alignment-baseline','middle');
+right.setAttribute('dominant-baseline', 'middle');
 let top = interactive.text( yAxis.x1, yAxis.y1 - 16, 'π/2');
 top.setAttribute('text-anchor','middle');
 let left = interactive.text( xAxis.x1 - 20, xAxis.y2, 'π');
-left.setAttribute('alignment-baseline','middle');
+left.setAttribute('dominant-baseline', 'middle');
 let bottom = interactive.text( yAxis.x1, yAxis.y2 + 32, '3π/2');
 bottom.setAttribute('text-anchor','middle');
 

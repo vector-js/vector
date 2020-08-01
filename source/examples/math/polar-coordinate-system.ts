@@ -59,11 +59,11 @@ export default function main( id:string ) {
   yAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
   let right = interactive.text( xAxis.x2 + 16, xAxis.y2, '0, τ');
-  right.setAttribute('alignment-baseline','middle');
+  right.setAttribute('dominant-baseline', 'middle');
   let top = interactive.text( yAxis.x1, yAxis.y1 - 16, 'τ/4');
   top.setAttribute('text-anchor','middle');
   let left = interactive.text( xAxis.x1 - 32, xAxis.y2, 'τ/2');
-  left.setAttribute('alignment-baseline','middle');
+  left.setAttribute('dominant-baseline', 'middle');
   let bottom = interactive.text( yAxis.x1, yAxis.y2 + 32, '3/4τ');
   bottom.setAttribute('text-anchor','middle');
 

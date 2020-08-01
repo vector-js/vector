@@ -132,7 +132,7 @@ describe('Geometry', function () {
 		});
 		it('text vertically centered', function() {
 			let text = interactive.text(0,0, 'Typography');
-			text.setAttribute('alignment-baseline', 'middle');
+			text.setAttribute('dominant-baseline', 'middle');
 			element = text;
 		});
 		it('group', function() {

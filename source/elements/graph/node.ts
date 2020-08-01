@@ -41,7 +41,7 @@ export default class Node extends Group {
 
    this.nodeName = new Text(cx, cy, text);
    this.nodeName.style.textAnchor = "middle";
-   this.nodeName.root.setAttribute("alignment-baseline", "middle");
+   this.nodeName.root.setAttribute('dominant-baseline', 'central');
    this.nodeEllipse = new Ellipse(cx, cy, rx, ry);
    this.nodeEllipse.fill = '#f8f8f8';
    this.children = [];

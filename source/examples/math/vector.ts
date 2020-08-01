@@ -30,7 +30,7 @@ yAxis.setAttribute('marker-end', `url(#${marker.id})`);
 yAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
 let xAxisLabel = interactive.text( xAxis.x2 + 16, xAxis.y2, 'x');
-xAxisLabel.setAttribute('alignment-baseline','middle');
+xAxisLabel.setAttribute('dominant-baseline', 'middle');
 let yAxisLabel = interactive.text( yAxis.x1, yAxis.y1 - 16, 'y');
 yAxisLabel.setAttribute('text-anchor','middle');
 
