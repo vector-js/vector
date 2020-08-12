@@ -24,11 +24,21 @@
   overflow: hidden;
 }
 
+.animation-root {
+	display:block;
+	margin:auto;
+}
+
 .animation-container {
 	display:flex;
 	flex-direction:column;
 	border-radius:5px;
 	border: 1px solid #dddddd;
+}
+
+.animation-canvas {
+	display:grid;
+	place-items:center;
 }
 
 .animation-button  {
@@ -42,14 +52,15 @@
 }
 
 .animation-controls {
-	background: #f8f8f8;
+	/* background: #f8f8f8; */
 	display:flex;
 	flex-direction:row;
 	justify-content:space-around;
-	/* padding: 0 1rem; */
+	border-top: 1px solid #dddddd;
 }
 
 .animation-slider {
+	display: block;
 	width:100%;
 	margin: 0 .5rem;
 }

@@ -32,7 +32,11 @@ describe('Math Figures', function () {
       it('Should Create a Nice Base Template', function() {
 
         let animationPlayer = new AnimationPlayer(container.id, {
-
+          min:0,
+          max:TAU,
+          value: 0,
+          width: 400,
+          loop:true
         });
 
         let figure = new DegreesFigure(animationPlayer.canvas, {
@@ -43,28 +47,18 @@ describe('Math Figures', function () {
           ticStepBig: 10,
           labelStep: 30
     		});
-        let controls = new Interactive(container.id, {
-          width:figure.width,
-          height: 50,
-          border: true
-        });
-        let scrubber = controls.scrubber(25, 25, {
-          min:0,
-          max:TAU,
-          width: figure.width - 50,
-          value: figure.getAngle(),
-          loop:true
-        });
 
-        scrubber.addDependency(figure.point);
 
-        scrubber.update = () => {
+
+        animationPlayer.scrubber.addDependency(figure.point);
+
+        animationPlayer.scrubber.update = () => {
           let angle = figure.getAngle();
-          scrubber.value = angle;
+          animationPlayer.scrubber.value = angle;
         };
 
-        scrubber.pushOnChange( () => {
-          figure.setAngle(scrubber.value);
+        animationPlayer.scrubber.pushOnChange( () => {
+          figure.setAngle(animationPlayer.scrubber.value);
         });
 
         // let step = TAU/72;

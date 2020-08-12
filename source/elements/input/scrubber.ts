@@ -56,15 +56,15 @@ export default class Scrubber extends Slider {
     let config = { ...defaultOptions, ...options};
 
     // make room for the player button
-    config.width = config.width - 32;
+    let circleRadius = 14;
+    config.width = config.width - 28;
 
-    super(x + 32, y, config);
+    super(x + 8 + 2*circleRadius, y, config);
 
     this.active = false;
     this.loop = config.loop;
     this.done = false;
 
-    let circleRadius = 14;
     let playCircle = this.circle(0, 0, circleRadius);
     playCircle.style.fill = '#eeeeee';
     playCircle.style.stroke = '#333333';
@@ -110,8 +110,6 @@ export default class Scrubber extends Slider {
       scrubber.play();
     });
     this.pauseButton.root.addEventListener('click', function(){
-      scrubber.pauseButton.style.display = 'none';
-      scrubber.playButton.style.display = '';
       scrubber.pause();
     });
     let fn = this.onchange;
@@ -165,7 +163,7 @@ export default class Scrubber extends Slider {
         const elapsed = timestamp - start;
 
         scrubber.value += stepSize;
-        if( scrubber.value > scrubber.max && !scrubber.loop ) {
+        if( scrubber.value >= scrubber.max && !scrubber.loop ) {
           scrubber.value = scrubber.max;
           scrubber.pause();
           // TODO: change play icon to reset icon
@@ -186,6 +184,8 @@ export default class Scrubber extends Slider {
 
   pause() {
     this.active = false;
+    this.pauseButton.style.display = 'none';
+    this.playButton.style.display = '';
     window.cancelAnimationFrame(this.requestID);
   }
 }
