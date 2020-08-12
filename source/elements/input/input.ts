@@ -20,6 +20,15 @@ export default class Input extends Group {
     };
   }
 
+  pushOnChange( func: () => void ) {
+    let temp = this;
+    let fn = temp._onchange;
+    temp.onchange = () => {
+      func();
+      fn();
+    }
+  }
+
   /**
   * This function is called whenever the state of an input element changes. The
   * default behavior of this function is to update the dependents of this

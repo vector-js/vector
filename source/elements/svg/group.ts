@@ -17,6 +17,7 @@ import Title from './title.js';
 import Use from './use.js';
 import Description from './description.js';
 import MetaData from './meta-data.js';
+import { Label } from '../visual/label.js';
 
 type GroupAttributes = 'clip-path' | 'transform' ;
 
@@ -122,4 +123,5 @@ export default class Group extends Element implements Descriptive, Shape, Struct
 	clipPath() : ClipPath {
 		return this.appendChild(new ClipPath());
 	}
+
 }

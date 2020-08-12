@@ -2,6 +2,10 @@ import Slider from './slider.js';
 import { SliderOptions } from './slider.js';
 import Group from '../svg/group.js';
 
+export interface ScrubberOptions extends SliderOptions {
+  loop:boolean
+}
+
 /**
 * A scubber element has
 */
@@ -41,31 +45,32 @@ export default class Scrubber extends Slider {
   /**
   * Constructs a new scrubber element at the (x,y) position.
   */
-  constructor( x:number, y:number, options:SliderOptions) {
+  constructor( x:number, y:number, options:ScrubberOptions) {
 
     let defaultOptions = {
-      width: 486
+      width: 486,
+      loop: false
     }
 
     // combine the default configuration with the user's configuration
     let config = { ...defaultOptions, ...options};
 
-    // make room for the play & pause button
-    config.width = config.width - 80;
+    // make room for the player button
+    config.width = config.width - 32;
 
-    super(x + 80, y, config);
+    super(x + 32, y, config);
 
     this.active = false;
-    this.loop = false;
+    this.loop = config.loop;
     this.done = false;
 
-    let circleRadius = 16;
+    let circleRadius = 14;
     let playCircle = this.circle(0, 0, circleRadius);
     playCircle.style.fill = '#eeeeee';
     playCircle.style.stroke = '#333333';
     playCircle.style.strokeWidth = '1px';
 
-    let radius = 8;
+    let radius = 6;
     let playTriangle = this.path(` M ${radius} ${0}
                                   L ${radius*Math.cos(-2*Math.PI/3)} ${radius*Math.sin(-2*Math.PI/3)}
                                   L ${radius*Math.cos(-4*Math.PI/3)} ${radius*Math.sin(-4*Math.PI/3)}
@@ -83,24 +88,30 @@ export default class Scrubber extends Slider {
     pauseCircle.style.strokeWidth = '1px';
 
     // TODO: style the lines with rounded end points
-    let pauseLines = this.path(` M ${-3.5} ${-5}
-                                L ${-3.5} ${5}
-                                M ${3.5} ${-5}
-                                L ${3.5} ${5}`);
+    let size = 6;
+    let pauseLines = this.path(` M ${-size/2} ${-4}
+                                L ${-size/2} ${4}
+                                M ${size/2} ${-4}
+                                L ${size/2} ${4}`);
     pauseLines.style.stroke = '#333333';
     pauseLines.style.strokeWidth = '2';
     pauseLines.style.strokeLinecap = 'round';
 
     this.pauseButton = this.group();
+    this.pauseButton.style.display = 'none';
     this.pauseButton.appendChild(pauseCircle);
     this.pauseButton.appendChild(pauseLines);
-    this.pauseButton.setAttribute('transform', `translate( ${x + 42}, ${y})`);
+    this.pauseButton.setAttribute('transform', `translate( ${x}, ${y})`);
 
     let scrubber = this;
     this.playButton.root.addEventListener('click', function(){
+      scrubber.playButton.style.display = 'none';
+      scrubber.pauseButton.style.display = '';
       scrubber.play();
     });
     this.pauseButton.root.addEventListener('click', function(){
+      scrubber.pauseButton.style.display = 'none';
+      scrubber.playButton.style.display = '';
       scrubber.pause();
     });
     let fn = this.onchange;
@@ -112,6 +123,23 @@ export default class Scrubber extends Slider {
       }
       fn();
     };
+  }
+
+  setValue( n:number ) {
+    if( n < this.min ) {
+      this.value = this.min;
+    } else if ( n > this.max && this.loop ) {
+      this.value = n % this.max;
+    } else if ( n > this.max ){
+      this.value = this.max;
+    } else {
+      this.value = n;
+    }
+    this.onchange();
+  }
+
+  getValue() : number {
+    return this.value;
   }
 
   play() {
@@ -127,8 +155,16 @@ export default class Scrubber extends Slider {
       }
 
       let stepSize = .0025*scrubber.range;
-      let step = function( timestamp) {
-        scrubber.value = (scrubber.value + stepSize);
+      let start;
+      let prev;
+      let step = function( timestamp: number ) {
+        if( start === undefined) {
+          start = timestamp;
+          prev = 0;
+        }
+        const elapsed = timestamp - start;
+
+        scrubber.value += stepSize;
         if( scrubber.value > scrubber.max && !scrubber.loop ) {
           scrubber.value = scrubber.max;
           scrubber.pause();
@@ -138,6 +174,7 @@ export default class Scrubber extends Slider {
         } else {
           scrubber.value = scrubber.value % scrubber.max;
           scrubber.onchange();
+          prev = elapsed;
           scrubber.requestID = window.requestAnimationFrame(step);
         }
       }

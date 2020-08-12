@@ -19,7 +19,7 @@ class Point {
 export default class Control extends Input {
 
   // Describes the size of the control handle and point
-  private static pointRadius : number = 4;
+  private static pointRadius : number = 3;
   private static handleRadius : number = 13;
 
   // Keeps track of the active control and the error in the user's click
@@ -126,6 +126,11 @@ export default class Control extends Input {
     let x = clientX + Control.slopX;
     let y = clientY + Control.slopY;
     Control.active.translate( x, y);
+  }
+
+  converToDisplay() {
+    this.point.fill = '#404040';
+    this.point.r = 3.5;
   }
 
   // static handleMoveTo( clientX, clientY) {

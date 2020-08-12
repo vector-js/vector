@@ -39,6 +39,9 @@ import Interactive from './elements/interactive.js';
 import Plot from './elements/math/plot.js';
 import Point from './elements/math/point.js';
 
+// templates
+import {AnimationPlayer} from './templates/animation-player.js';
+
 // export utility functions
 export * from './util/file.js';
 export * from './util/math.js';
@@ -61,6 +64,7 @@ export {	Button,
 					Line,
 					Marker,
 					Path,
+					AnimationPlayer,
 					Plot,
 					Point,
 					Polygon,

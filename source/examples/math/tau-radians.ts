@@ -11,8 +11,8 @@ export default function main(id:string) {
   // Initialize the interactive
   // let margin = 32;
   let interactive = new Interactive(id, {
-    width:500,
-    height:500
+    width:350,
+    height:350
   });
   interactive.border = false;
   interactive.originX = interactive.width/2;
@@ -22,8 +22,8 @@ export default function main(id:string) {
 
   // Create three control points
   let point = interactive.control(0,0);
-  let radius = 50;
-  let n = 4;
+  let radius = 128;
+  let n = 1;
   let border = interactive.circle(0,0,n*radius);
 
   // Create a path
@@ -33,7 +33,7 @@ export default function main(id:string) {
   path.update = function() {
     let flag = (point.y > 0) ? 1 : 0;
     let angle = getAngle();
-    let r = 50;
+    let r = 48;
     path.d = `M 0 0
               L ${r} 0
               A ${r} ${r} 0 ${flag} 0 ${r*Math.cos(angle)} ${-r*Math.sin(angle)}
@@ -42,12 +42,12 @@ export default function main(id:string) {
   path.update();
 
 
-  point.constrainWithin( border);
+  point.constrainTo( border);
 
   let group = interactive.group();
   group.style.strokeOpacity = '.2';
   group.root.setAttribute('vector-effect','non-scaling-stroke');
-  let r = 50;
+  let r = radius;
   for( let i = 0; i <= n; i++) {
 
     let circle = group.circle(0,0, i*r);
@@ -79,14 +79,30 @@ export default function main(id:string) {
   radiusLine.update();
 
   interactive.circle(0,0,3).style.fill = '#404040';
-  let text = interactive.text(150, 150, "myText");
-  text.addDependency(point);
-  text.update = function() {
+  let textGroup = interactive.text(150, 150,'');
+  textGroup.style.fontSize = '19px';
+  let text = textGroup.tspan('');
+  text.style.fontFamily = 'KaTeX_Main-Regular, KaTeX_Main;';
+  text.classList.add('math');
+
+  textGroup.addDependency(point);
+  textGroup.update = function() {
     this.x = point.x + 15;
     this.y = point.y - 15;
-    this.contents = `(${Math.hypot(point.y/50, point.x/50).toFixed(2)}, ${getAngle().toFixed(2)})`;
+    text.text = `${getAngle().toFixed(2)}`;
   };
-  text.update();
+  textGroup.update();
+  let rSpan = textGroup.tspan(' rad');
+  rSpan.style.fontFamily = 'KaTeX_Main-Regular, KaTeX_Main;';
+
+  let rText = interactive.text(radius/2, -15, "r");
+  rText.style.fontFamily = 'KaTeX_Math-Italic, KaTeX_Math';
+  rText.style.fontStyle = 'italic';
+  rText.style.fontSize = '22px';
+
+  console.log(rSpan);
+  console.log(rSpan.classList.add('math'));
+
 
   // Gets the normalized angle between zero and tau. TODO: Maybe transform the
   // coordinate system so that the positive y-direction is up instead of down.

@@ -154,6 +154,11 @@ function expTrunc(x:number) {
 export default class Plot extends SVG {
 
   /**
+  * Title of this graph
+  */
+  plotTitle : Text;
+
+  /**
   * Invisible element for registering events
   */
   rect : Rectangle;
@@ -178,7 +183,7 @@ export default class Plot extends SVG {
   /**
   * Represents the path taken by the function.
   */
-  fPath : Path;
+  fPaths : Path[];
 
   /**
   * A display circle to display input and output
@@ -214,7 +219,7 @@ export default class Plot extends SVG {
   /**
   * The function that is currently being displayed for this graph.
   */
-  private _function : (x:number) => number;
+  private _functions : ((x:number) => number)[];
 
   // actual height and width of plot element
   private _x : number;
@@ -269,7 +274,8 @@ export default class Plot extends SVG {
     this.prevX = 0;
     this.prevY = 0;
     this.active = false;
-    this._function = fn;
+    this._functions = [];
+    this._functions.push(fn);
 
     // calculate the visible dimensions and top-left position of internal plot area coordinates
     this._width = config.width - 2*config.margin;
@@ -314,9 +320,10 @@ export default class Plot extends SVG {
     this.internalX = -this.visibleWidth/2;
     this.internalY = -this.visibleHeight/2;
 
-    this.fPath = this.staticGroup.path('');
+    this.fPaths = [];
+    this.fPaths.push(this.staticGroup.path(''));
     // this.fPath.root.setAttribute('vector-effect','non-scaling-stroke');
-    this.fPath.setAttribute('transform', 'scale(1, -1)');
+    this.fPaths[0].setAttribute('transform', 'scale(1, -1)');
 
     this.setViewBox();
 
@@ -394,20 +401,21 @@ export default class Plot extends SVG {
     if( config.labels ) {
       // draw the labels
       let group = this.group();
-      group.style.fontFamily = 'KaTeX_Main';
-      group.style.fontSize = '22px';
+      group.style.fontFamily = 'KaTeX_Main-Regular, KaTeX_Main';
+      // group.style.fontSize = '22px';
+      group.style.fontSize = '18px';
 
       // draw the title
-      let title : Text;
+
       if( config.title instanceof Text ) {
-        title = group.appendChild(config.title);
-        title.x = this.width/2;
-        title.y = 25;
+        this.plotTitle = group.appendChild(config.title);
+        this.plotTitle.x = this.width/2;
+        this.plotTitle.y = 25;
       } else {
-        title = group.text( this.width/2, 25, config.title);
+        this.plotTitle = group.text( this.width/2, 25, config.title);
       }
-      title.setAttribute('alignment-baseline', 'middle');
-      title.setAttribute('text-anchor', 'middle');
+      this.plotTitle.setAttribute('alignment-baseline', 'middle');
+      this.plotTitle.setAttribute('text-anchor', 'middle');
 
       let xPoints = this.getXLabelPoints();
       let yPoints = this.getYLabelPoints();
@@ -430,14 +438,27 @@ export default class Plot extends SVG {
   * Sets the internal function to the provided function
   */
   set function( f:(x:number) => number ) {
-    this._function = f;
+    this._functions[0] = f;
   }
 
   /**
   * Returns the internal function
   */
   get function() : (x:number) => number {
-    return this._function;
+    return this._functions[0];
+  }
+
+  addFunction(  f:(x:number) => number  ) : Path {
+    let path = this.staticGroup.path('');
+    this.fPaths.push(path);
+    this.fPaths[this.fPaths.length - 1].setAttribute('transform', 'scale(1, -1)');
+    this._functions.push(f);
+    this.draw();
+    return path;
+  }
+
+  setFunction( index, f:(x:number) => number ) {
+    this._functions[index] = f;
   }
 
   get originX():number {
@@ -448,6 +469,10 @@ export default class Plot extends SVG {
     return - this._y;
   }
 
+  getTitle():string {
+    return this.plotTitle.contents;
+  }
+
   /**
   * Updates the display circle based on its current cx position, also updates
   * the display text elements to represent the position of the display circle.
@@ -455,7 +480,7 @@ export default class Plot extends SVG {
   updateDisplayCircle() {
     // Set the initial display position
     if( this.displayCircle != undefined ) {
-      let cy = this.call(this.displayCircle.cx, false);
+      let cy = this.call(this.function[0], this.displayCircle.cx, false);
       if( isNaN(cy)) {
         this.displayCircle.cy = 0;
       } else if( isFinite(cy) ){
@@ -474,10 +499,10 @@ export default class Plot extends SVG {
   * Returns the result of calling the internal function with the provided
   * function scaling both the input and the output.
   */
-  call( x:number, trim = false ) : number {
+  call( fn:(number)=>number, x:number, trim = false ) : number {
 
     // call and scale the function
-    let y = this.scaleY*this._function(x/this.scaleX);
+    let y = this.scaleY*fn(x/this.scaleX);
 
     // normalize big/small y values
     if( trim ) {
@@ -517,36 +542,43 @@ export default class Plot extends SVG {
     this.setViewBox();
     this.updateDisplayCircle();
 
-    // Start drawing the function
-    let start = false;
-    let x = startX;
-    let y = this.call(x, false);
-    let d : string = '';
-    let prev : number;
+    for( let i = 0; i < this.fPaths.length; i++ ) {
+      // Start drawing the function
+      let start = false;
+      let x = startX;
+      let y = this.call(this._functions[i], x, false);
+      let d : string = '';
+      let prev : number;
 
-    // If y is valid input start drawing
-    if(!isNaN(y)) {
-      d = `M ${x} ${y} `;
-      prev = y;
-      start = true;
-    }
-
-    // Loop through and draw coordiantes of the function path
-    for( x+=1; x < endX; x+=1 ){
-      let y = this.call(x, trim);
-      if(isNaN(y) || !isFinite(y)) {
-        continue;
-      }
-      // check for vertical asymptotes or if we haven't started drawing
-      else if( Math.abs(prev - y) >= this._height || !start ) {
-        d += `M ${x.toFixed(1)} ${y.toFixed(1)} `;
+      // If y is valid input start drawing
+      if(!isNaN(y)) {
+        d = `M ${x} ${y} `;
+        prev = y;
         start = true;
-      } else {
-        d += `L ${x.toFixed(1)} ${y.toFixed(1)} `;
       }
-      prev = y;
+
+      // Loop through and draw coordiantes of the function path
+      let delta = 1;
+      for( x+=delta; x < endX; x+=delta ){
+        let y = this.call(this._functions[i], x, trim);
+        let command = 'L';
+        if( Math.hypot( delta, y - prev) > 15) {
+          command = 'M';
+        }
+        if(isNaN(y) || !isFinite(y) ) {
+          continue;
+        }
+        // check for vertical asymptotes or if we haven't started drawing
+        else if( Math.abs(prev - y) >= this._height || !start ) {
+          d += `M ${x.toFixed(1)} ${y.toFixed(1)} `;
+          start = true;
+        } else {
+          d += `${command} ${x.toFixed(1)} ${y.toFixed(1)} `;
+        }
+        prev = y;
+      }
+      this.fPaths[i].d = d;
     }
-    this.fPath.d = d;
 
     // Update the dependents if there are any
     this.updateDependents();
@@ -757,6 +789,19 @@ export default class Plot extends SVG {
     // redraw visual elements
     this.drawGrid();
     this.draw();
+  }
+
+  drawTrimmed() {
+    let margin = 8;
+
+    // trim axis
+    this.xAxis.x1 = this._x;
+    this.xAxis.x2 = this._x + this._width;
+    this.yAxis.y1 = this._y;
+    this.yAxis.y2 = this._y + this._height;
+
+    // draw trimmed version
+    this.draw(this._x - margin, this._x + this._width + margin, true);
   }
 
   /**

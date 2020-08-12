@@ -43,6 +43,7 @@ function addLineBetweenPoints( point1, point2) {
 
 let text = interactive.text(100, 100, "(100,100)");
 text.style.fontFamily = "KaTeX_Math";
+text.style.fontSize = "18px";
 text.update = function() {
   this.x = p1.x + 15;
   this.y = p1.y - 15;
@@ -53,6 +54,7 @@ text.update();
 
 let text2 = interactive.text(100, 100, "(100,100)");
 text2.style.fontFamily = "KaTeX_Math";
+text2.style.fontSize = "18px";
 text2.update = function() {
   this.x = p2.x + 15;
   this.y = p2.y - 15;

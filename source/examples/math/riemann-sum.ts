@@ -76,7 +76,7 @@ export default function main( id:string ) {
     } else if ( x > 700) {
       x = 700;
     }
-    return {x:x, y:-plot.call(x)};
+    return {x:x, y:-plot.call(plot.function, x)};
   }
 
   control1.constrain = constrain;
@@ -95,8 +95,8 @@ export default function main( id:string ) {
     let delta = (end.x - start.x)/(Math.round(slider.value));
     let x = start.x;
     let nextX = start.x + delta;
-    let y = -plot.call(x);
-    let nextY = -plot.call(nextX);
+    let y = -plot.call(plot.function, x);
+    let nextY = -plot.call(plot.function, nextX);
 
     if( delta !== 0 ) {
       path.d = `M ${start.x} 0 `;
@@ -117,7 +117,7 @@ export default function main( id:string ) {
         x = nextX;
         y = nextY;
         nextX = x + delta;
-        nextY = -plot.call(nextX);
+        nextY = -plot.call(plot.function, nextX);
       }
       if( x >= end.x) {
         path.d += `L ${end.x} 0 Z`;

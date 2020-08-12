@@ -8,6 +8,7 @@
 
 import {Interactive} from '../../index.js';
 import katex from '/katex/katex.module.js';
+import { TAU } from '../../util/constants.js';
 
 export default function main(id:string) {
 
@@ -64,7 +65,7 @@ export default function main(id:string) {
               A ${circle.r/3} ${circle.r/3} 0 ${flag} 0 ${control.x/3} ${control.y/3}
               L ${control.x} ${control.y}
               z`;
-    katex.render(`\\theta = ${getAngle().toFixed(2)} \\text{ radians}`, theta, {
+    katex.render(`\\theta = ${(getAngle()/TAU).toFixed(2)}\\tau \\text{ radians}`, theta, {
       displayMode: true,
     });
   };

@@ -20,7 +20,7 @@ import Control from './input/control.js';
 import ControlCircle from './input/control-circle.js';
 import RadioControl from './input/radio-control.js';
 import DropdownControl from './input/dropdown-control.js';
-import Scrubber from './input/scrubber.js';
+import Scrubber, { ScrubberOptions } from './input/scrubber.js';
 import Slider, { SliderOptions } from './input/slider.js';
 import HoverBox from './input/hover-box.js';
 
@@ -35,6 +35,8 @@ import { GeoJSON } from './maps/geo-json.js';
 
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
+import { Label } from './visual/label.js';
+import Definitions from './svg/definitions.js';
 
 interface InteractiveOptions {
 	width?:number,
@@ -85,6 +87,10 @@ export default class Interactive extends SVG {
   private _height:number;
   private _originX:number;
   private _originY:number;
+
+	// definitions
+  private _definitions:Definitions;
+
 
   /**
   * Constructs a new interactive object and appends it into the DOM. If the
@@ -260,6 +266,20 @@ export default class Interactive extends SVG {
     return this.minY + this._height;
   }
 
+	/**
+	* Returns definitions for this interactive. If undefined, creates and appends
+	* a new element.
+	*
+	* TODO: move this up to the SVG level?
+	*/
+	get definitions() : Definitions {
+		if ( this._definitions === undefined ) {
+			return super.appendChild(new Definitions());
+		} else {
+			return this._definitions;
+		}
+	}
+
   /**
   * Appends the element within the interactive. If the element is an "input"
   * element, places the element in the input group so that visually the element
@@ -402,6 +422,12 @@ export default class Interactive extends SVG {
     return this.appendChild(new HoverBox(str));
   }
 
+	label( x:number, y:number, str:string ) {
+		let label = this.appendChild(new Label(x,y,str));
+		label.drawBackgroundRectangle();
+		return label;
+	}
+
   /**
   * Creates a graph element within this interactive
   */
@@ -423,7 +449,7 @@ export default class Interactive extends SVG {
   /**
   * Creates a scrubber with a play and pause button at the position (x,y).
   */
-  scrubber(x:number, y:number, options:SliderOptions ) : Scrubber {
+  scrubber(x:number, y:number, options:ScrubberOptions ) : Scrubber {
     return this.appendChild(new Scrubber( x, y, options));
   }
 

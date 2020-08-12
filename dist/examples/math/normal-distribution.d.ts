@@ -1,4 +1,0 @@
-/**
-* @ignore true
-*/
-export {};

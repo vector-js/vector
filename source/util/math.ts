@@ -34,6 +34,13 @@ export function isPrime( n:number) {
 }
 
 /**
+* Returns a floor with a radix
+*/
+export function floor( n:number, radix:number) {
+  return n - (n%radix);
+}
+
+/**
 * Returns the point where two lines intersect. The first line is defined by the
 * points p1 and p2. The second line is defined by the points p3 and p4.
 */

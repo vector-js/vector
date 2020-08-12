@@ -135,6 +135,17 @@ describe('Geometry', function () {
 			text.setAttribute('alignment-baseline', 'middle');
 			element = text;
 		});
+		it('should preserve font when exported to a SVG editor', function () {
+				let variables = interactive.text(0, -20, "rτsπ");
+				variables.style.fontSize = '22px';
+				variables.style.fill = '#404040';
+				variables.style.fontFamily = 'KaTeX_Math-Italic, KaTeX_Math';
+				variables.style.fontStyle = 'italic';
+				let numbers = interactive.text(0, 20, "12345");
+				numbers.style.fontSize = '22px';
+				numbers.style.fill = '#404040';
+				numbers.style.fontFamily = 'KaTeX_Main-Regular, KaTeX_Main';
+		});
 		it('group', function() {
 			let group = interactive.group();
 			group.circle(-37, -37, 3);

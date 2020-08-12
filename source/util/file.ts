@@ -44,34 +44,55 @@ export function getScriptName( trimExtension = true ) : string {
 /**
 * Downloads the current drawing as an svg file.
 */
-export function download( id:string, filename:String ) {
+export function download( id:string, filename:String ) : Promise<any> {
 
-  let svg = document.getElementById(id).firstChild;
-  let styleSheet = null;
-  for( let i = 0; i < document.styleSheets.length; i++) {
-    // TODO: there is a better way to do this
-    if( document.styleSheets[i].href != null && document.styleSheets[i].href.toLowerCase().includes("library.css")) {
-      styleSheet = document.styleSheets[i];
-      break;
-    }
-  }
-  let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
-  style.type = "text/css";
-  let css = "";
-  for( let i = 0; i < styleSheet.rules.length; i++)
-  {
-    let rule = styleSheet.rules[i] as CSSRule;
-    css  += rule.cssText + "\n";
-  }
-  style.innerHTML = css;
-  svg.appendChild(style);
+  // TODO: could fancy loop through all of the applied css and generate a new style sheet. Warning, un-quoted font family values in css will not load properly in illustrator 2020 07 24
 
+  // let styleSheet = null;
+  // for( let i = 0; i < document.styleSheets.length; i++) {
+  //   // TODO: there is a better way to do this
+  //   if( document.styleSheets[i].href != null && document.styleSheets[i].href.toLowerCase().includes("library.css")) {
+  //     styleSheet = document.styleSheets[i];
+  //     break;
+  //   }
+  // }
+  //
+  // let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+  // style.type = "text/css";
+  // let css = "";
+  // for( let i = 0; i < styleSheet.cssRules.length; i++)
+  // {
+  //   let rule = styleSheet.cssRules[i] as CSSRule;
+  //   css += processRule(rule) + "\n";
+  // }
+  // style.innerHTML = css;
+
+  return getURL('/library.css').then((response) => {
+    // Add the styling into the css document
+    let svg = document.getElementById(id).firstChild;
+    let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+    style.type = "text/css";
+    style.innerHTML = response.toString();
+    svg.appendChild(style);
+    saveSVG( filename, (svg as HTMLElement).outerHTML);
+    style.remove();
+  });
+
+
+  // svg.appendChild(style);
   // best piece of code i have written in 2019
-  saveSVG( filename, (svg as HTMLElement).outerHTML);
-  style.remove();
+  // style.remove();
 }
 
-export function saveSVG( filename, data) {
+function processRule(rule) {
+  let result = "";
+  for( let key of rule.styleMap ) {
+    console.log(key);
+  }
+  return result;
+}
+
+export function saveSVG( filename, data:string) {
   let blob = new Blob([data], {type: 'image/svg+xml'});
   saveAs(blob, filename, {});
 }

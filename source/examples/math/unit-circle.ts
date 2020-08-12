@@ -193,7 +193,7 @@ export default function main( id:string, opts:InteractiveOptions ) {
     line.x1 = scale*angle.value;
     line.y1 = 0;
     line.x2 = line.x1;
-    line.y2 = plot.call(line.x1);
+    line.y2 = plot.call(plot.function, line.x1);
   };
 
   let chartControl = interactive.control(0,0);
@@ -201,12 +201,12 @@ export default function main( id:string, opts:InteractiveOptions ) {
   chartControl.addDependency(angle, plot);
   chartControl.update = function() {
     chartControl.x = scale*angle.value;
-    chartControl.y = -plot.call(chartControl.x);
+    chartControl.y = -plot.call(plot.function, chartControl.x);
   };
   chartControl.update();
   chartControl.constrain = (oldPos, newPos) : Point => {
     let x = (plotInteractive.width + newPos.x) % plotInteractive.width;
-    let y = -plot.call(x);
+    let y = -plot.call(plot.function, x);
     return {x:x, y:y};
   };
   chartControl.onchange = function() {

@@ -37,13 +37,18 @@ import './elements/input/control.test.js';
 import './elements/math/plot.test.js';
 import './elements/maps/map.test.js'
 
+// figures
+import './figures/radians.test.js';
+import './figures/degrees.test.js';
+
 // math
-import './math/interactives.test.js';
-import './math/modular-arithmetic-wheel.script.js';
+// import './math/interactives.test.js';
+// import './math/modular-arithmetic-wheel.script.js';
 
 // article interactives
-import './articles/color.test.js';
-import './articles/waves.test.js';
+// import './articles/color.test.js';
+// import './articles/waves.test.js';
+// import './articles/art.test.js';
 
 // graph
 import './elements/graph/node.test.js'

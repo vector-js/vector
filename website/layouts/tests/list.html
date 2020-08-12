@@ -6,6 +6,9 @@
 	<script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
 	<style media="screen">
 		.test-container {
+			display:flex;
+			flex-direction:column;
+			width:100%;
 			margin-bottom: 1.5rem;
 		}
 		.test-section {
@@ -17,7 +20,7 @@
 	<div id="mocha" class="container"></div>
 	<script type="module" src="/tests/setup.js"></script>
 	<script type="module" src="/tests/run.js"></script>
-	<div id="tests" class="test-section"></div>
+	<div id="tests" class="test-section container"></div>
 </section>
 <script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js" integrity="sha384-4z8mjH4yIpuK9dIQGR1JwbrfYsStrNK6MP+2Enhue4eyo0XlBDXOIPc8b6ZU0ajz" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.css" integrity="sha384-bsHo4/LA+lkZv61JspMDQB9QP1TtO4IgOf2yYS+J6VdAYLVyx1c3XKcsHh0Vy8Ws" crossorigin="anonymous">

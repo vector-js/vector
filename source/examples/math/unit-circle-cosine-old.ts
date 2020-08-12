@@ -1,6 +1,6 @@
 /**
-* @title Unit Circle Sine
-* @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine
+* @title Unit Circle Cosine
+* @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine
 * @tags [math]
 * @date October 9, 2019
 * @ignore true
@@ -14,7 +14,6 @@ import katex from '/katex/katex.module.js';
 
 export default function main(id:string) {
 
-  // Create Katex component
   let functionDisplay = document.createElement('div');
   document.getElementById(id).appendChild(functionDisplay);
 
@@ -25,7 +24,7 @@ export default function main(id:string) {
   let radius = scale;
   let margin = 2*radius - width/2;
   interactive.height = width + margin;
-  interactive.width = width + margin + 2*width + 6;
+  interactive.width = width + margin + 2*width + 2;
   let f = Math.cos;
 
   class NumberWrapper extends Group {
@@ -117,28 +116,13 @@ export default function main(id:string) {
         side.y2 = -circle.r*Math.tan(angle.value);
       };
   }
-  side.style.stroke = '#0366EE';
+  side.style.stroke = 'cornflowerblue';
   side.style.strokeWidth = '2';
   // side.setAttribute('transform', 'scale(1,-1)');
   side.addDependency(angle, control);
   side.update();
 
-
-  // Create a path
-  let path = circleInteractive.path('');
-  path.classList.add('default');
-  path.root.style.stroke = '#e63946';
-  path.root.style.strokeWidth = '2px';
-  path.update = function() {
-    let flag = (control.y > 0) ? 1 : 0;
-    path.d = `M ${circle.cx + circle.r} ${circle.cy}
-              A ${circle.r} ${circle.r} 0 ${flag} 0 ${control.x} ${control.y}`;
-  };
-  path.update();
-  path.addDependency(control);
-
   circleInteractive.circle(0,0,3).style.fill = '#404040';
-  circleInteractive.circle(circle.r,0,3).style.fill = '#404040';
 
   let plotInteractive = interactive.interactive(width + margin, 0, {
     width:2*width,
@@ -159,21 +143,9 @@ export default function main(id:string) {
     border: true
   });
 
-  let line2 = plot.staticGroup.line(0,0,0,0);
-  line2.setAttribute('transform', 'scale(1,-1)');
-  line2.style.stroke = '#e63946';
-  line2.style.strokeWidth = '2';
-  line2.addDependency(angle);
-  line2.update = function() {
-    line2.x1 = 0;
-    line2.y1 = 0;
-    line2.x2 = scale*angle.value;
-    line2.y2 = 0;
-  };
-
   let line = plot.staticGroup.line(0,0,0,0);
   line.setAttribute('transform', 'scale(1,-1)');
-  line.style.stroke = '#0366EE';
+  line.style.stroke = 'cornflowerblue';
   line.style.strokeWidth = '2';
   line.addDependency(angle);
   line.update = function() {
@@ -181,7 +153,7 @@ export default function main(id:string) {
     line.y1 = 0;
     line.x2 = line.x1;
     line.y2 = plot.call(plot.function, line.x1);
-    katex.render(`\\cos (\\textcolor{#e63946}{${angle.value.toFixed(2)}}) = \\textcolor{#0366EE}{${Math.cos(angle.value).toFixed(2)}}`, functionDisplay, {
+    katex.render(`\\cos (${angle.value.toFixed(2)}) = ${Math.cos(angle.value).toFixed(2)}`, functionDisplay, {
       displayMode: true,
     });
   };
@@ -217,53 +189,37 @@ export default function main(id:string) {
   angle.value = 1;
 
   // plot.staticGroup.text( 8, -8, '0');
-  // plot.staticGroup.line( 1*radius*Math.PI/2, -4, 1*radius*Math.PI/2, 4);
-  // plot.staticGroup.line( 2*radius*Math.PI/2, -4, 1*radius*Math.PI/1, 4);
-  // plot.staticGroup.line( 3*radius*Math.PI/2, -4, 3*radius*Math.PI/2, 4);
-
-  plot.staticGroup.circle( 0*radius*Math.PI/2, 0, 3).style.fill = '#404040';
-  plot.staticGroup.circle( 2*radius*Math.PI/2, 0, 3).style.fill = '#404040';
-  plot.staticGroup.circle( 4*radius*Math.PI/2, 0, 3).style.fill = '#404040';
-
+  plot.staticGroup.line( 1*radius*Math.PI/2, -4, 1*radius*Math.PI/2, 4);
+  plot.staticGroup.line( 1*radius*Math.PI/1, -4, 1*radius*Math.PI/1, 4);
+  plot.staticGroup.line( 3*radius*Math.PI/2, -4, 3*radius*Math.PI/2, 4);
   // plot.staticGroup.line( 4*radius*Math.PI/2, -4, 4*radius*Math.PI/2, 4).style.strokeWidth = '3';
-  let label1 = plot.staticGroup.text( 1*radius*Math.PI - 6, -8, 'π');
-  let label2 = plot.staticGroup.text( 2*radius*Math.PI - 14, -8, 'τ');
-  label1.style.fontFamily = 'KaTeX_Math';
-  label2.style.fontFamily = 'KaTeX_Math';
-  label1.style.fontSize = '22px';
-  label2.style.fontSize = '22px';
+  plot.staticGroup.text( 1*radius*Math.PI - 4, -8, 'π');
+  plot.staticGroup.text( 2*radius*Math.PI - 12, -8, 'τ');
 
   // x-axis labels
-  let xLabels = interactive.group();
-  xLabels.text(circleInteractive.originX - radius - 4, circleInteractive.height + 20, '-1');
-  xLabels.text(circleInteractive.originX -      0 - 4, circleInteractive.height + 20, '0');
-  xLabels.text(circleInteractive.originX + radius - 4, circleInteractive.height + 20, '1');
+  interactive.text(circleInteractive.originX - radius - 4, circleInteractive.height + 20, '-1');
+  interactive.text(circleInteractive.originX -      0 - 4, circleInteractive.height + 20, '0');
+  interactive.text(circleInteractive.originX + radius - 4, circleInteractive.height + 20, '1');
 
   // position of plot origin
   let ox = width + margin;
   let oy = width/2;
 
   // y-axis labels
-  let yLabels = interactive.group();
-  yLabels.text(ox - 20, oy + 4, '0');
-  yLabels.text(ox - 24, oy + radius + 4, '-1');
-  yLabels.text(ox - 20, oy - radius + 4, '1');
-  yLabels.style.fontSize = '20px';
-  yLabels.style.fontFamily = 'KaTeX_Main';
+  interactive.text(ox - 20, oy + 4, '0');
+  interactive.text(ox - 24, oy + radius + 4, '-1');
+  interactive.text(ox - 20, oy - radius + 4, '1');
 
   // bottom x-axis labels
-  xLabels.circle(ox, oy, 3).style.fill = '#404040';
-  xLabels.text(ox + 0*radius - 4, oy + plotInteractive.height/2 + 20, '0');
-  xLabels.text(ox + 1*radius - 4, oy + plotInteractive.height/2 + 20, '1');
-  xLabels.text(ox + 2*radius - 4, oy + plotInteractive.height/2 + 20, '2');
-  xLabels.text(ox + 3*radius - 4, oy + plotInteractive.height/2 + 20, '3');
-  xLabels.text(ox + 4*radius - 4, oy + plotInteractive.height/2 + 20, '4');
-  xLabels.text(ox + 5*radius - 4, oy + plotInteractive.height/2 + 20, '5');
-  xLabels.text(ox + 6*radius - 4, oy + plotInteractive.height/2 + 20, '6');
-  xLabels.style.fontSize = '20px';
-  xLabels.style.fontFamily = 'KaTeX_Main';
+  interactive.circle(ox, oy, 3).style.fill = '#404040';
+  interactive.text(ox + 0*radius - 4, oy + plotInteractive.height/2 + 22, '0');
+  interactive.text(ox + 1*radius - 4, oy + plotInteractive.height/2 + 20, '1');
+  interactive.text(ox + 2*radius - 4, oy + plotInteractive.height/2 + 20, '2');
+  interactive.text(ox + 3*radius - 4, oy + plotInteractive.height/2 + 20, '3');
+  interactive.text(ox + 4*radius - 4, oy + plotInteractive.height/2 + 20, '4');
+  interactive.text(ox + 5*radius - 4, oy + plotInteractive.height/2 + 20, '5');
+  interactive.text(ox + 6*radius - 4, oy + plotInteractive.height/2 + 20, '6');
 
-  interactive.circle(ox + 1*Math.PI*radius, oy, 3).style.fill = '#404040';
-  interactive.circle(ox + 2*Math.PI*radius, oy, 3).style.fill = '#404040';
+  interactive.line(ox + 2*Math.PI*radius, oy - 4, ox + 2*Math.PI*radius, oy + 4)
 
 }
