@@ -5,7 +5,7 @@ import {download } from '../../index.js';
 import {RadiansFigure} from '../../examples/figures/radians.js';
 import { TAU } from '../../util/constants.js';
 
-describe('Math Figures', function () {
+describe('Radian Scripts', function () {
 
   // create a new container before each test function
   let container: HTMLDivElement;
@@ -91,23 +91,21 @@ describe('Math Figures', function () {
         let name = names[j];
         let count = 0;
         for( let i = 0; i < TAU; i += 1/denominator*TAU ) {
-          describe(`figure ${count} over ${denominator}`, () => {
-            it(`${count} ${name} Radians`, () => {
-              let id = container.id;
-              let countTemp = count;
-              let figure = new RadiansFigure(container.id, { label:false, angle:i, step:3, stepRadius:100/3, divide:denominator, margin:80 });
-              scripts.push(() => {
-                download(id, `figure-${countTemp}-${name}-radians-${figure.width}px`)
-              });
+          it(`${count} ${name} Radians`, () => {
+            let id = container.id;
+            let countTemp = count;
+            let figure = new RadiansFigure(container.id, { label:false, angle:i, step:3, stepRadius:100/3, divide:denominator, margin:80 });
+            scripts.push(() => {
+              download(id, `figure-${countTemp}-${name}-radians-${figure.width}px`)
             });
+          });
 
-            it(`${count} ${name} Radians`, () => {
-              let id = container.id;
-              let countTemp = count;
-              let figure = new RadiansFigure(container.id, { label:false, angle:i, divide:denominator, margin:100 });
-              scripts.push(() => {
-                download(id, `figure-${countTemp}-${name}-radians-${figure.width}px`)
-              });
+          it(`${count} ${name} Radians`, () => {
+            let id = container.id;
+            let countTemp = count;
+            let figure = new RadiansFigure(container.id, { label:false, angle:i, divide:denominator, margin:100 });
+            scripts.push(() => {
+              download(id, `figure-${countTemp}-${name}-radians-${figure.width}px`)
             });
           });
 

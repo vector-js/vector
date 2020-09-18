@@ -4,10 +4,10 @@ import {download, Interactive, Circle, Path } from '../../index.js';
 /* import figures */
 import {DegreesFigure} from '../../examples/figures/degrees.js';
 import { TAU } from '../../util/constants.js';
-import katex from '/katex/katex.module.js';
+// import katex from '/katex/katex.module.js';
 import { AnimationPlayer } from '../../templates/animation-player.js';
 
-describe('Math Figures', function () {
+describe('Degrees Scripts', function () {
 
   // create a new container before each test function
   let container: HTMLDivElement;
@@ -28,27 +28,55 @@ describe('Math Figures', function () {
     };
   });
 
-    describe('Degrees Angle System', function(){
+  describe('Degrees Angle System', function(){
       it('Should Create a Nice Base Template', function() {
+
+        let small = {
+          radius: 100,
+          width: 300,
+          margin:50,
+          ticStep: 2.5,
+          ticStepBig: 10,
+          labelStep: 30
+        };
+
+        let medium = {
+          radius: 110,
+          width:400,
+          margin:60,
+          ticStep: small.ticStep,
+          ticStepBig: small.ticStepBig,
+          labelStep: small.labelStep
+        }
+
+        let large = {
+          radius: 200,
+          width:500,
+          margin:50,
+          ticStep: 1,
+          ticStepBig: 10,
+          labelStep: 30
+        }
+
+        // conditionally switch size based on available width
+        let config = medium;
 
         let animationPlayer = new AnimationPlayer(container.id, {
           min:0,
           max:TAU,
           value: 0,
-          width: 400,
+          width: config.width,
           loop:true
         });
 
         let figure = new DegreesFigure(animationPlayer.canvas, {
     			angle: 0,
-    			radius: 110,
-    			margin: 50,
-          ticStep: 2.5,
-          ticStepBig: 10,
-          labelStep: 30
+    			radius: config.radius,
+    			margin: config.margin,
+          ticStep: config.ticStep,
+          ticStepBig: config.ticStepBig,
+          labelStep: config.labelStep
     		});
-
-
 
         animationPlayer.scrubber.addDependency(figure.point);
 

@@ -3,45 +3,60 @@
 */
 
 // import Interactive from 'https://unpkg.com/@interactive-svg/library/dist/Interactive.js';
-import {Interactive, Point, Control, Path, Circle, AnimationPlayer} from '../../index.js';
+import {Interactive, Point, Control, Path, Text, AnimationPlayer} from '../../index.js';
 import { TAU } from '../../util/constants.js';
 
 export interface Configuration {
 	radius?:number;
 	width?:number;
 	margin?:number;
+	radians?:boolean;
 	angle?: number;
-	ticStep?: number;
+	tics?: number;
 	ticStepBig?: number;
 	labelStep?: number;
+	labelDigits?: number;
 	min?:number;
 	max?:number;
 	value?:number;
 	loop?:boolean;
 }
 
-export class DegreesFigure extends AnimationPlayer {
+export class StandardAngleFigure extends AnimationPlayer {
 
 	static default : Configuration = {
 		radius: 150,
 		width: 400,
 		margin:50,
-		ticStep: 2.5,
-		ticStepBig: 10,
-		labelStep: 30,
+		radians: true,
+		tics: 100,
+		ticStepBig: 5,
+		labelStep: 10,
+		labelDigits: 1,
 		min: 0,
 		max: TAU,
-		value: TAU/8,
+		value: TAU/10,
 		loop: true
 	}
 
-	constructor( id :string, options = DegreesFigure.default) {
+	static degrees : Configuration = {
+		radians: false,
+		tics: 180,
+		ticStepBig: 5,
+		labelStep: 15,
+		min: 0,
+		max: TAU,
+		value: TAU/12,
+		loop: true
+	}
 
-		let config = { ...DegreesFigure.default, ...options };
+	constructor( id :string, options = {} ) {
+
+		let config = { ...StandardAngleFigure.default, ...options };
 
     super(id, config );
 
-    let figure = new DegreesBaseFigure(this.canvas, config);
+    let figure = new StandardAngleFigureBase(this.canvas, config);
 
     this.scrubber.addDependency(figure.point);
 
@@ -57,58 +72,64 @@ export class DegreesFigure extends AnimationPlayer {
 
 }
 
-interface BaseFigureOptions {
-	angle?: number;
+interface BaseFigureConfiguration {
 	radius?: number;
 	margin?: number;
 	width?: number;
+	radians?: boolean;
+	angle?: number;
 	ticStep?: number;
 	ticStepBig?: number;
 	labelStep?: number;
 }
 
-export class DegreesBaseFigure extends Interactive {
+export class StandardAngleFigureBase extends Interactive {
 
 	point:Point;
 	radius:number;
 	margin:number;
 	width:number;
   offset: number;
-  ticStep: number;
+	radians: boolean;
+  tics: number;
 	labelStep: number;
   ticStepBig: number;
+	labelDigits: number;
 
-	static defaultOptions:BaseFigureOptions = {
-		angle: TAU/8,
-		radius: 110,
-		margin: 60,
-		width:400,
-		ticStep: 2.5,
-		ticStepBig: 10,
-		labelStep: 30
-	}
-
-	constructor(idOrHTMlElement:string|HTMLElement, options?:BaseFigureOptions  ) {
+	constructor(idOrHTMlElement:string|HTMLElement, options?:BaseFigureConfiguration  ) {
 
 		// combine the default configuration with the user's configuration
-		let config = { ...DegreesBaseFigure.defaultOptions, ...options };
+		let config = { ...StandardAngleFigure.default, ...options };
 
-		// call the constructor
+		// check the available size
 		let width = 2*config.radius + 2*config.margin;
 		super(idOrHTMlElement, {
 			width: width,
-			height: width + 50,
+			height: width + config.margin,
 			originX: width/2,
 			originY: width/2,
 			border: false
 		});
 
+		// Constrain to available size
+		width = this.container.getBoundingClientRect().width;
+		if( this.width > width ) {
+			this.width = width;
+			this.originX = width/2;
+			this.originY = width/2;
+			this.height = width + config.margin;
+			this.radius = width/2 - config.margin;
+		} else {
+			this.radius = config.radius;
+		}
+
 		// set other variables
-		this.radius = config.radius;
+		this.radians = config.radians;
 		this.margin = config.margin;
-		this.ticStep = config.ticStep;
+		this.tics = config.tics;
 		this.ticStepBig = config.ticStepBig;
 		this.labelStep = config.labelStep;
+		this.labelDigits = config.labelDigits;
 		// this.classList.add('default');
 
 		// Draw the circle with the provided number of steps
@@ -119,7 +140,7 @@ export class DegreesBaseFigure extends Interactive {
 		group.root.setAttribute('vector-effect','non-scaling-stroke');
 
 		// Create the controls & define dependency functions
-		this.point = new Point(this.radius*Math.cos(config.angle),-this.radius*Math.sin(config.angle));
+		this.point = new Point(this.radius*Math.cos(config.value),-this.radius*Math.sin(config.value));
 		// this.point.converToDisplay();
 		// this.point.point.r = 3;
 		// this.point.point.style.display = 'none';
@@ -146,8 +167,6 @@ export class DegreesBaseFigure extends Interactive {
 								A ${r} ${r} 0 ${flag} 0 ${x} ${y}`;
 		};
 		path.update();
-		// this.point.constrainTo( new Circle(0,0, this.radius));
-		// this.point.update();
 
 		let arrow = this.path(`M -12 -6 L 0 0 L -12 6 L -10 0z`);
 		arrow.style.fill = `#404040`;
@@ -158,9 +177,6 @@ export class DegreesBaseFigure extends Interactive {
 		}
 		arrow.update();
 
-
-		// this.interactive.circle(0,0, this.radius + this.margin/2);
-
 		let center = this.circle(0,0,3);
 		center.style.fill = `#404040`;
 		center.style.stroke = `none`;
@@ -169,14 +185,24 @@ export class DegreesBaseFigure extends Interactive {
 		text.classList.add('katex-main', 'text-middle');
 		text.tspan('θ ').classList.add('katex-variable');
 		text.tspan('= ');
-		let textAngle = text.tspan(`${(this.getAngle()/TAU*360).toFixed(0)}`);
-		text.tspan('°');
 
+		let textAngle;
+
+		if( this.radians ) {
+			textAngle = text.tspan(`${(this.getAngle()/TAU).toFixed(0)}`);
+			textAngle.update = () => {
+				textAngle.root.innerHTML = `${(this.getAngle()/TAU).toFixed(3)}`;
+			};
+			text.tspan('τ').classList.add('katex-variable');
+		} else {
+			textAngle = text.tspan(`${(this.getAngle()/TAU*360).toFixed(0)}`);
+			textAngle.update = () => {
+				textAngle.root.innerHTML = `${(this.getAngle()/TAU*360).toFixed(0)}`;
+			};
+			text.tspan('°');
+		}
 		textAngle.addDependency(this.point);
-		textAngle.update = () => {
-			textAngle.root.innerHTML = `${(this.getAngle()/TAU*360).toFixed(0)}`;
-		};
-
+		this.setAngle(config.value);
 	}
 
 	/**
@@ -200,6 +226,7 @@ export class DegreesBaseFigure extends Interactive {
 	initializeTemplate() {
 
 		let labelGroup = this.group();
+		labelGroup.classList.add('katex-main', 'text-middle');
 		let group = this.group();
 
 		let outside = this.circle(0, 0, this.radius);
@@ -228,15 +255,39 @@ export class DegreesBaseFigure extends Interactive {
 		let darkTics = group.group();
 		darkTics.style.stroke = `#404040`;
 
-		for( let i = 0; i <= 360; i += this.ticStep ) {
-			let a = i/360*TAU;
+		let max = this.radians ? TAU : 360;
+		let min = 0;
+		let count = 0;
+		for( let i = 0; i <= this.tics; i ++ ) {
+			let fraction = i/this.tics;
+			let a = fraction*TAU;
 			let x = this.radius*Math.cos(a);
 			let y = -this.radius*Math.sin(a);
 
 			// Label breakdown
-			if( i % this.labelStep === 0) {
-				let label = labelGroup.text( x + space*Math.cos(a), y - space*Math.sin(a), `${(a*360/TAU).toFixed(0)}°`);
-				label.classList.add('katex-main', 'text-middle');
+			if( count % this.labelStep === 0) {
+
+				let xPos = x + space*Math.cos(a);
+				let yPos = y - space*Math.sin(a);
+
+				let label : Text;
+				if( this.radians ) {
+					let temp;
+					if ( fraction === 0 ) {
+						temp = '0';
+						label = labelGroup.text( xPos, yPos, temp);
+					} else if (fraction === 1) {
+						label = labelGroup.text( xPos, yPos, 'τ');
+						label.classList.add('katex-variable');
+					} else {
+						temp = `${fraction.toFixed(this.labelDigits)}`;
+						label = labelGroup.text( xPos, yPos, temp);
+						label.tspan('τ').classList.add('katex-variable');
+					}
+
+				} else {
+					label = labelGroup.text( xPos, yPos, `${(a*360/TAU).toFixed(0)}°`);
+				}
 
 				let box = label.getBoundingBox();
 				label.remove();
@@ -250,18 +301,19 @@ export class DegreesBaseFigure extends Interactive {
 			}
 
 			// Color of tic marks
-			if ( i % this.labelStep === 0) {
+			if ( count % this.labelStep === 0) {
 				darkTics.line(0, 0, x, y);
-			} else if ( i % this.ticStepBig === 0) {
+			} else if ( count % this.ticStepBig === 0) {
 				mediumTics.line(0, 0, x, y);
 			} else {
 				lightTics.line(0, 0, x, y);
 			}
+			count++;
 		}
 		labels[0].y -= 15;
-		labels[labels.length - 1].y += 18;
-		rects[0].y -= 18;
-		rects[rects.length -1].y += 18;
+		labels[labels.length - 1].y += 15;
+		rects[0].y -= 15;
+		rects[rects.length -1].y += 15;
 
 		let r1 = 25;
 		let r2 = 50;

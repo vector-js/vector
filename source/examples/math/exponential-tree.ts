@@ -43,6 +43,7 @@ class Tree extends SVG {
     this.nodes = [];
     this.currentLine = 0;
     this.currentNode = 0;
+		this.classList.add('default');
     this.draw();
   }
 

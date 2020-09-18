@@ -1,24 +1,65 @@
 {{ define "body" }}
-{{ partial "hero" . }}
 <section class="container">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
 	<link href="/css/mocha.css" rel="stylesheet"/>
 	<script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
 	<style media="screen">
-		.test-container {
-			margin-bottom: 1.5rem;
-			width: 100%;
+		:root {
+			--coral: hsl(23, 83%, 82%);
+			--coral--b: hsl(23, 99%, 75%);
+			--pink: hsl(335, 52%, 92%);
+			--pink--b: hsl(335, 82%, 86%);
+			--yellow: hsl(42, 97%, 85%);
+			--yellow--b: hsl(42, 100%, 73%);
+			--green: hsl(100, 64%, 86%);
+			--green--b: hsl(100, 41%, 76%);
+			--blue: hsl(187, 61%, 79%);
+			--blue--b: hsl(187, 54%, 68%);
+			--purple: hsl(283, 24%, 86%);
+			--purple--b: hsl(283, 43%, 80%);
+			--light-gray-blue: hsl(182, 29%, 96%);
 		}
-		.test-section {
-			height: 100%;
-	    margin: 60px 50px;
-			max-width: 1024px;
+
+		.coral {
+		  background-color: var(--coral);
+		  border: 1px solid var(--coral--b);
+		}
+
+		.pink {
+		  background-color: var(--pink);
+		  border: 1px solid var(--pink--b);
+		}
+
+		.yellow {
+		  background-color: var(--yellow);
+		  border: 1px solid var(--yellow--b);
+		}
+
+		.green {
+		  background-color: var(--green);
+		  border: 1px solid var(--green--b);
+		}
+
+		.blue {
+		  background-color: var(--blue);
+		  border: 1px solid var(--blue--b);
+		}
+
+		.purple {
+		  background-color: var(--purple);
+		  border: 1px solid var(--purple--b)
+		}
+
+		.white {
+		  background-color: white;
 		}
 	</style>
 	<div id="mocha"></div>
 	<script type="module" src="/tests/setup.js"></script>
 	<script type="module" src="/tests/run.js"></script>
-	<div id="tests" class="container" style="min-width:720px; max-width:100%"></div>
 </section>
-<script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js" integrity="sha384-4z8mjH4yIpuK9dIQGR1JwbrfYsStrNK6MP+2Enhue4eyo0XlBDXOIPc8b6ZU0ajz" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.css" integrity="sha384-bsHo4/LA+lkZv61JspMDQB9QP1TtO4IgOf2yYS+J6VdAYLVyx1c3XKcsHh0Vy8Ws" crossorigin="anonymous">
+<div id="tests">
+</div>
 {{ end }}

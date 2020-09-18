@@ -11,6 +11,7 @@ export default function main(id:string) {
 // Initialize the interactive
 let interactive = new Interactive(id);
 interactive.border = true;
+interactive.classList.add('default');
 
 // Create three control points
 let p1 = interactive.control(200,100);

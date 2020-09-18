@@ -27,7 +27,7 @@ export default function main(id:string) {
   let margin = 2*radius - width/2;
   interactive.height = width + margin;
   interactive.width = width + margin + 2*width + 6;
-  let f = Math.sin;
+  let f = Math.tan;
 
   class NumberWrapper extends Group {
     private _value:number;
@@ -134,6 +134,17 @@ export default function main(id:string) {
       yLine.style.stroke = '#0366EE';
       yLine.style.strokeWidth = '2';
       break;
+    case Math.tan:
+      let tangentLine = circleInteractive.line(control.x,control.y, radius/Math.cos(angle.value),0);
+      tangentLine.update = function() {
+        tangentLine.x1 = control.x;
+        tangentLine.y1 = control.y;
+        tangentLine.x2 = radius/Math.cos(angle.value);
+      };
+      tangentLine.addDependency(control);
+      tangentLine.classList.add('default');
+      tangentLine.style.stroke = '#0366EE';
+      tangentLine.style.strokeWidth = '2';
   }
 
   // Create a path
@@ -193,7 +204,7 @@ export default function main(id:string) {
     line.y1 = 0;
     line.x2 = line.x1;
     line.y2 = plot.call(plot.function, line.x1);
-    katex.render(`\\sin (\\textcolor{#e63946}{${(angle.value/TAU).toFixed(3)}\\tau}) = \\textcolor{#0366EE}{${f(angle.value).toFixed(2)}}`, functionDisplay, {
+    katex.render(`\\tan (\\textcolor{#e63946}{${(angle.value/TAU).toFixed(3)}\\tau}) = \\textcolor{#0366EE}{${f(angle.value).toFixed(2)}}`, functionDisplay, {
       displayMode: true,
     });
   };

@@ -23,7 +23,6 @@ import './elements/svg/polygon.test.js';
 import './elements/svg/path.test.js';
 import './elements/svg/text.test.js';
 import './elements/svg/line.test.js';
-
 import './elements/svg/text.test.js';
 
 // interactive / custom elements
@@ -33,16 +32,21 @@ import './elements/geometry.test.js';
 // input tests
 import './elements/input/control.test.js';
 
+// template tests
+import './templates/index.test.js';
+
 // plot tests
 import './elements/math/plot.test.js';
 import './elements/maps/map.test.js'
 
 // figures
+import './figures/overview.test.js';
 import './figures/radians.test.js';
 import './figures/degrees.test.js';
+import './figures/tree.test.js';
 
 // math
-// import './math/interactives.test.js';
+import './math/interactives.test.js';
 // import './math/modular-arithmetic-wheel.script.js';
 
 // article interactives

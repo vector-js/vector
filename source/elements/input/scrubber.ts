@@ -59,7 +59,7 @@ export default class Scrubber extends Slider {
     let circleRadius = 14;
     config.width = config.width - 28;
 
-    super(x + 8 + 2*circleRadius, y, config);
+    super(x + 6 + 2*circleRadius, y, config);
 
     this.active = false;
     this.loop = config.loop;
@@ -69,6 +69,7 @@ export default class Scrubber extends Slider {
     playCircle.style.fill = '#eeeeee';
     playCircle.style.stroke = '#333333';
     playCircle.style.strokeWidth = '1px';
+    playCircle.classList.add('animation-button')
 
     let radius = 6;
     let playTriangle = this.path(` M ${radius} ${0}
@@ -80,6 +81,7 @@ export default class Scrubber extends Slider {
     this.playButton = this.group();
     this.playButton.appendChild(playCircle);
     this.playButton.appendChild(playTriangle);
+    this.playButton.circle(0,0,20).style.opacity = '0';
     this.playButton.setAttribute('transform', `translate( ${x}, ${y})`);
 
     let pauseCircle = this.circle(0, 0, circleRadius);
@@ -101,6 +103,7 @@ export default class Scrubber extends Slider {
     this.pauseButton.style.display = 'none';
     this.pauseButton.appendChild(pauseCircle);
     this.pauseButton.appendChild(pauseLines);
+    this.pauseButton.circle(0,0,20).style.opacity = '0';
     this.pauseButton.setAttribute('transform', `translate( ${x}, ${y})`);
 
     let scrubber = this;

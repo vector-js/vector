@@ -49,6 +49,7 @@ export default class Slider extends Input {
     options.max ? this._max = options.max : this._max = 1;
 
     this._line = this.line(x, y, x + width, y);
+    this._line.root.style.stroke = '#404040';
     this._line.root.style.strokeWidth = '1.5';
     this._line.root.style.strokeLinecap = 'round';
 

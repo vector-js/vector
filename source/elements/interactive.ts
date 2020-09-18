@@ -38,7 +38,7 @@ import Plot, { PlotOptions } from '../elements/math/plot.js';
 import { Label } from './visual/label.js';
 import Definitions from './svg/definitions.js';
 
-interface InteractiveOptions {
+export interface InteractiveOptions {
 	width?:number,
 	height?:number,
 	originX?:number,

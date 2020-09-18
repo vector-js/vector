@@ -36,7 +36,7 @@ loop:boolean;
 constructor(id:string, options:AnimationPlayerOptions )  {
 
   let defaultOptions : AnimationPlayerOptions = {
-    width: 600,
+    width: 600
   }
 
   // combine the default configuration with the user's configuration
@@ -46,6 +46,9 @@ constructor(id:string, options:AnimationPlayerOptions )  {
   this.parent = document.getElementById(id);
   let bbox = this.parent.getBoundingClientRect();
   let width = config.width > bbox.width ? bbox.width : config.width ;
+  if (width < 300) {
+    width = 300;
+  }
 
   this.root = document.createElement('div');
   this.container = document.createElement('div');
@@ -75,9 +78,8 @@ constructor(id:string, options:AnimationPlayerOptions )  {
     max:config.max,
     value:config.value,
     width:width - 50,
-    loop:false
+    loop:config.loop
   });
-
 
 
   //

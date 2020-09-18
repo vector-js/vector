@@ -13,7 +13,7 @@ export default class Container {
 	static createContainer() : HTMLDivElement {
 		let div = document.createElement('div');
 		let section : HTMLElement = document.getElementById('tests');
-		div.classList.add('test-container');
+		div.classList.add('container');
 		div.id = `id-${Container.count++}`;
 		section.appendChild(div);
 		return div;

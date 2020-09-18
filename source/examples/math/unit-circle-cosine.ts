@@ -6,10 +6,8 @@
 * @ignore true
 */
 
-import {Interactive} from '../../index.js';
-import Group from '../../elements/svg/group.js';
-import Point from '../../elements/math/point.js';
-import Line from '../../elements/svg/line.js';
+import {Interactive, Group, Point, Line } from '../../index.js';
+import {TAU} from '../../util/constants.js'
 import katex from '/katex/katex.module.js';
 
 export default function main(id:string) {
@@ -70,59 +68,69 @@ export default function main(id:string) {
     }
   }
 
-  triangle.addDependency(control, angle);
-  if( f === Math.tan ) {
-    triangle.update = function() {
-      triangle.d = `M 0 0
-                    L ${circle.r/Math.cos(angle.value)} 0
-                    L ${control.x} ${control.y}
-                    Z`;
-    };
-  } else {
-    triangle.update = function() {
-      triangle.d = `M 0 0
-                    L ${control.x} 0
-                    L ${control.x} ${control.y}
-                    Z`;
-    };
-  }
-  triangle.update();
+  // triangle.addDependency(control, angle);
+  // if( f === Math.tan ) {
+  //   triangle.update = function() {
+  //     triangle.d = `M 0 0
+  //                   L ${circle.r/Math.cos(angle.value)} 0
+  //                   L ${control.x} ${control.y}
+  //                   Z`;
+  //   };
+  // } else {
+  //   triangle.update = function() {
+  //     triangle.d = `M 0 0
+  //                   L ${control.x} 0
+  //                   L ${control.x} ${control.y}
+  //                   Z`;
+  //   };
+  // }
+  // triangle.update();
   // triangle.style.stroke = 'none';
-  triangle.style.fill = '#f8f8f8';
+  // triangle.style.fill = '#f8f8f8';
 
-  let side : Line = circleInteractive.line(0,0,0,0);
+  let xLine : Line = circleInteractive.line(0,0,0,0);
+  xLine.update = function() {
+    xLine.x2 = control.x;
+    xLine.y1 = control.y;
+    xLine.y2 = control.y;
+  };
+  xLine.classList.add('default');
+
+  let yLine : Line = circleInteractive.line(0,0,0,0);
+  yLine.update = function() {
+    yLine.x1 = control.x;
+    yLine.x2 = control.x;
+    yLine.y2 = control.y;
+  };
+  yLine.classList.add('default');
+
+  let rLine : Line = circleInteractive.line(0,0,0,0);
+  rLine.update = function() {
+    rLine.x1 = 0;
+    rLine.y1 = 0;
+    rLine.x2 = control.x;
+    rLine.y2 = control.y;
+  };
+  rLine.classList.add('default');
+
   switch(f) {
     case Math.cos:
-      side.update = function() {
-        side.x2 = control.x;
-      };
+      xLine.style.stroke = '#0366EE';
+      xLine.style.strokeWidth = '2';
       break;
     case Math.sin:
-      side.update = function() {
-        side.x1 = control.x;
-        side.x2 = control.x;
-        side.y2 = control.y;
-      };
+      yLine.style.stroke = '#0366EE';
+      yLine.style.strokeWidth = '2';
       break;
-    case Math.tan:
-      side = circleInteractive.line(circle.r,0,circle.r,0);
-      side.update = function() {
-        if( control.x < 0) {
-          side.x1 = -circle.r;
-          side.x2 = -circle.r;
-        } else {
-          side.x1 = circle.r;
-          side.x2 = circle.r;
-        }
-        side.y2 = -circle.r*Math.tan(angle.value);
-      };
   }
-  side.style.stroke = '#0366EE';
-  side.style.strokeWidth = '2';
-  // side.setAttribute('transform', 'scale(1,-1)');
-  side.addDependency(angle, control);
-  side.update();
 
+  // side.setAttribute('transform', 'scale(1,-1)');
+  xLine.addDependency(angle, control);
+  yLine.addDependency(angle, control);
+  rLine.addDependency(angle, control);
+  xLine.update();
+  yLine.update();
+  rLine.update();
 
   // Create a path
   let path = circleInteractive.path('');
@@ -181,7 +189,7 @@ export default function main(id:string) {
     line.y1 = 0;
     line.x2 = line.x1;
     line.y2 = plot.call(plot.function, line.x1);
-    katex.render(`\\cos (\\textcolor{#e63946}{${angle.value.toFixed(2)}}) = \\textcolor{#0366EE}{${Math.cos(angle.value).toFixed(2)}}`, functionDisplay, {
+    katex.render(`\\cos (\\textcolor{#e63946}{${(angle.value/TAU).toFixed(3)} \\tau}) = \\textcolor{#0366EE}{${f(angle.value).toFixed(3)}}`, functionDisplay, {
       displayMode: true,
     });
   };

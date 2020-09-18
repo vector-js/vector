@@ -69,7 +69,7 @@ export function download( id:string, filename:String ) : Promise<any> {
 
   return getURL('/library.css').then((response) => {
     // Add the styling into the css document
-    let svg = document.getElementById(id).firstChild;
+    let svg = document.getElementById(id);
     let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
     style.type = "text/css";
     style.innerHTML = response.toString();

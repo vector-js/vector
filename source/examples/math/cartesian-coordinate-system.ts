@@ -19,7 +19,8 @@ export default function main(id:string) {
   interactive.width += 2*margin;
   interactive.height += 2*margin;
   interactive.style.overflow = 'visible';
-
+  interactive.classList.add('default');
+  
   // Create three control points
   let point = interactive.control(0,0);
   let xAxis = interactive.line( -interactive.width/2 + margin, 0, interactive.width/2 - margin, 0);

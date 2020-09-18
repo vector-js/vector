@@ -18,6 +18,7 @@ import primeFactorizationTree from '../../examples/math/prime-factorization.js';
 import tauRadians from '../../examples/math/tau-radians.js';
 import radians from '../../examples/math/radians.js';
 import riemannSum from '../../examples/math/riemann-sum.js';
+import triangle from '../../examples/math/triangle-general.js';
 import unitCircle from '../../examples/math/unit-circle.js';
 import unitCircleAngle from '../../examples/math/unit-circle-angle.js';
 import unitCircleCosine from '../../examples/math/unit-circle-cosine.js';
@@ -30,6 +31,12 @@ describe('Math Interactives', function () {
   let container;
   beforeEach(function() {
     container = Container.createContainer();
+  });
+
+  describe('General Triangle', function(){
+    it('triangle', function() {
+      triangle(container.id);
+    });
   });
 
   describe('Compound Interest', function(){

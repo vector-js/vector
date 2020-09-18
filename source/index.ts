@@ -41,6 +41,7 @@ import Point from './elements/math/point.js';
 
 // templates
 import {AnimationPlayer} from './templates/animation-player.js';
+import {Template} from './templates/template.js';
 
 // export utility functions
 export * from './util/file.js';
@@ -76,6 +77,7 @@ export {	Button,
 					Slider,
 					SVG,
 					Symbol,
-					TSpan,
+					Template,
 					Text,
+					TSpan,
 					Use };

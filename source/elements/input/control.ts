@@ -4,6 +4,7 @@ import Input from './input.js';
 import Path from '../svg/path.js';
 import Circle from '../svg/circle.js';
 import Rectangle from '../svg/rectangle.js';
+import { TAU } from '../../util/constants.js';
 
 /**
 * A point has an x position and y position
@@ -19,7 +20,7 @@ class Point {
 export default class Control extends Input {
 
   // Describes the size of the control handle and point
-  private static pointRadius : number = 3;
+  private static pointRadius : number = 3.5;
   private static handleRadius : number = 13;
 
   // Keeps track of the active control and the error in the user's click
@@ -304,6 +305,31 @@ export default class Control extends Input {
   get dy() {
     return this._dy;
   }
+
+  /**
+  * Returns the angle in radians relative to the origin that the point forms.
+  * TODO: the y-axis is flipped on this because it would be a pain to always
+  * negate the angle. In the future probably implement a custom language and
+  * then choose an output and do the inversion there.
+  */
+  get displayAngle() {
+    if( this.y <= 0 ) {
+      return  Math.abs(Math.atan2( this.y, this.x));
+    } else {
+      return TAU - Math.atan2( this.y, this.x);
+    }
+  }
+
+  /**
+  * Returns the angle in radians relative to the origin that the point forms.
+  */
+  get angle() {
+
+    return (Math.atan2( this.y, this.x) + TAU) % TAU;
+
+  }
+
+
 
   /**
   * Constrains the movement of this control point to the path of the provided
