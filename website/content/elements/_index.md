@@ -1,6 +1,10 @@
 ---
 title: Elements
-description: la de da
+description: A collection of SVG elements for lookup and reference.
+layout: elements-aside-list
+references:
+  - name: 'MDN SVG Elements'
+    url: 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element'
+  - name: 'SVG Working Group Element Index'
+    url: 'https://svgwg.org/svg2-draft/eltindex.html'
 ---
-
-The library has basic visual and structural elements for creating graphics. The basic elements correspond to the elements of the Scalable Vector Graphics Specification. More complicated elements use one or more basic elements internally. Every element contains a root <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGElement" target="_blank">SVGElement</a> attribute which gives access SVGElement Web API.

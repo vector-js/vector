@@ -9,8 +9,8 @@
 import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.border = true;
 interactive.width = 736;
+interactive.classList.add('border');
 
 let ellipse = interactive.ellipse(0,0,0,0);
 ellipse.classList.add('default');
@@ -19,6 +19,9 @@ let l2 = interactive.line( 0, 0, 0, 0);
 l1.stroke = 'cornflowerblue';
 l2.stroke = 'cornflowerblue';
 let text = interactive.text( 25, 275, "");
+text.style.fontFamily = 'monospace';
+text.style.fontSize = '1.25rem';
+
 let c0 = interactive.control( 300, 150);
 let c1 = interactive.control( 450, 150);
 let c2 = interactive.control( 300, 100);

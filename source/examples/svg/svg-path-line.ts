@@ -9,8 +9,8 @@
 import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.border = true;
 interactive.width = 736;
+interactive.classList.add('border');
 
 let path = interactive.path('');
 path.classList.add('default');
@@ -18,6 +18,8 @@ let start = interactive.control( 150, 150);
 let end = interactive.control( 450, 50);
 let toggle = interactive.checkBox( 360, 270, "absolute / relative", false);
 let text = interactive.text( 25, 275, "");
+text.style.fontFamily = 'monospace';
+text.style.fontSize = '1.25rem';
 
 path.update = function() {
   if( toggle.value ) {

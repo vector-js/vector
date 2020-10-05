@@ -14,3 +14,8 @@ staticDir:
 
 params:
   repositoryURL: "https://github.com/vector-js/vector.git"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

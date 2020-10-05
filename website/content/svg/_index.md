@@ -5,7 +5,7 @@ description: An interactive SVG tutorial introducing the basics of creating and 
 layout: aside
 type: tutorials
 aside:
- - Getting Started
+ - Introduction
  - XML Syntax
  - Tree Structure
  - Basic Elements
@@ -18,9 +18,9 @@ aside:
 weight: 2
 ---
 
-This tutorial is intended to give the reader an interactive introduction to using and authoring SVG documents. See the working group's <a href="https://www.w3.org/TR/SVG/Overview.html" target="_blank" rel="noreferrer">W3 SVG Overview</a> for the specification. Another good tutorial and reference is the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noreferrer">MDN SVG Tutorial</a>. See also the list of [SVG Elements]({{< relref "./elements/" >}}).
+This tutorial is an *interactive* introduction to authoring and using SVG documents. See the [SVG Working Group](https://github.com/w3c/svgwg) for current draft of the SVG specification. This tutorial uses the Vector.js libary for making the SVGs interactive.
 
-## Getting Started
+## Introduction
 
 SVG stands for scalable vector graphic and represents a standard for vector/raster graphics. Elements within the SVG document are defined using XML syntax. Every element has an opening tag and closing tag. The opening tag contains the elements name surrounded by angle brackets. The closing tag contains the elements name with a forward slash before it also surrounded by angle brackets. For example, the "svg" tag which forms the root of the document looks like:
 
@@ -31,19 +31,24 @@ SVG stands for scalable vector graphic and represents a standard for vector/rast
 Elements have attributes that describe additional details about the element. Attributes are defined within the opening tag and have a name and string value. For example, if we have a attribute named data which is associated with the string "123" this would look like: `data="123"`. The svg element should have a xmlns atrribute which defines the xml name space to be used, and often has a width and height attribute defined. This can be seen in the SVG image below which also defined a circle element with the attributes cx, cy, and r.
 
 {{< highlight svg >}}
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+<svg width="100%" height="100">
     <circle cx="50" cy="50" r="15"></circle>
+    <rect x="85" y="35" width="30" height="30"></rect>
 </svg>
 {{< /highlight >}}
 
 The SVG document above is rendered as:
 
-<div style="border: 1px solid grey; border-radius: 5px;">
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
-
+<div style="border: 1px solid grey; border-radius: 5px; margin-bottom:1.5rem">
+<svg width="100%" height="100">
   <circle cx="50" cy="50" r="15" style="fill:#333333;"></circle>
+  <rect x="85" y="35" width="30" height="30" style="fill:#333333;"></rect>
 </svg>
 </div>
+
+A brief note about the SVG Coordinate system and computer graphics. By convention, coordinate systems in computer graphics define the origin to be at the top-left corner of the drawing area. The positive **x** direction is to the right direction and the positive **y** direction is **down**. Click and drag the blue control point below to see how the SVG coordinate system is defined.
+
+{{<example "svg-coordinate-system">}}
 
 ## XML Syntax
 
@@ -51,9 +56,9 @@ XML elements are formed by opening and closing tags. The opening tag contains a 
 
 <img src="/images/xml-structure.svg" alt="XML syntax and structure" class="center" width="700px" style="max-width:100%;">
 
-Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are specific to the element, but there are also more general attributes that are useful and which can be applied to any element. For example, the following three attributes are very useful for retrieving and/or styling elements.
+Within the SVG Namespace elements have geometric properties that are represented using attributes to describe the shape and form of the element. Elements often have attributes that are specific to the element, but there are also more general attributes that are useful and which can be applied to any element. For example, the following three (optional) attributes are very useful for retrieving and/or styling elements.
 
-| attribute | description |
+| Attribute | Description |
 | --- | --- |
 | id | unique string identifier |
 | class | list of classes separated by spaces |
@@ -63,7 +68,7 @@ Within the SVG Namespace elements have geometric properties that are represented
 
 ## Tree Structure
 
-A SVG document is structured like a tree. Every SVG element has an opening and closing tag. Within the tags is where child elements are placed. These children inherit the coordinate system and styles of the parent element. (TODO: double check these facts)
+A SVG document is structured like a tree. Every SVG element has an opening and closing tag. Each element contains zero or more child elements that inherit their parents properites such as position, transformations and style. The tree structure plays an important role in styling, scripting and the presentation of the graphic. For example, take the SVG below where the ordering of elements matter.
 
 {{< highlight svg>}}
 <svg>
@@ -72,7 +77,7 @@ A SVG document is structured like a tree. Every SVG element has an opening and c
 </svg>
 {{< /highlight >}}
 
-In the example above, the SVG element has two children: a rectangle and circle. The ordering of the elements matters. In this example the circle is rendered on top of the rectangle, because the circle is placed after the rectangle within the SVG document.
+In the example, the SVG element has two children: a rectangle and circle. In this example the circle is rendered on top of the rectangle, because the circle is placed after the rectangle within the SVG document.
 
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150">
   <rect x=150 y=25 width=150 height=100 style="fill:#cda9d4; stroke:#333333; stroke-width:1px;"></rect>
@@ -130,7 +135,6 @@ The view box attribute allows the user to define a view port of the image. This 
 {{< highlight svg>}}
 <!-- TODO: preserve aspect ratio attribute -->
 {{< /highlight >}}
-
 
 ### Transforming
 
@@ -377,7 +381,14 @@ The defs element contains a graphical "definition" that can be used else where i
 
 ## Scripting
 
-It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section demonstrates how to use vanilla Javascript and Web APIs to create, manipulate, and add interactivity to SVG elements.  There are many libraries and frameworks to help with this very thing. This library [vector.js](/) is one of them.
+It is common to extend the functionality of SVG documents by adding scripting to make them interactive. This section demonstrates how to use vanilla Javascript and Web APIs to create, manipulate, and add interactivity to SVG elements. In additiona to vanilla javascript, there are many libraries and frameworks to help with scripting SVG .
+
+- Vanilla Javascript
+- Vector.js*
+- D3
+- Svg.js
+
+*Vector.js is the library used to make the SVGs on this page interactive.
 
 ### Creating SVG Elements
 
@@ -428,19 +439,21 @@ Placing these to files in a folder together and opening the HTML file in a web b
 
 ### Selecting Elements
 
+Selecting elements within the SVG `DOM` (document object model) can be performed a number of ways. These selector queries are the same logic that CSS selectors use.
+
 {{< highlight javascript>}}
 // select element by id
-let element = document.getElementById("my-element-id");
+let element = document.getElementById("unique-id");
 {{< /highlight >}}
 
 {{< highlight javascript>}}
 // select elements by tag
-let elementList = document.getElementsByTagName("circle");
+let elementList = document.getElementsByTagName("tag-name");
 {{< /highlight >}}
 
 {{< highlight javascript>}}
 // select elements by class
-let elementList = document.getElementsByClassName("my-class");
+let elementList = document.getElementsByClassName("class-name");
 {{< /highlight >}}
 
 ### Manipulating Attributes
@@ -456,6 +469,8 @@ element.classList.remove('my-class');
 {{< /highlight >}}
 
 ### Manipulating Style
+
+In addition to styling an elemnent using CSS, an individual elements style can be change dusing the `style` attribute.
 
 {{< highlight javascript>}}
 // access style property for inline styling

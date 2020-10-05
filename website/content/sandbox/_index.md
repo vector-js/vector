@@ -1,6 +1,7 @@
 ---
 title: Sandbox
 description: The sandbox is a place
+draft: true
 ---
 
 <div class="sandbox">

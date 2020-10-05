@@ -9,7 +9,7 @@
 import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.border = true;
+interactive.classList.add('border');
 interactive.width = 736;
 
 let l1 = interactive.line( 0, 0, 0, 0);
@@ -22,6 +22,8 @@ let c1 = interactive.control( 150, 100);
 let c2 = interactive.control( 300, 200);
 let c3 = interactive.control( 450, 100);
 let text = interactive.text( 25, 275, "");
+text.style.fontFamily = 'monospace';
+text.style.fontSize = '1.25rem';
 
 path.update = function() {
   path.d = `M ${c1.x} ${c1.y} Q ${c2.x} ${c2.y} ${c3.x} ${c3.y}`;

@@ -24,6 +24,7 @@
 @import "components/layout";
 @import "components/sandbox";
 @import "components/syntax";
+@import "components/templates";
 
 .header-link  {
   text-decoration: none;
@@ -41,7 +42,7 @@
 }
 
 .headshot {
-  clip-path: circle(60px at center);
+  clip-path: circle(30px at center);
 }
 
 .i-container {

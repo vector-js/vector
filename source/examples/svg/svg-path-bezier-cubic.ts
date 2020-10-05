@@ -25,6 +25,8 @@ let c2 = interactive.control( 150, 200);
 let c3 = interactive.control( 450, 200);
 let c4 = interactive.control( 450, 100);
 let text = interactive.text( 25, 275, "");
+text.style.fontFamily = 'monospace';
+text.style.fontSize = '1.25rem';
 
 path.update = function() {
   path.d = `M ${c1.x} ${c1.y} C ${c2.x} ${c2.y} ${c3.x} ${c3.y} ${c4.x} ${c4.y}`;

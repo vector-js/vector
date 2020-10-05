@@ -9,6 +9,7 @@ import {Interactive, getScriptName} from '../../index.js';
 let viewBoxControl = new Interactive(getScriptName());
 viewBoxControl.border = true;
 viewBoxControl.width = 736/2;
+viewBoxControl.style.marginRight = '1rem';
 
 let viewBox = new Interactive(getScriptName());
 viewBox.border = true;

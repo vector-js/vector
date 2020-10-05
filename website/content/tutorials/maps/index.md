@@ -8,6 +8,7 @@ video:
   height: 516
 layout: video
 weight: 3
+draft: true
 ---
 
 <div id="random-color-world"></div><script type="module" src="../../../../examples/maps/random-color-world.js"></script>

@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<h1>{{.Title}}</h1>
+
+{{ .Content }}
+
+<table>
+{{ range .Pages }}
+    {{ .Render "tr" }}
+{{ end }}
+</table>
+
+<!-- <a href="/project"><button class="muted-button">View Project Overview</button></a> -->
+
+<div class="vertical-center" style="height:220px">
+  <a href="https://www.cs.utah.edu/" target="_blank" rel="noreferrer">
+    <img src="/university-of-utah.png" alt="University of Utah" width="240px">
+  </a>
+</div>
+
+{{ end }}

@@ -10,12 +10,41 @@ import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
 let margin = 0;
-interactive.width = 692;
+interactive.width = 600;
 interactive.height = 300;
 interactive.originX = margin;
 interactive.originY = margin;
 interactive.root.style.overflow = 'visible';
 interactive.root.style.marginLeft = '6px';
+
+let group3 = interactive.group();
+let group2 = interactive.group();
+let group1 = interactive.group();
+
+group3.style.stroke = '#fafafa';
+group2.style.stroke = '#eeeeee';
+group1.style.stroke = '#dddddd';
+
+for( let i = 0; i < interactive.width; i+=10) {
+  if( i % 100 === 0) {
+    group1.line(i, 0, i, interactive.height);
+  } else if( i % 10 === 0 ) {
+    group2.line(i, 0, i, interactive.height);
+  } else {
+    group3.line(i, 0, i, interactive.height);
+  }
+}
+
+for( let i = 0; i < interactive.height; i+=10) {
+  if( i % 100 === 0) {
+    group1.line(0, i, interactive.width, i);
+  } else if( i % 10 === 0 ) {
+    group2.line(0, i, interactive.width, i);
+  } else {
+    group3.line(0, i, interactive.width, i);
+  }
+}
+
 
 let rectangle = interactive.rectangle(0,0, interactive.width - 2*margin, interactive.height - 2*margin);
 rectangle.classList.add('default');
@@ -90,3 +119,4 @@ text.update = function() {
   this.contents = `( ${control.x}, ${control.y})`;
 };
 text.update();
+

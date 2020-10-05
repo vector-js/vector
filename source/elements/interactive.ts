@@ -25,13 +25,9 @@ import Slider, { SliderOptions } from './input/slider.js';
 import HoverBox from './input/hover-box.js';
 
 // graph elements
-import Node from '../elements/graph/node.js';
-import Edge from '../elements/graph/edge.js';
-import Graph, {GraphOptions} from '../elements/graph/graph.js';
-
-// map elements
-import Map, { MapOptions } from '../elements/maps/map.js';
-import { GeoJSON } from './maps/geo-json.js';
+// import Node from '../elements/graph/node.js';
+// import Edge from '../elements/graph/edge.js';
+// import Graph, {GraphOptions} from '../elements/graph/graph.js';
 
 // math elements
 import Plot, { PlotOptions } from '../elements/math/plot.js';
@@ -90,7 +86,6 @@ export default class Interactive extends SVG {
 
 	// definitions
   private _definitions:Definitions;
-
 
   /**
   * Constructs a new interactive object and appends it into the DOM. If the
@@ -411,12 +406,12 @@ export default class Interactive extends SVG {
     return this.appendChild(new Plot(fn, options));
   }
 
-  /**
-  * Creates a graph element within this interactive
-  */
-  graph(options:GraphOptions) : Graph {
-    return this.appendChild(new Graph(options));
-  }
+  // /**
+  // * Creates a graph element within this interactive
+  // */
+  // graph(options:GraphOptions) : Graph {
+  //   return this.appendChild(new Graph(options));
+  // }
 
   hoverBox(str: string) : HoverBox{
     return this.appendChild(new HoverBox(str));
@@ -427,17 +422,6 @@ export default class Interactive extends SVG {
 		label.drawBackgroundRectangle();
 		return label;
 	}
-
-  /**
-  * Creates a graph element within this interactive
-  */
-  map(externalData: GeoJSON,featureName:string = null,options: MapOptions = {}) : Map {
-   let map = new Map(featureName,externalData,options);
-   let ret = this.appendChild(map);
-   let bbox = map.root.getBBox();
-   map.setViewBox( bbox.x, bbox.y, bbox.width, bbox.height);
-   return ret;
-   }
 
   /**
   * Creates a slider input within this interactive
@@ -453,19 +437,19 @@ export default class Interactive extends SVG {
     return this.appendChild(new Scrubber( x, y, options));
   }
 
-  /**
-  * Creates a node within this interactive.
-  */
-  node( x:number, y:number, rx: number, ry:number, contents:string ) : Node {
-    return this.appendChild(new Node( x, y, rx, ry, contents));
-  }
-
-  /**
-  * Creates an edge connecting two nodes within this interactive.
-  */
-  edge (nodeFrom: Node, nodeTo: Node, directed: boolean) : Edge{
-    return this.appendChild(new Edge(nodeFrom, nodeTo, directed));
-  }
+  // /**
+  // * Creates a node within this interactive.
+  // */
+  // node( x:number, y:number, rx: number, ry:number, contents:string ) : Node {
+  //   return this.appendChild(new Node( x, y, rx, ry, contents));
+  // }
+	//
+  // /**
+  // * Creates an edge connecting two nodes within this interactive.
+  // */
+  // edge (nodeFrom: Node, nodeTo: Node, directed: boolean) : Edge{
+  //   return this.appendChild(new Edge(nodeFrom, nodeTo, directed));
+  // }
 
   /**
   *

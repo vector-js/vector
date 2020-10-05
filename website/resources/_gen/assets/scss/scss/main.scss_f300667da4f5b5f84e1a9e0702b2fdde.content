@@ -590,7 +590,6 @@ section.documentation main {
   padding: 0 1rem; }
 
 header {
-  padding: 1.5rem 0px;
   border-bottom: 1px solid #dddddd; }
 
 section.aside {
@@ -739,11 +738,11 @@ body {
   display: flex;
   flex-direction: column; }
 
-main {
+.main {
   flex: 1 0 auto;
   margin: auto; }
 
-footer {
+.footer {
   flex-shrink: 0;
   margin-top: 100px;
   height: 150px;
@@ -1129,6 +1128,85 @@ footer {
 .chroma .w {
   color: #bbbbbb; }
 
+:root {
+  --coral: hsl(23, 83%, 82%);
+  --coral--b: hsl(23, 99%, 75%);
+  --pink: hsl(335, 52%, 92%);
+  --pink--b: hsl(335, 82%, 86%);
+  --yellow: hsl(42, 97%, 85%);
+  --yellow--b: hsl(42, 100%, 73%);
+  --green: hsl(100, 64%, 86%);
+  --green--b: hsl(100, 41%, 76%);
+  --blue: hsl(187, 61%, 79%);
+  --blue--b: hsl(187, 54%, 68%);
+  --purple: hsl(283, 24%, 86%);
+  --purple--b: hsl(283, 43%, 80%);
+  --light-gray-blue: hsl(182, 29%, 96%); }
+
+.coral {
+  background-color: var(--coral);
+  border: 1px solid var(--coral--b); }
+
+.pink {
+  background-color: var(--pink);
+  border: 1px solid var(--pink--b); }
+
+.yellow {
+  background-color: var(--yellow);
+  border: 1px solid var(--yellow--b); }
+
+.green {
+  background-color: var(--green);
+  border: 1px solid var(--green--b); }
+
+.blue {
+  background-color: var(--blue);
+  border: 1px solid var(--blue--b); }
+
+.purple {
+  background-color: var(--purple);
+  border: 1px solid var(--purple--b); }
+
+.white {
+  background-color: white; }
+
+.ex-section {
+  height: 400px;
+  margin-bottom: 1.5rem; }
+
+.ex-area {
+  width: 100%;
+  height: 100%; }
+
+.ex-container {
+  resize: both;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  box-shadow: 0 0 20px -10px #026b79;
+  display: grid;
+  align-items: center;
+  background: white; }
+
+.parent {
+  width: 100%;
+  height: 100%; }
+
+.ex-container .section {
+  font-size: 1rem;
+  padding: 1rem;
+  border-style: dashed; }
+
+.ex4 .parent {
+  display: grid;
+  grid-template-rows: auto 1fr auto; }
+
+.ex3 .parent {
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr; }
+
 .header-link {
   text-decoration: none;
   color: #404040; }
@@ -1142,7 +1220,7 @@ footer {
   content: url(/images/link.svg); }
 
 .headshot {
-  clip-path: circle(60px at center); }
+  clip-path: circle(30px at center); }
 
 .i-container {
   margin-bottom: 1.5rem; }

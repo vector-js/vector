@@ -3,6 +3,7 @@ title: Population Map
 description: How to create a map of the United States and color states by their populations with respect to the total population of the United States. Introduces users to basics of working with maps, styling of shapes, and user events in our library.
 image: "/images/population-of-united-states.svg"
 weight: 3
+draft: true
 ---
 
 <div id="population-of-united-states"></div><script type="module" src="../../../../examples/maps/population-of-united-states.js"></script>
@@ -28,14 +29,14 @@ let hover = interactive.hoverBox("");
 hover.setBounds(interactive.width,interactive.height);
 {{< /highlight >}}
 
-Thats all of the variables we need! Now we just have to color the states and implement the event handling of the mouse. 
+Thats all of the variables we need! Now we just have to color the states and implement the event handling of the mouse.
 
 Lets focus on coloring the states first. Using the getAllFeaturePaths method, we can loop through the states and color them based off of the density map we imported at the top. The getColor method can be changed to whatever colors you like!
 
 {{< highlight javascript>}}
 let states = map.getAllFeaturePaths();
 
-states.forEach(element => {   
+states.forEach(element => {
     element.setAttribute("style",`stroke:black;stroke-width:0.15px;fill:${getColor(densityMap[element.root.getAttribute("name")])};`);
 });
 
@@ -61,7 +62,7 @@ Mouse Enter: We want to highlight the currently hovered over state, so we change
 Mouse Leave: Mouse leave should undo everything mouse enter did. That means resetting the fill based on the density map, and hiding the hover box.
 
 {{< highlight javascript>}}
-states.forEach(element => {   
+states.forEach(element => {
     element.setAttribute("style",`stroke:black;stroke-width:0.15px;fill:${getColor(densityMap[element.root.getAttribute("name")])};`);
 
     element.root.addEventListener('mousemove', e => {

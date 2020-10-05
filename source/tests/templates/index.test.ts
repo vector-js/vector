@@ -1,5 +1,5 @@
 import Container from '../container.js';
-import {Template } from '../../index.js';
+import {HolyGrail } from '../../index.js';
 
 
 describe('Interactive templates', function () {
@@ -13,7 +13,7 @@ describe('Interactive templates', function () {
 
   describe('Default', function() {
     it('should create a pancake stack', function() {
-      let template = new Template(container.id);
+      let template = new HolyGrail(container.id);
       template.header.classList.add('purple');
       template.main.classList.add('blue');
       template.footer.classList.add('coral');

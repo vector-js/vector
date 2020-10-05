@@ -10,10 +10,8 @@
         <button class="muted-button">elements</button>
         <button class="muted-button">input</button>
         <button class="muted-button">graph</button>
-        <button class="muted-button">maps</button>
         <button class="muted-button">math</button>
         <button class="muted-button">svg</button>
-        <button class="muted-button">games</button>
         <button class="muted-button">color</button>
       </div>
     <script type="module">
@@ -40,11 +38,11 @@
             example.style.display = 'none';
           });
 
-          let query = '.' + Array.from(selected).join(', .');
-          let examples = document.querySelectorAll(query);
-          examples.forEach((example) => {
-            example.style.display = '';
-          });
+          let query = Array.from(selected).join(' ');
+          let examples = document.getElementsByClassName(query);
+          for( let i = 0; i < examples.length; i++) {
+            examples[i].style.display = '';
+          }
         }
         // document.querySelectorAll( `.${}`)
       }

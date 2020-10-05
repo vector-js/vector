@@ -10,12 +10,12 @@ body {
   flex-direction: column;
 }
 
-main {
+.main {
   flex: 1 0 auto;
   margin: auto;
 }
 
-footer {
+.footer {
     flex-shrink: 0;
     margin-top:100px;
 		height: 150px;

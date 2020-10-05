@@ -9,7 +9,7 @@
 
 import {Interactive, getScriptName} from '../../index.js';
 
-let width = 736;
+let width = 600;
 let height = 300;
 let interactive = new Interactive(getScriptName());
 let margin = 0;
@@ -18,15 +18,46 @@ interactive.height = height + 2*margin;
 interactive.originX = interactive.width/2;
 interactive.originY =  interactive.height/2;
 interactive.root.style.overflow = 'visible';
-interactive.root.style.marginLeft = '6px';
+
+let group3 = interactive.group();
+let group2 = interactive.group();
+let group1 = interactive.group();
+
+group3.style.stroke = '#fafafa';
+group2.style.stroke = '#eeeeee';
+group1.style.stroke = '#dddddd';
+
+for( let i = -interactive.width/2 - (-interactive.width/2 % 10); i < interactive.width/2; i+=10) {
+  console.log(i)
+  if( i % 100 === 0) {
+    group1.line(i, -interactive.height/2, i, interactive.height/2);
+  } else if( i % 10 === 0 ) {
+    group2.line(i, -interactive.height/2, i, interactive.height/2);
+  } else {
+    group3.line(i, -interactive.height/2, i, interactive.height/2);
+  }
+}
+
+for( let i = (-interactive.height/2) - (interactive.height/2 % 10); i < interactive.height/2; i+=10) {
+  if( i % 100 === 0) {
+    group1.line(-interactive.width/2, i, interactive.width/2, i);
+  } else if( i % 10 === 0 ) {
+    group2.line(-interactive.width/2, i, interactive.width/2, i);
+  } else {
+    group3.line(-interactive.width/2, i, interactive.width/2, i);
+  }
+}
+
 
 let rectangle = interactive.rectangle( -width/2, -height/2, width, height);
 rectangle.classList.add('default');
-rectangle.style.fill = '#f8f8f8';
+// rectangle.style.fill = '#f8f8f8';
 
 // rect.root.style.stroke = 'cornflowerblue';
 let xAxis = interactive.line(-width/2, 0, width/2, 0);
 let yAxis = interactive.line(0,-height/2,0, height/2);
+xAxis.style.stroke = '#404040';
+yAxis.style.stroke = '#404040';
 let originDot = interactive.circle(0,0,3);
 originDot.root.style.fill = '#333333';
 

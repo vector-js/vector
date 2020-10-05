@@ -9,8 +9,8 @@
 import {Interactive, getScriptName} from '../../index.js';
 
 let interactive = new Interactive(getScriptName());
-interactive.border = true;
 interactive.width = 736;
+interactive.classList.add('border');
 
 let line = interactive.line( 0, 0, 0, 0);
 line.classList.add('default');
@@ -18,6 +18,8 @@ line.classList.add('default');
 let c1 = interactive.control( 150, 200);
 let c2 = interactive.control( 450, 100);
 let text = interactive.text( 25, 275, "");
+text.style.fontFamily = 'monospace';
+text.style.fontSize = '1.25rem';
 
 line.update = function() {
   this.x1 = c1.x;

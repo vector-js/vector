@@ -41,7 +41,7 @@ import Point from './elements/math/point.js';
 
 // templates
 import {AnimationPlayer} from './templates/animation-player.js';
-import {Template} from './templates/template.js';
+import {HolyGrail} from './templates/holy-grail.js';
 
 // export utility functions
 export * from './util/file.js';
@@ -77,7 +77,7 @@ export {	Button,
 					Slider,
 					SVG,
 					Symbol,
-					Template,
+					HolyGrail,
 					Text,
 					TSpan,
 					Use };

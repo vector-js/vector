@@ -1,0 +1,9 @@
+<div style="display:grid; grid-template-columns: repeat(5, 1fr);">
+  {{ range where .Pages ".Params.active" "==" true }}
+    <div class="" style="margin:1rem;">
+      <img src="{{.Permalink}}{{.Params.Headshot}}" class="headshot" width="128px" style="clip-path: circle(64px at center); margin: .5rem;">
+      <div class="text-center" style="padding:.25rem;"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+      <div class="text-center" style="padding:.25rem;">{{ .Params.role }}</div>
+    </div>
+  {{ end }}
+</div>

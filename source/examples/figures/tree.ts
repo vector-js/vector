@@ -46,13 +46,14 @@ export class TreeFigure extends Interactive {
 	*/
 	static default : Configuration = {
 		y: 3,
-		b: 2
+		b: 2,
+		width: 400
 	}
 
 	/**
 	* Construct a new figure within the provided identitify and configuration.
 	*/
-	constructor( id :string, options = TreeFigure.default) {
+	constructor( id:string | HTMLElement, options = TreeFigure.default) {
 
 		// Prioritize user options over user options
 		let config = { ...TreeFigure.default, ...options };
@@ -60,7 +61,7 @@ export class TreeFigure extends Interactive {
 		super(id, options);
 
 		let bbox = this.container.getBoundingClientRect();
-		console.log(bbox);
+		// console.log(bbox);
 		if( bbox.width < this.width ) {
 			this.width = bbox.width;
 		}
@@ -86,8 +87,6 @@ export class TreeFigure extends Interactive {
 		this.root.style.overflow = 'visible';
 
 		this.draw();
-
-		console.log(this);
 	}
 
 	/**
@@ -129,34 +128,57 @@ export class TreeFigure extends Interactive {
 		this.currentLine = 0;
 		this.currentNode = 0;
 
+		// let startAngle = -TAU/8 + (this._b/5*TAU/16);
+		// let endAngle = -(TAU/2 - TAU/8) - (this._b/5*TAU/12);
+		// let totalAngle = endAngle - startAngle;
+
+		let startAngle = -TAU/8;
+		let endAngle = -(TAU/2 - TAU/8);
+		let totalAngle = endAngle - startAngle;
+
+		// let startAngle = 0;
+		// let endAngle = -TAU/2;
+		// let totalAngle = endAngle - startAngle;
+
+		let startHue = 0;
+		let endHue = TAU/3;
+		let totalHue = endHue - startHue;
+
+		// let radius = this._b > 3 ? 125 : 50;
+		let radius = 80;
+		// let aspectRatio = this.width/this.height;
+		// let xRadius = this.width/TreeFigure.maxLevels;
+		// let yRadius = this.height/TreeFigure.maxLevels;
+
 		for (let i = 0; i <= this._y; i++)  {
 
+			let hue = (i/this._y)*totalHue + startHue;
 			// let temp = i > this._y ? this._y : i;
 			// let distance = temp*600/(.75*TreeFigure.maxLevels + 1);
 
-			let distance = i*600/(.75*TreeFigure.maxLevels + 1);
+			// let distance = i*600/(.75*TreeFigure.maxLevels + 1);
+			// let distance = (i/this._y)*this.height;
+			let xDistance = i*radius;
+			let yDistance = i*radius;
 			let nodes = Math.pow(this._b, i);
 			let change = -Math.PI/(nodes+1);
-			let angle = change;
 			let next = [];
 
 			for( let j = 0; j < nodes; j ++) {
-					let nx = x + distance*Math.cos(angle);
-					let ny = y + distance*Math.sin(angle);
 
-					let index = Math.floor( j / this._b);
-					let ox = prev[ index ].x;
-					let oy = prev[ index ].y;
+				let angle = ((j+0.5)/nodes)*totalAngle + startAngle;
 
-					let line = this.getNextLine( ox, oy, nx, ny);
-					let circle = this.getNextNode(nx, ny, 4);
-					if( i == this._y ) {
-						circle.style.fill = 'cornflowerblue';
-					} else {
-						circle.style.fill = '';
-					}
-					next.push({x:nx, y:ny});
-					angle += change;
+				let nx = x + xDistance*Math.cos(angle);
+				let ny = y + yDistance*Math.sin(angle);
+
+				let index = Math.floor( j / this._b);
+				let ox = prev[ index ].x;
+				let oy = prev[ index ].y;
+
+				let line = this.getNextLine( ox, oy, nx, ny);
+				let circle = this.getNextNode(nx, ny, 4);
+				circle.style.fill = `hsl(${(hue*360/TAU).toFixed(0)}, 85%, 80%)`;
+				next.push({x:nx, y:ny});
 			}
 			prev = next;
 		}

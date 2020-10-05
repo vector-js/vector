@@ -15,6 +15,8 @@ path.classList.add('default');
 let start = interactive.control( 100, 120);
 let control = interactive.control( 200, 120);
 let text = interactive.text( 25, 275, "");
+text.style.fontFamily = 'monospace';
+text.style.fontSize = '1.25rem';
 
 let controls = new Interactive(getScriptName());
 controls.width = 220;

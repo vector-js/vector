@@ -34,3 +34,4 @@ yPosition.update = function(){
   this.y1 = point.y;
   this.y2 = point.y;
 };
+
