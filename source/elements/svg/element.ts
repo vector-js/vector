@@ -1,4 +1,4 @@
-import BaseElement from '../base-element.js';
+import {BaseElement} from '../base-element'
 
 /**
 * These global attributes are associated with every SVG element in the DOM.

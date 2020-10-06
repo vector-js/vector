@@ -1,18 +1,11 @@
-import BaseElement from '../base-element.js';
-import Input from './input.js';
+import {BaseElement} from '../base-element'
+import Input from './input'
 
-import Path from '../svg/path.js';
-import Circle from '../svg/circle.js';
-import Rectangle from '../svg/rectangle.js';
-import { TAU } from '../../util/constants.js';
-
-/**
-* A point has an x position and y position
-*/
-class Point {
-    x:number;
-    y:number;
-}
+import Path from '../svg/path'
+import Circle from '../svg/circle'
+import Rectangle from '../svg/rectangle'
+import { TAU } from '../../util/constants'
+import Point from '../math/point'
 
 /**
 * A control point is a draggable two dimensional point.
@@ -245,7 +238,7 @@ export default class Control extends Input {
   translate(x:number, y:number){
 
     // call the internal transform function
-    let point = this.constrain({x:this.x, y:this.y}, {x:x, y:y});
+    let point = this.constrain(this, new Point(x,y));
 
     // update the instance data
     this._dx = point.x - this._x;
@@ -353,7 +346,7 @@ export default class Control extends Input {
         let y = element.r*Math.sin(angle) + element.cy;
 
         // Return the new position
-        return {x:x, y:y};
+        return new Point(x, y);
 
       };
     } else if( element instanceof Rectangle) {
@@ -424,7 +417,7 @@ export default class Control extends Input {
         // if( x > maxX || (x < maxX && x > cx)) {x = maxX;}
         // if( y > maxY || (y < maxY && y > cy)) {y = maxY;}
 
-        return {x:x, y:y};
+        return new Point(x,y);
       };
     }
   }
@@ -446,7 +439,7 @@ export default class Control extends Input {
           let angle = Math.atan2( newPosition.y - element.cy, newPosition.x - element.cx );
           let x = element.r*Math.cos(angle) + element.cx;
           let y = element.r*Math.sin(angle) + element.cy;
-          return {x:x, y:y};
+          return new Point(x,y);
         } else {
           return newPosition;
         }
@@ -469,7 +462,7 @@ export default class Control extends Input {
         if( x > x2) {x = x2;}
         if( y > y2) {y = y2;}
 
-        return {x:x, y:y};
+        return new Point(x,y);
       };
     }
   }
@@ -492,8 +485,7 @@ export default class Control extends Input {
       let y = r*Math.sin(angle) + cy;
 
       // Return the new position
-      return {x:x, y:y};
-
+      return new Point(x,y);
     };
   }
 
@@ -513,7 +505,7 @@ export default class Control extends Input {
       if( x > x2) {x = x2;}
       if( y > y2) {y = y2;}
 
-      return {x:x, y:y};
+      return new Point(x,y);
     };
   }
 
@@ -524,7 +516,7 @@ export default class Control extends Input {
       let y = newPosition.y;
       if( x < minX) {x = minX;}
       if( x > maxX) {x = maxX;}
-      return {x:x, y:y};
+      return new Point(x,y);
     };
   }
 
@@ -534,7 +526,7 @@ export default class Control extends Input {
   */
   constrainToX( minX:number = -Infinity, maxX:number = Infinity) {
     this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
-      return {x:newPosition.x, y:oldPosition.y};
+      return new Point(newPosition.x, oldPosition.y);
     };
   }
 
@@ -544,7 +536,7 @@ export default class Control extends Input {
   */
   constrainToY() {
     this.constrain = function ( oldPosition:Point, newPosition:Point) : Point {
-      return {x:oldPosition.x, y:newPosition.y};
+      return new Point(oldPosition.x, newPosition.y);
     };
   }
 }

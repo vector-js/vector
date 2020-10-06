@@ -1,4 +1,8 @@
-import { Circle, Group, Line, SVG, Text, Point } from '../../index.js';
+import Point from "./point.js";
+import SVG from "../svg/svg.js";
+import Group from "../svg/group.js";
+import Circle from "../svg/circle.js";
+import Line from "../svg/line.js";
 
 /**
 * These options control the configuration of a plot object when it is created.
@@ -350,10 +354,10 @@ export default class Grid extends SVG {
   /**
   * Converts a point from internal scaling to absolute scaling.
   */
-  internalToAbsolute( point:{x:number, y:number} ) : {x:number, y:number} {
+  internalToAbsolute( point:Point ) : Point {
     let x = point.x*this.scaleX + this.originX;
     let y = point.y*this.scaleY - this.originY;
-    return {x:x, y:-y};
+    return new Point(x, -y);
   }
 
   /**

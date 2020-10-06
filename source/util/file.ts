@@ -1,4 +1,4 @@
-import {saveAs} from './save-as.js';
+import {saveAs} from './save-as'
 
 /**
 * Returns the filename portion of a file path.

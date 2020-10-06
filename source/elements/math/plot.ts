@@ -1,11 +1,11 @@
-import Circle from '../svg/circle.js';
-import Group from '../svg/group.js';
-import Line from '../svg/line.js';
-import Path from '../svg/path.js';
-import Rectangle from '../svg/rectangle.js';
-import SVG from '../svg/svg.js';
-import Text from '../svg/text.js';
-import Point from '../math/point.js';
+import Circle from '../svg/circle'
+import Group from '../svg/group'
+import Line from '../svg/line'
+import Path from '../svg/path'
+import Rectangle from '../svg/rectangle'
+import SVG from '../svg/svg'
+import Text from '../svg/text'
+import Point from '../math/point'
 
 /**
 * These options control the configuration of a plot object when it is created.
@@ -627,7 +627,7 @@ export default class Plot extends SVG {
   internalToAbsolute( point:Point ) : Point {
     let x = point.x*this.scaleX + this.originX;
     let y = point.y*this.scaleY - this.originY;
-    return {x:x, y:-y};
+    return new Point(x,-y);
   }
 
   /**

@@ -1,5 +1,5 @@
-import Node from './node.js';
-import Line from '../svg/line.js';
+import Node from './node'
+import Line from '../svg/line'
 
 //Make the function static and extend from Line
 

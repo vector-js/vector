@@ -1,8 +1,8 @@
-import Group from '../svg/group.js';
-import Rectangle from '../svg/rectangle.js';
-import Text from '../svg/text.js';
-import Path from '../svg/path.js';
-import Input from './input.js';
+import Group from '../svg/group'
+import Rectangle from '../svg/rectangle'
+import Text from '../svg/text'
+import Path from '../svg/path'
+import Input from './input'
 
 /**
 *  Dropdown with menu item labels that can be selected.

@@ -1,5 +1,5 @@
-import Interactive from '../elements/interactive.js';
-import Scrubber from '../elements/input/scrubber.js';
+import Interactive from '../elements/interactive'
+import Scrubber from '../elements/input/scrubber'
 
 export interface AnimationPlayerOptions {
   width?:number;

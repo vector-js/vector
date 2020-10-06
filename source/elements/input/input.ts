@@ -1,4 +1,4 @@
-import Group from '../svg/group.js';
+import Group from '../svg/group'
 
 /**
 * An object that takes in user input in the form of user events.

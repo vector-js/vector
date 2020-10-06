@@ -1,22 +1,22 @@
-import Element, { CoreAttributes } from './element.js';
-import { Structural, Shape } from './content-model.js';
+import Element, { CoreAttributes } from './element'
+import { Structural, Shape } from './content-model'
 
-import Circle from './circle.js';
-import ClipPath from './clip-path.js';
-import Defs from './definitions.js';
-import Description from './definitions.js';
-import Ellipse from './ellipse.js';
-import Group from './group.js';
-import Line from './line.js';
-import MetaData from './meta-data.js';
-import Path from './path.js';
-import Polygon from './polygon.js';
-import Rectangle from './rectangle.js';
-import Symbol from './symbol.js';
-import SVG from './svg.js';
-import Text from './text.js';
-import Title from './title.js';
-import Use from './use.js';
+import Circle from './circle'
+import ClipPath from './clip-path'
+import Defs from './definitions'
+import Description from './definitions'
+import Ellipse from './ellipse'
+import Group from './group'
+import Line from './line'
+import MetaData from './meta-data'
+import Path from './path'
+import Polygon from './polygon'
+import Rectangle from './rectangle'
+import Symbol from './symbol'
+import SVG from './svg'
+import Text from './text'
+import Title from './title'
+import Use from './use'
 
 type MarkerAttributes = 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'markerUnits' | 'markerWidth' | 'markerHeight' | 'orient';
 

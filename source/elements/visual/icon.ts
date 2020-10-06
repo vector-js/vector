@@ -1,4 +1,4 @@
-import Use from '../svg/use.js';
+import Use from '../svg/use'
 
 export default class Icon extends Use {
 

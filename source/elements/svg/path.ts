@@ -1,12 +1,12 @@
-import Shape from './shape.js';
-import Element from './element.js';
-import Circle from './circle.js';
-import Ellipse from './ellipse.js';
-import Line from './line.js';
-import Rectangle from './rectangle.js';
-import Group from './group.js';
-import SVG from './svg.js';
-import Definitions from './definitions.js';
+import Shape from './shape'
+import Element from './element'
+import Circle from './circle'
+import Ellipse from './ellipse'
+import Line from './line'
+import Rectangle from './rectangle'
+import Group from './group'
+import SVG from './svg'
+import Definitions from './definitions'
 
 /**
 * A path element allows for the creation of complicated shapes and curves.

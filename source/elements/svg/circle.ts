@@ -1,5 +1,5 @@
-import Shape from './shape.js';
-import Path from './path.js';
+import Shape from './shape'
+import Path from './path'
 
 /**
 * A circle is a basic geometric element with a position and radius.

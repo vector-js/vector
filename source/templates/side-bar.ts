@@ -1,5 +1,6 @@
-import Interactive from '../elements/interactive.js';
-import { Slider, Control, Input } from '../index.js';
+import Interactive from '../elements/interactive'
+import Slider from '../elements/input/slider'
+import Input from '../elements/input/input'
 
 export interface TemplateConfig {
   interactive?:Interactive

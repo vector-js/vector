@@ -1,11 +1,11 @@
-import Controller from './controller.js';
+import Controller from './controller'
 
 /**
 * A basic element of the interactive ecosystem. Each element has an unique
 * identifier, an update function to be defined by the user, and the ability to
 * add dependencies on other elements.
 */
-export default abstract class BaseElement {
+export abstract class BaseElement {
 
   /**
   * Allows for the events attatched to elements to be disabled.

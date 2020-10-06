@@ -1,7 +1,7 @@
-import Ellipse from '../svg/ellipse.js';
-import Group from '../svg/group.js';
-import Text from '../svg/text.js';
-import Edge from './edge.js';
+import Ellipse from '../svg/ellipse'
+import Group from '../svg/group'
+import Text from '../svg/text'
+import Edge from './edge'
 
 //Bostock had something about fitting text here, seems cool https://observablehq.com/@mbostock/fit-text-to-circle
 

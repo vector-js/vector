@@ -1,3 +1,9 @@
+/**
+ * Expose styling to webpack.
+ */
+
+import '../style/vector.css';
+
 // base element for everything
 import {BaseElement} from './elements/base-element';
 
@@ -44,40 +50,41 @@ import {AnimationPlayer} from './templates/animation-player';
 import {HolyGrail} from './templates/holy-grail';
 
 // export utility functions
-export * as File from './util/file';
-export * as Math from './util/math';
+export * from './util/file';
+export * from './util/math';
 
 // export objects
-export default {	Button,
-									BaseElement,
-									Circle,
-									CheckBox,
-									ClipPath,
-									ControlCircle,
-									Control,
-									Definitions,
-									Description,
-									Element,
-									Ellipse,
-									Group,
-									Input,
-									Interactive,
-									Line,
-									Marker,
-									Path,
-									AnimationPlayer,
-									Plot,
-									Point,
-									Polygon,
-									RadioControl,
-									DropdownControl,
-									Rectangle,
-									Scrubber,
-									Shape,
-									Slider,
-									SVG,
-									Symbol,
-									HolyGrail,
-									Text,
-									TSpan,
-									Use };
+export {	Button,
+					BaseElement,
+					Circle,
+					CheckBox,
+					ClipPath,
+					ControlCircle,
+					Control,
+					Definitions,
+					Description,
+					Element,
+					Ellipse,
+					Group,
+					Input,
+					Interactive,
+					Line,
+					Marker,
+					Path,
+					AnimationPlayer,
+					Plot,
+					Point,
+					Polygon,
+					RadioControl,
+					DropdownControl,
+					Rectangle,
+					Scrubber,
+					Shape,
+					Slider,
+					SVG,
+					Symbol,
+					HolyGrail,
+					Text,
+					TSpan,
+					Use };
+

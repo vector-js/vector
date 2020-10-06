@@ -1,5 +1,5 @@
 import { GeoJSON } from "./geo-json.js";
-import SVG from '../svg/svg.js';
+import SVG from '../svg/svg'
 import Group from "../svg/group.js";
 
 export interface MapOptions {

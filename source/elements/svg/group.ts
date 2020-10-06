@@ -1,23 +1,23 @@
-import Element, { CoreAttributes } from './element.js';
-import { Structural, Shape, Descriptive } from './content-model.js';
+import Element, { CoreAttributes } from './element'
+import { Structural, Shape, Descriptive } from './content-model'
 
-import A from './a.js';
-import Circle from './circle.js';
-import ClipPath from './clip-path.js';
-import Defs from './definitions.js';
-import Ellipse from './ellipse.js';
-import Line from './line.js';
-import Path from './path.js';
-import Polygon from './polygon.js';
-import Rectangle from './rectangle.js';
-import Symbol from './symbol.js';
-import SVG from './svg.js';
-import Text from './text.js';
-import Title from './title.js';
-import Use from './use.js';
-import Description from './description.js';
-import MetaData from './meta-data.js';
-import { Label } from '../visual/label.js';
+import A from './a'
+import Circle from './circle'
+import ClipPath from './clip-path'
+import Defs from './definitions'
+import Ellipse from './ellipse'
+import Line from './line'
+import Path from './path'
+import Polygon from './polygon'
+import Rectangle from './rectangle'
+import Symbol from './symbol'
+import SVG from './svg'
+import Text from './text'
+import Title from './title'
+import Use from './use'
+import Description from './description'
+import MetaData from './meta-data'
+import { Label } from '../visual/label'
 
 type GroupAttributes = 'clip-path' | 'transform' ;
 

@@ -1,38 +1,38 @@
 // util
-import { getURL } from '../util/file.js';
-import { parseSVG } from '../util/svg.js';
+import { getURL } from '../util/file'
+import { parseSVG } from '../util/svg'
 
 // basic elements
-import Input from './input/input.js';
+import Input from './input/input'
 
 // svg elements
-import Element from './svg/element.js';
-import SVG from './svg/svg.js';
-import Group from './svg/group.js';
+import Element from './svg/element'
+import SVG from './svg/svg'
+import Group from './svg/group'
 
 // visual elements
-import Icon from './visual/icon.js';
+import Icon from './visual/icon'
 
 // input elements
-import Button from './input/button.js';
-import CheckBox from './input/check-box.js';
-import Control from './input/control.js';
-import ControlCircle from './input/control-circle.js';
-import RadioControl from './input/radio-control.js';
-import DropdownControl from './input/dropdown-control.js';
-import Scrubber, { ScrubberOptions } from './input/scrubber.js';
-import Slider, { SliderOptions } from './input/slider.js';
-import HoverBox from './input/hover-box.js';
+import Button from './input/button'
+import CheckBox from './input/check-box'
+import Control from './input/control'
+import ControlCircle from './input/control-circle'
+import RadioControl from './input/radio-control'
+import DropdownControl from './input/dropdown-control'
+import Scrubber, { ScrubberOptions } from './input/scrubber'
+import Slider, { SliderOptions } from './input/slider'
+import HoverBox from './input/hover-box'
 
 // graph elements
-// import Node from '../elements/graph/node.js';
-// import Edge from '../elements/graph/edge.js';
-// import Graph, {GraphOptions} from '../elements/graph/graph.js';
+// import Node from '../elements/graph/node'
+// import Edge from '../elements/graph/edge'
+// import Graph, {GraphOptions} from '../elements/graph/graph'
 
 // math elements
-import Plot, { PlotOptions } from '../elements/math/plot.js';
-import { Label } from './visual/label.js';
-import Definitions from './svg/definitions.js';
+import Plot, { PlotOptions } from '../elements/math/plot'
+import { Label } from './visual/label'
+import Definitions from './svg/definitions'
 
 export interface InteractiveOptions {
 	width?:number,

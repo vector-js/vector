@@ -1,0 +1,13 @@
+{
+  "name": "Vector.js Codespaces",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:14",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "arcanis.vscode-zipfs"
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "CI=true yarn install"
+}

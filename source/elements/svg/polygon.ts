@@ -1,4 +1,4 @@
-import Shape from './shape.js';
+import Shape from './shape'
 
 /**
 * A polygon is a closed shape defined by a series of points.

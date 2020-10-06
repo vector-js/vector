@@ -1,5 +1,5 @@
-import Group from '../svg/group.js';
-import { parseSVG } from '../../util/svg.js';
+import Group from '../svg/group'
+import { parseSVG } from '../../util/svg'
 
 export default class UnitedStates extends Group {
 

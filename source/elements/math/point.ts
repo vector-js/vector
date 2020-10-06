@@ -1,4 +1,4 @@
-import BaseElement from '../base-element.js';
+import {BaseElement} from '../base-element'
 
 /**
 * A point has an x position and y position

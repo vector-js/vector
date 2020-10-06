@@ -1,5 +1,5 @@
-import DependencyGraph from '../model/dependency-graph.js';
-import Element from './base-element.js';
+import DependencyGraph from '../model/dependency-graph'
+import {BaseElement} from './base-element'
 
 /**
 * This controller manages the dependencies between elements.
@@ -9,33 +9,33 @@ export default class Controller {
   /**
   * Contains a map of unique identifiers to elements
   */
-  elements : Map<string, Element>;
+  elements : Map<string, BaseElement>;
 
   /**
   * Contains the dependencies between elements
   */
-  dependencyGraph : DependencyGraph<Element>;
+  dependencyGraph : DependencyGraph<BaseElement>;
 
   /**
   * Constructs a controller
   */
   constructor() {
-    this.dependencyGraph = new DependencyGraph<Element>();
-    this.elements = new Map<string, Element>();
+    this.dependencyGraph = new DependencyGraph<BaseElement>();
+    this.elements = new Map<string, BaseElement>();
   }
 
   /**
   * Clears all the elements from this controller.
   */
   clear() {
-    this.dependencyGraph = new DependencyGraph<Element>(); // TODO: implement clear method
+    this.dependencyGraph = new DependencyGraph<BaseElement>(); // TODO: implement clear method
     this.elements.clear()
   }
 
   /**
   * Adds an element to this controller.
   */
-  add( element: Element ) {
+  add( element: BaseElement ) {
     this.dependencyGraph.add(element);
     this.elements.set( element.id, element);
   }
@@ -43,7 +43,7 @@ export default class Controller {
   /**
   * Removes an element from this controller.
   */
-  remove( element:Element) {
+  remove( element:BaseElement) {
     this.dependencyGraph.remove(element);
     this.elements.delete(element.id);
   }
@@ -51,14 +51,14 @@ export default class Controller {
   /**
   * Returns the element corresponding to the unique string identifier
   */
-  get( id:string ) : Element {
+  get( id:string ) : BaseElement {
     return this.elements.get(id);
   }
 
   /**
   * Updates this element and all of its dependents
   */
-  update( element: Element ) {
+  update( element: BaseElement ) {
     let deps = this.dependencyGraph.getDependents( element);
     for( let d of deps) {
       d.update();

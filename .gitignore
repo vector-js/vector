@@ -6,4 +6,17 @@ types
 *.js.map
 docs
 dist
-vector.js
+source/**/*.js
+
+# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+website/.yarn/*
+!website/.yarn/releases
+!website/.yarn/plugins
+!website/.yarn/sdks
+!website/.yarn/versions

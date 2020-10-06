@@ -1,4 +1,6 @@
-import { Group, Text, Rectangle } from "../../index.js";
+import Rectangle from "../svg/rectangle";
+import Group from "../svg/group";
+import Text from "../svg/text";
 
 export class Label extends Group {
 

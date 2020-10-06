@@ -1,4 +1,4 @@
-import Element from './element.js';
+import Element from './element'
 
 export default class Description extends Element {
   constructor() {

@@ -1,4 +1,4 @@
-import Point from '../elements/math/point.js';
+import Point from '../elements/math/point'
 
 /**
 * Returns the next prime number after the given integer.
@@ -60,7 +60,7 @@ export function PointWhereTwoLinesIntersect( p1:Point, p2:Point, p3:Point, p4:Po
   } else {
     y = p1.y + slope1*(x - p1.x);
   }
-  return {x:x, y:y};
+  return new Point(x,y);
 }
 
 /**

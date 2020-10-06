@@ -1,6 +1,6 @@
-import Element, { CoreAttributes } from './element.js';
-import TSpan from './t-span.js';
-import { Typography } from './content-model.js';
+import Element, { CoreAttributes } from './element'
+import TSpan from './t-span'
+import { Typography } from './content-model'
 
 /**
 * These attributes control the text position.

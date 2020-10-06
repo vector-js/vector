@@ -1,5 +1,3 @@
-import { SVG } from "../../index.js";
-
 /**
 * A grid is
 */

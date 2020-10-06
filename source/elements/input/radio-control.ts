@@ -1,5 +1,5 @@
-import Input from './input.js';
-import CheckBox from './check-box.js';
+import Input from './input'
+import CheckBox from './check-box'
 
 /**
 *  Radio Buttons with labels. Only one of the checkboxes will be checked at any given time.

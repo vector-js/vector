@@ -1,7 +1,7 @@
-import Line from '../svg/line.js';
-import ControlCircle from './control-circle.js';
-import Input from './input.js';
-import Point from '../math/point.js';
+import Line from '../svg/line'
+import ControlCircle from './control-circle'
+import Input from './input'
+import Point from '../math/point'
 
 export interface SliderOptions {
   width?:number,
@@ -116,7 +116,7 @@ export default class Slider extends Input {
       // constrain to step size
       x = Math.floor(x/50)*50 ;
 
-      return {x:x, y:y};
+      return new Point(x,y);
     };
   }
 

@@ -1,6 +1,6 @@
-import Slider from './slider.js';
-import { SliderOptions } from './slider.js';
-import Group from '../svg/group.js';
+import Slider from './slider'
+import { SliderOptions } from './slider'
+import Group from '../svg/group'
 
 export interface ScrubberOptions extends SliderOptions {
   loop:boolean

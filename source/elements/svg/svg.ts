@@ -1,24 +1,24 @@
-import { Descriptive, Shape, Structural, Typography } from './content-model.js';
-import Element, { CoreAttributes } from './element.js';
+import { Descriptive, Shape, Structural, Typography } from './content-model'
+import Element, { CoreAttributes } from './element'
 
-import Circle from './circle.js';
-import ClipPath from './clip-path.js';
-import Defs from './definitions.js';
-import Description from './description.js';
-import Ellipse from './ellipse.js';
-import Group from './group.js';
-import Line from './line.js';
-import Marker from './marker.js';
-import MetaData from './meta-data.js';
-import Path from './path.js';
-import Polygon from './polygon.js';
-import Rectangle from './rectangle.js';
-import Symbol from './symbol.js';
-import Text from './text.js';
-import Title from './title.js';
-import Use from './use.js';
-import A from './a.js';
-import Script from './script.js';
+import Circle from './circle'
+import ClipPath from './clip-path'
+import Defs from './definitions'
+import Description from './description'
+import Ellipse from './ellipse'
+import Group from './group'
+import Line from './line'
+import Marker from './marker'
+import MetaData from './meta-data'
+import Path from './path'
+import Polygon from './polygon'
+import Rectangle from './rectangle'
+import Symbol from './symbol'
+import Text from './text'
+import Title from './title'
+import Use from './use'
+import A from './a'
+import Script from './script'
 
 type SVGAttributes = 'viewBox' | 'preserveAspectRatio' | 'transform';
 

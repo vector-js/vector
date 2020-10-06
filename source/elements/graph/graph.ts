@@ -1,7 +1,7 @@
-import Node from './node.js';
-import Edge from './edge.js';
-import Group from '../svg/group.js';
-import Defs from '../svg/definitions.js';
+import Node from './node'
+import Edge from './edge'
+import Group from '../svg/group'
+import Defs from '../svg/definitions'
 
 
 /**

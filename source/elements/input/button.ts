@@ -1,7 +1,7 @@
-import Rectangle from '../svg/rectangle.js';
-import Text from '../svg/text.js';
+import Rectangle from '../svg/rectangle'
+import Text from '../svg/text'
 
-import Input from './input.js';
+import Input from './input'
 
 /**
 * A button that when pressed fires an onclick event.

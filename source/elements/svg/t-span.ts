@@ -1,5 +1,5 @@
-import Element, { CoreAttributes } from './element.js';
-import { TextAttributes } from './text.js';
+import Element, { CoreAttributes } from './element'
+import { TextAttributes } from './text'
 
 /**
 * A tspan element is a text element that allows the user to change the style

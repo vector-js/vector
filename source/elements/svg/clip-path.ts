@@ -1,15 +1,15 @@
-import Circle from './circle.js';
-import Ellipse from './ellipse.js';
-import Line from './line.js';
-import Path from './path.js';
-import Polygon from './polygon.js';
-import Rectangle from './rectangle.js';
+import Circle from './circle'
+import Ellipse from './ellipse'
+import Line from './line'
+import Path from './path'
+import Polygon from './polygon'
+import Rectangle from './rectangle'
 
-import Element from './element.js';
-import { Descriptive, Shape } from './content-model.js';
-import Description from './description.js';
-import MetaData from './meta-data.js';
-import Title from './title.js';
+import Element from './element'
+import { Descriptive, Shape } from './content-model'
+import Description from './description'
+import MetaData from './meta-data'
+import Title from './title'
 
 export default class ClipPath extends Element implements Descriptive, Shape {
 

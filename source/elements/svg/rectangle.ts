@@ -1,5 +1,5 @@
-import { CoreAttributes } from './element.js';
-import Shape, { ShapeAttributes } from './shape.js';
+import { CoreAttributes } from './element'
+import Shape, { ShapeAttributes } from './shape'
 
 type RectangleAttributes = 'rx' | 'ry';
 

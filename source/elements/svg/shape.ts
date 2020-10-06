@@ -1,4 +1,4 @@
-import Element, { CoreAttributes } from './element.js';
+import Element, { CoreAttributes } from './element'
 
 /**
 * Attributes associated with geometric SVG elements.
