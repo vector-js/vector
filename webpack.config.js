@@ -32,7 +32,7 @@ module.exports = {
   plugins: [
     new UnminifiedWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'vector.css',
+      filename: 'vector.min.css',
       chunkFilename: '[id].css',
     }),
   ],

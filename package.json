@@ -9,15 +9,25 @@
   "unpkg": "dist/vector.min.js",
   "jsdeliver": "dist/vector.min.js",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.js",
-    "build": "webpack --config webpack.js",
-    "clean": "./scripts/clean.sh",
-    "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run rollup && npm run website ",
+    "build": "webpack --config webpack.config.js",
+    "clean": "rm -rf dist/ node_modules/",
+    "clean-install": "yarn clean && yarn",
+    "deploy": "echo \"Error: no test specified\" && exit 1",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
-    "website": "cd website && hugo",
-    "watch": "tsc -w",
     "rollup": "rollup --config",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "test": "jest",
+    "watch": "tsc -w",
+    "website": "cd website && hugo"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/*.test.js"
+    ],
+    "testURL": "http://localhost/",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   },
   "homepage": "https://vectorjs.org",
   "repository": {
@@ -57,6 +67,7 @@
     "eslint": "^7.10.0",
     "eslint-loader": "^4.0.2",
     "http-server": "^0.12.3",
+    "jest": "^26.5.2",
     "jsonfile": "^5.0.0",
     "mini-css-extract-plugin": "^0.11.3",
     "mocha": "^8.1.3",

@@ -1,7 +1,7 @@
 // import resolve from '@rollup/plugin-node-resolve';
 // import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import pkg from './package.json';
+import pkg from '../package.json';
 
 // "cjs" CommonJS Bundle: suitable for node
 // "esm" ES Module Bundle: suitable for other libs and apps
