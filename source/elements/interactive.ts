@@ -1,6 +1,3 @@
-// util
-import { getURL } from '../util/file'
-import { parseSVG } from '../util/svg'
 
 // basic elements
 import Input from './input/input'
@@ -9,9 +6,6 @@ import Input from './input/input'
 import Element from './svg/element'
 import SVG from './svg/svg'
 import Group from './svg/group'
-
-// visual elements
-import Icon from './visual/icon'
 
 // input elements
 import Button from './input/button'
@@ -314,63 +308,6 @@ export default class Interactive extends SVG {
     return this.appendChild( new CheckBox(x, y, label, value));
   }
 
-	/**
-	* Creates an icon at the position (x,y) with the provided dimensions.
-	*/
-  icon( x:number, y:number, width:number, height:number, name:string, options:{
-		baseURL?:string
-	} = {}) : Icon {
-
-		let baseURL : string;
-		if( options.baseURL === undefined ) {
-			baseURL = 'resources/icons/';
-		} else {
-			baseURL = options.baseURL;
-		}
-
-		// check to see if the symbols group has been initialized
-		if( this.symbols === undefined ) {
-			this.symbols = new Group();
-			this.root.appendChild(this.symbols.root);
-			this.icons = new Set();
-		}
-
-    // create a new icon element
-    let icon = new Icon(x,y,width,height);
-    this.appendChild(icon);
-
-    // check to see if we have loaded this icon before
-		let id = `${this.id}-${name}`
-    if( !this.icons.has(id) ) {
-
-			// TODO: maybe we should only request one SVG file with that defines many
-			// icon symbols. Then add the symbols as needed from, rather than have
-			// many network requests for symbols. Or maybe the user could add the
-			// symbols to their web page themselves.
-			let temp = this;
-      getURL(`${baseURL}${name}.svg`).then(function(response){
-
-        let symbolSVG = parseSVG(response);
-				let symbol = temp.symbols.symbol();
-				symbol.root.id = id;
-				symbol.viewBox = symbolSVG.getAttribute('viewBox');
-        while (symbolSVG.childNodes.length > 0) {
-            symbol.root.appendChild(symbolSVG.childNodes[0]);
-        }
-				icon.href = `#${id}`;
-
-      }).catch(function(error){
-        throw error;
-      });
-    } else {
-			icon.href = `#${id}`;
-		}
-
-		this.icons.add(id);
-    return icon;
-
-  }
-
   /**
   * Creates a checkbox input at the position (x,y) within this interactive.
   */
@@ -435,33 +372,5 @@ export default class Interactive extends SVG {
   */
   scrubber(x:number, y:number, options:ScrubberOptions ) : Scrubber {
     return this.appendChild(new Scrubber( x, y, options));
-  }
-
-  // /**
-  // * Creates a node within this interactive.
-  // */
-  // node( x:number, y:number, rx: number, ry:number, contents:string ) : Node {
-  //   return this.appendChild(new Node( x, y, rx, ry, contents));
-  // }
-	//
-  // /**
-  // * Creates an edge connecting two nodes within this interactive.
-  // */
-  // edge (nodeFrom: Node, nodeTo: Node, directed: boolean) : Edge{
-  //   return this.appendChild(new Edge(nodeFrom, nodeTo, directed));
-  // }
-
-  /**
-  *
-  */
-  async loadSVG( url:string ) : Promise<Group> {
-    let group = new Group();
-    this.appendChild(group);
-    getURL(url).then(function(response){
-      group.root.appendChild(parseSVG(response));
-    }).catch(function(error){
-      throw error;
-    });
-    return group;
   }
 }

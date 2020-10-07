@@ -4,7 +4,6 @@ const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  // mode: 'development',
   entry: './source/index.webpack.ts',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -35,5 +34,5 @@ module.exports = {
       filename: 'vector.min.css',
       chunkFilename: '[id].css',
     }),
-  ],
+  ]
 };

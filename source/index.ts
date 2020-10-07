@@ -44,8 +44,8 @@ import {AnimationPlayer} from './templates/animation-player';
 import {HolyGrail} from './templates/holy-grail';
 
 // export utility functions
-export * as File from './util/file';
-export * as Math from './util/math';
+export { File } from './util/file';
+export { Math2 } from './util/math';
 
 // export objects
 export  {	

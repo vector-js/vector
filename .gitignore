@@ -3,10 +3,11 @@ node_modules
 builds
 cache
 types
-*.js.map
 docs
 dist
+lib
 source/**/*.js
+source/**/*.map.js
 
 # https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
 .yarn/*
