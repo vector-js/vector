@@ -23,189 +23,208 @@ import Script from './script'
 type SVGAttributes = 'viewBox' | 'preserveAspectRatio' | 'transform';
 
 /**
-* This class represents a SVG element. There are four geometric properties x, y,
-* width, and height. The (x,y) properties only affect nested SVG elements.
+* This class represents a SVG element. A "scalable vector grapic" has two important geometric 
+* properties. The "viewPort" defines the width and height of the graphic. The "viewBox" defines the
+* internal coordinate system used to draw elements.
 */
 export default class SVG extends Element implements Descriptive, Shape, Structural, Typography {
 
-  // make the type of the root more specific
-  root: SVGSVGElement;
+	// make the type of the root more specific
+	root: SVGSVGElement;
 
-  /**
-  * Constructs a svg element.
-  */
-  constructor( x?:number, y?:number, width?:number, height?:number ) {
-    let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    if( x ) {
-      svg.setAttributeNS(null, 'x', x.toString());
-    }
-    if( y ) {
-      svg.setAttributeNS(null, 'y', y.toString());
-    }
-    if( width ) {
-      svg.setAttributeNS(null, 'width', width.toString());
-    }
-    if( height ) {
-      svg.setAttributeNS(null, 'height', height.toString());
-    }
-    super(svg);
-  }
+	/**
+	* Constructs a SVG element with the display dimensions specified by the width and height.For the 
+	* outermost SVG element placed in the DOM, the (x,y) coordinate positions are ignored. For nested 
+	* SVG element (placed within another SVG element) the (x,y) coordinate positions descript the
+	* top-left position of the nested SVG.
+	*/
+	constructor();
+	constructor( width:number, height:number);
+	constructor( x:number, y:number, width:number, height:number );
+	constructor( arg1?:number, arg2?:number, arg3?:number, arg4?:number ) {
 
-  /**
-  * Constructs and returns a SVG object within the DOM.  If the provided
-  * argument is an HTMLElement appends the interactive within that element. If
-  * the provided a value is a string, appends the interactive within the HTML
-  * element with the corresponding ID. If no element is found throws an error.
-  */
-  static SVG( idOrElement:string | HTMLElement, x?:number, y?:number, width?:number, height?:number ) : SVG {
+		let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
+		// svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+		
+		if( arg1 && arg2 && arg3 && arg4 ) {
+			svg.setAttributeNS(null, 'x', arg1.toString());
+			svg.setAttributeNS(null, 'y', arg2.toString());
+			svg.setAttributeNS(null, 'width', arg3.toString());
+			svg.setAttributeNS(null, 'height', arg4.toString());
+		} else if ( arg1 && arg2 ) {
+			svg.setAttributeNS(null, 'width', arg1.toString());
+			svg.setAttributeNS(null, 'height', arg2.toString());
+		}
 
-    // get the container element
-    let container : HTMLElement;
-    if (typeof idOrElement == "string") {
-      container = document.getElementById(idOrElement);
-      if( container === null || container === undefined ) {
-        throw new Error(`There is no HTML element with the id: ${idOrElement}`);
-      }
-    } else {
-      container = idOrElement;
-    }
+		super(svg);
 
-    // construct and append the svg
-    let svg = new SVG(x,y,width,height);
-    container.appendChild(svg.root);
-    return svg;
-  }
+	}
 
-  /**
-  * Return the width of this svg element.
-  */
-  get width() {
-    // return this.root.width.baseVal.value;
-    return parseInt(this.root.getAttribute('width'));
-  }
+	/**
+	* Constructs and returns a SVG object within the DOM.  If the provided
+	* argument is an HTMLElement appends the interactive within that element. If
+	* the provided a value is a string, appends the interactive within the HTML
+	* element with the corresponding ID. If no element is found throws an error.
+	*/
+	static SVG( idOrElement:string | HTMLElement, width?:number, height?:number ) : SVG {
 
-  /**
-  * Set the width of this svg element.
-  */
-  set width( value:number ) {
-    // this.root.width.baseVal.value = value;
-    this.root.setAttributeNS(null, 'width', value.toString());
-  }
+		// get the container element
+		let container : HTMLElement;
+		if (typeof idOrElement == "string") {
+			container = document.getElementById(idOrElement);
+			if( container === null || container === undefined ) {
+				throw new Error(`There is no HTML element with the id: ${idOrElement}`);
+			}
+		} else {
+			container = idOrElement;
+		}
 
-  /**
-  * Returns the height of this svg element.
-  */
-  get height() {
-    // return this.root.height.baseVal.value;
-    return parseInt(this.root.getAttribute('height'));
-  }
+		// construct and append the svg
+		let svg = new SVG(width,height);
+		container.appendChild(svg.root);
+		return svg;
+	}
 
-  /**
-  * Sets the height of this svg element to the provided value.
-  */
-  set height( value:number ) {
-    // this.root.height.baseVal.value = value;
-    this.root.setAttributeNS(null, 'height', value.toString());
-  }
+	/**
+	* Return the width of this svg element.
+	*/
+	get width() {
+		return parseInt(this.root.getAttribute('width'));
+	}
 
-  get x() {
-    return this.root.x.baseVal.value;
-  }
+	/**
+	* Set the width of this svg element.
+	*/
+	set width( value:number ) {
+		this.root.setAttribute('width', value.toString());
+	}
 
-  set x( value:number ) {
-    this.root.x.baseVal.value = value;
-  }
+	/**
+	* Returns the height of this svg element.
+	*/
+	get height() {
+		return parseInt(this.root.getAttribute('height'));
+	}
 
-  get y() {
-    return this.root.y.baseVal.value;
-  }
+	/**
+	* Sets the height of this svg element to the provided value.
+	*/
+	set height( value:number ) {
+		this.root.setAttribute('height', value.toString());
+	}
 
-  set y( value:number ) {
-    this.root.y.baseVal.value = value;
-  }
+	get x() {
+		return this.root.x.baseVal.value;
+	}
 
-  get viewBox() : string {
-    return this.root.getAttribute('viewBox');
-  }
+	set x( value:number ) {
+		this.root.x.baseVal.value = value;
+	}
 
-  set viewBox( value:string ) {
-    this.root.setAttribute('viewBox', value);
-  }
+	get y() {
+		return this.root.y.baseVal.value;
+	}
 
-  setViewBox( x:number, y:number, width:number, height:number ) {
-    this.viewBox = `${x} ${y} ${width} ${height}`;
-  }
+	set y( value:number ) {
+		this.root.y.baseVal.value = value;
+	}
 
-  // comment inherited from base class
-  setAttribute(name: SVGAttributes | CoreAttributes, value: string): SVG {
-    this.root.setAttribute(name,value);
-    return this;
-  }
+	get viewBox() : string {
+		return this.root.getAttribute('viewBox');
+	}
 
-  // comment inherited from base class
-  getAttribute(name: SVGAttributes | CoreAttributes): string {
-    return this.root.getAttribute(name);
-  }
+	/**
+	 * Sets the viewBox to the provided string in the form of "minX minY width height". This updates
+	 * the internal coordinate system used for drawing.
+	 */
+	set viewBox( value:string ) {
+		this.root.setAttribute('viewBox', value);
+	}
 
-  // descriptive elements
+	/**
+	 * Updates the internal coordinate system (used for drawing and scaling).
+	 * 
+	 * @param minX The top left x-position of the internal coordinate system
+	 * @param minY The top left y-position of the internal coordinate system
+	 * @param width The width of the internal coordinate system
+	 * @param height The height of the internal coorinate system
+	 */
+	setViewBox( minX:number, minY:number, width:number, height:number ) {
+		this.root.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
+	}
 
-  description(): Description {
-    return this.appendChild(new Description());
-  }
-  metadata(): MetaData {
-    return this.appendChild(new MetaData());
-  }
-  title(): Title {
-    return this.appendChild(new Title());
-  }
+	// comment inherited from base class
+	setAttribute(name: SVGAttributes | CoreAttributes, value: string): SVG {
+		this.root.setAttribute(name,value);
+		return this;
+	}
 
-  // shape elements
+	// comment inherited from base class
+	getAttribute(name: SVGAttributes | CoreAttributes): string {
+		return this.root.getAttribute(name);
+	}
 
-  circle(cx: number, cy: number, r: number): Circle {
-    return this.appendChild(new Circle(cx, cy, r));
-  }
-  ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse {
-    return this.appendChild(new Ellipse(cx, cy, rx, ry));
-  }
-  line(x1: number, y1: number, x2: number, y2: number): Line {
-    return this.appendChild(new Line(x1, y1, x2, y2));
-  }
-  path(d: string): Path {
-    return this.appendChild(new Path(d));
-  }
-  polygon(points: string): Polygon {
-    return this.appendChild(new Polygon(points));
-  }
-  rectangle(x: number, y: number, width: number, height: number): Rectangle {
-    return this.appendChild(new Rectangle(x, y, width, height));
-  }
+	// descriptive elements
 
-  // structural elements
+	description(): Description {
+		return this.appendChild(new Description());
+	}
+	metadata(): MetaData {
+		return this.appendChild(new MetaData());
+	}
+	title(): Title {
+		return this.appendChild(new Title());
+	}
 
-  defs(): Defs {
-    return this.appendChild(new Defs());
-  }
-  group(): Group {
-    return this.appendChild(new Group());
-  }
-  svg(x:number, y:number, width:number, height:number): SVG {
-    return this.appendChild(new SVG(x,y,width,height));
-  }
-  symbol(): Symbol {
-    return this.appendChild(new Symbol());
-  }
-  use(x:number, y:number, width:number, height:number): Use {
-    return this.appendChild(new Use(x, y, width, height));
-  }
+	// shape elements
 
-  // typography elements
+	circle(cx: number, cy: number, r: number): Circle {
+		return this.appendChild(new Circle(cx, cy, r));
+	}
+	ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse {
+		return this.appendChild(new Ellipse(cx, cy, rx, ry));
+	}
+	line(x1: number, y1: number, x2: number, y2: number): Line {
+		return this.appendChild(new Line(x1, y1, x2, y2));
+	}
+	path(d: string): Path {
+		return this.appendChild(new Path(d));
+	}
+	polygon(points: string): Polygon {
+		return this.appendChild(new Polygon(points));
+	}
+	rectangle(x: number, y: number, width: number, height: number): Rectangle {
+		return this.appendChild(new Rectangle(x, y, width, height));
+	}
 
-  text(x: number, y: number, str: string): Text {
-    return this.appendChild(new Text(x, y, str));
-  }
+	// structural elements
 
-  // other elements
+	defs(): Defs {
+		return this.appendChild(new Defs());
+	}
+	group(): Group {
+		return this.appendChild(new Group());
+	}
+	svg(x:number, y:number, width:number, height:number): SVG {
+		let svg = new SVG(width,height);
+		svg.x = x;
+		svg.y = y;
+		return this.appendChild(svg);
+	}
+	symbol(): Symbol {
+		return this.appendChild(new Symbol());
+	}
+	use(x:number, y:number, width:number, height:number): Use {
+		return this.appendChild(new Use(x, y, width, height));
+	}
+
+	// typography elements
+
+	text(x: number, y: number, str: string): Text {
+		return this.appendChild(new Text(x, y, str));
+	}
+
+	// other elements
 
 	/**
 	* Constructs and appends an 'a' (link) element within this element.
@@ -217,16 +236,16 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 	/**
 	* Constructs and appends a 'clipPath' element within this element.
 	*/
-  clipPath():ClipPath {
-    return this.appendChild(new ClipPath());
-  }
+	clipPath():ClipPath {
+		return this.appendChild(new ClipPath());
+	}
 
 	/**
 	* Constructs and appends a 'marker' element within this element.
 	*/
-  marker(refX:number, refY:number, width:number, height:number):Marker {
-    return this.appendChild(new Marker(refX, refY, width, height));
-  }
+	marker(refX:number, refY:number, width:number, height:number):Marker {
+		return this.appendChild(new Marker(refX, refY, width, height));
+	}
 
 	/**
 	* Constructs and appends a 'script' element within this element.

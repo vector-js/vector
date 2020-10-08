@@ -6,6 +6,7 @@ import Circle from '../svg/circle'
 import Rectangle from '../svg/rectangle'
 import { TAU } from '../../util/constants'
 import Point from '../math/point'
+import SVG from '../svg/svg'
 
 /**
 * A control point is a draggable two dimensional point.
@@ -22,6 +23,8 @@ export default class Control extends Input {
   private static slopY : number = 0;
   private static prevX : number = 0;
   private static prevY : number = 0;
+  private static closestSVG : SVGSVGElement;
+  private static ctm : DOMMatrix;
 
   // Private instance variables
   private _x: number;
@@ -111,52 +114,25 @@ export default class Control extends Input {
   */
   static handleMoveTo( clientX: number, clientY: number) {
 
-    // let deltaX = clientX - Control.prevX;
-    // let deltaY = clientY - Control.prevY;
-    // Control.prevX = clientX;
-    // Control.prevY = clientY;
-    // let x = Control.active.x + deltaX;
-    // let y = Control.active.y + deltaY;
-    let x = clientX + Control.slopX;
-    let y = clientY + Control.slopY;
+    // Calculate the position of (clientX, clientY) in the SVG coordinate system
+    let point = Control.closestSVG.createSVGPoint();
+    point.x = clientX;
+    point.y = clientY;
+    let p = point.matrixTransform(Control.ctm.inverse());
+
+    // Update the current position of the control point
+    let x = p.x + Control.slopX;
+    let y = p.y + Control.slopY;
     Control.active.translate( x, y);
   }
 
+  /**
+   * Converts this control point to a black/white point for display / printing.
+   */
   converToDisplay() {
     this.point.fill = '#404040';
     this.point.r = 3.5;
   }
-
-  // static handleMoveTo( clientX, clientY) {
-  //
-  //   let viewPort = Control.active.root.viewportElement;
-  //   let viewBox = viewPort.getAttribute('viewBox');
-  //
-  //   let transform = viewPort.getAttribute('transform');
-  //   let start = transform.indexOf(',');
-  //   let end = transform.indexOf(')');
-  //
-  //   let yDirection = parseInt(transform.substr(start + 1, end - start));
-  //   let width = parseInt(viewPort.getAttribute('width'));
-  //   let height = parseInt(viewPort.getAttribute('height'));
-  //   let viewBoxArray = viewBox.split(' ');
-  //   // let originX = parseInt(viewBoxArray[0]);
-  //   // let originY = parseInt(viewBoxArray[1]);
-  //   let visibleWidth = parseInt(viewBoxArray[2]);
-  //   let visibleHeight = parseInt(viewBoxArray[3]);
-  //   let scaleX = width/visibleWidth;
-  //   let scaleY = height/visibleHeight;
-  //
-  //   let deltaX = clientX - Control.prevX;
-  //   let deltaY = clientY - Control.prevY;
-  //   Control.prevX = clientX;
-  //   Control.prevY = clientY;
-  //   let x = Control.active.x + deltaX/scaleX;
-  //   let y = Control.active.y + deltaY/scaleY*yDirection;
-  //
-  //   Control.active.translate( x, y);
-  //   event.preventDefault();
-  // }
 
   /**
   * Handles when a use mouses up over the window or ends their touch event.
@@ -212,10 +188,20 @@ export default class Control extends Input {
       event.preventDefault();
       event.stopPropagation();
       Control.active = this;
-      Control.slopX = Control.active.x - event.clientX;
-      Control.slopY = Control.active.y - event.clientY;
-      Control.prevX = event.clientX;
-      Control.prevY = event.clientY;
+      
+      // Store the parent SVG coordinate system
+      Control.closestSVG = Control.active.root.closest('svg');
+      Control.ctm = Control.closestSVG.getScreenCTM();
+
+      // Calculate the (x,y) position of (clientX, clientY)
+      let point = Control.closestSVG.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      let p = point.matrixTransform(Control.ctm.inverse());
+
+      // Store the difference between the mouse position and the control position
+      Control.slopX = Control.active.x - p.x;
+      Control.slopY = Control.active.y - p.y;
     }
   }
 
