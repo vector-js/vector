@@ -89,7 +89,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 	* Return the width of this svg element.
 	*/
 	get width() {
-		return parseInt(this.root.getAttribute('width'));
+		return this.root.width.baseVal.value;
 	}
 
 	/**
@@ -103,7 +103,7 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 	* Returns the height of this svg element.
 	*/
 	get height() {
-		return parseInt(this.root.getAttribute('height'));
+		return this.root.height.baseVal.value;
 	}
 
 	/**

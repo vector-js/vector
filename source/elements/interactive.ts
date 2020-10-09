@@ -142,37 +142,37 @@ export default class Interactive extends SVG {
     });
   }
 
-  /**
-  * Sets the width of this interactive area.
-  */
-  set width( value:number ){
-    this._width = value;
-    this.root.setAttribute('width', value.toString());
-    this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-  }
+  // /**
+  // * Sets the width of this interactive area.
+  // */
+  // set width( value:number ){
+  //   this._width = value;
+  //   this.root.setAttribute('width', value.toString());
+  //   this.setViewBox( -this._originX, -this._originY, this._width, this._height );
+  // }
 
-  /**
-  * Returns the width of this interactive area.
-  */
-  get width():number {
-    return this._width;
-  }
+  // /**
+  // * Returns the width of this interactive area.
+  // */
+  // get width():number {
+  //   return this._width;
+  // }
 
-  /**
-  * Sets the height of this interactive area.
-  */
-  set height( value:number ){
-    this._height = value;
-    this.root.setAttribute('height', value.toString());
-    this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-  }
+  // /**
+  // * Sets the height of this interactive area.
+  // */
+  // set height( value:number ){
+  //   this._height = value;
+  //   this.root.setAttribute('height', value.toString());
+  //   this.setViewBox( -this._originX, -this._originY, this._width, this._height );
+  // }
 
-  /**
-  * Returns the height of this interactive area.
-  */
-  get height():number {
-    return this._height;
-  }
+  // /**
+  // * Returns the height of this interactive area.
+  // */
+  // get height():number {
+  //   return this._height;
+  // }
 
   /**
   * Sets the x coordinate of the origin.

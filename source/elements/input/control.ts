@@ -212,8 +212,19 @@ export default class Control extends Input {
   handleTouchStart( event:TouchEvent ) {
     if( !BaseElement.disable ) {
       Control.active = this;
-      Control.slopX = Control.active.x - event.touches[0].clientX;
-      Control.slopY = Control.active.y - event.touches[0].clientY;
+      // Store the parent SVG coordinate system
+      Control.closestSVG = Control.active.root.closest('svg');
+      Control.ctm = Control.closestSVG.getScreenCTM();
+
+      // Calculate the (x,y) position of (clientX, clientY)
+      let point = Control.closestSVG.createSVGPoint();
+      point.x = event.touches[0].clientX;
+      point.y = event.touches[0].clientY;
+      let p = point.matrixTransform(Control.ctm.inverse());
+
+      // Store the difference between the mouse position and the control position
+      Control.slopX = Control.active.x - p.x;
+      Control.slopY = Control.active.y - p.y;
       event.preventDefault();
     }
   }
