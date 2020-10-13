@@ -43,6 +43,8 @@ import Point from './elements/math/point';
 import {AnimationPlayer} from './templates/animation-player';
 import {HolyGrailTemplate} from './templates/holy-grail';
 import {SideBarTemplate} from './templates/side-bar';
+import { SVGResponsiveTemplate } from './templates/svg-responsive';
+import { SVGOverflowTemplate } from './templates/svg-overflow';
 
 // export utility functions
 export { File } from './util/file';
@@ -79,6 +81,8 @@ export  {
 	SideBarTemplate,
 	Slider,
 	SVG,
+	SVGResponsiveTemplate,
+	SVGOverflowTemplate,
 	Symbol,
 	HolyGrailTemplate,
 	Text,

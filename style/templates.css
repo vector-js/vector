@@ -1,3 +1,9 @@
+
+.overflow-container {
+    overflow: hidden;
+    border:1px solid grey;
+}
+
 .holy-grail {
     display: grid;
     grid-template: auto 1fr auto / auto 1fr auto;

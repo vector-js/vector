@@ -1,3 +1,8 @@
+.overflow-container {
+  overflow: hidden;
+  /* border:1px solid #dddddd; */
+  margin-bottom: 1.5rem;
+}
 
 .monospace {
   font-family: 'Inconsolata', monospace;
@@ -88,6 +93,10 @@ div.display-box {
 .border {
   border: 1px solid #dddddd;
   border-radius: 5px;
+}
+
+.hard-border {
+  border: 1px solid #aaaaaa;
 }
 
 .input-container {

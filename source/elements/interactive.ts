@@ -27,13 +27,13 @@ import HoverBox from './input/hover-box'
 import Plot, { PlotOptions } from '../elements/math/plot'
 import { Label } from './visual/label'
 import Definitions from './svg/definitions'
+import { SVGResponsiveTemplate } from '../templates/svg-responsive'
 
-export interface InteractiveOptions {
-	width?:number,
-	height?:number,
-	originX?:number,
-	originY?:number,
-	border?:boolean
+export interface Configuration {
+  width?:number,
+  height?:number
+  maxWidth?:number,
+  origin?:string;
 }
 
 /**
@@ -44,7 +44,7 @@ export interface InteractiveOptions {
 * elements are added to the "background" group. This ensures that controls will
 * alwaysbe focusable, despite the order in which elements are created.
 */
-export default class Interactive extends SVG {
+export default class Interactive extends SVGResponsiveTemplate {
 
   /**
   * The container element for this interactive.
@@ -72,12 +72,6 @@ export default class Interactive extends SVG {
 	*/
 	private icons:Set<string>;
 
-  // internal variables
-  private _width:number;
-  private _height:number;
-  private _originX:number;
-  private _originY:number;
-
 	// definitions
   private _definitions:Definitions;
 
@@ -88,8 +82,20 @@ export default class Interactive extends SVG {
   * the HTML element with the corresponding ID. If no element is found throws an
   * error.
   */
-  constructor( value:string | HTMLElement, options:InteractiveOptions = {} ) {
-    super();
+  constructor( value:string | HTMLElement, options:Configuration = {} ) {
+
+    // default configuration
+    let defaultOptions:Configuration = {
+      width:288,
+      height:288/16*9,
+      origin:'center',
+    };
+
+    // Combine default with custom config
+    let config = { ...defaultOptions, ...options};
+
+    // Construct the svg document
+    super(config.width, config.height, config);
 
     // If the user passes in a string identifier check to see if such an
     // element exists in the current document.
@@ -113,147 +119,10 @@ export default class Interactive extends SVG {
 		this.root.appendChild(this.background.root);
 		this.root.appendChild(this.input.root)
 
-		// default configuration options
-    let defaultOptions:InteractiveOptions = {
-      originX:0,
-      originY:0,
-      width:600,
-      height:300,
-      border:false
-    };
-
-		// combine the default configuration with the user's configuration
-    let config = { ...defaultOptions, ...options};
-		this._originX = config.originX;
-		this._originY = config.originY;
-		this._width = config.width;
-		this._height = config.height;
-
-    this.root.setAttribute('width', this._width.toString());
-    this.root.setAttribute('height', this._height.toString());
-    // this.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-    // this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-    this.window = false;
-		this.border = config.border;
-
     // prevent the default behavior of selecting text
     this.container.addEventListener('mousedown', function( event:MouseEvent ) {
       event.preventDefault();
     });
-  }
-
-  // /**
-  // * Sets the width of this interactive area.
-  // */
-  // set width( value:number ){
-  //   this._width = value;
-  //   this.root.setAttribute('width', value.toString());
-  //   this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-  // }
-
-  // /**
-  // * Returns the width of this interactive area.
-  // */
-  // get width():number {
-  //   return this._width;
-  // }
-
-  // /**
-  // * Sets the height of this interactive area.
-  // */
-  // set height( value:number ){
-  //   this._height = value;
-  //   this.root.setAttribute('height', value.toString());
-  //   this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-  // }
-
-  // /**
-  // * Returns the height of this interactive area.
-  // */
-  // get height():number {
-  //   return this._height;
-  // }
-
-  /**
-  * Sets the x coordinate of the origin.
-  */
-  set originX( value:number) {
-    this._originX = value;
-    this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-  }
-
-  /**
-  * Returns the value of the x-coordinate of the origin.
-  */
-  get originX():number {
-    return this._originX;
-  }
-
-  /**
-  * Sets the y coordinate of the origin.
-  */
-  set originY( value:number) {
-    this._originY = value;
-    this.setViewBox( -this._originX, -this._originY, this._width, this._height );
-  }
-
-  /**
-  * Returns the value of the x-coordinate of the origin.
-  */
-  get originY():number {
-    return this._originY;
-  }
-
-  /**
-  * If set to true, styles the interactive to float on top of the background.
-  * This feature is good for interactives where elements can be dragged out of
-  * the bounds of the container element.
-  */
-  set window( value:boolean ) {
-    if( value ){
-      this.root.classList.add('window');
-    } else {
-      this.root.classList.remove('window');
-    }
-  }
-
-  /**
-  * If set to true, draws a minimal border around the interactive.
-  */
-  set border( value:boolean ) {
-    if( value ){
-      this.root.classList.add('border');
-    } else {
-      this.root.classList.remove('border');
-    }
-  }
-
-  /**
-  * Returns the minimum x-coordinate of this interactive.
-  */
-  get minX() : number {
-    return -this.originX;
-  }
-
-  /**
-  * Returns the minimum y-coordinate of this interactive.
-  */
-  get minY() : number {
-    return -this.originY;
-  }
-
-  /**
-  * Returns the maximum x-coordinate of this interactive.
-  */
-  get maxX() : number {
-    return this.minX + this._width;
-  }
-
-  /**
-  * Returns the maximum y-coordinate of this interactive.
-  */
-  get maxY() : number {
-    return this.minY + this._height;
   }
 
 	/**
@@ -287,7 +156,7 @@ export default class Interactive extends SVG {
   /**
   * Creates a nested interactive within this interactive
   */
-  interactive( x:number, y:number, options:InteractiveOptions = {} ) : Interactive {
+  interactive( x:number, y:number, options:Configuration = {} ) : Interactive {
     let obj = new Interactive(this.id, options);
 		// TODO: standardize this
     obj.root.setAttribute('x', x.toString());

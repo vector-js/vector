@@ -7,7 +7,8 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    app: './source/index.webpack.dev.ts'
+    sandbox: './source/index.webpack.sandbox.ts',
+    // dev: './source/index.webpack.dev.ts',
   },
   output: {
     filename: '[name].bundle.js',
@@ -20,6 +21,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Development',
+      port: 8888
     }),
     new MiniCssExtractPlugin(),
   ],
@@ -35,4 +37,7 @@ module.exports = {
       },
     ]
   },
+  devServer: {
+    port: 8888
+  }
 };

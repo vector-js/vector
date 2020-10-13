@@ -129,6 +129,20 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 		this.root.y.baseVal.value = value;
 	}
 
+	  /**
+	 * Returns the maximum x-coordinate in the internal (drawing) coordinate system
+	 */
+	get maxX() : number {
+		return this.root.viewBox.baseVal.x + this.root.viewBox.baseVal.width;
+	}
+
+	/**
+	 * Returns the maximum y-coordinate in the internal (drawing) coordinate system
+	 */
+	get maxY() : number {
+		return this.root.viewBox.baseVal.y + this.root.viewBox.baseVal.height;
+	}
+
 	get viewBox() : string {
 		return this.root.getAttribute('viewBox');
 	}

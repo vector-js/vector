@@ -1,5 +1,5 @@
 import SVG from "../elements/svg/svg";
-import { Group } from "../index";
+import { CheckBox, Control, Group } from "../index";
 
 type alignment = 'left' | 'center' | 'right';
 
@@ -73,10 +73,24 @@ export class SVGOverflowTemplate extends SVG {
     }
 
     /**
+     * Creates a control point within this interactive at the position (x,y).
+     */
+    control( x:number, y:number ) : Control {
+        return this.appendChild(new Control( x, y));
+    }
+
+    /**
+     * Creates a checkbox input at the position (x,y) within this interactive.
+     */
+    checkBox( x:number, y:number, label:string, value:boolean ) : CheckBox {
+        return this.appendChild( new CheckBox(x, y, label, value));
+    }
+
+    /**
      * This helper method draws a grid to visualize the coordinate system used for drawing SVG 
      * ELements.
      */
-    drawGrid() {
+    drawGrid( border:boolean = true, origin:boolean = true ) {
 
         if( !this._grid ) {
             this._grid = this.group();
@@ -87,23 +101,20 @@ export class SVGOverflowTemplate extends SVG {
             this._lines2.style.stroke = '#eeeeee';
     
             let viewBox = this.root.viewBox.baseVal;
-            // let x = viewBox.x;
-            // let y = viewBox.y;
-            // let width = viewBox.width;
-            // let height = viewBox.height;
-            let max = 1000;
-            let x = -max;
-            let y = -max;
-            let width = 2*max;
-            let height = 2*max;
+            let x = viewBox.x;
+            let y = viewBox.y;
+            let width = 720;
+            let height = viewBox.height;
             let xMax = x + width;
             let yMax = y + height;
     
-            let origin = this._grid.circle(0,0,3);
-            origin.style.fill = '#81cfd9';
-            origin.style.stroke = '#485bfc';
-            origin.style.strokeWidth = '1px';
-            
+            if( origin ) {
+                let origin = this._grid.circle(0,0,3);
+                origin.style.fill = '#81cfd9';
+                origin.style.stroke = '#485bfc';
+                origin.style.strokeWidth = '1px';
+            }
+
             for( let i = Math.floor(x/10)*10; i < xMax; i += 10) {
             
                 let group = this._lines1;;
@@ -120,11 +131,13 @@ export class SVGOverflowTemplate extends SVG {
                 }
                 group.line(x, i, xMax, i);
             }
-    
-            let rect = this.rect(0,0,this.width, this.height);
-            rect.style.strokeWidth = '1px';
-            rect.style.stroke = 'blue';
-            rect.style.fill = 'none';
+            
+            if( border ) {
+                let rect = this.rect(0,0,this.width, this.height);
+                rect.style.strokeWidth = '1px';
+                rect.style.stroke = 'blue';
+                rect.style.fill = 'none';
+            }
         }
     }
 }

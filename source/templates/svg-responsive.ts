@@ -1,5 +1,5 @@
+import Group from "../elements/svg/group";
 import SVG from "../elements/svg/svg";
-import { Group } from "../index";
 
 interface Configuration {
     maxWidth?:number;
@@ -23,7 +23,7 @@ export class SVGResponsiveTemplate extends SVG {
      * optionally specifies the maximum display width of the SVG, otherwise the default is to fill 
      * the availablespace.
      */
-    constructor( width:number, height:number, config:Configuration ) {
+    constructor( width:number, height:number, config:Configuration = {} ) {
 
         let defaultConfig = {
             origin: 'default'
@@ -52,6 +52,7 @@ export class SVGResponsiveTemplate extends SVG {
             case 'centerY':
                 this.setViewBox(0, -height/2, width, height);
                 break;
+            case 'topLeft':
             case 'default':
                 this.setViewBox(0, 0, width, height);
                 break;
@@ -64,7 +65,7 @@ export class SVGResponsiveTemplate extends SVG {
      * This helper method draws a grid to visualize the coordinate system used for drawing SVG 
      * ELements.
      */
-    drawGrid() {
+    drawGrid( border:boolean = true ) {
 
         if( !this._grid ) {
             this._grid = this.group();
@@ -103,11 +104,13 @@ export class SVGResponsiveTemplate extends SVG {
                 }
                 group.line(x, i, xMax, i);
             }
-    
-            let rect = this.rect(x,y,width, height);
-            rect.style.strokeWidth = '2px';
-            rect.style.stroke = 'blue';
-            rect.style.fill = 'none';
+
+            if( border ) {
+                let rect = this.rect(x,y,width, height);
+                rect.style.strokeWidth = '2px';
+                rect.style.stroke = 'blue';
+                rect.style.fill = 'none';
+            }
         }
     }
 }
