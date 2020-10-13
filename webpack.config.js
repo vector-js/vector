@@ -1,6 +1,5 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -8,16 +7,18 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'vector.min.js',
-    libraryTarget: 'umd',
     library: 'Vector',
-    globalObject: 'this'
+    libraryTarget: 'umd',
+    // libraryExport: 'default',
+    // globalObject: "(typeof self !== 'undefined' ? self : this)",
+    globalObject: "this",
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: [".ts", ".js"]
   },
   module: {
-    rules: [
+    rules: [  
       {
         test: /\.tsx?$/,
         loader: "ts-loader"
@@ -29,7 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new UnminifiedWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'vector.min.css',
       chunkFilename: '[id].css',

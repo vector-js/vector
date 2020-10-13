@@ -1,6 +1,7 @@
 import Interactive from '../elements/interactive'
 import Slider from '../elements/input/slider'
 import Input from '../elements/input/input'
+import { Template } from './template';
 
 export interface TemplateConfig {
   interactive?:Interactive
@@ -11,7 +12,7 @@ export interface TemplateConfig {
 * generic template renders an interactive with a "header" and "footer" region
 * for providing custom information and controls.
 */
-export class HolyGrail {
+export class HolyGrailTemplate extends Template {
 
   /**
   * The HTMLElement which the template is rendered within.
@@ -65,13 +66,21 @@ export class HolyGrail {
   * user configuration is provided, the user configuration is prioritized over
   * the default configuration stored in the Template.config variable.
   */
-  constructor(id:string, options:TemplateConfig = {} )  {
+  constructor(idOrElement:string|HTMLElement, options:TemplateConfig = {} )  {
+
+    super();
 
     // combine the default configuration with the user's configuration
-    let config = { ...HolyGrail.config, ...options };
+    let config = { ...HolyGrailTemplate.config, ...options };
 
-    // get a handle on the parent and resize if necessary
-    this.parent = document.getElementById(id);
+    if (typeof idOrElement == "string") {
+      this.parent = document.getElementById(idOrElement);
+      if( this.parent === null || this.parent === undefined ) {
+        throw new Error(`There is no HTML element with the id: ${idOrElement}`);
+      }
+    } else {
+      this.parent = idOrElement;
+    }
 
     this.root = document.createElement('div');
     this.root.classList.add('holy-grail');
@@ -108,77 +117,4 @@ export class HolyGrail {
     // this.interactive.root.classList.add('template-footer-region');
   }
 
-  addContainer( region:HTMLDivElement ) : Interactive {
-    let container = document.createElement('div');
-    container.classList.add('display-box');
-    let bbox = region.getBoundingClientRect();
-    let interactive = new Interactive(container, {
-      height:50,
-      width: 200
-    });
-    region.appendChild(container);
-    return interactive;
-  }
-
-  /**
-  *
-  */
-  addSlider( region:HTMLDivElement, min:number, max:number, value:number) : Slider {
-
-    let container = document.createElement('div');
-    container.classList.add('display-box');
-
-    // get a handle on the parent and resize if necessary
-    let bbox = region.getBoundingClientRect();
-    let interactive = new Interactive(container, {
-      height:20,
-      width: bbox.width - 20
-    });
-    interactive.root.style.overflow = 'visible';
-
-    let slider = interactive.slider(10, 10, {
-      min:min,
-      max:max,
-      value:value,
-      width: interactive.width - 20
-    });
-    // interactive.root.style.border = '1px solid #808080';
-    interactive.root.style.borderRadius = '5px';
-    interactive.root.style.padding = '10px';
-
-    region.appendChild(container);
-
-    return slider;
-  }
-
-  addVariableDisplay( region:HTMLDivElement, variable:string, control:Input) : HTMLDivElement {
-
-    let container = document.createElement('div');
-    container.classList.add('display-box');
-    region.appendChild(container);
-
-    let bbox = region.getBoundingClientRect();
-    let interactive = new Interactive(container, {
-      width: 200,
-      height: 50
-    });
-
-    interactive.root.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-
-    if( control instanceof Slider ) {
-      let text = interactive.text(interactive.width/2, 25, '');
-      text.classList.add('katex-main', 'text-middle');
-      text.tspan(variable).classList.add('katex-variable');
-      text.tspan(' = ');
-      let value = text.tspan(`${Math.floor(control.value)}`);
-      text.addDependency(control);
-      text.update = () => {
-        value.text = `${Math.floor(control.value)}`;
-      };
-    } else {
-      throw new Error('Not Implemented');
-    }
-
-    return container;
-  }
 }

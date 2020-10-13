@@ -193,6 +193,9 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 	polygon(points: string): Polygon {
 		return this.appendChild(new Polygon(points));
 	}
+	rect(x: number, y: number, width: number, height: number): Rectangle {
+		return this.appendChild(new Rectangle(x, y, width, height));
+	}
 	rectangle(x: number, y: number, width: number, height: number): Rectangle {
 		return this.appendChild(new Rectangle(x, y, width, height));
 	}

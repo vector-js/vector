@@ -93,7 +93,7 @@ export default class Text extends Element implements Typography {
     return text;
   }
 
-  tspan( text:string ) : TSpan {
+  tspan( text:string = '') : TSpan {
     let tspan = new TSpan(text);
     this.root.appendChild(tspan.root);
     return tspan;

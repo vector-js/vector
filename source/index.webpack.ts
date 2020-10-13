@@ -47,7 +47,7 @@ import Point from './elements/math/point';
 
 // templates
 import {AnimationPlayer} from './templates/animation-player';
-import {HolyGrail} from './templates/holy-grail';
+import {HolyGrailTemplate} from './templates/holy-grail';
 
 // export utility functions
 export * from './util/file';
@@ -88,7 +88,7 @@ export {
 	Slider,
 	SVG,
 	Symbol,
-	HolyGrail,
+	HolyGrailTemplate,
 	Text,
 	TSpan,
 	Use 

@@ -161,7 +161,7 @@ export default class Plot extends SVG {
   /**
   * Invisible element for registering events
   */
-  rect : Rectangle;
+  _rect : Rectangle;
 
   /**
   *
@@ -284,12 +284,12 @@ export default class Plot extends SVG {
     this._y = -this._height/2;
 
     // creates a transparent rectangle to capture all user events
-    this.rect = this.rectangle(config.margin, config.margin, this._width, this._height);
-    this.rect.style.fill = 'transparent';
+    this._rect = this.rectangle(config.margin, config.margin, this._width, this._height);
+    this._rect.style.fill = 'transparent';
     if( config.border ) {
-      this.rect.style.border = '1px solid #404040';
+      this._rect.style.border = '1px solid #404040';
     } else {
-      this.rect.style.stroke = 'none';
+      this._rect.style.stroke = 'none';
     }
 
     // create a clipping path rectangle to trim overflowing visual elements
@@ -742,7 +742,7 @@ export default class Plot extends SVG {
       this.prevY = event.clientY;
       this.draw();
     } else {
-      let br = this.rect.root.getBoundingClientRect();
+      let br = this._rect.root.getBoundingClientRect();
       if( this.displayCircle != undefined ) {
         this.displayCircle.cx = event.clientX - br.left + this._x;
         this.updateDisplayCircle();
@@ -760,7 +760,7 @@ export default class Plot extends SVG {
     event.preventDefault();
 
     let zoomIntensity = .02;
-    let br = this.rect.root.getBoundingClientRect();
+    let br = this._rect.root.getBoundingClientRect();
     let x = event.clientX - br.left;
     let y = event.clientY - br.top;
 

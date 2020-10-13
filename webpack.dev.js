@@ -1,23 +1,28 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const PORT = 7777;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './source/index.webpack.ts',
-  devtool: "source-map",
+  devtool: 'inline-source-map',
+  entry: {
+    app: './source/index.webpack.dev.ts'
+  },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'vector.js',
-    libraryTarget: 'umd',
-    library: 'Vector',
-    globalObject: 'this'
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".js"]
+    extensions: ['.js', '.jsx', 'mjs', '.ts', '.tsx']
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+    }),
+    new MiniCssExtractPlugin(),
+  ],
   module: {
     rules: [
       {
@@ -29,24 +34,5 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'vector.css',
-      chunkFilename: '[id].css',
-    }),
-  ],
-  devServer: {
-    contentBase: [path.join(__dirname, 'static'), path.join(__dirname, 'dist')],
-    // Allow server to be accessed from anywhere, which is useful for
-    // testing.  This potentially reveals the source code to the world,
-    // but this should not be a concern for testing open-source software.
-    disableHostCheck: true,
-    host: '0.0.0.0',
-    port: PORT,
-    sockPort: 'location',
-    stats: {
-        colors: true,
-    },
   },
 };

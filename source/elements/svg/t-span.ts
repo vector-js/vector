@@ -15,7 +15,7 @@ export default class TSpan extends Element {
   /**
   * Constructs a tspan element
   */
-  constructor( str:string ) {
+  constructor( str:string  = '') {
     let tspan = document.createElementNS( 'http://www.w3.org/2000/svg', 'tspan');
     tspan.innerHTML = str;
     super(tspan);
@@ -49,7 +49,7 @@ export default class TSpan extends Element {
   /**
   * Creates a child tspan element.
   */
-  tspan( str:string ) : TSpan {
+  tspan( str:string = '') : TSpan {
     let tspan = new TSpan(str);
     this.root.appendChild(tspan.root);
     return tspan;

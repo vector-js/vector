@@ -41,7 +41,8 @@ import Point from './elements/math/point';
 
 // templates
 import {AnimationPlayer} from './templates/animation-player';
-import {HolyGrail} from './templates/holy-grail';
+import {HolyGrailTemplate} from './templates/holy-grail';
+import {SideBarTemplate} from './templates/side-bar';
 
 // export utility functions
 export { File } from './util/file';
@@ -75,10 +76,11 @@ export  {
 	Rectangle,
 	Scrubber,
 	Shape,
+	SideBarTemplate,
 	Slider,
 	SVG,
 	Symbol,
-	HolyGrail,
+	HolyGrailTemplate,
 	Text,
 	TSpan,
 	Use 

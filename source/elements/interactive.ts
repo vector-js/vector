@@ -129,10 +129,10 @@ export default class Interactive extends SVG {
 		this._width = config.width;
 		this._height = config.height;
 
-    // this.root.setAttribute('width', this._width.toString());
-    // this.root.setAttribute('height', this._height.toString());
+    this.root.setAttribute('width', this._width.toString());
+    this.root.setAttribute('height', this._height.toString());
     // this.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-    this.setViewBox( -this._originX, -this._originY, this._width, this._height );
+    // this.setViewBox( -this._originX, -this._originY, this._width, this._height );
     this.window = false;
 		this.border = config.border;
 
