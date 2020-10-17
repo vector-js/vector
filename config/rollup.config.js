@@ -1,6 +1,6 @@
 import typescript from 'rollup-plugin-typescript';
 import babel from '@rollup/plugin-babel';
-import pkg from './package.json';
+import pkg from '../package.json';
 
 // "cjs" CommonJS Bundle: suitable for node
 // "esm" ES Module Bundle: suitable for other libs and apps

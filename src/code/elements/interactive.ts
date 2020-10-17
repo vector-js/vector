@@ -24,10 +24,11 @@ import HoverBox from './input/hover-box'
 // import Graph, {GraphOptions} from '../elements/graph/graph'
 
 // math elements
-import Plot, { PlotOptions } from '../elements/math/plot'
+import Plot, { PlotOptions } from './math/plot'
 import { Label } from './visual/label'
 import Definitions from './svg/definitions'
 import { SVGResponsiveTemplate } from '../templates/svg-responsive'
+import Marker from './svg/marker'
 
 export interface Configuration {
   width?:number,
@@ -86,8 +87,8 @@ export default class Interactive extends SVGResponsiveTemplate {
 
     // default configuration
     let defaultOptions:Configuration = {
-      width:288,
-      height:288/16*9,
+      width:(2*144),
+      height:(2*144)/16*9,
       origin:'center',
     };
 
@@ -165,6 +166,16 @@ export default class Interactive extends SVGResponsiveTemplate {
   }
 
   /**
+   * Adds an arrow marker element to the defintions.
+   */
+  arrow() : Marker {
+    let marker = this._definitions.marker(10, 5, 10, 10);
+    marker.path('M 0 0 L 10 5 L 0 10 z').style.fill = '#404040';
+    marker.setAttribute('orient', 'auto-start-reverse');
+    return marker;
+  }
+
+  /**
   * Creates a checkbox input at the position (x,y) within this interactive.
   */
   button( x:number, y:number, label:string ) : Button {
@@ -212,13 +223,6 @@ export default class Interactive extends SVGResponsiveTemplate {
   plot(fn:(x:number)=>number, options:PlotOptions ) : Plot {
     return this.appendChild(new Plot(fn, options));
   }
-
-  // /**
-  // * Creates a graph element within this interactive
-  // */
-  // graph(options:GraphOptions) : Graph {
-  //   return this.appendChild(new Graph(options));
-  // }
 
   hoverBox(str: string) : HoverBox{
     return this.appendChild(new HoverBox(str));

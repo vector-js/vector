@@ -1,9 +1,3 @@
-/**
- * Expose styling to webpack.
- */
-
-import '../style/vector.css';
-
 // base element for everything
 import {BaseElement} from './elements/base-element';
 
@@ -48,17 +42,17 @@ import Point from './elements/math/point';
 // templates
 import {AnimationPlayer} from './templates/animation-player';
 import {HolyGrailTemplate} from './templates/holy-grail';
+import {PancakeTemplate} from './templates/pancake';
+import {SideBarTemplate} from './templates/side-bar';
+import { SVGResponsiveTemplate } from './templates/svg-responsive';
+import { SVGOverflowTemplate } from './templates/svg-overflow';
 
 // export utility functions
-export * from './util/file';
-export * from './util/math';
-
-export function testUnique() {
-	console.log('goodbye!');
-}
+export { File } from './util/file';
+export { Math2 } from './util/math';
 
 // export objects
-export {	
+export  {	
 	Button,
 	BaseElement,
 	Circle,
@@ -77,6 +71,7 @@ export {
 	Marker,
 	Path,
 	AnimationPlayer,
+	PancakeTemplate,
 	Plot,
 	Point,
 	Polygon,
@@ -85,12 +80,14 @@ export {
 	Rectangle,
 	Scrubber,
 	Shape,
+	SideBarTemplate,
 	Slider,
 	SVG,
+	SVGResponsiveTemplate,
+	SVGOverflowTemplate,
 	Symbol,
 	HolyGrailTemplate,
 	Text,
 	TSpan,
 	Use 
 };
-

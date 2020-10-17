@@ -1,10 +1,14 @@
 import { SVGOverflowTemplate } from "./templates/svg-overflow";
 import { SVGResponsiveTemplate } from "./templates/svg-responsive";
+import { File } from "./index";
+import '../styles/sandbox.css';
 
 let body = document.getElementsByTagName("body")[0];
 
+let count = 0;
 function createContainer() {
     let container = document.createElement('div');
+    container.id = `container-${count++}`;
     container.style.marginBottom = '1.5rem';
     return container;
 }
@@ -51,7 +55,8 @@ for( let i = 0; i < sizes.length; i++) {
         let height = width/aspectRatio.width*aspectRatio.height;
         let svg = new SVGResponsiveTemplate(width, height, {maxWidth:width, origin:'center'});
         body.appendChild(createContainer()).appendChild(svg.root);
-        svg.drawGrid();
+        svg.drawGrid(true, false);
     }
 }
+(window as any).download = File.download;
 

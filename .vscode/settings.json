@@ -7,4 +7,9 @@
     "**/.pnp.*": true
   },
   "editor.rulers": [100],
+  "workbench.tree.indent": 16,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false
+
 }

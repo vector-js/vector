@@ -1,10 +1,8 @@
+import Group from "../elements/svg/group";
 import SVG from "../elements/svg/svg";
-import { CheckBox, Control, Group } from "../index";
-
-type alignment = 'left' | 'center' | 'right';
 
 interface Configuration {
-    align?:string;
+    maxWidth?:number;
     origin?:string;
 }
 
@@ -12,7 +10,7 @@ interface Configuration {
  * A responsive SVG document that is optimized to prevent cumulative layout shift in the browser 
  * and draw SVG documents within a horizontally constrained vertical layout.
  */
-export class SVGOverflowTemplate extends SVG {
+export class SVGResponsiveTemplate extends SVG {
 
     private _grid : Group;
     private _lines1 : Group;
@@ -25,7 +23,7 @@ export class SVGOverflowTemplate extends SVG {
      * optionally specifies the maximum display width of the SVG, otherwise the default is to fill 
      * the availablespace.
      */
-    constructor( width:number, height:number, config:Configuration ) {
+    constructor( width:number, height:number, config:Configuration = {} ) {
 
         let defaultConfig = {
             origin: 'default'
@@ -38,22 +36,13 @@ export class SVGOverflowTemplate extends SVG {
         config = { ...defaultConfig, ...config};
 
         // Fill available space
-		this.root.style.display = 'block';
-		this.root.style.maxWidth = '100%';
-		this.root.style.height = 'auto';
-
-		switch(config.align) {
-			case 'center':
-				this.root.style.margin = 'auto';
-				break;
-			case 'right':
-				this.root.style.marginLeft = 'auto';
-                break;
-            case 'left':
-                this.root.style.marginRight = 'auto';
-                break;
-            default:
-                throw new Error(`Unknown alignment option: ${config.align}.`);
+        this.root.style.width = '100%';
+        this.root.style.height = 'auto';
+        this.root.style.display = 'block';
+        if( config.maxWidth ) {
+            // Added px unit because firefox fails to set max-width if no unit is specified
+            this.root.style.maxWidth = `${config.maxWidth}px`;
+            this.root.style.margin = 'auto';
         }
 
         // Define the origin used for drawing
@@ -64,6 +53,7 @@ export class SVGOverflowTemplate extends SVG {
             case 'centerY':
                 this.setViewBox(0, -height/2, width, height);
                 break;
+            case 'topLeft':
             case 'default':
                 this.setViewBox(0, 0, width, height);
                 break;
@@ -73,24 +63,10 @@ export class SVGOverflowTemplate extends SVG {
     }
 
     /**
-     * Creates a control point within this interactive at the position (x,y).
-     */
-    control( x:number, y:number ) : Control {
-        return this.appendChild(new Control( x, y));
-    }
-
-    /**
-     * Creates a checkbox input at the position (x,y) within this interactive.
-     */
-    checkBox( x:number, y:number, label:string, value:boolean ) : CheckBox {
-        return this.appendChild( new CheckBox(x, y, label, value));
-    }
-
-    /**
      * This helper method draws a grid to visualize the coordinate system used for drawing SVG 
      * ELements.
      */
-    drawGrid( border:boolean = true, origin:boolean = true ) {
+    drawGrid( border:boolean = true, origin:boolean = true) {
 
         if( !this._grid ) {
             this._grid = this.group();
@@ -103,18 +79,18 @@ export class SVGOverflowTemplate extends SVG {
             let viewBox = this.root.viewBox.baseVal;
             let x = viewBox.x;
             let y = viewBox.y;
-            let width = 720;
+            let width = viewBox.width;
             let height = viewBox.height;
             let xMax = x + width;
             let yMax = y + height;
-    
+            
             if( origin ) {
                 let origin = this._grid.circle(0,0,3);
                 origin.style.fill = '#81cfd9';
                 origin.style.stroke = '#485bfc';
                 origin.style.strokeWidth = '1px';
             }
-
+            
             for( let i = Math.floor(x/10)*10; i < xMax; i += 10) {
             
                 let group = this._lines1;;
@@ -131,10 +107,10 @@ export class SVGOverflowTemplate extends SVG {
                 }
                 group.line(x, i, xMax, i);
             }
-            
+
             if( border ) {
-                let rect = this.rect(0,0,this.width, this.height);
-                rect.style.strokeWidth = '1px';
+                let rect = this.rect(x,y,width, height);
+                rect.style.strokeWidth = '2px';
                 rect.style.stroke = 'blue';
                 rect.style.fill = 'none';
             }

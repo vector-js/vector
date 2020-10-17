@@ -51,7 +51,7 @@ export class File {
   */
   static download( id:string, filename:String ) : Promise<any> {
 
-    return File.getURL('/library.css').then((response) => {
+    return File.getURL('../style/vector.css').then((response) => {
       // Add the styling into the css document
       let svg = document.getElementById(id);
       let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');

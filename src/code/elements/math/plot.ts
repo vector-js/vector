@@ -5,7 +5,7 @@ import Path from '../svg/path'
 import Rectangle from '../svg/rectangle'
 import SVG from '../svg/svg'
 import Text from '../svg/text'
-import Point from '../math/point'
+import Point from './point'
 
 /**
 * These options control the configuration of a plot object when it is created.

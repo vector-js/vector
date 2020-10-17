@@ -11,8 +11,8 @@
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    "outDir": "./lib",                        /* Redirect output structure to the directory. */
-    "rootDir": "./source",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "outDir": "./dist/lib",                        /* Redirect output structure to the directory. */
+    "rootDir": "./src/code",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "removeComments": true,                /* Do not emit comments to output. */
     // "noEmit": true,                        /* Do not emit outputs. */
@@ -44,18 +44,18 @@
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
-    "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    // "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
 
     /* Source Map Options */
     // "sourceRoot": "",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
     // "mapRoot": "",                         /* Specify the location where debugger should locate map files instead of generated locations. */
-    "inlineSourceMap": false,               /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSourceMap": false,               /* Emit a single file with source maps instead of having a separate file. */
     // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
 
     /* Experimental Options */
     // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules"]
 }

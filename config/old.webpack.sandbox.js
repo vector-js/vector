@@ -7,8 +7,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    sandbox: './source/index.webpack.sandbox.ts',
-    // dev: './source/index.webpack.dev.ts',
+    sandbox: './source/sandbox.ts',
   },
   output: {
     filename: '[name].bundle.js',
