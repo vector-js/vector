@@ -9,9 +9,28 @@ import Interactive from "../elements/interactive";
  */
 export class Template { 
 
-	constructor() {
+	container:HTMLElement;
+
+	constructor(idOrElment:string|HTMLElement) {
 		
-	}
+		// If the user passes in a string identifier check to see if such an
+		// element exists in the current document.
+		this.container= null;
+		if (typeof idOrElment == "string") {
+				this.container = document.getElementById(idOrElment);
+				if( this.container === null || this.container === undefined ) {
+						throw new Error(`There is no HTML element with the id: ${idOrElment}`);
+				}
+		} else {
+				this.container = idOrElment;
+		}
+  }
+  
+  addRegion() : HTMLDivElement {
+    let region = document.createElement('div');
+    region.classList.add('region');
+    return this.container.appendChild(region);
+  }
 
 	addContainer( region:HTMLDivElement ) : HTMLDivElement {
 		return Template.addContainer(region);
@@ -142,5 +161,5 @@ export class Template {
 		}
 
 		return container;
-  }
+	}
 }

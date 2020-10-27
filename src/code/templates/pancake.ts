@@ -58,21 +58,12 @@ export class PancakeTemplate extends Template {
   */
   constructor(idOrElement:string|HTMLElement, options:TemplateConfig = {} )  {
 
-    super();
+    super(idOrElement);
 
     let defaultConfig = {};
 
     // combine the default configuration with the user's configuration
     let config = { ...defaultConfig, ...options };
-
-    if (typeof idOrElement == "string") {
-      this.parent = document.getElementById(idOrElement);
-      if( this.parent === null || this.parent === undefined ) {
-        throw new Error(`There is no HTML element with the id: ${idOrElement}`);
-      }
-    } else {
-      this.parent = idOrElement;
-    }
 
     this.root = document.createElement('div');
     this.root.classList.add('pancake');
@@ -88,7 +79,7 @@ export class PancakeTemplate extends Template {
     this.footer.style.display = 'flex';
     this.footer.style.flexDirection = 'column';
 
-    this.parent.append(this.root);
+    this.container.append(this.root);
     this.root.append(this.header, this.main, this.footer);
 
   }

@@ -24,17 +24,20 @@ import HoverBox from './input/hover-box'
 // import Graph, {GraphOptions} from '../elements/graph/graph'
 
 // math elements
-import Plot, { PlotOptions } from './math/plot'
+import { Plot, PlotConfiguration } from './math/plot'
 import { Label } from './visual/label'
 import Definitions from './svg/definitions'
 import { SVGResponsiveTemplate } from '../templates/svg-responsive'
 import Marker from './svg/marker'
 
 export interface Configuration {
+  x?:number,
+  y?:number,
   width?:number,
   height?:number
   maxWidth?:number,
   origin?:string;
+  responsive?:boolean;
 }
 
 /**
@@ -89,7 +92,8 @@ export default class Interactive extends SVGResponsiveTemplate {
     let defaultOptions:Configuration = {
       width:(2*144),
       height:(2*144)/16*9,
-      origin:'center',
+      origin:'default',
+      responsive: true
     };
 
     // Combine default with custom config
@@ -98,16 +102,7 @@ export default class Interactive extends SVGResponsiveTemplate {
     // Construct the svg document
     super(config.width, config.height, config);
 
-    // If the user passes in a string identifier check to see if such an
-    // element exists in the current document.
-    if (typeof value == "string") {
-      this.container = document.getElementById(value);
-      if( this.container === null || this.container === undefined ) {
-        throw new Error(`There is no HTML element with the id: ${value}`);
-      }
-    } else {
-      this.container = value;
-    }
+    this.container = this.appendSelfWithin(value);
 
     // create and append the root svg element and group elements
     this.container.appendChild(this.root);
@@ -215,13 +210,6 @@ export default class Interactive extends SVGResponsiveTemplate {
   */
   controlCircle( x:number, y:number ) : Control {
     return this.appendChild(new ControlCircle( x, y));
-  }
-
-  /**
-  * Creates a plot within this interactive at the position (x,y).
-  */
-  plot(fn:(x:number)=>number, options:PlotOptions ) : Plot {
-    return this.appendChild(new Plot(fn, options));
   }
 
   hoverBox(str: string) : HoverBox{

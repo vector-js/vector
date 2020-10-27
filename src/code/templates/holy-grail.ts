@@ -68,26 +68,13 @@ export class HolyGrailTemplate extends Template {
   */
   constructor(idOrElement:string|HTMLElement, options:TemplateConfig = {} )  {
 
-    super();
+    super(idOrElement);
 
     // combine the default configuration with the user's configuration
     let config = { ...HolyGrailTemplate.config, ...options };
 
-    if (typeof idOrElement == "string") {
-      this.parent = document.getElementById(idOrElement);
-      if( this.parent === null || this.parent === undefined ) {
-        throw new Error(`There is no HTML element with the id: ${idOrElement}`);
-      }
-    } else {
-      this.parent = idOrElement;
-    }
-
     this.root = document.createElement('div');
     this.root.classList.add('holy-grail');
-    // this.root.style.display = 'flex';
-    // this.root.style.flexDirection = 'column';
-    // this.root.style.maxWidth = '800px';
-    // this.root.style.margin = 'auto';
 
     this.header = document.createElement('div');
     this.left = document.createElement('div');
@@ -104,7 +91,7 @@ export class HolyGrailTemplate extends Template {
     this.footer.style.display = 'flex';
     this.footer.style.flexDirection = 'column';
 
-    this.parent.append(this.root);
+    this.container.append(this.root);
     this.root.append(this.header, this.left, this.main, this.right, this.footer);
 
     // Create or append the existing interactive into the main area

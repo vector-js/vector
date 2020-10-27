@@ -28,7 +28,7 @@
 
 .left-side-bar {
     display: grid;
-    grid-template-columns: minmax(288px, 25%) 1fr ;
+    grid-template-columns: minmax(240px, 25%) 1fr ;
 }
 
 .left-side-bar .side-bar-region {
@@ -61,7 +61,7 @@
 
 .right-side-bar {
     display: grid;
-    grid-template-columns: 1fr minmax(288px, 33%);
+    grid-template-columns: 1fr minmax(240px, 33%);
 }
 
 .right-side-bar .side-bar-region {

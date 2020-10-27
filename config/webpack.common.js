@@ -6,13 +6,20 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+
+  // Set the mode to development or production
+  mode: 'development',
+
   // Where webpack looks to start building the bundle
   entry: [paths.src + '/code/index.webpack.ts'],
 
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
-    filename: `${pkg.name}.bundle.js`,
+    filename: `js/${pkg.name}.bundle.js`,
+    library: 'Vector',
+    libraryTarget: 'umd',
+    globalObject: 'this',
   },
 
   // Customize the webpack build process
@@ -33,14 +40,14 @@ module.exports = {
       ],
     }),
 
-    // // Generates an HTML file from a template
-    // // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
-    // new HtmlWebpackPlugin({
-    //   title: 'webpack Boilerplate',
-    //   favicon: paths.src + '/images/favicon.png',
-    //   template: paths.src + '/template.html', // template file
-    //   filename: 'index.html', // output file
-    // }),
+    // Generates an HTML file from a template
+    // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
+    new HtmlWebpackPlugin({
+      title: 'webpack Boilerplate',
+      favicon: paths.src + '/images/favicon.png',
+      template: paths.src + '/template.html', // template file
+      filename: 'index.html', // output file
+    }),
   ],
   
   // Add `.ts` and `.tsx` as a resolvable extension.

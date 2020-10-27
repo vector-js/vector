@@ -4,6 +4,7 @@ import SVG from "../elements/svg/svg";
 interface Configuration {
     maxWidth?:number;
     origin?:string;
+    responsive?:boolean;
 }
 
 /**
@@ -26,7 +27,8 @@ export class SVGResponsiveTemplate extends SVG {
     constructor( width:number, height:number, config:Configuration = {} ) {
 
         let defaultConfig = {
-            origin: 'default'
+            origin: 'default',
+            responsive: true,
         }
 
         // Construct a SVG with the provided dimensions
@@ -36,9 +38,9 @@ export class SVGResponsiveTemplate extends SVG {
         config = { ...defaultConfig, ...config};
 
         // Fill available space
-        this.root.style.width = '100%';
-        this.root.style.height = 'auto';
-        this.root.style.display = 'block';
+        if( config.responsive ) {
+          this.classList.add('responsive');
+        }
         if( config.maxWidth ) {
             // Added px unit because firefox fails to set max-width if no unit is specified
             this.root.style.maxWidth = `${config.maxWidth}px`;
@@ -73,8 +75,8 @@ export class SVGResponsiveTemplate extends SVG {
             this._lines1 = this._grid.group();
             this._lines2 = this._grid.group();
     
-            this._lines1.style.stroke = '#fafafa';
-            this._lines2.style.stroke = '#eeeeee';
+            this._lines1.style.stroke = 'var(--light1)';
+            this._lines2.style.stroke = 'var(--light2)';
     
             let viewBox = this.root.viewBox.baseVal;
             let x = viewBox.x;
@@ -86,9 +88,8 @@ export class SVGResponsiveTemplate extends SVG {
             
             if( origin ) {
                 let origin = this._grid.circle(0,0,3);
+                origin.classList.add('outline')
                 origin.style.fill = '#81cfd9';
-                origin.style.stroke = '#485bfc';
-                origin.style.strokeWidth = '1px';
             }
             
             for( let i = Math.floor(x/10)*10; i < xMax; i += 10) {
@@ -111,7 +112,7 @@ export class SVGResponsiveTemplate extends SVG {
             if( border ) {
                 let rect = this.rect(x,y,width, height);
                 rect.style.strokeWidth = '2px';
-                rect.style.stroke = 'blue';
+                rect.style.stroke = '#dddddd';
                 rect.style.fill = 'none';
             }
         }

@@ -1,62 +1,84 @@
-import { SVGOverflowTemplate } from "./templates/svg-overflow";
-import { SVGResponsiveTemplate } from "./templates/svg-responsive";
-import { File } from "./index";
+import '../styles/normalize.css';
+import '../styles/reset.css';
 import '../styles/sandbox.css';
+import { TrigPlot } from './elements/math/plot';
+import { Grid } from './elements/math/grid';
+import { AnimationPlayer, Interactive, TAU, Path, Point, Text, File, Group, SVG, SVGResponsiveTemplate } from './index';
+import { Template } from './templates/template';
 
-let body = document.getElementsByTagName("body")[0];
+(window as any).download = File.download;
+
+let root = document.getElementById('root');
+root.style.maxWidth = `${720}px`;
+// root.style.maxWidth = `${3*144 + 2*48 + 2*16}px`;
 
 let count = 0;
 function createContainer() {
-    let container = document.createElement('div');
-    container.id = `container-${count++}`;
-    container.style.marginBottom = '1.5rem';
-    return container;
+  let container = document.createElement('div');
+  container.id = `container-${count++}`;
+  container.style.marginBottom = '1.5rem';
+  // container.style.padding = '48px';
+  // container.style.border = '1px solid #aaaaaa';
+  // let heading = container.appendChild(document.createElement('div'))
+  // heading.textContent = 'heading'
+  // heading.style.height = '48px'
+  // heading.style.display = 'grid';
+  // heading.style.placeItems = 'center';
+  
+  root.appendChild(container);
+  return container;
 }
 
-let alignment = [
-    'left',
-    // 'center',
-    // 'right'
-]
+let grid = new Grid(createContainer(), {
+  width:3*144,
+  height:3*144,
+  // width:400,
+  // height:400,
+  internalX:-10,
+  internalY:-10,
+  internalWidth: 20,
+  internalHeight: 20
+});
+grid.drawGridLines();
 
-for( let i = 0; i < alignment.length; i++) {
-    let svg = new SVGOverflowTemplate(432, 288, {align:alignment[i]});
-    svg.root.style.overflow = 'visible';
-    let container = createContainer();
-    container.style.overflow = 'hidden';
-    container.style.maxWidth = '720px';
-    container.style.display = 'block';
-    container.style.margin = '0 auto 1.5rem auto';
-    container.style.border = '1px solid grey';
-    body.appendChild(container).appendChild(svg.root);
-    svg.drawGrid();
+grid.circle(5,5,3);
+
+let svgContainer = new Interactive(createContainer(), {
+  width: 432 + 2*48,
+  height: 216 + 2*48,
+  responsive: false
+});
+
+svgContainer.root.style.border = '1px solid #aaaaaa';
+
+let sinPlot = new TrigPlot( svgContainer.root, Math.sin, {x:48, y:48});
+
+let text = svgContainer.text(svgContainer.width/2, 24, 'Cosine');
+text.style.textAnchor = 'middle';
+text.style.dominantBaseline = 'middle';
+
+let labels = svgContainer.group();
+labels.classList.add('katex');
+
+let bbox = svgContainer.root.getBoundingClientRect();
+let n = 10;
+for( let i = 0; i <= n; i += 2.5) {
+
+  let x = (i/n)*TAU;
+  let y = 0;
+  let p = sinPlot.SVGToScreen(x, y);
+  let label = labels.text(p.x - bbox.left, svgContainer.height - 24, `${(i/n).toString()}τ`);
+  label.style.textAnchor = 'middle';
+  label.style.dominantBaseline = 'middle';
 }
 
-// Multiples of 16*9 to make for better scaling
-let sizes = [
-    1*144, // 144
-    2*144, // 288
-    3*144, // 432
-    4*144, // 576
-]
-
-let aspectRatios = {
-    '3:1':{width: 3, height:1},
-    '2:1':{width: 2, height:1},
-    '16:9':{width:16, height:9},
-    '4:3':{width: 4, height:3},
-    '1:1':{width: 1, height:1},
-};
-
-for( let i = 0; i < sizes.length; i++) {
-    let width = sizes[i];
-    for( let r in aspectRatios) {
-        let aspectRatio = aspectRatios[r];
-        let height = width/aspectRatio.width*aspectRatio.height;
-        let svg = new SVGResponsiveTemplate(width, height, {maxWidth:width, origin:'center'});
-        body.appendChild(createContainer()).appendChild(svg.root);
-        svg.drawGrid(true, false);
-    }
+for( let y = -1; y <= 1; y++) {
+  let x = 0
+  let p = sinPlot.SVGToScreen(x, y);
+  let label = labels.text(24, p.y - bbox.top, y.toString());
+  label.style.textAnchor = 'middle';
+  label.style.dominantBaseline = 'middle';
 }
-(window as any).download = File.download;
 
+let cosPlot = new TrigPlot( createContainer(), Math.cos, {x:48, y:48});
+let tanPlot = new TrigPlot( createContainer(), Math.tan, {x:48, y:48, height:3*144});

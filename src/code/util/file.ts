@@ -49,15 +49,15 @@ export class File {
   /**
   * Downloads the current drawing as an svg file.
   */
-  static download( id:string, filename:String ) : Promise<any> {
+  static download( id:string, filename:String, stylesheet:string ) : Promise<any> {
 
-    return File.getURL('../style/vector.css').then((response) => {
+    return File.getURL(stylesheet).then((response) => {
       // Add the styling into the css document
       let svg = document.getElementById(id);
       let style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
       style.type = "text/css";
       style.innerHTML = response.toString();
-      svg.appendChild(style);
+      svg.prepend(style);
       File.saveSVG( filename, (svg as HTMLElement).outerHTML);
       style.remove();
     });

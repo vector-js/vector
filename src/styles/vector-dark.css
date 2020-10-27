@@ -1,38 +1,34 @@
 :root {
 
   /* color scheme */
-  --background: #ffffff;
-  --light1: #f0f0f0;
-  --light2: #d0d0d0;
-  --light3: #a0a0a0;
+  --background: #303030;
+  --light1: #555555;
+  --light2: #777777;
+  --light3: #999999;
 
   /* contrast */
-  --main: #404040;
+  --main: #eeeeee;
 
   /* contrast colors */
-  --primary: #485bfc;
+  --primary: hsl(209, 100%, 85%);
+  --primary:hsl(23, 83%, 82%);
   --secondary: #4bb77e;
   --tertiary: #c74440;
 
   /* colors */
   --coral: hsl(23, 83%, 82%);
   --coral--b: hsl(23, 99%, 75%);
-  --pink: hsl(335, 10%, 45%);
+  --pink: hsl(335, 52%, 92%);
   --pink--b: hsl(335, 82%, 86%);
   --yellow: hsl(42, 97%, 85%);
   --yellow--b: hsl(42, 100%, 73%);
   --green: hsl(100, 64%, 86%);
-  --green--b: hsl(100, 41%, 76%);
+  --green--b: hsl(101, 51%, 30%);
   --blue: hsl(187, 61%, 79%);
   --blue--b: hsl(187, 54%, 68%);
   --purple: hsl(282, 29%, 28%);
   --purple--b: hsl(283, 43%, 80%);
   --light-gray-blue: hsl(182, 29%, 96%);
-}
-
-.non-scaling-stroke * {
-  vector-effect: non-scaling-stroke;
-  stroke-width: 1px;
 }
 
 .interactive {
@@ -201,14 +197,14 @@ rect.default {
 }
 
 .plot .grid line {
-  /* stroke:var(--light1); */
+  stroke:var(--light1);
 }
 
 .plot path,
 .plot line,
 .plot rect {
-  /* stroke:var(--main); */
-  /* stroke-width:1px; */
+  stroke:var(--main);
+  stroke-width:1px;
   fill:none;
 }
 

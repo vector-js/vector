@@ -70,8 +70,8 @@ export default class Group extends Element implements Descriptive, Shape, Struct
   group(): Group {
     return this.appendChild(new Group());
   }
-  svg(x:number,y:number,width:number,height:number): SVG {
-    return this.appendChild(new SVG(x,y,width,height));
+  svg(width:number,height:number): SVG {
+    return this.appendChild(new SVG(width,height));
   }
   symbol(): Symbol{
     return this.appendChild(new Symbol());

@@ -47,19 +47,10 @@ export class SideBarTemplate extends Template {
   */
   constructor(idOrElement:string|HTMLElement, options:TemplateConfig = {} )  {
 
-    super();
+    super(idOrElement);
 
     // combine the default configuration with the user's configuration
     let config = { ...SideBarTemplate.config, ...options };
-
-    if (typeof idOrElement == "string") {
-      this.parent = document.getElementById(idOrElement);
-      if( this.parent === null || this.parent === undefined ) {
-        throw new Error(`There is no HTML element with the id: ${idOrElement}`);
-      }
-    } else {
-      this.parent = idOrElement;
-    }
 
     this.root = document.createElement('div');
     this.root.classList.add((options.right ? 'right-side-bar' : 'left-side-bar'));
@@ -70,7 +61,7 @@ export class SideBarTemplate extends Template {
     this.sidebar.classList.add('side-bar-region');
     this.main.classList.add('main-region');
 
-    this.parent.append(this.root);
+    this.container.append(this.root);
     this.root.append(this.main, this.sidebar);
   }
 }

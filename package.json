@@ -4,9 +4,10 @@
   "description": "A library for creating interactive vector graphics on the web.",
   "author": "Kurt Bruns",
   "main": "dist/lib/index.js",
-  "module": "dist/lib/index.js",
+  "browser": "dist/lib/index.js",
   "scripts": {
     "build": "webpack --config config/webpack.prod.js && yarn tsc",
+    "build:dev": "yarn webpack --config ./config/webpack.common.js",
     "start": "webpack serve --config config/webpack.dev.js",
     "clean": "rm -rf dist/",
     "clean-install": "rm -rf node_modules/ && yarn clean && yarn",

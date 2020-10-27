@@ -85,9 +85,10 @@ export class Grid extends SVGResponsiveTemplate {
     this.appendSelfWithin(element);
 
     // Create an internal SVG to do the heavy lifting
-    this.setViewBox(config.internalX, config.internalY, config.internalWidth, config.internalHeight);
     let svg = this.appendChild(new SVG());
-    this.internalViewBox = this.root.viewBox;
+    svg.setViewBox(config.internalX, config.internalY, config.internalWidth, config.internalHeight);
+
+    this.internalViewBox = svg.root.viewBox;
 
     // Store a reference to fix firefox viewbox issue
 		if( navigator.userAgent.indexOf("Firefox") > -1 ) {
@@ -163,7 +164,11 @@ export class Grid extends SVGResponsiveTemplate {
   
   drawGridLines() {
 
+    let bbox = this.root.getBoundingClientRect();
     let viewBox = this.internalViewBox.baseVal;
+		let p1 = this.SVGToRelative( viewBox.x, viewBox.y);
+		let p2 = this.SVGToRelative( viewBox.x + viewBox.width, viewBox.y + viewBox.height);
+    console.log(p1, p2)
     
 		let group3 = this.gridGroup.group();
 		group3.style.stroke = '#f8f8f8'
@@ -180,24 +185,28 @@ export class Grid extends SVGResponsiveTemplate {
     let x2 = Math.floor(viewBox.x + viewBox.width);
     let y2 = Math.floor(viewBox.y + viewBox.height);
 
-		for( let x = x1; x <= x2; x++ ) {
-			if( x % 10 === 0) {
-				group1.line(x, y1, x, y2);
-			} else if( x % 5 === 0 ) {
-				group2.line(x, y1, x, y2);
+		for( let i = x1; i <= x2; i++ ) {
+      
+      let x = this.SVGToRelative(i, 0).x;
+			if( i % 10 === 0) {
+				group1.line(x, p1.y, x, p2.y);
+			} else if( i % 5 === 0 ) {
+				group2.line(x, p1.y, x, p2.y);
 			} else {
-				group3.line(x, y1, x, y2);
+				group3.line(x, p1.y, x, p2.y);
 			}
     }
+    
 
-		for( let y = y1; y <= y2; y ++ ) {
+		for( let i = y1; i <= y2; i ++ ) {
       
-			if( y % 10 === 0) {
-				group1.line(x1, y, x2, y);
-			} else if( y % 5 === 0 ) {
-				group2.line(x1, y, x2, y);
+      let y = this.SVGToRelative(0, i).y;
+			if( i % 10 === 0) {
+				group1.line(p1.x, y, p2.x, y);
+			} else if( i % 5 === 0 ) {
+				group2.line(p1.x, y, p2.x, y);
 			} else {
-				group3.line(x1, y, x2, y);
+				group3.line(p1.x, y, p2.x, y);
 			}
 		}
 

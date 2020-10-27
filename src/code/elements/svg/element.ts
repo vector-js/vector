@@ -104,6 +104,24 @@ export default class Element extends BaseElement {
   }
 
   /**
+   * Appends self within the corresponding element
+   */
+  appendSelfWithin( element: string | HTMLElement) :HTMLElement {
+ 
+    let container : HTMLElement;
+    if (typeof element == "string") {
+      container = document.getElementById(element);
+      if( container === null || container === undefined ) {
+        throw new Error(`There is no HTML element with the id: ${element}`);
+      }
+    } else {
+      container = element;
+    }
+    container.appendChild(this.root);
+    return container;
+  }
+
+  /**
   * Returns the bounding box of this element. Note, this is different from the
   * getBoundingClientRect method since the bounding box is affected by the
   * current viewPort.

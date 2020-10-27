@@ -36,7 +36,7 @@ import Input from './elements/input/input';
 
 // complex objects
 import Interactive from './elements/interactive';
-import Plot from './elements/math/plot';
+import { Plot, TrigPlot } from './elements/math/plot';
 import Point from './elements/math/point';
 
 // templates
@@ -46,10 +46,15 @@ import {PancakeTemplate} from './templates/pancake';
 import {SideBarTemplate} from './templates/side-bar';
 import { SVGResponsiveTemplate } from './templates/svg-responsive';
 import { SVGOverflowTemplate } from './templates/svg-overflow';
+import { Template } from './templates/template';
 
 // export utility functions
-export { File } from './util/file';
-export { Math2 } from './util/math';
+import { File } from './util/file';
+import { Math2 } from './util/math';
+
+const TAU = Math2.TAU;
+
+export { Math2, File };
 
 // export objects
 export  {	
@@ -86,7 +91,9 @@ export  {
 	SVGResponsiveTemplate,
 	SVGOverflowTemplate,
 	Symbol,
-	HolyGrailTemplate,
+  HolyGrailTemplate,
+  TAU,
+  Template,
 	Text,
 	TSpan,
 	Use 

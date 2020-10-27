@@ -40,18 +40,12 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
 	*/
 	constructor();
 	constructor( width:number, height:number);
-	constructor( x:number, y:number, width:number, height:number );
-	constructor( arg1?:number, arg2?:number, arg3?:number, arg4?:number ) {
+	constructor( arg1?:number, arg2?:number ) {
 
 		let svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg');
-		// svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+		svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 		
-		if( arg1 && arg2 && arg3 && arg4 ) {
-			svg.setAttributeNS(null, 'x', arg1.toString());
-			svg.setAttributeNS(null, 'y', arg2.toString());
-			svg.setAttributeNS(null, 'width', arg3.toString());
-			svg.setAttributeNS(null, 'height', arg4.toString());
-		} else if ( arg1 && arg2 ) {
+		if ( arg1 && arg2 ) {
 			svg.setAttributeNS(null, 'width', arg1.toString());
 			svg.setAttributeNS(null, 'height', arg2.toString());
 		}
