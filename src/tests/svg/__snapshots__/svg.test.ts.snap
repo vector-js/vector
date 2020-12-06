@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates circle 1`] = `
+<circle
+  class="circle"
+  cx="2"
+  cy="3"
+  id="circle-1"
+  r="5"
+/>
+`;
+
+exports[`creates ellipse 1`] = `
+<ellipse
+  class="ellipse"
+  cx="2"
+  cy="3"
+  id="ellipse-5"
+  rx="5"
+  ry="7"
+/>
+`;
+
+exports[`creates rectangle 1`] = `
+<rect
+  class="rectangle"
+  height="7"
+  id="rectangle-3"
+  width="5"
+  x="2"
+  y="3"
+/>
+`;

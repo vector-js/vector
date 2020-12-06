@@ -11,7 +11,7 @@ module.exports = {
   mode: 'development',
 
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/code/index.webpack.ts'],
+  entry: [paths.src + '/index.webpack.ts'],
 
   // Where webpack outputs the assets and bundles
   output: {
@@ -44,7 +44,7 @@ module.exports = {
     // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
-      favicon: paths.src + '/images/favicon.png',
+      favicon: paths.src + '/assets/images/favicon.png',
       template: paths.src + '/template.html', // template file
       filename: 'index.html', // output file
     }),

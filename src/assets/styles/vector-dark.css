@@ -1,3 +1,54 @@
+:root {
+
+  /* color scheme */
+  --background: #303030;
+  --light1: #555555;
+  --light2: #777777;
+  --light3: #999999;
+
+  /* contrast */
+  --main: #eeeeee;
+
+  /* contrast colors */
+  --primary: hsl(209, 100%, 85%);
+  --primary:hsl(23, 83%, 82%);
+  --secondary: #4bb77e;
+  --tertiary: #c74440;
+
+  /* colors */
+  --coral: hsl(23, 83%, 82%);
+  --coral--b: hsl(23, 99%, 75%);
+  --pink: hsl(335, 52%, 92%);
+  --pink--b: hsl(335, 82%, 86%);
+  --yellow: hsl(42, 97%, 85%);
+  --yellow--b: hsl(42, 100%, 73%);
+  --green: hsl(100, 64%, 86%);
+  --green--b: hsl(101, 51%, 30%);
+  --blue: hsl(187, 61%, 79%);
+  --blue--b: hsl(187, 54%, 68%);
+  --purple: hsl(282, 29%, 28%);
+  --purple--b: hsl(283, 43%, 80%);
+  --light-gray-blue: hsl(182, 29%, 96%);
+}
+
+.interactive {
+  font-weight: normal;
+  font-size: 1rem;
+  box-sizing: content-box;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.interactive text.default,
+.interactive span.default {
+  fill:var(--main);
+  stroke: none;
+}
+
+svg.interactive {
+  display: block;
+}
+
 svg.responsive {
   width: 100%;
   height: auto;
@@ -6,13 +57,11 @@ svg.responsive {
 
 .overflow-container {
   overflow: hidden;
-  /* border:1px solid #dddddd; */
-  /* margin-bottom: 1.5rem; */
 }
 
 .outline {
   fill: none;
-  stroke: #404040;
+  stroke: var(--main);
   stroke-width: 1px;
 }
 
@@ -22,7 +71,7 @@ svg.responsive {
 }
 
 .text, .tspan {
-  color: #404040;
+  fill: var(--main);
   user-select: none;
 }
 
@@ -43,7 +92,7 @@ div.display-box {
 
 .katex-main {
 	font-family:'KaTeX_Main', 'KaTeX_Main-Regular';
-	fill:#404040;
+	fill:var(--main);
 	font-size:20px;
 }
 
@@ -66,7 +115,7 @@ div.display-box {
 	margin:auto;
 	border-radius:5px;
 	border: 1px solid #dddddd;
-	min-width: 288px;
+	min-width: 300px;
 }
 
 .animation-canvas {
@@ -81,11 +130,10 @@ div.display-box {
 }
 
 .animation-button:hover {
-	fill: #404040;
+	fill: var(--main);
 }
 
 .animation-controls {
-	/* background: #f8f8f8; */
 	display:flex;
 	flex-direction:row;
 	justify-content:space-around;
@@ -123,26 +171,10 @@ input.input {
   font-size: 14px;
 }
 
-svg.interactive {
-  display: block;
-}
 
-.interactive {
-  font-weight: normal;
-  font-size: 1rem;
-  box-sizing: content-box;
-  -webkit-font-smoothing: antialiased;
-  user-select: none;
-}
-
-.interactive text.default,
-.interactive span.default {
-  fill: #333333;
-  stroke: none;
-}
 
 .default * {
-  stroke:#404040;
+  stroke: var(--main);
   /* stroke-width:1px; */
   fill:none;
 }
@@ -153,33 +185,37 @@ line.default,
 path.default,
 polygon.default,
 rect.default {
-  stroke:#404040;
+  stroke:var(--main);
   stroke-width:1px;
   fill:none;
 }
 
 .default text,
 .default tspan {
-  fill:#404040;
+  fill:var(--main);
   stroke: none;
+}
+
+.plot .grid line {
+  stroke:var(--light1);
 }
 
 .plot path,
 .plot line,
 .plot rect {
-  stroke:#404040;
+  stroke:var(--main);
   stroke-width:1px;
   fill:none;
 }
 
 .control .point {
-  fill:#0366EE;
+  fill:var(--primary);
   stroke:none;
 }
 
 .control .handle {
   fill:transparent;
-  stroke: #0366EE;
+  stroke: var(--primary);
   stroke-width:2px;
   opacity:0;
 }

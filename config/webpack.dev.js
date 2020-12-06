@@ -7,7 +7,7 @@ const common = require('./webpack.common.js')
 module.exports = merge(common, {
 
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/code/index.webpack.dev.ts'],
+  entry: [paths.src + '/index.webpack.dev.ts'],
 
   // Set the mode to development or production
   mode: 'development',

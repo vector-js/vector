@@ -15,18 +15,10 @@
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
     "rollup": "rollup --config",
     "test": "jest",
+    "test:update": "jest -u",
     "tsc": "tsc --declaration true --sourceMap false --skipLibCheck",
     "watch": "tsc -w",
     "website": "cd website && hugo"
-  },
-  "jest": {
-    "testMatch": [
-      "**/test/*.test.js"
-    ],
-    "testURL": "http://localhost/",
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
   },
   "homepage": "https://vectorjs.org",
   "repository": {
@@ -37,12 +29,15 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "ts-node": "^9.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@rollup/plugin-babel": "^5.2.1",
+    "@types/jest": "^26.0.16",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",
@@ -50,7 +45,7 @@
     "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^1.1.5",
     "html-webpack-plugin": "^4.5.0",
-    "jest": "^26.5.2",
+    "jest": "^26.6.3",
     "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
@@ -61,6 +56,7 @@
     "sass-loader": "^10.0.3",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.0.0",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.4",
     "tslib": "^2.0.3",
     "typescript": "^3.9.7",
