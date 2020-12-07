@@ -11,7 +11,7 @@
   {{ partial "analytics.html" . }}
   {{ block "resources" . }}
   {{ end }}
-  <link rel="stylesheet" type="text/css" href="/library.css">
+  {{ partial "vector-js-lib" . }}
 </head>
 <body>
 {{ block "body" . }}

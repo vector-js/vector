@@ -99,7 +99,7 @@ export class Grid extends SVGResponsiveTemplate {
 		if( navigator.userAgent.indexOf("Firefox") > -1 ) {
 			this.internalSVG = svg.appendChild(new SVG());
 		} else {
-			this.internalSVG = svg;
+			this.internalSVG = svg as SVG;
     }
 
 		this.classList.add('outline');		

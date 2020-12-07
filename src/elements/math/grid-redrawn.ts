@@ -2,6 +2,7 @@ import { SVGResponsiveTemplate } from "../../templates/svg-responsive";
 import { TAU } from "../../util/constants";
 import {Group} from "../svg/group";
 import {SVG} from "../svg/svg";
+import {Element} from '../../index'
 
 /**
  * Configuration passed the the plot constructor
@@ -85,7 +86,7 @@ export class Grid extends SVGResponsiveTemplate {
     this.appendSelfWithin(element);
 
     // Create an internal SVG to do the heavy lifting
-    let svg = this.appendChild(new SVG());
+    let svg = this.appendChild(new SVG()) as SVG;
     svg.setViewBox(config.internalX, config.internalY, config.internalWidth, config.internalHeight);
 
     this.internalViewBox = svg.root.viewBox;
@@ -94,7 +95,7 @@ export class Grid extends SVGResponsiveTemplate {
 		if( navigator.userAgent.indexOf("Firefox") > -1 ) {
 			this.internalSVG = svg.appendChild(new SVG());
 		} else {
-			this.internalSVG = svg;
+			this.internalSVG = svg as any;
     }
 
 		this.classList.add('outline');		

@@ -59,21 +59,27 @@ width:100%;
 height:100%;
 }
 .ex-container {
-resize: both;
-position: relative;
-overflow: hidden;
-height: 100%;
-width: 100%;
-z-index: 2;
-box-shadow: 0 0 20px -10px hsl(187, 97%, 24%);
-display: grid;
-align-items: center;
-background: white;
+	resize: both;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	box-shadow: 0 0 20px -10px hsl(187, 97%, 24%);
+	display: grid;
+	align-items: center;
+	background: white;
+	max-width:720px;
+	max-height:400px;
+}
+
+.ex-container.fixed {
+	resize:horizontal;
 }
 
 .parent {
-width: 100%;
-height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .ex-container .section {

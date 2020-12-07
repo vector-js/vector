@@ -1,5 +1,6 @@
 import {Group} from "../elements/svg/group";
 import {SVG} from "../elements/svg/svg";
+import { Control, Input, Element } from "../index";
 
 interface Configuration {
     maxWidth?:number;
@@ -16,6 +17,9 @@ export class SVGResponsiveTemplate extends SVG {
     private _grid : Group;
     private _lines1 : Group;
     private _lines2 : Group;
+
+    controls : Group;
+    background : Group;
 
     /**
      * Constructs a responsive SVG Document that is optimized to prevent cumulative layout shift in 
@@ -62,7 +66,36 @@ export class SVGResponsiveTemplate extends SVG {
             default:
                 throw new Error(`Unrecognized origin: ${origin}. Please provide a valid orign`);
         }
+
+        // TODO: this is ugly, either template should extend the interactive object, or ... something better than this
+        // TLDR: Duplicate code here and in Interactive
+        this.background = new Group();
+        this.controls = new Group();
+        this.root.appendChild(this.background.root);
+        this.root.appendChild(this.controls.root)
     }
+
+    /**
+     * Creates a control point within this interactive at the position (x,y).
+     */
+    control( x:number, y:number ) : Control {
+        return this.controls.appendChild(new Control( x, y));
+    }
+
+        /**
+     * Appends the element within the interactive. If the element is an "input"
+     * element, places the element in the input group so that visually the element
+     * is always placed above other graphical elements.
+     */
+    appendChild<T extends Element>( child:any ) : T {
+      if( child instanceof Input ) {
+          this.controls.appendChild(child);
+      } else {
+          this.background.appendChild(child);
+      }
+      return child;
+  }
+
 
     /**
      * This helper method draws a grid to visualize the coordinate system used for drawing SVG 
@@ -92,7 +125,7 @@ export class SVGResponsiveTemplate extends SVG {
                 origin.style.fill = '#81cfd9';
             }
             
-            for( let i = Math.floor(x/10)*10; i < xMax; i += 10) {
+            for( let i = Math.floor(x/10)*10; i <= xMax; i += 10) {
             
                 let group = this._lines1;;
                 if( i % 100 === 0) {
@@ -100,7 +133,7 @@ export class SVGResponsiveTemplate extends SVG {
                 }
                 group.line(i, y, i, yMax);
             }
-            for( let i = Math.floor(y/10)*10; i < yMax; i += 10) {
+            for( let i = Math.floor(y/10)*10; i <= yMax; i += 10) {
             
                 let group = this._lines1;;
                 if( i % 100 === 0) {

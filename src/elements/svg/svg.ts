@@ -184,7 +184,7 @@ export class SVG extends Element implements Descriptive, Shape, Structural, Typo
 		return this.appendChild(new Title());
 	}
 
-	// shape elements
+	// shape elements, comments inherited from implementing abstract class
 
 	circle(cx: number, cy: number, r: number): Circle {
 		return this.appendChild(new Circle(cx, cy, r));
@@ -202,7 +202,7 @@ export class SVG extends Element implements Descriptive, Shape, Structural, Typo
 		return this.appendChild(new Polygon(points));
 	}
 	rect(x: number, y: number, width: number, height: number): Rectangle {
-		return this.appendChild(new Rectangle(x, y, width, height));
+		return this.rectangle(x,y,width,height);
 	}
 	rectangle(x: number, y: number, width: number, height: number): Rectangle {
 		return this.appendChild(new Rectangle(x, y, width, height));

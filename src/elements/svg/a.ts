@@ -1,4 +1,4 @@
-import {Element, CoreAttributes} from './element'
+import { Element, CoreAttributes } from './element'
 
 type AAttributes = 'href' | 'target' | 'download' | 'rel';
 

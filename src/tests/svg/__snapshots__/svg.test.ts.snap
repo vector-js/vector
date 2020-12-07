@@ -1,33 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`creates circle 1`] = `
+exports[`svg should render a circle with cx=1 cy=2 and r=3 1`] = `
 <circle
-  class="circle"
-  cx="2"
-  cy="3"
+  cx="1"
+  cy="2"
   id="circle-1"
-  r="5"
+  r="3"
 />
 `;
 
-exports[`creates ellipse 1`] = `
-<ellipse
-  class="ellipse"
-  cx="2"
-  cy="3"
-  id="ellipse-5"
-  rx="5"
-  ry="7"
+exports[`svg should render a line with x1=1 y1=2 x2=3 and y2=4 1`] = `
+<line
+  id="line-5"
+  x1="1"
+  x2="3"
+  y1="2"
+  y2="4"
 />
 `;
 
-exports[`creates rectangle 1`] = `
+exports[`svg should render a path with d="M1 2 L 2 3" 1`] = `
+<path
+  d="M1 2 L 3 4"
+  id="path-7"
+/>
+`;
+
+exports[`svg should render a polygon with points="1,2 3,4" 1`] = `
+<polygon
+  id="polygon-9"
+  points="1,2 3,4"
+/>
+`;
+
+exports[`svg should render a rectangle with x=1 y=2 width=3 and height=4 1`] = `
 <rect
-  class="rectangle"
-  height="7"
-  id="rectangle-3"
-  width="5"
-  x="2"
-  y="3"
+  height="4"
+  id="rectangle-11"
+  width="3"
+  x="1"
+  y="2"
+/>
+`;
+
+exports[`svg should render an ellipse with cx=1 cy=2 rx=3 and ry=4 1`] = `
+<ellipse
+  cx="1"
+  cy="2"
+  id="ellipse-3"
+  rx="3"
+  ry="4"
 />
 `;

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`group should render a circle with cx=1 cy=2 and r=3 1`] = `
+<circle
+  cx="1"
+  cy="2"
+  id="circle-2"
+  r="3"
+/>
+`;
+
+exports[`group should render a line with x1=1 y1=2 x2=3 and y2=4 1`] = `
+<line
+  id="line-8"
+  x1="1"
+  x2="3"
+  y1="2"
+  y2="4"
+/>
+`;
+
+exports[`group should render a path with d="M1 2 L 2 3" 1`] = `
+<path
+  d="M1 2 L 3 4"
+  id="path-11"
+/>
+`;
+
+exports[`group should render a polygon with points="1,2 3,4" 1`] = `
+<polygon
+  id="polygon-14"
+  points="1,2 3,4"
+/>
+`;
+
+exports[`group should render a rectangle with x=1 y=2 width=3 and height=4 1`] = `
+<rect
+  height="4"
+  id="rectangle-17"
+  width="3"
+  x="1"
+  y="2"
+/>
+`;
+
+exports[`group should render an ellipse with cx=1 cy=2 rx=3 and ry=4 1`] = `
+<ellipse
+  cx="1"
+  cy="2"
+  id="ellipse-5"
+  rx="3"
+  ry="4"
+/>
+`;

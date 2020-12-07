@@ -107,7 +107,7 @@ export class Plot extends SVGResponsiveTemplate {
 
         // Store a reference to fix firefox viewbox issue
 		if( navigator.userAgent.indexOf("Firefox") > -1 ) {
-			this.internalSVG = this.appendChild(new SVG()).root;
+			this.internalSVG = this.appendChild(new SVG()).root as SVGSVGElement;
 		} else {
 			this.internalSVG = this.root;
     }

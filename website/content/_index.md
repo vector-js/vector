@@ -1,51 +1,113 @@
 ---
 title: Vector.js
 description: "A Javascript library for the creation of interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS making it easy to use with other tools and libraries. At its core, the library is a minimalist tool for creating interactives."
-blurb: A Javascript library for the creation of interactive graphics.
+blurb: A Javascript library for creating interactive graphics on the web.
 aside:
   - About
   - Getting Started
-  - Coordinates
+  - Layouts
+  - Drawing Area
   - Basic Elements
   - Styling
-  - Templates
   - Interaction
-  - Input Elements
 modules:
-  - Animation
-  - Graphs
-  # - Maps
   - Plots
+  - Graphs
+  - Maps
 ---
 
 ## About
 
-Vector.js is a Javascript library written in Typescript for creating interactive 2D graphics. The library uses the existing web standards: HTML, SVG, and CSS and has no dependencies.
+Vector.js is an open-source Javascript library written in Typescript for creating interactive vector graphics on the web. The library uses core web technologies: HTML, Javascript, CSS and SVG has no dependencies. The library was originally developed by a group from the University of Utah for a senior captsone project and is currently maintained by [Kurt Bruns](https://kurtbruns.github.io/).
 
 ## Getting Started
 
 - Download the latest release
-- Follow the Getting Started Tutorial
+- Getting Started Typescript
+- Getting Started Browser
+- Getting Started Nodejs
 - Browse the many examples
-- Read the overview (this page)
 
-## Coordinates
+## Layouts
 
-The coordinate system is the same as the SVG coordinate system. The origin is the top left corner of the image and the positive *x* direction is to the right and the positive *y* direction is down. The origin and scale of the coordinate system can be changed as shown in [this tutorial]({{<relref "tutorials/coordinate-system">}}).
+Layouts are high-level boiler plate for you to hit the ground running. Pick a layout that best fits your use case
 
-{{<example "svg-coordinate-system">}}
+### Pancake
+
+The pancake layout is a classic layout that works well in an article format. The layout has three regions: the header, drawing area and footer.
+
+<div class="ex-section ex4">
+<div class="ex-area">
+  <div class="ex-container">
+    <div class="parent">
+      <header class="blue section"="">Header</header>
+      <main class="green section"="">Drawing Area</main>
+      <footer class="purple section"="">Footer</footer>
+    </div>
+  </div>
+</div>
+</div>
+
+### Sidebar
+
+The sidebar layout is another classic layout that works well with a little bit more available space, but still looks good in an article.
+
+<div class="ex-section ex3">
+<div class="ex-area">
+  <div class="ex-container">
+    <div class="parent">
+      <div class="section yellow">
+      Sidebar
+      </div>
+      <div class="section green">Drawing Area</div>
+    </div>
+  </div>
+</div>
+</div>
+
+Templates can be nested inside of eachother to build complex layouts. See all **layouts** or find an example related to what you want to do.
+
+TODO: link to all layouts
+
+## Drawing Area
+
+The drawing area is the region where visual elements are rendered. For example, the drawing area below has a width of `400` and a height of `300`. The **origin** of the coordinate system is located, by default, at the top-left corner of the drawing area and, as is typical in computer graphics, the positive *y*-direction is down instead of up. Drag the blue control point to see how a point is defined in the drawing area.
+
+{{<example "DrawingArea">}}
+
+The library provides out-of-the-box templates that create responsive drawing areas. These templates aim to look good on both mobile and desktop devices.
+
+### Overflow Template
+
+The overflow template defines a drawing area that is good for drawing interactives that start in a bounded area, but can use the extra space for user input. The initial area is used to scale the interactive to fit mobile devices.
+
+{{<example "OverflowDrawingArea">}}
+
+### Responsive Template
+
+The responsive template defines a responsive drawing area that scales up and down according to the available space. Providing a `maxWidth` value to the template when it is created limits how much space the drawing area takes up.
+
+{{<example "ResponsiveDrawingArea">}}
 
 ## Basic Elements
 
 The library has basic visual and structural elements for creating graphics. The basic elements correspond to the elements of the Scalable Vector Graphics Specification. More complicated elements use one or more basic elements internally. Every element contains a root <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGElement" target="_blank">SVGElement</a> attribute which gives access SVGElement Web API.
 
-### Ellipse
+### Rectangle
+
+{{<example "RectangleExample">}}
 
 {{< highlight javascript>}}
-let ellipse = interactive.ellipse( 100, 75, 80, 40);
+let rect = area.rect(50, 75, 200, 150);
 {{< /highlight >}}
 
-{{<example "ellipse-element">}}
+### Ellipse
+
+{{<example "EllipseExample">}}
+
+{{< highlight javascript>}}
+let ellipse = area.ellipse(150, 150, 100, 75);
+{{< /highlight >}}
 
 ### Line
 
@@ -53,31 +115,17 @@ let ellipse = interactive.ellipse( 100, 75, 80, 40);
 let line = interactive.line( 50, 25, 150, 125);
 {{< /highlight >}}
 
-{{<example "line-element">}}
-
 ### Path
 
 {{< highlight javascript>}}
 let line = interactive.path("M 50 50 Q 100 150 150 50");
 {{< /highlight >}}
 
-{{<example "path-element">}}
-
-### Rectangle
-
-{{< highlight javascript>}}
-let rectangle = interactive.rectangle( 50, 50, 100, 50);
-{{< /highlight >}}
-
-{{<example "rectangle-element">}}
-
 ### Text
 
 {{< highlight javascript>}}
 let text = interactive.text( 50, 75, "My Text");
 {{< /highlight >}}
-
-{{<example "text-element">}}
 
 ### TSpan
 
@@ -89,8 +137,6 @@ text.tspan('normal. ');
 text.tspan('bold. ').style.fontWeight = '600';
 text.tspan('normal again.');
 {{< /highlight >}}
-
-{{<example "tspan-element">}}
 
 ### Group
 
@@ -113,44 +159,7 @@ A powerful feature of a tree-structured document is that elements inherit styles
 
 See the **styling tutorial** for how to create your own custom styles.
 
-## Templates
 
-The library offers templates that create high-quality, responsive interactives to improve the "out-of-the-box" experience fo the library. The templates are ideal for interactives embedded within an article. The main area is usually where the "interactive" area is defined for drawing shapes and what not. The sidebars, headers and footers are areas to create input elements or display relevant information. These templates were directly inspired by [Googles web.dev](https://1linelayouts.glitch.me/).
-
-### Pancake Template
-
-The pancake stack has three regions: the header, main and footer.
-
-<div class="ex-section ex4">
-<div class="ex-area">
-  <div class="ex-container">
-    <div class="parent">
-      <header class="blue section" contenteditable="">Header</header>
-      <main class="coral section" contenteditable="">Main (Interactive Area)</main>
-      <footer class="purple section" contenteditable="">Footer Content</footer>
-    </div>
-  </div>
-</div>
-</div>
-
-### Sidebar Template
-
-<div class="ex-section ex3">
-<div class="ex-area">
-  <div class="ex-container">
-    <div class="parent">
-      <div class="section yellow" contenteditable>
-      Sidebar
-      </div>
-      <div class="section green" contenteditable>
-        Main (Interactive Area)
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-Templates can be nested inside of eachother to build complex layouts. See all **templates** or find an example related to what you want to do.
 
 ## Interaction
 
@@ -172,8 +181,6 @@ A control point is a two dimensional point that can be clicked and dragged by th
 let control = interactive.control( 150, 75);
 {{< /highlight >}}
 
-{{<example "control-element">}}
-
 #### Scrubber
 
 The scrubber has a play and pause button that start and stop the animation. The position indicator can also be dragged to change the state of the scrubber.
@@ -181,8 +188,6 @@ The scrubber has a play and pause button that start and stop the animation. The 
 {{< highlight javascript>}}
 let scrubber = interactive.scrubber( 100, 75, 400);
 {{< /highlight >}}
-
-{{<example "scrubber-element">}}
 
 See **all input elements** to get an idea of what can be exposed to the user.
 
@@ -193,16 +198,6 @@ Reactive programming is a paradigm where elements can use the state of other ele
 ## Modules
 
 As of now, the library has three modules that provide the ability to create complex elements with a suitable level of abstraction. Each module utilizes the core functionality of the library in their implementation.
-
-## Animation
-
-While animation isn't the main focus the library, some basic animations can be achieved using some built in elements like the scrubber element, and the native web API `requestAnimationFrame`.
-
-### Time Line Animation
-
-Adding a time-line to an interactive gives the user control over a basic animation. For beginner users, the scrubber is a great element to animate parts of an interactive. It allows the user to start, stop, and "scrub" to different parts of the animation.
-
-{{<example "animate-along-path">}}
 
 ### Plots
 
@@ -219,4 +214,7 @@ interactive.plot(Math.sin, {
 });
 {{< /highlight >}}
 
-{{<example "plot-element">}}
+
+### Graphs
+
+### Maps

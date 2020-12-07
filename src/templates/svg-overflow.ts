@@ -14,13 +14,13 @@ interface Configuration {
  */
 export class SVGOverflowTemplate extends SVG {
 
-    private _grid : Group;
-    private _lines1 : Group;
-    private _lines2 : Group;
+  private _grid : Group;
+  private _lines1 : Group;
+  private _lines2 : Group;
 
-    controls : Group;
-    background : Group;
-
+  controls : Group;
+  background : Group;
+    
     /**
      * Constructs a responsive SVG Document that is optimized to prevent cumulative layout shift in 
      * the browser. The width and height measurements are used to define 1) the aspect ratio of the 
@@ -41,22 +41,22 @@ export class SVGOverflowTemplate extends SVG {
         config = { ...defaultConfig, ...config};
 
         // Fill available space
-		this.root.style.display = 'block';
-		this.root.style.maxWidth = '100%';
-		this.root.style.height = 'auto';
+        this.root.style.display = 'block';
+        this.root.style.maxWidth = '100%';
+        this.root.style.height = 'auto';
 
-		switch(config.align) {
-			case 'center':
-				this.root.style.margin = 'auto';
-				break;
-			case 'right':
-				this.root.style.marginLeft = 'auto';
-                break;
-            case 'left':
-                this.root.style.marginRight = 'auto';
-                break;
-            default:
-                throw new Error(`Unknown alignment option: ${config.align}.`);
+        switch(config.align) {
+          case 'center':
+            this.root.style.margin = 'auto';
+            break;
+          case 'right':
+              this.root.style.marginLeft = 'auto';
+              break;
+          case 'left':
+              this.root.style.marginRight = 'auto';
+              break;
+          default:
+              throw new Error(`Unknown alignment option: ${config.align}.`);
         }
 
         // Define the origin used for drawing
@@ -76,10 +76,10 @@ export class SVGOverflowTemplate extends SVG {
 
         // TODO: this is ugly, either template should extend the interactive object, or ... something better than this
         // TLDR: Duplicate code here and in Interactive
-		this.background = new Group();
-		this.controls = new Group();
-		this.root.appendChild(this.background.root);
-		this.root.appendChild(this.controls.root)
+        this.background = new Group();
+        this.controls = new Group();
+        this.root.appendChild(this.background.root);
+        this.root.appendChild(this.controls.root)
 
     }
 
@@ -140,7 +140,7 @@ export class SVGOverflowTemplate extends SVG {
                 origin.style.strokeWidth = '1px';
             }
 
-            for( let i = Math.floor(x/10)*10; i < xMax; i += 10) {
+            for( let i = Math.floor(x/10)*10; i <= xMax; i += 10) {
             
                 let group = this._lines1;;
                 if( i % 100 === 0) {
@@ -148,7 +148,7 @@ export class SVGOverflowTemplate extends SVG {
                 }
                 group.line(i, y, i, yMax);
             }
-            for( let i = Math.floor(y/10)*10; i < yMax; i += 10) {
+            for( let i = Math.floor(y/10)*10; i <= yMax; i += 10) {
             
                 let group = this._lines1;;
                 if( i % 100 === 0) {

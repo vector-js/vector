@@ -1,0 +1,15 @@
+{{ with $.Site.GetPage (print "/examples/" (.Get 0)) }}
+{{ if eq .Params.Main true }}
+{{ $id := md5 .Params.Script }}
+<div id="{{ $id }}" class="vertical-center i-container"></div>
+<script type="module">
+  import main from "{{.Params.Script}}";
+  main("{{ $id }}");
+</script>
+{{ else }}
+<div id="{{ .Params.Id }}" class="vertical-center i-container"></div>
+<script type="module" src="{{.Params.Script}}"></script>
+{{ end }}
+{{ else }}
+  {{ errorf "Failed to find example %q" (print "/concepts/" (.Get 0)) }}
+{{ end }}

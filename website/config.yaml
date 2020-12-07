@@ -15,6 +15,14 @@ staticDir:
 params:
   repositoryURL: "https://github.com/vector-js/vector.git"
 
+# Mount vectorjs library
+module:
+  mounts:
+    - source: "node_modules/vector-js/dist/"
+      target: "static/vector-js/"
+    - source: "static"
+      target: "static"
+
 markup:
   goldmark:
     renderer:

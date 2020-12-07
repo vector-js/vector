@@ -1,4 +1,4 @@
-import {BaseElement} from '../base-element'
+import { BaseElement } from '../base-element'
 
 /**
 * These global attributes are associated with every SVG element in the DOM.
@@ -37,7 +37,7 @@ export class Element extends BaseElement {
     // store the root element and set the id attribute
     this.root = root;
     this.root.id = this.id;
-    this.root.classList.add(this.constructor.name.toLowerCase());
+    // this.root.classList.add(this.constructor.name.toLowerCase());
 
     // make the root's style declaration available
     this.style = this.root.style;
