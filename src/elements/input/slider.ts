@@ -1,7 +1,7 @@
-import {Line} from '../svg/line'
-import ControlCircle from './control-circle'
-import Input from './input'
-import Point from '../math/point'
+import { Line } from '../svg/line'
+import { ControlCircle } from './control-circle'
+import { Input } from './input'
+import { Point } from '../../model/point'
 
 export interface SliderOptions {
   width?:number,
@@ -16,7 +16,7 @@ export interface SliderOptions {
 * a user- defined range. The slider has a minimum value and a maximum value
 * which default to the range [0, 1].
 */
-export default class Slider extends Input {
+export class Slider extends Input {
 
   x : number;
   y : number;

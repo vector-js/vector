@@ -1,4 +1,4 @@
-import Control from './control'
+import { Control } from './control'
 
 // A first pass implementation of a control circle. In the future, it seems to
 // make sense for basic elements to be draggable. I think this would mean
@@ -6,7 +6,7 @@ import Control from './control'
 // Another alternative would be moving some of that logic into the controller or
 // interactive wrapper class.
 
-export default class ControlCircle extends Control {
+export class ControlCircle extends Control {
 
   // Describes the size of the control handle and point
   private static circleRadius : number = 10;

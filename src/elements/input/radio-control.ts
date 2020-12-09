@@ -1,10 +1,10 @@
-import Input from './input'
-import CheckBox from './check-box'
+import { Input } from './input'
+import { CheckBox } from './check-box'
 
 /**
 *  Radio Buttons with labels. Only one of the checkboxes will be checked at any given time.
 */
-export default class RadioControl extends Input {
+export class RadioControl extends Input {
 
   /*
   * the list of checkboxes that belong to the radio control

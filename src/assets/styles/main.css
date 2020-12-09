@@ -74,8 +74,12 @@ svg.responsive {
 }
 
 /*TODO: fix this */
-text tspan {
+text,
+tspan {
   fill: var(--main);
+}
+
+.no-select {
   user-select: none;
 }
 
@@ -85,7 +89,7 @@ div.display-box {
 	background:#fafafa;
 	border: 1px solid #dddddd;
 	border-radius: 5px;
-	margin: 0.5rem 0;
+	margin: 0 0 0.5rem 0;
 }
 
 .text-middle {

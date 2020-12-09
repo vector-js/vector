@@ -1,6 +1,6 @@
-import Slider from './slider'
+import { Slider } from './slider'
 import { SliderOptions } from './slider'
-import {Group} from '../svg/group'
+import { Group } from '../svg/group'
 
 export interface ScrubberOptions extends SliderOptions {
   loop:boolean
@@ -9,7 +9,7 @@ export interface ScrubberOptions extends SliderOptions {
 /**
 * A scubber element has
 */
-export default class Scrubber extends Slider {
+export class Scrubber extends Slider {
 
   /**
   * Represents weather the scrubber is active and animating.

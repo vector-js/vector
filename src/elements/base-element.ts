@@ -1,4 +1,4 @@
-import Controller from './controller'
+import { Controller } from '../model/controller'
 
 /**
 * A basic element of the interactive ecosystem. Each element has an unique

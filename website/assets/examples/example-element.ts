@@ -1,18 +1,23 @@
 
-import { SVGOverflowTemplate } from 'vector-js';
-import { Example } from './example';
+import { OverflowArtboard } from '@vector-js/vector';
 
-export class ElementExample extends Example {
-	template:SVGOverflowTemplate;
-	constructor(idOrElement) {
-		super(idOrElement);
+export class ElementExample extends OverflowArtboard {
+	
+	constructor(container, config:any = {}) {
 
-		this.template = new SVGOverflowTemplate(300, 300, {align:'left'})
-		this.template.style.overflow = 'visible';
-		this.template.drawGrid(false, false);
-		this.template.root.style.overflow = 'visible';
+		let defaultConfig = {
+			width: 300,
+			height: 300,
+			align: 'left'
+		}
+
+		config = { ...defaultConfig, ...config};
+
+		super(container, config);
+
+		this.style.overflow = 'visible';
+		this.drawGrid(false, false);
 		this.container.style.overflow = 'hidden';
-		this.container.appendChild(this.template.root);
 		this.container.style.outline = '1px solid #cccccc';
 
 	}

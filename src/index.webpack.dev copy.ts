@@ -1,6 +1,6 @@
 import '../styles/sandbox.css';
-import { AnimationPlayer, Interactive, TAU, Path, Point, Text, File, Group, SVG } from './index';
-import { Template } from './templates/template';
+import { PlayerLayout, Artboard, TAU, Path, Point, Text, File, Group, SVG } from './index';
+import { Layout } from './layouts/layout';
 
 (window as any).download = File.download;
 
@@ -39,7 +39,7 @@ interface PlotConfiguration {
  * The viewport is defined by a position (x,y) relative to its parent, which only applies to nested
  * SVGs.
  */
-class Plot extends Interactive {
+class Plot extends Artboard {
 
 
 	fn:(x:number) => number

@@ -123,7 +123,7 @@ export class SVG extends Element implements Descriptive, Shape, Structural, Typo
 		this.root.y.baseVal.value = value;
 	}
 
-	  /**
+	 /**
 	 * Returns the maximum x-coordinate in the internal (drawing) coordinate system
 	 */
 	get maxX() : number {
@@ -186,25 +186,25 @@ export class SVG extends Element implements Descriptive, Shape, Structural, Typo
 
 	// shape elements, comments inherited from implementing abstract class
 
-	circle(cx: number, cy: number, r: number): Circle {
+	circle(cx:number, cy:number, r:number): Circle {
 		return this.appendChild(new Circle(cx, cy, r));
 	}
-	ellipse(cx: number, cy: number, rx: number, ry: number): Ellipse {
+	ellipse(cx:number, cy:number, rx:number, ry:number): Ellipse {
 		return this.appendChild(new Ellipse(cx, cy, rx, ry));
 	}
-	line(x1: number, y1: number, x2: number, y2: number): Line {
+	line(x1:number, y1:number, x2:number, y2:number): Line {
 		return this.appendChild(new Line(x1, y1, x2, y2));
 	}
-	path(d: string): Path {
+	path(d:string = ''): Path {
 		return this.appendChild(new Path(d));
 	}
-	polygon(points: string): Polygon {
+	polygon(points:string): Polygon {
 		return this.appendChild(new Polygon(points));
 	}
-	rect(x: number, y: number, width: number, height: number): Rectangle {
+	rect(x:number, y:number, width:number, height:number): Rectangle {
 		return this.rectangle(x,y,width,height);
 	}
-	rectangle(x: number, y: number, width: number, height: number): Rectangle {
+	rectangle(x:number, y:number, width:number, height:number): Rectangle {
 		return this.appendChild(new Rectangle(x, y, width, height));
 	}
 
@@ -231,7 +231,7 @@ export class SVG extends Element implements Descriptive, Shape, Structural, Typo
 
 	// typography elements
 
-	text(x: number, y: number, str: string): Text {
+	text(x:number, y:number, str:string = ''): Text {
 		return this.appendChild(new Text(x, y, str));
 	}
 

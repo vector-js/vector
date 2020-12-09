@@ -3,7 +3,7 @@ import { Element, CoreAttributes } from './element'
 /**
 * Attributes associated with geometric SVG elements.
 */
-export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end' | 'transform';
+export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end' | 'transform' | 'vector-effect';
 
 /**
 * A shape is a basic geometric element.

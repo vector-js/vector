@@ -1,6 +1,6 @@
 {
-  "name": "vector-js",
-  "version": "2.0.0",
+  "name": "@vector-js/vector",
+  "version": "0.1.0",
   "description": "A library for creating interactive vector graphics on the web.",
   "author": "Kurt Bruns",
   "main": "dist/lib/index.js",
@@ -28,10 +28,8 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "license": "ISC",
-  "dependencies": {
-    "ts-node": "^9.1.0"
-  },
+  "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -58,6 +56,7 @@
     "terser-webpack-plugin": "^5.0.0",
     "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.4",
+    "ts-node": "^9.1.1",
     "tslib": "^2.0.3",
     "typescript": "^3.9.7",
     "webpack": "^5.1.3",

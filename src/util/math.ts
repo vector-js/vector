@@ -1,4 +1,4 @@
-import Point from '../elements/math/point'
+import { Point } from '../model/point'
 
 /**
  *  A class of helpful math-related functions.

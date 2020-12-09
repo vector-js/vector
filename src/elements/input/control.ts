@@ -1,17 +1,16 @@
 import {BaseElement} from '../base-element'
-import Input from './input'
+import { Input } from './input'
 
-import {Path} from '../svg/path'
-import {Circle} from '../svg/circle'
-import {Rectangle} from '../svg/rectangle'
+import { Path } from '../svg/path'
+import { Circle } from '../svg/circle'
+import { Rectangle } from '../svg/rectangle'
 import { TAU } from '../../util/constants'
-import Point from '../math/point'
-import {SVG} from '../svg/svg'
+import { Point } from '../../model/point'
 
 /**
 * A control point is a draggable two dimensional point.
 */
-export default class Control extends Input {
+export class Control extends Input {
 
   // Describes the size of the control handle and point
   private static pointRadius : number = 3.5;

@@ -8,19 +8,22 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
+// Remove scope from output name
+const name = pkg.name.split("/")[1];
+
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
     path: paths.build,
     publicPath: '/',
-    filename: `js/${pkg.name}.bundle.js`,
+    filename: `js/${name}.bundle.js`,
   },
   plugins: [
     // Extracts CSS into separate files
     // Note: style-loader is for development, MiniCssExtractPlugin is for production
     new MiniCssExtractPlugin({
-      filename: `styles/${pkg.name}.css`,
+      filename: `styles/${name}.css`,
       chunkFilename: '[id].css',
     }),
   ],

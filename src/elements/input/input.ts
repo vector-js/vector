@@ -3,7 +3,7 @@ import { Group } from '../svg/group'
 /**
 * An object that takes in user input in the form of user events.
 */
-export default class Input extends Group {
+export class Input extends Group {
 
   private _onchange : () => void;
 

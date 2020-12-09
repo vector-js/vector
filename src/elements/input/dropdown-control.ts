@@ -1,13 +1,13 @@
-import {Group} from '../svg/group'
-import {Rectangle} from '../svg/rectangle'
-import {Text} from '../svg/text'
-import {Path} from '../svg/path'
-import Input from './input'
+import { Group } from '../svg/group'
+import { Rectangle } from '../svg/rectangle'
+import { Text } from '../svg/text'
+import { Path } from '../svg/path'
+import { Input } from './input'
 
 /**
 *  Dropdown with menu item labels that can be selected.
 */
-export default class DropdownControl extends Input {
+export class DropdownControl extends Input {
 
     optionLabels: string[];
     currentIndex: number;

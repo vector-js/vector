@@ -1,12 +1,11 @@
-import {Rectangle} from '../svg/rectangle'
-import {Text} from '../svg/text'
-
-import Input from './input'
+import { Rectangle } from '../svg/rectangle'
+import { Text } from '../svg/text'
+import { Input } from './input'
 
 /**
 * A button that when pressed fires an onclick event.
 */
-export default class Button extends Input {
+export class Button extends Input {
 
   /**
   * The state of the checkbox

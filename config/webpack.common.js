@@ -5,6 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+// Remove scope from output name
+const name = pkg.name.split("@")[1];
+
 module.exports = {
 
   // Set the mode to development or production
@@ -16,7 +19,7 @@ module.exports = {
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
-    filename: `js/${pkg.name}.bundle.js`,
+    filename: `js/${name}.bundle.js`,
     library: 'Vector',
     libraryTarget: 'umd',
     globalObject: 'this',

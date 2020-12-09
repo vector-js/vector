@@ -18,8 +18,8 @@ params:
 # Mount vectorjs library
 module:
   mounts:
-    - source: "node_modules/vector-js/dist/"
-      target: "static/vector-js/"
+    - source: "node_modules/@vector-js/vector/dist/"
+      target: "static/vector/"
     - source: "static"
       target: "static"
 

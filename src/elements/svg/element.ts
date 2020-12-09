@@ -106,9 +106,9 @@ export class Element extends BaseElement {
   /**
    * Appends self within the corresponding element
    */
-  appendSelfWithin( element: string | HTMLElement) :HTMLElement {
+  appendSelfWithin( element: string | HTMLElement | SVGElement ) : HTMLElement | SVGElement {
  
-    let container : HTMLElement;
+    let container : HTMLElement | SVGElement ;
     if (typeof element == "string") {
       container = document.getElementById(element);
       if( container === null || container === undefined ) {

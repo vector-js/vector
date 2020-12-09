@@ -1,12 +1,12 @@
-import {Rectangle} from '../svg/rectangle'
-import {Text} from '../svg/text'
+import { Rectangle } from '../svg/rectangle'
+import { Text } from '../svg/text'
 
-import Input from './input'
+import { Input } from './input'
 
 /**
 * A button that when pressed fires an onclick event.
 */
-export default class HoverBox extends Input {
+export class HoverBox extends Input {
 
     box: Rectangle;
 

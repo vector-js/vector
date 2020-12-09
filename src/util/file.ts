@@ -1,4 +1,4 @@
-import {saveAs} from './save-as'
+import { saveAs } from './save-as'
 
 /**
  * A class of static utility functions for managing client-side

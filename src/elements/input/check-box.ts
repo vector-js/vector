@@ -1,13 +1,12 @@
-import {Rectangle} from '../svg/rectangle'
-import {Text} from '../svg/text'
-
-import Input from './input'
+import { Rectangle } from '../svg/rectangle'
+import { Text } from '../svg/text'
+import { Input } from './input'
 
 /**
 * A checkbox with an label. The can be checked, unchecked, and related to other
 * elements.
 */
-export default class CheckBox extends Input {
+export class CheckBox extends Input {
 
   /**
   * The state of the checkbox
