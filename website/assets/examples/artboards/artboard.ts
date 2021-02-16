@@ -9,7 +9,7 @@ export class ArtboardExample extends ResponsiveArtboard {
 			width:400,
 			height:300,
 			maxWidth:400,
-			align: 'center'
+			align: 'left'
 		});
 
 		this.container.style.overflow = 'hidden';

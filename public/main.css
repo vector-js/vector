@@ -1,3 +1,4 @@
+
 :root {
 
   /* color scheme */
@@ -25,8 +26,6 @@
   --green--b: hsl(100, 41%, 76%);
   --blue: hsl(187, 61%, 79%);
   --blue--b: hsl(187, 54%, 68%);
-  --purple: hsl(282, 29%, 28%);
-  --purple--b: hsl(283, 43%, 80%);
   --light-gray-blue: hsl(182, 29%, 96%);
 }
 
@@ -74,8 +73,13 @@ svg.responsive {
   font-size: 1rem;
 }
 
-.text, .tspan {
+/*TODO: fix this */
+text,
+tspan {
   fill: var(--main);
+}
+
+.no-select {
   user-select: none;
 }
 
@@ -85,7 +89,7 @@ div.display-box {
 	background:#fafafa;
 	border: 1px solid #dddddd;
 	border-radius: 5px;
-	margin: 0.5rem 0;
+	margin: 0 0 0.5rem 0;
 }
 
 .text-middle {

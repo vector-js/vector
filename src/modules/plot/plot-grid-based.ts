@@ -26,6 +26,8 @@ interface Configuration {
   responsive?:boolean
   origin?:string
   title?:string
+  grid?:boolean
+  border?:Boolean
   
   // Initial function to draw
   f:FunctionType
@@ -57,14 +59,27 @@ export class Plot extends GridArtboard {
    */
   border:Rectangle;
 
-  constructor(container, config) {
+  constructor(container:string|HTMLElement, config:Configuration) {
+
+    // default configuration
+    let defaultConfig = {
+      grid: true
+    }
+
+    // choose users config over default
+    config = { ...defaultConfig, ...config};
 
     super(container, config);
     
-    this.drawGridLines();
+    if( config.grid ) {
+      this.drawGridLines()
+    }
+
+    if( config.border ) {
+      this.drawBorder()
+    }
 
     this.fnGroup = this.group();
-    
     this.functionPaths = [];
     this.functions = [];
 
@@ -75,13 +90,15 @@ export class Plot extends GridArtboard {
 
   }
 
-  addFunction( f:FunctionType ) {
+  addFunction( f:FunctionType ):Path {
 
     let path = this.fnGroup.path('');
     path.classList.add('non-scaling-stroke');
 
     this.functions.push(f);
     this.functionPaths.push(path);
+
+    return path;
   }
 
   /**
@@ -131,5 +148,4 @@ export class Plot extends GridArtboard {
       this.functionPaths[i].d = d;
     }
 	}
-
 }

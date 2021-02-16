@@ -1,8 +1,7 @@
 import { Node } from './node'
 import { Edge } from './edge'
-import {Group} from '../../elements/svg/group'
-import {Definitions} from '../../elements/svg/definitions'
-
+import { Group } from '../../elements/svg/group'
+import { Definitions } from '../../elements/svg/definitions'
 
 /**
 * A Graph is a complex element containing nodes and undirected edges.

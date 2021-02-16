@@ -510,7 +510,7 @@ a.accent-button {
 
 .muted-button,
 a.muted-button {
-  background: transparent;
+  background: #fafafa;
   border: 1px solid #cdcdcd;
   color: #4e4e4e; }
   .muted-button:hover, .muted-button:focus, .muted-button:active,
@@ -519,7 +519,7 @@ a.muted-button {
   a.muted-button:active {
     color: #4e4e4e;
     border: 1px solid #818181;
-    background: transparent; }
+    background: #f2f2f2; }
 
 .dark-button,
 a.dark-button {
@@ -1189,7 +1189,7 @@ body {
   display: grid;
   align-items: center;
   background: white;
-  max-width: 720px;
+  max-width: 100%;
   max-height: 400px; }
 
 .ex-container.fixed {

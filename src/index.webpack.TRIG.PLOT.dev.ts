@@ -1,12 +1,9 @@
 import './assets/styles/normalize.css';
 import './assets/styles/reset.css';
-import './assets/styles/sandbox.css';
 
-import { TrigPlot } from './modules/plots/plot';
+import { TrigPlot } from './modules/plot/plot';
 import { PlayerLayout, TAU, Path, Point, Text, File, Group, SVG, Artboard, ResponsiveArtboard, GridArtboard } from './index';
 import { Layout } from './layouts/layout';
-
-(window as any).download = File.download;
 
 let root = document.getElementById('root');
 root.style.maxWidth = `${720}px`;
@@ -95,3 +92,7 @@ let asinPlot = new TrigPlot( createContainer(), Math.asin, {
   width: 288*2,
   height: 576
 });
+
+(window as any).download = (id) => {
+  File.download(id, `${id}.svg`, 'assets/main.css');
+}

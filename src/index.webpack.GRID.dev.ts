@@ -1,7 +1,7 @@
 import './assets/styles/normalize.css';
 import './assets/styles/reset.css';
 import './assets/styles/sandbox.css';
-import { TrigPlot } from './modules/plots/plot';
+import { TrigPlot } from './modules/plot/plot';
 import { PlayerLayout, Artboard, TAU, Path, Point, Text, File, Group, SVG, ResponsiveArtboard, GridArtboard } from './index';
 import { Layout } from './layouts/layout';
 

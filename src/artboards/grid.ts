@@ -172,14 +172,11 @@ export class GridArtboard extends ResponsiveArtboard {
 
 		// Or use clipping path
     let spacing = 0;
-    let viewBox = this.internalViewBox.baseVal;
-    let x1 = viewBox.x;
-    let y1 = viewBox.y;
+    let viewbox = this.root.viewBox.baseVal
 
-    let x2 = viewBox.x + viewBox.width;
-    let y2 = viewBox.y + viewBox.height;
+    this.border = new Rectangle(viewbox.x, viewbox.y, viewbox.width, viewbox.height);
+    this.border.appendSelfWithin(this.root);
 
-    this.border = this.rect(x1, y1, x2 - x1, y2 - y1);
     this.border.root.setAttribute('vector-effect', 'non-scaling-stroke');
 		this.border.style.strokeWidth = '2';
   }

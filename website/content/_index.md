@@ -19,7 +19,7 @@ modules:
 
 ## About
 
-Vector.js is an open-source Javascript library written in Typescript for creating interactive vector graphics on the web. The library uses core web technologies: SVG, HTML, Javascript and CSS has no dependencies. The library was originally developed by a group of seniors from the University of Utah for their captsone project. The project is currently maintained by [Kurt Bruns](https://kurtbruns.github.io/).
+Vector is an open-source library written in Typescript for creating interactive vector graphics on the web. The library uses core web technologies: SVG, HTML, Javascript and CSS has no dependencies. The library was originally developed by a group of seniors from the University of Utah for their captsone and is currently maintained by [Kurt Bruns](https://kurtbruns.github.io/).
 
 ## Getting Started
 
@@ -30,9 +30,9 @@ Vector.js is an open-source Javascript library written in Typescript for creatin
 
 ## Layouts
 
-Layouts are high-level boiler plate for you to hit the ground running. Pick a layout that best fits your use case
+Layouts are high-level boiler plate for you to hit the ground running. Pick a layout that best fits your use case. These layouts are currently optimized for graphics embedded in horizontally contained vertical documents.
 
-### Pancake
+### Pancake Layout
 
 The pancake layout is a vertical layout that has three regions: the header, drawing area and footer.
 
@@ -48,9 +48,9 @@ The pancake layout is a vertical layout that has three regions: the header, draw
 </div>
 </div>
 
-### Sidebar
+### Sidebar Layout
 
-The sidebar layout is another classic layout that works well with a little bit more available space, but still looks good in an article.
+The sidebar layout is another classic layout that works well with a little bit more available space.
 
 <div class="ex-section ex3">
 <div class="ex-area">
@@ -65,9 +65,9 @@ The sidebar layout is another classic layout that works well with a little bit m
 </div>
 </div>
 
-Templates can be nested inside of eachother to build complex layouts. See all **layouts** or find an example related to what you want to do.
+See all **layouts** or find an example related to what you want to do.
 
-TODO: link to all layouts
+<!-- TODO: link to all layouts -->
 
 ## Artboards
 
@@ -110,7 +110,7 @@ let artboard = new ResponsiveArtboard(container, {
 
 The library has visual and structural elements for creating graphics. Basic elements usually correspond directly to an SVG element and custom elements are defined using a number of SVG elements.
 
-### Rectangle
+### Rectangle Element
 
 {{<example "RectangleExample">}}
 
@@ -120,7 +120,7 @@ let rect = artboard.rect(50, 75, 200, 150);
 
 A rectangle is drawn starting from the top left point with the provided `width` and `height` dimensions.
 
-### Ellipse
+### Ellipse Element
 
 {{<example "EllipseExample">}}
 
@@ -130,7 +130,7 @@ let ellipse = artboard.ellipse(150, 150, 100, 75);
 
 An ellipse is drawn from the center point `(cx, cy)` with a horizontal radius `rx` and a vertical radius `ry`.
 
-### Line
+### Line Element
 
 {{<example "LineExample">}}
 
@@ -140,7 +140,7 @@ let line = artboard.line(50, 200, 250, 100);
 
 A line is drawn between a starting point `(x1, y1)` and an end point `(x2, y2)`.
 
-### Path
+### Path Element
 
 {{<example "PathExample">}}
 
@@ -148,9 +148,9 @@ A line is drawn between a starting point `(x1, y1)` and an end point `(x2, y2)`.
 let path = artboard.path('M 50 100 Q 150 250 250 100');
 ```
 
-The path element corresponds directly with the [SVG Path](https://svg-tutorial.github.io/elements/path/) and draws a complex line given a series of commands. A command is defined a letter followed by zero or more points.
+The path element corresponds directly with the SVG Path and draws a complex line given a series of commands. A command is defined a letter followed by zero or more points.
 
-### Text
+### Text Element
 
 {{<example "TextExample">}}
 
@@ -160,7 +160,7 @@ let text = artboard.text(100, 100, "Fly you fools");
 
 The text element is used to draw text at the position `(x,y)`. It is recommended to use [web safe fonts](https://www.cssfontstack.com/), otherwise some weird loading can occur.
 
-### TSpan
+### TSpan Element
 
 {{<example "TextSpanExample">}}
 
@@ -175,25 +175,23 @@ text.style.fontFamily = 'monospace';
 
 A  t-span element, short for text span, allows for text to to be styled or colored differently than the adjacent text. In the example above, the word "you" is bolded.
 
-### Group
+### Group Element
 
 The group element is a structural element for grouping other elements together. This is useful for applying styles, transformations, and other such things to multiple elements at once. The group element, like an artboard, contains methods for creating other elements.
 
 {{<example "GroupExample">}}
 
 ```js
-let group1 = artboard.group();
-let group2 = artboard.group();
+let group = artboard.group();
 
-group1.circle( 50, 50, 15);
-group2.circle(150, 50, 15);
+group.circle( 50, 50, 15);
+group.circle(150, 50, 15);
 // draw rest of circles...
 
-group1.style.fill = 'lightgreen';
-group2.style.fill = 'lightblue';
+group.style.fill = '#4bb77e'; // green
 ```
 
-In the example above, the circles colored green belong to one group and the circles colored blue belong to another group.
+In the example above, all of the circle are colored the same by applying a style to the group.
 
 ## Styling
 

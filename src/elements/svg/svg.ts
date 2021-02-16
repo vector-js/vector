@@ -7,6 +7,7 @@ import { Definitions } from './definitions'
 import { Description } from './description'
 import { Ellipse } from './ellipse'
 import { Group } from './group'
+import { Image } from './image'
 import { Line } from './line'
 import { Marker } from './marker'
 import { MetaData } from './meta-data'
@@ -191,6 +192,9 @@ export class SVG extends Element implements Descriptive, Shape, Structural, Typo
 	}
 	ellipse(cx:number, cy:number, rx:number, ry:number): Ellipse {
 		return this.appendChild(new Ellipse(cx, cy, rx, ry));
+  }
+  image(href:string, width:number, height:number ): Image {
+		return this.appendChild(new Image(href, width, height));
 	}
 	line(x1:number, y1:number, x2:number, y2:number): Line {
 		return this.appendChild(new Line(x1, y1, x2, y2));

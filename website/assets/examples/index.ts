@@ -3,6 +3,7 @@ import { AngleExample } from "./angle";
 import { StandardAngleExample } from "./angle-standard";
 import { ArtboardExample } from "./artboards/artboard";
 import { OverflowArtboardExample } from "./artboards/overflow";
+import { OverflowArtboardExample2 } from "./artboards/overflow-2";
 import { ResponsiveArtboardExample } from "./artboards/responsive";
 
 // elements
@@ -22,6 +23,7 @@ import { PlayerExample } from "./player";
 export { 
   ArtboardExample,
   OverflowArtboardExample,
+  OverflowArtboardExample2,
   ResponsiveArtboardExample,
 
   ControlPointExample,

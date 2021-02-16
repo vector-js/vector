@@ -15,6 +15,8 @@ export class Layout extends BaseElement {
   artboard:Artboard;
   container:HTMLElement;
 
+  static inputCount : number = 0;
+
   constructor(idOrElment:string|HTMLElement, config: Configuration = {}) {
 
     super();
@@ -58,26 +60,6 @@ export class Layout extends BaseElement {
     return this.container.appendChild(region);
   }
 
-  addButton( region:HTMLDivElement, name:string ) : HTMLButtonElement {
-    return Layout.addButton(region, name);
-  }
-
-  addContainer( region:HTMLDivElement ) : HTMLDivElement {
-    return Layout.addContainer(region);
-  }
-
-  addSlider( region:HTMLDivElement, min:number, max:number, value:number) : HTMLInputElement {
-    return Layout.addSlider(region, min, max, value);
-  }
-
-  addCheckbox( region:HTMLDivElement,value:boolean, name:string) : HTMLInputElement {
-    return Layout.addCheckbox(region, value, name);
-  }
-
-  addVariableDisplay( region:HTMLDivElement, variable:string, control:Input, accuracy:number = 0) : HTMLDivElement {
-    return Layout.addVariableDisplay(region, variable, control, accuracy);
-  }
-  
   addCustomVariableDisplay( region, variable, valueFunction) {
     let container = document.createElement('div');
     container.classList.add('display-box');
@@ -106,7 +88,7 @@ export class Layout extends BaseElement {
     return container;
   }
 
-  static addContainer( region:HTMLDivElement ) : HTMLDivElement {
+  addContainer( region:HTMLDivElement ) : HTMLDivElement {
     let container = document.createElement('div');
     container.classList.add('display-box');
     return region.appendChild(container);
@@ -115,9 +97,10 @@ export class Layout extends BaseElement {
   /**
    *
    */
-  static addButton( region:HTMLDivElement, name:string) : HTMLButtonElement {
+  addButton( region:HTMLDivElement, name:string) : HTMLButtonElement {
 
     let button = document.createElement('button');
+    button.classList.add('muted-button');
     button.innerText = name;
 
     region.appendChild(button);
@@ -128,7 +111,7 @@ export class Layout extends BaseElement {
   /**
    *
    */
-  static addCheckbox( region:HTMLDivElement, value:boolean, name:string) : HTMLInputElement {
+  addCheckbox( region:HTMLDivElement, value:boolean, name:string) : HTMLInputElement {
 
     let container = document.createElement('div');
     container.classList.add('display-box');
@@ -138,10 +121,10 @@ export class Layout extends BaseElement {
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox'
     checkbox.checked = value;
-    checkbox.name = name;
+    checkbox.id = `input-${Layout.inputCount++}`;
 
     let label = document.createElement('label');
-    label.setAttribute('for', name);
+    label.setAttribute('for', checkbox.id);
     label.innerText = name;
     label.style.paddingLeft = '0.5rem';
 
@@ -155,7 +138,7 @@ export class Layout extends BaseElement {
   /**
    *
    */
-  static addSlider( region:HTMLDivElement, min:number, max:number, value:number) : HTMLInputElement {
+  addSlider( region:HTMLDivElement, min:number, max:number, value:number, label:string) : HTMLInputElement {
 
     let container = document.createElement('div');
     container.classList.add('display-box');
@@ -166,6 +149,9 @@ export class Layout extends BaseElement {
     slider.min = min.toFixed();
     slider.max = max.toFixed();
     slider.value = value.toFixed();
+
+    slider.setAttribute('aria-label', label);
+
     return region
     .appendChild(container)
     .appendChild(slider);
@@ -202,7 +188,7 @@ export class Layout extends BaseElement {
   // 	return slider;
   // }
 
-  static addVariableDisplay( region:HTMLDivElement, variable:string, control:Input, accuracy:number = 0) : HTMLDivElement {
+  addVariableDisplay( region:HTMLDivElement, variable:string, control:Input, accuracy:number = 0) : HTMLDivElement {
 
     let container = document.createElement('div');
     container.classList.add('display-box');

@@ -189,8 +189,6 @@ export class Plot extends ResponsiveArtboard {
     point.y = 0;
     let p = point.matrixTransform(inverse);
     let d : string = `M ${p.x} ${this.call(p.x)}`;
-    console.log(x1);
-    console.log(d);
 
 		// Loop through each pixel, convert the x-position to the internal coordinates, call the 
 		// function and add to the path

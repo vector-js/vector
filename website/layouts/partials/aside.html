@@ -8,9 +8,9 @@
             {{ $heading := urlize . }}
             {{ $src := (print "/icons/" (print $heading ".svg")) }}
             {{if fileExists (print "static" $src ) }}
-            <li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{.}}">{{ . }}</a></li>
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="{{ $src }}" alt="{{.}}" width="16" height="16">{{ . }}</a></li>
             {{ else }}
-            <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{.}}">{{ . }}</a></li>
+            <li><a class="aside-link" href="#{{ $heading }}"><img src="/icons/icon.svg" alt="{{.}}" width="16" height="16">{{ . }}</a></li>
             {{end}}
           {{ end }}
         {{ else }}

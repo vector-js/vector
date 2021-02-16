@@ -1,0 +1,72 @@
+<style>
+  .ex-window {
+    display: block;
+    height:400px;
+    overflow:visible;
+  }
+  .ex-window .ex-window-area {
+    width:100%;
+    height:100%;
+  }
+  .ex-window .ex-window-container {
+    width:100%;
+    height:100%;
+    position: relative;
+    resize: both;
+    display: grid;
+    overflow: hidden;
+    border: 1px solid #dddddd;
+    border-radius: 7px 7px 0 0;
+    max-width: 720px;
+    max-height: 400px;
+    min-width: 200px;
+    min-height: 200px;
+
+  }
+  .ex-window .ex-window-header {
+    background:#fafafa;
+    height:40px;
+    border-radius: 7px 7px 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .ex-window .ex-window-header svg {
+    margin-left:.8rem;
+  }
+  .ex-window .ex-window-document {
+    height:100%;
+    width:100%;
+  }
+</style>
+<div class="ex-window margin-bottom">
+  <div class="ex-window-area">
+    <div class="ex-window-container">
+      <div class="ex-window-document">
+        <div class="ex-window-header">
+          <svg width="14" height=14>
+            <circle cx="7" cy="7" r="7" style="fill:#de4850"></circle>
+          </svg>
+          <svg width="14" height=14>
+            <circle cx="7" cy="7" r="7" style="fill:#eeb535"></circle>
+          </svg>
+          <svg width="14" height=14>
+            <circle cx="7" cy="7" r="7" style="fill:#68c541"></circle>
+          </svg>
+        </div>
+        {{- $id := (print "ex-window-" .Ordinal) -}}
+        <div class="ex-window-body" id="{{ $id }}">
+          {{- $class := .Get 0 }}
+          <div id="{{ $id }}" class="example">
+            <script type="module">
+              import * as Examples from "/examples/index.js";
+              new Examples["{{ $class }}"]("{{ $id }}");
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

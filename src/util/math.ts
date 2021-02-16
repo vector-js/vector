@@ -11,6 +11,18 @@ export class Math2 {
   static TAU = 2*Math.PI;
 
   /**
+   * Returns the factorial of n (not optimized)
+   */
+  static factorial( n: number ) {
+    
+    if ( n < 1 ) {
+      return 1;
+    } else {
+      return n*this.factorial(n-1);
+    }
+  }
+
+  /**
   * Returns the next prime number after the given integer.
   */
   static nextPrime( n:number ) {

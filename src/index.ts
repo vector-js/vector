@@ -13,6 +13,7 @@ import { Description }  from './elements/svg/description';
 import { Element }  from './elements/svg/element';
 import { Ellipse }  from './elements/svg/ellipse';
 import { Group }  from './elements/svg/group';
+import { Image }  from './elements/svg/image';
 import { Line }  from './elements/svg/line';
 import { Marker }  from './elements/svg/marker';
 import { Path }  from './elements/svg/path';
@@ -33,6 +34,7 @@ export {
   Element,
   Ellipse,
   Group,
+  Image,
   Line,
   Marker,
   Path,
@@ -70,7 +72,7 @@ export {
 }
 
 // complex objects
-import { Plot, TrigPlot } from './modules/plots/plot';
+import { Plot, TrigPlot } from './modules/plot/plot';
 import { Point } from './model/point';
 
 export {

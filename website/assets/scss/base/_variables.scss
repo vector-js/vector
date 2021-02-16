@@ -100,8 +100,8 @@ $accent-button-color-hover: #ffffff;
 // Muted Buttons
 $muted-border: 1px solid $accent-color;
 $muted-border-hover: 1px solid darken($accent-color, 30%);
-$muted-background: transparent;
-$muted-background-hover: transparent;
+$muted-background: #fafafa;
+$muted-background-hover: darken($muted-background, 3%);
 $muted-color: darken($accent-color, 50%);
 $muted-color-hover: darken($accent-color, 50%);
 

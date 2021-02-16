@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+
+  <body>
+    <div class="pancake-layout">
+      <div class="header"></div>
+      <div class="fixed-controls"></div><!-- js event loop --><!-- fixed menu associated with the interactive (optional) -->
+      <svg id="vector-1" xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" class="vector">
+        <circle cx="100" cy="100" r="3"></circle>
+        <rect x="100" y="100" width="10" height="20"></rect>
+        <circle cx="100" cy="100" r="3"></circle>
+        <control x="200" y="200"></control><!-- js event loop -->
+      </svg>
+      <div class="footer">
+        <animation-player></animation-player><!-- js event loop -->
+      </div>
+    </div>
+    <script>
+      // query and select elements
+      let root = document.querySelector("#vector-1");
+
+      // load optimized dependency graph (model)
+
+      // 
+    </script>
+  </body>
+</html>
