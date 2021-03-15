@@ -1,4 +1,4 @@
-import { ResponsiveArtboard } from '@vector-js/vector';
+import { ResponsiveArtboard } from 'vector'
 
 export class ArtboardExample extends ResponsiveArtboard {
 	

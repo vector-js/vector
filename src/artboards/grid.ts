@@ -186,13 +186,13 @@ export class GridArtboard extends ResponsiveArtboard {
     let viewBox = this.internalViewBox.baseVal;
     
 		let group3 = this.gridGroup.group();
-		group3.style.stroke = '#f8f8f8'
+		group3.style.stroke = GridArtboard.lightStroke
 		
 		let group2 = this.gridGroup.group();
-		group2.style.stroke = '#f0f0f0'
+		group2.style.stroke = GridArtboard.mediumStroke
 
 		let group1 = this.gridGroup.group();
-		group1.style.stroke = '#dddddd'
+		group1.style.stroke = GridArtboard.darkStroke
 
     let x1 = Math.floor(viewBox.x);
     let y1 = Math.floor(viewBox.y);

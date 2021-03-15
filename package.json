@@ -1,5 +1,5 @@
 {
-  "name": "@vector-js/vector",
+  "name": "vector",
   "version": "0.1.0",
   "description": "A library for creating interactive vector graphics on the web.",
   "author": "Kurt Bruns",
@@ -29,7 +29,9 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "rxjs": "^6.6.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",

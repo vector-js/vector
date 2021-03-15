@@ -1,4 +1,4 @@
-import { OverflowArtboard } from '@vector-js/vector';
+import { OverflowArtboard } from 'vector'
 
 export class OverflowArtboardExample extends OverflowArtboard {
 	
@@ -22,7 +22,7 @@ export class OverflowArtboardExample extends OverflowArtboard {
     border.style.strokeWidth = '2';
 
     this.container.style.border = 'none';
-    this.container.style.maxWidth = `720px`;
+    this.container.style.maxWidth = `100%`;
 		this.container.style.resize = 'horizontal';
 
 		let control = this.control(100,100);

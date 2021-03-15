@@ -106,8 +106,15 @@ export class Plot extends GridArtboard {
    */
   call( fn:FunctionType, input:number ) {
     let output = -fn(input);
-    if( isFinite(output) ) {
+    let max = this.root.viewBox.baseVal.y + 4*this.root.viewBox.baseVal.height;
+    let min = this.root.viewBox.baseVal.y - 4*this.root.viewBox.baseVal.height
+
+    if( output >= min && output <= max ) {
       return output;
+    } else if( output > max ) {
+      return max
+    } else if ( output < min  ) {
+      return min
     } else {
       return 0;
     }
@@ -118,33 +125,36 @@ export class Plot extends GridArtboard {
 	 */
 	draw() {
 
-		let spacing = 0;
-    let bbox = this.root.getBoundingClientRect();
-    let x1 = bbox.x + spacing;
-    let x2 = bbox.x + bbox.width - spacing;
+		let spacing = 0
+    let bbox = this.root.getBoundingClientRect()
+    let x1 = bbox.x + spacing
+    let x2 = bbox.x + bbox.width - spacing
     
-    let ctm = this.getInternalSVG().root.getScreenCTM();
-    let inverse = ctm.inverse();
-		let point = this.getInternalSVG().root.createSVGPoint();
-    
+    let ctm = this.getInternalSVG().root.getScreenCTM()
+    let inverse = ctm.inverse()
+		let point = this.getInternalSVG().root.createSVGPoint()
+
     for( let i = 0; i < this.functions.length; i++) {
 
+      let initialized = false
       let fn = this.functions[i];
       
       point.x = x1;
       point.y = 0;
-      let p = point.matrixTransform(inverse);
-      let d : string = `M ${p.x} ${this.call(fn, p.x)}`;
+      let p = point.matrixTransform(inverse)
+      let d = ''
   
       // Loop through each pixel, convert the x-position to the internal coordinates, call the 
       // function and add to the path
-      for( let x = x1; x < x2; x++) {
+      for( let x = x1; x <= x2; x++) {
         point.x = x;
         p = point.matrixTransform(inverse);
-        d += `L ${p.x} ${this.call(fn, p.x)}`;
-        // TODO: trim huge y values
+        p.y = this.call(fn, p.x)
+
+        let command = initialized ? 'L' : 'M';
+        d += `${command} ${p.x} ${p.y}`;
+        initialized = true
       }
-  
       this.functionPaths[i].d = d;
     }
 	}

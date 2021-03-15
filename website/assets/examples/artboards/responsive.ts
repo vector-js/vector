@@ -1,4 +1,4 @@
-import { ResponsiveArtboard } from '@vector-js/vector';
+import { ResponsiveArtboard } from 'vector'
 
 export class ResponsiveArtboardExample extends ResponsiveArtboard {
 	
@@ -21,7 +21,7 @@ export class ResponsiveArtboardExample extends ResponsiveArtboard {
     border.style.strokeWidth = '2';
 
     this.container.style.border = 'none';
-    this.container.style.maxWidth = `720px`;
+    this.container.style.maxWidth = `100%`;
 		this.container.style.resize = 'horizontal'
 		
 		let control = this.control(100,100);

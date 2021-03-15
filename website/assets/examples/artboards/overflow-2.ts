@@ -1,4 +1,4 @@
-import { OverflowArtboard } from '@vector-js/vector';
+import { OverflowArtboard } from 'vector'
 
 export class OverflowArtboardExample2 extends OverflowArtboard {
 	

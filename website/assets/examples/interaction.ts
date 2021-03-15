@@ -1,4 +1,4 @@
-import { Artboard, OverflowArtboard, SideBarLayout } from '@vector-js/vector';
+import { Artboard, OverflowArtboard, SideBarLayout } from 'vector'
 
 export class InteractionExample extends SideBarLayout {
 	

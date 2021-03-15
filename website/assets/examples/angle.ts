@@ -1,4 +1,4 @@
-import { Control, OverflowArtboard, Path, SideBarLayout, TAU } from '@vector-js/vector';
+import { Control, OverflowArtboard, Path, SideBarLayout, TAU } from 'vector';
 
 
 function normalize( angle:number ) : number {

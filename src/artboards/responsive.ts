@@ -17,13 +17,13 @@ export class ResponsiveArtboard extends Artboard {
   // static darkStroke = 'var(--light3)';
 
   // Darker
-  // static lightStroke = '#f0f0f0';
-	// static mediumStroke = '#d0d0d0';
-	// static darkStroke = '#a0a0a0';
+  static lightStroke = '#f0f0f0';
+	static mediumStroke = '#d0d0d0';
+	static darkStroke = '#a0a0a0';
   
-  static lightStroke = '#f8f8f8';
-	static mediumStroke = '#f0f0f0';
-	static darkStroke = '#dddddd';
+  // static lightStroke = '#f8f8f8';
+	// static mediumStroke = '#f0f0f0';
+	// static darkStroke = '#dddddd';
 
 	/**
 	 * Constructs a responsive SVG Document that is optimized to prevent cumulative layout shift in 

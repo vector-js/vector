@@ -19,7 +19,7 @@ modules:
 
 ## About
 
-Vector is an open-source library written in Typescript for creating interactive vector graphics on the web. The library uses core web technologies: SVG, HTML, Javascript and CSS has no dependencies. The library was originally developed by a group of seniors from the University of Utah for their captsone and is currently maintained by [Kurt Bruns](https://kurtbruns.github.io/).
+Vector is an open-source library written in Typescript for creating interactive vector graphics on the web. The library uses core web technologies: SVG, HTML, Javascript and CSS has no dependencies. The library was originally developed by a group of seniors from the University of Utah for their capstone project and is currently maintained by [Kurt Bruns](https://kurtbruns.github.io/).
 
 ## Getting Started
 
@@ -239,6 +239,29 @@ let scrubber = interactive.scrubber( 100, 75, 400);
 {{< /highlight >}}
 
 See **all input elements** to get an idea of what can be exposed to the user.
+
+#### Text
+
+<input type="text"></input>
+
+#### Number
+
+<input type="number"></input>
+
+#### Range
+
+<input type="range"></input>
+
+#### Test
+
+<div style="display:flex; flex-direction:row">
+  <button style="border-radius:2rem; color:#4bb77e; margin-right:1rem">></button>
+  <input type="range"></input>
+</div>
+
+#### Button
+
+<button>Button</button>
 
 ### Reactive Programming
 

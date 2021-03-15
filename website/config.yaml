@@ -18,7 +18,7 @@ params:
 # Mount vectorjs library
 module:
   mounts:
-    - source: "node_modules/@vector-js/vector/dist/"
+    - source: "node_modules/vector/dist/"
       target: "static/vector/"
     - source: "static"
       target: "static"

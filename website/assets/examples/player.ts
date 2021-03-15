@@ -1,4 +1,4 @@
-import { PlayerLayout, ResponsiveArtboard } from '@vector-js/vector';
+import { PlayerLayout, ResponsiveArtboard } from 'vector'
 
 export class PlayerExample extends PlayerLayout {
 	

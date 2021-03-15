@@ -1,4 +1,4 @@
-import { Control, OverflowArtboard, Path, PlayerLayout, TAU, Point, ResponsiveArtboard, SideBarLayout } from '@vector-js/vector';
+import { Control, OverflowArtboard, Path, PlayerLayout, TAU, Point, ResponsiveArtboard, SideBarLayout } from 'vector';
 
 
 export interface Configuration {
