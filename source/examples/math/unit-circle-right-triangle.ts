@@ -7,6 +7,7 @@
 */
 
 import {Interactive} from '../../index.js';
+// @ts-ignore
 import katex from '/katex/katex.module.js';
 
 export default function main(id) {
@@ -39,7 +40,7 @@ export default function main(id) {
   yAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
   let xAxisLabel = interactive.text( xAxis.x2 + margin/3, xAxis.y2, 'x');
-  xAxisLabel.setAttribute('alignment-baseline','middle');
+  xAxisLabel.setAttribute('dominant-baseline', 'middle');
   xAxisLabel.style.fontFamily = 'KaTeX_Math';
   xAxisLabel.style.fontSize = '22px';
   let yAxisLabel = interactive.text( yAxis.x1, yAxis.y1 - margin/2, 'y');

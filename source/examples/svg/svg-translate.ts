@@ -34,7 +34,7 @@ translateText.addDependency(control);
 translateText.update = function() {
   translateText.contents = `translate(${control.x}, ${control.y})`;
 };
-translateText.root.setAttribute('alignment-baseline', 'middle');
+translateText.root.setAttribute('dominant-baseline', 'middle');
 translateText.root.setAttribute('text-anchor', 'middle');
 translateText.update();
 

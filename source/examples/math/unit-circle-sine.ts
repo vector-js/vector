@@ -10,6 +10,7 @@ import {Interactive} from '../../index.js';
 import Group from '../../elements/svg/group.js';
 import Point from '../../elements/math/point.js';
 import Line from '../../elements/svg/line.js';
+// @ts-ignore
 import katex from '/katex/katex.module.js';
 
 export default function main(id:string) {

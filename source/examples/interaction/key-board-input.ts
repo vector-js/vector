@@ -18,7 +18,7 @@ for( let i = 0; i < 5; i++ ) {
   let rectangle = interactive.rectangle( x, y, 64, 64);
   rectangle.root.setAttribute('rx', '3px');12341
   let text = interactive.text( x + 32, y + 32, (i + 1).toString());
-  text.root.setAttribute('alignment-baseline','middle');
+  text.root.setAttribute('dominant-baseline', 'middle');
   text.root.setAttribute('text-anchor','middle');
 
   keys.push(rectangle);

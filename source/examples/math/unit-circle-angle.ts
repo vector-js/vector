@@ -7,6 +7,7 @@
 */
 
 import {Interactive} from '../../index.js';
+// @ts-ignore
 import katex from '/katex/katex.module.js';
 
 export default function main(id:string) {

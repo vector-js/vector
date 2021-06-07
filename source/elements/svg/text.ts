@@ -5,7 +5,7 @@ import { Typography } from './content-model.js';
 /**
 * These attributes control the text position.
 */
-export type TextAttributes = 'baseline-shift' | 'text-anchor' | 'alignment-baseline';
+export type TextAttributes = 'baseline-shift' | 'text-anchor' | 'dominant-baseline';
 
 /**
 * Text is a basic element containing string contents

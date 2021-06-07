@@ -4,6 +4,7 @@
 
 import {Interactive, Path, Text, Group, isPrime} from '../../index.js';
 import {TAU} from '../../util/constants.js';
+// @ts-ignore
 import katex from '/katex/katex.module.js';
 
 /**

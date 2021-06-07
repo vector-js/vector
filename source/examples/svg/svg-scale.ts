@@ -39,7 +39,7 @@ scaleText.update = function() {
   let scaleY = control.y/(2*w);
   scaleText.contents = `scale(${scaleX.toFixed(2)}, ${scaleY.toFixed(2)})`;
 };
-scaleText.root.setAttribute('alignment-baseline', 'middle');
+scaleText.root.setAttribute('dominant-baseline', 'middle');
 scaleText.root.setAttribute('text-anchor', 'middle');
 scaleText.update();
 

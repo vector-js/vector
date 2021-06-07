@@ -26,10 +26,10 @@ describe('Plot', function () {
       let title =  new Text(interactive.width/2, 25, 'sin(');
       let span = title.tspan('x');
       span.setAttribute('text-anchor', 'middle');
-      span.setAttribute('alignment-baseline', 'middle');
+      span.setAttribute('dominant-baseline', 'middle');
       span.style.fontFamily = 'KaTeX_Math';
       title.contents += ')';
-      title.setAttribute('alignment-baseline', 'middle');
+      title.setAttribute('dominant-baseline', 'middle');
       title.setAttribute('text-anchor', 'middle');
 
       plot = interactive.plot(Math.sin, {

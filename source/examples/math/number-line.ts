@@ -60,7 +60,7 @@ xAxis.setAttribute('marker-end', `url(#${marker.id})`);
 xAxis.setAttribute('marker-start', `url(#${marker.id})`);
 
 let xAxisLabel = interactive.text( xAxis.x2 + 16, xAxis.y2, 'x');
-xAxisLabel.setAttribute('alignment-baseline','middle');
+xAxisLabel.setAttribute('dominant-baseline', 'middle');
 
 let xPosition = interactive.line( 0, 0, 0, 0);
 xPosition.style.stroke = 'cornflowerblue';

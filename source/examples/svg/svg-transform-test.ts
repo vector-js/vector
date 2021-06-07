@@ -66,7 +66,7 @@ scale.update = function() {
 //   transformText.contents += `rotate(${getAngle()}) `;
 //
 // };
-// transformText.root.setAttribute('alignment-baseline', 'middle');
+// transformText.root.setAttribute('dominant-baseline', 'middle');
 // transformText.root.setAttribute('text-anchor', 'middle');
 // transformText.update();
 
