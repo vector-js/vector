@@ -1,4 +1,4 @@
 /**
 * @ignore true
 */
-export {};
+export default function main(id: string): void;

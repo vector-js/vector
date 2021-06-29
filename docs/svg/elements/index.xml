@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SVG Elements on Vector.js</title>
+    <link>https://vectorjs.org/svg/elements/</link>
+    <description>Recent content in SVG Elements on Vector.js</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://vectorjs.org/svg/elements/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A (Link)</title>
+      <link>https://vectorjs.org/svg/elements/a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circle</title>
+      <link>https://vectorjs.org/svg/elements/circle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/circle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clip Path</title>
+      <link>https://vectorjs.org/svg/elements/clip-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/clip-path/</guid>
+      <description>Clip paths can be applied to elements to show only the part of the graphic contained within the shape of the clip path. The clip path is applied to an element and its children by setting the clip-path attribute to point to a clip path element in the DOM tree.
+&amp;lt;g clip-path=&amp;#34;url(#my-clip-path)&amp;#34;&amp;gt; &amp;lt;!-- grid of rectangles ... --&amp;gt; &amp;lt;/g&amp;gt; &amp;lt;clipPath id=&amp;#34;my-clip-path&amp;#34;&amp;gt; &amp;lt;circle cx=&amp;#34;300&amp;#34; cy=&amp;#34;150&amp;#34; r=&amp;#34;50&amp;#34;&amp;gt;&amp;lt;/circle&amp;gt; &amp;lt;/clipPath&amp;gt; Click and drag the clip path below to change the position of the circle that defines the clipping path.</description>
+    </item>
+    
+    <item>
+      <title>Definitions</title>
+      <link>https://vectorjs.org/svg/elements/defs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/defs/</guid>
+      <description>The Defs element allows for graphic elements to be defined for use elsewhere in the document.</description>
+    </item>
+    
+    <item>
+      <title>Ellipse</title>
+      <link>https://vectorjs.org/svg/elements/ellipse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/ellipse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Group</title>
+      <link>https://vectorjs.org/svg/elements/group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/group/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Line</title>
+      <link>https://vectorjs.org/svg/elements/line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/line/</guid>
+      <description>This interactive demonstrates the properties of the SVG line element.
+  </description>
+    </item>
+    
+    <item>
+      <title>Marker</title>
+      <link>https://vectorjs.org/svg/elements/marker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/marker/</guid>
+      <description>A marker element can be used to define a marker along a path. For example, we can define a marker to represent an arrow at the start or end of the path.</description>
+    </item>
+    
+    <item>
+      <title>Path</title>
+      <link>https://vectorjs.org/svg/elements/path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/path/</guid>
+      <description>The path element is notorious for its power and difficulty. The path element has one attribute, the &amp;ldquo;d&amp;rdquo; attribute, which is a string containing a series of commands. Each command starts with a letter that describes the type of command followed by zero or more numbers separated by spaces.
+&amp;lt;path d=&amp;#34;...&amp;#34;&amp;gt;&amp;lt;/path&amp;gt; Commands    Name Syntax     Move To M x y   Line L x y   Quadratic Bezier Q x1 y1 x2 y2   Cubic Bezier C x1 y1 x2 y2 x3 y3   Arc A rx ry x-axis-rotation large-arc-flag sweep-flag x y   Close Z    Path: Move To Command Every path starts with a move command which describes where the path starts.</description>
+    </item>
+    
+    <item>
+      <title>Pattern</title>
+      <link>https://vectorjs.org/svg/elements/pattern/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polygon</title>
+      <link>https://vectorjs.org/svg/elements/polygon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/polygon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rectangle</title>
+      <link>https://vectorjs.org/svg/elements/rectangle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/rectangle/</guid>
+      <description>This interactive demonstrates the properties of the rectangle element. There are two controls: one that changes the (x,y) position of the rectangle, and another that changes the width and height attributes.
+  </description>
+    </item>
+    
+    <item>
+      <title>Style</title>
+      <link>https://vectorjs.org/svg/elements/style/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/style/</guid>
+      <description>The style element defines CSS that is applied to elements through a combination of selectors.
+&amp;lt;style&amp;gt; /* select an individual element by id */ #identifier { } /* select all elements with the class */ .className { } /* select all elements with the tag name*/ tagName { } &amp;lt;/style&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>SVG</title>
+      <link>https://vectorjs.org/svg/elements/svg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/svg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Symbol</title>
+      <link>https://vectorjs.org/svg/elements/symbol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/symbol/</guid>
+      <description>The symbol element is a non-rendered element that allows for repeated use.</description>
+    </item>
+    
+    <item>
+      <title>Text</title>
+      <link>https://vectorjs.org/svg/elements/text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/text/</guid>
+      <description>The text element allows user to display text within the SVG document.</description>
+    </item>
+    
+    <item>
+      <title>Text Span</title>
+      <link>https://vectorjs.org/svg/elements/t-span/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/t-span/</guid>
+      <description>The text span element allows user to define spanning text.</description>
+    </item>
+    
+    <item>
+      <title>Use</title>
+      <link>https://vectorjs.org/svg/elements/use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/svg/elements/use/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

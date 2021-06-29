@@ -151,12 +151,13 @@ export default class Plot extends SVG {
     /**
     * Sets the internal function to the provided function
     */
+    set function(f: (x: number) => number);
     /**
     * Returns the internal function
     */
-    function: (x: number) => number;
-    readonly originX: number;
-    readonly originY: number;
+    get function(): (x: number) => number;
+    get originX(): number;
+    get originY(): number;
     /**
     * Updates the display circle based on its current cx position, also updates
     * the display text elements to represent the position of the display circle.

@@ -32,35 +32,40 @@ export default class Node extends Group {
     /**
     * Getter for the cx of this node.
     */
-    cx: number;
+    get cx(): number;
     /**
     * Getter for cy of this node
     */
+    get cy(): number;
+    set cx(cx: number);
     /**
     * Getter for cy of this node
     */
-    cy: number;
+    set cy(cy: number);
     /**
     * Getter for rx of this node
     */
-    /**
-    * Setter for rx of this node
-    */
-    rx: number;
+    get rx(): number;
     /**
     * Getter for ry of this node
     */
-    /**
-    * Setter for ry of this node
-    */
-    ry: number;
+    get ry(): number;
     /**
     * Getter for the text of this node
     */
+    get label(): string;
     /**
     * Setter for the text of this node
     */
-    label: string;
+    set label(text: string);
+    /**
+    * Setter for rx of this node
+    */
+    set rx(rx: number);
+    /**
+    * Setter for ry of this node
+    */
+    set ry(ry: number);
     /**
     * Adds an edge to this node.
     */

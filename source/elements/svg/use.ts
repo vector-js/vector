@@ -3,7 +3,7 @@ import Element from './element.js';
 export default class Use extends Element {
 
 	// make the type of root more specific
-	root: SVGUseElement;
+	declare root: SVGUseElement;
 
   constructor(x:number, y:number, width:number, height:number) {
     let element = document.createElementNS( 'http://www.w3.org/2000/svg', 'use');

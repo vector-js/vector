@@ -5,5 +5,5 @@ import Shape from './shape.js';
 export default class Polygon extends Shape {
     root: SVGPolygonElement;
     constructor(points: string);
-    readonly points: string;
+    get points(): string;
 }

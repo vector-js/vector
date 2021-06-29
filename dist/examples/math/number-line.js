@@ -8,6 +8,8 @@ import { Interactive, getScriptName } from '../../index.js';
 * A point has an x position and y position
 */
 class Point {
+    x;
+    y;
 }
 // Initialize the interactive
 let margin = 32;

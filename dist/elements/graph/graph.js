@@ -2,6 +2,8 @@ import Node from './node.js';
 import Edge from './edge.js';
 import Group from '../svg/group.js';
 export default class Graph extends Group {
+    nodes;
+    options;
     /**
     * Constructs a graph
     */

@@ -6,6 +6,17 @@ import Text from '../svg/text.js';
 * A Node is a basic element with a position, radius, and text held within it.
 */
 export default class Node extends Group {
+    nodeName;
+    nodeEllipse;
+    edges;
+    children;
+    parents;
+    depth;
+    _cx;
+    _text;
+    _cy;
+    _rx;
+    _ry;
     /**
     * Constructs a Node element at the position (x,y) with radius r containing the string text
     */

@@ -4,6 +4,9 @@ import Line from '../svg/line.js';
 * Creates a line connecting two edges, with an arrow if directed.
 */
 export default class Edge extends Line {
+    directed;
+    nodeFrom;
+    nodeTo;
     /**
     * Constructs a line frmo the edge of the two circle elements.
     */

@@ -3,6 +3,7 @@
 * identifiers.
 */
 export default class Container {
+    static count = 0;
     /**
     * Returns a container with a unique id.
     */
@@ -15,5 +16,4 @@ export default class Container {
         return div;
     }
 }
-Container.count = 0;
 //# sourceMappingURL=container.js.map

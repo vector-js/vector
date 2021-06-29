@@ -5,10 +5,6 @@
     <link>https://vectorjs.org/sandbox/</link>
     <description>Recent content in Sandbox on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://vectorjs.org/sandbox/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://vectorjs.org/sandbox/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

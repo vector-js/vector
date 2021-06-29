@@ -31,6 +31,10 @@ import './elements/math/plot.test.js';
 import './elements/maps/map.test.js';
 // math
 import './math/interactives.test.js';
+import './math/modular-arithmetic-wheel.script.js';
+// article interactives
+import './articles/color.test.js';
+import './articles/waves.test.js';
 // graph
 import './elements/graph/node.test.js';
 // Disabled leak checking because google analytics was causing test failures.

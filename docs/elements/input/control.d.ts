@@ -81,25 +81,27 @@ export default class Control extends Input {
     /**
     * Updates the x position of the control.
     */
-    /**
-    * Gets the x position of the control.
-    */
-    x: number;
+    set x(x: number);
     /**
     * Updates the y position of the control.
     */
+    set y(y: number);
+    /**
+    * Gets the x position of the control.
+    */
+    get x(): number;
     /**
     * Gets the y position of the control.
     */
-    y: number;
+    get y(): number;
     /**
     * Gets the change in x position of this control.
     */
-    readonly dx: number;
+    get dx(): number;
     /**
     * Gets the change in y position of this control.
     */
-    readonly dy: number;
+    get dy(): number;
     /**
     * Constrains the movement of this control point to the path of the provided
     * element.

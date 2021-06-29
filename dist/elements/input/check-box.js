@@ -7,14 +7,22 @@ import Input from './input.js';
 */
 export default class CheckBox extends Input {
     /**
+    * The state of the checkbox
+    */
+    _value = false;
+    /**
+    * The box to be checked and unchecked
+    */
+    box;
+    /**
+    * The text label associated with the checkbox
+    */
+    label;
+    /**
     * Constructs a control at the position (x,y)
     */
     constructor(x, y, text, value) {
         super();
-        /**
-        * The state of the checkbox
-        */
-        this._value = false;
         this.root.setAttribute('transform', `translate(${x},${y})`);
         this.box = new Rectangle(-6.5, -6.5, 13, 13);
         this.box.root.setAttribute('rx', '2px');

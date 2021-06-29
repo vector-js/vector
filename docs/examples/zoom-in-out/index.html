@@ -30,11 +30,10 @@
 <header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
-		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
     <p>
-      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
-      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
 			<a href="/examples/"><button class="muted-button">Examples</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
     </p>
 	</div>
 </header>
@@ -72,7 +71,7 @@
         <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">&gt;</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">width</span> <span class="o">?</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">width</span> <span class="o">:</span> <span class="nx">width</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span> <span class="o">&gt;</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">height</span> <span class="o">?</span> <span class="nx">bbox</span><span class="p">.</span><span class="nx">height</span> <span class="o">:</span> <span class="nx">height</span><span class="p">;</span>
         <span class="c1">// initialize variables
-</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">zoomIntensity</span> <span class="o">=</span> <span class="mf">.02</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">zoomIntensity</span> <span class="o">=</span> <span class="p">.</span><span class="mi">02</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">originx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">originy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -101,7 +100,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="nx">set</span> <span class="nx">mathMode</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_mathMode</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="mi">_</span><span class="nx">mathMode</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;cartesian&#39;</span><span class="p">);</span>
             <span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;scale(1,-1)&#39;</span><span class="p">);</span>
@@ -112,7 +111,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="nx">get</span> <span class="nx">mathMode</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_mathMode</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="mi">_</span><span class="nx">mathMode</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">handleMouseDown</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>

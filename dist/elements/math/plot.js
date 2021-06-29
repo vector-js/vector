@@ -65,6 +65,73 @@ function expTrunc(x) {
 */
 export default class Plot extends SVG {
     /**
+    * Invisible element for registering events
+    */
+    rect;
+    /**
+    *
+    */
+    clipGroup;
+    /**
+    * This view port is a coordinate system where things are scaled using svg's
+    * internal representatino of scaling.
+    */
+    viewPort;
+    /**
+    * This static group gets translated along witht he viewPort, but elements
+    * retain their original sizing.
+    */
+    staticGroup;
+    /**
+    * Represents the path taken by the function.
+    */
+    fPath;
+    /**
+    * A display circle to display input and output
+    */
+    displayCircle;
+    /**
+    * A line to represent the x-axis of this graph
+    */
+    xAxis;
+    /**
+    * A line to represent the y-axis of this graph
+    */
+    yAxis;
+    /**
+    * A group containing the grid lines
+    */
+    grid;
+    // elements
+    xRect;
+    yRect;
+    xText;
+    yText;
+    /**
+    * Keeps track of whether a translate is active or not.
+    */
+    active;
+    /**
+    * The function that is currently being displayed for this graph.
+    */
+    _function;
+    // actual height and width of plot element
+    _x;
+    _y;
+    _width;
+    _height;
+    // represents the transformation from svg coordinate system to internal
+    scaleX;
+    scaleY;
+    // these variables represent the internal coordinate system of the plot
+    internalX;
+    internalY;
+    visibleWidth;
+    visibleHeight;
+    // keeps track of the previous mouse position
+    prevX;
+    prevY;
+    /**
     * Constructs a new graph capable of displaying a function in the form of
     * x -> y. The user is able to drag, zoom-in, and zoom-out on the graph to
     * explore the shape and form of the function.

@@ -9,6 +9,18 @@
 import Interactive from "../../interactive.js";
 import { SVG } from "../../index.js";
 class Tree extends SVG {
+    // Branching factor
+    base;
+    // Number of levels in the tree
+    exponent;
+    static maxLevels = 7;
+    lines;
+    nodes;
+    currentLine;
+    currentNode;
+    // position of the root of this tree
+    rootX;
+    rootY;
     /**
     *
     */
@@ -120,7 +132,6 @@ class Tree extends SVG {
         }
     }
 }
-Tree.maxLevels = 7;
 export default function main(id) {
     let interactive = new Interactive(id, {
         width: 740,

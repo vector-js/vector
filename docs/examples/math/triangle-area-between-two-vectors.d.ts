@@ -3,4 +3,4 @@
 * @description This interactive demonstrates the area formed between two vectors.
 * @tags [math]
 */
-export {};
+export default function main(id: string): void;

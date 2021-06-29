@@ -13,7 +13,7 @@ export type TextAttributes = 'baseline-shift' | 'text-anchor' | 'alignment-basel
 export default class Text extends Element implements Typography {
 
   // make the type of the root to be more specific
-  root: SVGTextElement;
+  declare root: SVGTextElement;
 
   /**
   * Constructs text at the position (x,y) with the provided string

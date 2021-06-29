@@ -1,3 +1,6 @@
+
+**Warning:** the `master` branch is in an unstable state. Currently, the `development` branch represents the future of this project.
+
 # Vector.js
 
 Vector.js is a Javascript library for creating interactive graphics on the web. The library uses the existing web standards: HTML, SVG, and CSS and has no dependencies. See the [Website](https://vectorjs.org) for getting started, examples, and more.

@@ -68,57 +68,61 @@ export default class Interactive extends SVG {
     /**
     * Sets the width of this interactive area.
     */
+    set width(value: number);
     /**
     * Returns the width of this interactive area.
     */
-    width: number;
+    get width(): number;
     /**
     * Sets the height of this interactive area.
     */
+    set height(value: number);
     /**
     * Returns the height of this interactive area.
     */
-    height: number;
+    get height(): number;
     /**
     * Sets the x coordinate of the origin.
     */
+    set originX(value: number);
     /**
     * Returns the value of the x-coordinate of the origin.
     */
-    originX: number;
+    get originX(): number;
     /**
     * Sets the y coordinate of the origin.
     */
+    set originY(value: number);
     /**
     * Returns the value of the x-coordinate of the origin.
     */
-    originY: number;
+    get originY(): number;
     /**
     * If set to true, styles the interactive to float on top of the background.
     * This feature is good for interactives where elements can be dragged out of
     * the bounds of the container element.
     */
-    window: boolean;
+    set window(value: boolean);
     /**
     * If set to true, draws a minimal border around the interactive.
     */
-    border: boolean;
+    set border(value: boolean);
     /**
     * Returns the minimum x-coordinate of this interactive.
     */
-    readonly minX: number;
+    get minX(): number;
     /**
     * Returns the minimum y-coordinate of this interactive.
     */
-    readonly minY: number;
+    get minY(): number;
     /**
     * Returns the maximum x-coordinate of this interactive.
     */
-    readonly maxX: number;
+    get maxX(): number;
     /**
     * Returns the maximum y-coordinate of this interactive.
     */
-    readonly maxY: number;
+    get maxY(): number;
     /**
     * Appends the element within the interactive. If the element is an "input"
     * element, places the element in the input group so that visually the element

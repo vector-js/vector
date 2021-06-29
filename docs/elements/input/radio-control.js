@@ -5,6 +5,14 @@ import CheckBox from './check-box.js';
 */
 export default class RadioControl extends Input {
     /*
+    * the list of checkboxes that belong to the radio control
+    */
+    list;
+    /*
+    * the index of the currently highlighted button
+    */
+    index;
+    /*
     * labels: the labels for the radio buttons
     * x: x position of control
     * y: y position of the control

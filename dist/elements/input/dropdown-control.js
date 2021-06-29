@@ -7,6 +7,17 @@ import Input from './input.js';
 *  Dropdown with menu item labels that can be selected.
 */
 export default class DropdownControl extends Input {
+    optionLabels;
+    currentIndex;
+    textWidth;
+    expanded;
+    currSelection;
+    currSelectionBox;
+    currSelectionText;
+    collapsedView;
+    expandedView;
+    x;
+    y;
     /**
      * Constructs a dropdown control with given option labels at the given (x,y) position
      * and with the default selection as the label at the given default index.

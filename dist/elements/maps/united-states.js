@@ -1,6 +1,8 @@
 import Group from '../svg/group.js';
 import { parseSVG } from '../../util/svg.js';
 export default class UnitedStates extends Group {
+    // TODO: make the map string -> Path Element
+    states;
     constructor() {
         super();
         // construct a group and append the united states graphic inside of it

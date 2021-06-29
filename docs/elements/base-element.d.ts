@@ -37,7 +37,7 @@ export default abstract class BaseElement {
     /**
     * Returns the unique generated identifier associated with this element.
     */
-    readonly id: string;
+    get id(): string;
     /**
     * Removes this element from the DOM and from the Element controller.
     */

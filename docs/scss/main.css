@@ -295,7 +295,7 @@ dd {
   max-width: 100%;
   padding: 0 1rem; }
 
-.container, .small-container, .medium-container {
+.container, .medium-container, .small-container {
   max-width: 1024px;
   padding: 0 1rem;
   margin-left: auto;
@@ -479,13 +479,13 @@ dd {
   text-decoration: none;
   line-height: 1; }
 
-.button:hover, a.button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
+.button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
   border: 1px solid #0250bc;
   background: #0250bc;
   color: #ffffff;
   text-decoration: none; }
 
-.button:focus, .button:active, a.button:focus, a.button:active, button:focus, button:active, [type=submit]:focus, [type=submit]:active, [type=reset]:focus, [type=reset]:active, [type=button]:focus, [type=button]:active {
+.button:focus, .button:active, button:focus, button:active, [type=submit]:focus, [type=submit]:active, [type=reset]:focus, [type=reset]:active, [type=button]:focus, [type=button]:active {
   border: 1px solid #0250bc;
   background: #0250bc;
   color: #ffffff;
@@ -512,13 +512,13 @@ a.accent-button {
 a.muted-button {
   background: transparent;
   border: 1px solid #cdcdcd;
-  color: #4e4d4d; }
+  color: #4e4e4e; }
   .muted-button:hover, .muted-button:focus, .muted-button:active,
   a.muted-button:hover,
   a.muted-button:focus,
   a.muted-button:active {
-    color: #4e4d4d;
-    border: 1px solid #818080;
+    color: #4e4e4e;
+    border: 1px solid #818181;
     background: transparent; }
 
 .dark-button,
@@ -590,7 +590,7 @@ section.documentation main {
   padding: 0 1rem; }
 
 header {
-  padding: 3rem 0px;
+  padding: 1.5rem 0px;
   border-bottom: 1px solid #dddddd; }
 
 section.aside {
@@ -1128,6 +1128,18 @@ footer {
 /* TextWhitespace */
 .chroma .w {
   color: #bbbbbb; }
+
+.header-link {
+  text-decoration: none;
+  color: #404040; }
+
+.header-link:hover {
+  color: #404040;
+  cursor: pointer; }
+
+.header-link::after {
+  padding-left: .5rem;
+  content: url(/images/link.svg); }
 
 .headshot {
   clip-path: circle(60px at center); }

@@ -13,5 +13,6 @@ export default class Input extends Group {
     * default behavior of this function is to update the dependents of this
     * element. WARNING: changing this function can have unintented side effects.
     */
-    onchange: () => void;
+    set onchange(func: () => void);
+    get onchange(): () => void;
 }

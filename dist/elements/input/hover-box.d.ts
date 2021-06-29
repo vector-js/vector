@@ -12,8 +12,8 @@ export default class HoverBox extends Input {
     _y: number;
     _yBound: number;
     constructor(str: string);
-    x: number;
-    y: number;
+    set x(value: number);
+    set y(value: number);
     setBounds(x: number, y: number): void;
     setText(str: string): void;
     updatePosition(x: number, y: number): void;

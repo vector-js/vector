@@ -3,6 +3,27 @@ import Slider from './slider.js';
 * A scubber element has
 */
 export default class Scrubber extends Slider {
+    /**
+    * Represents weather the scrubber is active and animating.
+    */
+    active;
+    /**
+    * If set to true starts the scrubber at the beginning when it reaches the end.
+    */
+    loop;
+    /**
+    * Set to true if the scrubber reaches the end of the animation
+    */
+    done;
+    /**
+    * Play button group
+    */
+    playButton;
+    /**
+    * Pause button group
+    */
+    pauseButton;
+    requestID;
     // TODO: When the scrubber control is grabbed, active should be set to false and the animation cycle should be stopped.
     // TODO: Reset done variable when the control is changed
     // TODO: Show darker line of progress

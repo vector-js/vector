@@ -17,44 +17,50 @@ export default class Line extends Shape {
     /**
     * Returns the x position of the start position
     */
+    get x1(): number;
     /**
     * Sets the x position of the start position
     */
-    x1: number;
+    set x1(x1: number);
     /**
     * Returns the y position of the start position
     */
+    get y1(): number;
     /**
     * Sets the y position of the start position
     */
-    y1: number;
+    set y1(y1: number);
     /**
     * Returns the x position of the end position
     */
+    get x2(): number;
     /**
     * Sets the x position of the end position
     */
-    x2: number;
+    set x2(x2: number);
     /**
     * Returns the y position of the end position
     */
+    get y2(): number;
     /**
     * Sets the y position of the end position
     */
-    y2: number;
+    set y2(y2: number);
     translate(x: number, y: number): void;
     /**
     * Returns the fill style of this line
     */
+    get fill(): string;
     /**
     * Sets the fill style of this line
     */
-    fill: string;
+    set fill(s: string);
     /**
     * Returns the stroke style of this line
     */
+    get stroke(): string;
     /**
     * Sets the stroke style of this line
     */
-    stroke: string;
+    set stroke(s: string);
 }

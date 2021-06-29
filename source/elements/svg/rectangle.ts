@@ -10,7 +10,7 @@ type RectangleAttributes = 'rx' | 'ry';
 export default class Rectangle extends Shape {
 
   // make the type of the root to be more specific
-  root: SVGRectElement;
+  declare root: SVGRectElement;
 
   /**
   * Constructs a rectangle element at the position (x,y)

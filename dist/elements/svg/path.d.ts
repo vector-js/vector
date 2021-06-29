@@ -11,10 +11,11 @@ export default class Path extends Shape {
     /**
     * Returns the d attribute
     */
+    get d(): string;
     /**
     * Sets the d attribute
     */
-    d: string;
+    set d(d: string);
     /**
     * Returns the path representation of the provided shape.
     */

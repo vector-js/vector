@@ -5,6 +5,8 @@ import Control from './control.js';
 // Another alternative would be moving some of that logic into the controller or
 // interactive wrapper class.
 export default class ControlCircle extends Control {
+    // Describes the size of the control handle and point
+    static circleRadius = 10;
     /**
     * Constructs a control at the position (x,y)
     */
@@ -17,6 +19,4 @@ export default class ControlCircle extends Control {
         this.point.style.fill = this.handle.style.stroke;
     }
 }
-// Describes the size of the control handle and point
-ControlCircle.circleRadius = 10;
 //# sourceMappingURL=control-circle.js.map

@@ -29,7 +29,7 @@ type SVGAttributes = 'viewBox' | 'preserveAspectRatio' | 'transform';
 export default class SVG extends Element implements Descriptive, Shape, Structural, Typography {
 
   // make the type of the root more specific
-  root: SVGSVGElement;
+  declare root: SVGSVGElement;
 
   /**
   * Constructs a svg element.

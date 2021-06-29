@@ -5,14 +5,29 @@ import Input from './input.js';
 */
 export default class Button extends Input {
     /**
+    * The state of the checkbox
+    */
+    _count = 0;
+    /**
+    * True if the button is active
+    */
+    _active;
+    // position of the button
+    _x;
+    _y;
+    /**
+    * The box that represents the area where the user clicks
+    */
+    box;
+    /**
+    * The text label associated with the button
+    */
+    label;
+    /**
     * Constructs a button at the position (x,y)
     */
     constructor(x, y, str) {
         super();
-        /**
-        * The state of the checkbox
-        */
-        this._count = 0;
         this._x = x;
         this._y = y;
         this._active = false;

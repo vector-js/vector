@@ -3,6 +3,10 @@ import LinkedList from './linked-list.js';
 A dependency graph models relationships between nodes. The graph is directed and asyclic, throwing a circular dependency exception if circular dependencies are added.
 */
 export default class DependencyGraph {
+    // Stores the relationships between nodes
+    relationships;
+    // Keeps track of the number of nodes in this dependency graph
+    _size;
     /**
     Constructs an empty dependency graph.
     */

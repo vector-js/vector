@@ -4,10 +4,14 @@ import Input from './input.js';
 * A button that when pressed fires an onclick event.
 */
 export default class HoverBox extends Input {
+    box;
+    label;
+    _x;
+    _xBound = null;
+    _y;
+    _yBound = null;
     constructor(str) {
         super();
-        this._xBound = null;
-        this._yBound = null;
         // Create a text element
         this.label = new Text(0, 1, str);
         this.label.root.setAttribute('alignment-baseline', 'middle');

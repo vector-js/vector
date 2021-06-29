@@ -30,34 +30,23 @@
 <header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
-		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
     <p>
-      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
-      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
 			<a href="/examples/"><button class="muted-button">Examples</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
     </p>
 	</div>
 </header>
 
 <main class="medium-container">
 <h1>Graphs Tutorial</h1><p>The graph module is used to visualize simple graphs in the form of a node-link diagram. Both directed and undirected graphs are supported. The Reingold-Tilford “Tidy” layout for drawing trees is also supported.</p>
-
 <p>To create a graph, first create an interactive object (link). Then create a graph object as shown below. When doing so, you will specify whether or not it is a directed edge.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span><span class="nx">directed</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span><span class="nx">directed</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span></code></pre></div>
 <p>When creating a node, you can specify position, label, x radius and y radius of the node, which is shown as an ellipse. Label and both radii parameters are optional.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="nx">xPosition</span><span class="p">,</span> <span class="nx">yPosition</span><span class="p">,</span> <span class="nx">label</span><span class="p">,</span> <span class="nx">xRadius</span><span class="p">,</span> <span class="nx">yRadius</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">leaf</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="nx">xPosition</span><span class="p">,</span> <span class="nx">yPosition</span><span class="p">,</span> <span class="nx">label</span><span class="p">,</span> <span class="nx">xRadius</span><span class="p">,</span> <span class="nx">yRadius</span><span class="p">);</span>
-</code></pre></div>
-
+<span class="kd">let</span> <span class="nx">leaf</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="nx">xPosition</span><span class="p">,</span> <span class="nx">yPosition</span><span class="p">,</span> <span class="nx">label</span><span class="p">,</span> <span class="nx">xRadius</span><span class="p">,</span> <span class="nx">yRadius</span><span class="p">);</span></code></pre></div>
 <p>When creating an edge, if you are working with an undirected graph, the order of the nodes passed into the constructor does not matter. If it is a directed graph, the edge is created in the order from, to.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">edge</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">nodeFrom</span><span class="p">,</span> <span class="nx">nodeTo</span><span class="p">);</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">edge</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">nodeFrom</span><span class="p">,</span> <span class="nx">nodeTo</span><span class="p">);</span></code></pre></div>
 <p>For more information about the graph class, such as how to move nodes and how to style nodes, feel free to visit our API, watch the simple example video above, or visit our examples and sort by graph to view more complex examples.</p>
 
 </main>

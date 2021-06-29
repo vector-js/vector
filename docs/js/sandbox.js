@@ -13,7 +13,8 @@ initialize();
 
 // Register keyboard shortcuts
 addKeyboardShortcut('R', run);
-addKeyboardShortcut('S', downloadScript);
+addKeyboardShortcut('J', downloadScript);
+addKeyboardShortcut('S', downloadSVG);
 
 // Register button events to handlers
 document.getElementById('run').onclick = run;

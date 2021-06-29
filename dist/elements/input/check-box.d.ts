@@ -25,10 +25,11 @@ export default class CheckBox extends Input {
     /**
     * Sets the value to true and visually checks the box.
     */
+    set value(value: boolean);
     /**
     * Returns true if the box is checked, false if it is not.
     */
-    value: boolean;
+    get value(): boolean;
     /**
     * Converts the current true/false state of the checkbox to a zero or one.
     */

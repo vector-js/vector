@@ -7,26 +7,49 @@ import Rectangle from '../svg/rectangle.js';
 * A point has an x position and y position
 */
 class Point {
+    x;
+    y;
 }
 /**
 * A control point is a draggable two dimensional point.
 */
 export default class Control extends Input {
+    // Describes the size of the control handle and point
+    static pointRadius = 4;
+    static handleRadius = 13;
+    // Keeps track of the active control and the error in the user's click
+    static active = null;
+    static slopX = 0;
+    static slopY = 0;
+    static prevX = 0;
+    static prevY = 0;
+    // Private instance variables
+    _x;
+    _y;
+    _dx;
+    _dy;
+    // Keep track of whether global event listeners have been initialized
+    static initalized = false;
+    // Svg elements that make up the control
+    point;
+    handle;
+    /**
+    * Modifying the transform function allows for the control to be constrained
+    * to a path or constrained to the region enclosed in a path.
+    */
+    constrain = function (_oldPosition, newPosition) {
+        return newPosition;
+    };
     /**
     * Constructs a control at the position (x,y)
     */
     constructor(x, y) {
         super();
-        /**
-        * Modifying the transform function allows for the control to be constrained
-        * to a path or constrained to the region enclosed in a path.
-        */
-        this.constrain = function (_oldPosition, newPosition) {
-            return newPosition;
-        };
         // create the svg components
         this.point = this.circle(0, 0, Control.pointRadius);
         this.handle = this.circle(0, 0, Control.handleRadius);
+        this.point.classList.add('point');
+        this.handle.classList.add('handle');
         this.root.classList.add('control');
         // initialize instance variables
         this._x = x;
@@ -448,15 +471,4 @@ export default class Control extends Input {
         };
     }
 }
-// Describes the size of the control handle and point
-Control.pointRadius = 4;
-Control.handleRadius = 13;
-// Keeps track of the active control and the error in the user's click
-Control.active = null;
-Control.slopX = 0;
-Control.slopY = 0;
-Control.prevX = 0;
-Control.prevY = 0;
-// Keep track of whether global event listeners have been initialized
-Control.initalized = false;
 //# sourceMappingURL=control.js.map

@@ -6,28 +6,15 @@
     <description>Recent content on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Feb 2019 21:34:52 -0700</lastBuildDate>
-    
-	<atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Feb 2019 12:03:45 -0700</lastBuildDate><atom:link href="https://vectorjs.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started</title>
       <link>https://vectorjs.org/tutorials/getting-started/</link>
       <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
       
       <guid>https://vectorjs.org/tutorials/getting-started/</guid>
-      <description>Welcome! To use this library, download the getting-started.tgz tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
-index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.</description>
-    </item>
-    
-    <item>
-      <title>Click Accuracy Game</title>
-      <link>https://vectorjs.org/examples/click-accuracy-game/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
-      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
+      <description>To use this library, download the getting-started.tgztar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.org/library.css&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;my-interactive&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;script.</description>
     </item>
     
     <item>
@@ -119,7 +106,16 @@ index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; 
       <guid>https://vectorjs.org/tutorials/graphs/</guid>
       <description>The graph module is used to visualize simple graphs in the form of a node-link diagram. Both directed and undirected graphs are supported. The Reingold-Tilford “Tidy” layout for drawing trees is also supported.
 To create a graph, first create an interactive object (link). Then create a graph object as shown below. When doing so, you will specify whether or not it is a directed edge.
-let graph = interactive.graph({directed:true});  When creating a node, you can specify position, label, x radius and y radius of the node, which is shown as an ellipse.</description>
+let graph = interactive.graph({directed:true}); When creating a node, you can specify position, label, x radius and y radius of the node, which is shown as an ellipse.</description>
+    </item>
+    
+    <item>
+      <title>Click Accuracy Game</title>
+      <link>https://vectorjs.org/examples/click-accuracy-game/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
+      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -137,7 +133,7 @@ let graph = interactive.graph({directed:true});  When creating a node, you can s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/maps/</guid>
-      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJson which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
+      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJsonwhich is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
     </item>
     
     <item>
@@ -146,7 +142,7 @@ let graph = interactive.graph({directed:true});  When creating a node, you can s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/plots/</guid>
-      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });   import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });  import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
     </item>
     
     <item>
@@ -156,7 +152,7 @@ let graph = interactive.graph({directed:true});  When creating a node, you can s
       
       <guid>https://vectorjs.org/tutorials/population-map-of-united-states/</guid>
       <description>In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it&amp;rsquo;s population density.
-The first step in using our mapping module is always to pull in your GeoJson data.</description>
+The first step in using our mapping module is always to pull in your GeoJson data. For more information on this step, see our API or the Map Module tutorial.</description>
     </item>
     
     <item>
@@ -167,7 +163,6 @@ The first step in using our mapping module is always to pull in your GeoJson dat
       <guid>https://vectorjs.org/tutorials/control-with-position/</guid>
       <description>This tutorial demonstrates how to add a text label to a control point and then make the label follow and display the position of the point using reactive programming syntax. We assume you have gone through the getting started tutorial to get to the starting point.
 Starting point The starting point is an interactive with a control point that can be dragged around.
- 
 1import Interactive from &amp;#39;/interactive.js&amp;#39;; 2 3// Initialize the interactive 4let interactive = new Interactive(&amp;#34;step-0&amp;#34;); 5interactive.</description>
     </item>
     
@@ -177,7 +172,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Thu, 07 Feb 2019 21:34:52 -0700</pubDate>
       
       <guid>https://vectorjs.org/references/</guid>
-      <description>  MBTA Visual Guitar Visual 2016 Election Forecast Hip Hop Vocabulary Explained Visually Google Doodles - Muybridge Bezier Info SVG Path Editor? House Hunting SVG Summit Quad Tree R Tree  Google  Google Charts Google Calculator and Web Search Utility Google Fidget Spinner  Five Thirty Eight  Five Thirty Eight Five Thirty Eight - Data Five Thirty Eight - Github Five Thirty Eight - d3 PreProcessing Five Thirty Eight - d3 PreProcessing Choropleth Example Five Thirty Eight - d3 PreProcessing Axes Example  d3  d3 d3 Bar Chart d3 Choropleth d3 animation + bezier  Other Tools  Processing ECharts SigmaJS Desmos High Charts Data Wrapper  </description>
+      <description> MBTA Visual Guitar Visual 2016 Election Forecast Hip Hop Vocabulary Explained Visually Google Doodles - Muybridge Bezier Info SVG Path Editor? House Hunting SVG Summit Quad Tree R Tree  Google  Google Charts Google Calculator and Web Search Utility Google Fidget Spinner  Five Thirty Eight  Five Thirty Eight Five Thirty Eight - Data Five Thirty Eight - Github Five Thirty Eight - d3 PreProcessing Five Thirty Eight - d3 PreProcessing Choropleth Example Five Thirty Eight - d3 PreProcessing Axes Example  d3  d3 d3 Bar Chart d3 Choropleth d3 animation + bezier  Other Tools  Processing ECharts SigmaJS Desmos High Charts Data Wrapper  </description>
     </item>
     
     <item>
@@ -452,6 +447,16 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
+      <title>Grayscale</title>
+      <link>https://vectorjs.org/examples/grayscale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/grayscale/</guid>
+      <description>Summary This interactive demonstrates the range of possible grayscale colors from black to white. The script subdivides the interactive into a bunch of consecutive rectangles. The variable ncontrols how many sub-rectangles are dawn. Increasing nmakes the transition from black to white appear as a smooth gradients.
+Note: values for n that do not evenly divide the width of the interactive results in some graphical errors where white stripes appear in the gradient.</description>
+    </item>
+    
+    <item>
       <title>Group</title>
       <link>https://vectorjs.org/svg/elements/group/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -520,7 +525,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/kurt/</guid>
-      <description>I am a senior graduating this december with a computer science degree. In addition to this project I also built a website about math that utilizes this library to create interactive math visuals. I am currently looking for a job where I can continue to learn, meet new people, and develop good software.</description>
+      <description>I am a senior graduating this december with a computer science degree. In addition to this project I also built a websiteabout math that utilizes this library to create interactive math visuals. I am currently looking for a job where I can continue to learn, meet new people, and develop good software.</description>
     </item>
     
     <item>
@@ -1024,15 +1029,6 @@ Starting point The starting point is an interactive with a control point that ca
     
     <item>
       <title>undefined</title>
-      <link>https://vectorjs.org/examples/modular-arithmetic-number-line/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/modular-arithmetic-number-line/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = 0; interactive.originY = interactive.height / 2; ; let margin = 30; let input = interactive.control(margin + 163, 0); let n = interactive.control(margin + 100, margin); let line = interactive.line(interactive.minX + margin, 0, interactive.maxX - margin, 0); let mod = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
       <link>https://vectorjs.org/examples/normal-distribution/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1131,48 +1127,12 @@ Starting point The starting point is an interactive with a control point that ca
     </item>
     
     <item>
-      <title>Unit Circle Angle</title>
-      <link>https://vectorjs.org/examples/unit-circle-angle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-angle/</guid>
-      <description>/** * @title Unit Circle Angle * @description An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.window = false; interactive.width = 320; interactive.</description>
-    </item>
-    
-    <item>
-      <title>Unit Circle Cosine</title>
-      <link>https://vectorjs.org/examples/unit-circle-cosine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-cosine/</guid>
-      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
-    </item>
-    
-    <item>
       <title>Unit Circle Fixed Angle</title>
       <link>https://vectorjs.org/examples/angle-fixed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/angle-fixed/</guid>
       <description>/** * @title Unit Circle Fixed Angle * @description An interactive to demonstrate how the radius of a circle can be used to measure the angle between two rays. * @tags [math] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let id = &amp;#39;unit-circle-angle&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.window = false; interactive.width = 320; interactive.height = 340; interactive.originX = interactive.width / 2; interactive.</description>
-    </item>
-    
-    <item>
-      <title>Unit Circle Right Triangle</title>
-      <link>https://vectorjs.org/examples/unit-circle-right-triangle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-right-triangle/</guid>
-      <description>/** * @title Unit Circle Right Triangle * @description This interactive demonstrates how a point along the circumference of the unit circle forms a right triangle with the adjacent side corresponding to the x-position of the point and the opposite side corresonding to the y-position of the point. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.</description>
-    </item>
-    
-    <item>
-      <title>Unit Circle Sine</title>
-      <link>https://vectorjs.org/examples/unit-circle-sine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-sine/</guid>
-      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
     </item>
     
     <item>
@@ -1217,7 +1177,7 @@ Starting point The starting point is an interactive with a control point that ca
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/zach/</guid>
-      <description>I am a senior in the combined BS/MS computer science program and will graduate in Spring 2021. I am currently interested in research opportunities and hope to continue my education after graduating by participating in a PhD program. I am especially interested in data visualization and am a part of the Visualization Design Lab here at Utah.</description>
+      <description>I am a senior in the combined BS/MS computer science program and will graduate in Spring 2021. I am currently interested in research opportunities and hope to continue my education after graduating by participating in a PhD program. I am especially interested in data visualization and am a part of the Visualization Design Labhere at Utah.</description>
     </item>
     
     <item>

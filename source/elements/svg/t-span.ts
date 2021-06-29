@@ -10,7 +10,7 @@ export default class TSpan extends Element {
   /**
   * The root element of the tspan object
   */
-  root: SVGTSpanElement;
+  declare root: SVGTSpanElement;
 
   /**
   * Constructs a tspan element
