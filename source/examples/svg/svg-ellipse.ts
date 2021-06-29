@@ -72,7 +72,7 @@ let tag = text.tspan('&lt;ellipse ');
 let cx = text.tspan('cx=');
 let cy = text.tspan('cy=');
 let rx = text.tspan('rx=');
-let ry = text.tspan('rx=');
+let ry = text.tspan('ry=');
 let close = text.tspan('&gt;&lt;/ellipse&gt;');
 text.x = 20;
 text.y = interactive.maxY - 20;
