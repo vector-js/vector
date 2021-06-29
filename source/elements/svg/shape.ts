@@ -11,7 +11,7 @@ export type ShapeAttributes = 'marker-start' | 'marker-mid' | 'marker-end' | 'tr
 export default abstract class Shape extends Element {
 
   // make the type of the root more specific
-  root:SVGGeometryElement;
+  declare root:SVGGeometryElement;
 
   /**
   * Constructs a shape element with the provided root.

@@ -35,6 +35,32 @@ import Plot from '../elements/math/plot.js';
 */
 export default class Interactive extends SVG {
     /**
+    * The container element for this interactive.
+    */
+    container;
+    /**
+    * The input groups sits on top of the background group and ensures that
+    * input elements will always visually appear above background elements.
+    */
+    input;
+    /**
+    * The background is where everything that is not a primary control is drawn.
+    */
+    background;
+    /**
+    * This group contains symbols that can be reused within this interactive.
+    */
+    symbols;
+    /**
+    * Maps icon names to ids.
+    */
+    icons;
+    // internal variables
+    _width;
+    _height;
+    _originX;
+    _originY;
+    /**
     * Constructs a new interactive object and appends it into the DOM. If the
     * provided argument is an HTMLElement appends the interactive within that
     * element. If the provided a value is a string, appends the interactive within

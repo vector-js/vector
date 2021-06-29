@@ -30,11 +30,10 @@
 <header class="text-center">
 	<div class="small-container">
     <a href="/"><h1>Vector.js</h1></a>
-		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, browse the <a href="/api/" target="_blank" rel="noreferrer">API</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
+		<p>Vector is an open source javascript library for creating interactive graphics. View the <a href="https://github.com/vector-js/vector.git" target="_blank" rel="noreferrer">repository</a>, run the <a href="/tests/">tests</a>, or meet the <a href="/team/">team</a>.</p>
     <p>
-      <a href="/sandbox/?script=/examples/hello-world.js"><button class="muted-button">Sandbox</button></a>
-      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
 			<a href="/examples/"><button class="muted-button">Examples</button></a>
+      <a href="/tutorials/"><button class="muted-button">Tutorials</button></a>
     </p>
 	</div>
 </header>
@@ -102,7 +101,7 @@
 </span><span class="c1"></span><span class="kd">function</span> <span class="nx">step</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="nx">circle</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
-    <span class="nx">opacity</span> <span class="o">-=</span> <span class="mf">.01</span><span class="p">;</span>
+    <span class="nx">opacity</span> <span class="o">-=</span> <span class="p">.</span><span class="mi">01</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">opacity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// set up the next animation frame
 </span><span class="c1"></span>        <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">step</span><span class="p">);</span>

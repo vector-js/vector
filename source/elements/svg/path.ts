@@ -14,7 +14,7 @@ export default class Path extends Shape {
   // the SVGPathElement does not have the right properties to be considered a
   // SVGGeometryElement, but the specification says that the path elements the
   // geometric shape... so what gives?
-  root: any|SVGGeometryElement|SVGPathElement;
+  declare root: any|SVGGeometryElement|SVGPathElement;
 
   /**
   * Construct a new path element with a string of commands.

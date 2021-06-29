@@ -22,6 +22,7 @@ export default class DropdownControl extends Input {
      * and with the default selection as the label at the given default index.
      */
     constructor(x: number, y: number, optionLabels: string[], defaultIndex: number);
+    get value(): string;
     /**
     *  Updates the expanded view of menu options.
     */

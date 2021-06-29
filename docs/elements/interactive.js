@@ -35,6 +35,32 @@ import Plot from '../elements/math/plot.js';
 */
 export default class Interactive extends SVG {
     /**
+    * The container element for this interactive.
+    */
+    container;
+    /**
+    * The input groups sits on top of the background group and ensures that
+    * input elements will always visually appear above background elements.
+    */
+    input;
+    /**
+    * The background is where everything that is not a primary control is drawn.
+    */
+    background;
+    /**
+    * This group contains symbols that can be reused within this interactive.
+    */
+    symbols;
+    /**
+    * Maps icon names to ids.
+    */
+    icons;
+    // internal variables
+    _width;
+    _height;
+    _originX;
+    _originY;
+    /**
     * Constructs a new interactive object and appends it into the DOM. If the
     * provided argument is an HTMLElement appends the interactive within that
     * element. If the provided a value is a string, appends the interactive within
@@ -63,15 +89,25 @@ export default class Interactive extends SVG {
         this.input = new Group();
         this.root.appendChild(this.background.root);
         this.root.appendChild(this.input.root);
-        // default configuration
-        this._originX = options.originX ? options.originX : 0;
-        this._originY = options.originY ? options.originY : 0;
-        this._width = options.width ? options.width : 600;
-        this._height = options.height ? options.height : 300;
+        // default configuration options
+        let defaultOptions = {
+            originX: 0,
+            originY: 0,
+            width: 600,
+            height: 300,
+            border: false
+        };
+        // combine the default configuration with the user's configuration
+        let config = { ...defaultOptions, ...options };
+        this._originX = config.originX;
+        this._originY = config.originY;
+        this._width = config.width;
+        this._height = config.height;
         this.root.setAttribute('width', this._width.toString());
         this.root.setAttribute('height', this._height.toString());
         this.setViewBox(-this._originX, -this._originY, this._width, this._height);
         this.window = false;
+        this.border = config.border;
         // prevent the default behavior of selecting text
         this.container.addEventListener('mousedown', function (event) {
             event.preventDefault();

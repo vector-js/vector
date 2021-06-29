@@ -2,6 +2,8 @@
 * A node class contains data and a recursive next point.
 */
 class Node {
+    next;
+    data;
     /**
     Constructs a new node with the provided data and sets next to be null.
     */
@@ -20,6 +22,8 @@ class Node {
 * A dynamic, singlely linked list.
 */
 export default class LinkedList {
+    // Contains head of linked list
+    head;
     /**
     Consstructs an empty linked list.
     */

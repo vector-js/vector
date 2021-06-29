@@ -7,7 +7,7 @@ export default class RadioControl extends Input {
     list: CheckBox[];
     index: number;
     constructor(x: number, y: number, labels: string[], index?: number);
-    readonly value: string;
+    get value(): string;
     getCurrentValue(): import("../svg/text.js").default;
     handleMouseDown(index: number): void;
 }

@@ -4,7 +4,7 @@ type ScriptAttributes = 'type' | 'crossorigin' | 'href';
 
 export default class Script extends Element {
 
-	root:SVGScriptElement;
+	declare root:SVGScriptElement;
 
 	/**
 	* Constructs a new sript element.

@@ -26,7 +26,7 @@ type MarkerAttributes = 'viewBox' | 'preserveAspectRatio' | 'refX' | 'refY' | 'm
 export default class Marker extends Element implements Shape, Structural {
 
   // make the type of the root to be more specific
-  root: SVGMarkerElement;
+  declare root: SVGMarkerElement;
 
   /**
   * Constructs a rectangle element at the position (x,y)

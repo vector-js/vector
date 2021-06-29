@@ -2,33 +2,38 @@ import Element from './element.js';
 export default class Use extends Element {
     root: SVGUseElement;
     constructor(x: number, y: number, width: number, height: number);
-    href: string;
+    get href(): string;
+    set href(value: string);
     /**
   * Returns the x position of the rectangle
   */
+    get x(): number;
     /**
     * Sets the x position of the rectangle
     */
-    x: number;
+    set x(n: number);
     /**
     * Returns the y position of the rectangle
     */
+    get y(): number;
     /**
     * Sets the y position of the rectangle
     */
-    y: number;
+    set y(n: number);
     /**
     * Returns the width of the rectangle
     */
+    get width(): number;
     /**
     * Sets the width of the rectangle
     */
-    width: number;
+    set width(n: number);
     /**
     * Returns the height of the rectangle
     */
+    get height(): number;
     /**
     * Sets the height of the rectangle
     */
-    height: number;
+    set height(n: number);
 }

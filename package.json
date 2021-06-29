@@ -25,28 +25,27 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.7",
-    "chai": "^4.2.0",
-    "directory-tree": "^2.2.4",
+    "@types/chai": "^4.2.19",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "directory-tree": "^2.2.9",
     "http-server": "^0.12.3",
-    "jsonfile": "^5.0.0",
-    "mocha": "^6.1.4",
-    "rollup": "^1.17.0",
+    "jsonfile": "^6.1.0",
+    "mocha": "^9.0.1",
+    "rollup": "^2.52.3",
     "tree-flatten": "^1.0.0",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.5.3"
+    "typedoc": "^0.21.2",
+    "typescript": "^4.3.4"
   },
   "scripts": {
-    "api": "typedoc",
     "build": "tsc",
     "clean": "rm -rf ./dist/ && rm -rf ./docs/",
-    "deploy": "npm run clean && npm run build && npm run tutorial && npm run api && npm run rollup && npm run website",
+    "deploy": "npm run clean && npm run build && npm run tutorial && npm run rollup && npm run docs",
+    "docs": "cd website && hugo",
     "package": "tar --exclude=\"*.js.map\" -czvf ./dist/library.tar.gz ./dist/ ./css/library.css",
-    "website": "cd website && hugo",
+    "website": "http-server ./docs",
     "watch": "tsc -w",
     "rollup": "rollup --config",
-    "start": "http-server .",
     "tutorial": "./getting-started.sh"
   }
 }

@@ -30,32 +30,35 @@ export default class Button extends Input {
     /**
     * Returns the top left x position of this button.
     */
+    get x(): number;
     /**
     * Sets the top left x position of this button.
     */
-    x: number;
+    set x(value: number);
     /**
     * Returns the top left x position of this button.
     */
+    get y(): number;
     /**
     * Sets the top left y position of this button.
     */
-    y: number;
+    set y(value: number);
     /**
     * Returns how many times this button has been pressed. Count does not
     * increment until the button has been released.
     */
-    readonly count: number;
+    get count(): number;
     /**
     * Returns true if the button is actively being pressed.
     */
+    get active(): boolean;
     /**
     * Allows the user to synthetically "press" the button and put it into an
     * active state.
     */
-    active: boolean;
+    set active(value: boolean);
     /**
     * Fires when the user clicks the left button on the button.
     */
-    onclick: (event: MouseEvent) => void;
+    set onclick(handler: (event: MouseEvent) => void);
 }

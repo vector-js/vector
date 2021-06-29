@@ -13,7 +13,7 @@ export default class Edge extends Line {
   directed:boolean;
   nodeFrom : Node;
   nodeTo : Node;
-  root: SVGLineElement;
+  declare root: SVGLineElement;
 
   /**
   * Constructs a line frmo the edge of the two circle elements.

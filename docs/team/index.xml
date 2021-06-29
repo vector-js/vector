@@ -5,11 +5,7 @@
     <link>https://vectorjs.org/team/</link>
     <description>Recent content in Team on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://vectorjs.org/team/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://vectorjs.org/team/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Derek</title>
       <link>https://vectorjs.org/team/derek/</link>
@@ -34,7 +30,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/kurt/</guid>
-      <description>I am a senior graduating this december with a computer science degree. In addition to this project I also built a website about math that utilizes this library to create interactive math visuals. I am currently looking for a job where I can continue to learn, meet new people, and develop good software.</description>
+      <description>I am a senior graduating this december with a computer science degree. In addition to this project I also built a websiteabout math that utilizes this library to create interactive math visuals. I am currently looking for a job where I can continue to learn, meet new people, and develop good software.</description>
     </item>
     
     <item>
@@ -43,7 +39,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/team/zach/</guid>
-      <description>I am a senior in the combined BS/MS computer science program and will graduate in Spring 2021. I am currently interested in research opportunities and hope to continue my education after graduating by participating in a PhD program. I am especially interested in data visualization and am a part of the Visualization Design Lab here at Utah.</description>
+      <description>I am a senior in the combined BS/MS computer science program and will graduate in Spring 2021. I am currently interested in research opportunities and hope to continue my education after graduating by participating in a PhD program. I am especially interested in data visualization and am a part of the Visualization Design Labhere at Utah.</description>
     </item>
     
   </channel>

@@ -5,20 +5,7 @@
     <link>https://vectorjs.org/examples/</link>
     <description>Recent content in Examples on Vector.js</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://vectorjs.org/examples/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Click Accuracy Game</title>
-      <link>https://vectorjs.org/examples/click-accuracy-game/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
-      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://vectorjs.org/examples/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Exponents and Trees</title>
       <link>https://vectorjs.org/examples/exponential-tree/</link>
@@ -98,6 +85,15 @@
       
       <guid>https://vectorjs.org/examples/unit-circle/</guid>
       <description>/** * @title Unit Circle * @description This interactive demonstrates the properties of the unit circle in relation to the trigonometric functions sine, cosine, and tangent. * @tags [math] * @date October 9, 2019 * @author Kurt Bruns * @weight 1 */ import { Interactive, BaseElement } from &amp;#39;../../index.js&amp;#39;; import { parseSVG } from &amp;#39;../../util/svg.js&amp;#39;; /** * This wrapper object is how the circular dependecy between control elements is * made more simple.</description>
+    </item>
+    
+    <item>
+      <title>Click Accuracy Game</title>
+      <link>https://vectorjs.org/examples/click-accuracy-game/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/click-accuracy-game/</guid>
+      <description>/** * @title Click Accuracy Game * @description Mouse accuracy training game. Try to keep up with the circles by clicking on them when they appear and before they time out! * @tags [games] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let radius = 50; let spawnRate = 1000; let outerScore = 0; let innerScore = 0; let strikes = 0; let circleInterval = 0; let circleIntervalCounter = 2; let rampInterval = 0; let gameDone = false; let listIntervals = []; let circleIntevals = []; let hits = []; let interactive = new Interactive(getScriptName()); interactive.</description>
     </item>
     
     <item>
@@ -323,6 +319,16 @@
       
       <guid>https://vectorjs.org/examples/ellipse-element/</guid>
       <description>/** * @title Ellipse Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let ellipse = interactive.ellipse(100, 75, 80, 40); ellipse.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=ellipse-element.js.map  </description>
+    </item>
+    
+    <item>
+      <title>Grayscale</title>
+      <link>https://vectorjs.org/examples/grayscale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vectorjs.org/examples/grayscale/</guid>
+      <description>Summary This interactive demonstrates the range of possible grayscale colors from black to white. The script subdivides the interactive into a bunch of consecutive rectangles. The variable ncontrols how many sub-rectangles are dawn. Increasing nmakes the transition from black to white appear as a smooth gradients.
+Note: values for n that do not evenly divide the width of the interactive results in some graphical errors where white stripes appear in the gradient.</description>
     </item>
     
     <item>
@@ -768,15 +774,6 @@
     
     <item>
       <title>undefined</title>
-      <link>https://vectorjs.org/examples/modular-arithmetic-number-line/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/modular-arithmetic-number-line/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.originX = 0; interactive.originY = interactive.height / 2; ; let margin = 30; let input = interactive.control(margin + 163, 0); let n = interactive.control(margin + 100, margin); let line = interactive.line(interactive.minX + margin, 0, interactive.maxX - margin, 0); let mod = interactive.</description>
-    </item>
-    
-    <item>
-      <title>undefined</title>
       <link>https://vectorjs.org/examples/normal-distribution/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -875,48 +872,12 @@
     </item>
     
     <item>
-      <title>Unit Circle Angle</title>
-      <link>https://vectorjs.org/examples/unit-circle-angle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-angle/</guid>
-      <description>/** * @title Unit Circle Angle * @description An interactive to demonstrate how a point along the circumference of the unit circle also defines an angle in the polar coordinate system. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.window = false; interactive.width = 320; interactive.</description>
-    </item>
-    
-    <item>
-      <title>Unit Circle Cosine</title>
-      <link>https://vectorjs.org/examples/unit-circle-cosine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-cosine/</guid>
-      <description>/** * @title Unit Circle Cosine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function cosine * @tags [math] * @date October 9, 2019 * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
-    </item>
-    
-    <item>
       <title>Unit Circle Fixed Angle</title>
       <link>https://vectorjs.org/examples/angle-fixed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/angle-fixed/</guid>
       <description>/** * @title Unit Circle Fixed Angle * @description An interactive to demonstrate how the radius of a circle can be used to measure the angle between two rays. * @tags [math] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let id = &amp;#39;unit-circle-angle&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.window = false; interactive.width = 320; interactive.height = 340; interactive.originX = interactive.width / 2; interactive.</description>
-    </item>
-    
-    <item>
-      <title>Unit Circle Right Triangle</title>
-      <link>https://vectorjs.org/examples/unit-circle-right-triangle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-right-triangle/</guid>
-      <description>/** * @title Unit Circle Right Triangle * @description This interactive demonstrates how a point along the circumference of the unit circle forms a right triangle with the adjacent side corresponding to the x-position of the point and the opposite side corresonding to the y-position of the point. * @tags [math] * @date June 9, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.</description>
-    </item>
-    
-    <item>
-      <title>Unit Circle Sine</title>
-      <link>https://vectorjs.org/examples/unit-circle-sine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vectorjs.org/examples/unit-circle-sine/</guid>
-      <description>/** * @title Unit Circle Sine * @description This interactive demonstrates the properties of the unit circle in relation to the trignometric function sine * @tags [math] * @date October 9, 2019 * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; import Group from &amp;#39;../../elements/svg/group.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); let width = 230; let scale = width / Math.</description>
     </item>
     
     <item>

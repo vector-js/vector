@@ -17,6 +17,7 @@ let functions = [Math.cos, Math.sin];
 interactive.height = functions.length * width + (functions.length - 1) * margin;
 interactive.width = width + margin + 2 * width;
 class NumberWrapper extends Group {
+    _value;
     constructor(value) {
         super();
         this._value = value;

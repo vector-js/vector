@@ -16,45 +16,51 @@ export default class Rectangle extends Shape {
     /**
     * Returns the x position of the rectangle
     */
+    get x(): number;
     /**
     * Sets the x position of the rectangle
     */
-    x: number;
+    set x(n: number);
     /**
     * Returns the y position of the rectangle
     */
+    get y(): number;
     /**
     * Sets the y position of the rectangle
     */
-    y: number;
+    set y(n: number);
     /**
     * Returns the width of the rectangle
     */
+    get width(): number;
     /**
     * Sets the width of the rectangle
     */
-    width: number;
+    set width(n: number);
     /**
     * Returns the height of the rectangle
     */
+    get height(): number;
     /**
     * Sets the height of the rectangle
     */
-    height: number;
+    set height(n: number);
     translate(x: number, y: number): void;
     /**
     * Returns the fill style of this rectangle
     */
+    get fill(): string;
     /**
     * Sets the fill style of this rectangle
     */
-    fill: string;
+    set fill(s: string);
     /**
     * Returns the stroke style of this rectangle
     */
+    get stroke(): string;
     /**
     * Sets the stroke style of this rectangle
     */
-    stroke: string;
+    set stroke(s: string);
 }
 export {};

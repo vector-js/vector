@@ -29,34 +29,38 @@ export default class Slider extends Input {
     /**
     * Returns the width of the display line
     */
+    get width(): number;
     /**
     * Sets the width of the display line
     */
-    width: number;
+    set width(width: number);
     /**
     * Returns the value currently represented by this slider.
     */
+    get value(): number;
     /**
     * Sets the value currently represented by this slider.
     */
-    value: number;
-    step: number;
+    set value(n: number);
+    set step(value: number);
     /**
     * Returns the minimum possible value of the range.
     */
+    get min(): number;
     /**
     * Sets the minimum possible value of the range.
     */
-    min: number;
+    set min(value: number);
     /**
     * Returns the maximum possible value of the range.
     */
+    get max(): number;
     /**
     * Returns the maximum possible value of the range.
     */
-    max: number;
+    set max(value: number);
     /**
     * Returns the length of the range represented by this slider.
     */
-    readonly range: number;
+    get range(): number;
 }

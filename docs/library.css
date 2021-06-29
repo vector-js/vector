@@ -30,6 +30,7 @@ input.input {
   font-weight: normal;
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-size: 1rem;
+  box-sizing: content-box;
   -webkit-font-smoothing: antialiased;
   user-select: none;
 }
@@ -48,7 +49,7 @@ input.input {
 
 .default * {
   stroke:#404040;
-  stroke-width:1px;
+  /* stroke-width:1px; */
   fill:none;
 }
 
@@ -71,19 +72,19 @@ rect.default {
   fill:none;
 }
 
-.control > :first-child {
+.control .point {
   fill:#0366EE;
   stroke:none;
 }
 
-.control > :nth-child(2) {
+.control .handle {
   fill:transparent;
   stroke: #0366EE;
   stroke-width:2px;
   opacity:0;
 }
 
-.control > .highlight {
+.control .highlight {
   opacity:1;
 }
 

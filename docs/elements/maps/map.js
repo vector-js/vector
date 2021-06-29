@@ -5,6 +5,23 @@ import Group from "../svg/group.js";
 */
 export default class GeoMap extends SVG {
     /*
+    * if featureName is provided to the constructor, then only that feature will be drawn
+    */
+    featureName;
+    /*
+    * the GeoJSON used to make the map
+    */
+    externalJSON;
+    /**
+     * Maps feature names to group elements that contain the feature paths.
+     */
+    featuresMap;
+    /**
+     * The options used when constructing the map.
+     * Consists of: fill,stroke,strokeWidth,nonScalingStroke
+     */
+    mapOptions;
+    /*
     * mapName: the name of the map you wish to render
     * width: width of the map
     * height: height of the map

@@ -39,20 +39,25 @@ export default class SVG extends Element implements Descriptive, Shape, Structur
     /**
     * Return the width of this svg element.
     */
+    get width(): number;
     /**
     * Set the width of this svg element.
     */
-    width: number;
+    set width(value: number);
     /**
     * Returns the height of this svg element.
     */
+    get height(): number;
     /**
     * Sets the height of this svg element to the provided value.
     */
-    height: number;
-    x: number;
-    y: number;
-    viewBox: string;
+    set height(value: number);
+    get x(): number;
+    set x(value: number);
+    get y(): number;
+    set y(value: number);
+    get viewBox(): string;
+    set viewBox(value: string);
     setViewBox(x: number, y: number, width: number, height: number): void;
     setAttribute(name: SVGAttributes | CoreAttributes, value: string): SVG;
     getAttribute(name: SVGAttributes | CoreAttributes): string;

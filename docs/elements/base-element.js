@@ -6,6 +6,27 @@ import Controller from './controller.js';
 */
 export default class BaseElement {
     /**
+    * Allows for the events attatched to elements to be disabled.
+    */
+    static disable = false;
+    /**
+    * The controller manages the dependencies between elements. Every element
+    * is added to this controller upon creation.
+    */
+    static controller = new Controller();
+    /**
+    * This number uniquely identifes elements
+    */
+    static count = 0;
+    /**
+    * A unique identifier string
+    */
+    _id;
+    /**
+    * The update function describes how this element should update itself
+    */
+    update;
+    /**
     * Constructs the elements and adds it into the current controller.
     */
     constructor() {
@@ -49,17 +70,4 @@ export default class BaseElement {
         BaseElement.controller.update(this);
     }
 }
-/**
-* Allows for the events attatched to elements to be disabled.
-*/
-BaseElement.disable = false;
-/**
-* The controller manages the dependencies between elements. Every element
-* is added to this controller upon creation.
-*/
-BaseElement.controller = new Controller();
-/**
-* This number uniquely identifes elements
-*/
-BaseElement.count = 0;
 //# sourceMappingURL=base-element.js.map

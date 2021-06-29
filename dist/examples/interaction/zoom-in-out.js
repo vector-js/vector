@@ -9,6 +9,16 @@ import { Interactive, getScriptName } from '../../index.js';
 import Text from '../../elements/svg/text.js';
 import Group from '../../elements/svg/group.js';
 class Zoomable extends Interactive {
+    zoomIntensity;
+    scale;
+    originx;
+    originy;
+    visibleWidth;
+    visibleHeight;
+    active;
+    prevX;
+    prevY;
+    _mathMode;
     /**
     * Constructs a new interactive with zooming capabilities
     */

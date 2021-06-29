@@ -62,8 +62,7 @@ export function download(id, filename) {
     style.innerHTML = css;
     svg.appendChild(style);
     // best piece of code i have written in 2019
-    let data = svg.outerHTML.replace('&gt;', '>').replace('&gt;', '>').replace('&gt;', '>');
-    saveSVG(filename, data);
+    saveSVG(filename, svg.outerHTML);
     style.remove();
 }
 export function saveSVG(filename, data) {

@@ -17,6 +17,10 @@ modules:
   - Plots
 ---
 
+## Notice
+
+The `master`branch of this project is currently unmaintained. Development continues on the `development` branch on the repository. Thank you for your patience.
+
 ## About
 
 Welcome! Vector.js is a Javascript library for creating interactive graphics. The library uses the existing web standards: HTML, SVG, and CSS and has no dependencies.

@@ -17,7 +17,7 @@ export default class ZoomAndPan extends Interactive {
     * Constructs a new interactive with zooming capabilities
     */
     constructor(id: string, width: number, height: number);
-    readonly mathMode: boolean;
+    get mathMode(): boolean;
     handleMouseDown(event: MouseEvent): void;
     handleMouseUp(event: MouseEvent): void;
     handleMouseMove(event: MouseEvent): void;

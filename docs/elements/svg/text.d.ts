@@ -19,28 +19,31 @@ export default class Text extends Element implements Typography {
     /**
     * Sets the contents of this element
     */
+    set contents(str: string);
     /**
     * Sets the contents of this element
     */
-    contents: string;
+    get contents(): string;
     /**
     * Gets the x position of this element
     */
-    /**
-    * Sets the x position of this element
-    */
-    x: number;
+    get x(): number;
     /**
     * Gets the y position of this element
     */
+    get y(): number;
+    /**
+    * Sets the x position of this element
+    */
+    set x(value: number);
     /**
     * Sets the y position of this element
     */
-    y: number;
+    set y(value: number);
     /**
     * Returns the length of the text
     */
-    readonly length: number;
+    get length(): number;
     text(x: number, y: number, str: string): Text;
     tspan(text: string): TSpan;
 }

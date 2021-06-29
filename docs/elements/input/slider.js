@@ -6,6 +6,16 @@ import Input from './input.js';
 * which default to the range [0, 1].
 */
 export default class Slider extends Input {
+    x;
+    y;
+    // instance variables
+    _min;
+    _max;
+    /**
+    * Visually displays the possible positions along the range
+    */
+    _line;
+    _control;
     /**
     * Constructs the slider at the position (x,y). The leftmost edge of the line
     * is placed at this location.

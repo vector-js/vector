@@ -1,10 +1,7 @@
 /**
-* @title Angle Between Two Vectors
-* @description This interactive demonstrates the angle formed between two vectors.
+* @title Angle Between Two Vectors Interactive
+* @description An interactive that demonstrates how an angle is defined as the amount of rotation between two rays in two-dimensional space.
 * @tags [math]
 * @ignore true
 */
-import { Interactive } from '../../index.js';
-declare let interactive: Interactive;
-declare let c1: import("../../index.js").Control;
-export { interactive, c1 };
+export default function main(id: string): void;

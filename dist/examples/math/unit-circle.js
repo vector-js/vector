@@ -15,6 +15,7 @@ import { parseSVG } from '../../util/svg.js';
 * propegated through the dependency graph.
 */
 class NumberWrapper extends BaseElement {
+    _value;
     constructor(value) {
         super();
         this._value = value;
@@ -28,6 +29,8 @@ class NumberWrapper extends BaseElement {
     }
 }
 class UnitCircle {
+    _angle;
+    f;
     constructor(id, angle, func = Math.cos) {
     }
     set angle(value) {

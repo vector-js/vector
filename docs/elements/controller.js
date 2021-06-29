@@ -4,6 +4,14 @@ import DependencyGraph from '../model/dependency-graph.js';
 */
 export default class Controller {
     /**
+    * Contains a map of unique identifiers to elements
+    */
+    elements;
+    /**
+    * Contains the dependencies between elements
+    */
+    dependencyGraph;
+    /**
     * Constructs a controller
     */
     constructor() {

@@ -7,6 +7,17 @@ import Input from './input.js';
 *  Dropdown with menu item labels that can be selected.
 */
 export default class DropdownControl extends Input {
+    optionLabels;
+    currentIndex;
+    textWidth;
+    expanded;
+    currSelection;
+    currSelectionBox;
+    currSelectionText;
+    collapsedView;
+    expandedView;
+    x;
+    y;
     /**
      * Constructs a dropdown control with given option labels at the given (x,y) position
      * and with the default selection as the label at the given default index.
@@ -64,6 +75,9 @@ export default class DropdownControl extends Input {
         this.collapsedView.appendChild(dropdownButton);
         this.root = this.collapsedView.root;
         this.root.id = this.id;
+    }
+    get value() {
+        return this.optionLabels[this.currentIndex];
     }
     /**
     *  Updates the expanded view of menu options.

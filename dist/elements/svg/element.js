@@ -3,6 +3,18 @@ import BaseElement from '../base-element.js';
 * This class defines the basic shape for all SVG elements within our library.
 */
 export default class Element extends BaseElement {
+    /**
+    * The root element of this element.
+    */
+    root;
+    /**
+    * Style for the root element.
+    */
+    style;
+    /**
+    * Class attribute for the root element.
+    */
+    classList;
     // TODO: tranform object/property?
     /**
     * Constructs the elements and adds it into the current controller.

@@ -16,10 +16,11 @@ export default class TSpan extends Element {
     /**
     * The text contents of this tspan element
     */
+    get text(): string;
     /**
     * Sets the text contents of this tspan element to the provided string
     */
-    text: string;
+    set text(str: string);
     setAttribute(name: TextAttributes | CoreAttributes, value: string): TSpan;
     getAttribute(name: TextAttributes | CoreAttributes): string;
     /**

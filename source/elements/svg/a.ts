@@ -8,7 +8,7 @@ type AAttributes = 'href' | 'target' | 'download' | 'rel';
 export default class A extends Element {
 
   // make the type of the root to be more specific
-  root: SVGAElement;
+  declare root: SVGAElement;
 
   /**
   * Constructs a link element with the provided href.

@@ -28,7 +28,7 @@ type GroupAttributes = 'clip-path' | 'transform' ;
 export default class Group extends Element implements Descriptive, Shape, Structural {
 
   // make the type of the root to be more specific
-  root: SVGGElement;
+  declare root: SVGGElement;
 
   /**
   * Constructs a rectangle element at the position (x,y)
