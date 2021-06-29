@@ -155,10 +155,16 @@ let scrubber = interactive.scrubber( 100, 75, 400);
 
 ### Slider
 
-A slider has a position, width, and starting value.
+A slider has a position and zero or more of the following options: `min`, `max`, `step`, `value`, and `width`.
 
 {{< highlight javascript>}}
-let slider = interactive.slider( 75, 75, 150, 20);
+let slider = interactive.slider( 75, 75, {
+  min: 100,
+  max: 200,
+  step: 25,
+  value: 125,
+  width: 200
+});
 {{< /highlight >}}
 
 {{<example "slider-element">}}
