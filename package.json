@@ -23,13 +23,12 @@
     "css/"
   ],
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.2.19",
     "@types/mocha": "^8.2.2",
     "chai": "^4.3.4",
     "directory-tree": "^2.2.9",
-    "http-server": "^0.12.3",
+    "http-server": "^14.1.1",
     "jsonfile": "^6.1.0",
     "mocha": "^9.0.1",
     "rollup": "^2.52.3",

@@ -38,8 +38,8 @@ import './elements/math/plot.test.js';
 import './elements/maps/map.test.js'
 
 // math
-import './math/interactives.test.js';
-import './math/modular-arithmetic-wheel.script.js';
+// import './math/interactives.test.js';
+// import './math/modular-arithmetic-wheel.script.js';
 
 // article interactives
 import './articles/color.test.js';
