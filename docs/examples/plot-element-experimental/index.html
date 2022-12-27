@@ -51,42 +51,42 @@
     <p>This interactive demonstrates the plot element</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Plot Element
-</span><span class="cm">* @description This interactive demonstrates the plot element
-</span><span class="cm">* @tags [elements]
-</span><span class="cm">* @ignore true
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="c1">// Initialize the interactive
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">functionText</span> <span class="o">=</span> <span class="s1">&#39;Math.cos&#39;</span><span class="p">;</span>
-<span class="c1">// Create a new graph object
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">scaleX</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">scaleY</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nx">originY</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>
-    <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scaleX</span><span class="p">,</span>
-    <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scaleY</span><span class="p">,</span>
-    <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">controls</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span>
-<span class="c1">// Function input
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">functionInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
-<span class="nx">functionInput</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
-<span class="nx">functionInput</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;function&#39;</span><span class="p">;</span>
-<span class="nx">functionInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">functionText</span><span class="p">;</span>
-<span class="nx">functionInput</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
-<span class="nx">functionInput</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">plot</span><span class="p">.</span><span class="kd">function</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">functionInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-    <span class="nx">plot</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-<span class="p">};</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">functionInput</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">);</span>
-<span class="c1">//# sourceMappingURL=plot-element-experimental.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Plot Element
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description This interactive demonstrates the plot element
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [elements]
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ignore true
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Initialize the interactive
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">functionText</span> <span class="o">=</span> <span class="s1">&#39;Math.cos&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Create a new graph object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">scaleX</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">scaleY</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">originY</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scaleX</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scaleY</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">controls</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Function input
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">functionInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functionInput</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functionInput</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;function&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functionInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">functionText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functionInput</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functionInput</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">plot</span><span class="p">.</span><span class="kd">function</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">functionInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">plot</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">functionInput</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">container</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=plot-element-experimental.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

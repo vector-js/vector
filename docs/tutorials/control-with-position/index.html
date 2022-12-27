@@ -43,40 +43,40 @@
 <h2 id="starting-point">Starting point</h2>
 <p>The starting point is an interactive with a control point that can be dragged around.</p>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">1</span><span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;/interactive.js&#39;</span><span class="p">;</span>
-<span class="ln">2</span>
-<span class="ln">3</span><span class="c1">// Initialize the interactive
-</span><span class="ln">4</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;step-0&#34;</span><span class="p">);</span>
-<span class="ln">5</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="ln">6</span>
-<span class="ln">7</span><span class="c1">// Create a control point at the location (100, 100)
-</span><span class="ln">8</span><span class="c1"></span><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln">1</span><span class="cl"><span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;/interactive.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">// Initialize the interactive
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="s2">&#34;step-0&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1">// Create a control point at the location (100, 100)
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span></span></span></code></pre></div>
 <h2 id="adding-a-text-label">Adding a Text Label</h2>
 <p>Next we are going to create a text element at a random position within the interactive.</p>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">10</span><span class="c1">// Create a text element at the location (150,150);
-</span><span class="ln">11</span><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&#34;myText&#34;</span><span class="p">);</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">// Create a text element at the location (150,150);
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&#34;myText&#34;</span><span class="p">);</span></span></span></code></pre></div>
 <h2 id="declaring-a-dependency">Declaring a Dependency</h2>
 <p>Then we are going to declare a dependency so that when the state of the control point changes, our text element&rsquo;s update function will be called.</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">14</span><span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
-<span class="ln">15</span><span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="ln">16</span>  <span class="c1">// update the text element when the control changes
-</span><span class="ln">17</span><span class="c1"></span><span class="p">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln">14</span><span class="cl"><span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">  <span class="c1">// update the text element when the control changes
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
 <h2 id="update-function">Update Function</h2>
 <p>Let&rsquo;s make it so the text element&rsquo;s position follows the position of the control point and the contents of the text displays the position of the point.</p>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="ln">13</span><span class="c1">// Update the text when the control changes
-</span><span class="ln">14</span><span class="c1"></span><span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
-<span class="ln">15</span><span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="ln">16</span>
-<span class="ln">17</span>  <span class="c1">// update the position of the text element
-</span><span class="ln">18</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">15</span><span class="p">;</span>
-<span class="ln">19</span>  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">15</span><span class="p">;</span>
-<span class="ln">20</span>
-<span class="ln">21</span>  <span class="c1">// update the contents to be the position of the point
-</span><span class="ln">22</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`(</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
-<span class="ln">23</span><span class="p">};</span>
-<span class="ln">24</span><span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">// Update the text when the control changes
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span><span class="nx">text</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nx">text</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">  <span class="c1">// update the position of the text element
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">15</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">15</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">  <span class="c1">// update the contents to be the position of the point
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="sb">`(</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">control</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="nx">text</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span></span></span></code></pre></div>
 <!-- raw HTML omitted -->
 <p>To learn more follow other <a href="https://vectorjs.org/tutorials/">tutorials</a>, browse and fork <a href="https://vectorjs.org/examples/">examples</a>, or read the <a href="/api/">documentation</a>.</p>
 

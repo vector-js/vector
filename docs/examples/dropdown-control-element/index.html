@@ -51,26 +51,26 @@
     <p>This interactive demonstrates the dropdown control element.</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Dropdown Control Element
-</span><span class="cm">* @description This interactive demonstrates the dropdown control element.
-</span><span class="cm">* @tags [elements, input]
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&#34;1px solid grey&#34;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">dropdown</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">dropdownControl</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;20 px&#34;</span><span class="p">,</span> <span class="s2">&#34;50 px&#34;</span><span class="p">,</span> <span class="s2">&#34;100 px&#34;</span><span class="p">,</span> <span class="s2">&#34;150 px&#34;</span><span class="p">,</span> <span class="s2">&#34;200 px&#34;</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">ellipse</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">ellipse</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="nx">ellipse</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;purple&#34;</span><span class="p">;</span>
-<span class="nx">ellipse</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dropdown</span><span class="p">);</span>
-<span class="nx">ellipse</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">ellipse</span><span class="p">.</span><span class="nx">ry</span> <span class="o">=</span> <span class="o">+</span><span class="p">(</span><span class="nx">dropdown</span><span class="p">.</span><span class="nx">getCurrentSelection</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="p">};</span>
-<span class="nx">ellipse</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
-<span class="c1">//# sourceMappingURL=dropdown-control-element.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Dropdown Control Element
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description This interactive demonstrates the dropdown control element.
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [elements, input]
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&#34;1px solid grey&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">dropdown</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">dropdownControl</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;20 px&#34;</span><span class="p">,</span> <span class="s2">&#34;50 px&#34;</span><span class="p">,</span> <span class="s2">&#34;100 px&#34;</span><span class="p">,</span> <span class="s2">&#34;150 px&#34;</span><span class="p">,</span> <span class="s2">&#34;200 px&#34;</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ellipse</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">ellipse</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ellipse</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s2">&#34;purple&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ellipse</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dropdown</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ellipse</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ellipse</span><span class="p">.</span><span class="nx">ry</span> <span class="o">=</span> <span class="o">+</span><span class="p">(</span><span class="nx">dropdown</span><span class="p">.</span><span class="nx">getCurrentSelection</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ellipse</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=dropdown-control-element.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

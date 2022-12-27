@@ -51,34 +51,34 @@
     <p>undefined</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @ignore true
-</span><span class="cm">* @title Zoom and Pan Element
-</span><span class="cm">* @description
-</span><span class="cm">* @tags [elements, maps]
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;./zoom-pan.js&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">(),</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
-<span class="c1">// draw rectangles for debugging
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">h</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">w</span><span class="p">;</span>
-        <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">j</span> <span class="o">*</span> <span class="nx">h</span><span class="p">;</span>
-        <span class="kd">let</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">h</span><span class="p">);</span>
-        <span class="nx">rect</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;#999999&#39;</span><span class="p">;</span>
-        <span class="nx">rect</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;vector-effect&#39;</span><span class="p">,</span> <span class="s1">&#39;non-scaling-stroke&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;(0,0)&#39;</span><span class="p">);</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#404040&#39;</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-<span class="c1">//# sourceMappingURL=zoom-pan-element.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ignore true
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Zoom and Pan Element
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [elements, maps]
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Interactive</span> <span class="nx">from</span> <span class="s1">&#39;./zoom-pan.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">(),</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// draw rectangles for debugging
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">h</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">j</span> <span class="o">*</span> <span class="nx">h</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">h</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">rect</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;#999999&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">rect</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;vector-effect&#39;</span><span class="p">,</span> <span class="s1">&#39;non-scaling-stroke&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;(0,0)&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#404040&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=zoom-pan-element.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

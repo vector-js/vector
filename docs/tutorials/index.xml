@@ -13,8 +13,8 @@
       <pubDate>Tue, 05 Feb 2019 12:03:45 -0700</pubDate>
       
       <guid>https://vectorjs.org/tutorials/getting-started/</guid>
-      <description>To use this library, download the getting-started.tgztar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
-&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.org/library.css&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;my-interactive&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;script.</description>
+      <description>To use this library, download the getting-started.tgz tar ball and follow the instructions below. The tar ball contains a folder with an index.html file and script.js file. The HTML file links the library&amp;rsquo;s style sheet, includes the script file which creates the interactive image, and has an element with an unique id that the interactive is rendered within.
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34; dir=&amp;#34;ltr&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Getting Started&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://vectorjs.</description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@ let graph = interactive.graph({directed:true}); When creating a node, you can sp
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/maps/</guid>
-      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJsonwhich is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
+      <description>The Map Module is used to plot geographic data in SVG format. Our library supports GeoJson which is the most popular data standard for representing geographical data. GeoJson can be downloaded from a variety of places off of the internet, or it could be retrieved with a javascript promise. In order to make our examples work on our website, we host a small amount of GeoJson at GeoJson for every country and United States.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ let graph = interactive.graph({directed:true}); When creating a node, you can sp
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/tutorials/plots/</guid>
-      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ });  import main from &#34;\/examples\/elements\/plot-element.js&#34;; main(&#34;426b4efc09a17eb168e5c076b6736609&#34;);  Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
+      <description>let scale = 300/Math.PI; let plot = interactive.plot(600, 300, Math.cos, { originX: 0, originY: 150, scaleX: scale, scaleY: scale, controls: false, /* experimental */ displayPoint: false, /* experimental */ zoomable: false /* experimental */ }); Visualize Multiple Functions let scale = 300/Math.PI; let secant = (x) =&amp;gt; { return 1/Math.cos(x) }; let plot = interactive.plot(600, 600, secant, { originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false }); plot.</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@ let graph = interactive.graph({directed:true}); When creating a node, you can sp
       
       <guid>https://vectorjs.org/tutorials/population-map-of-united-states/</guid>
       <description>In this tutorial we will create the interactive map of the United States shown above. Each state is colored by its population density (population density is a ratio of total population to size of an area). You can also hover over states with your mouse, to see the state name and it&amp;rsquo;s population density.
-The first step in using our mapping module is always to pull in your GeoJson data. For more information on this step, see our API or the Map Module tutorial.</description>
+The first step in using our mapping module is always to pull in your GeoJson data.</description>
     </item>
     
     <item>

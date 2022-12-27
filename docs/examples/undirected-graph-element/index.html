@@ -51,22 +51,22 @@
     <p>This interactive demonstrates the undirected graph element.</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Undirected Graph Element
-</span><span class="cm">* @description This interactive demonstrates the undirected graph element.
-</span><span class="cm">* @tags [elements]
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span> <span class="nx">directed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
-<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
-<span class="c1">//# sourceMappingURL=undirected-graph-element.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Undirected Graph Element
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description This interactive demonstrates the undirected graph element.
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [elements]
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span> <span class="nx">directed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=undirected-graph-element.js.map
+</span></span></span></code></pre></div>
 
 
 </main>
