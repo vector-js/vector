@@ -51,25 +51,25 @@
     <p>This interactive demonstrates how two elements can be made dependent on eachother.</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Dependency Relation
-</span><span class="cm">* @description This interactive demonstrates how two elements can be made dependent on eachother.
-</span><span class="cm">* @tags []
-</span><span class="cm">* @ignore true
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">control1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">control2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
-<span class="nx">control2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control1</span><span class="p">);</span>
-<span class="nx">control2</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">control1</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="c1">//# sourceMappingURL=dependency-function.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Dependency Relation
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description This interactive demonstrates how two elements can be made dependent on eachother.
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags []
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ignore true
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">control1</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">control2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">control</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">control2</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">control1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">control2</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">control1</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=dependency-function.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

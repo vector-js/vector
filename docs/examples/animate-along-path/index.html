@@ -51,32 +51,32 @@
     <p>This interactive demonstrates how a element can be animated along a path.</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Animate Along Path
-</span><span class="cm">* @description This interactive demonstrates how a element can be animated along a path.
-</span><span class="cm">* @tags [animation]
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">225</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-<span class="nx">circle</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">displayCircle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="nx">displayCircle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#333333&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="p">{});</span>
-<span class="kd">let</span> <span class="nx">pathLength</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">getTotalLength</span><span class="p">();</span>
-<span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="p">(</span><span class="nx">scrubber</span><span class="p">.</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">min</span><span class="p">);</span>
-    <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">getPointAtLength</span><span class="p">(</span><span class="nx">currentPosition</span> <span class="o">*</span> <span class="nx">pathLength</span><span class="p">);</span>
-    <span class="nx">displayCircle</span><span class="p">.</span><span class="nx">cx</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
-    <span class="nx">displayCircle</span><span class="p">.</span><span class="nx">cy</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-    <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
-<span class="c1">//# sourceMappingURL=animate-along-path.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Animate Along Path
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description This interactive demonstrates how a element can be animated along a path.
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [animation]
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">225</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">circle</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">displayCircle</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">displayCircle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="s1">&#39;#333333&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">scrubber</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">scrubber</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="p">{});</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">pathLength</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">getTotalLength</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">currentPosition</span> <span class="o">=</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="p">(</span><span class="nx">scrubber</span><span class="p">.</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">scrubber</span><span class="p">.</span><span class="nx">min</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">getPointAtLength</span><span class="p">(</span><span class="nx">currentPosition</span> <span class="o">*</span> <span class="nx">pathLength</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">displayCircle</span><span class="p">.</span><span class="nx">cx</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">displayCircle</span><span class="p">.</span><span class="nx">cy</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=animate-along-path.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

@@ -55,48 +55,48 @@
     <p>This interactive demonstrates the plot element</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Secant Plot
-</span><span class="cm">* @description This interactive demonstrates the plot element
-</span><span class="cm">* @tags [elements]
-</span><span class="cm">* @ignore true
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">idOrElement</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Initialize the interactive
-</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">idOrElement</span><span class="p">);</span>
-    <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">;</span>
-    <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">700</span><span class="p">;</span>
-    <span class="c1">// Create a new graph object
-</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">plot2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
-        <span class="nx">height</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
-        <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nx">originY</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
-        <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
-        <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
-        <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">controls</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">grid</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">labels</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">});</span>
-    <span class="nx">plot2</span><span class="p">.</span><span class="nx">fPath</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;#1bc075&#39;</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">secant</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="p">};</span>
-    <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">secant</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Secant Function&#34;</span><span class="p">,</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
-        <span class="nx">height</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
-        <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nx">originY</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
-        <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
-        <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
-        <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">controls</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-<span class="c1">//# sourceMappingURL=secant.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Secant Plot
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description This interactive demonstrates the plot element
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [elements]
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ignore true
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="nx">idOrElement</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Initialize the interactive
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">idOrElement</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">700</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Create a new graph object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">plot2</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">width</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">height</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">originY</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">controls</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">grid</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">labels</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">plot2</span><span class="p">.</span><span class="nx">fPath</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s1">&#39;#1bc075&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">secant</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">secant</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Secant Function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">width</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">height</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">originX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">originY</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scaleX</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scaleY</span><span class="o">:</span> <span class="nx">scale</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">zoomable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">controls</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=secant.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

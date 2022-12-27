@@ -51,74 +51,74 @@
     <p>Simple example of using the graph.tidy() function to draw a tree.</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @title Tidy Algorithm
-</span><span class="cm">* @description Simple example of using the graph.tidy() function to draw a tree.
-</span><span class="cm">* @input None
-</span><span class="cm">* @tags [graph, tree]
-</span><span class="cm">* @weight 1
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span> <span class="nx">directed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
-<span class="c1">//Secondary example, creates a larger tree. Comment out this code and comment everything
-</span><span class="c1">//below it in order to switch examples.
-</span><span class="c1">// let root = graph.addNode(0, 0, &#34;root&#34;)
-</span><span class="c1">// for(let i = 0; i &lt; 5; i++){
-</span><span class="c1">//   let parent = graph.addNode(0, 0, i);
-</span><span class="c1">//   graph.addEdge(root, parent);
-</span><span class="c1">//   for(let j = 0; j &lt; 5; j++){
-</span><span class="c1">//     let child = graph.addNode(0, 0, &#34;&#34; + i + &#34; &#34; + j);
-</span><span class="c1">//     graph.addEdge(parent, child);
-</span><span class="c1">//   }
-</span><span class="c1">// }
-</span><span class="c1">//
-</span><span class="c1">// graph.tidy(root);
-</span><span class="c1">// //
-</span><span class="c1">// let rect = (graph.root).getBBox();
-</span><span class="c1">//
-</span><span class="c1">// if(graph.size() == 1)
-</span><span class="c1">// {
-</span><span class="c1">//   interactive.setViewBox(rect.x-32, rect.y-32, rect.width + 64, rect.height + 64)
-</span><span class="c1">// }
-</span><span class="c1">// else{
-</span><span class="c1">//   interactive.setViewBox(rect.x-8, rect.y-8, rect.width + 16, rect.height + 16)
-</span><span class="c1">// }
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">node1</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;O&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node2</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;E&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node3</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;F&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node4</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;N&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node5</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node6</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;D&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node7</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;B&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node8</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;C&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node9</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;G&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node10</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;M&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node11</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;H&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node12</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;I&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node13</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;J&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node14</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;K&#34;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">node15</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;L&#34;</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node2</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node3</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node4</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node2</span><span class="p">,</span> <span class="nx">node5</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node2</span><span class="p">,</span> <span class="nx">node6</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node6</span><span class="p">,</span> <span class="nx">node7</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node6</span><span class="p">,</span> <span class="nx">node8</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node4</span><span class="p">,</span> <span class="nx">node9</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node4</span><span class="p">,</span> <span class="nx">node10</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node11</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node12</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node13</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node14</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node15</span><span class="p">);</span>
-<span class="nx">graph</span><span class="p">.</span><span class="nx">tidy</span><span class="p">(</span><span class="nx">node1</span><span class="p">);</span>
-<span class="c1">//# sourceMappingURL=tidy-algorithm.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @title Tidy Algorithm
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @description Simple example of using the graph.tidy() function to draw a tree.
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @input None
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @tags [graph, tree]
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @weight 1
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">736</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">graph</span><span class="p">({</span> <span class="nx">directed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//Secondary example, creates a larger tree. Comment out this code and comment everything
+</span></span></span><span class="line"><span class="cl"><span class="c1">//below it in order to switch examples.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// let root = graph.addNode(0, 0, &#34;root&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// for(let i = 0; i &lt; 5; i++){
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   let parent = graph.addNode(0, 0, i);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   graph.addEdge(root, parent);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   for(let j = 0; j &lt; 5; j++){
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     let child = graph.addNode(0, 0, &#34;&#34; + i + &#34; &#34; + j);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     graph.addEdge(parent, child);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   }
+</span></span></span><span class="line"><span class="cl"><span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// graph.tidy(root);
+</span></span></span><span class="line"><span class="cl"><span class="c1">// //
+</span></span></span><span class="line"><span class="cl"><span class="c1">// let rect = (graph.root).getBBox();
+</span></span></span><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// if(graph.size() == 1)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   interactive.setViewBox(rect.x-32, rect.y-32, rect.width + 64, rect.height + 64)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1">// else{
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   interactive.setViewBox(rect.x-8, rect.y-8, rect.width + 16, rect.height + 16)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">node1</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;O&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node2</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;E&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node3</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;F&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node4</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;N&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node5</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node6</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;D&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node7</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;B&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node8</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;C&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node9</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;G&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node10</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;M&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node11</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;H&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node12</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;I&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node13</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;J&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node14</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;K&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node15</span> <span class="o">=</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">addNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;L&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node2</span><span class="p">,</span> <span class="nx">node5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node2</span><span class="p">,</span> <span class="nx">node6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node6</span><span class="p">,</span> <span class="nx">node7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node6</span><span class="p">,</span> <span class="nx">node8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node4</span><span class="p">,</span> <span class="nx">node9</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node4</span><span class="p">,</span> <span class="nx">node10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node11</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node12</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node13</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node14</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">addEdge</span><span class="p">(</span><span class="nx">node10</span><span class="p">,</span> <span class="nx">node15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span><span class="p">.</span><span class="nx">tidy</span><span class="p">(</span><span class="nx">node1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=tidy-algorithm.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

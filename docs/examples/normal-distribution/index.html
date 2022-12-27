@@ -51,25 +51,25 @@
     <p>undefined</p>
   
   <h2>Script</h2>
-  <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
-</span><span class="cm">* @ignore true
-</span><span class="cm">*/</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
-<span class="c1">// Initialize the interactive
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-<span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="c1">// Create a new graph object
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">))</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">E</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">u</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">u</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">s</span> <span class="o">*</span> <span class="nx">s</span><span class="p">));</span> <span class="p">};</span>
-<span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">scaleX</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nx">scaleY</span><span class="o">:</span> <span class="mi">30000</span>
-<span class="p">});</span>
-<span class="c1">//# sourceMappingURL=normal-distribution.js.map
-</span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ignore true
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Interactive</span><span class="p">,</span> <span class="nx">getScriptName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../index.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Initialize the interactive
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">interactive</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Interactive</span><span class="p">(</span><span class="nx">getScriptName</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">interactive</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Create a new graph object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">))</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">E</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">u</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">u</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">s</span> <span class="o">*</span> <span class="nx">s</span><span class="p">));</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">interactive</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">scaleX</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">scaleY</span><span class="o">:</span> <span class="mi">30000</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//# sourceMappingURL=normal-distribution.js.map
+</span></span></span></code></pre></div>
 
 
 </main>

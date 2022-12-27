@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/world-map/</guid>
-      <description>/** * @title Interactive World Map * @description Every country in the world displayed in an interactive. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { globalData } from &amp;#39;./maps-json.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); let map = myInteractive.map(globalData); //# sourceMappingURL=world-map.js.map  </description>
+      <description>/** * @title Interactive World Map * @description Every country in the world displayed in an interactive. * @input Input the name of the map you want to see, and the size of the map. * @tags [maps] * @weight 1 */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; import { globalData } from &amp;#39;./maps-json.js&amp;#39;; let myInteractive = new Interactive(getScriptName()); let map = myInteractive.map(globalData); //# sourceMappingURL=world-map.js.map </description>
     </item>
     
     <item>
@@ -102,7 +102,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/riemann-sum/</guid>
-      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // default configuration  let n = 7; let scale = 100; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
+      <description>/** * @title Riemann Sum * @description This interactive demonstrates three Riemann Sum methods for approximating area underneath a curve. The three approximation methods are the left, right, and trapezoidal approximations. * @tags [math] * @weight 2 */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // default configuration let n = 7; let scale = 100; let interactive = new Interactive(id); interactive.height = 500; interactive.width = 736; let slider = interactive.</description>
     </item>
     
     <item>
@@ -165,7 +165,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/arrow-element/</guid>
-      <description>/** * @title Arrow Element * @description This interactive demonstrates the path element. * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; // let arrow = interactive.arrow() //# sourceMappingURL=arrow-element.js.map  </description>
+      <description>/** * @title Arrow Element * @description This interactive demonstrates the path element. * @tags [elements] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; // let arrow = interactive.arrow() //# sourceMappingURL=arrow-element.js.map </description>
     </item>
     
     <item>
@@ -174,7 +174,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/button-element/</guid>
-      <description>/** * @title Button Element * @description The button element is a user clickable button with some text inside of it. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let button = interactive.button(100, 75, &amp;#34;My Button&amp;#34;); // interactive.button( 250, 75, &amp;#34;a&amp;#34;); // interactive.button( 400, 75, &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;); //# sourceMappingURL=button-element.js.map  </description>
+      <description>/** * @title Button Element * @description The button element is a user clickable button with some text inside of it. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let button = interactive.button(100, 75, &amp;#34;My Button&amp;#34;); // interactive.button( 250, 75, &amp;#34;a&amp;#34;); // interactive.button( 400, 75, &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;); //# sourceMappingURL=button-element.js.map </description>
     </item>
     
     <item>
@@ -192,7 +192,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/cartesian-coordinate-system/</guid>
-      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); // interactive.border = true;  interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.</description>
+      <description>/** * @title Cartesian Coordinate System * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive let margin = 32; let interactive = new Interactive(id); // interactive.border = true; interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.width += 2 * margin; interactive.</description>
     </item>
     
     <item>
@@ -201,7 +201,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/cartesian-coordinate-system-continuous/</guid>
-      <description>/** * @title Cartesian Coordinate System (Continuous) * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); // interactive.border = true;  interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.</description>
+      <description>/** * @title Cartesian Coordinate System (Continuous) * @description This interactive demonstrates the cartesian coordinate system. * @tags [math] * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive let margin = 32; let interactive = new Interactive(id); // interactive.border = true; interactive.originX = interactive.width / 2 + margin; interactive.originY = interactive.height / 2 + margin; interactive.</description>
     </item>
     
     <item>
@@ -219,7 +219,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/check-box-element/</guid>
-      <description>/** * @title Checkbox Element * @description This interactive demonstrates the checkbox element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let checkBox = interactive.checkBox(100, 75, &amp;#34;My Checkbox&amp;#34;, false); //# sourceMappingURL=check-box-element.js.map  </description>
+      <description>/** * @title Checkbox Element * @description This interactive demonstrates the checkbox element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let checkBox = interactive.checkBox(100, 75, &amp;#34;My Checkbox&amp;#34;, false); //# sourceMappingURL=check-box-element.js.map </description>
     </item>
     
     <item>
@@ -228,7 +228,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/circle-defined-by-three-points/</guid>
-      <description>/** * @title Circle Defined By Three Points * @description An interactive that demonstrates how a circle can be uniquely described by thee points. * @tags [math] * @date July 8, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  let interactive = new Interactive(id); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.</description>
+      <description>/** * @title Circle Defined By Three Points * @description An interactive that demonstrates how a circle can be uniquely described by thee points. * @tags [math] * @date July 8, 2019 * @author Kurt Bruns */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive let interactive = new Interactive(id); interactive.border = true; interactive.width = 600; interactive.height = 300; interactive.originX = interactive.width / 2; interactive.</description>
     </item>
     
     <item>
@@ -237,7 +237,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/control-circle-element/</guid>
-      <description>/** * @title Control Circle Element * @description This interactive demonstrates a draggable circle. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.controlCircle(100, 75); //# sourceMappingURL=control-circle-element.js.map  </description>
+      <description>/** * @title Control Circle Element * @description This interactive demonstrates a draggable circle. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.controlCircle(100, 75); //# sourceMappingURL=control-circle-element.js.map </description>
     </item>
     
     <item>
@@ -246,7 +246,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/control-element/</guid>
-      <description>/** * @title Control Element * @description This interactive demonstrates a draggable point. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.control(100, 75); //# sourceMappingURL=control-element.js.map  </description>
+      <description>/** * @title Control Element * @description This interactive demonstrates a draggable point. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let control = interactive.control(100, 75); //# sourceMappingURL=control-element.js.map </description>
     </item>
     
     <item>
@@ -282,7 +282,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/dependency-function/</guid>
-      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; //# sourceMappingURL=dependency-function.js.map  </description>
+      <description>/** * @title Dependency Relation * @description This interactive demonstrates how two elements can be made dependent on eachother. * @tags [] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 200; interactive.border = true; let control1 = interactive.control(100, 50); let control2 = interactive.control(200, 150); control2.addDependency(control1); control2.update = function () { this.x += control1.dx; }; //# sourceMappingURL=dependency-function.js.map </description>
     </item>
     
     <item>
@@ -291,7 +291,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/directed-graph-element/</guid>
-      <description>/** * @title Directed Graph Element * @description This interactive demonstrates the directed graph element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph({ directed: true }); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=directed-graph-element.js.map  </description>
+      <description>/** * @title Directed Graph Element * @description This interactive demonstrates the directed graph element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph({ directed: true }); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=directed-graph-element.js.map </description>
     </item>
     
     <item>
@@ -318,7 +318,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/ellipse-element/</guid>
-      <description>/** * @title Ellipse Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let ellipse = interactive.ellipse(100, 75, 80, 40); ellipse.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=ellipse-element.js.map  </description>
+      <description>/** * @title Ellipse Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let ellipse = interactive.ellipse(100, 75, 80, 40); ellipse.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=ellipse-element.js.map </description>
     </item>
     
     <item>
@@ -327,7 +327,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/grayscale/</guid>
-      <description>Summary This interactive demonstrates the range of possible grayscale colors from black to white. The script subdivides the interactive into a bunch of consecutive rectangles. The variable ncontrols how many sub-rectangles are dawn. Increasing nmakes the transition from black to white appear as a smooth gradients.
+      <description>Summary This interactive demonstrates the range of possible grayscale colors from black to white. The script subdivides the interactive into a bunch of consecutive rectangles. The variable n controls how many sub-rectangles are dawn. Increasing n makes the transition from black to white appear as a smooth gradients.
 Note: values for n that do not evenly divide the width of the interactive results in some graphical errors where white stripes appear in the gradient.</description>
     </item>
     
@@ -391,7 +391,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/line-element/</guid>
-      <description>/** * @title Line Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.line(50, 25, 150, 125); //# sourceMappingURL=line-element.js.map  </description>
+      <description>/** * @title Line Element * @description This interactive demonstrates the ellipse element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.line(50, 25, 150, 125); //# sourceMappingURL=line-element.js.map </description>
     </item>
     
     <item>
@@ -445,7 +445,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/path-element/</guid>
-      <description>/** * @title Path Element * @description This interactive demonstrates the path element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let path = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;); path.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=path-element.js.map  </description>
+      <description>/** * @title Path Element * @description This interactive demonstrates the path element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let path = interactive.path(&amp;#34;M 50 50 Q 100 150 150 50&amp;#34;); path.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=path-element.js.map </description>
     </item>
     
     <item>
@@ -481,7 +481,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/polar-coordinate-system/</guid>
-      <description>/** * @title Polar Coordinate System * @description This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin. * @tags [math] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Create the constant TAU  const TAU = 2 * Math.PI; // Initialize the interactive  let margin = 32; let interactive = new Interactive(id); interactive.</description>
+      <description>/** * @title Polar Coordinate System * @description This interactive demonstrates the polar coordinate system. The polar coordinate system represents the position of a point using a radius and the angle relative to the origin. * @tags [math] */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Create the constant TAU const TAU = 2 * Math.PI; // Initialize the interactive let margin = 32; let interactive = new Interactive(id); interactive.</description>
     </item>
     
     <item>
@@ -517,7 +517,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/rectangle-element/</guid>
-      <description>/** * @title Rectangle Element * @description This interactive demonstrates the rectangle element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let rectangle = interactive.rectangle(50, 50, 100, 50); rectangle.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=rectangle-element.js.map  </description>
+      <description>/** * @title Rectangle Element * @description This interactive demonstrates the rectangle element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let rectangle = interactive.rectangle(50, 50, 100, 50); rectangle.classList.add(&amp;#39;default&amp;#39;); //# sourceMappingURL=rectangle-element.js.map </description>
     </item>
     
     <item>
@@ -553,7 +553,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/secant/</guid>
-      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive  let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object  let scale = 300 / Math.PI; let plot2 = interactive.plot(Math.cos, { width: 700, height: 700, originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false, grid: false, labels: false }); plot2.</description>
+      <description>/** * @title Secant Plot * @description This interactive demonstrates the plot element * @tags [elements] * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(idOrElement) { // Initialize the interactive let interactive = new Interactive(idOrElement); interactive.width = 700; interactive.height = 700; // Create a new graph object let scale = 300 / Math.PI; let plot2 = interactive.plot(Math.cos, { width: 700, height: 700, originX: 0, originY: 300, scaleX: scale, scaleY: scale, zoomable: false, controls: false, grid: false, labels: false }); plot2.</description>
     </item>
     
     <item>
@@ -562,7 +562,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/slider-element/</guid>
-      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, }); //# sourceMappingURL=slider-element.js.map  </description>
+      <description>/** * @title Slider Element * @description This interactive demonstrates the slider element. * @tags [elements, input] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; // Initialize the interactive let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let slider = interactive.slider(100, 75, { width: 150, }); //# sourceMappingURL=slider-element.js.map </description>
     </item>
     
     <item>
@@ -616,7 +616,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/svg-marker/</guid>
-      <description>/** * @title SVG Marker * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; // interactive.marker(); //# sourceMappingURL=svg-marker.js.map  </description>
+      <description>/** * @title SVG Marker * @description This interactive demonstrates the SVG line element and its attributes. * @date May 3, 2019 * @author Kurt Bruns * @tags [svg] * @ignore true */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.border = true; interactive.width = 736; // interactive.marker(); //# sourceMappingURL=svg-marker.js.map </description>
     </item>
     
     <item>
@@ -715,7 +715,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/text-element/</guid>
-      <description>/** * @title Text Element * @description This interactive demonstrates the text element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.text(50, 75, &amp;#34;My Text&amp;#34;); //# sourceMappingURL=text-element.js.map  </description>
+      <description>/** * @title Text Element * @description This interactive demonstrates the text element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.root.style.border = &amp;#34;1px solid grey&amp;#34;; let line = interactive.text(50, 75, &amp;#34;My Text&amp;#34;); //# sourceMappingURL=text-element.js.map </description>
     </item>
     
     <item>
@@ -769,7 +769,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/degrees/</guid>
-      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.</description>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; // Extend math object const TAU = 2 * Math.PI; export default function main(id) { // Initialize the interactive // let margin = 32; let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.</description>
     </item>
     
     <item>
@@ -805,7 +805,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/polar-coordinate-system-radians/</guid>
-      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; interactive.classList.add(&amp;#39;default&amp;#39;); // Create three control points  let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
+      <description>/** * @ignore true */ // import Interactive from &amp;#39;https://unpkg.com/@interactive-svg/library/dist/Interactive.js&amp;#39;; import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive // let margin = 32; let interactive = new Interactive(id); interactive.border = false; interactive.originX = interactive.width / 2; interactive.originY = interactive.width / 2; interactive.height = interactive.width; interactive.style.overflow = &amp;#39;visible&amp;#39;; interactive.classList.add(&amp;#39;default&amp;#39;); // Create three control points let point = interactive.control(0, 0); let radius = 50; let n = 5; let border = interactive.</description>
     </item>
     
     <item>
@@ -814,7 +814,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/radians/</guid>
-      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive  // let margin = 32;  let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points  let point = interactive.control(0, 0); let radius = 45; let n = 3; let border = interactive.</description>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; export default function main(id) { // Initialize the interactive // let margin = 32; let interactive = new Interactive(id); interactive.border = false; interactive.width = 350; interactive.height = 350; interactive.originX = interactive.width / 2; interactive.originY = interactive.height / 2; interactive.style.overflow = &amp;#39;visible&amp;#39;; // Create three control points let point = interactive.control(0, 0); let radius = 45; let n = 3; let border = interactive.</description>
     </item>
     
     <item>
@@ -823,7 +823,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/sine/</guid>
-      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height);  let plot = interactive.plot(Math.sin, { title: &amp;#34;Sine Function&amp;#34;, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); } //# sourceMappingURL=sine.</description>
+      <description>/** * */ import { Interactive } from &amp;#39;../../index.js&amp;#39;; /** * Creates a graph of the sine function within the element with the provided id. */ export default function main(id) { let interactive = new Interactive(id); interactive.width = 700; interactive.height = 400; // interactive.rectangle(0,0,interactive.width,interactive.height); let plot = interactive.plot(Math.sin, { title: &amp;#34;Sine Function&amp;#34;, originX: 0, originY: 150, scaleX: 300 / Math.PI, scaleY: 300 / Math.PI, zoomable: false, grid: true }); } //# sourceMappingURL=sine.</description>
     </item>
     
     <item>
@@ -859,7 +859,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/zoom-pan/</guid>
-      <description>/** * @ignore true */ import { Interactive } from &amp;#34;../../index.js&amp;#34;; export default class ZoomAndPan extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.root.getBoundingClientRect(); this.width = width; this.height = height; // initialize variables  this.zoomIntensity = .02; this.scale = 1; this.originx = 0; this.originy = 0; this.visibleWidth = this.width; this.visibleHeight = this.height; this.active = false; this.prevX = 0; this.</description>
+      <description>/** * @ignore true */ import { Interactive } from &amp;#34;../../index.js&amp;#34;; export default class ZoomAndPan extends Interactive { /** * Constructs a new interactive with zooming capabilities */ constructor(id, width, height) { super(id); let bbox = this.root.getBoundingClientRect(); this.width = width; this.height = height; // initialize variables this.zoomIntensity = .02; this.scale = 1; this.originx = 0; this.originy = 0; this.visibleWidth = this.width; this.visibleHeight = this.height; this.active = false; this.prevX = 0; this.</description>
     </item>
     
     <item>
@@ -868,7 +868,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/undirected-graph-element/</guid>
-      <description>/** * @title Undirected Graph Element * @description This interactive demonstrates the undirected graph element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph({ directed: false }); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=undirected-graph-element.js.map  </description>
+      <description>/** * @title Undirected Graph Element * @description This interactive demonstrates the undirected graph element. * @tags [elements] */ import { Interactive, getScriptName } from &amp;#39;../../index.js&amp;#39;; let interactive = new Interactive(getScriptName()); interactive.width = 768; interactive.height = 150; interactive.border = true; let graph = interactive.graph({ directed: false }); let a = graph.addNode(75, 75, &amp;#39;a&amp;#39;); let b = graph.addNode(200, 75, &amp;#39;b&amp;#39;); graph.addEdge(a, b); //# sourceMappingURL=undirected-graph-element.js.map </description>
     </item>
     
     <item>
@@ -886,7 +886,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/hello-world/</guid>
-      <description>/** * @title Vector.js Hello World * @description Hi! * @tags [] * @ignore true */ import Interactive from &amp;#39;../interactive.js&amp;#39;; let interactive = new Interactive(&amp;#39;hello-world&amp;#39;); interactive.border = true; interactive.control(100, 100); //# sourceMappingURL=hello-world.js.map  </description>
+      <description>/** * @title Vector.js Hello World * @description Hi! * @tags [] * @ignore true */ import Interactive from &amp;#39;../interactive.js&amp;#39;; let interactive = new Interactive(&amp;#39;hello-world&amp;#39;); interactive.border = true; interactive.control(100, 100); //# sourceMappingURL=hello-world.js.map </description>
     </item>
     
     <item>
@@ -895,7 +895,7 @@ Note: values for n that do not evenly divide the width of the interactive result
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vectorjs.org/examples/wumbo/</guid>
-      <description>/** * @title Vector.js Hello World * @description Hi! * @tags [] * @ignore true */ import Interactive from &amp;#39;../../interactive.js&amp;#39;; let myInteractive = new Interactive(&amp;#39;hello-world&amp;#39;); myInteractive.border = true; myInteractive.control(100, 100); //# sourceMappingURL=wumbo.js.map  </description>
+      <description>/** * @title Vector.js Hello World * @description Hi! * @tags [] * @ignore true */ import Interactive from &amp;#39;../../interactive.js&amp;#39;; let myInteractive = new Interactive(&amp;#39;hello-world&amp;#39;); myInteractive.border = true; myInteractive.control(100, 100); //# sourceMappingURL=wumbo.js.map </description>
     </item>
     
     <item>
